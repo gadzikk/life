@@ -5,8 +5,13 @@ import java.util.List;
  * Created by gadzik on 18.12.19.
  */
 public class Miejsce {
+
     String warunekWstepny;
     boolean kibicowanie;
+    boolean stale;
+    boolean przechodnie;
+    boolean srodowiskowe;
+    boolean restrykcyjne;
 
     List<String> plusy;
     List<String> minusy;

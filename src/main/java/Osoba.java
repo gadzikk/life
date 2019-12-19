@@ -4,8 +4,10 @@ import java.util.List;
  * Created by gadzik on 18.12.19.
  */
 public class Osoba {
-    String narodowsc;
     String kolorSkory;
+    String rasa;
+    String narodowsc;
+
     Wychowanie wychowanie;
     String priorytet;
     List<String> planszeOdwiedzone;
@@ -36,6 +38,11 @@ public class Osoba {
     boolean osiedloweSrd;
     boolean dostepDobreJednostki;
     boolean dostepBiegacze;
+    List<String> magiczneZaklecia;
+    List<String> odkogoJestes;
+
+    boolean wyrok;
+    Przerwa przerwa;
 
     boolean zdolnyWalka;
     boolean zdolnyRyzyko;
@@ -80,10 +87,15 @@ public class Osoba {
     boolean systemowiec;
     boolean studia;
 
+    boolean wrazliwy;
     boolean wolnoscLekkosc;
     boolean europejski;
 
+    boolean konfi;
+
+    DzienCodzienny dzienCodzienny;
     List<String> znajomi;
+    List<String> dobrziZnajomi;
     Srodki srodki;
 
     Majatek majatek;
