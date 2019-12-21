@@ -7,15 +7,18 @@ import java.util.List;
 public class Miejsce {
 
     String warunekWstepny;
-    boolean kibicowanie;
-    boolean stale;
     boolean przechodnie;
+    boolean stale;
     boolean srodowiskowe;
     boolean restrykcyjne;
+    boolean kibicowanie;
 
+    boolean wzglednaIzolacja;
+
+    List<Typ> typyLudzi;
     List<String> plusy;
     List<String> minusy;
-    List<String> typyLudzi;
+
 
     String warunekKoncowy;
     List<String> metodyOsiagnieciaKoncowego;
@@ -23,10 +26,10 @@ public class Miejsce {
 
     List<String> wartosciMiejsca;
 
-    List<String> ludzie;
     Integer iloscLudzi;
-    List<String> silneJednostki;
+    List<String> ludzie;
     Integer iloscSilnychJednostek;
+    List<String> silneJednostki;
 
     LocalDateTime czasStart;
     LocalDateTime czasKoniec;
@@ -34,5 +37,6 @@ public class Miejsce {
     Integer iloscDniTygodnia;
 
     List<String> zagrozenia;
+    List<String> zasady;
 
 }

@@ -10,6 +10,6 @@ public class Srodki {
     boolean klamstwo;
     boolean obelgi;
 
-    boolean stadndardy;
+    boolean standardy;
     boolean prawo;
 }

@@ -3,6 +3,10 @@
  */
 public class Zadanie {
     String nazwa;
+    boolean cierpienie;
+    boolean zmeczenie;
+
+    Integer iloscDniTygodnia;
     Integer iloscGodzin;
     Miejsce miejsce;
 }
