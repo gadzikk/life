@@ -11,5 +11,5 @@ public class Dzialanie_Zjawisko {
     List<String> warunkiNiesprzyjajace;
     List<String> wymaganeKroki;
     List<String> wymaganeRzeczy;
-    List<String> metody; // TODO: lub typ method
+    List<Metoda> metody; // TODO: lub typ method
 }

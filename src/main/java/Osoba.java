@@ -12,7 +12,7 @@ public class Osoba {
     Wychowanie wychowanie;
     Priorytet priorytet;
     List<String> planszeOdwiedzone;
-    List<Typ> typy;
+    List<TypOsoby> typyOsoby;
     List<Przewaga> przewagi;
 
     boolean zlo;
@@ -40,28 +40,35 @@ public class Osoba {
 
     boolean nuda;
     boolean brakZasad;
+    boolean kurestwo;
+    boolean kregoslupMoralny;
     boolean sprzet;
 
     boolean wiecznyImigrant;
     boolean osiedloweSrd;
+    boolean bliskosc;
     boolean dostepDobreJednostki;
     boolean dostepBiegacze;
-    List<String> magiczneZaklecia;
-    List<String> odkogoJestes;
+    boolean magiczneZaklecia;
+    boolean odkogoJestes;
 
     boolean poCichu;
     boolean zdolnyWalka;
     boolean zdolnyRyzyko;
     boolean bezposredniosc;
     boolean odwaga;
+    boolean umieKlucic;
+    boolean umieCisnac;
 
     boolean wyklucza;
     boolean ukrywaDobra;
     boolean skreslaNaZawsze;
+    boolean staleDokrecaSrube;
     boolean zdolnyDoOdpuszczenia;
 
-    boolean niezaleznosc;
     boolean posluszny;
+    boolean przekonywalny;
+    boolean niezaleznosc;
 
     boolean glupi;
     boolean traktowanieZGory;
@@ -79,7 +86,6 @@ public class Osoba {
 
     boolean hajsWDomu;
     boolean bogaty;
-    boolean biedny;
     boolean jedynak;
     boolean systemowiec;
     boolean studia;
@@ -89,6 +95,11 @@ public class Osoba {
     boolean zuchwaly;
     boolean sztuczny;
 
+    boolean biedny;
+    boolean brakPerspektyw;
+    boolean zycieZDniaNaDzien;
+    boolean wyjebane;
+
     boolean wrazliwy;
     boolean wolnoscLekkosc;
     boolean europejski;
@@ -96,6 +107,7 @@ public class Osoba {
 
     boolean czas;
     boolean brakCzasu;
+    TypIlosc dostepnosc;
     boolean praca;
 
     boolean nalog;
@@ -110,8 +122,12 @@ public class Osoba {
     boolean dziewictwo;
 
     boolean mily;
-    boolean chetny;
+    boolean otwartyNaZwiazek;
+    boolean restrykcjaZnajomych;
     boolean dopuszczaNieznajomych;
+
+    boolean usmiechaSie;
+    boolean smiejeSie;
 
     boolean odwracaWzrok;
     boolean neutralWzrok;
@@ -121,6 +137,8 @@ public class Osoba {
     boolean samotny;
     boolean zajety;
     Integer iloscPartnerow;
+    boolean dzieci;
+    Integer iloscDzieci;
 
     boolean przestrzegaPrawa;
     boolean standardZachowania;
@@ -131,8 +149,9 @@ public class Osoba {
     boolean konfi;
 
     DzienCodzienny dzienCodzienny;
-    List<String> znajomi;
-    List<String> dobrziZnajomi;
+    TypIlosc iloscZnajomych;
+    Integer liczbaZnajomych;
+    Integer liczbaDobrziZnajomi;
     Srodki srodki;
     Majatek majatek;
     Miejsce miejsceZamieszkania;

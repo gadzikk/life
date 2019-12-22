@@ -1,6 +1,0 @@
-/**
- * Created by gadzik on 20.12.19.
- */
-public enum Typ {
-    FEST, BURZUJ_SYSTEMOWY, WYGODNIS, OSIEDLOWY, BURZUJ_OSIEDLOWY, ZLODZIEJ, BIEGACZ, SPORTOWY_FEST,
-}
