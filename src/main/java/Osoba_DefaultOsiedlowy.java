@@ -13,18 +13,23 @@ public class Osoba_DefaultOsiedlowy extends Osoba {
         Narodowosc narodowsc = Narodowosc.POLSKA;
         Plec plec = Plec.M;
 
-        Wychowanie wychowanie = new Wychowanie(false, true, true, true,
-                false, false, true, false, false,
-                true, false, true, true, false, true,
+        Wychowanie wychowanie = new Wychowanie(false,false,false,false,
+                true, true, true, false, true, false,
+                false, true, false, true, true, false, true,
                 true);
 
-        Priorytet priorytet = Priorytet.SRODOWISKO;
+        Wartosc priorytet = Wartosc.SRODOWISKO;
         List<String> planszeOdwiedzone;
-        List<TypOsoby> typy = Arrays.asList(TypOsoby.OSIEDLOWY, TypOsoby.OSIEDLOWY_BURZUJ);
+        List<TypOsoby> typy = Arrays.asList(TypOsoby.OSIEDLOWY_WYKRECONY, TypOsoby.OSIEDLOWY_BURZUJ);
         List<Przewaga> przewagi;
 
+        boolean arcyZlo;
+        boolean dlaDiabla;
+
         boolean zlo = true;
+        boolean reagujeNaZlo = true;
         boolean dobro;
+        boolean reagujeNaDobro;
 
         boolean wiocha;
         boolean miasto = true;
@@ -39,6 +44,9 @@ public class Osoba_DefaultOsiedlowy extends Osoba {
         boolean sila;
         boolean cel;
 
+        boolean zKims = true;
+        boolean zWaznym;
+
         boolean czynny;
         boolean bierny = true;
         boolean stwarzaPointCut;
@@ -46,9 +54,11 @@ public class Osoba_DefaultOsiedlowy extends Osoba {
         boolean chceLepszegoZycia = true;
         boolean chceWygod = true;
 
+        boolean wkurwionyZyciem;
         boolean nuda = true;
-        boolean brakZasad;
         boolean kurestwo = true;
+        BrakZasad brakZasad = new BrakZasad(false,false,false,
+                false,false,true);
         boolean kregoslupMoralny;
         boolean sprzet = true;
 
@@ -68,11 +78,15 @@ public class Osoba_DefaultOsiedlowy extends Osoba {
         boolean umieKlucic;
         boolean umieCisnac = true;
 
+        boolean broniHierarchii = true;
+        boolean broniGlobalu;
+
         boolean wyklucza = true;
         boolean ukrywaDobra = true;
         boolean skreslaNaZawsze = true;
         boolean staleDokrecaSrube;
         boolean zdolnyDoOdpuszczenia = true;
+        boolean resetAble = true;
 
         boolean posluszny = true;
         boolean przekonywalny = true;
@@ -117,6 +131,7 @@ public class Osoba_DefaultOsiedlowy extends Osoba {
         boolean brakCzasu = true;
         TypIlosc dostepnosc = TypIlosc.SREDNIA;
         boolean praca = true;
+        boolean pasja;
 
         boolean nalog = true;
         boolean narkotyki = true;

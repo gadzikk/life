@@ -10,13 +10,23 @@ public class Osoba {
     Plec plec;
 
     Wychowanie wychowanie;
-    Priorytet priorytet;
+    Wartosc priorytet;
     List<String> planszeOdwiedzone;
     List<TypOsoby> typyOsoby;
+    TypIlosc iloscPrzewag;
     List<Przewaga> przewagi;
+    List<Metoda> metody;
+    List<TypUmiejetnosc> umiejetnosci;
+    TypIlosc iloscCierpienia;
+    TypIlosc iloscBurzuazji;
+
+    boolean arcyZlo;
+    boolean dlaDiabla;
 
     boolean zlo;
+    boolean reagujeNaZlo;
     boolean dobro;
+    boolean reagujeNaDobro;
 
     boolean wiocha;
     boolean miasto;
@@ -31,6 +41,9 @@ public class Osoba {
     boolean sila;
     boolean cel;
 
+    boolean zKims;
+    boolean zWaznym;
+
     boolean czynny;
     boolean bierny;
     boolean stwarzaPointCut;
@@ -38,9 +51,10 @@ public class Osoba {
     boolean chceLepszegoZycia;
     boolean chceWygod;
 
+    boolean wkurwionyZyciem;
     boolean nuda;
-    boolean brakZasad;
     boolean kurestwo;
+    BrakZasad brakZasad;
     boolean kregoslupMoralny;
     boolean sprzet;
 
@@ -60,11 +74,15 @@ public class Osoba {
     boolean umieKlucic;
     boolean umieCisnac;
 
+    boolean broniHierarchii;
+    boolean broniGlobalu;
+
     boolean wyklucza;
     boolean ukrywaDobra;
     boolean skreslaNaZawsze;
     boolean staleDokrecaSrube;
     boolean zdolnyDoOdpuszczenia;
+    boolean resetAble;
 
     boolean posluszny;
     boolean przekonywalny;
@@ -89,6 +107,7 @@ public class Osoba {
     boolean jedynak;
     boolean systemowiec;
     boolean studia;
+
     boolean bezpieczenstwo;
     boolean bagatelizujeZagrozenie;
     boolean nieznaCierpienia;
@@ -109,6 +128,7 @@ public class Osoba {
     boolean brakCzasu;
     TypIlosc dostepnosc;
     boolean praca;
+    boolean pasja;
 
     boolean nalog;
     boolean narkotyki;
@@ -155,5 +175,7 @@ public class Osoba {
     Srodki srodki;
     Majatek majatek;
     Miejsce miejsceZamieszkania;
+    List<String> wyjebaneNa;
+    List<TypOsoby> dbaO;
 
 }

@@ -18,26 +18,20 @@ public class Miejsce {
     boolean cisza;
     boolean nuda;
 
-    List<TypOsoby> typyLudzi;
-    List<String> plusy;
-    List<String> minusy;
-    List<String> wartosciMiejsca;
+    List<Consts.HotSpot> hotSpots;
 
-    List<String> warunkiKoncowe;
-    Map<String, Metoda> metodyOsiagnieciaKoncowego;
-//    List<String> srodkiOsiagnieciaKoncowego;
+    Map<TypOsoby, TypIlosc> typLudziIlosc;
+    List<Consts.WarunkiS> warunkiSprzyjajace;
+    List<Consts.WarunkiNS> warunkiNiesprzyjajace;
+    List<Consts.Wartosc> wartosciMiejsca;
 
-    Integer iloscLudzi;
-    List<String> ludzie;
-    Integer iloscSilnychJednostek;
-    List<String> silneJednostki;
+    List<Consts.WKoncowe> warunkiKoncowe;
+    Map<Consts.WKoncowe, Metoda> metodyOsiagnieciaKoncowego;
 
-    LocalDateTime czasStart;
-    LocalDateTime czasKoniec;
-    Integer iloscGodzin;
-    Integer iloscDniTygodnia;
+    TypIlosc iloscLudzi;
+    TypIlosc iloscSilnychJednostek;
 
-    List<String> zagrozenia;
-    List<String> zasady;
+    List<Consts.Zagrozenia> zagrozenia;
+    List<Consts.Zasady> zasady;
 
 }

@@ -9,7 +9,7 @@ public class Przewaga {
     List<Metoda> metody;
     boolean ktosPomagal;
 
-    List<String> uzyskal;
+    List<TypPrzewaga> uzyskal;
 
     Integer iloscGodzin;
     Integer iloscDniTygodnia;
