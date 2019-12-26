@@ -4,12 +4,14 @@ import java.util.List;
  * Created by gadzik on 20.12.19.
  */
 public class Przewaga {
-    TypPrzewaga przewaga;
+    Consts.Warunek przewaga;
+    TypSila sila;
     TypTrudnosc trudnosc;
-    List<Metoda> metody;
+    List<Metoda> metodyOsiagniecia;
+    List<Consts.Warunek> potrzebnePrzewagi;
     boolean ktosPomagal;
 
-    List<TypPrzewaga> uzyskal;
+    List<Consts.Warunek> uzyskal;
 
     Integer iloscGodzin;
     Integer iloscDniTygodnia;

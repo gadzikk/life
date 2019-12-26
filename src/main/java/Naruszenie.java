@@ -1,0 +1,9 @@
+import java.util.List;
+
+/**
+ * Created by gadzik on 25.12.19.
+ */
+public class Naruszenie {
+    List<Metoda> metodyNaruszenia;
+    List<Consts.Warunek> konsekwencjeNaruszenia;
+}

@@ -1,4 +1,3 @@
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -7,7 +6,7 @@ import java.util.Map;
  */
 public class Miejsce {
 
-    List<String> wymaganiaWstepne;
+    List<Consts.Warunek> wymaganiaWstepne;
     boolean przechodnie;
     boolean stale;
     boolean srodowiskowe;
@@ -21,17 +20,14 @@ public class Miejsce {
     List<Consts.HotSpot> hotSpots;
 
     Map<TypOsoby, TypIlosc> typLudziIlosc;
-    List<Consts.WarunkiS> warunkiSprzyjajace;
-    List<Consts.WarunkiNS> warunkiNiesprzyjajace;
-    List<Consts.Wartosc> wartosciMiejsca;
-
-    List<Consts.WKoncowe> warunkiKoncowe;
-    Map<Consts.WKoncowe, Metoda> metodyOsiagnieciaKoncowego;
+    List<Consts.Warunek> warunkiSprzyjajace;
+    List<Consts.Warunek> warunkiNiesprzyjajace;
+    List<Consts.Warunek> wartosciMiejsca;
 
     TypIlosc iloscLudzi;
     TypIlosc iloscSilnychJednostek;
 
-    List<Consts.Zagrozenia> zagrozenia;
-    List<Consts.Zasady> zasady;
+    List<Consts.Warunek> zagrozenia;
+    List<Consts.Warunek> zasady;
 
 }

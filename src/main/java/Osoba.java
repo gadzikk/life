@@ -6,19 +6,25 @@ import java.util.List;
 public class Osoba {
     KolorSkory kolorSkory;
     Rasa rasa;
-    String narodowsc;
+    Narodowosc narodowosc;
     Plec plec;
 
     Wychowanie wychowanie;
     Wartosc priorytet;
-    List<String> planszeOdwiedzone;
     List<TypOsoby> typyOsoby;
+    List<Consts.Warunek> oceniaWg;
+
     TypIlosc iloscPrzewag;
     List<Przewaga> przewagi;
+    List<Miejsce> planszeOdwiedzone;
     List<Metoda> metody;
-    List<TypUmiejetnosc> umiejetnosci;
+
     TypIlosc iloscCierpienia;
     TypIlosc iloscBurzuazji;
+    TypJakosc pamiec;
+
+    PriorytetoweSrodowisko priorytetoweSrodowisko;
+    List<TypUmiejetnosc> umiejetnosci;
 
     boolean arcyZlo;
     boolean dlaDiabla;
@@ -69,6 +75,7 @@ public class Osoba {
     boolean poCichu;
     boolean zdolnyWalka;
     boolean zdolnyRyzyko;
+    boolean stwarzaZagrozenie;
     boolean bezposredniosc;
     boolean odwaga;
     boolean umieKlucic;
@@ -138,7 +145,8 @@ public class Osoba {
 
     boolean brzydki;
     boolean ladny;
-    boolean dupodajka;
+    List<TypSex> sexZ;
+    TypWyjezdzenie wyjezdzenie;
     boolean dziewictwo;
 
     boolean mily;
@@ -156,7 +164,7 @@ public class Osoba {
 
     boolean samotny;
     boolean zajety;
-    Integer iloscPartnerow;
+    TypIlosc iloscPartnerow;
     boolean dzieci;
     Integer iloscDzieci;
 
@@ -170,12 +178,11 @@ public class Osoba {
 
     DzienCodzienny dzienCodzienny;
     TypIlosc iloscZnajomych;
-    Integer liczbaZnajomych;
-    Integer liczbaDobrziZnajomi;
+    TypIlosc iloscDobrziZnajomi;
     Srodki srodki;
     Majatek majatek;
     Miejsce miejsceZamieszkania;
-    List<String> wyjebaneNa;
-    List<TypOsoby> dbaO;
+    OsobyOrazWarunki wyjebaneNa;
+    OsobyOrazWarunki dbaO;
 
 }
