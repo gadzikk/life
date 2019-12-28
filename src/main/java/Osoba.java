@@ -16,6 +16,7 @@ public class Osoba {
 
     TypIlosc iloscPrzewag;
     List<Przewaga> przewagi;
+    TypIlosc iloscPrzezyc;
     List<Miejsce> planszeOdwiedzone;
     List<Metoda> metody;
 
@@ -184,5 +185,6 @@ public class Osoba {
     Miejsce miejsceZamieszkania;
     OsobyOrazWarunki wyjebaneNa;
     OsobyOrazWarunki dbaO;
+    Oczekiwania oczekiwania;
 
 }

@@ -6,7 +6,7 @@ import java.util.List;
 public class Dzialanie_Zjawisko {
     List<Consts.Warunek> potrzeby;
     List<Consts.Warunek> przymusy;
-    List<String> powody;
+    List<Consts.Warunek> powody;
     TypIlosc popyt;
     TypIlosc podaz;
     TypIlosc szanse;

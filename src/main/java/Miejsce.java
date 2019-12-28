@@ -5,8 +5,9 @@ import java.util.Map;
  * Created by gadzik on 18.12.19.
  */
 public class Miejsce {
-
+    TypMiejsce typMiejsce;
     List<Consts.Warunek> wymaganiaWstepne;
+
     boolean przechodnie;
     boolean stale;
     boolean srodowiskowe;
