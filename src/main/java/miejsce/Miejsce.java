@@ -1,8 +1,8 @@
 package miejsce;
 
-import osoba.TypOsoby;
-import typy_bazowe.TypIlosc;
 import typy_bazowe.TypMiejsce;
+import typy_bazowe.TypOsoby;
+import typy_bazowe.TypIlosc;
 import warunek.Warunek;
 
 import java.util.List;

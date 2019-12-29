@@ -1,7 +1,5 @@
 package z_inne;
 
-import osoba.Praca;
-
 /**
  * Created by gadzik on 28.12.19.
  */

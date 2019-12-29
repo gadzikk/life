@@ -1,4 +1,4 @@
-package osoba;
+package z_inne;
 
 import miejsce.Miejsce;
 import typy_bazowe.TypPlaca;

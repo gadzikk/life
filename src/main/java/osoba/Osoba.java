@@ -2,10 +2,10 @@ package osoba;
 
 import metoda.Metoda;
 import miejsce.Miejsce;
-import typy_bazowe.TypIlosc;
-import typy_bazowe.TypJakosc;
+import typy_bazowe.*;
 import warunek.Przewaga;
 import warunek.Warunek;
+import z_inne.*;
 
 import java.util.List;
 
@@ -13,9 +13,9 @@ import java.util.List;
  * Created by gadzik on 18.12.19.
  */
 public class Osoba {
-    KolorSkory kolorSkory;
+    TypKolorSkory kolorSkory;
     TypRasa rasa;
-    Narodowosc narodowosc;
+    TypNarodowsc narodowosc;
     TypPlec plec;
 
     Wychowanie wychowanie;
@@ -33,7 +33,7 @@ public class Osoba {
     TypIlosc iloscBurzuazji;
     TypJakosc pamiec;
 
-    PriorytetoweSrodowisko priorytetoweSrodowisko;
+    TypPriorytetoweSrodowisko priorytetoweSrodowisko;
     List<TypUmiejetnosc> umiejetnosci;
 
     boolean arcyZlo;

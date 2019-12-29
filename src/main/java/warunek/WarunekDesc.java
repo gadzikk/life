@@ -1,5 +1,7 @@
 package warunek;
 
+import metoda.Metoda;
+import typy_bazowe.TypSila;
 import z_inne.Naruszenie;
 import z_inne.Rezultat;
 

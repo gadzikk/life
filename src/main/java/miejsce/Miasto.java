@@ -1,6 +1,6 @@
 package miejsce;
 
-import osoba.TypRasa;
+import typy_bazowe.TypRasa;
 import typy_bazowe.TypIlosc;
 import warunek.Warunek;
 

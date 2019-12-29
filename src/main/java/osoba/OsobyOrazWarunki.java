@@ -1,6 +1,6 @@
 package osoba;
 
-import osoba.TypOsoby;
+import typy_bazowe.TypOsoby;
 import warunek.Warunek;
 
 import java.util.List;

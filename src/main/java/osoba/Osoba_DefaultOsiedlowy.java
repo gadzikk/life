@@ -1,12 +1,10 @@
 package osoba;
 
 import miejsce.Miejsce;
-import typy_bazowe.TypIlosc;
-import typy_bazowe.TypPlaca;
-import typy_bazowe.TypPraca;
-import typy_bazowe.TypZadania;
+import typy_bazowe.*;
 import warunek.Przewaga;
 import warunek.Warunek;
+import z_inne.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,9 +16,9 @@ import java.util.List;
 public class Osoba_DefaultOsiedlowy extends Osoba {
 
     public Osoba_DefaultOsiedlowy() {
-        KolorSkory kolorSkory = KolorSkory.BIALY;
+        TypKolorSkory kolorSkory = TypKolorSkory.BIALY;
         TypRasa rasa = TypRasa.SLOWIANIN;
-        Narodowosc narodowsc = Narodowosc.POLSKA;
+        TypNarodowsc narodowsc = TypNarodowsc.POLSKA;
         TypPlec plec = TypPlec.M;
 
         Wychowanie wychowanie = new Wychowanie(false,false,false,false,

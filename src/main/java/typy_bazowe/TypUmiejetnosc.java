@@ -1,4 +1,4 @@
-package osoba;
+package typy_bazowe;
 
 /**
  * Created by gadzik on 24.12.19.

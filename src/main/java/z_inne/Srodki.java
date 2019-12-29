@@ -1,4 +1,4 @@
-package osoba;
+package z_inne;
 
 /**
  * Created by gadzik on 18.12.19.
