@@ -5,5 +5,5 @@ import java.util.List;
  */
 public class Naruszenie {
     List<Metoda> metodyNaruszenia;
-    List<Consts.Warunek> konsekwencjeNaruszenia;
+    List<Warunek> konsekwencjeNaruszenia;
 }

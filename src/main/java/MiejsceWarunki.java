@@ -5,5 +5,5 @@ import java.util.List;
  */
 public class MiejsceWarunki {
     TypMiejsce typMiejsce;
-    List<Consts.Warunek> warunki;
+    List<Warunek> warunki;
 }

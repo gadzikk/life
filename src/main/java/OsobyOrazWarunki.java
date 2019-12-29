@@ -5,5 +5,5 @@ import java.util.List;
  */
 public class OsobyOrazWarunki {
     List<TypOsoby> typyOsob;
-    List<Consts.Warunek> warunki;
+    List<Warunek> warunki;
 }

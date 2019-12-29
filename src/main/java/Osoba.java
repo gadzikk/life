@@ -12,7 +12,7 @@ public class Osoba {
     Wychowanie wychowanie;
     Wartosc priorytet;
     List<TypOsoby> typyOsoby;
-    List<Consts.Warunek> oceniaWg;
+    List<Warunek> oceniaWg;
 
     TypIlosc iloscPrzewag;
     List<Przewaga> przewagi;

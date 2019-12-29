@@ -5,7 +5,7 @@ import java.util.Map;
  * Created by gadzik on 25.12.19.
  */
 public class Dzielnica {
-    List<Consts.Warunek> wymaganiaWstepne;
+    List<Warunek> wymaganiaWstepne;
     TypDzielnicy dzielnica;
     TypIlosc iloscMieszkan;
 
@@ -14,13 +14,13 @@ public class Dzielnica {
     boolean restrykcyjne;
     boolean kibicowanie;
 
-    List<Consts.HotSpot> hotSpots;
+    List<HotSpot> hotSpots;
     Map<Rasa, TypIlosc> rasaIlosc;
 
     TypIlosc iloscCierpienia;
     TypIlosc iloscBurzuazji;
     TypIlosc iloscPatologii;
 
-    List<Consts.Warunek> warunkiSprzyjajace;
-    List<Consts.Warunek> warunkiNiesprzyjajace;
+    List<Warunek> warunkiSprzyjajace;
+    List<Warunek> warunkiNiesprzyjajace;
 }

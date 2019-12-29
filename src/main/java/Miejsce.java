@@ -6,7 +6,7 @@ import java.util.Map;
  */
 public class Miejsce {
     TypMiejsce typMiejsce;
-    List<Consts.Warunek> wymaganiaWstepne;
+    List<Warunek> wymaganiaWstepne;
 
     boolean przechodnie;
     boolean stale;
@@ -18,17 +18,17 @@ public class Miejsce {
     boolean cisza;
     boolean nuda;
 
-    List<Consts.HotSpot> hotSpots;
+    List<HotSpot> hotSpots;
 
     Map<TypOsoby, TypIlosc> typLudziIlosc;
-    List<Consts.Warunek> warunkiSprzyjajace;
-    List<Consts.Warunek> warunkiNiesprzyjajace;
-    List<Consts.Warunek> wartosciMiejsca;
+    List<Warunek> warunkiSprzyjajace;
+    List<Warunek> warunkiNiesprzyjajace;
+    List<Warunek> wartosciMiejsca;
 
     TypIlosc iloscLudzi;
     TypIlosc iloscSilnychJednostek;
 
-    List<Consts.Warunek> zagrozenia;
-    List<Consts.Warunek> zasady;
+    List<Warunek> zagrozenia;
+    List<Warunek> zasady;
 
 }

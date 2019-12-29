@@ -5,5 +5,5 @@ import java.util.List;
  */
 public class MetodyWarunek {
     List<Metoda> metody;
-    Consts.Warunek warunek;
+    Warunek warunek;
 }
