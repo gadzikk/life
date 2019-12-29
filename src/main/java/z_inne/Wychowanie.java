@@ -1,9 +1,17 @@
 package z_inne;
 
+import miejsce.Miejsce;
+import typy_bazowe.TypDziecinstwo;
+
+import java.util.List;
+
 /**
  * Created by gadzik on 18.12.19.
  */
 public class Wychowanie {
+    TypDziecinstwo dziecinstwo;
+    List<Miejsce> odwiedzoneMiejsca;
+
     boolean patologiaWDomu;
     boolean gorzejNizWszyscy;
     boolean zGoryPrzegrany;

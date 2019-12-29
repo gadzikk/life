@@ -52,6 +52,11 @@ public class Osoba {
     boolean mocnyWzrok;
     boolean dobryGen;
     boolean swiadomosc;
+    boolean swiadomoscZagrozen;
+    boolean swiadomoscUlicy;
+    boolean swiadomoscPrzewag;
+    boolean swiadomoscRynkuPracy;
+    boolean swiadomoscPatologiiZwiazkow;
     boolean madrosc;
     boolean wiedza;
     boolean sila;
@@ -63,6 +68,10 @@ public class Osoba {
     boolean czynny;
     boolean bierny;
     boolean stwarzaPointCut;
+    boolean stwarzaPointCutWzokiem;
+    boolean stwarzaPointCutMowa;
+    boolean stwarzaPointCutKontaktem;
+    boolean stwarzaPointCutRandka;
 
     boolean chceLepszegoZycia;
     boolean chceWygod;
@@ -195,5 +204,6 @@ public class Osoba {
     OsobyOrazWarunki wyjebaneNa;
     OsobyOrazWarunki dbaO;
     Oczekiwania oczekiwania;
+    TypPunktZerowy punktZerowy;
 
 }

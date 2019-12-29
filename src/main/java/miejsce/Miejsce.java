@@ -1,12 +1,11 @@
 package miejsce;
 
 import typy_bazowe.TypMiejsce;
-import typy_bazowe.TypOsoby;
 import typy_bazowe.TypIlosc;
 import warunek.Warunek;
+import z_inne.ProcentOsob;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by gadzik on 18.12.19.
@@ -27,7 +26,7 @@ public class Miejsce {
 
     List<HotSpot> hotSpots;
 
-    Map<TypOsoby, TypIlosc> typLudziIlosc;
+    List<ProcentOsob> procentOsob;
     List<Warunek> warunkiSprzyjajace;
     List<Warunek> warunkiNiesprzyjajace;
     List<Warunek> wartosciMiejsca;
@@ -37,5 +36,8 @@ public class Miejsce {
 
     List<Warunek> zagrozenia;
     List<Warunek> zasady;
+
+    boolean wymagajacePrawa;
+    boolean wymagajaceZasad;
 
 }

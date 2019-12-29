@@ -1,5 +1,7 @@
 package sytuacja;
 
+import warunek.Warunek;
+
 import java.util.List;
 
 /**
@@ -7,4 +9,5 @@ import java.util.List;
  */
 public class Sytuacja {
     List<TypSytuacja> typySytuacji;
+    List<Warunek> warunki;
 }
