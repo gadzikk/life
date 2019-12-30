@@ -24,7 +24,7 @@ public class Osoba {
     List<Warunek> oceniaWg;
 
     TypIlosc iloscPrzewag;
-    List<Przewaga> przewagi;
+    List<Warunek> przewagi;
     TypIlosc iloscPrzezyc;
     List<Miejsce> planszeOdwiedzone;
     List<Metoda> metody;
@@ -60,6 +60,8 @@ public class Osoba {
     boolean madrosc;
     boolean wiedza;
     boolean sila;
+    boolean spryt;
+    boolean szybkosc;
     boolean cel;
 
     boolean zKims;
