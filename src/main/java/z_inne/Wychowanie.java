@@ -56,4 +56,24 @@ public class Wychowanie {
         this.dostawalPieniadze = dostawalPieniadze;
         this.narkotyki = narkotyki;
     }
+
+    public boolean isBylaNauka() {
+        return bylaNauka;
+    }
+
+    public boolean isByliRodzice() {
+        return byliRodzice;
+    }
+
+    public boolean isBylaWalka() {
+        return bylaWalka;
+    }
+
+    public boolean isByloCierpienie() {
+        return byloCierpienie;
+    }
+
+    public boolean isPodkloszem() {
+        return podkloszem;
+    }
 }

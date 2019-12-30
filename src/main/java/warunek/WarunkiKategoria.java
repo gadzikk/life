@@ -15,4 +15,12 @@ public class WarunkiKategoria {
         this.kategoria = kategoria;
         this.warunki = warunki;
     }
+
+    public Kategoria getKategoria() {
+        return kategoria;
+    }
+
+    public List<Warunek> getWarunki() {
+        return warunki;
+    }
 }
