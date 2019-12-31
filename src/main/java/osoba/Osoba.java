@@ -1,11 +1,9 @@
 package osoba;
 
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 import db.DB_Warunki;
-import metoda.Metoda;
+import metoda.M;
 import miejsce.Miejsce;
 import typy_bazowe.*;
-import warunek.Przewaga;
 import warunek.Warunek;
 import z_inne.*;
 
@@ -32,7 +30,7 @@ public class Osoba {
 
     TypIlosc iloscPrzezyc;
     List<Miejsce> planszeOdwiedzone;
-    List<Metoda> metody;
+    List<M> metody;
 
     TypIlosc iloscCierpienia;
     TypIlosc iloscBurzuazji;

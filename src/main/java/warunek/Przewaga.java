@@ -1,9 +1,8 @@
 package warunek;
 
-import metoda.Metoda;
+import metoda.M;
 import typy_bazowe.TypSila;
 import typy_bazowe.TypTrudnosc;
-import warunek.Warunek;
 
 import java.util.List;
 
@@ -14,7 +13,7 @@ public class Przewaga {
     Warunek przewaga;
     TypSila sila;
     TypTrudnosc trudnosc;
-    List<Metoda> metodyOsiagniecia;
+    List<M> metodyOsiagniecia;
     List<Warunek> potrzebnePrzewagi;
     boolean ktosPomagal;
 

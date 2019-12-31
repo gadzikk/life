@@ -1,8 +1,7 @@
 package warunek;
 
-import metoda.Metoda;
+import metoda.M;
 import typy_bazowe.TypIlosc;
-import warunek.Warunek;
 
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class Dzialanie_Zjawisko {
     TypIlosc szanse;
     List<Warunek> warunkiSprzyjajace;
     List<Warunek> warunkiNiesprzyjajace;
-    List<Metoda> wymaganeKroki;
+    List<M> wymaganeKroki;
     List<Warunek> wymaganeRzeczy;
-    List<Metoda> metody; // TODO: lub typ method
+    List<M> metody; // TODO: lub typ method
 }

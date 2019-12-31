@@ -1,6 +1,6 @@
 package warunek;
 
-import metoda.Metoda;
+import metoda.M;
 import typy_bazowe.TypSila;
 import z_inne.Naruszenie;
 import z_inne.Rezultat;
@@ -17,7 +17,7 @@ public class WarunekDesc {
 
     List<Warunek> globalneWarunkiPlanszy;
     List<Warunek> wymaganiaWstepne;
-    List<Metoda> metodyOsiagniecia;
+    List<M> metodyOsiagniecia;
 
     Boolean osiagniety;
     List<Warunek> wymaganiaUtrzymania;
