@@ -1,7 +1,7 @@
 package osoba;
 
 import typy_bazowe.TypOsoby;
-import warunek.Warunek;
+import warunek.W;
 
 import java.util.List;
 
@@ -10,5 +10,5 @@ import java.util.List;
  */
 public class OsobyOrazWarunki {
     List<TypOsoby> typyOsob;
-    List<Warunek> warunki;
+    List<W> warunki;
 }

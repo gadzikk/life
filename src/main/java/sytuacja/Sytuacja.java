@@ -1,7 +1,8 @@
 package sytuacja;
 
-import warunek.Warunek;
+import warunek.W;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -9,5 +10,8 @@ import java.util.List;
  */
 public class Sytuacja {
     List<TypSytuacja> typySytuacji;
-    List<Warunek> warunki;
+    List<W> warunki;
+    W defaultCel;
+    LocalDateTime czasStart;
+    LocalDateTime czasEnd;
 }

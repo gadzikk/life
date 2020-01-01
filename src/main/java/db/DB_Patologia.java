@@ -1,7 +1,7 @@
 package db;
 
 import typy_bazowe.TypKategoria;
-import warunek.Warunek;
+import warunek.W;
 import warunek.WarunkiKategoria;
 import z_inne.Kategoria;
 
@@ -16,232 +16,232 @@ public class DB_Patologia {
     WarunkiKategoria PATOLOGIE_ZWIAZKU = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_ZWIAZKU),
             Arrays.asList(
-                    Warunek.STARY_MLODY, Warunek.BURZUA_ULICA, Warunek.NIESWIADOMY_SWIADOMY,
-                    Warunek.SLABY_MOCNY, Warunek.UZYWKI_BRAKUZYWEK, Warunek.ZLO_DOBRO,
-                    Warunek.LEKKOSC_TRUDNOSC, Warunek.LATWOSC_ZERWANIA, Warunek.ZDRADA, Warunek.BRAK_CZASU, Warunek.ODLEGLOSC
+                    W.STARY_MLODY, W.BURZUA_ULICA, W.NIESWIADOMY_SWIADOMY,
+                    W.SLABY_MOCNY, W.UZYWKI_BRAKUZYWEK, W.ZLO_DOBRO,
+                    W.LEKKOSC_TRUDNOSC, W.LATWOSC_ZERWANIA, W.ZDRADA, W.BRAK_CZASU, W.ODLEGLOSC
             )
     );
 
     WarunkiKategoria PATOLOGIE_WSTEPNE_SWIAT = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_WSTEPNE_SWIAT),
             Arrays.asList(
-                    Warunek.SAMOTNOSC, Warunek.ZWIAZEK_HOMOSEXUALNY, Warunek.USZCZERBEK_NA_ZDROWIU, Warunek.BIEDA
+                    W.SAMOTNOSC, W.ZWIAZEK_HOMOSEXUALNY, W.USZCZERBEK_NA_ZDROWIU, W.BIEDA
             )
     );
 
     WarunkiKategoria PATOLOGIE_WSTEPNE_INFORMACJA = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_WSTEPNE_INFORMACJA),
             Arrays.asList(
-                    Warunek.BRAK_CZASU, Warunek.BRAK_DOSTEPU_DO_PLANSZY, Warunek.BRAK_LUDZI, Warunek.NIEMOZLIWOSC_MATERIALNEGO_ZNALEZIENIA_SIE,
-                    Warunek.BRAK_MOZLIWOSCI_OCENY, Warunek.OGOLNOSC
+                    W.BRAK_CZASU, W.BRAK_DOSTEPU_DO_PLANSZY, W.BRAK_LUDZI, W.NIEMOZLIWOSC_MATERIALNEGO_ZNALEZIENIA_SIE,
+                    W.BRAK_MOZLIWOSCI_OCENY, W.OGOLNOSC
             )
     );
 
     WarunkiKategoria PATOLOGIE_WSTEPNE_WIEDZA = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_WSTEPNE_INFORMACJA),
             Arrays.asList(
-                    Warunek.BRAK_INFORMACJI, Warunek.BEZ_PRZYCZYNY, Warunek.ZLE_SKUTKI, Warunek.NIE_WYCIAGANIE_WNIOSKOW
+                    W.BRAK_INFORMACJI, W.BEZ_PRZYCZYNY, W.ZLE_SKUTKI, W.NIE_WYCIAGANIE_WNIOSKOW
             )
     );
 
     WarunkiKategoria PATOLOGIE_WSTEPNE_BRAK_WSTYDU = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_WSTEPNE_BRAK_WSTYDU),
             Arrays.asList(
-                    Warunek.BRAK_WIEDZY, Warunek.BRAK_DZIALANIA
+                    W.BRAK_WIEDZY, W.BRAK_DZIALANIA
             )
     );
 
     WarunkiKategoria PATOLOGIE_WSTEPNE_REZULTAT = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_WSTEPNE_REZULTAT),
             Arrays.asList(
-                    Warunek.OGROMNE_KONSEKWENCJE, Warunek.BRAK_REZULTATOW
+                    W.OGROMNE_KONSEKWENCJE, W.BRAK_REZULTATOW
             )
     );
 
     WarunkiKategoria PATOLOGIE_WSTEPNE_PRACA = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_WSTEPNE_PRACA),
             Arrays.asList(
-                    Warunek.KARALNOSC, Warunek.BRAK_WYKSZTALCENIA, Warunek.BRAK_DOSWIADCZENIA, Warunek.BRAK_UMIEJETNOSCI,
-                    Warunek.ZADNYCH_ZNAJOMOSCI
+                    W.KARALNOSC, W.BRAK_WYKSZTALCENIA, W.BRAK_DOSWIADCZENIA, W.BRAK_UMIEJETNOSCI,
+                    W.ZADNYCH_ZNAJOMOSCI
             )
     );
 
     WarunkiKategoria PATOLOGIE_WSTEPNE_ZARABIANIE = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_WSTEPNE_ZARABIANIE),
             Arrays.asList(
-                    Warunek.BRAK_PRACY, Warunek.BRAK_PIENIEDZY
+                    W.BRAK_PRACY, W.BRAK_PIENIEDZY
             )
     );
 
     WarunkiKategoria PATOLOGIE_WSTEPNE_SPORT = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_WSTEPNE_SPORT),
             Arrays.asList(
-                    Warunek.NIESPRAWNOSC, Warunek.NIEZDOLNOSC_DO_WYSILKU, Warunek.BRAK_ZGODY_OTOCZENIA
+                    W.NIESPRAWNOSC, W.NIEZDOLNOSC_DO_WYSILKU, W.BRAK_ZGODY_OTOCZENIA
             )
     );
 
     WarunkiKategoria PATOLOGIE_WSTEPNE_OSIEDLE = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_WSTEPNE_OSIEDLE),
             Arrays.asList(
-                    Warunek.INNE_MIASTO, Warunek.ZLE_WYGLADA, Warunek.BRAK_ZNAJOMYCH_W_SRODOWISKU,
-                    Warunek.PRZECIWNY, Warunek.KONFI
+                    W.INNE_MIASTO, W.ZLE_WYGLADA, W.BRAK_ZNAJOMYCH_W_SRODOWISKU,
+                    W.PRZECIWNY, W.KONFI
             )
     );
 
     WarunkiKategoria PATOLOGIE_WSTEPNE_DOPUSZCZENIE = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_WSTEPNE_DOPUSZCZENIE),
             Arrays.asList(
-                    Warunek.NIE_PATRZY, Warunek.NIE_REAGUJE, Warunek.NIE_USMIECHA, Warunek.ZLO,
-                    Warunek.NIE_KOJARZY, Warunek.WIDZI_PIERWSZY_RAZ, Warunek.BRAK_WSPOLNYCH_ZNAJOMYCH, Warunek.NIEBEZPIECZENSTWO,
-                    Warunek.ZAJECIE, Warunek.NIE_PODOBA_SIE, Warunek.BRZYDKA, Warunek.WSTYDZI_SIE, Warunek.BRAK_EMOCJI
+                    W.NIE_PATRZY, W.NIE_REAGUJE, W.NIE_USMIECHA, W.ZLO,
+                    W.NIE_KOJARZY, W.WIDZI_PIERWSZY_RAZ, W.BRAK_WSPOLNYCH_ZNAJOMYCH, W.NIEBEZPIECZENSTWO,
+                    W.ZAJECIE, W.NIE_PODOBA_SIE, W.BRZYDKA, W.WSTYDZI_SIE, W.BRAK_EMOCJI
             )
     );
     WarunkiKategoria PATOLOGIE_WSTEPNE_KOBIETA = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_WSTEPNE_KOBIETA),
             Arrays.asList(
-                    Warunek.NIE_STWORZENIE_POINTCUTA, Warunek.NIEZLAPANIE_POINTCUTA, Warunek.BRAK_POZNANIA, Warunek.NIEDOPUSZCZENIE,
-                    Warunek.BRAK_PARZONKA, Warunek.NIESPODOBANIE_SIE, Warunek.MINUS_GT_PLUS, Warunek.ZAJETA
+                    W.NIE_STWORZENIE_POINTCUTA, W.NIEZLAPANIE_POINTCUTA, W.BRAK_POZNANIA, W.NIEDOPUSZCZENIE,
+                    W.BRAK_PARZONKA, W.NIESPODOBANIE_SIE, W.MINUS_GT_PLUS, W.ZAJETA
             )
     );
     WarunkiKategoria PATOLOGIE_UTRZYMANIA_SWIAT = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_UTRZYMANIA_SWIAT),
             Arrays.asList(
-                    Warunek.BRAK_ZNAJOMYCH, Warunek.BRAK_ZWIAZKU, Warunek.ZAGROZENIA, Warunek.BRAK_ZRODLA_ZAROBKU
+                    W.BRAK_ZNAJOMYCH, W.BRAK_ZWIAZKU, W.ZAGROZENIA, W.BRAK_ZRODLA_ZAROBKU
             )
     );
 
     WarunkiKategoria PATOLOGIE_UTRZYMANIA_INFORMACJA = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_UTRZYMANIA_INFORMACJA),
             Arrays.asList(
-                    Warunek.ZNIKNIECIE_INFORMACJI, Warunek.BRAK_REZULTATU_INFORMACJI, Warunek.BRAK_POTWIERDZENIA,
-                    Warunek.NIEMOZLIWOSC_SPRAWDZENIA
+                    W.ZNIKNIECIE_INFORMACJI, W.BRAK_REZULTATU_INFORMACJI, W.BRAK_POTWIERDZENIA,
+                    W.NIEMOZLIWOSC_SPRAWDZENIA
             )
     );
 
     WarunkiKategoria PATOLOGIE_UTRZYMANIA_WIEDZA = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_UTRZYMANIA_WIEDZA),
             Arrays.asList(
-                    Warunek.ZAPOMNIENIE, Warunek.REGRESS_WIEDZY, Warunek.UKRYWANIE_WIEDZY
+                    W.ZAPOMNIENIE, W.REGRESS_WIEDZY, W.UKRYWANIE_WIEDZY
             )
     );
 
     WarunkiKategoria PATOLOGIE_UTRZYMANIA_BRAK_WSTYDU = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_UTRZYMANIA_WIEDZA),
             Arrays.asList(
-                    Warunek.NIEWYKORZYSTYWANIE_INFORMACJI, Warunek.BRAK_DZIALANIA, Warunek.NIE_WYCIAGANIE_WNIOSKOW
+                    W.NIEWYKORZYSTYWANIE_INFORMACJI, W.BRAK_DZIALANIA, W.NIE_WYCIAGANIE_WNIOSKOW
             )
     );
 
     WarunkiKategoria PATOLOGIE_UTRZYMANIA_REZULTAT = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_UTRZYMANIA_WIEDZA),
             Arrays.asList(
-                    Warunek.NIE_PRZEWIDYWANIE, Warunek.UTRACENIE
+                    W.NIE_PRZEWIDYWANIE, W.UTRACENIE
             )
     );
 
     WarunkiKategoria PATOLOGIE_UTRZYMANIA_PRACA = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_UTRZYMANIA_PRACA),
             Arrays.asList(
-                    Warunek.BRAK_WYSILKU, Warunek.NIE_UZYTECZNOSC, Warunek.NIE_OPLACA, Warunek.MINUS_GT_PLUS,
-                    Warunek.NIE_PRZESTRZEGANIE_ZASAD, Warunek.ZLA_ATMOSFERA, Warunek.BRAK_REZULTATOW, Warunek.ZLE_STOSUNKI1VS1,
-                    Warunek.REGRESS_UMIEJETNOSCI
+                    W.BRAK_WYSILKU, W.NIE_UZYTECZNOSC, W.NIE_OPLACA, W.MINUS_GT_PLUS,
+                    W.NIE_PRZESTRZEGANIE_ZASAD, W.ZLA_ATMOSFERA, W.BRAK_REZULTATOW, W.ZLE_STOSUNKI1VS1,
+                    W.REGRESS_UMIEJETNOSCI
             )
     );
 
     WarunkiKategoria PATOLOGIE_UTRZYMANIA_ZARABIANIE = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_UTRZYMANIA_ZARABIANIE),
             Arrays.asList(
-                    Warunek.BIEDNY_SEKTOR, Warunek.BRAK_WIEDZY, Warunek.DUZA_KONKURENCJA, Warunek.BIEDNY_REGION
+                    W.BIEDNY_SEKTOR, W.BRAK_WIEDZY, W.DUZA_KONKURENCJA, W.BIEDNY_REGION
             )
     );
 
     WarunkiKategoria PATOLOGIE_UTRZYMANIA_SPORT = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_UTRZYMANIA_SPORT),
             Arrays.asList(
-                    Warunek.REGRESS_UMIEJETNOSCI
+                    W.REGRESS_UMIEJETNOSCI
             )
     );
 
     WarunkiKategoria PATOLOGIE_UTRZYMANIA_OSIEDLE = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_UTRZYMANIA_OSIEDLE),
             Arrays.asList(
-                    Warunek.BRAK_CELU, Warunek.NIE_DZIALA, Warunek.NIE_KIBICUJE, Warunek.NIELOJALNY, Warunek.NIE_PRZESTRZEGA_ZASAD
+                    W.BRAK_CELU, W.NIE_DZIALA, W.NIE_KIBICUJE, W.NIELOJALNY, W.NIE_PRZESTRZEGA_ZASAD
             )
     );
 
     WarunkiKategoria PATOLOGIE_UTRZYMANIA_KOBIETA = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_UTRZYMANIA_KOBIETA),
             Arrays.asList(
-                    Warunek.NIESPELNIENIE_OCZEKIWAN, Warunek.NIEWSPIERANIE_PREFERENCJI, Warunek.SPEDZANIE_CZASU_OSOBNO,
-                    Warunek.ZDRADA, Warunek.BRAK_KONTROLI
+                    W.NIESPELNIENIE_OCZEKIWAN, W.NIEWSPIERANIE_PREFERENCJI, W.SPEDZANIE_CZASU_OSOBNO,
+                    W.ZDRADA, W.BRAK_KONTROLI
             )
     );
 
     WarunkiKategoria PATOLOGIE_KONCOWE_SWIAT = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_KONCOWE_SWIAT),
             Arrays.asList(
-                    Warunek.NIESZCZESCIE, Warunek.ZLE_DOSWIADCZENIA, Warunek.ZLE_WSPOMNIENIA
+                    W.NIESZCZESCIE, W.ZLE_DOSWIADCZENIA, W.ZLE_WSPOMNIENIA
             )
     );
 
     WarunkiKategoria PATOLOGIE_KONCOWE_PRACA = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_KONCOWE_PRACA),
             Arrays.asList(
-                    Warunek.BRAK_PIENIEDZY, Warunek.BRAK_STABILIZACJI, Warunek.ZMUSZONY_ZAGRANICA, Warunek.BRAK_UMIEJETNOSCI,
-                    Warunek.BRAK_WIEDZY
+                    W.BRAK_PIENIEDZY, W.BRAK_STABILIZACJI, W.ZMUSZONY_ZAGRANICA, W.BRAK_UMIEJETNOSCI,
+                    W.BRAK_WIEDZY
             )
     );
 
     WarunkiKategoria PATOLOGIE_KONCOWE_ZARABIANIE = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_KONCOWE_ZARABIANIE),
             Arrays.asList(
-                    Warunek.BRAK_MOZLIWOSCI_WYBORU
+                    W.BRAK_MOZLIWOSCI_WYBORU
             )
     );
 
     WarunkiKategoria PATOLOGIE_KONCOWE_SPORT = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_KONCOWE_SPORT),
             Arrays.asList(
-                    Warunek.NIESPRAWNOSC, Warunek.BRAK_UMIEJETNOSCI, Warunek.BRAK_WIEDZY
+                    W.NIESPRAWNOSC, W.BRAK_UMIEJETNOSCI, W.BRAK_WIEDZY
             )
     );
 
     WarunkiKategoria PATOLOGIE_KONCOWE_OSIEDLE = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_KONCOWE_OSIEDLE),
             Arrays.asList(
-                    Warunek.BRAK_ZNAJOMYCH, Warunek.BRAK_SRODOWISKA, Warunek.BRAK_KOBIETY, Warunek.BRAK_DOSTEPU_SILNE_JEDNOSTKI,
-                    Warunek.BRAK_THREAD_WHILE_LOOP_BLISKOSC_U, Warunek.MARNOWANIE_CZASU, Warunek.BRAK_AKCEPTACJI,
-                    Warunek.BRAK_DOSTEPU_PRZEWAGI
+                    W.BRAK_ZNAJOMYCH, W.BRAK_SRODOWISKA, W.BRAK_KOBIETY, W.BRAK_DOSTEPU_SILNE_JEDNOSTKI,
+                    W.BRAK_THREAD_WHILE_LOOP_BLISKOSC_U, W.MARNOWANIE_CZASU, W.BRAK_AKCEPTACJI,
+                    W.BRAK_DOSTEPU_PRZEWAGI
             )
     );
 
     WarunkiKategoria PATOLOGIE_KONCOWE_KOBIETA = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_KONCOWE_KOBIETA),
             Arrays.asList(
-                    Warunek.BRAK_CODZIENNEJ_BLISKOSCI, Warunek.ZYCIE_W_SAMOTNOSCI, Warunek.BRAK_DZIECI,
-                    Warunek.PRZERWANIE_GENU
+                    W.BRAK_CODZIENNEJ_BLISKOSCI, W.ZYCIE_W_SAMOTNOSCI, W.BRAK_DZIECI,
+                    W.PRZERWANIE_GENU
             )
     );
 
     WarunkiKategoria PATOLOGIE_GLOBAL_PLANSZA_LUDZIE = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_GLOBAL_PLANSZA_LUDZIE),
             Arrays.asList(
-                    Warunek.MALA_DZIETNOSC, Warunek.BLEDY_WYCHOWANIA, Warunek.BRAK_MIESZKANIA
+                    W.MALA_DZIETNOSC, W.BLEDY_WYCHOWANIA, W.BRAK_MIESZKANIA
             )
     );
 
     WarunkiKategoria PATOLOGIE_GLOBAL_PLANSZA_PRACA = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_GLOBAL_PLANSZA_PRACA),
             Arrays.asList(
-                    Warunek.BRAK_FIRM_NWD, Warunek.BRAK_FIRM_WD, Warunek.ZABURZONY_RYNEK_PLAC, Warunek.OGROMNE_ZASOBY_LUDZKIE
+                    W.BRAK_FIRM_NWD, W.BRAK_FIRM_WD, W.ZABURZONY_RYNEK_PLAC, W.OGROMNE_ZASOBY_LUDZKIE
             )
     );
 
     WarunkiKategoria PATOLOGIE_THREAD_WHILE_LOOP = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_THREAD_WHILE_LOOP),
             Arrays.asList(
-                    Warunek.BRAK_THREAD_WHILE_LOOP_ZASIEG_WZROKU, Warunek.BRAK_THREAD_WHILE_LOOP_BLISKOSC_U,
-                    Warunek.BRAK_THREAD_WHILE_LOOP_BLISKOSC_K, Warunek.BRAK_THREAD_WHILE_LOOP_EFEKTYWNA_GADKA
+                    W.BRAK_THREAD_WHILE_LOOP_ZASIEG_WZROKU, W.BRAK_THREAD_WHILE_LOOP_BLISKOSC_U,
+                    W.BRAK_THREAD_WHILE_LOOP_BLISKOSC_K, W.BRAK_THREAD_WHILE_LOOP_EFEKTYWNA_GADKA
             )
     );
 

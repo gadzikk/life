@@ -1,7 +1,7 @@
 package z_inne;
 
 import metoda.M;
-import warunek.Warunek;
+import warunek.W;
 
 import java.util.List;
 
@@ -10,5 +10,5 @@ import java.util.List;
  */
 public class Naruszenie {
     List<M> metodyNaruszenia;
-    List<Warunek> konsekwencjeNaruszenia;
+    List<W> konsekwencjeNaruszenia;
 }

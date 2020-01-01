@@ -1,6 +1,6 @@
 package z_inne;
 
-import warunek.Warunek;
+import warunek.W;
 
 import java.util.List;
 
@@ -8,22 +8,22 @@ import java.util.List;
  * Created by gadzik on 30.12.19.
  */
 public class Charakter {
-    List<Warunek> przewagiCharakteru;
-    List<Warunek> slabosciCharakteru;
+    List<W> przewagiCharakteru;
+    List<W> slabosciCharakteru;
 
-    public List<Warunek> getPrzewagiCharakteru() {
+    public List<W> getPrzewagiCharakteru() {
         return przewagiCharakteru;
     }
 
-    public void setPrzewagiCharakteru(List<Warunek> przewagiCharakteru) {
+    public void setPrzewagiCharakteru(List<W> przewagiCharakteru) {
         this.przewagiCharakteru = przewagiCharakteru;
     }
 
-    public List<Warunek> getSlabosciCharakteru() {
+    public List<W> getSlabosciCharakteru() {
         return slabosciCharakteru;
     }
 
-    public void setSlabosciCharakteru(List<Warunek> slabosciCharakteru) {
+    public void setSlabosciCharakteru(List<W> slabosciCharakteru) {
         this.slabosciCharakteru = slabosciCharakteru;
     }
 }

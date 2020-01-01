@@ -20,4 +20,5 @@ public class DB_Tematy {
     public static List<TypT> HIERARCHIA = cpu.HIERARCHIA;
 
     public static List<TT> TEMATY = cpu.TEMATY;
+    public static List<TT> KOMBO = cpu.KOMBO;
 }

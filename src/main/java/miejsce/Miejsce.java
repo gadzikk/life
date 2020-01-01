@@ -2,7 +2,7 @@ package miejsce;
 
 import typy_bazowe.TypMiejsce;
 import typy_bazowe.TypIlosc;
-import warunek.Warunek;
+import warunek.W;
 import z_inne.ProcentOsob;
 
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class Miejsce {
     TypMiejsce typMiejsce;
-    List<Warunek> wymaganiaWstepne;
+    List<W> wymaganiaWstepne;
 
     boolean przechodnie;
     boolean stale;
@@ -27,15 +27,15 @@ public class Miejsce {
     List<HotSpot> hotSpots;
 
     List<ProcentOsob> procentOsob;
-    List<Warunek> warunkiSprzyjajace;
-    List<Warunek> warunkiNiesprzyjajace;
-    List<Warunek> wartosciMiejsca;
+    List<W> warunkiSprzyjajace;
+    List<W> warunkiNiesprzyjajace;
+    List<W> wartosciMiejsca;
 
     TypIlosc iloscLudzi;
     TypIlosc iloscSilnychJednostek;
 
-    List<Warunek> zagrozenia;
-    List<Warunek> zasady;
+    List<W> zagrozenia;
+    List<W> zasady;
 
     boolean wymagajacePrawa;
     boolean wymagajaceZasad;

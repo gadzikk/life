@@ -1,7 +1,7 @@
 package miejsce;
 
 import typy_bazowe.TypIlosc;
-import warunek.Warunek;
+import warunek.W;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import java.util.List;
  * Created by gadzik on 25.12.19.
  */
 public class GlobalnaPlansza {
-    List<Warunek> globalPlanszaWarunki;
+    List<W> globalPlanszaWarunki;
     //    typplanszy;
     TypIlosc szansaNaUzyskaniePrzewagi;
     TypIlosc szansaNaUnikalnosc;

@@ -4,7 +4,7 @@ import db.DB_Warunki;
 import metoda.M;
 import miejsce.Miejsce;
 import typy_bazowe.*;
-import warunek.Warunek;
+import warunek.W;
 import z_inne.*;
 
 import java.util.ArrayList;
@@ -18,15 +18,15 @@ public class Osoba {
     TypRasa rasa;
     TypNarodowsc narodowosc;
     TypPlec plec;
-
+// todo dodac gadka tworzy zrodelko, angazuje albo tylko na wywolanie, czy podtrzymuje czy nie
     Wychowanie wychowanie;
-    Warunek priorytet;
+    W priorytet;
     List<TypOsoby> typyOsoby;
-    List<Warunek> oceniaWg;
+    List<W> oceniaWg;
 
     TypIlosc iloscPrzewag;
-    List<Warunek> przewagi;
-    List<Warunek> slabosci;
+    List<W> przewagi;
+    List<W> slabosci;
 
     TypIlosc iloscPrzezyc;
     List<Miejsce> planszeOdwiedzone;
@@ -107,6 +107,9 @@ public class Osoba {
     boolean odwaga;
     boolean umieKlucic;
     boolean umieCisnac;
+
+    boolean chetnyDoBojki;
+    boolean agresjaCzynna; // todo dodac te 2 byty do wyliczania charakteru
 
     boolean broniHierarchii;
     boolean broniGlobalu;
@@ -217,704 +220,704 @@ public class Osoba {
     TypPunktZerowy punktZerowy;
 
     public void insertCharakter(){
-        List<Warunek> przewagiCharakteru = new ArrayList<>();
-        List<Warunek> slabosciCharakteru = new ArrayList<>();
+        List<W> przewagiCharakteru = new ArrayList<>();
+        List<W> slabosciCharakteru = new ArrayList<>();
 
         if(kolorSkory == TypKolorSkory.BIALY){
-            przewagiCharakteru.add(Warunek.TEN_SAM_KOLOR_SKORY);
+            przewagiCharakteru.add(W.TEN_SAM_KOLOR_SKORY);
         }
         else {
-            slabosciCharakteru.add(Warunek.INNY_KOLOR_SKORY);
+            slabosciCharakteru.add(W.INNY_KOLOR_SKORY);
         }
 
         if(rasa == TypRasa.SLOWIANIN){
-            przewagiCharakteru.add(Warunek.TA_SAMA_RASA);
+            przewagiCharakteru.add(W.TA_SAMA_RASA);
         }
         else {
-            slabosciCharakteru.add(Warunek.INNA_RASA);
+            slabosciCharakteru.add(W.INNA_RASA);
         }
 
         if(kolorSkory == TypKolorSkory.BIALY && rasa == TypRasa.SLOWIANIN){
-            przewagiCharakteru.add(Warunek.SZANSA_NA_MADROSC);
+            przewagiCharakteru.add(W.SZANSA_NA_MADROSC);
         }
 
         if(narodowosc == TypNarodowsc.POLSKA){
-            przewagiCharakteru.add(Warunek.TA_SAMA_NARODOWOSC);
-            przewagiCharakteru.add(Warunek.SZANSA_NA_RELIGIE);
+            przewagiCharakteru.add(W.TA_SAMA_NARODOWOSC);
+            przewagiCharakteru.add(W.SZANSA_NA_RELIGIE);
         }
         else {
-            slabosciCharakteru.add(Warunek.INNA_NARODOWOSC);
+            slabosciCharakteru.add(W.INNA_NARODOWOSC);
         }
 
         if(plec == TypPlec.M){
-            przewagiCharakteru.add(Warunek.PLEC_MEZCZYZNA);
+            przewagiCharakteru.add(W.PLEC_MEZCZYZNA);
         }
         else {
-            slabosciCharakteru.add(Warunek.PLEC_KOBIETA);
+            slabosciCharakteru.add(W.PLEC_KOBIETA);
         }
         if(wychowanie.isByloCierpienie() && wychowanie.isBylaWalka()){
-            przewagiCharakteru.add(Warunek.CIEZKIE_WYCHOWANIE);
+            przewagiCharakteru.add(W.CIEZKIE_WYCHOWANIE);
         }
         if(wychowanie.isPodkloszem() && wychowanie.isByliRodzice()){
-            slabosciCharakteru.add(Warunek.BURZUAZYJNE_WYCHOWANIE);
+            slabosciCharakteru.add(W.BURZUAZYJNE_WYCHOWANIE);
         }
         if(iloscCierpienia.equals(TypIlosc.BARDZO_DUZA) || iloscCierpienia.equals(TypIlosc.DUZA) || iloscCierpienia.equals(TypIlosc.SREDNIA)){
-            przewagiCharakteru.add(Warunek.POZNANIE_CIERPIENIA);
+            przewagiCharakteru.add(W.POZNANIE_CIERPIENIA);
         }
         else {
-            slabosciCharakteru.add(Warunek.NIEZAZNANIE_CIERPIENIA);
+            slabosciCharakteru.add(W.NIEZAZNANIE_CIERPIENIA);
         }
 
         if(DB_Warunki.WARTOSC_DOBRA.getWarunki().stream().anyMatch(warunek -> warunek.equals(priorytet))){
-            przewagiCharakteru.add(Warunek.DOBRY_PRIORYTET);
+            przewagiCharakteru.add(W.DOBRY_PRIORYTET);
         }
         else {
-            slabosciCharakteru.add(Warunek.BLEDNY_PRIORYTET);
+            slabosciCharakteru.add(W.BLEDNY_PRIORYTET);
         }
-        if(oceniaWg.stream().anyMatch(Warunek.DOBRO::equals)){
-            przewagiCharakteru.add(Warunek.OCENIAWG_DOBRO);
+        if(oceniaWg.stream().anyMatch(W.DOBRO::equals)){
+            przewagiCharakteru.add(W.OCENIAWG_DOBRO);
         }
-        if(oceniaWg.stream().anyMatch(Warunek.PODOBIENSTWO::equals)){
-            przewagiCharakteru.add(Warunek.OCENIAWG_PODOBIENSTW);
+        if(oceniaWg.stream().anyMatch(W.PODOBIENSTWO::equals)){
+            przewagiCharakteru.add(W.OCENIAWG_PODOBIENSTW);
         }
-        if(oceniaWg.stream().anyMatch(Warunek.UMIEJETNOSC::equals)){
-            przewagiCharakteru.add(Warunek.OCENIAWG_UMIEJETNOSC);
+        if(oceniaWg.stream().anyMatch(W.UMIEJETNOSC::equals)){
+            przewagiCharakteru.add(W.OCENIAWG_UMIEJETNOSC);
         }
 
-        if(oceniaWg.stream().anyMatch(Warunek.ZLO::equals)){
-            slabosciCharakteru.add(Warunek.OCENIAWG_ZLO);
+        if(oceniaWg.stream().anyMatch(W.ZLO::equals)){
+            slabosciCharakteru.add(W.OCENIAWG_ZLO);
         }
-        if(oceniaWg.stream().anyMatch(Warunek.ZYSK::equals)){
-            slabosciCharakteru.add(Warunek.OCENIAWG_ZYSK);
+        if(oceniaWg.stream().anyMatch(W.ZYSK::equals)){
+            slabosciCharakteru.add(W.OCENIAWG_ZYSK);
         }
-        if(oceniaWg.stream().anyMatch(Warunek.EKIPA::equals)){
-            slabosciCharakteru.add(Warunek.OCENIAWG_EKIPA);
+        if(oceniaWg.stream().anyMatch(W.EKIPA::equals)){
+            slabosciCharakteru.add(W.OCENIAWG_EKIPA);
         }
-        if(oceniaWg.stream().anyMatch(Warunek.PRZEWAGA::equals)){
-            slabosciCharakteru.add(Warunek.OCENIAWG_PRZEWAG);
+        if(oceniaWg.stream().anyMatch(W.PRZEWAGA::equals)){
+            slabosciCharakteru.add(W.OCENIAWG_PRZEWAG);
         }
         if(iloscPrzewag.equals(TypIlosc.DUZA) || iloscPrzewag.equals(TypIlosc.BARDZO_DUZA)){
-            przewagiCharakteru.add(Warunek.DUZO_PRZEWAG);
+            przewagiCharakteru.add(W.DUZO_PRZEWAG);
         }
         if(iloscPrzewag.equals(TypIlosc.BARDZO_MALA) || iloscPrzewag.equals(TypIlosc.MALA)){
-            slabosciCharakteru.add(Warunek.MALO_PRZEWAG);
+            slabosciCharakteru.add(W.MALO_PRZEWAG);
         }
         if(iloscPrzezyc.equals(TypIlosc.DUZA) || iloscPrzezyc.equals(TypIlosc.BARDZO_DUZA)){
-            przewagiCharakteru.add(Warunek.DUZO_PRZEZYC);
+            przewagiCharakteru.add(W.DUZO_PRZEZYC);
         }
         if(iloscPrzezyc.equals(TypIlosc.BARDZO_MALA) || iloscPrzezyc.equals(TypIlosc.MALA)){
-            slabosciCharakteru.add(Warunek.MALO_PRZEZYC);
+            slabosciCharakteru.add(W.MALO_PRZEZYC);
         }
         if(planszeOdwiedzone.size() > 10){
-            przewagiCharakteru.add(Warunek.DUZO_ODWIEDZONYCH_PLANSZ);
+            przewagiCharakteru.add(W.DUZO_ODWIEDZONYCH_PLANSZ);
         }
         if(planszeOdwiedzone.size() < 5){
-            slabosciCharakteru.add(Warunek.MALO_ODWIEDZONYCH_PLANSZ);
+            slabosciCharakteru.add(W.MALO_ODWIEDZONYCH_PLANSZ);
         }
         if(metody.size() > 10){
-            przewagiCharakteru.add(Warunek.DUZO_METOD);
+            przewagiCharakteru.add(W.DUZO_METOD);
         }
         if(metody.size() < 5){
-            slabosciCharakteru.add(Warunek.MALO_METOD);
+            slabosciCharakteru.add(W.MALO_METOD);
         }
         if(iloscBurzuazji.equals(TypIlosc.BARDZO_MALA) || iloscBurzuazji.equals(TypIlosc.MALA)){
-            przewagiCharakteru.add(Warunek.BRAK_BURZUAZJI);
+            przewagiCharakteru.add(W.BRAK_BURZUAZJI);
         }
         if(iloscBurzuazji.equals(TypIlosc.DUZA) || iloscBurzuazji.equals(TypIlosc.BARDZO_DUZA)){
-            slabosciCharakteru.add(Warunek.DUZO_BURZUAZJI);
+            slabosciCharakteru.add(W.DUZO_BURZUAZJI);
         }
         if(pamiec.equals(TypJakosc.DOBRA) || pamiec.equals(TypJakosc.BARDZO_DOBRA)){
-            przewagiCharakteru.add(Warunek.DOBRA_PAMIEC);
+            przewagiCharakteru.add(W.DOBRA_PAMIEC);
         }
         if(pamiec.equals(TypJakosc.BARDZO_SLABA) || pamiec.equals(TypJakosc.SLABA)){
-            slabosciCharakteru.add(Warunek.SLABA_PAMIEC);
+            slabosciCharakteru.add(W.SLABA_PAMIEC);
         }
         if(priorytetoweSrodowisko.equals(TypPriorytetoweSrodowisko.DZIELNICA)){
-            przewagiCharakteru.add(Warunek.PRIORYTETOWE_SRODOWISKO_DZIELNICA);
+            przewagiCharakteru.add(W.PRIORYTETOWE_SRODOWISKO_DZIELNICA);
         }
         if(priorytetoweSrodowisko.equals(TypPriorytetoweSrodowisko.RODZINA)){
-            slabosciCharakteru.add(Warunek.PRIORYTETOWE_SRODOWISKO_RODZINA);
+            slabosciCharakteru.add(W.PRIORYTETOWE_SRODOWISKO_RODZINA);
         }
         if(umiejetnosci.size() > 10){
-            przewagiCharakteru.add(Warunek.DUZO_UMIEJETNOSCI);
+            przewagiCharakteru.add(W.DUZO_UMIEJETNOSCI);
         }
         if(umiejetnosci.size() < 5){
-            slabosciCharakteru.add(Warunek.MALO_UMIEJETNOSCI);
+            slabosciCharakteru.add(W.MALO_UMIEJETNOSCI);
         }
         if(arcyZlo){
-            slabosciCharakteru.add(Warunek.ARCY_ZLO);
+            slabosciCharakteru.add(W.ARCY_ZLO);
         }
         if(dlaDiabla){
-            slabosciCharakteru.add(Warunek.DZIALA_DLA_DIABLA);
+            slabosciCharakteru.add(W.DZIALA_DLA_DIABLA);
         }
         if(zlo){
-            slabosciCharakteru.add(Warunek.ZLO);
+            slabosciCharakteru.add(W.ZLO);
         }
         if(reagujeNaZlo){
-            slabosciCharakteru.add(Warunek.REAGUJE_NA_ZLO);
+            slabosciCharakteru.add(W.REAGUJE_NA_ZLO);
         }
         if(dobro){
-            przewagiCharakteru.add(Warunek.DOBRO);
+            przewagiCharakteru.add(W.DOBRO);
         }
         if(reagujeNaDobro){
-            przewagiCharakteru.add(Warunek.REAGUJE_NA_DOBRO);
+            przewagiCharakteru.add(W.REAGUJE_NA_DOBRO);
         }
         if(miasto){
-            przewagiCharakteru.add(Warunek.Z_MIASTA);
+            przewagiCharakteru.add(W.Z_MIASTA);
         }
         if(wiocha){
-            slabosciCharakteru.add(Warunek.ZE_WSI);
+            slabosciCharakteru.add(W.ZE_WSI);
         }
         if(wysilekFizyczny){
-            przewagiCharakteru.add(Warunek.WYSILEK_FIZYCZNY);
+            przewagiCharakteru.add(W.WYSILEK_FIZYCZNY);
         }
         else {
-            slabosciCharakteru.add(Warunek.BRAK_WYSILKU_FIZYCZNEGO);
+            slabosciCharakteru.add(W.BRAK_WYSILKU_FIZYCZNEGO);
         }
         if(wysilekUmyslowy){
-            przewagiCharakteru.add(Warunek.WYSILEK_UMYSLOWY);
+            przewagiCharakteru.add(W.WYSILEK_UMYSLOWY);
         }
         else {
-            slabosciCharakteru.add(Warunek.BRAK_WYSILKU_UMYSLOWEGO);
+            slabosciCharakteru.add(W.BRAK_WYSILKU_UMYSLOWEGO);
         }
 
         if(mocnyWzrok){
-            przewagiCharakteru.add(Warunek.MOCNY_WZROK);
+            przewagiCharakteru.add(W.MOCNY_WZROK);
         }
         else {
-            slabosciCharakteru.add(Warunek.SLABY_WZROK);
+            slabosciCharakteru.add(W.SLABY_WZROK);
         }
         if(dobryGen){
-            przewagiCharakteru.add(Warunek.DOBRY_GEN);
+            przewagiCharakteru.add(W.DOBRY_GEN);
         }
         if(swiadomosc){
-            przewagiCharakteru.add(Warunek.SWIADOMOSC);
+            przewagiCharakteru.add(W.SWIADOMOSC);
         }
         else {
-            slabosciCharakteru.add(Warunek.NIESWIADOMOSC);
+            slabosciCharakteru.add(W.NIESWIADOMOSC);
         }
         if(swiadomoscUlicy){
-            przewagiCharakteru.add(Warunek.SWIADOMOSC_ULICY);
+            przewagiCharakteru.add(W.SWIADOMOSC_ULICY);
         }
         else {
-            slabosciCharakteru.add(Warunek.NIESWIADOMOSC_ULICY);
+            slabosciCharakteru.add(W.NIESWIADOMOSC_ULICY);
         }
         if(swiadomoscZagrozen){
-            przewagiCharakteru.add(Warunek.SWIADOMOSC_ZAGROZEN);
+            przewagiCharakteru.add(W.SWIADOMOSC_ZAGROZEN);
         }
         else {
-            slabosciCharakteru.add(Warunek.NIESWIADOMOSC_ZAGROZEN);
+            slabosciCharakteru.add(W.NIESWIADOMOSC_ZAGROZEN);
         }
         if(swiadomoscPrzewag){
-            przewagiCharakteru.add(Warunek.SWIADOMOSC_PRZEWAG);
+            przewagiCharakteru.add(W.SWIADOMOSC_PRZEWAG);
         }
         else {
-            slabosciCharakteru.add(Warunek.NIESWIADOMOSC_PRZEWAG);
+            slabosciCharakteru.add(W.NIESWIADOMOSC_PRZEWAG);
         }
         if(swiadomoscRynkuPracy){
-            przewagiCharakteru.add(Warunek.SWIADOMOSC_RYNKU_PRACY);
+            przewagiCharakteru.add(W.SWIADOMOSC_RYNKU_PRACY);
         }
         else {
-            slabosciCharakteru.add(Warunek.NIESWIADOMOSC_RYNKU_PRACY);
+            slabosciCharakteru.add(W.NIESWIADOMOSC_RYNKU_PRACY);
         }
         if(swiadomoscPatologiiZwiazkow){
-            przewagiCharakteru.add(Warunek.SWIADOMOSC_PATOLOGII_ZWIAZKOW);
+            przewagiCharakteru.add(W.SWIADOMOSC_PATOLOGII_ZWIAZKOW);
         }
         else {
-            slabosciCharakteru.add(Warunek.NIESWIADOMOSC_PATOLOGII_ZWIAZKOW);
+            slabosciCharakteru.add(W.NIESWIADOMOSC_PATOLOGII_ZWIAZKOW);
         }
         if(madrosc){
-            przewagiCharakteru.add(Warunek.MADROSC);
+            przewagiCharakteru.add(W.MADROSC);
         }
         if(wiedza){
-            przewagiCharakteru.add(Warunek.WIEDZA);
+            przewagiCharakteru.add(W.WIEDZA);
         }
         else {
-            slabosciCharakteru.add(Warunek.BRAK_WIEDZY);
+            slabosciCharakteru.add(W.BRAK_WIEDZY);
         }
         if(sila){
-            przewagiCharakteru.add(Warunek.SILA);
+            przewagiCharakteru.add(W.SILA);
         }
         else {
-            slabosciCharakteru.add(Warunek.SLABY);
+            slabosciCharakteru.add(W.SLABY);
         }
         if(cel){
-            przewagiCharakteru.add(Warunek.POSIADA_CELE);
+            przewagiCharakteru.add(W.POSIADA_CELE);
         }
         else {
-            slabosciCharakteru.add(Warunek.BRAK_CELU);
+            slabosciCharakteru.add(W.BRAK_CELU);
         }
         if(zKims){
-            przewagiCharakteru.add(Warunek.Z_KIMS);
+            przewagiCharakteru.add(W.Z_KIMS);
         }
         else {
-            slabosciCharakteru.add(Warunek.SAM);
+            slabosciCharakteru.add(W.SAM);
         }
         if(zWaznym){
-            przewagiCharakteru.add(Warunek.Z_MOCNYM);
+            przewagiCharakteru.add(W.Z_MOCNYM);
         }
         else {
-            slabosciCharakteru.add(Warunek.Z_NIEWAZNYM);
+            slabosciCharakteru.add(W.Z_NIEWAZNYM);
         }
         if(czynny){
-            przewagiCharakteru.add(Warunek.CZYNNY);
+            przewagiCharakteru.add(W.CZYNNY);
         }
         if(bierny){
-            slabosciCharakteru.add(Warunek.BIERNY);
+            slabosciCharakteru.add(W.BIERNY);
         }
         if(stwarzaPointCut){
-            przewagiCharakteru.add(Warunek.STWARZA_POINTCUTY);
+            przewagiCharakteru.add(W.STWARZA_POINTCUTY);
         }
         else {
-            slabosciCharakteru.add(Warunek.NIESTWARZA_POINTCUTOW);
+            slabosciCharakteru.add(W.NIESTWARZA_POINTCUTOW);
         }
         if(chceLepszegoZycia){
-            przewagiCharakteru.add(Warunek.CHCE_LEPSZEGO_ZYCIA);
+            przewagiCharakteru.add(W.CHCE_LEPSZEGO_ZYCIA);
         }
         if(chceWygod){
-            slabosciCharakteru.add(Warunek.CHCE_WYGOD);
+            slabosciCharakteru.add(W.CHCE_WYGOD);
         }
         if(kurestwo){
-            slabosciCharakteru.add(Warunek.KURESTWO);
-            slabosciCharakteru.add(Warunek.PIERDOLI_GO_MIEJSCE);
-            slabosciCharakteru.add(Warunek.PIERDOLI_GO_OKOLICZNOSC);
-            slabosciCharakteru.add(Warunek.PIERDOLA_GO_OSOBY);
-            slabosciCharakteru.add(Warunek.PIERDOLI_GO_TWOJ_WYSILEK);
-            slabosciCharakteru.add(Warunek.PIERDOLI_GO_ILE_PRACOWALES);
-            slabosciCharakteru.add(Warunek.WYKORZYSTUJE_BRAK_PRZEWAG);
+            slabosciCharakteru.add(W.KURESTWO);
+            slabosciCharakteru.add(W.PIERDOLI_GO_MIEJSCE);
+            slabosciCharakteru.add(W.PIERDOLI_GO_OKOLICZNOSC);
+            slabosciCharakteru.add(W.PIERDOLA_GO_OSOBY);
+            slabosciCharakteru.add(W.PIERDOLI_GO_TWOJ_WYSILEK);
+            slabosciCharakteru.add(W.PIERDOLI_GO_ILE_PRACOWALES);
+            slabosciCharakteru.add(W.WYKORZYSTUJE_BRAK_PRZEWAG);
         }
         else {
-            przewagiCharakteru.add(Warunek.ZWAZA_NA_MIEJSCE);
-            przewagiCharakteru.add(Warunek.ZWAZA_NA_OKOLICZNOSC);
-            przewagiCharakteru.add(Warunek.ZWAZA_NA_OSOBY);
-            przewagiCharakteru.add(Warunek.ZWAZA_NA_WYSILEK);
-            przewagiCharakteru.add(Warunek.ZWAZA_ILE_KTO_PRACOWAL);
-            przewagiCharakteru.add(Warunek.OLEWA_PRZEWAGI_PRZY_OCENIE);
+            przewagiCharakteru.add(W.ZWAZA_NA_MIEJSCE);
+            przewagiCharakteru.add(W.ZWAZA_NA_OKOLICZNOSC);
+            przewagiCharakteru.add(W.ZWAZA_NA_OSOBY);
+            przewagiCharakteru.add(W.ZWAZA_NA_WYSILEK);
+            przewagiCharakteru.add(W.ZWAZA_ILE_KTO_PRACOWAL);
+            przewagiCharakteru.add(W.OLEWA_PRZEWAGI_PRZY_OCENIE);
         }
         if(tepiKurestwo){
-            przewagiCharakteru.add(Warunek.TEPI_KURESTWO);
+            przewagiCharakteru.add(W.TEPI_KURESTWO);
         }
         if(zasady){
-            przewagiCharakteru.add(Warunek.ZASADY);
+            przewagiCharakteru.add(W.ZASADY);
         }
         else {
-            slabosciCharakteru.add(Warunek.BRAK_ZASAD);
+            slabosciCharakteru.add(W.BRAK_ZASAD);
         }
         if(kregoslupMoralny){
-            przewagiCharakteru.add(Warunek.KREGOSLUP_MORALNY);
+            przewagiCharakteru.add(W.KREGOSLUP_MORALNY);
         }
         else {
-            slabosciCharakteru.add(Warunek.BRAK_KREGOSLUPA_MORALNEGO);
+            slabosciCharakteru.add(W.BRAK_KREGOSLUPA_MORALNEGO);
         }
         if(sprzet){
-            przewagiCharakteru.add(Warunek.ZDOLNY_WALKA_SPRZET);
+            przewagiCharakteru.add(W.ZDOLNY_WALKA_SPRZET);
         }
         else {
-            slabosciCharakteru.add(Warunek.NIEZDOLNY_WALKA_SPRZET);
+            slabosciCharakteru.add(W.NIEZDOLNY_WALKA_SPRZET);
         }
         if(wiecznyImigrant){
-            slabosciCharakteru.add(Warunek.BRAK_THREAD_WHILE_LOOP_BLISKOSC_U);
-            slabosciCharakteru.add(Warunek.BRAK_SRODOWISKA);
-            slabosciCharakteru.add(Warunek.BRAK_SZANS_SRODOWISKO);
-            slabosciCharakteru.add(Warunek.BRAK_DOSTEPU_DOBRE_JEDNOSTKI);
-            slabosciCharakteru.add(Warunek.BRAK_DOSTEPU_DOBRE_JEDNOSTKI);
-            slabosciCharakteru.add(Warunek.BRAK_DOSTEPU_BIEGACZE);
-            slabosciCharakteru.add(Warunek.BRAK_MAGICZNYCH_ZAKLEC);
-            slabosciCharakteru.add(Warunek.BRAK_OD_KOGO_JESTES);
+            slabosciCharakteru.add(W.BRAK_THREAD_WHILE_LOOP_BLISKOSC_U);
+            slabosciCharakteru.add(W.BRAK_SRODOWISKA);
+            slabosciCharakteru.add(W.BRAK_SZANS_SRODOWISKO);
+            slabosciCharakteru.add(W.BRAK_DOSTEPU_DOBRE_JEDNOSTKI);
+            slabosciCharakteru.add(W.BRAK_DOSTEPU_DOBRE_JEDNOSTKI);
+            slabosciCharakteru.add(W.BRAK_DOSTEPU_BIEGACZE);
+            slabosciCharakteru.add(W.BRAK_MAGICZNYCH_ZAKLEC);
+            slabosciCharakteru.add(W.BRAK_OD_KOGO_JESTES);
         }
         if(osiedloweSrd){
-            przewagiCharakteru.add(Warunek.THREAD_WHILE_LOOP_BLISKOSC_U);
-            przewagiCharakteru.add(Warunek.SRODOWISKO);
-            przewagiCharakteru.add(Warunek.SZANSA_OSIEDLOWE_SRD);
-            przewagiCharakteru.add(Warunek.SZANSA_ZNAJOMI);
-            przewagiCharakteru.add(Warunek.SZANSA_KOBIETA);
-            przewagiCharakteru.add(Warunek.BRAK_DOSTEPU_DOBRE_JEDNOSTKI);
-            przewagiCharakteru.add(Warunek.BRAK_DOSTEPU_BIEGACZE);
-            przewagiCharakteru.add(Warunek.BRAK_MAGICZNYCH_ZAKLEC);
-            przewagiCharakteru.add(Warunek.BRAK_OD_KOGO_JESTES);
+            przewagiCharakteru.add(W.THREAD_WHILE_LOOP_BLISKOSC_U);
+            przewagiCharakteru.add(W.SRODOWISKO);
+            przewagiCharakteru.add(W.SZANSA_OSIEDLOWE_SRD);
+            przewagiCharakteru.add(W.SZANSA_ZNAJOMI);
+            przewagiCharakteru.add(W.SZANSA_KOBIETA);
+            przewagiCharakteru.add(W.BRAK_DOSTEPU_DOBRE_JEDNOSTKI);
+            przewagiCharakteru.add(W.BRAK_DOSTEPU_BIEGACZE);
+            przewagiCharakteru.add(W.BRAK_MAGICZNYCH_ZAKLEC);
+            przewagiCharakteru.add(W.BRAK_OD_KOGO_JESTES);
         }
         if(osiedloweSrd && mocnaJednostka){
-            przewagiCharakteru.add(Warunek.THREAD_WHILE_LOOP_BLISKOSC_U);
-            przewagiCharakteru.add(Warunek.SRODOWISKO);
-            przewagiCharakteru.add(Warunek.SZANSA_OSIEDLOWE_SRD);
-            przewagiCharakteru.add(Warunek.SZANSA_ZNAJOMI);
-            przewagiCharakteru.add(Warunek.SZANSA_KOBIETA);
-            przewagiCharakteru.add(Warunek.DOSTEP_DOBRE_JEDNOSTKI);
-            przewagiCharakteru.add(Warunek.DOSTEP_BIEGACZE);
-            przewagiCharakteru.add(Warunek.MAGICZNE_ZAKLECIA);
-            przewagiCharakteru.add(Warunek.WIE_OD_KOGO_JEST);
+            przewagiCharakteru.add(W.THREAD_WHILE_LOOP_BLISKOSC_U);
+            przewagiCharakteru.add(W.SRODOWISKO);
+            przewagiCharakteru.add(W.SZANSA_OSIEDLOWE_SRD);
+            przewagiCharakteru.add(W.SZANSA_ZNAJOMI);
+            przewagiCharakteru.add(W.SZANSA_KOBIETA);
+            przewagiCharakteru.add(W.DOSTEP_DOBRE_JEDNOSTKI);
+            przewagiCharakteru.add(W.DOSTEP_BIEGACZE);
+            przewagiCharakteru.add(W.MAGICZNE_ZAKLECIA);
+            przewagiCharakteru.add(W.WIE_OD_KOGO_JEST);
         }
         if(poCichu){
-            slabosciCharakteru.add(Warunek.PO_CICHU);
+            slabosciCharakteru.add(W.PO_CICHU);
         }
         else {
-            przewagiCharakteru.add(Warunek.KONFRONTACJA_F2F);
+            przewagiCharakteru.add(W.KONFRONTACJA_F2F);
         }
         if(zdolnyWalka){
-            przewagiCharakteru.add(Warunek.ZDOLNY_DO_WALKI);
+            przewagiCharakteru.add(W.ZDOLNY_DO_WALKI);
         }
         else {
-            slabosciCharakteru.add(Warunek.NIEZDOLNY_WALKA);
+            slabosciCharakteru.add(W.NIEZDOLNY_WALKA);
         }
         if(zdolnyRyzyko){
-            przewagiCharakteru.add(Warunek.ZDOLNY_DO_RYZYKA);
+            przewagiCharakteru.add(W.ZDOLNY_DO_RYZYKA);
         }
         else {
-            slabosciCharakteru.add(Warunek.NIEZDOLNY_RYZYKO);
+            slabosciCharakteru.add(W.NIEZDOLNY_RYZYKO);
         }
         if(stwarzaZagrozenie){
-            przewagiCharakteru.add(Warunek.STWARZA_ZAGROZENIE);
+            przewagiCharakteru.add(W.STWARZA_ZAGROZENIE);
         }
         else {
-            slabosciCharakteru.add(Warunek.NIESTWARZA_ZAGROZENIA);
+            slabosciCharakteru.add(W.NIESTWARZA_ZAGROZENIA);
         }
         if(bezposredniosc){
-            przewagiCharakteru.add(Warunek.BEZPOSREDNI);
-            przewagiCharakteru.add(Warunek.SMIALY);
+            przewagiCharakteru.add(W.BEZPOSREDNI);
+            przewagiCharakteru.add(W.SMIALY);
         }
         else {
-            slabosciCharakteru.add(Warunek.WSTYD);
+            slabosciCharakteru.add(W.WSTYD);
         }
         if(umieKlucic){
-            przewagiCharakteru.add(Warunek.UMIE_KLUCIC);
+            przewagiCharakteru.add(W.UMIE_KLUCIC);
         }
         else {
-            slabosciCharakteru.add(Warunek.NIEUMIE_KLUCIC);
+            slabosciCharakteru.add(W.NIEUMIE_KLUCIC);
         }
         if(umieCisnac){
-            przewagiCharakteru.add(Warunek.UMIE_CISNAC);
+            przewagiCharakteru.add(W.UMIE_CISNAC);
         }
         else {
-            slabosciCharakteru.add(Warunek.NIEUMIE_CISNAC);
+            slabosciCharakteru.add(W.NIEUMIE_CISNAC);
         }
         if(broniGlobalu){
-            przewagiCharakteru.add(Warunek.BRONI_GLOBALU);
+            przewagiCharakteru.add(W.BRONI_GLOBALU);
         }
         if(broniHierarchii){
-            slabosciCharakteru.add(Warunek.BRONI_HIERARCHII);
+            slabosciCharakteru.add(W.BRONI_HIERARCHII);
         }
         if(wyklucza){
-            slabosciCharakteru.add(Warunek.WYKLUCZA);
+            slabosciCharakteru.add(W.WYKLUCZA);
         }
         else {
-            przewagiCharakteru.add(Warunek.UDZIELA_DOSTEPU);
+            przewagiCharakteru.add(W.UDZIELA_DOSTEPU);
         }
         if(ukrywaDobra){
-            slabosciCharakteru.add(Warunek.UKRYWA_DOBRA);
+            slabosciCharakteru.add(W.UKRYWA_DOBRA);
         }
         else {
-            przewagiCharakteru.add(Warunek.DZIELI_SIE_DOBRAMI);
+            przewagiCharakteru.add(W.DZIELI_SIE_DOBRAMI);
         }
         if(skreslaNaZawsze){
-            slabosciCharakteru.add(Warunek.SKRESLA_NA_ZAWSZE);
+            slabosciCharakteru.add(W.SKRESLA_NA_ZAWSZE);
         }
         if(staleDokrecaSrube){
-            slabosciCharakteru.add(Warunek.STALE_DOKRECA_SRUBE);
+            slabosciCharakteru.add(W.STALE_DOKRECA_SRUBE);
         }
         if(zdolnyDoOdpuszczenia){
-            przewagiCharakteru.add(Warunek.ZDOLNY_DO_WYBACZENIA);
+            przewagiCharakteru.add(W.ZDOLNY_DO_WYBACZENIA);
         }
         if(resetAble){
-            slabosciCharakteru.add(Warunek.RESETABLE);
+            slabosciCharakteru.add(W.RESETABLE);
         }
         else {
-            przewagiCharakteru.add(Warunek.STALE_POGLADY);
+            przewagiCharakteru.add(W.STALE_POGLADY);
         }
         if(posluszny){
-            slabosciCharakteru.add(Warunek.POSLUSZNY);
+            slabosciCharakteru.add(W.POSLUSZNY);
         }
         if(przekonywalny){
-            slabosciCharakteru.add(Warunek.PRZEKONYWALNY);
+            slabosciCharakteru.add(W.PRZEKONYWALNY);
         }
         if(niezaleznosc){
-            przewagiCharakteru.add(Warunek.NIEZALEZNY);
+            przewagiCharakteru.add(W.NIEZALEZNY);
         }
         else {
-            slabosciCharakteru.add(Warunek.ZALEZNY);
+            slabosciCharakteru.add(W.ZALEZNY);
         }
         if(glupi){
-            slabosciCharakteru.add(Warunek.GLUPI);
+            slabosciCharakteru.add(W.GLUPI);
         }
         if(traktowanieZGory){
-            slabosciCharakteru.add(Warunek.TRAKTOWANIE_Z_GORY);
+            slabosciCharakteru.add(W.TRAKTOWANIE_Z_GORY);
         }
         else {
-            przewagiCharakteru.add(Warunek.OSTROZNIE_OCENIA);
+            przewagiCharakteru.add(W.OSTROZNIE_OCENIA);
         }
         if(ignorowanieInformacji){
-            slabosciCharakteru.add(Warunek.IGNOROWANIE_INFORMACJI);
+            slabosciCharakteru.add(W.IGNOROWANIE_INFORMACJI);
         }
         else {
-            przewagiCharakteru.add(Warunek.ZWAZA_NA_KAZDA_INFORMACJE);
+            przewagiCharakteru.add(W.ZWAZA_NA_KAZDA_INFORMACJE);
         }
         if(lukiOsobowosci){
-            slabosciCharakteru.add(Warunek.LUKI_OSOBOWOSCI);
+            slabosciCharakteru.add(W.LUKI_OSOBOWOSCI);
         }
         if(egoista){
-            slabosciCharakteru.add(Warunek.EGOISTA);
+            slabosciCharakteru.add(W.EGOISTA);
         }
 
         if(zazdrosc){
-            slabosciCharakteru.add(Warunek.ZAZDROSC);
+            slabosciCharakteru.add(W.ZAZDROSC);
         }
         else {
-            przewagiCharakteru.add(Warunek.WSPIERA_W_OSIAGNIECIU_PRZEWAGI);
+            przewagiCharakteru.add(W.WSPIERA_W_OSIAGNIECIU_PRZEWAGI);
         }
         if(agresja){
-            slabosciCharakteru.add(Warunek.AGRESJA_FIZYCZNA);
-            slabosciCharakteru.add(Warunek.AGRESJA_PSYCHICZNA);
+            slabosciCharakteru.add(W.AGRESJA_FIZYCZNA);
+            slabosciCharakteru.add(W.AGRESJA_PSYCHICZNA);
         }
         else {
-            przewagiCharakteru.add(Warunek.CIERPLIWOSC);
+            przewagiCharakteru.add(W.CIERPLIWOSC);
         }
         if(klamstwo){
-            slabosciCharakteru.add(Warunek.KLAMSTWO);
+            slabosciCharakteru.add(W.KLAMSTWO);
         }
         else {
-            przewagiCharakteru.add(Warunek.PRAWDA);
+            przewagiCharakteru.add(W.PRAWDA);
         }
         if(niestabilnoscUmyslowa){
-            slabosciCharakteru.add(Warunek.NIESTABILNOSC_UMYSLOWA);
+            slabosciCharakteru.add(W.NIESTABILNOSC_UMYSLOWA);
         }
         if(brakOkresleniaSkali){
-            slabosciCharakteru.add(Warunek.BRAK_OKRESLENIA_SKALI);
+            slabosciCharakteru.add(W.BRAK_OKRESLENIA_SKALI);
         }
         else {
-            przewagiCharakteru.add(Warunek.DOBRA_SONDA);
+            przewagiCharakteru.add(W.DOBRA_SONDA);
         }
         if(brakCheci){
-            slabosciCharakteru.add(Warunek.BRAK_CHECI_DZIALNIA);
+            slabosciCharakteru.add(W.BRAK_CHECI_DZIALNIA);
         }
         else {
-            przewagiCharakteru.add(Warunek.CHETNY_DZIALANIA);
+            przewagiCharakteru.add(W.CHETNY_DZIALANIA);
         }
         if(hajsWDomu){
-            slabosciCharakteru.add(Warunek.HAJS_W_DOMU);
-            slabosciCharakteru.add(Warunek.BOGATY);
+            slabosciCharakteru.add(W.HAJS_W_DOMU);
+            slabosciCharakteru.add(W.BOGATY);
         }
         if(bogaty){
-            slabosciCharakteru.add(Warunek.BOGATY);
+            slabosciCharakteru.add(W.BOGATY);
         }
         if(biedny){
-            przewagiCharakteru.add(Warunek.BIEDNY);
+            przewagiCharakteru.add(W.BIEDNY);
         }
         if(jedynak){
-            slabosciCharakteru.add(Warunek.JEDYNAK);
+            slabosciCharakteru.add(W.JEDYNAK);
         }
         else {
-            przewagiCharakteru.add(Warunek.MA_RODZENSTWO);
+            przewagiCharakteru.add(W.MA_RODZENSTWO);
         }
         if(systemowiec){
-            slabosciCharakteru.add(Warunek.SYSTEMOWIEC);
+            slabosciCharakteru.add(W.SYSTEMOWIEC);
         }
         else {
-            przewagiCharakteru.add(Warunek.ANTY_SYSTEM);
+            przewagiCharakteru.add(W.ANTY_SYSTEM);
         }
         if(studia){
-            slabosciCharakteru.add(Warunek.STUDIA);
-            slabosciCharakteru.add(Warunek.POSLUSZNY);
-            slabosciCharakteru.add(Warunek.SYSTEMOWIEC);
-            slabosciCharakteru.add(Warunek.BEZPIECZENSTWO);
-            slabosciCharakteru.add(Warunek.WOLNOSC_LEKKOSC);
-            slabosciCharakteru.add(Warunek.EUROPEJSKI);
-            slabosciCharakteru.add(Warunek.WRAZLIWY);
-            slabosciCharakteru.add(Warunek.NIEZDOLNY_RYZYKO);
+            slabosciCharakteru.add(W.STUDIA);
+            slabosciCharakteru.add(W.POSLUSZNY);
+            slabosciCharakteru.add(W.SYSTEMOWIEC);
+            slabosciCharakteru.add(W.BEZPIECZENSTWO);
+            slabosciCharakteru.add(W.WOLNOSC_LEKKOSC);
+            slabosciCharakteru.add(W.EUROPEJSKI);
+            slabosciCharakteru.add(W.WRAZLIWY);
+            slabosciCharakteru.add(W.NIEZDOLNY_RYZYKO);
         }
         else {
-            przewagiCharakteru.add(Warunek.BRAK_STUDIOW);
+            przewagiCharakteru.add(W.BRAK_STUDIOW);
         }
         if(bezpieczenstwo){
-            slabosciCharakteru.add(Warunek.BEZPIECZENSTWO);
+            slabosciCharakteru.add(W.BEZPIECZENSTWO);
         }
         else {
-            przewagiCharakteru.add(Warunek.NIEBEZPIECZENSTWO);
+            przewagiCharakteru.add(W.NIEBEZPIECZENSTWO);
         }
         if(bagatelizujeZagrozenie){
-            slabosciCharakteru.add(Warunek.BAGATELIZUJE_ZAGROZENIE);
+            slabosciCharakteru.add(W.BAGATELIZUJE_ZAGROZENIE);
         }
         else {
-            przewagiCharakteru.add(Warunek.ZWAZA_NA_ZAGROZENIE);
+            przewagiCharakteru.add(W.ZWAZA_NA_ZAGROZENIE);
         }
         if(nieznaCierpienia){
-            slabosciCharakteru.add(Warunek.NIEZNA_CIERPIENIA);
+            slabosciCharakteru.add(W.NIEZNA_CIERPIENIA);
         }
         else {
-            przewagiCharakteru.add(Warunek.ZNA_CIERPIENIE);
+            przewagiCharakteru.add(W.ZNA_CIERPIENIE);
         }
         if(zuchwaly){
-            slabosciCharakteru.add(Warunek.ZUCHWALY);
+            slabosciCharakteru.add(W.ZUCHWALY);
         }
         else {
-            przewagiCharakteru.add(Warunek.OSTROZNY);
+            przewagiCharakteru.add(W.OSTROZNY);
         }
         if(sztuczny){
-            slabosciCharakteru.add(Warunek.SZTUCZNY);
+            slabosciCharakteru.add(W.SZTUCZNY);
         }
         else {
-            przewagiCharakteru.add(Warunek.PRAWDZIWY);
+            przewagiCharakteru.add(W.PRAWDZIWY);
         }
         if(zycieZDniaNaDzien){
-            slabosciCharakteru.add(Warunek.ZYJE_Z_DNIA_NA_DZIEN);
+            slabosciCharakteru.add(W.ZYJE_Z_DNIA_NA_DZIEN);
         }
         else {
-            przewagiCharakteru.add(Warunek.ZYJE_DLUGOTERMINOWO);
+            przewagiCharakteru.add(W.ZYJE_DLUGOTERMINOWO);
         }
         if(wyjebane){
-            slabosciCharakteru.add(Warunek.WYJEBANE);
+            slabosciCharakteru.add(W.WYJEBANE);
         }
         else {
-            przewagiCharakteru.add(Warunek.TRAKTUJE_POWAZNIE);
+            przewagiCharakteru.add(W.TRAKTUJE_POWAZNIE);
         }
         if(wrazliwy){
-            slabosciCharakteru.add(Warunek.WRAZLIWY);
+            slabosciCharakteru.add(W.WRAZLIWY);
         }
         else {
-            przewagiCharakteru.add(Warunek.TWARDY);
+            przewagiCharakteru.add(W.TWARDY);
         }
         if(wolnoscLekkosc){
-            slabosciCharakteru.add(Warunek.WOLNOSC_LEKKOSC);
+            slabosciCharakteru.add(W.WOLNOSC_LEKKOSC);
         }
         if(europejski){
-            slabosciCharakteru.add(Warunek.EUROPEJSKI);
+            slabosciCharakteru.add(W.EUROPEJSKI);
         }
         else {
-            przewagiCharakteru.add(Warunek.NARODOWY);
+            przewagiCharakteru.add(W.NARODOWY);
         }
         if(rasista){
-            przewagiCharakteru.add(Warunek.RASISTA);
+            przewagiCharakteru.add(W.RASISTA);
         }
         if(czas){
-            przewagiCharakteru.add(Warunek.CZAS);
+            przewagiCharakteru.add(W.CZAS);
         }
         else {
-            slabosciCharakteru.add(Warunek.BRAK_CZASU);
+            slabosciCharakteru.add(W.BRAK_CZASU);
         }
         if(dostepnosc){
-            przewagiCharakteru.add(Warunek.DOSTEPNY);
+            przewagiCharakteru.add(W.DOSTEPNY);
         }
         else {
-            slabosciCharakteru.add(Warunek.NIEDOSTEPNY);
+            slabosciCharakteru.add(W.NIEDOSTEPNY);
         }
         if(praca && pasja){
-            slabosciCharakteru.add(Warunek.BRAK_CZASU);
-            slabosciCharakteru.add(Warunek.NIEDOSTEPNY);
+            slabosciCharakteru.add(W.BRAK_CZASU);
+            slabosciCharakteru.add(W.NIEDOSTEPNY);
         }
         if(!(narkotyki || picie || palenie)){
-            przewagiCharakteru.add(Warunek.TRZEZWOSC);
+            przewagiCharakteru.add(W.TRZEZWOSC);
         }
         if(nalog){
-            slabosciCharakteru.add(Warunek.NALOG);
+            slabosciCharakteru.add(W.NALOG);
         }
         if(narkotyki){
-            slabosciCharakteru.add(Warunek.NARKOTYKI);
+            slabosciCharakteru.add(W.NARKOTYKI);
         }
         if(picie){
-            slabosciCharakteru.add(Warunek.PICIE);
+            slabosciCharakteru.add(W.PICIE);
         }
         if(palenie){
-            slabosciCharakteru.add(Warunek.PALENIE);
+            slabosciCharakteru.add(W.PALENIE);
         }
         if(brzydki){
-            slabosciCharakteru.add(Warunek.BRZYDKI);
+            slabosciCharakteru.add(W.BRZYDKI);
         }
         if(ladny){
-            przewagiCharakteru.add(Warunek.LADNY);
+            przewagiCharakteru.add(W.LADNY);
         }
         if(sexZ.size() > 2){
             szlauf = true;
-            slabosciCharakteru.add(Warunek.WYJEZDZENIE);
-            slabosciCharakteru.add(Warunek.SZLAUF);
+            slabosciCharakteru.add(W.WYJEZDZENIE);
+            slabosciCharakteru.add(W.SZLAUF);
         }
         if(sexZ.stream().anyMatch(TypSex.BRAK::equals)){
-            przewagiCharakteru.add(Warunek.BRAK_SEXU);
-            przewagiCharakteru.add(Warunek.DZIEWICA);
+            przewagiCharakteru.add(W.BRAK_SEXU);
+            przewagiCharakteru.add(W.DZIEWICA);
         }
         if(sexZ.stream().anyMatch(TypSex.Z_PARTNEREM::equals)){
-            przewagiCharakteru.add(Warunek.SEX_Z_PARTNEREM);
+            przewagiCharakteru.add(W.SEX_Z_PARTNEREM);
         }
         if(sexZ.stream().anyMatch(TypSex.ZE_ZNAJOMYMI::equals)){
-            slabosciCharakteru.add(Warunek.SEX_ZE_ZNAJOMIMI);
+            slabosciCharakteru.add(W.SEX_ZE_ZNAJOMIMI);
         }
         if(sexZ.stream().anyMatch(TypSex.Z_NIEZNAJOMYMI::equals)){
-            slabosciCharakteru.add(Warunek.SEX_Z_NIEZNAJOMYMI);
+            slabosciCharakteru.add(W.SEX_Z_NIEZNAJOMYMI);
         }
         if(sexZ.stream().anyMatch(TypSex.Z_ZAGRANICZNYMI::equals)){
-            slabosciCharakteru.add(Warunek.SEX_Z_ZAGRANICZNYMI);
+            slabosciCharakteru.add(W.SEX_Z_ZAGRANICZNYMI);
         }
         if(sexZ.stream().anyMatch(TypSex.MIEDZYRASOWY::equals)){
-            slabosciCharakteru.add(Warunek.SEX_MIEDZY_RASOWY);
+            slabosciCharakteru.add(W.SEX_MIEDZY_RASOWY);
         }
 
         if(sexZ.stream().anyMatch(TypSex.Z_ZAGRANICZNYMI::equals) || sexZ.stream().anyMatch(TypSex.MIEDZYRASOWY::equals)){
             worekNaSpermeZagranicznych = true;
-            slabosciCharakteru.add(Warunek.WOREK_NA_SPERME_ZAGRANICZNYCH);
+            slabosciCharakteru.add(W.WOREK_NA_SPERME_ZAGRANICZNYCH);
         }
         if(mily){
-            przewagiCharakteru.add(Warunek.MILY);
+            przewagiCharakteru.add(W.MILY);
         }
         else {
-            slabosciCharakteru.add(Warunek.NIEMILY);
+            slabosciCharakteru.add(W.NIEMILY);
         }
         if(otwartyNaZwiazek){
-            przewagiCharakteru.add(Warunek.OTWARTY_NA_ZWIAZEK);
+            przewagiCharakteru.add(W.OTWARTY_NA_ZWIAZEK);
         }
         else {
-            slabosciCharakteru.add(Warunek.ZAMKNIETY_NA_ZWIAZEK);
+            slabosciCharakteru.add(W.ZAMKNIETY_NA_ZWIAZEK);
         }
         if(restrykcjaZnajomych){
-            slabosciCharakteru.add(Warunek.RESTRYKCJA_ZNAJOMYCH);
+            slabosciCharakteru.add(W.RESTRYKCJA_ZNAJOMYCH);
         }
         else {
-            przewagiCharakteru.add(Warunek.DOPUSZCZA_NIEZNAJOMYCH);
+            przewagiCharakteru.add(W.DOPUSZCZA_NIEZNAJOMYCH);
         }
         if(odwracaWzrok){
-            slabosciCharakteru.add(Warunek.ODWRACA_WZROK);
-            slabosciCharakteru.add(Warunek.NIE_PATRZY);
+            slabosciCharakteru.add(W.ODWRACA_WZROK);
+            slabosciCharakteru.add(W.NIE_PATRZY);
         }
         else {
-            przewagiCharakteru.add(Warunek.PATRZY);
+            przewagiCharakteru.add(W.PATRZY);
         }
         if(reagujeNaBodzce){
-            przewagiCharakteru.add(Warunek.REAGUJE_NA_BODZCE);
-            przewagiCharakteru.add(Warunek.USMIECHA_SIE);
-            przewagiCharakteru.add(Warunek.SMIEJE_SIE);
+            przewagiCharakteru.add(W.REAGUJE_NA_BODZCE);
+            przewagiCharakteru.add(W.USMIECHA_SIE);
+            przewagiCharakteru.add(W.SMIEJE_SIE);
         }
         else {
-            slabosciCharakteru.add(Warunek.NIEREAGUJE_NA_BODZCE);
+            slabosciCharakteru.add(W.NIEREAGUJE_NA_BODZCE);
         }
         if(zajety){
-            slabosciCharakteru.add(Warunek.ZAJETY);
+            slabosciCharakteru.add(W.ZAJETY);
         }
         else {
-            przewagiCharakteru.add(Warunek.WOLNA);
+            przewagiCharakteru.add(W.WOLNA);
         }
         if(przestrzegaPrawa){
-            slabosciCharakteru.add(Warunek.PRZESTRZEGA_PRAWA);
+            slabosciCharakteru.add(W.PRZESTRZEGA_PRAWA);
         }
         if(wyrok){
-            slabosciCharakteru.add(Warunek.WYROK);
+            slabosciCharakteru.add(W.WYROK);
         }
         else {
-            przewagiCharakteru.add(Warunek.NIEKARALNOSC);
+            przewagiCharakteru.add(W.NIEKARALNOSC);
         }
         if(konfi){
-            slabosciCharakteru.add(Warunek.KONFI);
-            slabosciCharakteru.add(Warunek.PRZEJEBANE);
-            slabosciCharakteru.add(Warunek.HANBA);
-            slabosciCharakteru.add(Warunek.BRAK_THREAD_WHILE_LOOP_BLISKOSC_U);
-            slabosciCharakteru.add(Warunek.BRAK_SRODOWISKA);
-            slabosciCharakteru.add(Warunek.BRAK_SZANS_SRODOWISKO);
-            slabosciCharakteru.add(Warunek.BRAK_DOSTEPU_DOBRE_JEDNOSTKI);
-            slabosciCharakteru.add(Warunek.BRAK_DOSTEPU_DOBRE_JEDNOSTKI);
-            slabosciCharakteru.add(Warunek.BRAK_DOSTEPU_BIEGACZE);
-            slabosciCharakteru.add(Warunek.BRAK_MAGICZNYCH_ZAKLEC);
-            slabosciCharakteru.add(Warunek.BRAK_OD_KOGO_JESTES);
+            slabosciCharakteru.add(W.KONFI);
+            slabosciCharakteru.add(W.PRZEJEBANE);
+            slabosciCharakteru.add(W.HANBA);
+            slabosciCharakteru.add(W.BRAK_THREAD_WHILE_LOOP_BLISKOSC_U);
+            slabosciCharakteru.add(W.BRAK_SRODOWISKA);
+            slabosciCharakteru.add(W.BRAK_SZANS_SRODOWISKO);
+            slabosciCharakteru.add(W.BRAK_DOSTEPU_DOBRE_JEDNOSTKI);
+            slabosciCharakteru.add(W.BRAK_DOSTEPU_DOBRE_JEDNOSTKI);
+            slabosciCharakteru.add(W.BRAK_DOSTEPU_BIEGACZE);
+            slabosciCharakteru.add(W.BRAK_MAGICZNYCH_ZAKLEC);
+            slabosciCharakteru.add(W.BRAK_OD_KOGO_JESTES);
         }
         if(standardZachowania){
-            przewagiCharakteru.add(Warunek.MA_STANDARD_ZACHOWANIA);
+            przewagiCharakteru.add(W.MA_STANDARD_ZACHOWANIA);
         }
         if(TypPunktZerowy.BARDZO_WYSOKO.equals(punktZerowy) || TypPunktZerowy.WYSOKO.equals(punktZerowy)){
-            slabosciCharakteru.add(Warunek.RESTRYKCJA_ZNAJOMYCH);
+            slabosciCharakteru.add(W.RESTRYKCJA_ZNAJOMYCH);
         }
 
         przewagi = przewagiCharakteru;

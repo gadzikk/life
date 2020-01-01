@@ -2,7 +2,7 @@ package z_inne;
 
 import typy_bazowe.TypIlosc;
 import typy_bazowe.TypStrony;
-import warunek.Warunek;
+import warunek.W;
 
 import java.util.List;
 
@@ -10,10 +10,10 @@ import java.util.List;
  * Created by gadzik on 25.12.19.
  */
 public class Rezultat {
-    List<Warunek> skutki;
+    List<W> skutki;
     TypStrony stronaSkutku;
 
-    List<Warunek> potencjalneWarunki;
+    List<W> potencjalneWarunki;
     TypIlosc dlugoscDzialania;
 
     boolean osobyRestrykcyjne;

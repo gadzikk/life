@@ -1,7 +1,7 @@
 package miejsce;
 
 import typy_bazowe.TypMiejsce;
-import warunek.Warunek;
+import warunek.W;
 
 import java.util.List;
 
@@ -10,5 +10,5 @@ import java.util.List;
  */
 public class MiejsceWarunki {
     TypMiejsce typMiejsce;
-    List<Warunek> warunki;
+    List<W> warunki;
 }

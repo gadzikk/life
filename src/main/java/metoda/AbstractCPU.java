@@ -18,6 +18,7 @@ public class AbstractCPU {
     List<TypT> prefixes = DB_Tematy.PREFIXES;
     List<TypT> pdstw = DB_Tematy.PDSTW;
     List<TT> tematy = DB_Tematy.TEMATY;
+    List<TT> kombo = DB_Tematy.KOMBO;
 
     public <T> List<T> of(T... elements){
         return Arrays.asList(elements);

@@ -9,9 +9,9 @@ import java.util.List;
  */
 public class WarunkiKategoria {
     Kategoria kategoria;
-    List<Warunek> warunki;
+    List<W> warunki;
 
-    public WarunkiKategoria(Kategoria kategoria, List<Warunek> warunki) {
+    public WarunkiKategoria(Kategoria kategoria, List<W> warunki) {
         this.kategoria = kategoria;
         this.warunki = warunki;
     }
@@ -20,7 +20,7 @@ public class WarunkiKategoria {
         return kategoria;
     }
 
-    public List<Warunek> getWarunki() {
+    public List<W> getWarunki() {
         return warunki;
     }
 }

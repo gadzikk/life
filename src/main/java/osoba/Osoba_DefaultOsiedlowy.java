@@ -3,7 +3,7 @@ package osoba;
 import miejsce.Miejsce;
 import typy_bazowe.*;
 import warunek.Przewaga;
-import warunek.Warunek;
+import warunek.W;
 import z_inne.*;
 
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public class Osoba_DefaultOsiedlowy extends Osoba {
                 false, true, false, true, true, false, true,
                 true);
 
-        Warunek priorytet = Warunek.OSIEDLOWE_SRD;
+        W priorytet = W.OSIEDLOWE_SRD;
         List<String> planszeOdwiedzone;
         List<TypOsoby> typy = Arrays.asList(TypOsoby.OSIEDLOWY_WYKRECONY, TypOsoby.OSIEDLOWY_BURZUJ);
         List<Przewaga> przewagi;

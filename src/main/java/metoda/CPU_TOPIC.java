@@ -86,6 +86,10 @@ public class CPU_TOPIC extends AbstractCPU {
             SWIETA
     );
 
+    public List<TT> KOMBO = of( // TODO
+
+    );
+
 
 }
 

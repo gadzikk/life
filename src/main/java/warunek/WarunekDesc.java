@@ -11,16 +11,16 @@ import java.util.List;
  * Created by gadzik on 25.12.19.
  */
 public class WarunekDesc {
-    Warunek typWarunku;
+    W typWarunku;
     TypSila sila;
-    List<Warunek> zaleznyOd;
+    List<W> zaleznyOd;
 
-    List<Warunek> globalneWarunkiPlanszy;
-    List<Warunek> wymaganiaWstepne;
+    List<W> globalneWarunkiPlanszy;
+    List<W> wymaganiaWstepne;
     List<M> metodyOsiagniecia;
 
     Boolean osiagniety;
-    List<Warunek> wymaganiaUtrzymania;
+    List<W> wymaganiaUtrzymania;
 
     Rezultat rezultat;
     Naruszenie naruszenie;

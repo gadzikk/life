@@ -10,14 +10,14 @@ import java.util.List;
  * Created by gadzik on 20.12.19.
  */
 public class Przewaga {
-    Warunek przewaga;
+    W przewaga;
     TypSila sila;
     TypTrudnosc trudnosc;
     List<M> metodyOsiagniecia;
-    List<Warunek> potrzebnePrzewagi;
+    List<W> potrzebnePrzewagi;
     boolean ktosPomagal;
 
-    List<Warunek> uzyskal;
+    List<W> uzyskal;
 
     Integer iloscGodzin;
     Integer iloscDniTygodnia;
