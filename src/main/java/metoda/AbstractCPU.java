@@ -4,6 +4,7 @@ import db.DB_Tematy;
 import sytuacja.Sytuacja;
 import temat.TT;
 import typy_bazowe.TypT;
+import z_inne.OsobaMetod;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,6 +20,10 @@ public class AbstractCPU {
     List<TypT> pdstw = DB_Tematy.PDSTW;
     List<TT> tematy = DB_Tematy.TEMATY;
     List<TT> kombo = DB_Tematy.KOMBO;
+    List<TT> codzienne = DB_Tematy.CODZIENNE;
+    String coTakPatrzysz;
+    OsobaMetod ona = new OsobaMetod();
+    OsobaMetod manago = new OsobaMetod();
 
     public <T> List<T> of(T... elements){
         return Arrays.asList(elements);

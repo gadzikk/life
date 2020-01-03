@@ -2,6 +2,7 @@ package metoda;
 
 
 import sytuacja.TypSytuacja;
+import typy_bazowe.TypMiejsce;
 import warunek.W;
 
 import java.util.List;
@@ -25,24 +26,22 @@ public class CPU_1 extends AbstractCPU {
     List<TypSytuacja> typySytuacji = of(TypSytuacja.UNIKALNA, TypSytuacja.CHCIANA, TypSytuacja.W_HOTMIEJSCU, TypSytuacja.DEFAULTOWA,
             TypSytuacja.RESTRYKCYJNA, TypSytuacja.KRYZYSOWA);
 
-    List<W> allSprzyjajace = of(W.PRETEKST, W.KONTEKST,
+    List<W> allSprzyjajace = of(W.PRETEKST, W.KONTEKST, W.NUDA,
             W.WZGL_IZOLACJA, W.DLUGA_DOSTEPNOSC, W.BEZRUCH, W.OSZCZEDNOSC_CZASU, W.MALA_TRUDNOSC, W.MALY_WYSILEK, W.MALA_DROGA, W.MALY_PRZYPAL);
     List<W> allNiesprzyjajace = of(W.TLUM, W.ZMECZENIE, W.CISZA, W.MOZLIWE_SLUCHAWKI);
 
+    List<String> spojrzenia = of(M.spojrzenie_1(W.BEST_CASE), M.spojrzenie_2(W.NORMAL_CASE));
+    List<String> zaproszenieRandka = of(M.podkreslJejZlaSytuacje(of(W.NUDA, W.MONOTONIA)), M.podkreslSwojeStrania(), M.znamySie(),
+            M.obrazSieJakNieOdpowie(), M.ultimatum(W.KARA));
+
+    // todo jakosc planszy
+
     public void run(){
-//        new MW(
-//                of(M.wejsciePlansza(plansza)),
-//                of(W.SMIETNIIK_NA_BUZI_JUZ_DAWNO, W.ENK_1_2, W.INFORMACJA)
-//        );
         new MW(
                 of(M.namierzenie(), M.nieOddalaszWzroku()),
                 of(W.THREAD_WHILE_LOOP_ZASIEG_WZROKU)
         );
 
-//        new MW(
-//                of(M.sondaOsoby(osobaCechy), M.sondaSytuacji(typySytuacji, essentials)),
-//                of(W.SYTUACJA)
-//        );
         new WM(
                 of(W.WSTYD, W._II_, W.NIEDOSTEPNA,W._II_, W.NIECHCE_SIE),
                 of(M.REMIND(ME,of(W.STATYSCI,W.SZANSA,W.SAVE_TIME,W.PROC_30_DOBRYCH)))
@@ -63,37 +62,84 @@ public class CPU_1 extends AbstractCPU {
                 of(M.odrazuPochwycenie(W.SYTUACJA), M.pomysl(of(W.PRZESKOCZENIE)), M.dzialanie(mojeCechy)),
                 of(W.BEDZIE_CIEKAWIE, W.ANTY_PARTYZANTKA)
         );
-//        new MW(
-//                of(M.wstanie(), M.przejscie()),
-//                of(W.FOCUS, W.THREAD_WHILE_LOOP_BLISKOSC_K)
-//        );
-//        new MW(
-//                of(M.prefix(prefixes, pdstw)),
-//                of(W.WIDZENIE_NA_ROZMOWA, W.REAKCJA, W.INFO_O_POINTCUT)
-//        );
-//        new MW(
-//                of(M.gadka(tematy, kombo)),
-//                of(W.NIEUSTANNA_GADKA, W.EFEKTYWNA_GADKA)
-//        );
-//        new MW(
-//                of(M.wziecieKontaktu(), M.temat(), M.ponowienie(), M.temat(), M.ponowienie()),
-//                of(W.NUMER)
-//        );
-//        new WM(
-//                of(W.NIEPODBIJASZ),
-//                of(
-//                        M.REMOVE(ME, W.SYTUACJA),
-//                        M.REMOVE(ME, W.POTENCJALNA_PRZEWAGA),
-//                        M.GRANT(SRODOWISKO, W.POTENCJALNA_PRZEWAGA),
-//                        M.GRANT(ALL, W.PODZIW_SZACUNEK))
-//        );
+        new WM(
+                of(W.PODBIJASZ, W._88_, W.BRAK_JAKOSCI_PLANSZY),
+                of(
+                        M.DEFAULT(ona.opieraSie(), ona.odpowiadaOdNiechcenia(), ona.nieufna())
+                )
+        );
+        new WMWM(
+                of(W.NIE_DA_SIE_ZOBACZYC_PIERSCIONKA),
+                of(
+                        M.podbijasz()
+                ),
+                of(W.PIERSCIONEK),
+                of(
+                        ona.znikaZPlanszy()
+                )
+        );
+        new WMWM(
+                of(W.DOPUSZCZA_ODPISUJE),
+                of(
+                        M.piszesz(),
+                        M.probujeszSieUstawic()
+                ),
+                of(W.DOPUSZCZA_MOWA),
+                of(
+                        M.gadka(tematy, kombo),
+                        M.finalizujeszZaproszeniemLubKontakt(zaproszenieRandka)
+                )
+        );
+        new WMWM(
+                of(W.SZYBKO, W.ODSTEP_0_5s, W.PRZEWIDYWANIE, W.REZULTAT),
+                of(
+                        M.GRANT(ME, W.EFEKTYWNA_GADKA),
+                        M.GRANT(ME, W.THREAD_WHILE_LOOP_EFEKTYWNA_GADKA)
+                ),
+                of(W.EFEKTYWNA_GADKA),
+                of(
+                        M.GRANT(ME, W.SZANSA_KONTAKT)
+                )
+        );
+        new WMWM(
+                of(W.NIEODPOWIEDZIALA, W._II_, W.UCINA),
+                of(
+                        M.ponow(),
+                        M.zalagodzNeturalTematem(),
+                        M.tyrajZNiejBeke(),
+                        M.rozgladnijSieZaSytuacja(),
+                        M.GRANT(ME, W.LOOKING_FORWARD_NEVER_BACK)
+                ),
+                of(W.NIEODPOWIEDZIALA_NA_MIEJSCU),
+                of(
+                        M.zobowiazanie(W.NAJWIECEJ_NA_MIEJSCU)
+                )
+        );
+        new WM(
+                of(W.NIEPODBIJASZ),
+                of(
+                        M.REMOVE(ME, W.SYTUACJA),
+                        M.REMOVE(ME, W.POTENCJALNA_PRZEWAGA),
+                        M.GRANT(SRODOWISKO, W.POTENCJALNA_PRZEWAGA),
+                        M.GRANT(ALL, W.PODZIW_SZACUNEK))
+        );
+
+// do cpulicy
+//        if(banda) podbijasz
+//        if(dobra jednostka) probujesz robic dziurke
+
+
         wzglIzolacja();
         trauto();
+        sklep();
+        utrudnienia2strony();
+        pokazujaSie();
+        parzenie();
+        nozki();
     }
 
     public void wzglIzolacja(){
         List<W> sprzyjajace = of(W.DLUGA_DOSTEPNOSC,  W.BEZRUCH, W.SZANSA_NA_SPOTKANIE_WZROKIEM, W.KONTEKST);
-
 
         new WM(
                 of(W.WZGL_IZOLACJA),
@@ -146,6 +192,21 @@ public class CPU_1 extends AbstractCPU {
                         M.bijesz()
                 )
         );
+        new WMWMWM(
+                of(W.SYTUACJA, W._88_, W.MIEJSCE_STALE, W._88_, W.ODPUSZCZSZ),
+                of(
+                        M.GRANT(ME, W.WORST_CASE),
+                        M.partyzantka_on()
+                ),
+                of(W.PARTYZANTKA),
+                of(
+                        M._3xWchodziszDopieroZnowSytuacja()
+                ),
+                of(W.BOISZ_SIE, W._88_, W.NIEPRZYGOTOWANY),
+                of(
+                        M.GRANT(ME, W.PARTYZANTKA)
+                )
+        );
         new WM(
                 of(W.SLUCHAWKI),
                 of(M.niePrzestraszenie(), M.dzialajJakbyNieBylo())
@@ -189,9 +250,8 @@ public class CPU_1 extends AbstractCPU {
                 )
         );
         // THREAD WHILE LOOP.END()
-
         // NAMIERZONA
-                        // KIEDY
+
         new MWMWMW(
                 of(M.odrazuPoWejsciu()),
                 of(
@@ -274,6 +334,138 @@ public class CPU_1 extends AbstractCPU {
                 of(
                         M.temat_x3(tematy),
                         M.przewidywanie_x3()
+                )
+        );
+    }
+
+    public void sklep(){
+        List<W> sprzjajace = of(W.DLUGA_DOSTEPNOSC, W.BEZRUCH, W.SZANSA_NA_SPOTKANIE_WZROKIEM, W.KONTEKST);
+        List<W> normalne = of(W.CISZA, W.TLUM, W.CHODZAC_ROZMOWA_UWAGA_NA_TOBIE);
+        List<W> niesprzyjajace = of(W.SLABY_FOCUS, W.OGLADANIE_RZECZY, W.ZAJETA_OSOBA_TOWARZYSZACA);
+        new WM(
+                of(W.OBSLUGA,
+                        W.ZARAZ_STACI_FOCUS, W.ZARAZ_KTOS_WEJDZIE),
+                of(M.odrazuJakObsluguje())
+        );
+        new WM(
+                of(W.GALERIA),
+                of(
+                        M.CEL(W.SKLEPY_DLA_KOBIET),
+                        M.jednoWejscieJednoPodbicie()
+                )
+        );
+    }
+    public void pokazujaSie(){
+        new WMWMWM(
+                of(W.IDA_KOLEZANKI),
+                of(
+                        M.GRANT(ME, W.X_100)
+                ),
+                of(W.PROBUJE_SIE_POKAZAC),
+                of(
+                        M.GRANT(ME, W.X_1000)
+                ),
+                of(W.NIEPATRZY_W_OCZY_ALE_TWOJA_STRONE, W._II_,W.PATRZY_W_OCZY_CZESTO, W._II_,W.PIERSCIONEK_ALE_PATRZY),
+                of(
+                        M.GRANT(ME, W.POKAZUJE_SIE)
+                )
+        );
+        new WM(
+                of(W.WYKAZALA_ZAINTERESOWANIE, W._88_, W.MAM_CHLOPAKA),
+                of(
+                        M.komplement_x2(),
+                        M.temat(),
+                        M.ponowienie()
+                )
+        );
+    }
+
+    public void parzenie(){
+        new WMWM(
+                of(W.OPCJA_PARZENIE),
+                of(
+                        M.GRANT(ME, W.SZANSA_POKAZANIE_GADKI),
+                        M.GRANT(ME, W.SZANSA_POTENCJALNY_ZWIAZEK),
+                        M.ogladneLadnaBuzie(),
+                        M.powiemDobrego(),
+                        M.gadka(codzienne, kombo)
+                ),
+                of(W.DOBRA_JEDNOSTKA),
+                of(
+                        M.GRANT(ME, W.ZOBOWIAZANIE_DO_GADANIA)
+                )
+        );
+        new WM(
+                of(W.SRODOWISKO),
+                of(
+                        M.zblizPrzezLudzi()
+                )
+        );
+        new WM(
+                of(W.NIE_PARZYSZ),
+                of(
+                        M.REMOVE(ME, W.SYTUACJA),
+                        M.partyzantka_on(),
+                        M.GRANT(SOMEONE, W.PARZENIE)
+                )
+        );
+    }
+    public void nozki(){
+        List<TypMiejsce> wychodzaLudzie = of(
+                TypMiejsce.SAMOCHOD, TypMiejsce.TRAUTO, TypMiejsce.MIESZKANIE, TypMiejsce.SKLEP, TypMiejsce.PRACA_BUDYNEK
+        );
+        List<String> nozkiMetody = of(M.zatrzymaj(), M.obroc(), M.podejdz(), M.wejdzPrzed(coTakPatrzysz));
+
+        ona.on(W.TRANS);
+        ona.max(W.POPATRZENIE_X2);
+
+        new WMWM(
+                of(W._NOT_, W.WZGL_IZOLACJA, W.SKLEP, W.TRAUTO),
+                of(
+                        M.GRANT(ME, W.JALOWY_ON)
+                ),
+                of(W.JALOWY_ON),
+                of(
+                        M.ekstremalneRzeczy(),
+                        M.podbieganieZawracanie(),
+                        M.podbijaszGdyRobiaSwojego()
+                )
+        );
+        new WM(of(W.IDZIESZ_NAPRZECIWKO, W._88_, W._2_WZROKOWE),
+                of(
+                        M.baczek()
+                )
+        );
+        new WMWM(of(W.WIDZISZ_SYTUACJE),
+                of(
+                        M.odrazuPochwycenie(W.SYTUACJA)
+                ),
+                of(W.CHCIANA),
+                of(
+                        M.GRANT(ME, W.X_100), M.GRANT(ME, W.BEST_POZYCJA)
+                )
+        );
+        new WM(of(W.WIDZISZ_TYL, W._II_, W.NIEPATRZA_GADAJA),
+                of(
+                        M.sciagajGadke(),
+                        M.pprefix(prefixes, kombo),
+                        M.namierzZareagowana(),
+                        M.oswajaj()
+                )
+        );
+        new WM(of(W.ZASIEG_WZROKU, W._II_, W.PRZEWIDZIALES_DROGE),
+                of(
+                        M.czas_start(), M.GRANT(ME, W.SYTUACJA),
+                        M.ida(W._3s),
+                        M.idzieSzybko(W._2s),
+                        M.idzieTwojaStrone(W._1s, W.IDZIESZ_ZA_NIA),
+                        M.idzieDobreMiejscePrzech(W._30s),
+                        M.dluzejTylko(W.WZGL_IZOLACJA)
+                )
+        );
+        new WM(of(W.IDZIESZ_W_MIEJSCE_STALE),
+                of(
+                        M.GRANT(ME, W.WIECEJ_OKAZJI_DROGA)
                 )
         );
     }

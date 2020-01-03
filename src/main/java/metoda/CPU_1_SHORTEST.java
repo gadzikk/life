@@ -22,9 +22,11 @@ public class CPU_1_SHORTEST extends AbstractCPU {
     List<TypSytuacja> typySytuacji = of(TypSytuacja.UNIKALNA, TypSytuacja.CHCIANA, TypSytuacja.W_HOTMIEJSCU, TypSytuacja.DEFAULTOWA,
             TypSytuacja.RESTRYKCYJNA, TypSytuacja.KRYZYSOWA);
 
-    List<W> allSprzyjajace = of(W.PRETEKST, W.KONTEKST,
+    List<W> allSprzyjajace = of(W.PRETEKST, W.KONTEKST, W.NUDA,
             W.WZGL_IZOLACJA, W.DLUGA_DOSTEPNOSC, W.BEZRUCH, W.OSZCZEDNOSC_CZASU, W.MALA_TRUDNOSC, W.MALY_WYSILEK, W.MALA_DROGA, W.MALY_PRZYPAL);
     List<W> allNiesprzyjajace = of(W.TLUM, W.ZMECZENIE, W.CISZA, W.MOZLIWE_SLUCHAWKI);
+
+    List<String> spojrzenia = of(M.spojrzenie_1(W.BEST_CASE), M.spojrzenie_2(W.NORMAL_CASE));
 
 
     public void run(){

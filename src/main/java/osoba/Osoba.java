@@ -19,6 +19,7 @@ public class Osoba {
     TypNarodowsc narodowosc;
     TypPlec plec;
 // todo dodac gadka tworzy zrodelko, angazuje albo tylko na wywolanie, czy podtrzymuje czy nie
+    // TODO DODAC ZOBOWIAZANIE OCZEKIWANIE (AFTERTOP)
     Wychowanie wychowanie;
     W priorytet;
     List<TypOsoby> typyOsoby;

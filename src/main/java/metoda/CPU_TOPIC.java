@@ -90,6 +90,10 @@ public class CPU_TOPIC extends AbstractCPU {
 
     );
 
+    public List<TT> CODZIENNE = of( // TODO wystepujace_codzien, samopoczucie, dzien_wczesniej, wyglad
+
+    );
+
 
 }
 

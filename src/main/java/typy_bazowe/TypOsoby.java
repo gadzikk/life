@@ -22,5 +22,5 @@ public enum TypOsoby {
     // TODO KOBIETKI
 
 
-    ME, YOU, ALL, SRODOWISKO,
+    ME, YOU, ALL, SRODOWISKO, SOMEONE,
 }
