@@ -94,6 +94,10 @@ public class CPU_TOPIC extends AbstractCPU {
 
     );
 
+    public List<TT> ZARTY = of(
+
+    );
+
 
 }
 

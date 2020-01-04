@@ -761,7 +761,7 @@ public class DB_Warunki {
     );
 
     public static WarunkiKategoria KRYTERIA_WROGA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.KRYTERIA_WROGA),
+            new Kategoria(TypKategoria.KRYTERIA, TypKategoria.KRYTERIA_WROGA),
             Arrays.asList(
                     W.PRZECIWNA_RASA, W.PRZECIWNY_NAROD, W.PRZECIWNA_KLASA, W.PRZECIWNY_KLUB,
                     W.PRZECIWNA_STRONA, W.ZASZKODZIL
@@ -854,6 +854,30 @@ public class DB_Warunki {
             Arrays.asList(
                     W.POLICJA, W.PUSZCZALSKOSC, W.ZDOLNOSC_KONFIDENTCTWO
             )
+    );
+    public static WarunkiKategoria KRYTERIA_PRZYPALU = new WarunkiKategoria(
+            new Kategoria(TypKategoria.KRYTERIA, TypKategoria.KRYTERIA_PRZYPALU),
+            Arrays.asList( W.KONKRETNA_INFORMACJA, W.DOWOD, W.ILE_OSOB_WIDZI_SLYSZY, W.GODZINA, W.MIEJSCE,
+                W.SCIEZKA_CZESTOSC_UCZESCZANIA, W.ZNANY_NA_MIEJSCU, W.LATWOSC_SZYBKOSC_ODDALENIA, W.ACCESS_MIEJSCE_ULTRADOSTEPOWE,
+                W.MOZLIWOSC_ZMIANY_GLOBALNEGO_POKOJU
+            )
+    );
+
+    public static WarunkiKategoria TERROR = new WarunkiKategoria(
+            new Kategoria(TypKategoria.TERROR),
+            Arrays.asList(
+                    W.OCZY, W.USZY, W.CIERPIENIE, W.CIERPIENIE_DLUGOTERMINOWE, W.POZBAWIENIE_PRZEWAGI, W.KOSZTA,
+                    W.POZBAWIENIE_BEZPIECZENSTWA, W.POZBAWIENIE_DOSTEPOW, W.POZBAWIANIE_AUTORYTETU, W.PRZEJEBANE
+            )
+
+    );
+
+    public static WarunkiKategoria FEST = new WarunkiKategoria(
+            new Kategoria(TypKategoria.FEST),
+            Arrays.asList(
+                    W.CHRONI_FESTA, W.TWORZY_KOLECZKO_ADORACJI, W.WYLACZY_DOSTEP, W.WYKLUCZY_CIE
+            )
+
     );
 
 

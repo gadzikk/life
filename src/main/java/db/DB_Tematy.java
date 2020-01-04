@@ -23,4 +23,5 @@ public class DB_Tematy {
     public static List<TT> KOMBO = cpu.KOMBO;
 
     public static List<TT> CODZIENNE = cpu.CODZIENNE;
+    public static List<TT> ZARTY = cpu.ZARTY;
 }

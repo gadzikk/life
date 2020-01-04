@@ -12,6 +12,8 @@ public class OsobaMetod {
     public String odpowiadaOdNiechcenia(){ return "odpowiadaOdNiechcenia()";}
     public String nieufna(){ return "nieufna()";}
     public String znikaZPlanszy(){ return "znikaZPlanszy()";}
-
-
+    public String FOR_EACH() {return "forEach()";}
+    public String FOR_EACH_END() {return "forEachEnd()";}
+    public String pobierz(W warunek){ return "znikaZPlanszy("+ warunek +")";}
+    public String stworz(W warunek){ return "znikaZPlanszy("+ warunek +")";}
 }

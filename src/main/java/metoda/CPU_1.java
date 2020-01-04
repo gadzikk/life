@@ -34,6 +34,8 @@ public class CPU_1 extends AbstractCPU {
     List<String> zaproszenieRandka = of(M.podkreslJejZlaSytuacje(of(W.NUDA, W.MONOTONIA)), M.podkreslSwojeStrania(), M.znamySie(),
             M.obrazSieJakNieOdpowie(), M.ultimatum(W.KARA));
 
+    List<W> jakoscSytuacji = of(W.INTERAKCJA, W.ZNAJOMI, W.POTRZEBA,W.WARTOSC, W.UNIKALNOSC_W_OTOCZENIU);
+
     // todo jakosc planszy
 
     public void run(){
@@ -121,7 +123,8 @@ public class CPU_1 extends AbstractCPU {
                         M.REMOVE(ME, W.SYTUACJA),
                         M.REMOVE(ME, W.POTENCJALNA_PRZEWAGA),
                         M.GRANT(SRODOWISKO, W.POTENCJALNA_PRZEWAGA),
-                        M.GRANT(ALL, W.PODZIW_SZACUNEK))
+                        M.GRANT(ALL, W.PODZIW_SZACUNEK)
+                )
         );
 
 // do cpulicy

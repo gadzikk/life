@@ -1,9 +1,12 @@
 package metoda;
 
 import db.DB_Tematy;
+import db.DB_Warunki;
+import osoba.Osoba;
 import sytuacja.Sytuacja;
 import temat.TT;
 import typy_bazowe.TypT;
+import warunek.W;
 import z_inne.OsobaMetod;
 
 import java.util.ArrayList;
@@ -24,6 +27,13 @@ public class AbstractCPU {
     String coTakPatrzysz;
     OsobaMetod ona = new OsobaMetod();
     OsobaMetod manago = new OsobaMetod();
+    List<W> kryteriaPrzypalu = DB_Warunki.KRYTERIA_PRZYPALU.getWarunki();
+    List<TT> obelgi = DB_Tematy.TEMATY;
+    List<W> terror = DB_Warunki.TERROR.getWarunki();
+    List<TT> zarty = DB_Tematy.ZARTY;
+    OsobaMetod wszyscy = new OsobaMetod();
+    OsobaMetod osoba = new OsobaMetod();
+    Osoba izolowanaOsoba = new Osoba();
 
     public <T> List<T> of(T... elements){
         return Arrays.asList(elements);
