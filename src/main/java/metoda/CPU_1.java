@@ -34,9 +34,7 @@ public class CPU_1 extends AbstractCPU {
     List<String> zaproszenieRandka = of(M.podkreslJejZlaSytuacje(of(W.NUDA, W.MONOTONIA)), M.podkreslSwojeStrania(), M.znamySie(),
             M.obrazSieJakNieOdpowie(), M.ultimatum(W.KARA));
 
-    List<W> jakoscSytuacji = of(W.INTERAKCJA, W.ZNAJOMI, W.POTRZEBA,W.WARTOSC, W.UNIKALNOSC_W_OTOCZENIU);
-
-    // todo jakosc planszy
+    List<W> jakoscSytuacji = of(W.INTERAKCJA, W.KOJARZENIE_Z_DOBREGO, W.ZNAJOMI, W.POTRZEBA, W.WARTOSC, W.UNIKALNOSC_W_OTOCZENIU);
 
     public void run(){
         new MW(
@@ -93,7 +91,7 @@ public class CPU_1 extends AbstractCPU {
                 )
         );
         new WMWM(
-                of(W.SZYBKO, W.ODSTEP_0_5s, W.PRZEWIDYWANIE, W.REZULTAT),
+                of(W.SZYBKO, W._88_, W.ODSTEP_0_5s, W._88_, W.PRZEWIDYWANIE, W._88_, W.REZULTAT),
                 of(
                         M.GRANT(ME, W.EFEKTYWNA_GADKA),
                         M.GRANT(ME, W.THREAD_WHILE_LOOP_EFEKTYWNA_GADKA)
@@ -345,6 +343,10 @@ public class CPU_1 extends AbstractCPU {
         List<W> sprzjajace = of(W.DLUGA_DOSTEPNOSC, W.BEZRUCH, W.SZANSA_NA_SPOTKANIE_WZROKIEM, W.KONTEKST);
         List<W> normalne = of(W.CISZA, W.TLUM, W.CHODZAC_ROZMOWA_UWAGA_NA_TOBIE);
         List<W> niesprzyjajace = of(W.SLABY_FOCUS, W.OGLADANIE_RZECZY, W.ZAJETA_OSOBA_TOWARZYSZACA);
+
+        M.ORIENT(of(W.KASA, W.KOLEJKA, W.UJSCIE));
+        M.kolkoWokol(W.SKLEP);
+
         new WM(
                 of(W.OBSLUGA,
                         W.ZARAZ_STACI_FOCUS, W.ZARAZ_KTOS_WEJDZIE),
@@ -415,7 +417,11 @@ public class CPU_1 extends AbstractCPU {
     }
     public void nozki(){
         List<TypMiejsce> wychodzaLudzie = of(
-                TypMiejsce.SAMOCHOD, TypMiejsce.TRAUTO, TypMiejsce.MIESZKANIE, TypMiejsce.SKLEP, TypMiejsce.PRACA_BUDYNEK
+                TypMiejsce.SAMOCHOD, TypMiejsce.TRAUTO, TypMiejsce.MIESZKANIE,
+                TypMiejsce.SKLEP, TypMiejsce.LUMPEX, TypMiejsce.LODY, TypMiejsce.POCZTA, TypMiejsce.BANK,
+                TypMiejsce.PRACA_BUDYNEK, TypMiejsce.SZKOLA, TypMiejsce.RESTAURACJA,
+                TypMiejsce.PARKING, TypMiejsce.STACJA_BENZYNOWA
+
         );
         List<String> nozkiMetody = of(M.zatrzymaj(), M.obroc(), M.podejdz(), M.wejdzPrzed(coTakPatrzysz));
 

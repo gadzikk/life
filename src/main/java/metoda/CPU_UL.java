@@ -2,10 +2,13 @@ package metoda;
 
 import db.DB_Warunki;
 import warunek.W;
+import warunek.WarunkiKategoria;
 
 import java.util.List;
 
 import static typy_bazowe.TypOsoby.ME;
+import static typy_bazowe.TypOsoby.SOMEONE;
+import static typy_bazowe.TypOsoby.YOU;
 
 /**
  * Created by gadzik on 04.01.20.
@@ -29,7 +32,30 @@ public class CPU_UL extends AbstractCPU {
     List<W> dobraJednostka = of(W.ZOBOWIAZANIA, W.OCZEKIWANIA, W.WYMAGANIA, W.OBECNOSC, W.CEL, W.ZDOLNY_DO_WALKI, W.ZDOLNY_DO_RYZYKA);
     List<String> holdYourPosition = of(M.reaguj(), M.spedzCzas(), M.utrzymajPozycje());
 
+    List<W> popytPodaz = of(W.ZLODZIEJI_1_PROC, W.CZOLOWKI_5_PROC, W.KIBICOW_10_PROC, W.MLODYCH_30_PROC,
+            W.OGARNIETA_JEDNOSTKA_RODZI_SIE_W_CIERPIENIU, W.LOKALNE_SRD_CZARY,
+            W.PRACUJE_SIE_DLUGO_CIEZKO_MALO_OSOB_TO_MA_WARTOSC, W.MALO_CZASU_ULICA_MALE_SZANSE_WYROBIENIA,
+            W.PRZEWAGA_IZOLACJI_LUDZI, W.STARE_GANGUSY_TEMPI_PODZIELENI, W.KAZDY_W_EKIPIE_CZEKA_NA_SZANSE,
+            W.CO_JEST, W.CZEGO_NIE_MA,
+            W.BRAK_CZASU, W.ODBIJANIE, W.UZYWKI);
+
     List<W> restrykcyjne = of(W.WEJSCIE_KAZDY_KLUB, W.WEJSCIE_BOKS, W.WEJSCIE_SILKA, W.WEJSCIE_OSIEDLE);
+
+    List<String> metodyWzieciaNaSwaStrone = of(// todo
+    );
+
+    List<W> bledy = of(W.BLAD_POJEDYNCZY, W.BLAD_NIESWIADOMY_PRZYPADKOWY,
+            W.BLAD_SPECJALNY, W.BLAD_LENISTWA, W.BLAD_ZLAMANIA_ZASAD);
+
+    List<W> kogo = of(W.ZAGRANICZNI_CIEMNI, W.ZAGRANICZNI_JASNI,
+            W.BURZUA_DZIALAJACA, W.BURZUA_NIESWIADOMA, W.DZIALACZE_PRZECIWNI, W.DUZI_TEMPI);
+
+    List<W> musiBycKara = of(W.MONOSRODOWISKO, W.BRAK_STRESU, W.BRAK_TRUDNOSCI, W.KOMFORT, W.BEZPIECZENSTWO,
+            W.WCZESNIE_ZWIAZEK, W.NIEZDOLNY_WALKA_SPRZET, W.GLUPOTA, W.UZYWKI,
+            W.ZAJECIE_SIE_LOKALNYMI_SRPAWAMI, W.WSTYD);
+
+    List<WarunkiKategoria> rany = DB_Warunki.RANY;
+
 
     List<WM> srodki = of(
             new WM(of(W.WALKA_PIESCI),
@@ -119,6 +145,19 @@ public class CPU_UL extends AbstractCPU {
     );
 
     public void run(){
+        new WM(of(W._NOT_, W.CZOLO, W.OGARNIECI),
+                of(
+                        M.GRANT(ME, of(W.MOCNI_NIE_LICZACY_SIE, W.CHETNE_PIONKI, W.PIONKI, W.MLODE_PIONKI,
+                                W.FEST, W.BANAN, W.SYSTEMOWY_BURZUJ, W.WYGODNIS))
+                )
+        );
+
+        new WM(of(W._NOT_, W.ULICA),
+                of(
+                        M.GRANT(SOMEONE, of(W.SYSTEMOWIEC, W.BURZUAZJA))
+                )
+        );
+
         new WMWM(of(W.ZLY),
                 of(
                         M.atak(),
@@ -150,14 +189,58 @@ public class CPU_UL extends AbstractCPU {
                         M.skreslaj(osoba)
                 )
         );
+        new WM(of(W.OBECNOSC, W.ZASADY, W.PRACA),
+                of(
+                        M.GRANT(ME, of(W.SRODOWISKO, W.HIERARCHIA, W.RYWALIZACJA))
+                )
+        );
 
+        shortest();
         tworzaceJakosc();
         zachowanie();
+        starcie();
         gadka();
         fest();
         przewagi();
+        sonda();
+        dzialajacy();
+    }
+    public void shortest(){
+        List<W> stan = of(W.WYSILEK_UMYSLOWY, W.WYSILEK_FIZYCZNY, W.DUZO_ZARCIA, W.WZROK, W.SAMOPOCZUCIE);
+        List<W> shrtOsobaSonda = of(W.TEZYNA_FIZYCZNA, W.UBRANIE, W.OSOBOWOSC, W.WARTOSCI_ZYCIOWE, W.SRODOWISKO, W.SPEDZANIE_WOLNEGO_CZASU, W.RODZENSTWO);
 
+        new WMWM(of(W._01, W._II_, W._NOT_, W.BENEFICJENT),
+                of(
+                        M.reaguj()
+                ),
+                of(W.BENEFICJENT),
+                of(
+                        M.wspieraj(), M.II(), M.neutral()
+                )
+        );
+        M.sondujWarunekMocniejszy();
+        M.ktoMialTrudno();
+        M.ktoSieUpaja();
+        M.ktoFest();
 
+        M.kogoTrzymaStrone();
+
+        M.sondaPosiadania();
+        M.sondaPrzewag();
+
+        new WMWM(of(W.TRACE),
+                of(
+                        M.dzialaj()
+                ),
+                of(W.ZASZKODZIL),
+                of(
+                        M.zapamietaj(),
+                        M.postawCiezkiWarunek(srodki),
+                        M.nieCzekaj(),
+                        M.wyprzedz(),
+                        M.szybkoDzialaj()
+                )
+        );
     }
     public void tworzaceJakosc(){
         new WMWMWM(of(W.SILNY),
@@ -233,7 +316,7 @@ public class CPU_UL extends AbstractCPU {
         );
     }
         public void gadka(){
-            List<W> warunki = of(W.THREAD_WHILE_LOOP_ZRODLA_GADKI, W.THREAD_WHILE_LOOP_NADRZEDNY_FLOW_GADKI);
+            List<W> warunki = of(W.THREAD_WHILE_LOOP_ZRODLA_GADKI, W.THREAD_WHILE_LOOP_NADRZEDNY_FLOW_GADKI, W.THREAD_WHILE_LOOP_WEDROWKA_POKOJE);
             List<W> ograniczenia = of(W.OGRANICZENIE_CZASOWE, W.OGRANICZENIE_UWAGI);
 
             osoba.pobierz(W.NADRZEDNY_FLOW_GADKI); M.II(); osoba.stworz(W.ZRODLO_GADKI);
@@ -312,7 +395,7 @@ public class CPU_UL extends AbstractCPU {
                     of(W.UPORCZYWIE_PRZERYWA),
                     of(
                             M.przywolajPorzadek(),
-                            M.starcie()
+                            M.starcie(rany)
                     )
             );
             new WMWM(of(W.ZLA_JEDNOSTKA),
@@ -321,11 +404,26 @@ public class CPU_UL extends AbstractCPU {
                             M.zleEmocje(),
                             M.obracaniePrzeciw(),
                             M.sciagajGadke(),
-                            M.starcie()
+                            M.starcie(rany)
                     ),
-                    of(W.ZASIEG_ZMYSLOW, W._88_, W.KOSA, W._II_, W.NIEGODNY_POPATRZENIA, W._II_, W.ROBI_ZDJECIA),
+                    of(W.ZASIEG_ZMYSLOW, W._88_, W.KOSA, W._II_, W.NIEGODNY_POPATRZENIA, W._II_, W.ROBI_ZDJECIA, W._II_, W.KONFI),
                     of(
-                            M.starcie()
+                            M.starcie(rany)
+                    )
+            );
+            new WM(of(W.SIEDZA, W._88_, W.DZIALAJACY, W._88_, W.MIEJSCE_STALE),
+                    of(
+                            M.niszczWieczor(),
+                            M.postawCiezkiWarunek(srodki),
+                            M.GRANT(ME, W.PO_EKIPE_NIEZDARZY),
+                            M.GRANT(ME, W.PO_PSY_NIEZDARZY),
+                            M.GRANT(ME, W.SAM_NIEJEST_WSTANIE_SIE_BRONIC)
+                    )
+            );
+            new WM(of(W.STARCIE_NA_MIEJSCU),
+                    of(
+                            M.GRANT(ME, W.MOZLIWOSC_STRATY_DOSTEPU_MIEJSCA),
+                            M.GRANT(ME, W.MOZLIWOSC_PSOW)
                     )
             );
             new WMWM(of(W.CISNIE, W._II_, W.USMIECH_ZNIEWAZAJACY),
@@ -335,7 +433,7 @@ public class CPU_UL extends AbstractCPU {
                     ),
                     of(W.CISNIE_MOCNO),
                     of(
-                            M.starcie(), M.II(), M.starcieBezZasad()
+                            M.starcie(rany), M.II(), M.starcieBezZasad()
                     )
             );
             new WMWM(of(W.BEKA, W._88_, W.NIEZNASZ_GO),
@@ -344,13 +442,7 @@ public class CPU_UL extends AbstractCPU {
                     ),
                     of(W.BEKA_Z_CIEBIE),
                     of(
-                            M.starcie()
-                    )
-            );
-            new WM(of(W.STARCIE_NA_MIEJSCU),
-                    of(
-                            M.GRANT(ME, W.MOZLIWOSC_STRATY_DOSTEPU_MIEJSCA),
-                            M.GRANT(ME, W.MOZLIWOSC_PSOW)
+                            M.starcie(rany)
                     )
             );
             new WMWM(of(W.AKCJA),
@@ -388,8 +480,13 @@ public class CPU_UL extends AbstractCPU {
                     ),
                     of(W.GANGUS, W._88_, W.ODPOWIEDZ),
                     of(
-                            M.starcie(),
+                            M.starcie(rany),
                             M.tworzKonsekwencje()
+                    )
+            );
+            new WM(of(W.LADNY),
+                    of(
+                            zly.zabij()
                     )
             );
             new WM(of(W.KOLECZKO_WZAJEMNEJ_ADORACJI),
@@ -404,7 +501,8 @@ public class CPU_UL extends AbstractCPU {
             );
             new WM(of(W.STARCIE),
                     of(
-                            M.przestroga()
+                            M.przestroga(),
+                            M.konsekwencje(opponent)
                     )
             );
         }
@@ -453,6 +551,11 @@ public class CPU_UL extends AbstractCPU {
                             M.wspieramPrzewage()
                     )
             );
+            new WM(of(W.DOBRY, W._88_, W.BRAK_PRZEWAGI_X, W._88_, W.MAM_PRZEWAGE_X),
+                    of(
+                            M.podzielSie(W.PRZEWAGA)
+                    )
+            );
             new WM(of(W.BRAK_PRZEWAG),
                     of(
                             M.praca(of(W.WYSILEK, W.CIERPLIWOSC, W.CIERPIENIE))
@@ -468,7 +571,125 @@ public class CPU_UL extends AbstractCPU {
                     of(
                             M.GRANT(ME, W.MOZLIWA_ULOTNOSC),
                             M.dzialajSzybkoZZaskoczenia(),
-                            M.przejmij()
+                            M.przejmij(),
+                            M.utrzymaj()
+                    )
+            );
+            new WMWM(of(W.WARTOSC, W.UNIKALNOSC_W_OTOCZENIU, W._II_, W.DUZA_PRZEWAGA_STARCIA, W.DUZY_POSLUCH, W.DUZA_PRZYCHYLNOSC),
+                    of(
+                            M.zdominuj(of(W.WIEDZA_GDZIE_JAK_UDERZYC, W.STWORZENIE_WARTOSCI, W.ZEBRANIE_PRZEWAGI,
+                                    W.WIEDZA, W.DOBRO, W.PRZYMUS)),
+                            M.II(),
+                            M.zdominuj(of(W.ZDROWOTNE_KASOWANIE_JEDNOSTEK, W.DOSTEPOWE_KASOWANIE_JEDNOSTEK,
+                                    W.EKIPA_SPRZET, W.WALKA_SPRZET, W.WALKA_PIESCI))
+                    ),
+                    of(W.ZDOMINOWANIE),
+                    of(
+                            M.GRANT(ME, of(W.TWORZENIE_WARUNKOW, W.TWORZENIE_POINTCUTOW, W.ZBIERANIE_WARTOSCI,
+                                    W.TWORZENIE_ZARTY, W.TWORZENIE_MODY)),
+                            M.utrzymaj(afterTop)
+                    )
+            );
+            new WM(of(W.RESTRYKCJA),
+                    of(
+                            M.sredniaRestrykcja(of(W.SKLEP, W.RESTAURACJA, W.KLUB)),
+                            M.mocnaRestrykcja(of(W.ULICA, W.BLOKI, W.PRZYSTANEK, W.TRAUTO))
+                    )
+            );
+
+            new WM(of(W.MIEJSCE_STALE, W._88_, W.KIBICOWANIE),
+                    of(
+                            M.zeSrodowiska(W.OK),
+                            M.fest(W.KUP_COS),
+                            M.drugaStrona(W.WYPAD),
+                            M.drugaStronaDzialajacy(W.SZPITAL)
+                    )
+            );
+        }
+
+        public void sonda(){
+            new WM(of(W._NOT_, W.ZLODZIEJKA, W._II_, W.KIBICOWANIE, W._II_, W.DOBRZE_ZMYSLY, W._88_, W.SPORT),
+                    of(
+                            osoba.set(W.FEST)
+                    )
+            );
+            new WMWM(of(W.WIDZISZ_ZASOB),
+                    of(
+                            M.sondaKtoZyskuje()
+                    ),
+                    of(M.nalezyDo(of(W.FEST, W._II_, W.BURZUAZJA, W._II_, W.SYSTEMOWIEC))),
+                    of(
+                            M.pracaNadZasobem(W.WIEDZA),
+                            M.bierzZasobNaSwaStrone(metodyWzieciaNaSwaStrone)
+                    )
+            );
+            new WM(of(W.WIDZISZ_BLAD),
+                    of(
+                            M.sondaBledu(bledy)
+                    )
+            );
+            // TODO CASY NA POSZCZEGOLNY BLAD, obsluga bledu
+            new WM(of(W.SONDA_KOGO),
+                    of(
+                            M.sondaKogo(kogo)
+                    )
+            );
+            new WM(of(W.SONDA_DZIALACZY),
+                    of(
+                            M.jebac(),
+                            M.raczkaDoGory()
+                    )
+            );
+            // TODO SONDA KOBIETY
+            // if(ladna && stara) tysiac razy wyruchana po kilku zwiazkach
+            // if(czula cierpienie) dbaj(); robDobrze(); else robCierpienie();
+            new WMWM(of(W.CZLOWIEK),
+                    of(
+                            M.DEFAULT(W.ZLY)
+
+                    ),
+                    of(W.FEST, W._II_, W.NIEPRZYDATNY),
+                    of(
+                            M.GRANT(ME, W.SWOJA_OBECNOSCIA_POGRAZA)
+                    )
+            );
+            new WM(of(W.CZYN),
+                    of(
+                            M.jakDuze(W.PRZECIWNOSCI),
+                            M.jakDuze(W.WARUNKI_OSIAGNIETE),
+                            M.jakie(W.WARUNKI_POCZATKOWE),
+                            M.ile(W.CZAS)
+                    )
+            );
+            new WM(of(W.BIEGACZE),
+                    of(
+                            M.GRANT(YOU, of(W.BRAK_PIENIEDZY, W.GLUPI, W.NUDA, W.ZLY, W.DOSTEP_OGRANICZONY))
+                    )
+            );
+            new WM(of(W.MEZCZYZNA_Z_KOBIETA),
+                    of(
+                            M.GRANT(YOU, of(W.UMIE_BAJEROWAC, W.ZNAJOMI, W.SRODOWISKO))
+                    )
+            );
+
+        }
+        public void dzialajacy(){
+            new WM(of(W.DZIALAJACY),
+                    of(
+                            dzialacz.siejZlo(),
+                            dzialacz.uzaleznijSieOdSrd(),
+                            dzialacz.dzialanieWsrodDzialaczy(),
+                            dzialacz.zdobadzInformacjeZeSrodowiskaNaKurestwie(),
+
+                            dzialacz.WHILE(W.DOSTEP),
+                            dzialacz.ukryjDostep(),
+                            dzialacz.wbijNaMuke(),
+                            dzialacz.skazNaIzolacje(),
+                            dzialacz.patrzJakCierpi(),
+                            dzialacz.cieszSieJegoCierpieniem(),
+                            dzialacz.baluj(),
+                            dzialacz.siejZlo(),
+                            dzialacz.WHILE_END()
                     )
             );
         }

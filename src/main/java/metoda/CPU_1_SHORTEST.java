@@ -30,7 +30,7 @@ public class CPU_1_SHORTEST extends AbstractCPU {
     List<String> zaproszenieRandka = of(M.podkreslJejZlaSytuacje(of(W.NUDA, W.MONOTONIA)), M.podkreslSwojeStrania(), M.znamySie(),
             M.obrazSieJakNieOdpowie(), M.ultimatum(W.KARA));
 
-    List<W> jakoscSytuacji = of(W.INTERAKCJA, W.ZNAJOMI, W.POTRZEBA,W.WARTOSC, W.UNIKALNOSC_W_OTOCZENIU);
+    List<W> jakoscSytuacji = of(W.INTERAKCJA, W.KOJARZENIE_Z_DOBREGO, W.ZNAJOMI, W.POTRZEBA, W.WARTOSC, W.UNIKALNOSC_W_OTOCZENIU);
 
     public void run(){
         new MW(
@@ -59,7 +59,7 @@ public class CPU_1_SHORTEST extends AbstractCPU {
         );
         new MW(
                 of(M.gadka(tematy, kombo)),
-                of(W.NIEUSTANNA_GADKA, W.EFEKTYWNA_GADKA)
+                of(W.NIEUSTANNA_GADKA, W.EFEKTYWNA_GADKA, W.NASTAWIENIE_WZIECIE_KONTAKTU)
         );
         new MW(
                 of(M.wziecieKontaktu(), M.temat(), M.ponowienie(), M.temat(), M.ponowienie()),

@@ -11,7 +11,13 @@ import java.util.List;
 public class Sytuacja {
     List<TypSytuacja> typySytuacji;
     List<W> warunki;
+    LocalDateTime czas;
     W defaultCel;
-    LocalDateTime czasStart;
-    LocalDateTime czasEnd;
+
+    public Sytuacja(List<TypSytuacja> typySytuacji, List<W> warunki, LocalDateTime czas, W defaultCel) {
+        this.typySytuacji = typySytuacji;
+        this.warunki = warunki;
+        this.czas = czas;
+        this.defaultCel = defaultCel;
+    }
 }

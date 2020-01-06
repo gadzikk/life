@@ -1,6 +1,10 @@
 package z_inne;
 
+import metoda.M;
+import typy_bazowe.TypOsoby;
 import warunek.W;
+
+import java.util.List;
 
 /**
  * Created by gadzik on 02.01.20.
@@ -16,4 +20,66 @@ public class OsobaMetod {
     public String FOR_EACH_END() {return "forEachEnd()";}
     public String pobierz(W warunek){ return "znikaZPlanszy("+ warunek +")";}
     public String stworz(W warunek){ return "znikaZPlanszy("+ warunek +")";}
+    public String set(W warunek){ return "set("+ warunek +")";}
+
+    public String siejZlo() {return "siejZlo()";}
+    public String uzaleznijSieOdSrd() {return "uzaleznijSieOdSrd()";}
+    public String zdobadzInformacjeZeSrodowiskaNaKurestwie() {return "zdobadzInformacjeZeSrodowiskaNaKurestwie()";}
+    public String dzialanieWsrodDzialaczy() {return "dzialanieWsrodDzialaczy()";}
+    public String ukryjDostep() {return "ukryjDostep()";}
+    public String wbijNaMuke() {return "wbijNaMuke()";}
+    public String skazNaIzolacje() {return "skazNaIzolacje()";}
+    public String patrzJakCierpi() {return "patrzJakCierpi()";}
+    public String cieszSieJegoCierpieniem() {return "cieszSieJegoCierpieniem()";}
+    public String baluj() {return "baluj()";}
+    public String WHILE(W warunek) {return "WHILE("+ warunek +")";}
+    public String WHILE_END() {return "WHILE_END()";}
+    public String zabij() {return "zabij()";}
+    public String patrzy(TypOsoby osoba) {return "patrzy("+ osoba +")";}
+    public String kabluje(TypOsoby osoba) {return "kabluje("+ osoba +")";}
+
+    public String peleryna_on() {return "peleryna_on()";}
+    public String tylkoHajs_on() {return "tylkoHajs_on()";}
+
+    public String setStatus(W status) {return "setStatus("+ status +")";}
+    public String dbaj(List<W> warunki) {return "dbaj("+ warunki +")";}
+    public String wyjebane(List<W> warunki) {return "wyjebane("+ warunki +")";}
+    public String teoriaPrzesuwania(OsobaMetod zasob) {return "teoriaPrzesuwania("+ zasob +")";}
+    public String ostry(TypOsoby osoba) {return "ostry("+ osoba +")";}
+    public String zwolnij(OsobaMetod zasob) {return "zwolnij("+ zasob +")";}
+
+    public String zlecNieszczegolowo(W task) {return "zlecNieszczegolowo("+ task +")";}
+    public String zjeb(W warunek ,W task) {return "zjeb("+ warunek +" "+ task +")";}
+    public String potwierdzajaZInnymi(W niepokojace) {return "potwierdzajaZInnymi("+ niepokojace +")";}
+    public String rozpoznanieGdzieUderzyc(W gadka) {return "rozpoznanieGdzieUderzyc("+ gadka +")";}
+    public String prowokuj(List<String> sposoby) {return "prowokuj("+ sposoby +")";}
+    public String stawiajWZlymSwietle(TypOsoby me, OsobaMetod wieleOsob, List<String> sposoby) {
+        return "stawiajWZlymSwietle("+ me +" "+ wieleOsob +" "+ sposoby +")";
+    }
+    public String kabluj(TypOsoby me, OsobaMetod manago) {return "kabluj("+ me +" "+ manago +")";}
+
+
+//        if(task)
+//        {
+//            oponent.zlecNieszczegolowo(task);
+//            oponent.zjeb(niewykonanie, task);
+//
+//            if(isInnyZalezny(task))
+//            {
+//                oponent.zjeb(zaleznyTask, task);
+//            }
+//        }
+//
+//        if(niepokojace)
+//        {
+//            zaniepokojeni.potwierdzajaZInnymi(niepokojace);
+//            robWrazenie(programista, pasjonat, niunius);
+//            zalagodz(gadka);
+//
+//        }
+//
+//        oponent.rozpoznanieGdzieUderzyc(gadka);
+//        oponent.prowokuj(gadka, unizanie, wysmiewanie);
+//        oponent.stawiajWZlymSwietle(me, 100osob, plotkuj, wysmiewaj);
+//        oponent.kabluj(manago, me);
 }

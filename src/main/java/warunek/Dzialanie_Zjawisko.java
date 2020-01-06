@@ -20,5 +20,5 @@ public class Dzialanie_Zjawisko {
     List<W> warunkiNiesprzyjajace;
     List<M> wymaganeKroki;
     List<W> wymaganeRzeczy;
-    List<M> metody; // TODO: lub typ method
+    List<M> metody;
 }

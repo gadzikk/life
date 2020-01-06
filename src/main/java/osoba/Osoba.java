@@ -124,6 +124,7 @@ public class Osoba {
 
     boolean posluszny;
     boolean przekonywalny;
+    boolean odporny;
     boolean niezaleznosc;
 
     boolean glupi;
@@ -150,6 +151,7 @@ public class Osoba {
     boolean bagatelizujeZagrozenie;
     boolean nieznaCierpienia;
     boolean zuchwaly;
+    boolean zadufanyWSobie;
     boolean sztuczny;
 
     boolean biedny;
@@ -212,7 +214,7 @@ public class Osoba {
     DzienCodzienny dzienCodzienny;
     TypIlosc iloscZnajomych;
     TypIlosc iloscDobrziZnajomi;
-    Srodki srodki;
+    List<W> srodki;
     Majatek majatek;
     Miejsce miejsceZamieszkania;
     OsobyOrazWarunki wyjebaneNa;

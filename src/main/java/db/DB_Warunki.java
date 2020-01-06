@@ -32,6 +32,9 @@ public class DB_Warunki {
         ALL.addAll(ROZRYWKI_ZART);
         ALL.addAll(EMOCJE_UCZUCIA);
         ALL.addAll(ZDOBYWANIE_WIEDZY_PIENIEDZY);
+        ALL.addAll(KSZTALTOWANIE);
+        ALL.addAll(RANY);
+        ALL.addAll(TYPY_PRAC);
 
 
         List<WarunkiKategoria> WYMAGANIA_WSTEPNE = Arrays.asList(
@@ -117,8 +120,10 @@ public class DB_Warunki {
         );
 
         List<WarunkiKategoria> CZAS = Arrays.asList(
+                CYKL_DNIA,
                 PLAN,
-                ERA
+                ERA,
+                SPEDZANIE_CZASU
         );
 
         List<WarunkiKategoria> ROZRYWKI_ZART = Arrays.asList(
@@ -138,8 +143,29 @@ public class DB_Warunki {
                 ZAROBEK_NIELEGALNY
         );
 
+        List<WarunkiKategoria> KSZTALTOWANIE = Arrays.asList(
+                KSZTALTOWANIE_DZIELNICY,
+                KSZTALTOWANIE_CZLOWIEKA
 
+        );
 
+        List<WarunkiKategoria> RANY = Arrays.asList(
+                RANY_PSYCHICZNE,
+                RANY_FIZYCZNE,
+                RANY_ZNECANIE_SIE,
+                RANY_SPRZET,
+                RANY_DOSTEPOWE
+        );
+
+        List<WarunkiKategoria> TYPY_PRAC = Arrays.asList(
+                PRACA_FIZYCZNA,
+                PRACA_HANDEL,
+                PRACA_WYMAGAJACA_UMIEJETNOSCI,
+                PRACA_USLUGI,
+                PRACA_OSWIATA,
+                PRACA_TRANSPORT,
+                PRACA_TECHNICZNA_UMYSLOWA
+        );
     }
 
 
@@ -219,6 +245,13 @@ public class DB_Warunki {
     public static WarunkiKategoria WYMAGANIA_WSTEPNE_ZARABIANIE = new WarunkiKategoria(
             new Kategoria(TypKategoria.WYMAGANIA_WSTEPNE, TypKategoria.ZARABIANIE),
             Arrays.asList(
+                    W.SPELNIENIE_WYMAGAN,
+                    W.POPYT,
+                    W.ODZEW_HR,
+                    W.POZYTYWNY_FEEDBACK_INTERVIEW,
+                    W.WYGRANIE_Z_KONKURENTAMI,
+                    W.SCREENING_POZYTYWNY,
+
                     W.UMOWA_PRACA,
                     W.WYKONYWANIE_PRACY
             )
@@ -711,7 +744,8 @@ public class DB_Warunki {
                     W.TRZEZWOSC,
                     W.MADROSC,
                     W.NOWY_DEFAULT_DOBRA_OSOBA,
-                    W.NIEPOZWALA_NA_ZLO
+                    W.NIEPOZWALA_NA_ZLO,
+                    W.TWORZENIE_KONTAKTU, W.TWORZENIE_ISTNIENIA
             )
     );
 
@@ -725,7 +759,8 @@ public class DB_Warunki {
                     W.ODUZENIE,
                     W.GLUPOTA,
                     W.NOWY_DEFAULT_RYWAL,
-                    W.JEBIE_DOBRO, W.WYMAGA_PRZEWAG_NA_ZLU
+                    W.JEBIE_DOBRO, W.WYMAGA_PRZEWAG_NA_ZLU,
+                    W.SKAZYWANIE_SAMOTNOSC, W.SKAZYWANIE_PUSTKA
             )
     );
 
@@ -880,6 +915,164 @@ public class DB_Warunki {
 
     );
 
+    public static WarunkiKategoria BLAD = new WarunkiKategoria(
+            new Kategoria(TypKategoria.BLAD),
+            Arrays.asList(
+                    W.BLAD_POJEDYNCZY, W.BLAD_NIESWIADOMY_PRZYPADKOWY,
+                    W.BLAD_SPECJALNY, W.BLAD_LENISTWA,
+                    W.BLAD_ZLAMANIA_ZASAD
+            )
+    );
+
+    public static WarunkiKategoria KOGO = new WarunkiKategoria(
+            new Kategoria(TypKategoria.SONDA, TypKategoria.KOGO),
+            Arrays.asList(
+                    W.ZAGRANICZNI_CIEMNI, W.ZAGRANICZNI_JASNI,
+                    W.BURZUA_DZIALAJACA, W.BURZUA_NIESWIADOMA,
+                    W.DZIALACZE_PRZECIWNI, W.DUZI_TEMPI
+            )
+    );
+
+    public static WarunkiKategoria HIERARCHIA_PRACA = new WarunkiKategoria(
+            new Kategoria(TypKategoria.HIERARCHIA, TypKategoria.HIERARCHIA_PRACA),
+            Arrays.asList(
+                    W.BRAK_PRACY, W.PRACA_NA_ETACIE, W.MANAGER, W.OKRESLAJACY_BUDZET, W.ZARZAD_FIRMY, W.OWNER_FIRMY,
+                    W.OWNER_KORPORACJI
+            )
+    );
+
+    public static WarunkiKategoria HIERARCHIA_ULICA = new WarunkiKategoria(
+            new Kategoria(TypKategoria.HIERARCHIA, TypKategoria.HIERARCHIA_ULICA),
+            Arrays.asList(
+                    W.RDZENNY_DOBRY,
+                    W.ZLODZIEJ, W.DIL, W.PATOLOG, W.BIEGACZ, W.OSIEDLOWY_OGARNIETY, W.OSIEDLOWY_NORMAL,
+                    W.SPORTOWY_FEST, W.OSIEDLOWY_CASUAL,
+                    W.OSIEDLOWY_WYKRECONY, W.OSIEDLOWY_BURZUJ
+            )
+    );
+
+    public static WarunkiKategoria CYKL_DNIA = new WarunkiKategoria(
+            new Kategoria(TypKategoria.CYKL_DNIA),
+            Arrays.asList(
+                    W.OD_00_DO_6, W.OD_6_DO_7, W.OD_7_DO_9, W.OD_9_DO_11_, W.OD_11_DO_14,
+                    W.OD_14_DO_17, W.OD_17_DO_19, W.OD_19_DO_21, W.OD_21_DO_24
+                    )
+    );
+
+    public static WarunkiKategoria KSZTALTOWANIE_DZIELNICY = new WarunkiKategoria(
+            new Kategoria(TypKategoria.KSZTALTOWANIE ,TypKategoria.KSZTALTOWANIE_DZIELNICY),
+            Arrays.asList(
+                    W.WARUNEK_UTWORZENIA_SIE_MIASTA,
+                    W.PRACA, W.RDZENNI, W.LUDZIE
+            )
+    );
+
+    public static WarunkiKategoria KSZTALTOWANIE_CZLOWIEKA = new WarunkiKategoria(
+            new Kategoria(TypKategoria.KSZTALTOWANIE ,TypKategoria.KSZTALTOWANIE_CZLOWIEKA),
+            Arrays.asList(
+                    W.OSOBOWOSC, W.WIDZISZ, W.SLYSZYSZ, W.CZUJESZ, W.Z_KIM_PRZYSTAJESZ, W.PRAKTYKA, W.ZNAJOMI,
+                    W.CHARAKTER, W.CIERPIENIE, W.CIEZKA_PRACA, W.TRUDNOSCI,
+                    W.UMYSL, W.PRACA_UMYSLOWA, W.CZYTANIE,
+                    W.FIZYCZNE, W.MAX_WZROKU, W.BIEGANIE, W.ROWER, W.BOKS, W.CIEZARY, W.PLYWANIE
+            )
+    );
+
+    public static WarunkiKategoria SPEDZANIE_CZASU = new WarunkiKategoria(
+            new Kategoria(TypKategoria.SPEDZANIE_CZASU),
+            Arrays.asList(
+                    W.CEL, W.ZARABIANIE, W.WYCHOWYWANIE,
+                    W.RDZENNA_LUDNOSC, W.PATOLOGIA, W.MLODE_KOBIETY_CHCACE_RODZINY
+            )
+    );
+
+    public static WarunkiKategoria RANY_PSYCHICZNE = new WarunkiKategoria(
+            new Kategoria(TypKategoria.RANY, TypKategoria.RANY_PSYCHICZNE),
+            Arrays.asList(
+                    W.PATRZENIE_W_OCZY, W.OBELGI_WYSOKA_CZESTOTLIWOSC, W.OBELGI_W_PETLI, W.UKAZANIE_WAD, W.WYSMIANIE, W.WYSMIANIE_NAJBLIZSZYCH, W.UKAZANIE_WAD_NAJBLIZSZYCH,
+                    W.POBICIE_PRZY_ZNAJOMYCH, W.POBICIE_PRZY_RODZINIE,
+                    W.POBICIE_ZNAJOMYCH, W.POBICIE_RODZINY, W.USZCZERBEK_ZDROWIE, W.STRATA_HONORU
+            )
+    );
+
+    public static WarunkiKategoria RANY_FIZYCZNE = new WarunkiKategoria(
+            new Kategoria(TypKategoria.RANY, TypKategoria.RANY_FIZYCZNE),
+            Arrays.asList(
+                    W.POPCHNIECIE, W.LEPIEC, W.STRZAL, W.KILKA_STRZALOW, W.BICIE_DO_UPADKU, W.BICIE_DO_UTRATY_PRZYTOMNOSCI
+            )
+    );
+
+    public static WarunkiKategoria RANY_ZNECANIE_SIE = new WarunkiKategoria(
+            new Kategoria(TypKategoria.RANY, TypKategoria.RANY_ZNECANIE_SIE),
+            Arrays.asList(
+                    W.KOPANIE_KONCZYNY, W.KOPANIE_BRZUCH, W.KLEPANIE_KARK, W.GLOWA_O_POWIERZCHNIE
+            )
+    );
+
+    public static WarunkiKategoria RANY_SPRZET = new WarunkiKategoria(
+            new Kategoria(TypKategoria.RANY, TypKategoria.RANY_SPRZET),
+            Arrays.asList(
+                    W.CIECIE_MIEJSCA_NIEZAGRAZJACE, W.CICIE_MIEJSCA_WIDOCZNE, W.CIECIE_MIEJSCA_ZAGRAZAJACE
+            )
+    );
+
+    public static WarunkiKategoria RANY_DOSTEPOWE = new WarunkiKategoria(
+            new Kategoria(TypKategoria.RANY, TypKategoria.RANY_DOSTEPOWE),
+            Arrays.asList(
+                    W.WYLACZENIE_SRODOWISKA, W.WYLACZENIE_KOBIETY, W.WYLACZENIE_ZAROBKU, W.KAZDY_SPOTYKA_BIJE, W.KAZDY_KTO_SIEDZI_POJECHANE
+            )
+    );
+
+    public static WarunkiKategoria PRACA_FIZYCZNA = new WarunkiKategoria(
+            new Kategoria(TypKategoria.TYP_PRACY, TypKategoria.PRACA_FIZYCZNA),
+            Arrays.asList(
+                    W.PRZEMYSL, W.HUTNICTWO, W.SPAWALNICTWO,
+                    W.WYDOBYCIE_SUROWCE, W.PRZETWORSTWO_SUROWCE, W.BUDOWNICTWO
+            )
+    );
+
+
+    public static WarunkiKategoria PRACA_HANDEL = new WarunkiKategoria(
+            new Kategoria(TypKategoria.TYP_PRACY, TypKategoria.PRACA_HANDEL),
+            Arrays.asList(
+                    W.KASJERKA, W.MAGAZYN
+            )
+    );
+
+    public static WarunkiKategoria PRACA_WYMAGAJACA_UMIEJETNOSCI = new WarunkiKategoria(
+            new Kategoria(TypKategoria.TYP_PRACY, TypKategoria.PRACA_WYMAGAJACA_UMIEJETNOSCI),
+            Arrays.asList(
+                    W.FRYZJERKA, W.KOSMETYCZKA, W.MAKIJARZYSTKA
+            )
+    );
+
+    public static WarunkiKategoria PRACA_USLUGI = new WarunkiKategoria(
+            new Kategoria(TypKategoria.TYP_PRACY, TypKategoria.PRACA_USLUGI),
+            Arrays.asList(
+                    W.HOTEL, W.GASTRONOMIA, W.OCHRONA
+            )
+    );
+
+    public static WarunkiKategoria PRACA_OSWIATA = new WarunkiKategoria(
+            new Kategoria(TypKategoria.TYP_PRACY, TypKategoria.PRACA_OSWIATA),
+            Arrays.asList(
+                    W.NAUCZYCIEL
+            )
+    );
+
+    public static WarunkiKategoria PRACA_TRANSPORT = new WarunkiKategoria(
+            new Kategoria(TypKategoria.TYP_PRACY, TypKategoria.PRACA_TRANSPORT),
+            Arrays.asList(
+                    W.KIEROWCA, W.MOTORNICZY
+            )
+    );
+
+    public static WarunkiKategoria PRACA_TECHNICZNA_UMYSLOWA = new WarunkiKategoria(
+            new Kategoria(TypKategoria.TYP_PRACY, TypKategoria.PRACA_TECHNICZNA_UMYSLOWA),
+            Arrays.asList(
+                    W.KSIEGOWA, W.HR, W.MECHANIK, W.ELEKTRONIK, W.INFORMATYK
+            )
+    );
+
 
     public static List<WarunkiKategoria> ZLY_DOBRY = Arrays.asList(
             PRZYCZYNY_ZLA,
@@ -927,8 +1120,10 @@ public class DB_Warunki {
     );
 
     public static List<WarunkiKategoria> CZAS = Arrays.asList(
+            CYKL_DNIA,
             PLAN,
-            ERA
+            ERA,
+            SPEDZANIE_CZASU
     );
 
     public static List<WarunkiKategoria> ROZRYWKI_ZART = Arrays.asList(
@@ -946,5 +1141,28 @@ public class DB_Warunki {
     public static List<WarunkiKategoria> ZDOBYWANIE_WIEDZY_PIENIEDZY = Arrays.asList(
             ZDOBYWANIE_WIEDZY,
             ZAROBEK_NIELEGALNY
+    );
+
+    public static List<WarunkiKategoria> KSZTALTOWANIE = Arrays.asList(
+            KSZTALTOWANIE_DZIELNICY,
+            KSZTALTOWANIE_CZLOWIEKA
+    );
+
+    public static List<WarunkiKategoria> RANY = Arrays.asList(
+            RANY_PSYCHICZNE,
+            RANY_FIZYCZNE,
+            RANY_ZNECANIE_SIE,
+            RANY_SPRZET,
+            RANY_DOSTEPOWE
+    );
+
+    public static List<WarunkiKategoria> TYPY_PRAC = Arrays.asList(
+            PRACA_FIZYCZNA,
+            PRACA_HANDEL,
+            PRACA_WYMAGAJACA_UMIEJETNOSCI,
+            PRACA_USLUGI,
+            PRACA_OSWIATA,
+            PRACA_TRANSPORT,
+            PRACA_TECHNICZNA_UMYSLOWA
     );
 }
