@@ -1,5 +1,6 @@
 package osoba;
 
+import db.DB_Osoby;
 import db.DB_Warunki;
 import metoda.M;
 import miejsce.Miejsce;
@@ -18,8 +19,7 @@ public class Osoba {
     TypRasa rasa;
     TypNarodowsc narodowosc;
     TypPlec plec;
-// todo dodac gadka tworzy zrodelko, angazuje albo tylko na wywolanie, czy podtrzymuje czy nie
-    // TODO DODAC ZOBOWIAZANIE OCZEKIWANIE (AFTERTOP)
+
     Wychowanie wychowanie;
     W priorytet;
     List<TypOsoby> typyOsoby;
@@ -116,7 +116,7 @@ public class Osoba {
     boolean umieCisnac;
 
     boolean chetnyDoBojki;
-    boolean agresjaCzynna; // todo dodac te 2 byty do wyliczania charakteru
+    boolean agresjaCzynna;
 
     boolean broniHierarchii;
     boolean broniGlobalu;
@@ -555,6 +555,10 @@ public class Osoba {
             przewagiCharakteru.add(W.DOSTEP_BIEGACZE);
             przewagiCharakteru.add(W.MAGICZNE_ZAKLECIA);
             przewagiCharakteru.add(W.WIE_OD_KOGO_JEST);
+            przewagiCharakteru.add(W.OCZEKIWANIA);
+            przewagiCharakteru.add(W.WYMAGANIA);
+            przewagiCharakteru.add(W.ULTIMATUM);
+            przewagiCharakteru.add(W.MIEJSCE_HIERARCHIA);
         }
         if(poCichu){
             slabosciCharakteru.add(W.PO_CICHU);
@@ -928,6 +932,44 @@ public class Osoba {
         if(TypPunktZerowy.BARDZO_WYSOKO.equals(punktZerowy) || TypPunktZerowy.WYSOKO.equals(punktZerowy)){
             slabosciCharakteru.add(W.RESTRYKCJA_ZNAJOMYCH);
         }
+        if(chetnyDoBojki){
+            slabosciCharakteru.add(W.CHETNY_BOJKA);
+        }
+        if(agresjaCzynna){
+            slabosciCharakteru.add(W.AGRESJA_CZYNNA);
+        }
+        if(odporny){
+            przewagiCharakteru.add(W.ODPORNY);
+        }
+        if(spryt){
+            przewagiCharakteru.add(W.SPRYT);
+        }
+        if(szybkosc){
+            przewagiCharakteru.add(W.SZYBKOSC);
+        }
+        if(dopuszczaNieznajomych){
+            przewagiCharakteru.add(W.DOPUSZCZA_NIEZNAJOMYCH);
+        }
+        if(zadufanyWSobie){
+            slabosciCharakteru.add(W.ZADUFANY_W_SOBIE);
+        }
+        if(gadanie.stream().anyMatch(W.TWORZY_NADRZEDNY_FLOW::equals)){
+            przewagiCharakteru.add(W.TWORZY_NADRZEDNY_FLOW);
+        }
+        if(gadanie.stream().anyMatch(W.TWORZY_ZRODELKO::equals)){
+            przewagiCharakteru.add(W.TWORZY_ZRODELKO);
+        }
+        if(gadanie.stream().anyMatch(W.AKTYWNY_NA_ANGAZ::equals)){
+            przewagiCharakteru.add(W.AKTYWNY_NA_ANGAZ);
+        }
+        typyOsoby.forEach(typ->{
+            if(DB_Osoby.DOBRE_TYPY_OSOB.stream().anyMatch(x->x.equals(typ))){
+                przewagiCharakteru.add(W.valueOf(typ.name()));
+            }
+            if(DB_Osoby.ZLE_TYPY_OSOB.stream().anyMatch(x->x.equals(typ))){
+                slabosciCharakteru.add(W.valueOf(typ.name()));
+            }
+        });
 
         przewagi = przewagiCharakteru;
         slabosci = slabosciCharakteru;

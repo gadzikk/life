@@ -1,7 +1,36 @@
 package db;
 
+import warunek.W;
+
+import java.util.List;
+
 /**
  * Created by gadzik on 28.12.19.
  */
-public class DB_Osoby {
+public class DB_Osoby extends DB {
+    public static List<W> DOBRE_TYPY_OSOB = of(
+            W.LOKALNY,
+            W.MLODY, W.SREDNI_WIEK,
+
+            W.OSIEDLOWY_NORMAL, W.OSIEDLOWY_OGARNIETY,
+            W.BIEGACZ, W.PATOLOG, W.DIL, W.ZLODZIEJ,
+            W.WIECZNY_IMIGRANT,
+            W.RDZENNY_GLUPI, W.RDZENNY_DOBRY,
+
+            W.CZOLO, W.OGARNIECI, W.MOCNI_NIE_LICZACY_SIE,
+
+            W.OSIEDLOWA_AGRESORKA, W.OSIEDLOWA_NORMALNA, W.OSIEDLOWA_DOBRA, W.OSIEDLOWA_SWIATOWA
+    );
+
+    public static List<W> ZLE_TYPY_OSOB = of(
+            W.STATYSTA, W.TURYSTA_ZAGRANICZNY,
+            W.STARY,
+            W.FEST, W.BANAN, W.SYSTEMOWY_BURZUJ, W.WYGODNIS, W.BURZUJ_NIESWIADOMY, W.BURZUJ_DZIALACZ,
+            W.OSIEDLOWY_BURZUJ, W.OSIEDLOWY_WYKRECONY, W.OSIEDLOWY_CASUAL, W.SPORTOWY_FEST,
+            W.CHETNE_PIONKI, W.PIONKI, W.MLODE_PIONKI,
+
+            W.CZORT, W.OSIEDLOWA_KARYNA, W.OSIEDLOWA_KSIEZNICZKA,
+            W.BURZUA, W.KUJONKA, W.ZBYT_WRAZLIWA, W.ZWYKLA_FEST, W.WIESNIARA,
+            W.SWIATOWA_DOBRY_DOM
+    );
 }
