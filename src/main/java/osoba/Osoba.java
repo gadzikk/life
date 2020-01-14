@@ -39,6 +39,7 @@ public class Osoba {
 
     TypPriorytetoweSrodowisko priorytetoweSrodowisko;
     List<TypUmiejetnosc> umiejetnosci;
+    List<W> gadanie;
 
     boolean arcyZlo;
     boolean dlaDiabla;
@@ -67,6 +68,11 @@ public class Osoba {
     boolean spryt;
     boolean szybkosc;
     boolean cel;
+    boolean zobowiazanie;
+    boolean oczekiwanie;
+    boolean wymaganie;
+    boolean zdolnyDoUltimatum;
+    boolean miejsceHierarchia;
 
     boolean zKims;
     boolean zWaznym;

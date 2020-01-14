@@ -158,6 +158,12 @@ public class CPU_UL extends AbstractCPU {
                 )
         );
 
+        new WM(of(W.WIECZNY_IMIGRANT),
+                of(
+                        M.DEFAULT(_100osob.wyklucz(W.WIECZNY_IMIGRANT))
+                )
+        );
+
         new WMWM(of(W.ZLY),
                 of(
                         M.atak(),

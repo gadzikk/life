@@ -14,6 +14,9 @@ public class Sytuacja {
     LocalDateTime czas;
     W defaultCel;
 
+    public Sytuacja() {
+    }
+
     public Sytuacja(List<TypSytuacja> typySytuacji, List<W> warunki, LocalDateTime czas, W defaultCel) {
         this.typySytuacji = typySytuacji;
         this.warunki = warunki;

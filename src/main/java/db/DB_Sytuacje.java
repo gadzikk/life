@@ -67,6 +67,13 @@ public class DB_Sytuacje {
             CHCIANA_WZIECIE_KONTAKTU
     );
 
+    public static Sytuacja UNIKALNA_SYTUACJA = new Sytuacja(
+            of(TypSytuacja.UNIKALNA),
+            of(W.UNIKALNA_JEDNOSTKA, W.UNIKALNY_WARUNEK),
+            LocalDateTime.now(),
+            W.NA
+    );
+
     public static <T> List<T> of(T... elements){
         return Arrays.asList(elements);
     }

@@ -57,29 +57,7 @@ public class OsobaMetod {
         return "stawiajWZlymSwietle("+ me +" "+ wieleOsob +" "+ sposoby +")";
     }
     public String kabluj(TypOsoby me, OsobaMetod manago) {return "kabluj("+ me +" "+ manago +")";}
+    public String wyklucz(W warunek) {return "wyklucz("+ warunek +")";}
 
 
-//        if(task)
-//        {
-//            oponent.zlecNieszczegolowo(task);
-//            oponent.zjeb(niewykonanie, task);
-//
-//            if(isInnyZalezny(task))
-//            {
-//                oponent.zjeb(zaleznyTask, task);
-//            }
-//        }
-//
-//        if(niepokojace)
-//        {
-//            zaniepokojeni.potwierdzajaZInnymi(niepokojace);
-//            robWrazenie(programista, pasjonat, niunius);
-//            zalagodz(gadka);
-//
-//        }
-//
-//        oponent.rozpoznanieGdzieUderzyc(gadka);
-//        oponent.prowokuj(gadka, unizanie, wysmiewanie);
-//        oponent.stawiajWZlymSwietle(me, 100osob, plotkuj, wysmiewaj);
-//        oponent.kabluj(manago, me);
 }

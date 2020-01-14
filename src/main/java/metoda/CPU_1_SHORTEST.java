@@ -59,7 +59,7 @@ public class CPU_1_SHORTEST extends AbstractCPU {
         );
         new MW(
                 of(M.gadka(tematy, kombo)),
-                of(W.NIEUSTANNA_GADKA, W.EFEKTYWNA_GADKA, W.NASTAWIENIE_WZIECIE_KONTAKTU)
+                of(W.NIEUSTANNA_GADKA, W.THREAD_WHILE_LOOP_EFEKTYWNA_GADKA, W.NASTAWIENIE_WZIECIE_KONTAKTU)
         );
         new MW(
                 of(M.wziecieKontaktu(), M.temat(), M.ponowienie(), M.temat(), M.ponowienie()),
