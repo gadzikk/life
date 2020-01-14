@@ -9,32 +9,55 @@ import java.util.List;
  * Created by gadzik on 18.12.19.
  */
 public class Wychowanie {
-    TypDziecinstwo dziecinstwo;
-    List<Miejsce> odwiedzoneMiejsca;
+    public TypDziecinstwo dziecinstwo;
+    public List<Miejsce> odwiedzoneMiejsca;
 
-    boolean patologiaWDomu;
-    boolean gorzejNizWszyscy;
-    boolean zGoryPrzegrany;
+    public boolean patologiaWDomu;
+    public boolean gorzejNizWszyscy;
+    public boolean zGoryPrzegrany;
 
-    boolean bylaNauka;
-    boolean byliRodzice;
-    boolean bylaWalka;
-    boolean byloCierpienie;
+    public boolean bylaNauka;
+    public boolean byliRodzice;
+    public boolean bylaWalka;
+    public boolean byloCierpienie;
 
-    boolean podkloszem;
-    boolean czestoWychodzil;
-    boolean dostepDoWieluPlansz;
+    public boolean podkloszem;
+    public boolean czestoWychodzil;
+    public boolean dostepDoWieluPlansz;
 
-    boolean mowiPrawde;
-    boolean slowaCzyny;
-    boolean dobreSerce;
-    boolean umiejetnosc;
+    public boolean mowiPrawde;
+    public boolean slowaCzyny;
+    public boolean dobreSerce;
+    public boolean umiejetnosc;
 
-    boolean klapsy;
-    boolean kary;
+    public boolean klapsy;
+    public boolean kary;
 
-    boolean dostawalPieniadze;
-    boolean narkotyki;
+    public boolean dostawalPieniadze;
+    public boolean narkotyki;
+
+    public Wychowanie(TypDziecinstwo dziecinstwo, List<Miejsce> odwiedzoneMiejsca, boolean patologiaWDomu, boolean gorzejNizWszyscy, boolean zGoryPrzegrany, boolean bylaNauka, boolean byliRodzice, boolean bylaWalka, boolean byloCierpienie, boolean podkloszem, boolean czestoWychodzil, boolean dostepDoWieluPlansz, boolean mowiPrawde, boolean slowaCzyny, boolean dobreSerce, boolean umiejetnosc, boolean klapsy, boolean kary, boolean dostawalPieniadze, boolean narkotyki) {
+        this.dziecinstwo = dziecinstwo;
+        this.odwiedzoneMiejsca = odwiedzoneMiejsca;
+        this.patologiaWDomu = patologiaWDomu;
+        this.gorzejNizWszyscy = gorzejNizWszyscy;
+        this.zGoryPrzegrany = zGoryPrzegrany;
+        this.bylaNauka = bylaNauka;
+        this.byliRodzice = byliRodzice;
+        this.bylaWalka = bylaWalka;
+        this.byloCierpienie = byloCierpienie;
+        this.podkloszem = podkloszem;
+        this.czestoWychodzil = czestoWychodzil;
+        this.dostepDoWieluPlansz = dostepDoWieluPlansz;
+        this.mowiPrawde = mowiPrawde;
+        this.slowaCzyny = slowaCzyny;
+        this.dobreSerce = dobreSerce;
+        this.umiejetnosc = umiejetnosc;
+        this.klapsy = klapsy;
+        this.kary = kary;
+        this.dostawalPieniadze = dostawalPieniadze;
+        this.narkotyki = narkotyki;
+    }
 
     public Wychowanie(boolean patologiaWDomu, boolean gorzejNizWszyscy, boolean zGoryPrzegrany, boolean bylaNauka, boolean byliRodzice, boolean bylaWalka, boolean byloCierpienie, boolean podkloszem, boolean czestoWychodzil, boolean dostepDoWieluPlansz, boolean mowiPrawde, boolean slowaCzyny, boolean dobreSerce, boolean umiejetnosc, boolean klapsy, boolean kary, boolean dostawalPieniadze, boolean narkotyki) {
         this.patologiaWDomu = patologiaWDomu;

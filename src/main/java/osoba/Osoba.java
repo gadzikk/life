@@ -974,4 +974,565 @@ public class Osoba {
         przewagi = przewagiCharakteru;
         slabosci = slabosciCharakteru;
     }
+    public String wywietlPrzewagiSlabosci() {
+        return "Osoba{" +
+                "PRZEWAGI:" + przewagi +
+                ", SLABOSCI:" + slabosci +
+                '}';
+    }
+
+    public static String porownajOsoby(Osoba a, Osoba b){
+        StringBuilder sb = new StringBuilder();
+        if(!a.rasa.equals(b.rasa)){
+            sb.append("RASA: " + a.rasa + " |#| " + b.rasa);
+        }
+        if(!a.narodowosc.equals(b.narodowosc)){
+            sb.append("NARODOWOSC: " + a.narodowosc + " |#| " + b.narodowosc);
+        }
+        if(!a.plec.equals(b.plec)){
+            sb.append("PLEC: " + a.plec + " |#| " + b.plec);
+        }
+        if(!a.wychowanie.equals(b.wychowanie)){
+            if(!a.wychowanie.dziecinstwo.equals(b.wychowanie.dziecinstwo)){
+                sb.append("WYCHOWANIE.DZIECINSTWO: " + a.wychowanie.dziecinstwo + " |#| " + b.wychowanie.dziecinstwo);
+            }
+            if(!a.wychowanie.odwiedzoneMiejsca.equals(b.wychowanie.odwiedzoneMiejsca)){
+                sb.append("WYCHOWANIE.ODWIEDZONE_MIEJSCA DIFF: " + a.wychowanie.odwiedzoneMiejsca.removeAll(b.wychowanie.odwiedzoneMiejsca));
+                sb.append("WYCHOWANIE.ODWIEDZONE_MIEJSCA: " + a.wychowanie.odwiedzoneMiejsca + " |#| " + b.wychowanie.odwiedzoneMiejsca);
+            }
+            if(!a.wychowanie.patologiaWDomu == b.wychowanie.patologiaWDomu){
+                sb.append("WYCHOWANIE.PATOLOGIA_W_DOMU: " + a.wychowanie.patologiaWDomu + " |#| " + b.wychowanie.patologiaWDomu);
+            }
+            if(!a.wychowanie.gorzejNizWszyscy == b.wychowanie.gorzejNizWszyscy){
+                sb.append("WYCHOWANIE.GORZEJ_NIZ_WSZYSCY: " + a.wychowanie.gorzejNizWszyscy + " |#| " + b.wychowanie.gorzejNizWszyscy);
+            }
+            if(!a.wychowanie.zGoryPrzegrany == b.wychowanie.zGoryPrzegrany){
+                sb.append("WYCHOWANIE.Z_GORY_PRZEGRANY: " + a.wychowanie.zGoryPrzegrany + " |#| " + b.wychowanie.zGoryPrzegrany);
+            }
+            if(!a.wychowanie.bylaNauka == b.wychowanie.bylaNauka){
+                sb.append("WYCHOWANIE.BYLA_NAUKA: " + a.wychowanie.bylaNauka + " |#| " + b.wychowanie.bylaNauka);
+            }
+            if(!a.wychowanie.byliRodzice == b.wychowanie.byliRodzice){
+                sb.append("WYCHOWANIE.BYLI_RODZICE: " + a.wychowanie.byliRodzice + " |#| " + b.wychowanie.byliRodzice);
+            }
+            if(!a.wychowanie.bylaWalka == b.wychowanie.bylaWalka){
+                sb.append("WYCHOWANIE.BYLA_WALKA: " + a.wychowanie.bylaWalka + " |#| " + b.wychowanie.bylaWalka);
+            }
+            if(!a.wychowanie.byloCierpienie == b.wychowanie.byloCierpienie){
+                sb.append("WYCHOWANIE.BYLO_CIERPIENIE: " + a.wychowanie.byloCierpienie + " |#| " + b.wychowanie.byloCierpienie);
+            }
+            if(!a.wychowanie.podkloszem == b.wychowanie.podkloszem){
+                sb.append("WYCHOWANIE.PODKLOSZEM: " + a.wychowanie.podkloszem + " |#| " + b.wychowanie.podkloszem);
+            }
+            if(!a.wychowanie.czestoWychodzil == b.wychowanie.czestoWychodzil){
+                sb.append("WYCHOWANIE.CZESTO_WYCHODZIL: " + a.wychowanie.czestoWychodzil + " |#| " + b.wychowanie.czestoWychodzil);
+            }
+            if(!a.wychowanie.dostepDoWieluPlansz == b.wychowanie.dostepDoWieluPlansz){
+                sb.append("WYCHOWANIE.DOSTEP_DO_WIELU_PLANSZ: " + a.wychowanie.dostepDoWieluPlansz + " |#| " + b.wychowanie.dostepDoWieluPlansz);
+            }
+            if(!a.wychowanie.mowiPrawde == b.wychowanie.mowiPrawde){
+                sb.append("WYCHOWANIE.MOWI_PRAWDE: " + a.wychowanie.mowiPrawde + " |#| " + b.wychowanie.mowiPrawde);
+            }
+            if(!a.wychowanie.mowiPrawde == b.wychowanie.slowaCzyny){
+                sb.append("WYCHOWANIE.SLOWA_CZYNY: " + a.wychowanie.slowaCzyny + " |#| " + b.wychowanie.slowaCzyny);
+            }
+            if(!a.wychowanie.dobreSerce == b.wychowanie.dobreSerce){
+                sb.append("WYCHOWANIE.DOBRE_SERCE: " + a.wychowanie.dobreSerce + " |#| " + b.wychowanie.dobreSerce);
+            }
+            if(!a.wychowanie.umiejetnosc == b.wychowanie.umiejetnosc){
+                sb.append("WYCHOWANIE.UMIEJETNOSC: " + a.wychowanie.umiejetnosc + " |#| " + b.wychowanie.umiejetnosc);
+            }
+            if(!a.wychowanie.klapsy == b.wychowanie.klapsy){
+                sb.append("WYCHOWANIE.KLAPSY: " + a.wychowanie.klapsy + " |#| " + b.wychowanie.klapsy);
+            }
+            if(!a.wychowanie.kary == b.wychowanie.kary){
+                sb.append("WYCHOWANIE.KARY: " + a.wychowanie.kary + " |#| " + b.wychowanie.kary);
+            }
+            if(!a.wychowanie.dostawalPieniadze == b.wychowanie.dostawalPieniadze){
+                sb.append("WYCHOWANIE.DOSTAWAL_PIENIADZE: " + a.wychowanie.dostawalPieniadze + " |#| " + b.wychowanie.dostawalPieniadze.);
+            }
+            if(!a.wychowanie.narkotyki == b.wychowanie.narkotyki){
+                sb.append("WYCHOWANIE.DOSTAWAL_PIENIADZE: " + a.wychowanie.narkotyki + " |#| " + b.wychowanie.narkotyki);
+            }
+        }
+        if(!a.priorytet.equals(b.priorytet)){
+            sb.append("PRIORYTET: "+ a.priorytet + " |#| " + b.priorytet);
+        }
+        if(!a.typyOsoby.equals(b.typyOsoby)){
+            sb.append("TYPY_OSOBY DIFF: " + a.typyOsoby.removeAll(b.typyOsoby));
+            sb.append("TYPY_OSOBY: " + a.typyOsoby + " |#| " + b.typyOsoby);
+        }
+        if(!a.oceniaWg.equals(b.oceniaWg)){
+            sb.append("OCENIA_WG DIFF: " + a.oceniaWg.removeAll(b.oceniaWg));
+            sb.append("OCENIA_WG: " + a.oceniaWg + " |#| " + b.oceniaWg);
+        }
+        if(!a.iloscPrzewag.equals(b.iloscPrzewag)){
+            sb.append("ILOSC_PRZEWAG: "+ a.iloscPrzewag + " |#| " + b.iloscPrzewag);
+        }
+        if(!a.iloscPrzezyc.equals(b.iloscPrzezyc)){
+            sb.append("ILOSC_PRZEZYC: "+ a.iloscPrzezyc + " |#| " + b.iloscPrzezyc);
+        }
+        if(!a.planszeOdwiedzone.equals(b.planszeOdwiedzone)){
+            sb.append("PLANSZE_ODWIEDZONE DIFF: " + a.planszeOdwiedzone.removeAll(b.planszeOdwiedzone));
+            sb.append("PLANSZE_ODWIEDZONE: " + a.planszeOdwiedzone + " |#| " + b.planszeOdwiedzone);
+        }
+        if(!a.metody.equals(b.metody)){
+            sb.append("METODY DIFF: " + a.metody.removeAll(b.metody));
+            sb.append("METODY: " + a.metody + " |#| " + b.metody);
+        }
+        if(!a.iloscCierpienia.equals(b.iloscCierpienia)){
+            sb.append("ILOSC_CIERPIENIA: "+ a.iloscCierpienia + " |#| " + b.iloscCierpienia);
+        }
+        if(!a.iloscBurzuazji.equals(b.iloscBurzuazji)){
+            sb.append("ILOSC_BURZUAZJI: "+ a.iloscBurzuazji + " |#| " + b.iloscBurzuazji);
+        }
+        if(!a.pamiec.equals(b.pamiec)){
+            sb.append("PAMIEC: "+ a.pamiec + " |#| " + b.pamiec);
+        }
+        if(!a.priorytetoweSrodowisko.equals(b.priorytetoweSrodowisko)){
+            sb.append("PRIORYTETOWE_SRODOWISKO: "+ a.priorytetoweSrodowisko + " |#| " + b.priorytetoweSrodowisko);
+        }
+        if(!a.umiejetnosci.equals(b.umiejetnosci)){
+            sb.append("UMIEJETNOSCI DIFF: " + a.umiejetnosci.removeAll(b.umiejetnosci));
+            sb.append("UMIEJETNOSCI: " + a.umiejetnosci + " |#| " + b.umiejetnosci);
+        }
+        if(!a.gadanie.equals(b.gadanie)){
+            sb.append("GADANIE DIFF: " + a.gadanie.removeAll(b.gadanie));
+            sb.append("GADANIE: " + a.gadanie + " |#| " + b.gadanie);
+        }
+        if(!a.arcyZlo == b.arcyZlo){
+            sb.append("ARCY_ZLO: " + a.arcyZlo + " |#| " + b.arcyZlo);
+        }
+        if(!a.dlaDiabla == b.dlaDiabla){
+            sb.append("DLA_DIABLA: " + a.dlaDiabla + " |#| " + b.dlaDiabla);
+        }
+        if(!a.zlo == b.zlo){
+            sb.append("ZLO: " + a.zlo + " |#| " + b.zlo);
+        }
+        if(!a.reagujeNaZlo == b.reagujeNaZlo){
+            sb.append("REAGUJE_NA_ZLO: " + a.reagujeNaZlo + " |#| " + b.reagujeNaZlo);
+        }
+        if(!a.dobro == b.dobro){
+            sb.append("DOBRO: " + a.dobro + " |#| " + b.dobro);
+        }
+        if(!a.reagujeNaDobro == b.reagujeNaDobro){
+            sb.append("REAGUJE_NA_DOBRO: " + a.reagujeNaDobro + " |#| " + b.reagujeNaDobro);
+        }
+        if(!a.wiocha == b.wiocha){
+            sb.append("WIOCHA: " + a.wiocha + " |#| " + b.wiocha);
+        }
+        if(!a.miasto == b.miasto){
+            sb.append("MIASTO: " + a.miasto + " |#| " + b.miasto);
+        }
+        if(!a.wysilekFizyczny == b.wysilekFizyczny){
+            sb.append("WYSILEK_FIZYCZNY: " + a.wysilekFizyczny + " |#| " + b.wysilekFizyczny);
+        }
+        if(!a.wysilekUmyslowy == b.wysilekUmyslowy){
+            sb.append("WYSILEK_UMYSLOWY: " + a.wysilekUmyslowy + " |#| " + b.wysilekUmyslowy);
+        }
+        if(!a.mocnyWzrok == b.mocnyWzrok){
+            sb.append("MOCNY_WZROK: " + a.mocnyWzrok + " |#| " + b.mocnyWzrok);
+        }
+        if(!a.dobryGen == b.dobryGen){
+            sb.append("DOBRY_GEN: " + a.dobryGen + " |#| " + b.dobryGen);
+        }
+        if(!a.swiadomosc == b.swiadomosc){
+            sb.append("SWIADOMOSC: " + a.swiadomosc + " |#| " + b.swiadomosc);
+        }
+        if(!a.swiadomoscZagrozen == b.swiadomoscZagrozen){
+            sb.append("SWIADOMOSC_ZAGROZEN: " + a.swiadomoscZagrozen + " |#| " + b.swiadomoscZagrozen);
+        }
+        if(!a.swiadomoscUlicy == b.swiadomoscUlicy){
+            sb.append("SWIADOMOSC_ULICY: " + a.swiadomoscUlicy + " |#| " + b.swiadomoscUlicy);
+        }
+        if(!a.swiadomoscPrzewag == b.swiadomoscPrzewag){
+            sb.append("SWIADOMOSC_PRZEWAG: " + a.swiadomoscPrzewag + " |#| " + b.swiadomoscPrzewag);
+        }
+        if(!a.swiadomoscRynkuPracy == b.swiadomoscRynkuPracy){
+            sb.append("SWIADOMOSC_RYNKU_PRACY: " + a.swiadomoscRynkuPracy + " |#| " + b.swiadomoscRynkuPracy);
+        }
+        if(!a.swiadomoscPatologiiZwiazkow == b.swiadomoscPatologiiZwiazkow){
+            sb.append("SWIADOMOSC_ZWIAZKOW: " + a.swiadomoscPatologiiZwiazkow + " |#| " + b.swiadomoscPatologiiZwiazkow);
+        }
+        if(!a.madrosc == b.madrosc){
+            sb.append("MADROSC: " + a.madrosc + " |#| " + b.madrosc);
+        }
+        if(!a.wiedza == b.wiedza){
+            sb.append("WIEDZA: " + a.wiedza + " |#| " + b.wiedza);
+        }
+        if(!a.sila == b.sila){
+            sb.append("SILA: " + a.sila + " |#| " + b.sila);
+        }
+        if(!a.spryt == b.spryt){
+            sb.append("SPRYT: " + a.spryt + " |#| " + b.spryt);
+        }
+        if(!a.szybkosc == b.szybkosc){
+            sb.append("SZYBKOSC: " + a.szybkosc + " |#| " + b.szybkosc);
+        }
+        if(!a.cel == b.cel){
+            sb.append("CEL: " + a.cel + " |#| " + b.cel);
+        }
+        if(!a.zobowiazanie == b.zobowiazanie){
+            sb.append("ZOBOWIAZANIE: " + a.zobowiazanie + " |#| " + b.zobowiazanie);
+        }
+        if(!a.oczekiwanie == b.oczekiwanie){
+            sb.append("OCZEKIWANIE: " + a.oczekiwanie + " |#| " + b.oczekiwanie);
+        }
+        if(!a.wymaganie == b.wymaganie){
+            sb.append("WYMAGANIE: " + a.wymaganie + " |#| " + b.wymaganie);
+        }
+        if(!a.zdolnyDoUltimatum == b.zdolnyDoUltimatum){
+            sb.append("ZDOLNY_DO_ULTIMATUM: " + a.zdolnyDoUltimatum + " |#| " + b.zdolnyDoUltimatum);
+        }
+        if(!a.miejsceHierarchia == b.miejsceHierarchia){
+            sb.append("MIEJSCE_HIERARCHIA: " + a.miejsceHierarchia + " |#| " + b.miejsceHierarchia);
+        }
+        if(!a.zKims == b.zKims){
+            sb.append("Z_KIMS: " + a.zKims + " |#| " + b.zKims);
+        }
+        if(!a.zWaznym == b.zWaznym){
+            sb.append("Z_WAZNYM: " + a.zWaznym + " |#| " + b.zWaznym);
+        }
+        if(!a.czynny == b.czynny){
+            sb.append("CZYNNY: " + a.czynny + " |#| " + b.czynny);
+        }
+        if(!a.bierny == b.bierny){
+            sb.append("BIERNY: " + a.bierny + " |#| " + b.bierny);
+        }
+        if(!a.stwarzaPointCut == b.stwarzaPointCut){
+            sb.append("STWARZA_POINTCUT: " + a.stwarzaPointCut + " |#| " + b.stwarzaPointCut);
+        }
+        if(!a.stwarzaPointCutWzokiem == b.stwarzaPointCutWzokiem){
+            sb.append("STWARZA_POINTCUT_WZROKIEM: " + a.stwarzaPointCutWzokiem + " |#| " + b.stwarzaPointCutWzokiem);
+        }
+        if(!a.stwarzaPointCutMowa == b.stwarzaPointCutMowa){
+            sb.append("STWARZA_POINTCUT_MOWA: " + a.stwarzaPointCutMowa + " |#| " + b.stwarzaPointCutMowa);
+        }
+        if(!a.stwarzaPointCutKontaktem == b.stwarzaPointCutKontaktem){
+            sb.append("STWARZA_POINTCUT_KONTAKTEM: " + a.stwarzaPointCutKontaktem + " |#| " + b.stwarzaPointCutKontaktem);
+        }
+        if(!a.stwarzaPointCutRandka == b.stwarzaPointCutRandka){
+            sb.append("STWARZA_POINTCUT_RANDKA: " + a.stwarzaPointCutRandka + " |#| " + b.stwarzaPointCutRandka);
+        }
+        if(!a.chceLepszegoZycia == b.chceLepszegoZycia){
+            sb.append("CHCE_LEPSZEGO_ZYCIA: " + a.chceLepszegoZycia + " |#| " + b.chceLepszegoZycia);
+        }
+        if(!a.chceWygod == b.chceWygod){
+            sb.append("CHCE_WYGOD: " + a.chceWygod + " |#| " + b.chceWygod);
+        }
+        if(!a.wkurwionyZyciem == b.wkurwionyZyciem){
+            sb.append("WKURWIONY_ZYCIEM: " + a.wkurwionyZyciem + " |#| " + b.wkurwionyZyciem);
+        }
+        if(!a.nuda == b.nuda){
+            sb.append("NUDA: " + a.nuda + " |#| " + b.nuda);
+        }
+        if(!a.kurestwo == b.kurestwo){
+            sb.append("KURESTWO: " + a.kurestwo + " |#| " + b.kurestwo);
+        }
+        if(!a.tepiKurestwo == b.tepiKurestwo){
+            sb.append("TEPI_KURESTWO: " + a.tepiKurestwo + " |#| " + b.tepiKurestwo);
+        }
+        if(!a.zasady == b.zasady){
+            sb.append("ZASADY: " + a.zasady + " |#| " + b.zasady);
+        }
+        if(!a.kregoslupMoralny == b.kregoslupMoralny){
+            sb.append("KREGOSLUP_MORALNY: " + a.kregoslupMoralny + " |#| " + b.kregoslupMoralny);
+        }
+        if(!a.sprzet == b.sprzet){
+            sb.append("SPRZET: " + a.sprzet + " |#| " + b.sprzet);
+        }
+        if(!a.wiecznyImigrant == b.wiecznyImigrant){
+            sb.append("WIECZNY_IMIGRANT: " + a.wiecznyImigrant + " |#| " + b.wiecznyImigrant);
+        }
+        if(!a.mocnaJednostka == b.mocnaJednostka){
+            sb.append("MOCNA_JEDNOSTKA: " + a.mocnaJednostka + " |#| " + b.mocnaJednostka);
+        }
+        if(!a.osiedloweSrd == b.osiedloweSrd){
+            sb.append("OSIEDLOWE_SRD: " + a.osiedloweSrd + " |#| " + b.osiedloweSrd);
+        }
+        if(!a.bliskosc == b.bliskosc){
+            sb.append("BLISKOSC: " + a.bliskosc + " |#| " + b.bliskosc);
+        }
+        if(!a.dostepDobreJednostki == b.dostepDobreJednostki){
+            sb.append("DOSTEP_DOBRE_JEDNOSTKI: " + a.dostepDobreJednostki + " |#| " + b.dostepDobreJednostki);
+        }
+        if(!a.dostepBiegacze == b.dostepBiegacze){
+            sb.append("DOSTEP_BIEGACZE: " + a.dostepBiegacze + " |#| " + b.dostepBiegacze);
+        }
+        if(!a.magiczneZaklecia == b.magiczneZaklecia){
+            sb.append("MAGICZNE_ZAKLECIA: " + a.magiczneZaklecia + " |#| " + b.magiczneZaklecia);
+        }
+        if(!a.odkogoJestes == b.odkogoJestes){
+            sb.append("OD_KOGO_JESTES: " + a.odkogoJestes + " |#| " + b.odkogoJestes);
+        }
+        if(!a.poCichu == b.poCichu){
+            sb.append("PO_CICHU: " + a.poCichu + " |#| " + b.poCichu);
+        }
+        if(!a.zdolnyWalka == b.zdolnyWalka){
+            sb.append("ZDOLNY_WALKA: " + a.zdolnyWalka + " |#| " + b.zdolnyWalka);
+        }
+        if(!a.zdolnyRyzyko == b.zdolnyRyzyko){
+            sb.append("ZDOLNY_RYZYKO: " + a.zdolnyRyzyko + " |#| " + b.zdolnyRyzyko);
+        }
+        if(!a.stwarzaZagrozenie == b.stwarzaZagrozenie){
+            sb.append("STWARZA_ZAGROZENIE: " + a.stwarzaZagrozenie + " |#| " + b.stwarzaZagrozenie);
+        }
+        if(!a.bezposredniosc == b.bezposredniosc){
+            sb.append("BEZPOSREDNIOSC: " + a.bezposredniosc + " |#| " + b.bezposredniosc);
+        }
+        if(!a.odwaga == b.odwaga){
+            sb.append("ODWAGA: " + a.odwaga + " |#| " + b.odwaga);
+        }
+        if(!a.umieKlucic == b.umieKlucic){
+            sb.append("UMIE_KLUCIC: " + a.umieKlucic + " |#| " + b.umieKlucic);
+        }
+        if(!a.umieCisnac == b.umieCisnac){
+            sb.append("UMIE_CISNAC: " + a.umieCisnac + " |#| " + b.umieCisnac);
+        }
+        if(!a.chetnyDoBojki == b.chetnyDoBojki){
+            sb.append("CHETNY_DO_BOJKI: " + a.chetnyDoBojki + " |#| " + b.chetnyDoBojki);
+        }
+        if(!a.agresjaCzynna == b.agresjaCzynna){
+            sb.append("AGRESJA_CZYNNA: " + a.agresjaCzynna + " |#| " + b.agresjaCzynna);
+        }
+        if(!a.broniHierarchii == b.broniHierarchii){
+            sb.append("BRONI_HIERARCHII: " + a.broniHierarchii + " |#| " + b.broniHierarchii);
+        }
+        if(!a.broniGlobalu == b.broniGlobalu){
+            sb.append("BRONI_GLOBALU: " + a.broniGlobalu + " |#| " + b.broniGlobalu);
+        }
+        if(!a.wyklucza == b.wyklucza){
+            sb.append("WYKLUCZA: " + a.wyklucza + " |#| " + b.wyklucza);
+        }
+        if(!a.ukrywaDobra == b.ukrywaDobra){
+            sb.append("UKRYWA_DOBRA: " + a.ukrywaDobra + " |#| " + b.ukrywaDobra);
+        }
+        if(!a.skreslaNaZawsze == b.skreslaNaZawsze){
+            sb.append("SKRESLA_NA_ZAWSZE: " + a.skreslaNaZawsze + " |#| " + b.skreslaNaZawsze);
+        }
+        if(!a.staleDokrecaSrube == b.staleDokrecaSrube){
+            sb.append("STALE_DOKRECA_SRUBE: " + a.staleDokrecaSrube + " |#| " + b.staleDokrecaSrube);
+        }
+        if(!a.zdolnyDoOdpuszczenia == b.zdolnyDoOdpuszczenia){
+            sb.append("ZDOLNY_DO_ODPUSZCZENIA: " + a.zdolnyDoOdpuszczenia + " |#| " + b.zdolnyDoOdpuszczenia);
+        }
+        if(!a.resetAble == b.resetAble){
+            sb.append("RESET_ABLE: " + a.resetAble + " |#| " + b.resetAble);
+        }
+        if(!a.posluszny == b.posluszny){
+            sb.append("POSLUSZNY: " + a.posluszny + " |#| " + b.posluszny);
+        }
+        if(!a.przekonywalny == b.przekonywalny){
+            sb.append("PRZEKONYWALNY: " + a.przekonywalny + " |#| " + b.przekonywalny);
+        }
+        if(!a.odporny == b.odporny){
+            sb.append("ODPORNY: " + a.odporny + " |#| " + b.odporny);
+        }
+        if(!a.niezaleznosc == b.niezaleznosc){
+            sb.append("NIEZALEZNOSC: " + a.niezaleznosc + " |#| " + b.niezaleznosc);
+        }
+        if(!a.glupi == b.glupi){
+            sb.append("GLUPI: " + a.glupi + " |#| " + b.glupi);
+        }
+        if(!a.traktowanieZGory == b.traktowanieZGory){
+            sb.append("TRAKTOWANIE_Z_GORY: " + a.traktowanieZGory + " |#| " + b.traktowanieZGory);
+        }
+        if(!a.ignorowanieInformacji == b.ignorowanieInformacji){
+            sb.append("IGNOROWANIE_INFORMACJI: " + a.ignorowanieInformacji + " |#| " + b.ignorowanieInformacji);
+        }
+        if(!a.lukiOsobowosci == b.lukiOsobowosci){
+            sb.append("LUKI_OSOBOWOSCI: " + a.lukiOsobowosci + " |#| " + b.lukiOsobowosci);
+        }
+        if(!a.egoista == b.egoista){
+            sb.append("EGOISTA: " + a.egoista + " |#| " + b.egoista);
+        }
+        if(!a.wstyd == b.wstyd){
+            sb.append("WSTYD: " + a.wstyd + " |#| " + b.wstyd);
+        }
+        if(!a.zazdrosc == b.zazdrosc){
+            sb.append("ZAZDROSC: " + a.zazdrosc + " |#| " + b.zazdrosc);
+        }
+        if(!a.agresja == b.agresja){
+            sb.append("AGRESJA: " + a.agresja + " |#| " + b.agresja);
+        }
+        if(!a.klamstwo == b.klamstwo){
+            sb.append("KLAMSTWO: " + a.klamstwo + " |#| " + b.klamstwo);
+        }
+        if(!a.niestabilnoscUmyslowa == b.niestabilnoscUmyslowa){
+            sb.append("NIESTABILNOSC_UMYSLOWA: " + a.niestabilnoscUmyslowa + " |#| " + b.niestabilnoscUmyslowa);
+        }
+        if(!a.brakOkresleniaSkali == b.brakOkresleniaSkali){
+            sb.append("BRAK_OKRESLENIA_SKALI: " + a.brakOkresleniaSkali + " |#| " + b.brakOkresleniaSkali);
+        }
+        if(!a.brakCheci == b.brakCheci){
+            sb.append("BRAK_CHECI: " + a.brakCheci + " |#| " + b.brakCheci);
+        }
+        if(!a.hajsWDomu == b.hajsWDomu){
+            sb.append("HAJS_W_DOMU: " + a.hajsWDomu + " |#| " + b.hajsWDomu);
+        }
+        if(!a.bogaty == b.bogaty){
+            sb.append("BOGATY: " + a.bogaty + " |#| " + b.bogaty);
+        }
+        if(!a.jedynak == b.jedynak){
+            sb.append("JEDYNAK: " + a.jedynak + " |#| " + b.jedynak);
+        }
+        if(!a.systemowiec == b.systemowiec){
+            sb.append("SYSTEMOWIEC: " + a.systemowiec + " |#| " + b.systemowiec);
+        }
+        if(!a.studia == b.studia){
+            sb.append("STUDIA: " + a.studia + " |#| " + b.studia);
+        }
+        if(!a.bezpieczenstwo == b.bezpieczenstwo){
+            sb.append("BEZPIECZENSTWO: " + a.bezpieczenstwo + " |#| " + b.bezpieczenstwo);
+        }
+        if(!a.bagatelizujeZagrozenie == b.bagatelizujeZagrozenie){
+            sb.append("BAGATELIZUJE_ZAGROZENIE: " + a.bagatelizujeZagrozenie + " |#| " + b.bagatelizujeZagrozenie);
+        }
+        if(!a.nieznaCierpienia == b.nieznaCierpienia){
+            sb.append("NIEZNA_CIERPIENIA: " + a.nieznaCierpienia + " |#| " + b.nieznaCierpienia);
+        }
+        if(!a.zuchwaly == b.zuchwaly){
+            sb.append("ZUCHWALY: " + a.zuchwaly + " |#| " + b.zuchwaly);
+        }
+        if(!a.zadufanyWSobie == b.zadufanyWSobie){
+            sb.append("ZADUFANY_W_SOBIE: " + a.zadufanyWSobie + " |#| " + b.zadufanyWSobie);
+        }
+        if(!a.sztuczny == b.sztuczny){
+            sb.append("SZTUCZNY: " + a.sztuczny + " |#| " + b.sztuczny);
+        }
+        if(!a.biedny == b.biedny){
+            sb.append("BIEDNY: " + a.biedny + " |#| " + b.biedny);
+        }
+        if(!a.brakPerspektyw == b.brakPerspektyw){
+            sb.append("BRAK_PERSPEKTYW: " + a.brakPerspektyw + " |#| " + b.brakPerspektyw);
+        }
+        if(!a.zycieZDniaNaDzien == b.zycieZDniaNaDzien){
+            sb.append("ZYCIE_Z_DNIA_NA_DZIEN: " + a.zycieZDniaNaDzien + " |#| " + b.zycieZDniaNaDzien);
+        }
+        if(!a.wyjebane == b.wyjebane){
+            sb.append("WYJEBANE: " + a.wyjebane + " |#| " + b.wyjebane);
+        }
+        if(!a.wrazliwy == b.wrazliwy){
+            sb.append("WRAZLIWY: " + a.wrazliwy + " |#| " + b.wrazliwy);
+        }
+        if(!a.wolnoscLekkosc == b.wolnoscLekkosc){
+            sb.append("WOLNOSC_LEKKOSC: " + a.wolnoscLekkosc + " |#| " + b.wolnoscLekkosc);
+        }
+        if(!a.europejski == b.europejski){
+            sb.append("EURPOEJSKI: " + a.europejski + " |#| " + b.europejski);
+        }
+        if(!a.rasista == b.rasista){
+            sb.append("RASISTA: " + a.rasista + " |#| " + b.rasista);
+        }
+        if(!a.czas == b.czas){
+            sb.append("CZAS: " + a.czas + " |#| " + b.czas);
+        }
+        if(!a.brakCzasu == b.brakCzasu){
+            sb.append("BRAK_CZASU: " + a.brakCzasu + " |#| " + b.brakCzasu);
+        }
+        if(!a.dostepnosc == b.dostepnosc){
+            sb.append("DOSTEPNOSC: " + a.dostepnosc + " |#| " + b.dostepnosc);
+        }
+        if(!a.praca == b.praca){
+            sb.append("PRACA: " + a.praca + " |#| " + b.praca);
+        }
+        if(!a.pasja == b.pasja){
+            sb.append("PASJA: " + a.pasja + " |#| " + b.pasja);
+        }
+        if(!a.nalog == b.nalog){
+            sb.append("NALOG: " + a.nalog + " |#| " + b.nalog);
+        }
+        if(!a.narkotyki == b.narkotyki){
+            sb.append("NARKOTYKI: " + a.narkotyki + " |#| " + b.narkotyki);
+        }
+        if(!a.palenie == b.palenie){
+            sb.append("PALENIE: " + a.palenie + " |#| " + b.palenie);
+        }
+        if(!a.picie == b.picie){
+            sb.append("PICIE: " + a.picie + " |#| " + b.picie);
+        }
+        if(!a.trzezwosc == b.trzezwosc){
+            sb.append("TRZEZWOSC: " + a.trzezwosc + " |#| " + b.trzezwosc);
+        }
+        if(!a.brzydki == b.brzydki){
+            sb.append("BRZYDKI: " + a.brzydki + " |#| " + b.brzydki);
+        }
+        if(!a.ladny == b.ladny){
+            sb.append("LADNY: " + a.ladny + " |#| " + b.ladny);
+        }
+        if(!a.sexZ.equals(b.sexZ)){
+            sb.append("SEX_Z DIFF: " + a.sexZ.removeAll(b.sexZ));
+            sb.append("SEX_Z: " + a.sexZ + " |#| " + b.sexZ);
+        }
+        if(!a.szlauf == b.szlauf){
+            sb.append("SZLAUF: " + a.szlauf + " |#| " + b.szlauf);
+        }
+        if(!a.worekNaSpermeZagranicznych == b.worekNaSpermeZagranicznych){
+            sb.append("WOREK_NA_SPERME_ZAGRANICZNYCH: " + a.worekNaSpermeZagranicznych + " |#| " + b.worekNaSpermeZagranicznych);
+        }
+        if(!a.wyjezdzenie.equals(b.wyjezdzenie)){
+            sb.append("WYJEZDZENIE: " + a.wyjezdzenie + " |#| " + b.wyjezdzenie);
+        }
+        if(!a.dziewictwo == b.dziewictwo){
+            sb.append("DZIEWICTWO: " + a.dziewictwo + " |#| " + b.dziewictwo);
+        }
+        if(!a.mily == b.mily){
+            sb.append("MILY: " + a.mily + " |#| " + b.mily);
+        }
+        if(!a.otwartyNaZwiazek == b.otwartyNaZwiazek){
+            sb.append("OTWARTY_NA_ZWIAZEK: " + a.otwartyNaZwiazek + " |#| " + b.otwartyNaZwiazek);
+        }
+        if(!a.restrykcjaZnajomych == b.restrykcjaZnajomych){
+            sb.append("RESTRYKCJA_ZNAJOMYCH: " + a.restrykcjaZnajomych + " |#| " + b.restrykcjaZnajomych);
+        }
+        if(!a.dopuszczaNieznajomych == b.dopuszczaNieznajomych){
+            sb.append("DOPUSZCZA_NIEZNAJOMYCH: " + a.dopuszczaNieznajomych + " |#| " + b.dopuszczaNieznajomych);
+        }
+        if(!a.usmiechaSie == b.usmiechaSie){
+            sb.append("USMIECHA_SIE: " + a.usmiechaSie + " |#| " + b.usmiechaSie);
+        }
+        if(!a.odwracaWzrok == b.odwracaWzrok){
+            sb.append("ODWRACA_WZROK: " + a.odwracaWzrok + " |#| " + b.odwracaWzrok);
+        }
+        if(!a.neutralWzrok == b.neutralWzrok){
+            sb.append("NEUTRAL_WZROK: " + a.neutralWzrok + " |#| " + b.neutralWzrok);
+        }
+        if(!a.patrzy == b.patrzy){
+            sb.append("PATRZY: " + a.patrzy + " |#| " + b.patrzy);
+        }
+        if(!a.reagujeNaBodzce == b.reagujeNaBodzce){
+            sb.append("REAGUJE_NA_BODZCE: " + a.reagujeNaBodzce + " |#| " + b.reagujeNaBodzce);
+        }
+        if(!a.samotny == b.samotny){
+            sb.append("SAMOTNY: " + a.samotny + " |#| " + b.samotny);
+        }
+        if(!a.zajety == b.zajety){
+            sb.append("ZAJETY: " + a.zajety + " |#| " + b.zajety);
+        }
+        if(!a.iloscPartnerow.equals(b.iloscPartnerow)){
+            sb.append("ILOSC_PARTNEROW: " + a.iloscPartnerow + " |#| " + b.iloscPartnerow);
+        }
+        if(!a.dzieci == b.dzieci){
+            sb.append("DZIECI: " + a.dzieci + " |#| " + b.dzieci);
+        }
+        if(!a.iloscDzieci.equals(b.iloscDzieci)){
+            sb.append("ILOSC_DZIECI: " + a.iloscDzieci + " |#| " + b.iloscDzieci);
+        }
+        if(!a.przestrzegaPrawa == b.przestrzegaPrawa){
+            sb.append("PRZESTRZEGA_PRAWA: " + a.przestrzegaPrawa + " |#| " + b.przestrzegaPrawa);
+        }
+        if(!a.standardZachowania == b.standardZachowania){
+            sb.append("STANDARD_ZACHOWANIA: " + a.standardZachowania + " |#| " + b.standardZachowania);
+        }
+        if(!a.wyrok == b.wyrok){
+            sb.append("WYROK: " + a.wyrok + " |#| " + b.wyrok);
+        }
+        if(!a.konfi == b.konfi){
+            sb.append("KONFI: " + a.konfi + " |#| " + b.konfi);
+        }
+        if(!a.punktZerowy.equals(b.punktZerowy)){
+            sb.append("PUNKT_ZEROWY: " + a.punktZerowy + " |#| " + b.punktZerowy);
+        }
+        return sb.toString();
+    }
 }
