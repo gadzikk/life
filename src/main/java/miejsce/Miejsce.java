@@ -3,7 +3,7 @@ package miejsce;
 import typy_bazowe.TypMiejsce;
 import typy_bazowe.TypIlosc;
 import warunek.W;
-import z_inne.ProcentOsob;
+import z_inne.PO;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class Miejsce {
 
     List<HotSpot> hotSpots;
 
-    List<ProcentOsob> procentOsob;
+    List<PO> procentOsob;
     List<W> warunkiSprzyjajace;
     List<W> warunkiNiesprzyjajace;
     List<W> wartosciMiejsca;

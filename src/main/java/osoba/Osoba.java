@@ -228,7 +228,7 @@ public class Osoba {
     Oczekiwania oczekiwania;
     TypPunktZerowy punktZerowy;
 
-    public void insertCharakter(){
+    public void wpiszPrzewagiSlabosci(){
         List<W> przewagiCharakteru = new ArrayList<>();
         List<W> slabosciCharakteru = new ArrayList<>();
 

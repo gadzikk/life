@@ -2,7 +2,11 @@ package osoba;
 
 import typy_bazowe.*;
 import warunek.W;
-import z_inne.Wychowanie;
+import z_inne.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 /**
@@ -13,7 +17,7 @@ public class Osoba_DefaultPracownikKorporacji extends Osoba {
         kolorSkory = TypKolorSkory.BIALY;
         rasa = TypRasa.SLOWIANIN;
         narodowosc = TypNarodowsc.POLSKA;
-        plec = TypPlec.M;
+        plec = TypPlec.MK;
 
         wychowanie = new Wychowanie(TypDziecinstwo.DOBRE, of(TypMiejsce.SZKOLA, TypMiejsce.STUDIA, TypMiejsce.TRAUTO,
                 TypMiejsce.DOM, TypMiejsce.PRACA_BUDYNEK, TypMiejsce.KOSCIOL), false, false, false,
@@ -89,9 +93,10 @@ public class Osoba_DefaultPracownikKorporacji extends Osoba {
 
 //        wkurwionyZyciem;
         nuda = true;
-//        kurestwo;
+        kurestwo = true;
 //        tepiKurestwo;
-//        brakZasad;
+        brakZasad = new BrakZasad(false,false,false,
+                false,false,true);
 //        zasady;
 //        kregoslupMoralny;
 //        sprzet;
@@ -151,7 +156,6 @@ public class Osoba_DefaultPracownikKorporacji extends Osoba {
         jedynak = true;
         systemowiec = true;
         studia = true;
-
         bezpieczenstwo = true;
         bagatelizujeZagrozenie = true;
         nieznaCierpienia = true;
@@ -217,15 +221,37 @@ public class Osoba_DefaultPracownikKorporacji extends Osoba {
 //        konfi;
         potencjalnyKonfi = true;
 
-//        dzienCodzienny;
         iloscZnajomych = TypIlosc.SREDNIA;
         iloscDobrziZnajomi = TypIlosc.BARDZO_MALA;
-//        srodki;
+        srodki = of(W.LUDZIE_ZA_TOBA, W.PRZEKONYWANIE, W.KLAMSTWO, W.CISNIE, W.STANDARDY, W.PRAWO);
+
 //        majatek;
 //        miejsceZamieszkania;
 //        wyjebaneNa;
 //        dbaO;
 //        oczekiwania;
         punktZerowy = TypPunktZerowy.WYSOKO;
+
+        List<Zadanie> zEg = Arrays.asList(
+                new Zadanie(TypZadania.JEDZENIE, 7, 1, null),
+                new Zadanie(TypZadania.SZYKOWANIE, 7, 1, null)
+        );
+
+        List<Zadanie> zOb = new ArrayList<>();
+        if (praca){
+            zOb.add(new Praca(TypZadania.PRACA, TypPraca.BIUROWA, TypPlaca.DOBRZE_PLATNA, true,
+                    5, 8, false, false, null));
+        }
+        List<Zadanie> zOp = new ArrayList<>();
+        if (!iloscZnajomych.equals(TypIlosc.BARDZO_MALA)){
+            zOp.add(new Zadanie(TypZadania.ZNAJOMI, 3, 2, null));
+        }
+        if (wysilekFizyczny){
+            zOp.add(new Zadanie(TypZadania.TRENING, 2, 2, true, true, null));
+        }
+        zOp.add(new Zadanie(TypZadania.ZAKUPY, 1, 3, null));
+        dzienCodzienny = new DzienCodzienny(zEg, zOb, zOp);
+
+        wpiszPrzewagiSlabosci();
     }
 }

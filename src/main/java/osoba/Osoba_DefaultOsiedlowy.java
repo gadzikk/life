@@ -16,178 +16,218 @@ import java.util.List;
 public class Osoba_DefaultOsiedlowy extends Osoba {
 
     public Osoba_DefaultOsiedlowy() {
-        TypKolorSkory kolorSkory = TypKolorSkory.BIALY;
-        TypRasa rasa = TypRasa.SLOWIANIN;
-        TypNarodowsc narodowsc = TypNarodowsc.POLSKA;
-        TypPlec plec = TypPlec.M;
+        kolorSkory = TypKolorSkory.BIALY;
+        rasa = TypRasa.SLOWIANIN;
+        narodowosc = TypNarodowsc.POLSKA;
+        plec = TypPlec.M;
 
-        Wychowanie wychowanie = new Wychowanie(false,false,false,false,
-                true, true, true, false, true, false,
-                false, true, false, true, true, false, true,
-                true);
+        wychowanie = new Wychowanie(TypDziecinstwo.ZLE, of(TypMiejsce.SZKOLA, TypMiejsce.OSIEDLOWE_SRD, TypMiejsce.DOM,
+                TypMiejsce.PRACA_BUDYNEK), true, false, false,
+                false, true, true, true, false,
+                true, false, false, true, false, false,
+                true, true, true, true);
+        priorytet = of(W.OSIEDLOWE_SRD);
+        planszeOdwiedzone = of(TypMiejsce.WAKACJE_POLSKA, TypMiejsce.DOBRE_KLUBY_1_STRONA, TypMiejsce.MECZ_1_STRONA);
+        typyOsoby = of(TypOsoby.OSIEDLOWY_WYKRECONY, TypOsoby.OSIEDLOWY_BURZUJ, TypOsoby.OSIEDLOWY_NORMAL);
+        oceniaWg = of(W.EKIPA, W.PRZEWAGA, W.PODOBIENSTWO, W.ZLO);
 
-        W priorytet = W.OSIEDLOWE_SRD;
-        List<String> planszeOdwiedzone;
-        List<TypOsoby> typy = Arrays.asList(TypOsoby.OSIEDLOWY_WYKRECONY, TypOsoby.OSIEDLOWY_BURZUJ);
-        List<Przewaga> przewagi;
+        //      iloscPrzewag;
+        //      przewagi;
+        //      slabosci;
 
-        boolean arcyZlo;
-        boolean dlaDiabla;
+        iloscPrzezyc = TypIlosc.SREDNIA;
+        planszeOdwiedzone = of(TypMiejsce.WAKACJE_POLSKA, TypMiejsce.DOBRE_KLUBY_1_STRONA, TypMiejsce.MECZ_1_STRONA, TypMiejsce.OSIEDLOWE_SRD);
 
-        boolean zlo = true;
-        boolean reagujeNaZlo = true;
-        boolean dobro;
-        boolean reagujeNaDobro;
+        iloscCierpienia = TypIlosc.SREDNIA;
+        iloscBurzuazji = TypIlosc.SREDNIA;
+        pamiec = TypJakosc.SLABA;
 
-        boolean wiocha;
-        boolean miasto = true;
+        priorytetoweSrodowisko = TypPriorytetoweSrodowisko.DZIELNICA;
+        gadanie = of(W.TWORZY_ZRODELKO, W.AKTYWNY_NA_ANGAZ, W.ODPOWIADA_NA_ANGAZ);
 
-        boolean wysilekFizyczny = true;
-        boolean wysilekUmyslowy;
-        boolean mocnyWzrok = true;
-        boolean dobryGen;
-        boolean swiadomosc;
-        boolean madrosc;
-        boolean wiedza;
-        boolean sila;
-        boolean cel;
+//        arcyZlo;
+//        dlaDiabla;
 
-        boolean zKims = true;
-        boolean zWaznym;
+        zlo = true;
+        reagujeNaZlo = true;
+//        dobro;
+//        reagujeNaDobro;
 
-        boolean czynny;
-        boolean bierny = true;
-        boolean stwarzaPointCut;
+//        wiocha;
+        miasto = true;
 
-        boolean chceLepszegoZycia = true;
-        boolean chceWygod = true;
+        wysilekFizyczny = true;
+//        wysilekUmyslowy;
+        mocnyWzrok = true;
+//        dobryGen;
+//        swiadomosc;
+        swiadomoscZagrozen = true;
+//        swiadomoscUlicy;
+        swiadomoscPrzewag = true;
+//        swiadomoscRynkuPracy;
+        swiadomoscPatologiiZwiazkow = true;
+//        madrosc;
+//        wiedza;
+//        sila;
+        spryt = true;
+//        szybkosc;
+//        cel;
+//        zobowiazanie;
+//        oczekiwanie;
+//        wymaganie;
+//        zdolnyDoUltimatum;
+//        miejsceHierarchia;
 
-        boolean wkurwionyZyciem;
-        boolean nuda = true;
-        boolean kurestwo = true;
-        BrakZasad brakZasad = new BrakZasad(false,false,false,
+        zKims = true;
+//        zWaznym;
+
+        czynny = true;
+//        bierny;
+//        stwarzaPointCut;
+//        stwarzaPointCutWzokiem;
+//        stwarzaPointCutMowa;
+//        stwarzaPointCutKontaktem;
+//        stwarzaPointCutRandka;
+
+        chceLepszegoZycia = true;
+        chceWygod = true;
+
+//        wkurwionyZyciem;
+        nuda = true;
+        kurestwo =true;
+//        tepiKurestwo;
+        brakZasad = new BrakZasad(false,false,false,
                 false,false,true);
-        boolean kregoslupMoralny;
-        boolean sprzet = true;
+//        zasady
+//        kregoslupMoralny;
+        sprzet = true;
 
-        boolean wiecznyImigrant;
-        boolean osiedloweSrd = true;
-        boolean bliskosc = true;
-        boolean dostepDobreJednostki;
-        boolean dostepBiegacze = true;
-        boolean magiczneZaklecia = true;
-        boolean odkogoJestes = true;
+//        wiecznyImigrant;
+        osiedloweSrd = true;
+        bliskosc = true;
+//        dostepDobreJednostki;
+        dostepBiegacze = true;
+        magiczneZaklecia = true;
+        odkogoJestes = true;
 
-        boolean poCichu = true;
-        boolean zdolnyWalka = true;
-        boolean zdolnyRyzyko = true;
-        boolean bezposredniosc = true;
-        boolean odwaga;
-        boolean umieKlucic;
-        boolean umieCisnac = true;
+        poCichu = true;
+        zdolnyWalka = true;
+        zdolnyRyzyko = true;
+        bezposredniosc = true;
+//        odwaga;
+//        umieKlucic;
+        umieCisnac = true;
 
-        boolean broniHierarchii = true;
-        boolean broniGlobalu;
+        chetnyDoBojki = true;
+//        agresjaCzynna;
 
-        boolean wyklucza = true;
-        boolean ukrywaDobra = true;
-        boolean skreslaNaZawsze = true;
-        boolean staleDokrecaSrube;
-        boolean zdolnyDoOdpuszczenia = true;
-        boolean resetAble = true;
+        broniHierarchii = true;
+//        broniGlobalu;
 
-        boolean posluszny = true;
-        boolean przekonywalny = true;
-        boolean niezaleznosc;
+        wyklucza = true;
+        ukrywaDobra = true;
+        skreslaNaZawsze = true;
+//        staleDokrecaSrube;
+        zdolnyDoOdpuszczenia = true;
+        resetAble = true;
 
-        boolean glupi = true;
-        boolean traktowanieZGory;
-        boolean ignorowanieInformacji;
+        posluszny = true;
+        przekonywalny = true;
+//        odporny;
+//        niezaleznosc;
 
-        boolean lukiOsobowosci;
-        boolean egoista;
-        boolean wstyd;
-        boolean zazdrosc = true;
-        boolean agresja = true;
-        boolean klamstwo = true;
-        boolean niestabilnoscUmyslowa;
-        boolean brakOkresleniaSkali;
-        boolean brakCheci;
+        glupi = true;
+        traktowanieZGory = true;
+//        ignorowanieInformacji;
 
-        boolean hajsWDomu;
-        boolean bogaty;
-        boolean jedynak;
-        boolean systemowiec;
-        boolean studia;
-        boolean bezpieczenstwo;
-        boolean bagatelizujeZagrozenie;
-        boolean nieznaCierpienia;
-        boolean zuchwaly;
-        boolean sztuczny;
+//        lukiOsobowosci;
+//        egoista;
+//        wstyd;
+        zazdrosc = true;
+        agresja = true;
+        klamstwo = true;
+//        niestabilnoscUmyslowa;
+//        brakOkresleniaSkali;
+//        brakCheci;
 
-        boolean biedny;
-        boolean brakPerspektyw;
-        boolean zycieZDniaNaDzien;
-        boolean wyjebane = true;
+//        hajsWDomu;
+//        bogaty;
+//        jedynak;
+//        systemowiec;
+//        studia;
+//        bezpieczenstwo;
+//        bagatelizujeZagrozenie;
+//        nieznaCierpienia;
+        zuchwaly = true;
+//        sztuczny;
 
-        boolean wrazliwy;
-        boolean wolnoscLekkosc;
-        boolean europejski;
-        boolean rasista = true;
+        biedny = true;
+//        brakPerspektyw;
+//        zycieZDniaNaDzien;
+        wyjebane = true;
 
-        boolean czas;
-        boolean brakCzasu = true;
-        TypIlosc dostepnosc = TypIlosc.SREDNIA;
-        boolean praca = true;
-        boolean pasja;
+//        wrazliwy;
+//        wolnoscLekkosc;
+//        europejski;
+        rasista = true;
 
-        boolean nalog = true;
-        boolean narkotyki = true;
-        boolean palenie = true;
-        boolean picie = true;
-        boolean trzezwosc;
+//        czas;
+        brakCzasu = true;
+//        dostepnosc;
+        praca = true;
+//        pasja;
 
-        boolean brzydki = true;
-        boolean ladny;
-        boolean dupodajka;
-        boolean sklonnoscDoSexu = true;
-        boolean dziewictwo;
+        nalog = true;
+        narkotyki = true;
+        palenie = true;
+        picie = true;
+//        trzezwosc;
 
-        boolean mily;
-        boolean otwartyNaZwiazek = true;
-        boolean restrykcjaZnajomych = true;
-        boolean dopuszczaNieznajomych;
+        brzydki = true;
+//        ladny;
+        sexZ = of(TypSex.BRAK, TypSex.Z_PARTNEREM);
+//        szlauf;
+//        worekNaSpermeZagranicznych;
+//        wyjezdzenie;
+//        dziewictwo;
 
-        boolean usmiechaSie = true;
-        boolean smiejeSie = true;
+//        mily;
+//        otwartyNaZwiazek;
+        restrykcjaZnajomych = true;
+//        dopuszczaNieznajomych;
 
-        boolean odwracaWzrok;
-        boolean neutralWzrok;
-        boolean patrzy = true;
-        boolean reagujeNaBodzce = true;
+        usmiechaSie = true;
+        smiejeSie = true;
 
-        boolean samotny;
-        boolean zajety = true;
-        Integer iloscPartnerow = 3;
-        boolean dzieci;
-        Integer iloscDzieci = 0;
+//        odwracaWzrok;
+//        neutralWzrok;
+        patrzy = true;
+        reagujeNaBodzce = true;
 
-        boolean przestrzegaPrawa;
-        boolean standardZachowania;
+//        samotny;
+        zajety = true;
+        iloscPartnerow = TypIlosc.SREDNIA;
+//        dzieci;
+        iloscDzieci = 0;
 
-        boolean wyrok;
-        Przerwa przerwa;
+//        przestrzegaPrawa;
+//        standardZachowania;
 
-        boolean konfi;
+//        wyrok;
+//        przerwa;
 
-        TypIlosc iloscZnajomych = TypIlosc.SREDNIA;
-        Integer liczbaZnajomych = 10;
-        Integer liczbaDobrziZnajomi = 3;
+//        potencjalnyKonfi;
+//        konfi;
 
-        Srodki srodki = new Srodki(true, true, true, true, true, true,
-                true, false);
-        Majatek majatek;
-        Miejsce miejsceZamieszkania;
+        iloscZnajomych = TypIlosc.SREDNIA;
+        iloscDobrziZnajomi = TypIlosc.SREDNIA;
+        srodki = of(W.LUDZIE_ZA_TOBA, W.PRZEKONYWANIE, W.WALKA_PIESCI, W.WALKA_SPRZET, W.KLAMSTWO, W.CISNIE, W.STANDARDY, W.PRAWO);
+//        majatek;
+//        miejsceZamieszkania;
+//        wyjebaneNa;
+//        dbaO;
+//        oczekiwania;
+        punktZerowy = TypPunktZerowy.NA_SWOIM_POZIOMIE;
 
         List<Zadanie> zEg = Arrays.asList(
                 new Zadanie(TypZadania.JEDZENIE, 7, 1, null),
@@ -200,14 +240,16 @@ public class Osoba_DefaultOsiedlowy extends Osoba {
                     5, 8, true, true, null));
 
         List<Zadanie> zOp = new ArrayList<>();
-        if (liczbaZnajomych > 0)
+        if (!iloscZnajomych.equals(TypIlosc.BARDZO_MALA)){
             zOp.add(new Zadanie(TypZadania.ZNAJOMI, 3, 2, null));
-
-        if (wysilekFizyczny)
+        }
+        if (wysilekFizyczny){
             zOp.add(new Zadanie(TypZadania.TRENING, 2, 2, true, true, null));
+        }
         zOp.add(new Zadanie(TypZadania.ZAKUPY, 1, 3, null));
         zOp.add(new Zadanie(TypZadania.MELANZ, 2, 2, null));
 
-        DzienCodzienny dzienCodzienny = new DzienCodzienny(zEg, zOb, zOp);
+        dzienCodzienny = new DzienCodzienny(zEg, zOb, zOp);
+        wpiszPrzewagiSlabosci();
     }
 }
