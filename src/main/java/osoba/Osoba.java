@@ -9,6 +9,7 @@ import warunek.W;
 import z_inne.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -21,7 +22,7 @@ public class Osoba {
     TypPlec plec;
 
     Wychowanie wychowanie;
-    W priorytet;
+    List<W> priorytet;
     List<TypOsoby> typyOsoby;
     List<W> oceniaWg;
 
@@ -30,15 +31,13 @@ public class Osoba {
     List<W> slabosci;
 
     TypIlosc iloscPrzezyc;
-    List<Miejsce> planszeOdwiedzone;
-    List<M> metody;
+    List<TypMiejsce> planszeOdwiedzone;
 
     TypIlosc iloscCierpienia;
     TypIlosc iloscBurzuazji;
     TypJakosc pamiec;
 
     TypPriorytetoweSrodowisko priorytetoweSrodowisko;
-    List<TypUmiejetnosc> umiejetnosci;
     List<W> gadanie;
 
     boolean arcyZlo;
@@ -216,6 +215,7 @@ public class Osoba {
     Przerwa przerwa;
 
     boolean konfi;
+    boolean potencjalnyKonfi;
 
     DzienCodzienny dzienCodzienny;
     TypIlosc iloscZnajomych;
@@ -277,7 +277,7 @@ public class Osoba {
             slabosciCharakteru.add(W.NIEZAZNANIE_CIERPIENIA);
         }
 
-        if(DB_Warunki.WARTOSC_DOBRA.getWarunki().stream().anyMatch(warunek -> warunek.equals(priorytet))){
+        if(DB_Warunki.WARTOSC_DOBRA.getWarunki().stream().anyMatch(priorytet::contains)){
             przewagiCharakteru.add(W.DOBRY_PRIORYTET);
         }
         else {
@@ -305,12 +305,6 @@ public class Osoba {
         if(oceniaWg.stream().anyMatch(W.PRZEWAGA::equals)){
             slabosciCharakteru.add(W.OCENIAWG_PRZEWAG);
         }
-        if(iloscPrzewag.equals(TypIlosc.DUZA) || iloscPrzewag.equals(TypIlosc.BARDZO_DUZA)){
-            przewagiCharakteru.add(W.DUZO_PRZEWAG);
-        }
-        if(iloscPrzewag.equals(TypIlosc.BARDZO_MALA) || iloscPrzewag.equals(TypIlosc.MALA)){
-            slabosciCharakteru.add(W.MALO_PRZEWAG);
-        }
         if(iloscPrzezyc.equals(TypIlosc.DUZA) || iloscPrzezyc.equals(TypIlosc.BARDZO_DUZA)){
             przewagiCharakteru.add(W.DUZO_PRZEZYC);
         }
@@ -322,12 +316,6 @@ public class Osoba {
         }
         if(planszeOdwiedzone.size() < 5){
             slabosciCharakteru.add(W.MALO_ODWIEDZONYCH_PLANSZ);
-        }
-        if(metody.size() > 10){
-            przewagiCharakteru.add(W.DUZO_METOD);
-        }
-        if(metody.size() < 5){
-            slabosciCharakteru.add(W.MALO_METOD);
         }
         if(iloscBurzuazji.equals(TypIlosc.BARDZO_MALA) || iloscBurzuazji.equals(TypIlosc.MALA)){
             przewagiCharakteru.add(W.BRAK_BURZUAZJI);
@@ -346,12 +334,6 @@ public class Osoba {
         }
         if(priorytetoweSrodowisko.equals(TypPriorytetoweSrodowisko.RODZINA)){
             slabosciCharakteru.add(W.PRIORYTETOWE_SRODOWISKO_RODZINA);
-        }
-        if(umiejetnosci.size() > 10){
-            przewagiCharakteru.add(W.DUZO_UMIEJETNOSCI);
-        }
-        if(umiejetnosci.size() < 5){
-            slabosciCharakteru.add(W.MALO_UMIEJETNOSCI);
         }
         if(arcyZlo){
             slabosciCharakteru.add(W.ARCY_ZLO);
@@ -971,6 +953,23 @@ public class Osoba {
             }
         });
 
+        if(przewagiCharakteru.size() > 30){
+            iloscPrzewag = TypIlosc.DUZA;
+        }
+        else if(przewagiCharakteru.size() > 15){
+            iloscPrzewag = TypIlosc.SREDNIA;
+        }
+        else {
+            iloscPrzewag = TypIlosc.MALA;
+        }
+
+        if(iloscPrzewag.equals(TypIlosc.DUZA) || iloscPrzewag.equals(TypIlosc.BARDZO_DUZA)){
+            przewagiCharakteru.add(W.DUZO_PRZEWAG);
+        }
+        if(iloscPrzewag.equals(TypIlosc.BARDZO_MALA) || iloscPrzewag.equals(TypIlosc.MALA)){
+            slabosciCharakteru.add(W.MALO_PRZEWAG);
+        }
+
         przewagi = przewagiCharakteru;
         slabosci = slabosciCharakteru;
     }
@@ -1049,7 +1048,7 @@ public class Osoba {
                 sb.append("WYCHOWANIE.KARY: " + a.wychowanie.kary + " |#| " + b.wychowanie.kary);
             }
             if(!a.wychowanie.dostawalPieniadze == b.wychowanie.dostawalPieniadze){
-                sb.append("WYCHOWANIE.DOSTAWAL_PIENIADZE: " + a.wychowanie.dostawalPieniadze + " |#| " + b.wychowanie.dostawalPieniadze.);
+                sb.append("WYCHOWANIE.DOSTAWAL_PIENIADZE: " + a.wychowanie.dostawalPieniadze + " |#| " + b.wychowanie.dostawalPieniadze);
             }
             if(!a.wychowanie.narkotyki == b.wychowanie.narkotyki){
                 sb.append("WYCHOWANIE.DOSTAWAL_PIENIADZE: " + a.wychowanie.narkotyki + " |#| " + b.wychowanie.narkotyki);
@@ -1076,10 +1075,6 @@ public class Osoba {
             sb.append("PLANSZE_ODWIEDZONE DIFF: " + a.planszeOdwiedzone.removeAll(b.planszeOdwiedzone));
             sb.append("PLANSZE_ODWIEDZONE: " + a.planszeOdwiedzone + " |#| " + b.planszeOdwiedzone);
         }
-        if(!a.metody.equals(b.metody)){
-            sb.append("METODY DIFF: " + a.metody.removeAll(b.metody));
-            sb.append("METODY: " + a.metody + " |#| " + b.metody);
-        }
         if(!a.iloscCierpienia.equals(b.iloscCierpienia)){
             sb.append("ILOSC_CIERPIENIA: "+ a.iloscCierpienia + " |#| " + b.iloscCierpienia);
         }
@@ -1091,10 +1086,6 @@ public class Osoba {
         }
         if(!a.priorytetoweSrodowisko.equals(b.priorytetoweSrodowisko)){
             sb.append("PRIORYTETOWE_SRODOWISKO: "+ a.priorytetoweSrodowisko + " |#| " + b.priorytetoweSrodowisko);
-        }
-        if(!a.umiejetnosci.equals(b.umiejetnosci)){
-            sb.append("UMIEJETNOSCI DIFF: " + a.umiejetnosci.removeAll(b.umiejetnosci));
-            sb.append("UMIEJETNOSCI: " + a.umiejetnosci + " |#| " + b.umiejetnosci);
         }
         if(!a.gadanie.equals(b.gadanie)){
             sb.append("GADANIE DIFF: " + a.gadanie.removeAll(b.gadanie));
@@ -1534,5 +1525,190 @@ public class Osoba {
             sb.append("PUNKT_ZEROWY: " + a.punktZerowy + " |#| " + b.punktZerowy);
         }
         return sb.toString();
+    }
+
+    @Override
+    public String toString() {
+        return "Osoba{" +
+                "kolorSkory=" + kolorSkory +
+                ", rasa=" + rasa +
+                ", narodowosc=" + narodowosc +
+                ", plec=" + plec +
+                ", wychowanie=" + wychowanie +
+                ", priorytet=" + priorytet +
+                ", typyOsoby=" + typyOsoby +
+                ", oceniaWg=" + oceniaWg +
+                ", iloscPrzewag=" + iloscPrzewag +
+                ", przewagi=" + przewagi +
+                ", slabosci=" + slabosci +
+                ", iloscPrzezyc=" + iloscPrzezyc +
+                ", planszeOdwiedzone=" + planszeOdwiedzone +
+                ", iloscCierpienia=" + iloscCierpienia +
+                ", iloscBurzuazji=" + iloscBurzuazji +
+                ", pamiec=" + pamiec +
+                ", priorytetoweSrodowisko=" + priorytetoweSrodowisko +
+                ", gadanie=" + gadanie +
+                ", arcyZlo=" + arcyZlo +
+                ", dlaDiabla=" + dlaDiabla +
+                ", zlo=" + zlo +
+                ", reagujeNaZlo=" + reagujeNaZlo +
+                ", dobro=" + dobro +
+                ", reagujeNaDobro=" + reagujeNaDobro +
+                ", wiocha=" + wiocha +
+                ", miasto=" + miasto +
+                ", wysilekFizyczny=" + wysilekFizyczny +
+                ", wysilekUmyslowy=" + wysilekUmyslowy +
+                ", mocnyWzrok=" + mocnyWzrok +
+                ", dobryGen=" + dobryGen +
+                ", swiadomosc=" + swiadomosc +
+                ", swiadomoscZagrozen=" + swiadomoscZagrozen +
+                ", swiadomoscUlicy=" + swiadomoscUlicy +
+                ", swiadomoscPrzewag=" + swiadomoscPrzewag +
+                ", swiadomoscRynkuPracy=" + swiadomoscRynkuPracy +
+                ", swiadomoscPatologiiZwiazkow=" + swiadomoscPatologiiZwiazkow +
+                ", madrosc=" + madrosc +
+                ", wiedza=" + wiedza +
+                ", sila=" + sila +
+                ", spryt=" + spryt +
+                ", szybkosc=" + szybkosc +
+                ", cel=" + cel +
+                ", zobowiazanie=" + zobowiazanie +
+                ", oczekiwanie=" + oczekiwanie +
+                ", wymaganie=" + wymaganie +
+                ", zdolnyDoUltimatum=" + zdolnyDoUltimatum +
+                ", miejsceHierarchia=" + miejsceHierarchia +
+                ", zKims=" + zKims +
+                ", zWaznym=" + zWaznym +
+                ", czynny=" + czynny +
+                ", bierny=" + bierny +
+                ", stwarzaPointCut=" + stwarzaPointCut +
+                ", stwarzaPointCutWzokiem=" + stwarzaPointCutWzokiem +
+                ", stwarzaPointCutMowa=" + stwarzaPointCutMowa +
+                ", stwarzaPointCutKontaktem=" + stwarzaPointCutKontaktem +
+                ", stwarzaPointCutRandka=" + stwarzaPointCutRandka +
+                ", chceLepszegoZycia=" + chceLepszegoZycia +
+                ", chceWygod=" + chceWygod +
+                ", wkurwionyZyciem=" + wkurwionyZyciem +
+                ", nuda=" + nuda +
+                ", kurestwo=" + kurestwo +
+                ", tepiKurestwo=" + tepiKurestwo +
+                ", brakZasad=" + brakZasad +
+                ", zasady=" + zasady +
+                ", kregoslupMoralny=" + kregoslupMoralny +
+                ", sprzet=" + sprzet +
+                ", wiecznyImigrant=" + wiecznyImigrant +
+                ", mocnaJednostka=" + mocnaJednostka +
+                ", osiedloweSrd=" + osiedloweSrd +
+                ", bliskosc=" + bliskosc +
+                ", dostepDobreJednostki=" + dostepDobreJednostki +
+                ", dostepBiegacze=" + dostepBiegacze +
+                ", magiczneZaklecia=" + magiczneZaklecia +
+                ", odkogoJestes=" + odkogoJestes +
+                ", poCichu=" + poCichu +
+                ", zdolnyWalka=" + zdolnyWalka +
+                ", zdolnyRyzyko=" + zdolnyRyzyko +
+                ", stwarzaZagrozenie=" + stwarzaZagrozenie +
+                ", bezposredniosc=" + bezposredniosc +
+                ", odwaga=" + odwaga +
+                ", umieKlucic=" + umieKlucic +
+                ", umieCisnac=" + umieCisnac +
+                ", chetnyDoBojki=" + chetnyDoBojki +
+                ", agresjaCzynna=" + agresjaCzynna +
+                ", broniHierarchii=" + broniHierarchii +
+                ", broniGlobalu=" + broniGlobalu +
+                ", wyklucza=" + wyklucza +
+                ", ukrywaDobra=" + ukrywaDobra +
+                ", skreslaNaZawsze=" + skreslaNaZawsze +
+                ", staleDokrecaSrube=" + staleDokrecaSrube +
+                ", zdolnyDoOdpuszczenia=" + zdolnyDoOdpuszczenia +
+                ", resetAble=" + resetAble +
+                ", posluszny=" + posluszny +
+                ", przekonywalny=" + przekonywalny +
+                ", odporny=" + odporny +
+                ", niezaleznosc=" + niezaleznosc +
+                ", glupi=" + glupi +
+                ", traktowanieZGory=" + traktowanieZGory +
+                ", ignorowanieInformacji=" + ignorowanieInformacji +
+                ", lukiOsobowosci=" + lukiOsobowosci +
+                ", egoista=" + egoista +
+                ", wstyd=" + wstyd +
+                ", zazdrosc=" + zazdrosc +
+                ", agresja=" + agresja +
+                ", klamstwo=" + klamstwo +
+                ", niestabilnoscUmyslowa=" + niestabilnoscUmyslowa +
+                ", brakOkresleniaSkali=" + brakOkresleniaSkali +
+                ", brakCheci=" + brakCheci +
+                ", hajsWDomu=" + hajsWDomu +
+                ", bogaty=" + bogaty +
+                ", jedynak=" + jedynak +
+                ", systemowiec=" + systemowiec +
+                ", studia=" + studia +
+                ", bezpieczenstwo=" + bezpieczenstwo +
+                ", bagatelizujeZagrozenie=" + bagatelizujeZagrozenie +
+                ", nieznaCierpienia=" + nieznaCierpienia +
+                ", zuchwaly=" + zuchwaly +
+                ", zadufanyWSobie=" + zadufanyWSobie +
+                ", sztuczny=" + sztuczny +
+                ", biedny=" + biedny +
+                ", brakPerspektyw=" + brakPerspektyw +
+                ", zycieZDniaNaDzien=" + zycieZDniaNaDzien +
+                ", wyjebane=" + wyjebane +
+                ", wrazliwy=" + wrazliwy +
+                ", wolnoscLekkosc=" + wolnoscLekkosc +
+                ", europejski=" + europejski +
+                ", rasista=" + rasista +
+                ", czas=" + czas +
+                ", brakCzasu=" + brakCzasu +
+                ", dostepnosc=" + dostepnosc +
+                ", praca=" + praca +
+                ", pasja=" + pasja +
+                ", nalog=" + nalog +
+                ", narkotyki=" + narkotyki +
+                ", palenie=" + palenie +
+                ", picie=" + picie +
+                ", trzezwosc=" + trzezwosc +
+                ", brzydki=" + brzydki +
+                ", ladny=" + ladny +
+                ", sexZ=" + sexZ +
+                ", szlauf=" + szlauf +
+                ", worekNaSpermeZagranicznych=" + worekNaSpermeZagranicznych +
+                ", wyjezdzenie=" + wyjezdzenie +
+                ", dziewictwo=" + dziewictwo +
+                ", mily=" + mily +
+                ", otwartyNaZwiazek=" + otwartyNaZwiazek +
+                ", restrykcjaZnajomych=" + restrykcjaZnajomych +
+                ", dopuszczaNieznajomych=" + dopuszczaNieznajomych +
+                ", usmiechaSie=" + usmiechaSie +
+                ", smiejeSie=" + smiejeSie +
+                ", odwracaWzrok=" + odwracaWzrok +
+                ", neutralWzrok=" + neutralWzrok +
+                ", patrzy=" + patrzy +
+                ", reagujeNaBodzce=" + reagujeNaBodzce +
+                ", samotny=" + samotny +
+                ", zajety=" + zajety +
+                ", iloscPartnerow=" + iloscPartnerow +
+                ", dzieci=" + dzieci +
+                ", iloscDzieci=" + iloscDzieci +
+                ", przestrzegaPrawa=" + przestrzegaPrawa +
+                ", standardZachowania=" + standardZachowania +
+                ", wyrok=" + wyrok +
+                ", przerwa=" + przerwa +
+                ", konfi=" + konfi +
+                ", potencjalnyKonfi=" + potencjalnyKonfi +
+                ", dzienCodzienny=" + dzienCodzienny +
+                ", iloscZnajomych=" + iloscZnajomych +
+                ", iloscDobrziZnajomi=" + iloscDobrziZnajomi +
+                ", srodki=" + srodki +
+                ", majatek=" + majatek +
+                ", miejsceZamieszkania=" + miejsceZamieszkania +
+                ", wyjebaneNa=" + wyjebaneNa +
+                ", dbaO=" + dbaO +
+                ", oczekiwania=" + oczekiwania +
+                ", punktZerowy=" + punktZerowy +
+                '}';
+    }
+
+    public <T> List<T> of(T... elements){
+        return Arrays.asList(elements);
     }
 }
