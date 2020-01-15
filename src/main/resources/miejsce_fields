@@ -1,0 +1,28 @@
+typMiejsce;
+    wymaganiaWstepne;
+
+    przechodnie;
+    stale;
+    srodowiskowe;
+    restrykcyjne;
+    kibicowanie;
+
+    wzglednaIzolacja;
+    cisza;
+    nuda;
+
+    hotSpots;
+
+    procentOsob;
+    warunkiSprzyjajace;
+    warunkiNiesprzyjajace;
+    wartosciMiejsca;
+
+    iloscLudzi;
+    iloscSilnychJednostek;
+
+    zagrozenia;
+    zasady;
+
+    wymagajacePrawa;
+    wymagajaceZasad;

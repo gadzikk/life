@@ -3,7 +3,9 @@ package miejsce;
 import typy_bazowe.TypRasa;
 import typy_bazowe.TypIlosc;
 import warunek.W;
+import z_inne.RI;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -12,15 +14,15 @@ import java.util.Map;
  */
 public class Miasto {
     List<W> wymaganiaWstepne;
-    List<Miejsce> dzielnice;
+    List<Dzielnica> dzielnice;
 
-    List<HotSpot> hotSpots;
-    Map<TypRasa, TypIlosc> rasaIlosc;
-
-    TypIlosc iloscCierpienia;
-    TypIlosc iloscBurzuazji;
-    TypIlosc iloscPatologii;
+//    List<HotSpot> hotSpots;
+    List<RI> rasaIlosc;
 
     List<W> warunkiSprzyjajace;
     List<W> warunkiNiesprzyjajace;
+
+    public <T> List<T> of(T... elements){
+        return Arrays.asList(elements);
+    }
 }

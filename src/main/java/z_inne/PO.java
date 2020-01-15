@@ -8,4 +8,9 @@ import typy_bazowe.TypOsoby;
 public class PO {
     Integer procent;
     TypOsoby typOsoby;
+
+    public PO(Integer procent, TypOsoby typOsoby) {
+        this.procent = procent;
+        this.typOsoby = typOsoby;
+    }
 }

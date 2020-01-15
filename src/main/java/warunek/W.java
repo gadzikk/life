@@ -719,6 +719,7 @@ public enum W {
         BURZUA, KUJONKA, ZBYT_WRAZLIWA, ZWYKLA_FEST, WIESNIARA,
         SWIATOWA_DOBRY_DOM,
 
+        MOZAIKA,
 
         // OPERATORY
 

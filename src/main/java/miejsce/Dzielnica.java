@@ -4,7 +4,9 @@ import typy_bazowe.TypDzielnicy;
 import typy_bazowe.TypRasa;
 import typy_bazowe.TypIlosc;
 import warunek.W;
+import z_inne.PO;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +24,7 @@ public class Dzielnica {
     boolean kibicowanie;
 
     List<HotSpot> hotSpots;
-    Map<TypRasa, TypIlosc> rasaIlosc;
+    List<PO> procentOsob;
 
     TypIlosc iloscCierpienia;
     TypIlosc iloscBurzuazji;
@@ -30,4 +32,8 @@ public class Dzielnica {
 
     List<W> warunkiSprzyjajace;
     List<W> warunkiNiesprzyjajace;
+
+    public <T> List<T> of(T... elements){
+        return Arrays.asList(elements);
+    }
 }

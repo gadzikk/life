@@ -5,6 +5,7 @@ import typy_bazowe.TypIlosc;
 import warunek.W;
 import z_inne.PO;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -40,4 +41,7 @@ public class Miejsce {
     boolean wymagajacePrawa;
     boolean wymagajaceZasad;
 
+    public <T> List<T> of(T... elements){
+        return Arrays.asList(elements);
+    }
 }
