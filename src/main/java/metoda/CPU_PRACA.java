@@ -13,8 +13,8 @@ import static typy_bazowe.TypOsoby.SOMEONE;
 public class CPU_PRACA extends AbstractCPU {
 //    List<W> globalneWarunki =
     List<W> warunki = of(W.PROJEKTY, W.TECHNOLOGIE, W.MANAGEROWIE, W.LUDZIE);
-    List<W> ludzieWarunki = of(W.KONFIDENCI, W.ZAWISTNI, W.ZE_WSI, W.BURZUAZJA, W.FESTY, W.CZYCHA_NA_BLAD, W.DZIWNA_PASJA);
-    List<W> managoWarunki = of(W.TECHNICZNOSC, W.FEST, W.SYSTEMOWIEC, W.BURZUAZJA, W.STABILNY);
+    List<W> ludzieWarunki = of(W.KONFIDENCI, W.ZAWISTNI, W.ZE_WSI, W.BURZUAZJA, W.FESTY, W.CZYCHA_NA_BLAD, W.DZIWNA_PASJA, W.POSLUSZNY);
+    List<W> managoWarunki = of(W.TECHNICZNOSC, W.FEST, W.SYSTEMOWIEC, W.BURZUAZJA, W.STABILNY, W.POSLUSZNY);
     List<W> tyVSmanago = of(W.STOSUNEK1VS1, W.ATMOSFERA, W.UZYTECZNOSC);
     List<W> satysfakcjaZPracy = of(W.DOBRY_PROJEKT, W.SZCZEGOLOWE_REQUIREMENTY, W.PROJEKT_UZYTECZNY, W.NOWE_NARZEDZIA, W.MANAGO_TECHNICZNY);
 
@@ -85,6 +85,7 @@ public class CPU_PRACA extends AbstractCPU {
                         M.thread_while_loop(W.UTRZYMANIE_PRACY)
                 )
         );
+        manago.setStatus(W.POSLUSZNY);
         manago.setStatus(W.STRAZNIK_PRAWA);
         manago.wyjebane(of(W.ZASOB_ZYCIE_PRYWATNE, W.ZASOB_CZAS));
 

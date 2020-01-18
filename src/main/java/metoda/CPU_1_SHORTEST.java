@@ -16,7 +16,7 @@ public class CPU_1_SHORTEST extends AbstractCPU {
             W.CZAS_START, W.CZAS_KONIEC,
             W.SRODOWISKOWE, W.STALE, W.RESTRYKCYJNE);
 
-    List<W> mojeCechy = of(W.SPRYT, W.SZYBKOSC, W.SILA, W.ZMUSZASZ);
+    List<W> mojeCechy = of(W.SPRYT, W.SZYBKOSC, W.SILA, W.ANTY_POSLUSZNOSC, W.ZMUSZASZ);
     List<W> osobaCechy = of(W.REAGUJE, W.STWARZA_POINTCUT, W.SWIADOMOSC);
 
     List<TypSytuacja> typySytuacji = of(TypSytuacja.UNIKALNA, TypSytuacja.CHCIANA, TypSytuacja.W_HOTMIEJSCU, TypSytuacja.DEFAULTOWA,
@@ -47,7 +47,7 @@ public class CPU_1_SHORTEST extends AbstractCPU {
         );
         new MW(
                 of(M.odrazuPochwycenie(W.SYTUACJA), M.dzialanie(mojeCechy)),
-                of(W.BEDZIE_CIEKAWIE, W.ANTY_PARTYZANTKA)
+                of(W.BEDZIE_CIEKAWIE, W.ANTY_PARTYZANTKA, W.ANTY_POSLUSZNOSC)
         );
         new MW(
                 of(M.wstanie(), M.przejscie()),

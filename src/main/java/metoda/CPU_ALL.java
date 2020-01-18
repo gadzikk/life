@@ -35,7 +35,8 @@ public class CPU_ALL extends AbstractCPU {
                 ),
                 of(W.BRAK_DZIALANIA),
                 of(
-                        M.GRANT(ME, W.PATOLOGIA)
+                        M.GRANT(ME, W.PATOLOGIA),
+                        M.REMOVE(ME, W.ANTY_POSLUSZNOSC)
                 )
         );
 

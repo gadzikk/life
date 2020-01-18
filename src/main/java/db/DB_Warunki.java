@@ -910,7 +910,7 @@ public class DB_Warunki {
     public static WarunkiKategoria FEST = new WarunkiKategoria(
             new Kategoria(TypKategoria.FEST),
             Arrays.asList(
-                    W.CHRONI_FESTA, W.TWORZY_KOLECZKO_ADORACJI, W.WYLACZY_DOSTEP, W.WYKLUCZY_CIE
+                    W.CHRONI_FESTA, W.TWORZY_KOLECZKO_ADORACJI, W.WYLACZY_DOSTEP, W.WYKLUCZY_CIE, W.ZAZDROSC
             )
 
     );

@@ -152,6 +152,12 @@ public class CPU_UL extends AbstractCPU {
                 )
         );
 
+        new WM(of(W.NIESWIADOMOSC),
+                of(
+                        M.GRANT(ME, of(W.NIESZCZESCIE))
+                )
+        );
+
         new WM(of(W._NOT_, W.ULICA),
                 of(
                         M.GRANT(SOMEONE, of(W.SYSTEMOWIEC, W.BURZUAZJA))
@@ -279,6 +285,7 @@ public class CPU_UL extends AbstractCPU {
         M.thread_while_loop(W.DOBRO);
         M.thread_while_loop(W.POTENCJALNE_STARCIE);
 
+        M.thread_while_loop(W.ANTY_POSLUSZNOSC);
         M.thread_while_loop(W.ANTY_FEST);
         M.thread_while_loop(W.ANTY_SYSTEM);
         M.thread_while_loop(W.ANTY_BURZUA);
