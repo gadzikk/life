@@ -9,6 +9,7 @@ import warunek.W;
 import warunek.WarunkiKategoria;
 import z_inne.OsobaMetod;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -266,6 +267,7 @@ public enum M {
     public static String wnioski() {return "wnioski()";}
     public static String wiedza() {return "wiedza()";}
     public static String thread_while_loop(W typ) {return "thread_while_loop("+ typ +")";}
+    public static String thread_while_loop(List<W> typy) {return "thread_while_loop("+ typy +")";}
 
     public static String neutral() {return "neutral()";}
     public static String wyjebane() {return "wyjebane()";}
@@ -390,6 +392,7 @@ public enum M {
     public static W interakcja(OsobaMetod manago) {return W.WARUNEK;}
     public static String glaskaszPoGlowie(OsobaMetod manago) {return "glaskaszPoGlowie("+ manago +")";}
     public static String pracuj(List<W> warunki) {return "pracuj("+ warunki +")";}
+    public static String pracuj(W warunek) {return "pracuj("+ warunek +")";}
     public static String lapKontakt(W ludzie) {return "lapKontakt("+ ludzie +")";}
     public static String usmiechajSie() {return "usmiechajSie()";}
     public static String ORIENT(List<W> warunki) {return "DEFAULT("+ warunki +")";}
@@ -419,5 +422,41 @@ public enum M {
     public static String drugaStrona(W warunek) {return "podzielSie("+ warunek +")";}
     public static String drugaStronaDzialajacy(W warunek) {return "podzielSie("+ warunek +")";}
     public static String kolkoWokol(W warunek) {return "podzielSie("+ warunek +")";}
+    public static String dodajDoHotTopics(W warunek) {return "podzielSie("+ warunek +")";}
+    public static String powiazZ(OsobaMetod osoba) {return "podzielSie("+ osoba +")";}
+    public static String wezOstatnieHotTopics() {return "wezOstatnieHotTopics()";}
+    public static String rozpowiedz(OsobaMetod kojarzacy, W warunek2, OsobaMetod osoba) {return "rozpowiedz("+ kojarzacy +" "+ warunek2 +" "+ osoba +")";}
+    public static List<OsobaMetod> wezOsobyKojarzace(OsobaMetod osoba) {return new ArrayList<>();}
+    public static String sonda(W warunek) {return "sonda("+ warunek +")";}
+    public static String sonda(List<W> warunki) {return "sonda("+ warunki +")";}
+    public static String sonda(List<W> warunki, List<W> warunki2) {return "sonda("+ warunki+" "+ warunki2+")";}
+    public static String widzisz(W warunek) {return "widzisz("+ warunek +")";}
+    public static String odrazuNozki() {return "odrazuNozki()";}
+    public static String odrazuMowa() {return "odrazuMowa()";}
+    public static String idzieszWczesniejWJejStrone() {return "idzieszWczesniejWJejStrone()";}
+    public static String zrownanie() {return "zrownanie()";}
+    public static String bucikiDeep() {return "bucikiDeep()";}
+    public static String bucikiCel() {return "bucikiCel()";}
+    public static String wyklucz(List<W> warunki) {return "wyklucz("+ warunki +")";}
+    public static String utrudniaj(List<W> warunki) {return "utrudniaj("+ warunki +")";}
+    public static String pobierzNieswiadomosc() {return "pobierzNieswiadomosc()";}
+    public static String stworzKolkoAdoracji() {return "stworzKolkoAdoracji()";}
+    public static String pobierzLukiOsobowosci() {return "pobierzLukiOsobowosci()";}
+    public static String pobierzPatologie() {return "pobierzPatologie()";}
+    public static String wezPrzewage() {return "wezPrzewage()";}
+    public static String przemoc(W warunek) {return "przemoc("+ warunek +")";}
+    public static String pobierzHierarchie() {return "pobierzHierarchie()";}
+    public static String dzialajDlaZla() {return "dzialajDlaZla()";}
+    public static String tworzPatologie() {return "tworzPatologie()";}
+    public static String wal(W warunek) {return "wal("+ warunek +")";}
+    public static String wal(OsobaMetod osoba, W warunek) {return "wal("+ osoba +" "+ warunek +")";}
+    public static String rozpowiedz(W warunek) {return "rozpowiedz("+ warunek +")";}
+    public static String zaczep(OsobaMetod osoba) {return "zaczep("+ osoba +")";}
+    public static String wrocZPrzewaga() {return "wrocZPrzewaga()";}
+    public static String DEEP(List<TypT> tematy) {return "DEEP("+ tematy +")";}
+    public static String WNIOSKI(List<TypT> tematy) {return "WNIOSKI("+ tematy +")";}
+    public static String WNIOSKI() {return "WNIOSKI()";}
+    public static String KONTRA() {return "KONTRA()";}
+    public static String ZMIANA(List<TypT> tematy) {return "ZMIANA("+ tematy +")";}
 
 }

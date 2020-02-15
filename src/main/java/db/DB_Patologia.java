@@ -96,11 +96,13 @@ public class DB_Patologia {
                     W.ZAJECIE, W.NIE_PODOBA_SIE, W.BRZYDKA, W.WSTYDZI_SIE, W.BRAK_EMOCJI
             )
     );
-    WarunkiKategoria PATOLOGIE_WSTEPNE_KOBIETA = new WarunkiKategoria(
+    public static WarunkiKategoria PATOLOGIE_WSTEPNE_KOBIETA = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_WSTEPNE_KOBIETA),
             Arrays.asList(
                     W.NIE_STWORZENIE_POINTCUTA, W.NIEZLAPANIE_POINTCUTA, W.BRAK_POZNANIA, W.NIEDOPUSZCZENIE,
-                    W.BRAK_PARZONKA, W.NIESPODOBANIE_SIE, W.MINUS_GT_PLUS, W.ZAJETA
+                    W.BRAK_PARZONKA, W.NIESPODOBANIE_SIE, W.MINUS_GT_PLUS, W.ZAJETA,
+                    W.DZIECI, W.SZLAUF, W._100_CHLOPAKOW, W.WYJEZDZENIE, W.UZYWKI,
+                    W.NIESWIADOMOSC, W.BRAK_SRODOWISKA, W._1_RANDKA_KONIEC
             )
     );
     WarunkiKategoria PATOLOGIE_UTRZYMANIA_SWIAT = new WarunkiKategoria(
@@ -169,11 +171,13 @@ public class DB_Patologia {
             )
     );
 
-    WarunkiKategoria PATOLOGIE_UTRZYMANIA_KOBIETA = new WarunkiKategoria(
+    public static WarunkiKategoria PATOLOGIE_UTRZYMANIA_KOBIETA = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_UTRZYMANIA_KOBIETA),
             Arrays.asList(
                     W.NIESPELNIENIE_OCZEKIWAN, W.NIEWSPIERANIE_PREFERENCJI, W.SPEDZANIE_CZASU_OSOBNO,
-                    W.ZDRADA, W.BRAK_KONTROLI
+                    W.ZDRADA, W.BRAK_KONTROLI,
+                    W.NUDA_W_ZWIAZKU, W.NIESWIADOMOSC, W.BRAK_SRODOWISKA, W.BRAK_CZASU, W.PROBLEMY_KAZDEJ_KOBIETY,
+                    W.CHWIEJNOSC
             )
     );
 

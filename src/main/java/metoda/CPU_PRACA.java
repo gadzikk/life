@@ -90,6 +90,9 @@ public class CPU_PRACA extends AbstractCPU {
         manago.setStatus(W.POSLUSZNY);
         manago.setStatus(W.STRAZNIK_PRAWA);
         manago.wyjebane(of(W.ZASOB_ZYCIE_PRYWATNE, W.ZASOB_CZAS));
+        manago.thread_while_loop(W.KONTROLA);
+        manago.set(W.ZDOLNOSC_ATAKU);
+        M.REMOVE(ME, W.ZDOLNOSC_ATAKU);
 
         new WM(of(M.isNiedajeRady(zasob)),
                 of(

@@ -59,8 +59,8 @@ public class CPU_1 extends AbstractCPU {
                 of(M.cipa())
         );
         new MW(
-                of(M.odrazuPochwycenie(W.SYTUACJA), M.pomysl(of(W.PRZESKOCZENIE)), M.dzialanie(mojeCechy)),
-                of(W.BEDZIE_CIEKAWIE, W.ANTY_PARTYZANTKA, W.ANTY_POSLUSZNOSC)
+                of(M.odrazuPochwycenie(W.SYTUACJA), M.odrazuNozki(), M.odrazuMowa(), M.pomysl(of(W.PRZESKOCZENIE)), M.dzialanie(mojeCechy)),
+                of(W.BEDZIE_CIEKAWIE, W.ANTY_PARTYZANTKA, W.ANTY_POSLUSZNOSC, W.NIENAWISC_FESTOW)
         );
         new WM(
                 of(W.PODBIJASZ, W._88_, W.BRAK_JAKOSCI_PLANSZY),
@@ -118,6 +118,7 @@ public class CPU_1 extends AbstractCPU {
         new WM(
                 of(W.NIEPODBIJASZ),
                 of(
+                        M.GRANT(ME, W.CONTINUE_NUDA),
                         M.REMOVE(ME, W.SYTUACJA),
                         M.REMOVE(ME, W.POTENCJALNA_PRZEWAGA),
                         M.GRANT(SRODOWISKO, W.POTENCJALNA_PRZEWAGA),
@@ -137,6 +138,7 @@ public class CPU_1 extends AbstractCPU {
         pokazujaSie();
         parzenie();
         nozki();
+        zagadanie();
     }
 
     public void wzglIzolacja(){
@@ -462,6 +464,13 @@ public class CPU_1 extends AbstractCPU {
                         M.oswajaj()
                 )
         );
+        new WM(of(W.ZASIEG_WZROKU, W._88_, W.STOISZ, W._88_, W.MIEJSCE_PRZECHODNIE ),
+                of(
+                        M.idzieszWczesniejWJejStrone(),
+                        M.zrownanie(),
+                        M.prefix(prefixes, pdstw)
+                )
+        );
         new WM(of(W.ZASIEG_WZROKU, W._II_, W.PRZEWIDZIALES_DROGE),
                 of(
                         M.czas_start(), M.GRANT(ME, W.SYTUACJA),
@@ -475,6 +484,17 @@ public class CPU_1 extends AbstractCPU {
         new WM(of(W.IDZIESZ_W_MIEJSCE_STALE),
                 of(
                         M.GRANT(ME, W.WIECEJ_OKAZJI_DROGA)
+                )
+        );
+    }
+    public void zagadanie(){
+        new WMWM(of(W.LEKKIE),
+                of(
+                        M.bucikiCel()
+                ),
+                of(W.MOCNIEJSZE),
+                of(
+                        M.bucikiDeep()
                 )
         );
     }

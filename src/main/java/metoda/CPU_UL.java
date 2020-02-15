@@ -3,6 +3,7 @@ package metoda;
 import db.DB_Warunki;
 import warunek.W;
 import warunek.WarunkiKategoria;
+import z_inne.OH;
 
 import java.util.List;
 
@@ -55,6 +56,10 @@ public class CPU_UL extends AbstractCPU {
             W.ZAJECIE_SIE_LOKALNYMI_SRPAWAMI, W.WSTYD);
 
     List<WarunkiKategoria> rany = DB_Warunki.RANY;
+
+    List<W> pointcut = of(W.MATERIALNE_ZNALEZIENIE_SIE, W.DEFAULT_ZACHOWANIE, W.DEFAULT_WARUNKI, W.DZIALANIE, W.REAKCJA,
+            W.MAKSYMALNIE_ULATWIASZ, W.PRZEKONYWANIE, W.ULTIMATUM);
+    List<W> warunek = of(W.ULTIMATUM, W.POCZATEK, W.KONIEC, W.ZYSK, W.WARTOSC, W.ILOSC_OSOB, W.CZESTOTLIWOSC);
 
 
     List<WM> srodki = of(
@@ -214,8 +219,14 @@ public class CPU_UL extends AbstractCPU {
         gadka();
         fest();
         przewagi();
+        shortestSonda();
         sonda();
         dzialajacy();
+        przeplywInformacji();
+        nawiazanieRelacji();
+        opisZachowanTypOsoby();
+        endCasyWarunkow();
+
     }
     public void shortest(){
         List<W> stan = of(W.WYSILEK_UMYSLOWY, W.WYSILEK_FIZYCZNY, W.DUZO_ZARCIA, W.WZROK, W.SAMOPOCZUCIE);
@@ -619,6 +630,25 @@ public class CPU_UL extends AbstractCPU {
                     )
             );
         }
+        public void shortestSonda(){
+            new WM(of(W.MEZCZYZNA),
+                    of(
+                            M.sonda(W.ROZMIAR),
+                            M.sonda(W.SRODOWISKO),
+                            M.sonda(W.CZYNY_DZIALANIA)
+                    )
+            );
+
+            new WM(of(W.KOBIETA),
+                    of(
+                            M.sonda(W.ROZMIAR),
+                            M.sonda(W.LADNA),
+                            M.sonda(W.STWARZA_POINTCUT),
+                            //-------------------------
+                            M.sonda(PATOLOGIE_WSTEPNE_KOBIET, PATOLOGIE_UTRZYMANIA_KOBIET)
+                    )
+            );
+        }
 
         public void sonda(){
             new WM(of(W._NOT_, W.ZLODZIEJKA, W._II_, W.KIBICOWANIE, W._II_, W.DOBRZE_ZMYSLY, W._88_, W.SPORT),
@@ -705,5 +735,143 @@ public class CPU_UL extends AbstractCPU {
                             dzialacz.WHILE_END()
                     )
             );
+        }
+        public void przeplywInformacji(){
+            new WM(of(W.STALO_SIE),
+                    of(
+                            M.dodajDoHotTopics(W.STALO_SIE),
+                            M.powiazZ(osoba),
+                            M.zapamietaj()
+                    )
+            );
+
+            new WM(of(W.SPOTKANY_ZNAJOMY),
+                    of(
+                            M.wezOstatnieHotTopics(),
+                            M.rozpowiedz(znajomy, W.STALO_SIE, osoba)
+                    )
+            );
+
+            M.wezOsobyKojarzace(osoba).forEach(kojarzacy -> {
+                M.rozpowiedz(kojarzacy, W.STALO_SIE, osoba);
+            });
+        }
+        public void nawiazanieRelacji(){
+            M.thread_while_loop(W.PUSTKA);
+            new WM(of(W.LUDZIE),
+                    of(
+                            M.widzisz(W.WADY)
+                    )
+            );
+            new WM(of(W.WZGL_IZOLACJA, W._II_, W.ZNAJOMI, W._88_, W.CZAS, W._88_, W.PODBIJASZ),
+                    of(
+                            M.GRANT(ME, W.SZANSA_POZNANIE)
+                    )
+            );
+            M.thread_while_loop(W.UTRZYMANIE_RELACJI);
+            new WM(of(W._NOT_, W.UTRZYMANIE_RELACJI),
+                    of(
+                            M.REMOVE(ME, W.RELACJA),
+                            M.REMOVE(ME, W.OSOBA),
+                            M.REMOVE(ME, W.CZAS)
+                    )
+            );
+        }
+        public void opisZachowanTypOsoby(){
+            new WM(of(W.MIESZANIEC, W.FEST),
+                    of(
+                            M.pobierzNieswiadomosc(), M.pobierzLukiOsobowosci(),
+                            M.wyklucz(of(W.RDZENNI, W.SILNIEJSI)), M.utrudniaj(of(W.RDZENNI, W.SILNIEJSI)),
+                            M.stworzKolkoAdoracji(),
+                            M.thread_while_loop(W.POSLUSZNY)
+                    )
+            );
+            new WM(of(W.RDZENNY_DOBRY),
+                    of(
+                            M.pobierzPatologie(),
+                            M.wyklucz(of(W.MIESZANIEC, W.FEST)), M.utrudniaj(of(W.MIESZANIEC, W.FEST)),
+                            M.wezPrzewage(), M.pracuj(W.PRZEWAGA),
+                            M.przemoc(W.OBRONA),
+                            M.thread_while_loop(of(W.ANTY_POSLUSZNOSC, W.ANTY_PUSTKA, W.ANTY_NUDA))
+                    )
+            );
+            new WM(of(W.ZLY),
+                    of(
+                            M.pobierzHierarchie(),
+                            M.dzialajDlaZla(), M.tworzPatologie(),
+                            M.wal(W.NIEDZIALAJACY),
+                            M.przemoc(W.DOMINACJA),
+                            M.thread_while_loop(W.DOMINACJA)
+                    )
+            );
+            new WM(of(W.AGRESOR),
+                    of(
+                            M.DEFAULT(W.AGRESJA),
+                            M.zaczep(osoba),
+                            M.wrocZPrzewaga(),
+                            M.wal(osoba, W.PRZEWAGA),
+                            M.rozpowiedz(W.WSZYSCY),
+                            M.thread_while_loop(W.DOMINACJA)
+                    )
+            );
+        }
+        public void endCasyWarunkow(){
+            new WW((W.DEFAULT),
+                    of(
+                            W.TEMPOTA,
+                            W.GLUPOTA,
+                            W.NIEODPOWIADA,
+                            W.NIESWIADOMOSC,
+                            W.ZALEZNY
+                    )
+            );
+            new WW((W.OSIEDLE),
+                    of(
+                            W.ANTY_NORMALNOSC,
+                            W.HIERARCHIA,
+                            W.ZAZDROSC,
+                            W.ZLO,
+                            W.NUDA
+                    )
+            );
+            new WW((W.PASJA),
+                    of(
+                            W.TYLKO_TO,
+                            W.STYL_ZYCIA,
+                            W.ODERWANIE_OD_RZECZYWISTOSCI
+                    )
+            );
+            new WW((W.STUDIA),
+                    of(
+                            W.ODERWANIE_OD_RZECZYWISTOSCI,
+                            W.BRAK_CHETNOSCI,
+                            W.MARZY_OBCOKRAJOWIEC
+                    )
+            );
+            new WW((W.RODZINA),
+                    of(
+                            W.KONTROLA
+                    )
+            );
+        }
+        public void hierarchiaOsiedle(){
+            List<W> warunki = of(W.ANTY_NORMALNOSC, W.HIERARCHIA, W.ZAZDROSC, W.BRAK_ZASAD, W.TWORZENIE_WZAJEMNEGO_CIERPIENIA,
+                    W.ZLO, W.NUDA, W.ZLE_EMOCJE);
+
+            OH przydupas = new OH();
+            OH przydupas2 = new OH();
+            OH przydupas3 = new OH();
+            OH przydupas4 = new OH();
+            OH przydupas5 = new OH();
+            OH przydupas6 = new OH();
+            OH przydupas7 = new OH();
+            OH przydupas8 = new OH();
+            OH przydupas9 = new OH();
+
+            OH ogarniety = new OH(of(przydupas, przydupas2, przydupas3));
+            OH ogarniety2 = new OH(of(przydupas4, przydupas5, przydupas6));
+            OH ogarniety3 = new OH(of(przydupas7, przydupas8, przydupas9));
+
+            OH gangusZHajsem = new OH(of(ogarniety, ogarniety2, ogarniety3));
         }
 }

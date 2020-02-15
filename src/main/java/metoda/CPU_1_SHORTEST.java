@@ -47,7 +47,7 @@ public class CPU_1_SHORTEST extends AbstractCPU {
         );
         new MW(
                 of(M.odrazuPochwycenie(W.SYTUACJA), M.dzialanie(mojeCechy)),
-                of(W.BEDZIE_CIEKAWIE, W.ANTY_PARTYZANTKA, W.ANTY_POSLUSZNOSC)
+                of(W.BEDZIE_CIEKAWIE, W.ANTY_PARTYZANTKA, W.ANTY_POSLUSZNOSC, W.NIENAWISC_FESTOW)
         );
         new MW(
                 of(M.wstanie(), M.przejscie()),

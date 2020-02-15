@@ -1,5 +1,6 @@
 package metoda;
 
+import db.DB_Patologia;
 import db.DB_Tematy;
 import db.DB_Warunki;
 import osoba.Osoba;
@@ -43,6 +44,9 @@ public class AbstractCPU {
     OsobaMetod opponent = new OsobaMetod();
     OsobaMetod zaniepokojeni = new OsobaMetod();
     List<WarunkiKategoria> rany = DB_Warunki.RANY;
+    OsobaMetod znajomy = new OsobaMetod();
+    List<W> PATOLOGIE_WSTEPNE_KOBIET = DB_Patologia.PATOLOGIE_WSTEPNE_KOBIETA.getWarunki();
+    List<W> PATOLOGIE_UTRZYMANIA_KOBIET = DB_Patologia.PATOLOGIE_UTRZYMANIA_KOBIETA.getWarunki();
 
     public <T> List<T> of(T... elements){
         return Arrays.asList(elements);
