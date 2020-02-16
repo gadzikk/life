@@ -163,9 +163,43 @@ public class CPU_UL extends AbstractCPU {
                 )
         );
 
+        new WM(of(W.BRAK_SRODOWISKA),
+                of(
+                        M.GRANT(ME, W.BRAK_CIAGLOSCI_OTOCZENIA),
+                        M.GRANT(ME, W.OD_ENDCASE_DO_ENDCASE)
+                )
+        );
+
+        new WM(of(W._NOT_, W.SILA_RZADZI),
+                of(
+                        M.GRANT(ME, W.FEST_RZADZI)
+                )
+        );
+
         new WM(of(W._NOT_, W.ULICA),
                 of(
                         M.GRANT(SOMEONE, of(W.SYSTEMOWIEC, W.BURZUAZJA))
+                )
+        );
+
+        new WMWMWM(of(W.MOCNY_WZROK),
+                of(
+                        M.GRANT(ME, potrzeba(of(W.WYSILEK_FIZYCZNY, W.WYSILEK_UMYSLOWY)))
+                ),
+                of(W.WYSILEK_FIZYCZNY, W.WYSILEK_UMYSLOWY),
+                of(
+                        M.GRANT(ME, of(W.KREGOSLUP_MORALNY, W.ZDOLNOSC_DO_WYSILKU, W.ZDOLNY_DO_WALKI, W.WNIOSKI, W.PODSWIADOMOSC, W.WIEDZA_SPORT))
+                ),
+                of(W.CIERPIENIE, W._88_, W.Z_MIASTA, W._88_, W.DOSTEP_DO_PLANSZY),
+                of(
+                        M.GRANT(ME, of(W.ZDOLNY_WALKA_SPRZET, W.ZDOLNY_DO_RYZYKA, W.WIEDZA_ULICA, W.DOBRA_JEDNOSTKA))
+                )
+        );
+
+        new WM(of(W.CIERPIENIE),
+                of(
+                        M.zapamietaj(of(W.OSOBA, W.MIEJSCE, W.WARUNEK)),
+                        M.robRany(W.OSOBA)
                 )
         );
 
@@ -226,6 +260,7 @@ public class CPU_UL extends AbstractCPU {
         nawiazanieRelacji();
         opisZachowanTypOsoby();
         endCasyWarunkow();
+        hierarchiaOsiedle();
 
     }
     public void shortest(){
@@ -532,6 +567,13 @@ public class CPU_UL extends AbstractCPU {
         }
         public void fest(){
             List<W> festWarunki = DB_Warunki.FEST.getWarunki();
+            new WM(of(W.RODZINA, W.KONTROLA, W.PIENIADZE),
+                    of(
+                            M.ochronaPrzed(W.CIERPIENIE),
+                            M.GRANT(SOMEONE, of( W.FEST, W.BURZUA)),
+                            M.GRANT(SOMEONE, of(W.NIESWIADOMOSC, W.LUKI_OSOBOWOSCI))
+                    )
+            );
 
             M.sondujWady();
             M.sondujWartoscioweRzeczy();
@@ -760,7 +802,9 @@ public class CPU_UL extends AbstractCPU {
             M.thread_while_loop(W.PUSTKA);
             new WM(of(W.LUDZIE),
                     of(
-                            M.widzisz(W.WADY)
+                            M.widzisz(W.WADY),
+                            M.widzisz(W.ZLO),
+                            M.widzisz(W.ZAZDROSC)
                     )
             );
             new WM(of(W.WZGL_IZOLACJA, W._II_, W.ZNAJOMI, W._88_, W.CZAS, W._88_, W.PODBIJASZ),

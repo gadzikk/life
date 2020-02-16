@@ -13,7 +13,7 @@ import static typy_bazowe.TypOsoby.*;
  * Created by gadzik on 31.12.19.
  */
 public class CPU_1 extends AbstractCPU {
-
+    List<W> rzeczywistosc = of(W._1_OSOBA__DUZO);
     List<W> plansza = of(W.LUDZIE, W.KOBIETA, W.STATYSCI, W.POTRZEBA, W.TRANSPORT, W.SCIEZKI);
     List<W> essentials = of(W.DOSTEPNOSC, W.BLISKOSC, W.SZYBKOSC_CHODZENIA, W.INFORMACJA,
             W.ZASIEG_WZROKU, W.ZASIEG_JEJ_WZROKU,
@@ -236,14 +236,19 @@ public class CPU_1 extends AbstractCPU {
                         M.odrazuPochwycenie(W.SYTUACJA)
                 )
         );
-        new WMWMWM(
+        new WMWM(
                 of(W.BAHNA),
                 of(
                         M.pobierzInformacjeStrefy(),
                         M.wybierzStrefe(),
                         M.sondaPrzystanekKoncowy()
                 ),
-                of(W.WEJSCIE, W.PRZYSTANEK),
+                of(W.STARA_BAHNA),
+                of(
+                        M.opcje(of(W.SIEDZENIE_PRZED, W.SIEDZENIE_OBOK, W.STOISZ_NAD_SIEDZENIEM, W.STOISZ_OBOK))
+                )
+        );
+        new WMWM(of(W.WEJSCIE, W.PRZYSTANEK),
                 of(
                         M.rozgladniecie()
                 ),

@@ -315,6 +315,7 @@ public enum M {
     public static String starcie(List<WarunkiKategoria> rany) {return "starcie("+ rany +")";}
     public static String postawCiezkiWarunek(List<WM> srodki) {return "postawCiezkiWarunek("+ srodki +")";}
     public static String zapamietaj() {return "zapamietaj()";}
+    public static String zapamietaj(List<W> warunki) {return "zapamietaj("+ warunki +")";}
     public static String nieCzekaj() {return "nieCzekaj()";}
     public static String wyprzedz() {return "wyprzedz()";}
     public static String szybkoDzialaj() {return "szybkoDzialaj()";}
@@ -458,5 +459,11 @@ public enum M {
     public static String WNIOSKI() {return "WNIOSKI()";}
     public static String KONTRA() {return "KONTRA()";}
     public static String ZMIANA(List<TypT> tematy) {return "ZMIANA("+ tematy +")";}
+    public static String robCosExtra() {return "robCosExtra()";}
+    public static String robRany(W warunek) {return "robRany("+ warunek +")";}
+    public static String ochronaPrzed(W warunek) {return "robRany("+ warunek +")";}
+    public static String opcje(List<W> warunki) {return "opcje("+ warunki +")";}
+
+
 
 }

@@ -7,6 +7,7 @@ import osoba.Osoba;
 import sytuacja.Sytuacja;
 import temat.TT;
 import typy_bazowe.TypT;
+import typy_bazowe.TypZadania;
 import warunek.W;
 import warunek.WarunkiKategoria;
 import z_inne.OsobaMetod;
@@ -55,4 +56,15 @@ public class AbstractCPU {
     public static <T> List<T> sof(T... elements){
         return Arrays.asList(elements);
     }
+
+    public W potrzeba(List<W> warunki){return null;}
+
+    public W temporal(W warunek) {return W.WARUNEK;}
+    public W czas(W warunek) {return W.WARUNEK;}
+    public W czasUlotnosc(W warunek) {return W.WARUNEK;}
+    public TypZadania dudki(TypZadania zadanie) {return null;}
+    public TypZadania dudki(List<TypZadania> zadania) {return null;}
+    public TypZadania stanKondycja(TypZadania zadanie) {return null;}
+    public TypZadania stanKondycja(List<TypZadania> zadania) {return null;}
+    public TypZadania antySamotnosc(TypZadania zadanie) {return null;}
 }

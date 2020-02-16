@@ -10,7 +10,9 @@ import static typy_bazowe.TypOsoby.ME;
  * Created by gadzik on 02.01.20.
  */
 public class CPU_ALL extends AbstractCPU {
-    W warunekWejsciowy = W.ZLO_NA_CZUBKU_STOSU;
+    List<W> warunekiWejsciowe = of(W.ZLO_NA_CZUBKU_STOSU, W._100PROCENT_WYSILKU_10PROCENT_OTRZYMUJESZ, W.CALE_ZYCIE_CIERPIENIE,
+            W.STARZEJESZ_SIE, W.MIESZKANIE_300TYS_WYPLATA_3TYS
+    );
     List<W> stan = of(W.WYSILEK_UMYSLOWY, W.WYSILEK_FIZYCZNY, W.DUZO_ZARCIA, W.WZROK, W.SAMOPOCZUCIE);
 
     List<W> warunki = of(W.OBECNOSC, W.PLANSZA, W.CZAS_START,W.CZAS_KONIEC, W.FOCUS, W.ZMECZENIE, W.BLISKOSC, W.DOSTEPNOSC);

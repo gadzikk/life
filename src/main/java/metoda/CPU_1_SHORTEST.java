@@ -10,6 +10,7 @@ import java.util.List;
  * Created by gadzik on 31.12.19.
  */
 public class CPU_1_SHORTEST extends AbstractCPU {
+    List<W> rzeczywistosc = of(W._1_OSOBA__DUZO);
     List<W> plansza = of(W.LUDZIE, W.KOBIETA, W.STATYSCI, W.POTRZEBA, W.TRANSPORT, W.SCIEZKI);
     List<W> essentials = of(W.DOSTEPNOSC, W.BLISKOSC, W.SZYBKOSC_CHODZENIA, W.INFORMACJA,
             W.ZASIEG_WZROKU, W.ZASIEG_JEJ_WZROKU,
