@@ -36,6 +36,8 @@ public class CPU_1 extends AbstractCPU {
 
     List<W> jakoscSytuacji = of(W.INTERAKCJA, W.KOJARZENIE_Z_DOBREGO, W.ZNAJOMI, W.POTRZEBA, W.WARTOSC, W.UNIKALNOSC_W_OTOCZENIU);
 
+    List<W> sytuacja = of(W.LUDZIE, essentials, W.OPCJA_PRZEJSCIE, allSprzyjajace, spojrzenia, jakoscSytuacji);
+
     public void run(){
         new MW(
                 of(M.namierzenie(), M.nieOddalaszWzroku()),

@@ -53,8 +53,8 @@ public class AbstractCPU {
         return Arrays.asList(elements);
     }
 
-    public static <T> List<T> sof(T... elements){
-        return Arrays.asList(elements);
+    public <T> List<T> of(T e1, List<T> elems, T e2, List<T> elems2, List<String> elems3, List<W> elems4){
+        return elems;
     }
 
     public W potrzeba(List<W> warunki){return null;}

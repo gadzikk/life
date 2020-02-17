@@ -94,7 +94,7 @@ public class CPU_ALL extends AbstractCPU {
                 of(
                         M.estymacja(of(W.CZAS,W.SILY)),
                         M.notify(W.ZNAJOMI),
-                        M.getPriorities(of(W.ULICA, W.KOBIETA, W.PRACA))
+                        M.getPriorities(of(W.ULICA, W.KOBIETA, W.PRACA, W.NAUKA))
                 )
         );
         new WMWM(

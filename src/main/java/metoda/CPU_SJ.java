@@ -44,6 +44,8 @@ public class CPU_SJ extends AbstractCPU {
 
     List<W> wymaganiaZycia = of(W.NIEPRZECIETNE_RZECZY);
 
+    List<W> priorytety = of(W.ULICA, W.KOBIETA, W.PRACA, W.NAUKA);
+
     List<TypZadania> zadania = of(
             dudki(TypZadania.PRACA), dudki(TypZadania.NAUKA),
             stanKondycja(of(TypZadania.SILKA, TypZadania.BIEGANIE, TypZadania.TRENING_BOKS, TypZadania.TRENING_SILOWY_DOM)),

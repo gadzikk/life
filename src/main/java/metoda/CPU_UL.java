@@ -309,7 +309,8 @@ public class CPU_UL extends AbstractCPU {
                 of(W.DUZO_IF_OW),
                 of(
                         M.wydluzajCzas(),
-                        M.estymuj(), M.maloLazBezCelu()
+                        M.estymuj(),
+                        M.maloLazBezCelu(), M.stale(), M.ujscie(), M.zKims()
                 ),
                 of(W.KONDYCJA),
                 of(

@@ -463,6 +463,9 @@ public enum M {
     public static String robRany(W warunek) {return "robRany("+ warunek +")";}
     public static String ochronaPrzed(W warunek) {return "robRany("+ warunek +")";}
     public static String opcje(List<W> warunki) {return "opcje("+ warunki +")";}
+    public static String stale() {return "stale()";}
+    public static String ujscie() {return "ujscie()";}
+    public static String zKims() {return "zKims()";}
 
 
 
