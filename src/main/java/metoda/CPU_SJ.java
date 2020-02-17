@@ -6,6 +6,7 @@ import warunek.W;
 import java.util.List;
 
 import static typy_bazowe.TypOsoby.ME;
+import static typy_bazowe.TypOsoby.SOMEONE;
 
 /**
  * Created by gadzik on 05.01.20.
@@ -73,6 +74,11 @@ public class CPU_SJ extends AbstractCPU {
                         M.GRANT(ME, W.SZANSA_POZNANIE),
                         M.GRANT(ME, W.SZANSA_SONDA),
                         M.GRANT(ME, W.SZANSA_INFORMACJA)
+                )
+        );
+        new WM(of(W.NIE_DOSTAJESZ, W._II_ ,W.NIE_FINALIZUJESZ),
+                of(
+                        M.GRANT(SOMEONE, W.FRAJER_DOSTAJE)
                 )
         );
     }
