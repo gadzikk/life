@@ -468,6 +468,7 @@ public enum M {
     public static String zKims() {return "zKims()";}
     public static String szukajUjscia() {return "szukajUjscia()";}
     public static String szukajHotspot() {return "szukajHotspot()";}
+    public static String odbicieNaNozkach() {return "odbicieNaNozkach()";}
 
 
 

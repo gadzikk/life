@@ -475,6 +475,7 @@ public class CPU_1 extends AbstractCPU {
         );
         new WM(of(W.ZASIEG_WZROKU, W._88_, W.STOISZ, W._88_, W.MIEJSCE_PRZECHODNIE ),
                 of(
+                        M.odbicieNaNozkach(),
                         M.idzieszWczesniejWJejStrone(),
                         M.zrownanie(),
                         M.prefix(prefixes, pdstw)
