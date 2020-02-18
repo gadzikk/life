@@ -466,6 +466,8 @@ public enum M {
     public static String stale() {return "stale()";}
     public static String ujscie() {return "ujscie()";}
     public static String zKims() {return "zKims()";}
+    public static String szukajUjscia() {return "szukajUjscia()";}
+    public static String szukajHotspot() {return "szukajHotspot()";}
 
 
 

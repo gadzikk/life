@@ -33,10 +33,12 @@ public class CPU_1_SHORTEST extends AbstractCPU {
 
     List<W> jakoscSytuacji = of(W.INTERAKCJA, W.KOJARZENIE_Z_DOBREGO, W.ZNAJOMI, W.POTRZEBA, W.WARTOSC, W.UNIKALNOSC_W_OTOCZENIU);
 
+    List<W> sytuacja = of(W.LUDZIE, essentials, W.OPCJA_PRZEJSCIE, allSprzyjajace, spojrzenia, jakoscSytuacji);
+
     public void run(){
         new MW(
                 of(M.wejsciePlansza(plansza)),
-                of(W.SMIETNIIK_NA_BUZI_JUZ_DAWNO, W.ENK_1_2, W.INFORMACJA)
+                of(W.MESKA_PROSYSTUTKA, W.SMIETNIIK_NA_BUZI_JUZ_DAWNO, W.ENK_1_2, W.INFORMACJA)
         );
         new MW(
                 of(M.namierzenie()),
@@ -48,7 +50,7 @@ public class CPU_1_SHORTEST extends AbstractCPU {
         );
         new MW(
                 of(M.odrazuPochwycenie(W.SYTUACJA), M.dzialanie(mojeCechy)),
-                of(W.BEDZIE_CIEKAWIE, W.ANTY_PARTYZANTKA, W.ANTY_POSLUSZNOSC, W.NIENAWISC_FESTOW)
+                of(W.BEDZIE_CIEKAWIE, W.ANTY_PARTYZANTKA, W.ANTY_POSLUSZNOSC, W.NIENAWISC_FESTOW, W.JA_DOSTAJE)
         );
         new MW(
                 of(M.wstanie(), M.przejscie()),

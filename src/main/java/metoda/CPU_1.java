@@ -62,7 +62,7 @@ public class CPU_1 extends AbstractCPU {
         );
         new MW(
                 of(M.odrazuPochwycenie(W.SYTUACJA), M.odrazuNozki(), M.odrazuMowa(), M.pomysl(of(W.PRZESKOCZENIE)), M.dzialanie(mojeCechy)),
-                of(W.BEDZIE_CIEKAWIE, W.ANTY_PARTYZANTKA, W.ANTY_POSLUSZNOSC, W.NIENAWISC_FESTOW)
+                of(W.BEDZIE_CIEKAWIE, W.ANTY_PARTYZANTKA, W.ANTY_POSLUSZNOSC, W.NIENAWISC_FESTOW, W.JA_DOSTAJE)
         );
         new WM(
                 of(W.PODBIJASZ, W._88_, W.BRAK_JAKOSCI_PLANSZY),
@@ -432,7 +432,9 @@ public class CPU_1 extends AbstractCPU {
                 TypMiejsce.PARKING, TypMiejsce.STACJA_BENZYNOWA
 
         );
-        List<String> nozkiMetody = of(M.zatrzymaj(), M.obroc(), M.podejdz(), M.wejdzPrzed(coTakPatrzysz));
+        List<String> nozkiMetody = of(M.zatrzymaj(), M.obroc(), M.podejdz(), M.wejdzPrzed(coTakPatrzysz),
+                M.szukajUjscia(), M.szukajHotspot()
+        );
 
         ona.on(W.TRANS);
         ona.max(W.POPATRZENIE_X2);
