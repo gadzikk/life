@@ -568,6 +568,8 @@ public class CPU_UL extends AbstractCPU {
         }
         public void fest(){
             List<W> festWarunki = DB_Warunki.FEST.getWarunki();
+            List<W> festEndCase = of(W.PODROZE, W.WYGODY, W.PRZEKAZANIE_ZLEGO_GENU, W.NABICIE_KABZY_KAPITALISCIE);
+
             new WM(of(W.RODZINA, W.KONTROLA, W.PIENIADZE),
                     of(
                             M.ochronaPrzed(W.CIERPIENIE),
@@ -714,7 +716,6 @@ public class CPU_UL extends AbstractCPU {
                             M.sondaBledu(bledy)
                     )
             );
-            // TODO CASY NA POSZCZEGOLNY BLAD, obsluga bledu
             new WM(of(W.SONDA_KOGO),
                     of(
                             M.sondaKogo(kogo)
@@ -726,9 +727,6 @@ public class CPU_UL extends AbstractCPU {
                             M.raczkaDoGory()
                     )
             );
-            // TODO SONDA KOBIETY
-            // if(ladna && stara) tysiac razy wyruchana po kilku zwiazkach
-            // if(czula cierpienie) dbaj(); robDobrze(); else robCierpienie();
             new WMWM(of(W.CZLOWIEK),
                     of(
                             M.DEFAULT(W.ZLY)

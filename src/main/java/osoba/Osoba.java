@@ -146,6 +146,7 @@ public class Osoba {
     boolean brakOkresleniaSkali;
     boolean brakCheci;
 
+    boolean chwiejnosc;
     boolean hajsWDomu;
     boolean bogaty;
     boolean jedynak;

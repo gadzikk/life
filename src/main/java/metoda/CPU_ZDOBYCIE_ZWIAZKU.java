@@ -1,10 +1,64 @@
 package metoda;
 
+import warunek.W;
+
+import java.util.List;
+
 /**
  * Created by gadzik on 01.01.20.
  */
-public class CPU_ZDOBYCIE_ZWIAZKU {
-    // todo przymus swiadomosc najnizszy poziom
+public class CPU_ZDOBYCIE_ZWIAZKU extends AbstractCPU {
+
+    List<W> essentials = of(W.PRZYMUS, W.ROZWALENIE_SWIADOMOSCI, W.NAJNIZSZY_POZIOM);
+
+    List<W> endCase = of(W.ZWIAZEK_2_OSOB, W.CODZIENNA_BLISKOSC, W.SEX, W.DZIECI);
+
+    List<W> patologie_ko = of(W.ZWIAZEK_Z_ZAGRANICZNYM, W.DZIECI, W.STARA);
+
+    List<WW> opcje = of(
+            new WW(W.MLODE_KOBIETY,
+                    of(
+                            W.WALKA_Z_W8C,
+                            W.MALE,
+                            W.NIESWIADOMOSC,
+                            W.PATOLA_DOSTEPOWA,
+                            W.BRAK_POKAZANIA_SIE,
+                            W.WSTYDZI_SIE,
+                            W.WZIETE_NA_POZIOMIE_SZKOLNYM,
+                            W.UZYWKI,
+
+                            W.DZIEWICA,
+                            W.MOZLIWOSC_WYCHOWANIA
+                    )
+            ),
+            new WW(W.PLUS_30,
+                    of(
+                            W.BRAK_SRODOWISKA, W.BRAK_ZNAJOMYCH, W._II_,
+                            W.BRAK_POKAZANIA_SIE, W._II_,
+                            W.UZYWKI, W._II_,
+                            W.KILKA_NIEUDANYCH_ZWIAZKOW, W._II_,
+                            W.LUKI_OSOBOWOSCI
+                    )
+            ),
+            // --- --- ---
+            new WW(W.ZWYKLA_FEST,
+                   of(
+                           W.BRAK_OPCJI,
+                           W.NIESZCZESCIE,
+                           W.LUKI_OSOBOWOSCI
+                   )
+            ),
+            new WW(o(W.LADNA, W._88_, W.PIENIADZE),
+                    of(
+                            W.MILION_ADORATOROW,
+                            W.MALO_PRACY,
+                            W.ZLY_CHARAKTER,
+                            W.ZEROWE_SZANSE,
+                            W.SKRESLA_ZA_1_NIEDOCIAGNIECIE
+                    )
+            )
+    );
+
 
 
 //    __Bariery do znalezienia zwiazku [K] *s* >

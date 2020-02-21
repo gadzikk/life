@@ -48,6 +48,7 @@ public class AbstractCPU {
     OsobaMetod znajomy = new OsobaMetod();
     List<W> PATOLOGIE_WSTEPNE_KOBIET = DB_Patologia.PATOLOGIE_WSTEPNE_KOBIETA.getWarunki();
     List<W> PATOLOGIE_UTRZYMANIA_KOBIET = DB_Patologia.PATOLOGIE_UTRZYMANIA_KOBIETA.getWarunki();
+    List<W> PATOLOGIE = DB_Patologia.PATOLOGIE.get(0).getWarunki();
 
     public <T> List<T> of(T... elements){
         return Arrays.asList(elements);
@@ -55,6 +56,10 @@ public class AbstractCPU {
 
     public <T> List<T> of(T e1, List<T> elems, T e2, List<T> elems2, List<String> elems3, List<W> elems4){
         return elems;
+    }
+
+    public W o(W w1, W w2, W w3){
+        return W.WARUNEK;
     }
 
     public W potrzeba(List<W> warunki){return null;}

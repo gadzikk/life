@@ -12,8 +12,8 @@ import static typy_bazowe.TypOsoby.SOMEONE;
  * Created by gadzik on 05.01.20.
  */
 public class CPU_SJ extends AbstractCPU {
-    List<W> warunekiWejsciowe = of(W.ZLO_NA_CZUBKU_STOSU, W._100PROCENT_WYSILKU_10PROCENT_OTRZYMUJESZ, W.CALE_ZYCIE_CIERPIENIE,
-            W.STARZEJESZ_SIE, W.MIESZKANIE_300TYS_WYPLATA_3TYS
+    List<W> warunekiWejsciowe = of(W.ZLO_NA_CZUBKU_STOSU, W.DZUNGLA, W._100PROCENT_WYSILKU_10PROCENT_OTRZYMUJESZ, W.CALE_ZYCIE_CIERPIENIE,
+            W.STARZEJESZ_SIE, W.MIESZKANIE_300TYS_WYPLATA_3TYS, W.KTOS_CIEBIE_LUB_TY_NIEGO, W.PUSTKA, W._1_OSOBA__DUZO
     );
     List<W> warunki = of(
             czasUlotnosc(W.SAMOTNOSC), czas(W.BRAK_ZWIAZKU), czas(W.BRAK_SRODOWISKA),
@@ -27,6 +27,7 @@ public class CPU_SJ extends AbstractCPU {
             W.GOTOWY_NA_STARCIE, W.ZDOLNY_DO_WALKI, W.ZDOLNY_WALKA_SPRZET, W.ZDOLNY_DO_RYZYKA,
             W.MOCNY_WZROK, W.DOSTEP_DO_WIELU_PLANSZ,
             W.NIE_REGENERUJE_SIE, W.TOKSYCZNY_ORGANIZM, W.SIEROTA, W.Z_GORY_PRZEGRANY,
+            W.CHOROBA_SIEROCA, W.LOPATKSY, W.POSTURA_50KG, W.ON_LICHY_JEST,
             W.WYSILEK_FIZYCZNY, W.WYSILEK_UMYSLOWY, W.TRZEZWY,
             W.CHECI, W.PRACOWITOSC,
             W.WIEDZA_ULICA, W.WIEDZA_KOBIETY, W.WIEDZA_RYNEKPRACY, W.WIEDZA_PRAWO, W.WIEDZA_ZAWOD,
@@ -52,6 +53,10 @@ public class CPU_SJ extends AbstractCPU {
             stanKondycja(of(TypZadania.SILKA, TypZadania.BIEGANIE, TypZadania.TRENING_BOKS, TypZadania.TRENING_SILOWY_DOM)),
             antySamotnosc(TypZadania.POZNAWANIE)
     );
+
+    List<W> miejscaKazni = of(W.G41, W.TM, W.TMTR, W.PK, W.AGH, W.BKS_HTK, W.BXRNIA, W.GRPL, W.CL, W.BBH);
+
+    List<W> patologie = PATOLOGIE;
 
     public void run(){
         new WM(of(W._NOT_, W.PRZED_9, W._88_, W.PO_17),
