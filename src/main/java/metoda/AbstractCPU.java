@@ -62,6 +62,14 @@ public class AbstractCPU {
         return W.WARUNEK;
     }
 
+    public W o(W w1, String del1, List<W> elems, W w2, W w3, String del2, W w4){
+        return W.WARUNEK;
+    }
+
+    public W o(List<W> elems, W w1, List<W> elems2, String del1, W w2, String del2, W w3){
+        return W.WARUNEK;
+    }
+
     public W potrzeba(List<W> warunki){return null;}
 
     public W temporal(W warunek) {return W.WARUNEK;}

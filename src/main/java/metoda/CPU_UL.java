@@ -29,7 +29,9 @@ public class CPU_UL extends AbstractCPU {
     List<String> wchodzisz = of(M.dostepDoInformacjiPrzezManiury(), M.wstrzymajSieZWiezeciemKobiety(), M.szukajHakow());
 
     List<W> afterTop = of(W.SWOJA_EKIPA, W.PRZECIWNA_EKIPA, W.PSY, W.KAZDE_DZIALANIE_OCENIANE, W.PILNOWANIE_HIERARCHII, W.PILNOWANIE_PRZEWAG,
-            W.WPROWADZANIE_ZASAD, W.ULTIMATUM, W.TWORZENIE_WARUNKOW, W.TWORZENIE_POINTCUTOW, W.ZMANIURAMI_PO_INFORMACJE);
+            W.WPROWADZANIE_ZASAD, W.ULTIMATUM, W.TWORZENIE_WARUNKOW, W.TWORZENIE_POINTCUTOW, W.ZMANIURAMI_PO_INFORMACJE,
+            W.ZADNEJ_LITOSCI
+    );
     List<W> dobraJednostka = of(W.ZOBOWIAZANIA, W.OCZEKIWANIA, W.WYMAGANIA, W.OBECNOSC, W.CEL, W.ZDOLNY_DO_WALKI, W.ZDOLNY_DO_RYZYKA);
     List<String> holdYourPosition = of(M.reaguj(), M.spedzCzas(), M.utrzymajPozycje());
 
@@ -225,7 +227,7 @@ public class CPU_UL extends AbstractCPU {
                 of(
                         M.GRANT(ME, W.THREAD_WHILE_LOOP_PUSTKA)
                 ),
-                of(W.KONTAKT_TEL),
+                of(W._NOT_, W.KONTAKT_TEL),
                 of(
                         M.GRANT(ME, W.BRAK_THREAD_WHILE_LOOP_BLISKOSC_U)
                 )
