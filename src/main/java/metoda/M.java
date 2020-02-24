@@ -15,13 +15,8 @@ import java.util.List;
 /**
  * Created by gadzik on 21.12.19.
  */
-public enum M {
+public class M {
 
-   PROSBA,
-   PRZEKONYWANIE_SENTYMENTEM, PRZEKONYWANIE_ARGUMENTAMI , PRZEKONYWANIE_WARTOSCIA, PRZEKONYWANIE_OTOCZENIA,
-   SZANTAZ, STARCIE
-
-   ;
     public static String wejsciePlansza(List<W> plansza){
         return "wejsciePlansza("+ plansza +")";
     }
@@ -469,6 +464,9 @@ public enum M {
     public static String szukajUjscia() {return "szukajUjscia()";}
     public static String szukajHotspot() {return "szukajHotspot()";}
     public static String odbicieNaNozkach() {return "odbicieNaNozkach()";}
+    public static M trudno(W warunek) {return new M();}
+    public static M latwo(W warunek) {return new M();}
+    public M warunek(W warunek) {return new M();}
 
 
 

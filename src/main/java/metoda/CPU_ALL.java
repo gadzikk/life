@@ -131,5 +131,12 @@ public class CPU_ALL extends AbstractCPU {
                         M.sprobojWziacWartosc(metodySzponcnia)
                 )
         );
+        trudnoLatwo();
+    }
+    public void trudnoLatwo(){
+        M.trudno(W.ZWIAZEK).warunek(W.MEZCZYZNA);
+        M.latwo(W.ZWIAZEK).warunek(W.KOBIETA);
+        M.latwo(W.EMIGRACJA);
+        M.trudno(W.PRACA_KRAJ);
     }
 }
