@@ -38,7 +38,10 @@ public class CPU_1 extends AbstractCPU {
 
     List<W> sytuacja = of(W.LUDZIE, essentials, W.OPCJA_PRZEJSCIE, allSprzyjajace, spojrzenia, jakoscSytuacji);
 
-    W schemaSytuacji = o(essentials, W._II_, allSprzyjajace, "-", W.PRZEJSCIE, "-", W.MOWA);
+    M schemaSytuacji = o(essentials, W._II_, allSprzyjajace, "-", W.PRZEJSCIE, "-", W.MOWA)
+            .otherwise(W.CONTINUE_NUDA)
+            .konsekwencje(W.NIKT_NIE_REAGUJE);
+
     W schemaRelacji = o(W.KOBIETA, "-", jakoscSytuacji, W._II_, W.CHETNOSC, "-", W.RELACJA);
 
     public void run(){

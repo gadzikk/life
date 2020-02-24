@@ -467,7 +467,6 @@ public class M {
     public static M trudno(W warunek) {return new M();}
     public static M latwo(W warunek) {return new M();}
     public M warunek(W warunek) {return new M();}
-
-
-
+    public M otherwise(W warunek) {return new M();}
+    public M konsekwencje(W warunek) {return new M();}
 }
