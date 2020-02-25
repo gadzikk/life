@@ -39,6 +39,10 @@ public class CPU_1_SHORTEST extends AbstractCPU {
             .otherwise(W.CONTINUE_NUDA)
             .konsekwencje(W.NIKT_NIE_REAGUJE);
 
+    M schemaSytuacji2 = o(W.OPCJA_PRZEJSCIE, "-", W.PRZEJSCIE, "-", W.MOWA)
+                        .otherwise(W.CONTINUE_NUDA)
+                        .konsekwencje(W.NIKT_NIE_REAGUJE);
+
     W schemaRelacji = o(W.KOBIETA, "-", jakoscSytuacji, W._II_, W.CHETNOSC, "-", W.RELACJA);
 
     public void run(){

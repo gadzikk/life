@@ -69,6 +69,9 @@ public class AbstractCPU {
     public M o(List<W> elems, W w1, List<W> elems2, String del1, W w2, String del2, W w3){
         return new M();
     }
+    public M o(W w1,String del1, W w2, String del2, W w3){
+        return new M();
+    }
 
     public W potrzeba(List<W> warunki){return null;}
 
