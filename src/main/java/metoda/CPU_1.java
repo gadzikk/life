@@ -46,6 +46,8 @@ public class CPU_1 extends AbstractCPU {
             .otherwise(W.CONTINUE_NUDA)
             .konsekwencje(W.NIKT_NIE_REAGUJE);
 
+    M schemaSytuacji3 = new M().zamkniecie(W.ZASOB).zamkniecie(W.INFORMACJA);
+
     W schemaRelacji = o(W.KOBIETA, "-", jakoscSytuacji, W._II_, W.CHETNOSC, "-", W.RELACJA);
 
     public void run(){

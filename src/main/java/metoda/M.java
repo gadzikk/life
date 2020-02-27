@@ -469,4 +469,5 @@ public class M {
     public M warunek(W warunek) {return new M();}
     public M otherwise(W warunek) {return new M();}
     public M konsekwencje(W warunek) {return new M();}
+    public M zamkniecie(W warunek) {return new M();}
 }
