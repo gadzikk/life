@@ -58,6 +58,8 @@ public class CPU_SJ extends AbstractCPU {
 
     List<W> miejscaKazni = of(W.DOM, W.G41, W.TM, W.TMTR, W.PK, W.AGH, W.BKS_HTK, W.BXRNIA, W.GRPL, W.CL, W.BBH);
 
+    List<W> walczysz = of(W.RODZICE, W.FESTY, W.BURZUAZJA, W.ZAGRANICZNI, W.OSIEDLOWY);
+
     List<W> patologie = PATOLOGIE;
 
     public void run(){
