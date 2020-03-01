@@ -13,6 +13,8 @@ public class CPU_ZDOBYCIE_ZWIAZKU extends AbstractCPU {
 
     List<W> endCase = of(W.ZWIAZEK_2_OSOB, W.CODZIENNA_BLISKOSC, W.SEX, W.DZIECI);
 
+    List<W> warunki = of(W.DEFICYT_WSROD_STARYCH, W.MALE_ZRODLO_MLODYCH_KOBIET, W.POCIAG_DO_ZAGRANICZNYCH);
+
     List<W> patologie_ko = of(W.ZWIAZEK_Z_ZAGRANICZNYM, W.DZIECI, W.STARA);
 
     List<WW> opcje = of(

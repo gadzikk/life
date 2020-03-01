@@ -60,6 +60,8 @@ public class CPU_SJ extends AbstractCPU {
 
     List<W> walczysz = of(W.RODZICE, W.FESTY, W.BURZUAZJA, W.ZAGRANICZNI, W.OSIEDLOWY, W.RUDZI, W.CYGANIE);
 
+    List<W> random = of(W.RESET, W.ZMIANA, W.NIE_PRZEWIDZISZ_PRZYSZLOSCI);
+
     List<W> patologie = PATOLOGIE;
 
     public void run(){

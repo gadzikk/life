@@ -698,6 +698,16 @@ public class CPU_UL extends AbstractCPU {
         }
 
         public void sonda(){
+            new WM(of(W.LADNY, W._88_, W.BRAK_CIERPIENIA),
+                    of(
+                            M.GRANT(ME, W.NIEGODNY_POPATRZENIA)
+                    )
+            );
+            new WM(of(W.LADNY, W._88_, W.BRAK_CIERPIENIA, W._88_, W.PRZEWAGA, W._II_, W.PATRZY),
+                    of(
+                            M.celownik(osoba)
+                    )
+            );
             new WM(of(W._NOT_, W.ZLODZIEJKA, W._II_, W.KIBICOWANIE, W._II_, W.DOBRZE_ZMYSLY, W._88_, W.SPORT),
                     of(
                             osoba.set(W.FEST)
@@ -918,5 +928,30 @@ public class CPU_UL extends AbstractCPU {
             OH ogarniety3 = new OH(of(przydupas7, przydupas8, przydupas9));
 
             OH gangusZHajsem = new OH(of(ogarniety, ogarniety2, ogarniety3));
+        }
+        public void teoriaZla(){
+            List<W> essentials = of(W.KTO_SZYBSZY_TEN_LEPSZY);
+
+            List<W> endCaseZla = of(
+                    W.ZLE_SAMOPOCZUCIE, W.STRATY_MATERIALNE, W.STRATY_MORALNE, W.STRATA_MIEJSCA_W_HIERARCHII,
+                    W.PRZERWA_KONTUZJA, W.USUNIECIE_Z_PLANSZY
+            );
+            new WM(of(W.NOWA_OSOBA),
+                    of(
+                            M.pierwszaReakcja(of(W.PROWOKUJE, W.CISNIE, W.WYPROWADZA_Z_ROWNOWAGI, W.WALKA_PIESCI))
+                    )
+            );
+
+            M.sondaPrzewagPodZrobienieZla();
+            M.zniszczJakNajwiecej(rany);
+            M.zabierzJakNajwiecej();
+
+            new WM(of(W.OBRONA),
+                    of(
+                            M.brakReakcji(W.WYZSZE_DOBRO),
+                            M.II(),
+                            M.reakcjaMocniej(rany)
+                    )
+            );
         }
 }
