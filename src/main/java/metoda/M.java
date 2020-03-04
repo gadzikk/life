@@ -477,4 +477,7 @@ public class M {
     public static String reakcjaMocniej(List<WarunkiKategoria> rany) {return "zniszczJakNajwiecej("+ rany +")";}
     public static String pierwszaReakcja(List<W> warunki) {return "pierwszaReakcja("+ warunki +")";}
     public static String zabierzJakNajwiecej() {return "zabierzJakNajwiecej()";}
+    public static String zczytajStrefy() {return "zczytajStrefy()";}
+    public static String wyborStrefy() {return "wyborStrefy()";}
+    public static String mowa() {return "mowa()";}
 }
