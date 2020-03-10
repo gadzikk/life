@@ -480,4 +480,7 @@ public class M {
     public static String zczytajStrefy() {return "zczytajStrefy()";}
     public static String wyborStrefy() {return "wyborStrefy()";}
     public static String mowa() {return "mowa()";}
+    public static String nieznajomy(W warunek) {return "nieznajomy("+ warunek +")";}
+    public static String znajomy(W warunek) {return "znajomy("+ warunek +")";}
+    public static String otherwise(W warunek, Integer i) {return "otherwise("+ warunek +")";}
 }

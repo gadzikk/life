@@ -772,7 +772,9 @@ public class CPU_UL extends AbstractCPU {
         public void dzialajacy(){
             new WM(of(W.DZIALAJACY),
                     of(
-                            dzialacz.siejZlo(),
+                            M.DEFAULT(W.ZEROWY_DOSTEP),
+                            dzialacz.robKomusKrzywde(), dzialacz.dajZarobicDillowi(),
+                            dzialacz.siejZlo(), M.otherwise(W.PRZEJEBANE, 0),
                             dzialacz.uzaleznijSieOdSrd(),
                             dzialacz.dzialanieWsrodDzialaczy(),
                             dzialacz.zdobadzInformacjeZeSrodowiskaNaKurestwie(),

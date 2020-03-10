@@ -27,6 +27,8 @@ public class CPU_ALL extends AbstractCPU {
 
     List<W> patologie = PATOLOGIE;
 
+    List<String> sytuacje = of(M.nieznajomy(W.DEFAULT_SYTUACJE), M.znajomy(W.SRODOWISKO_SYTUACJE));
+
     public void run(){
         new WMWM(
                 of(W.ZAUWAZYLEM, W._II_, W.USLYSZALEM),
