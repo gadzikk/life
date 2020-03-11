@@ -21,6 +21,7 @@ public class OsobaMetod {
     public String pobierz(W warunek){ return "znikaZPlanszy("+ warunek +")";}
     public String stworz(W warunek){ return "znikaZPlanszy("+ warunek +")";}
     public String set(W warunek){ return "set("+ warunek +")";}
+    public String set(List<W> warunki){ return "set("+ warunki +")";}
 
     public String siejZlo() {return "siejZlo()";}
     public String uzaleznijSieOdSrd() {return "uzaleznijSieOdSrd()";}

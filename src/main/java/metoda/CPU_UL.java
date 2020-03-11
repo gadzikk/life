@@ -713,6 +713,11 @@ public class CPU_UL extends AbstractCPU {
                             osoba.set(W.FEST)
                     )
             );
+            new WM(of(W.ZE_WSI, W._88_, W.BRAK_WYSILKU_FIZYCZNEGO),
+                    of(
+                            osoba.set(of(W.NIEPATRZY_GLOBALNIE, W.ZAMKNIETY_W_SWOIM_POKOJU))
+                    )
+            );
             new WMWM(of(W.WIDZISZ_ZASOB),
                     of(
                             M.sondaKtoZyskuje()

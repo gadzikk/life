@@ -245,6 +245,7 @@ public class CPU_1 extends AbstractCPU {
         );
     }
     public void trauto(){
+        W rzeczywistosc = W.BAHNA_1_DO_2_KOBIET;
         List<W> extremalneTrauto = of(W.SIEDZISZ_PRZEJSCIE, W.PRZECIWNY_PRZYSTANEK);
         List<String> schemaTrauto = of(M.zczytajStrefy(), "-", M.wyborStrefy(), "-", M.przejscie(), "-", M.mowa());
 
