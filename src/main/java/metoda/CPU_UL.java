@@ -263,6 +263,7 @@ public class CPU_UL extends AbstractCPU {
         opisZachowanTypOsoby();
         endCasyWarunkow();
         hierarchiaOsiedle();
+        teoriaZla();
 
     }
     public void shortest(){
@@ -946,6 +947,11 @@ public class CPU_UL extends AbstractCPU {
             new WM(of(W.NOWA_OSOBA),
                     of(
                             M.pierwszaReakcja(of(W.PROWOKUJE, W.CISNIE, W.WYPROWADZA_Z_ROWNOWAGI, W.WALKA_PIESCI))
+                    )
+            );
+            new WM(of(W.KTOS_MI_COS_ZROBIL, W._II_, W.ZAZDROSC),
+                    of(
+                            M.reakcjaMocniejNizszemuWHierarchii(rany)
                     )
             );
 

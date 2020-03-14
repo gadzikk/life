@@ -452,6 +452,15 @@ public class CPU_1 extends AbstractCPU {
         );
     }
     public void nozki(){
+        W rzeczywistosc = W.POL_GODZINY_1_DO_2_KOBIET;
+        List<W> extremalne = of(W.UWAGA_NA_TOBIE, W.ROZWALENIE_CISZY,
+                W.IDZIESZ_ZAWRACASZ, W.SIEDZISZ_PRZEJSCIE, W.ONA_SWOJE_GRONO);
+        List<String> schemaTrauto = of(M.przewidzenieDrogi(), "-", M.odbicieNaNozkach(), "-", M.przejscie(), "-", M.mowa());
+
+        List<W> sprzjajace = of(W.NAJNIZSZY_POZIOM, W.WLASNE_TERYTORIUM);
+        List<W> normalne = of(W.CHODZENIE_WSROD_PUSTKI);
+        List<W> niesprzyjajace = of(W.ULOTNOSC, W.IDZIE, W.BRAK_REKACJI);
+
         List<TypMiejsce> wychodzaLudzie = of(
                 TypMiejsce.SAMOCHOD, TypMiejsce.TRAUTO, TypMiejsce.MIESZKANIE,
                 TypMiejsce.SKLEP, TypMiejsce.LUMPEX, TypMiejsce.LODY, TypMiejsce.POCZTA, TypMiejsce.BANK,
