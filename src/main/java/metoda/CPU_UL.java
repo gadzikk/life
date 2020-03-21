@@ -264,6 +264,7 @@ public class CPU_UL extends AbstractCPU {
         endCasyWarunkow();
         hierarchiaOsiedle();
         teoriaZla();
+        teoriaRywalizacji();
 
     }
     public void shortest(){
@@ -964,6 +965,24 @@ public class CPU_UL extends AbstractCPU {
                             M.brakReakcji(W.WYZSZE_DOBRO),
                             M.II(),
                             M.reakcjaMocniej(rany)
+                    )
+            );
+        }
+        public void teoriaRywalizacji(){
+            new WM(of(W.NIKOGO),
+                    of(
+                            M.GRANT(ME, W.ZLE)
+                    )
+            );
+            new WM(of(W.KTOS),
+                    of(
+                            M.thread_while_loop(W.RYWALIZACJA)
+                    )
+            );
+            new WM(of(W.NOWA_OSOBA),
+                    of(
+                            M.zniszczJakNajwiecej(rany),
+                            M.zabierzJakNajwiecej()
                     )
             );
         }
