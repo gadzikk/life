@@ -5,7 +5,9 @@ import warunek.W;
 import warunek.WarunkiKategoria;
 import z_inne.OH;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static typy_bazowe.TypOsoby.ME;
 import static typy_bazowe.TypOsoby.SOMEONE;
@@ -265,7 +267,7 @@ public class CPU_UL extends AbstractCPU {
         hierarchiaOsiedle();
         teoriaZla();
         teoriaRywalizacji();
-
+        teoriaPrzewagUlicy();
     }
     public void shortest(){
         List<W> stan = of(W.WYSILEK_UMYSLOWY, W.WYSILEK_FIZYCZNY, W.DUZO_ZARCIA, W.WZROK, W.SAMOPOCZUCIE);
@@ -985,5 +987,12 @@ public class CPU_UL extends AbstractCPU {
                             M.zabierzJakNajwiecej()
                     )
             );
+        }
+        public void teoriaPrzewagUlicy(){
+            Map<Integer, W> przewagi = new HashMap<>();
+            przewagi.put(3, W.ILOSC_OSOB);
+            przewagi.put(2, W.WALKA_SPRZET);
+            przewagi.put(1, W.WALKA_PIESCI);
+            przewagi.put(1, W.ROZMIAR);
         }
 }
