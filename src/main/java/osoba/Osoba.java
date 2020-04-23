@@ -145,6 +145,8 @@ public class Osoba {
     boolean niestabilnoscUmyslowa;
     boolean brakOkresleniaSkali;
     boolean brakCheci;
+    boolean pycha;
+    boolean wyzszoscNadInnymi;
 
     boolean chwiejnosc;
     boolean hajsWDomu;
@@ -686,6 +688,12 @@ public class Osoba {
         }
         else {
             przewagiCharakteru.add(W.CHETNY_DZIALANIA);
+        }
+        if(pycha) {
+            slabosciCharakteru.add(W.PYSZNY);
+        }
+        if(wyzszoscNadInnymi) {
+            slabosciCharakteru.add(W.WYZSZOSC_NAD_INNYMI);
         }
         if(hajsWDomu){
             slabosciCharakteru.add(W.HAJS_W_DOMU);
