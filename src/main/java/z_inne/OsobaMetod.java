@@ -62,6 +62,8 @@ public class OsobaMetod {
     public String thread_while_loop(W warunek) {return "thread_while_loop("+ warunek +")";}
     public String robKomusKrzywde() {return "robKomusKrzywde()";}
     public String dajZarobicDillowi() {return "dajZarobicDillowi()";}
+    public String otoczKorzysc(W warunek) {return "otoczKorzysc("+ warunek +")";}
+
 
 
 }

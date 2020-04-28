@@ -680,6 +680,12 @@ public class CPU_UL extends AbstractCPU {
                             M.drugaStronaDzialajacy(W.SZPITAL)
                     )
             );
+            new WW(W.PRZEWAGA_NA_STARCIE,
+                    of(
+                            W.ZNAJOMI_OD_SZKOLY,
+                            W.UTRZYMANE_PRZEWAGI_OD_SZKOLY
+                    )
+            );
         }
         public void shortestSonda(){
             new WM(of(W.MEZCZYZNA),
@@ -994,5 +1000,33 @@ public class CPU_UL extends AbstractCPU {
             przewagi.put(2, W.WALKA_SPRZET);
             przewagi.put(1, W.WALKA_PIESCI);
             przewagi.put(1, W.ROZMIAR);
+        }
+        public void algorytmUlicy() {
+             List<W> budujacyHierarchieDecyzyjni = of(W.MORDERCY, W.DLUGO_WIEZIENIE,
+                     W.RUMUNI, W.BANDYCI, W.NIESPRAWIEDLIWI, W.AGRESYWNI, W.PRZEWAGA_NA_STARCIE);
+
+             List<W> przyczynyBiegania = of(W.MODA, W.STARSI, W.WYKLUCZENIE_ZE_SRODOWISKA, W.AGRESJA, W.KORZYSCI, W.WADY);
+
+             new WM(of(W.WEJSCIE),
+                     of(
+                             M.GRANT(ME, W.FALSZYWE_KORZYSCI)
+                     )
+             );
+             M.oglup(of(W.DOSTEP_DO_PLANSZY, W.NARKOTYKI));
+             M.przestrzel(osoba);
+             M.wezDoSrodowiska(osoba);
+             M.thread_while_loop(W.KONTROLA);
+             M.sonda(W.ILE_SIE_DA);
+             M.odkryjWady(osoba);
+             M.wdupcDoHierarchiiPodToba(osoba);
+             M.thread_while_loop(W.WYKORZYSTUJ);
+             osoba.otoczKorzysc(W.WALKA_SPRZET);
+             new WM(of(W.WYJSCIE),
+                     of(
+                            M.GRANT(ME, of(W.SAMOTNOSC, W.PRZEJEBANE, W.WALKA_SPRZET))
+                     )
+             );
+
+
         }
 }

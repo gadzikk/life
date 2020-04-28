@@ -485,4 +485,11 @@ public class M {
     public static String otherwise(W warunek, Integer i) {return "otherwise("+ warunek +")";}
     public static String reakcjaMocniejNizszemuWHierarchii(List<WarunkiKategoria> rany) {return "zniszczJakNajwiecej("+ rany +")";}
     public static String przewidzenieDrogi() {return "przewidzenieDrogi()";}
+    public static String odmowa() {return "odmowa()";}
+    public static String oglup(List<W> warunki) {return "oglup("+ warunki +")";}
+    public static String przestrzel(OsobaMetod osoba) {return "przestrzel("+ osoba +")";}
+    public static String wezDoSrodowiska(OsobaMetod osoba) {return "wezDoSrodowiska("+ osoba +")";}
+    public static String odkryjWady(OsobaMetod osoba) {return "odkryjWady("+ osoba +")";}
+    public static String wdupcDoHierarchiiPodToba(OsobaMetod osoba) {return "wdupcDoHierarchiiPodToba("+ osoba +")";}
+
 }

@@ -10,6 +10,8 @@ import static typy_bazowe.TypOsoby.ME;
  * Created by gadzik on 02.01.20.
  */
 public class CPU_ALL extends AbstractCPU {
+    List<W> warunkiWyjscia = of(W.PORA_ROKU, W.CZAS, W.DOSTEPNOSC, W.ZOBACZENIE, W.BLISKOSC, W.KONTAKT);
+
     List<W> warunekiWejsciowe = of(W.ZLO_NA_CZUBKU_STOSU, W.DZUNGLA, W._100PROCENT_WYSILKU_10PROCENT_OTRZYMUJESZ, W.CALE_ZYCIE_CIERPIENIE,
             W.STARZEJESZ_SIE, W.MIESZKANIE_300TYS_WYPLATA_3TYS, W.KTOS_CIEBIE_LUB_TY_NIEGO, W.PUSTKA, W._1_OSOBA__DUZO,
             W.PRZEWAGA_ZROBIONA_NA_KRZYWDZIE_LUB_KURESTWIE, W.SLABSZA_PRZEWAGA_ULEGA_MOCNIEJSZEJ_W_MOMENCIE_PRZY_WARUNKACH,
@@ -26,6 +28,10 @@ public class CPU_ALL extends AbstractCPU {
             W.MAKSYMALNIE_ULATWIASZ, W.PRZEKONYWANIE, W.ULTIMATUM);
     List<W> warunek = of(W.ULTIMATUM, W.POCZATEK, W.KONIEC, W.ZYSK, W.WARTOSC, W.ILOSC_OSOB, W.CZESTOTLIWOSC);
 
+    List<W> orient = of(W.END_CASE, W.OBJECIE_POCZATEK_KONIEC, W.PRZEWIDZENIE_KONSEKWENCJI);
+    List<W> okazja = of(W.DOBRO, W.POZNANIE, W.WALKA_PIESCI);
+
+    List<W> niesprawiedliwosc = of(W.KOBIETA, W.SAMOCHOD, W.EKIPA, W.ZNAJOMI);
     List<W> patologie = PATOLOGIE;
 
     List<String> sytuacje = of(M.nieznajomy(W.DEFAULT_SYTUACJE), M.znajomy(W.SRODOWISKO_SYTUACJE));
@@ -141,5 +147,6 @@ public class CPU_ALL extends AbstractCPU {
         M.latwo(W.ZWIAZEK).warunek(W.KOBIETA);
         M.latwo(W.EMIGRACJA);
         M.trudno(W.PRACA_KRAJ);
+        M.trudno(W.POZNANIE).warunek(W.MALE_SKUPISKO_LUDZI);
     }
 }
