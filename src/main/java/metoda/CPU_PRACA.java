@@ -19,7 +19,7 @@ public class CPU_PRACA extends AbstractCPU {
     List<W> satysfakcjaZPracy = of(W.DOBRY_PROJEKT, W.SZCZEGOLOWE_REQUIREMENTY, W.PROJEKT_UZYTECZNY, W.NOWE_NARZEDZIA, W.MANAGO_TECHNICZNY);
     List<W> zyskiZPracy = of(W.WIEDZA, W.CZAS, W.JEDZENIE, W.DOSWIADCZENIE, W.CHOROBOWE, W.CENTRUM, W.PIENIADZE, W.ODPOCZYNEK, W.PLANSZA);
     List<W> stratyZPracy = of(W.STRATA_CZASU, W.ZMECZENIE, W.WKURWIENIE, W.STRES, W.INTERAKCJA_Z_FESTAMI);
-    List<W> kontrola = of(W.PATRZENIE_MONITOR, W.DAILY, W.WEEKLY, W.COMMITY);
+    List<W> kontrola = of(W.PATRZENIE_MONITOR, W.DAILY, W.WEEKLY, W.COMMITY, W.PYTANIA, W.PRZEPLYW_WIADOMOSCI, W.FEEDBACK_INNI, W.PROGRESS_ILOSCIOWY, W.PROGRESS_JAKOSCIOWY);
 
     public void run(){
 
@@ -90,9 +90,9 @@ public class CPU_PRACA extends AbstractCPU {
         );
         manago.setStatus(W.POSLUSZNY);
         manago.setStatus(W.STRAZNIK_PRAWA);
-        manago.setStatus(W.CZARNA_PLACHTA_SEDZIEGO);
+        manago.setStatus(W.CZARNA_TOGA_SEDZIOWSKA);
         manago.wyjebane(of(W.ZASOB_ZYCIE_PRYWATNE, W.ZASOB_CZAS));
-        manago.thread_while_loop(W.KONTROLA);
+        manago.thread_while_loop(M.kontrola(kontrola));
         manago.set(W.ZDOLNOSC_ATAKU);
         M.REMOVE(ME, W.ZDOLNOSC_ATAKU);
 

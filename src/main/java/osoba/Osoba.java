@@ -162,6 +162,9 @@ public class Osoba {
     boolean zadufanyWSobie;
     boolean sztuczny;
 
+    boolean dzieciak;
+    boolean pierwszaTrudnoscPoddanie;
+
     boolean biedny;
     boolean brakPerspektyw;
     boolean zycieZDniaNaDzien;
@@ -759,6 +762,12 @@ public class Osoba {
         }
         else {
             przewagiCharakteru.add(W.PRAWDZIWY);
+        }
+        if(dzieciak){
+            slabosciCharakteru.add(W.DZIECIAK);
+        }
+        if(pierwszaTrudnoscPoddanie){
+            slabosciCharakteru.add(W.PIERWSZA_TRUDNOSC_PODDANIE);
         }
         if(zycieZDniaNaDzien){
             slabosciCharakteru.add(W.ZYJE_Z_DNIA_NA_DZIEN);

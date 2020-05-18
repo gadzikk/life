@@ -491,5 +491,6 @@ public class M {
     public static String wezDoSrodowiska(OsobaMetod osoba) {return "wezDoSrodowiska("+ osoba +")";}
     public static String odkryjWady(OsobaMetod osoba) {return "odkryjWady("+ osoba +")";}
     public static String wdupcDoHierarchiiPodToba(OsobaMetod osoba) {return "wdupcDoHierarchiiPodToba("+ osoba +")";}
+    public static W kontrola(List<W> warunki) {return W.WARUNEK;}
 
 }
