@@ -49,6 +49,8 @@ public class AbstractCPU {
     List<W> PATOLOGIE_WSTEPNE_KOBIET = DB_Patologia.PATOLOGIE_WSTEPNE_KOBIETA.getWarunki();
     List<W> PATOLOGIE_UTRZYMANIA_KOBIET = DB_Patologia.PATOLOGIE_UTRZYMANIA_KOBIETA.getWarunki();
     List<W> PATOLOGIE = DB_Patologia.PATOLOGIE.get(0).getWarunki();
+    OsobaMetod me = new OsobaMetod();
+    OsobaMetod team = new OsobaMetod();
 
     public <T> List<T> of(T... elements){
         return Arrays.asList(elements);

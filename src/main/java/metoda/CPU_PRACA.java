@@ -175,5 +175,32 @@ public class CPU_PRACA extends AbstractCPU {
         ));
         opponent.kabluj(ME, manago);
     }
+    public void hardcoreZlyFxTeam() {
+        me.thread_while_loop(W.OGROMNY_WYSILEK);
+
+        manago.setNaTobie(W.ULTRA_OCZEKWIANIA_Z_KAPELUSZA);
+        manago.setNaTobie(W.OCZEKIWANIA_ULTRASZCZEGOLOWA_WIEDZA_NT_SYSTEMU_Z_KTORYM_NIEMIALES_DO_CZYNIENIA_WCZESNIEJ_NIEMOGLES_MIEC_POJECIA_JAK_DZIALA);
+
+        manago.thread_while_loop(of(W.DAJ_ULTRA_SUPPORTOWE_NAJGORSZE_TASKI, W.IFLYRES2, W.PELNY_SUPPORT));
+        manago.thread_while_loop(of(W.UNIZ_WYKONANIE_ZADANIA, W.TO_BYLO_LATWE));
+        manago.thread_while_loop(W.CIAGLE_PODWYZSZANA_POPRZECZKA_JEDNOCZESNIE_INNE_PROBLEMY_KAZDEGO_TASKU);
+        manago.thread_while_loop(W.KAZDY_BLAD_KARA);
+        manago.thread_while_loop(W.KAZDE_PYTANIE_EWALUOWANE);
+        manago.thread_while_loop(W.ZLY_FEEDBACK_GDY_PYTASZ);
+        team.thread_while_loop(W.INFORMACJE_ODRAZU_KRAZA);
+
+        manago.thread_while_loop(of(W.OCENA_TYLKO_WEDLE_ZLEGO, W.OCENA_CZEGO_NIE_ZROBILES));
+        team.thread_while_loop(W.FARMAZON24_7);
+        manago.set(of(W.PIASKOWNICA, W.MALY_RUDY_FEST_GITARA_DLUGIE_WLOSY, W.IGNORANT_MALE_DZIECKO));
+
+        manago.thread_while_loop(W.MOWIENIE_MYSL_ROB_PROBOJ);
+        manago.thread_while_loop(of(W.NIE_MOWILEM_ABYS_TAK_ZROBIL, W._100PROCENT_UZALEZNIENIE));
+        manago.thread_while_loop(W.WCHODZ_ZYCIE_PRYWATNE);
+        manago.thread_while_loop(of(W.ZLAMANIE_WSZELKICH_ZASAD_MANAGERSKICH, W.ROBOTA_LEZY, W.NASTEPNIE_POWOLYWANIE_SIE_NA_SZCZEGOLIKI));
+        manago.thread_while_loop(W.RZUCENIE_NA_TASKI_BEZ_PRZYGOTOWANIA_PRACOWNIKA);
+                M.konsekwencje(of(W.BRAK_MOZLIWOSCI_ESTYMOWANIA, W.ZABIERANIE_CZASU_OSOBOM_ZESPOLU, W.KAZDY_TASK_NOWY_BRAK_NOWY_PROBLEM, W.DELAY, W.ZLA_OCENA_Z_JIRY));
+
+        M.GRANT(ME, W.NIEDZIALAJCY_KOMPUTER);
+    }
 
 }
