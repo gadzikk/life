@@ -11,7 +11,7 @@ import static typy_bazowe.TypOsoby.YOU;
  */
 public class CPU_ZDOBYCIE_ZWIAZKU extends AbstractCPU {
 
-    List<W> essentials = of(W.PRZYMUS, W.ROZWALENIE_SWIADOMOSCI, W.NAJNIZSZY_POZIOM);
+    List<W> essentials = of(W.PRZYMUS, W.ROZWALENIE_SWIADOMOSCI, W.NAJNIZSZY_POZIOM_WARSTWY);
 
     List<W> endCase = of(W.ZWIAZEK_2_OSOB, W.CODZIENNA_BLISKOSC, W.SEX, W.DZIECI);
 

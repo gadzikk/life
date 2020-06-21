@@ -458,7 +458,7 @@ public class CPU_1 extends AbstractCPU {
                 W.IDZIESZ_ZAWRACASZ, W.SIEDZISZ_PRZEJSCIE, W.ONA_SWOJE_GRONO);
         List<String> schemaTrauto = of(M.przewidzenieDrogi(), "-", M.odbicieNaNozkach(), "-", M.przejscie(), "-", M.mowa());
 
-        List<W> sprzjajace = of(W.NAJNIZSZY_POZIOM, W.WLASNE_TERYTORIUM);
+        List<W> sprzjajace = of(W.NAJNIZSZY_POZIOM_WARSTWY, W.WLASNE_TERYTORIUM);
         List<W> normalne = of(W.CHODZENIE_WSROD_PUSTKI);
         List<W> niesprzyjajace = of(W.ULOTNOSC, W.IDZIE, W.BRAK_REKACJI);
 
