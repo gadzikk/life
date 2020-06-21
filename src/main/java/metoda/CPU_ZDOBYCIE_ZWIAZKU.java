@@ -69,6 +69,13 @@ public class CPU_ZDOBYCIE_ZWIAZKU extends AbstractCPU {
                             W.ZEROWE_SZANSE,
                             W.SKRESLA_ZA_1_NIEDOCIAGNIECIE
                     )
+            ),
+            new WW(o(W.LADNA, W._88_, W.DOBRE_SERCE),
+                    of(
+                            W.DZIEWICA,
+                            W.WARTOSCI_RODZINNE,
+                            W.KOBIETA_DIAMENT_ODDANA_RODZINIE
+                    )
             )
     );
 
