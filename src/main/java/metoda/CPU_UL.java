@@ -584,6 +584,11 @@ public class CPU_UL extends AbstractCPU {
                             M.GRANT(SOMEONE, of(W.NIESWIADOMOSC, W.LUKI_OSOBOWOSCI))
                     )
             );
+            new WM(of(W.POSIADACZ),
+                    of(
+                            M.GRANT(SOMEONE, of(W.PRYWATNY_FOLWARK, W.SUPERPOZYCJA))
+                    )
+            );
 
             M.sondujWady();
             M.sondujWartoscioweRzeczy();
