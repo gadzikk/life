@@ -1006,7 +1006,8 @@ public class CPU_UL extends AbstractCPU {
              List<W> budujacyHierarchieDecyzyjni = of(W.MORDERCY, W.DLUGO_WIEZIENIE,
                      W.RUMUNI, W.BANDYCI, W.NIESPRAWIEDLIWI, W.AGRESYWNI, W.PRZEWAGA_NA_STARCIE);
 
-             List<W> przyczynyBiegania = of(W.MODA, W.STARSI, W.WYKLUCZENIE_ZE_SRODOWISKA, W.AGRESJA, W.KORZYSCI, W.WADY);
+             List<W> cele = of(W.WDUPCENIE_JAKNAJWIECEJ_OSOB_W_BIEGANIE, W.WDUPCENIE_JAKNAJWIECEJ_OSOB_W_CPANIE);
+             List<W> przyczynyBiegania = of(W.MODA, W.STARSI, W.WYKLUCZENIE_ZE_SRODOWISKA, W.AGRESJA, W.KORZYSCI, W.WADY, W.NUDA);
 
              new WM(of(W.WEJSCIE),
                      of(
