@@ -586,7 +586,7 @@ public class CPU_UL extends AbstractCPU {
             );
             new WM(of(W.POSIADACZ),
                     of(
-                            M.GRANT(SOMEONE, of(W.PRYWATNY_FOLWARK, W.SUPERPOZYCJA))
+                            M.GRANT(SOMEONE, of(W.PRYWATNY_FOLWARK, W.SUPERPOZYCJA, W.WYDAWANIE_WYROKOW))
                     )
             );
 
