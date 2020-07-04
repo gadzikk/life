@@ -724,7 +724,7 @@ public class CPU_UL extends AbstractCPU {
                             M.celownik(osoba)
                     )
             );
-            new WM(of(W._NOT_, W.ZLODZIEJKA, W._II_, W.KIBICOWANIE, W._II_, W.DOBRZE_ZMYSLY, W._88_, W.SPORT),
+            new WM(of(W._NOT_, W.ZLODZIEJKA, W._II_, W.KIBICOWANIE, W._II_, W.DOBRZE_ZMYSLY, W._88_, W.SPORT, W._II_, W.ZDOLNY_DO_WALKI),
                     of(
                             osoba.set(W.FEST)
                     )
