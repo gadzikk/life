@@ -470,6 +470,11 @@ public class M {
     public M otherwise(W warunek) {return new M();}
     public M konsekwencje(W warunek) {return new M();}
     public M zamkniecie(W warunek) {return new M();}
+    public M sytuacja() {return new M();}
+    public M Is() {return new M();}
+    public M podbitka() {return new M();}
+    public M lub() {return new M();}
+    public M przeminelo() {return new M();}
     public static String celownik(OsobaMetod osoba) {return "celownik("+ osoba +")";}
     public static String sondaPrzewagPodZrobienieZla() {return "sondaPrzewagPodZrobienieZla()";}
     public static String zniszczJakNajwiecej(List<WarunkiKategoria> rany) {return "zniszczJakNajwiecej("+ rany +")";}

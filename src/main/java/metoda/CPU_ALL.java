@@ -3,6 +3,7 @@ package metoda;
 import warunek.W;
 
 import java.util.List;
+import java.util.PriorityQueue;
 
 import static typy_bazowe.TypOsoby.ME;
 
@@ -38,6 +39,8 @@ public class CPU_ALL extends AbstractCPU {
 
     List<W> zleCzyny = of(W.MAGICZNE_ZAKLECIE, W.POJECHANIE_NA_PRZEWADZE, W.SKAZYWANIE_NA_CIERPIENIE, W.WYKLUCZENIE, W.UKRYCIE, W.ZAZDROSC, W.CHCIWOSC, W.KLAMSTWO, W.WYSMIANIE);
     List<W> dobreCzyny = of(W.PODZIELENIE_SIE_PRZEWAGA, W.WYZWOLENIE_Z_CIERPIENIA, W.PODNIESIENIE, W.UJAWNIENIE, W.PRAWDA, W.WYJEBANIE_ZLA_KONTRA);
+
+    PriorityQueue<W> wartosciowaRzecz = new PriorityQueue<>(of(W.WYSILEK, W.WALKA, W.UTRZYMANIE_PRZEMOCA));
 
     public void run(){
         new WMWM(
