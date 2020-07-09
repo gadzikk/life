@@ -75,6 +75,8 @@ public class AbstractCPU {
         return new M();
     }
 
+    public Integer c(W w1,String del1, W w2, String del2, W w3) { return 0;}
+
     public W potrzeba(List<W> warunki){return null;}
 
     public W temporal(W warunek) {return W.WARUNEK;}
