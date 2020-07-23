@@ -45,8 +45,8 @@ public class CPU_1_SHORTEST extends AbstractCPU {
             W.DRUGI_RAZ, W.KONTAKT
     );
 
-    M schemaSytuacji00 = new M().sytuacja().ls().podbitka()
-            .lub().sytuacja().ls().przeminelo();
+    M schemaSytuacji00 = new M().sytuacja().Is().podbitka()
+            .lub().sytuacja().Is().przeminelo();
 
     M schemaSytuacji1 = o(essentials, W._II_, allSprzyjajace, "-", W.PRZEJSCIE, "-", W.MOWA)
             .otherwise(W.CONTINUE_NUDA)

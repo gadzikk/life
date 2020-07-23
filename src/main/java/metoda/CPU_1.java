@@ -158,7 +158,7 @@ public class CPU_1 extends AbstractCPU {
 //        if(banda) podbijasz
 //        if(dobra jednostka) probujesz robic dziurke
 
-
+        rewir();
         wzglIzolacja();
         trauto();
         sklep();
@@ -167,6 +167,11 @@ public class CPU_1 extends AbstractCPU {
         parzenie();
         nozki();
         zagadanie();
+    }
+
+    public void rewir() {
+        List<W> essentials = of(W.MUSI_CI_SIE_CHCIEC, W.CONAJMNIEJ_2H, W.WALKA_O_WZGL_IZOLACJE);
+        M.BFS_terytorium(W.PODBIJASZ);
     }
 
     public void wzglIzolacja(){

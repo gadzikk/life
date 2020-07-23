@@ -498,5 +498,6 @@ public class M {
     public static String wdupcDoHierarchiiPodToba(OsobaMetod osoba) {return "wdupcDoHierarchiiPodToba("+ osoba +")";}
     public static W kontrola(List<W> warunki) {return W.WARUNEK;}
     public static M konsekwencje(List<W> warunki) {return new M();}
+    public static String BFS_terytorium(W w) {return "BFS_terytorium("+ w +")";}
 
 }
