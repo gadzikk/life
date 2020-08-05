@@ -43,6 +43,7 @@ public class CPU_ALL extends AbstractCPU {
     List<W> otaczajacyLudzie = of(W.LUDZIE_RODZINA, W.LUDZIE_PRACA, W.LUDZIE_DZIELNICA, W.ZNAJOMI_DZIELNICA, W.OBSLUGA);
 
     PriorityQueue<W> wartosciowaRzecz = new PriorityQueue<>(of(W.WYSILEK, W.WALKA, W.UTRZYMANIE_PRZEMOCA, W.UTRZYMANIE_EMOCJAMI));
+    PriorityQueue<W> silaSprawcza = new PriorityQueue<>();
 
     public void run(){
         new WMWM(
@@ -149,6 +150,7 @@ public class CPU_ALL extends AbstractCPU {
                 )
         );
         trudnoLatwo();
+        superpozycja();
     }
     public void trudnoLatwo(){
         M.trudno(W.ZWIAZEK).warunek(W.MEZCZYZNA);
@@ -156,5 +158,24 @@ public class CPU_ALL extends AbstractCPU {
         M.latwo(W.EMIGRACJA);
         M.trudno(W.PRACA_KRAJ);
         M.trudno(W.POZNANIE).warunek(W.MALE_SKUPISKO_LUDZI);
+    }
+    public void superpozycja(){
+        if (W.MIEJSCE == W.MIEJSCE_PRZESTRZEGANIA_PRAWA) {
+            wysokaPozycja.set(W.SILA_SPRAWCZA);
+        } else {
+            silaFizyczna.set(W.SILA_SPRAWCZA);
+        }
+
+        new WM(of(W.SUPERPOZYCJA),
+                of(
+                        M.jebZPerspektywyPozycji(),
+                        M.twojeZdanieWazniejsze(),
+                        M.tyKogosPodkopujOnCiebieNieMoze(),
+                        M.ukryjOklam(),
+                        M.wykorzystaj(),
+                        M.wonty(),
+                        M.brakPochwaly()
+                )
+        );
     }
 }

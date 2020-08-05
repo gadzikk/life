@@ -80,7 +80,12 @@ public class CPU_SJ extends AbstractCPU {
 
     List<W> patologie = PATOLOGIE;
 
-    public void run(){
+    List<String> przyjaciele = of("RENA_RODZINA", "T_RODZINA", "DZIADZIUS_RODZINA", "KS_ANDRZEJ_RODZINA",
+            "CIOCIA_RODZINA", "ANIA_RODZINA", "DOMINIK_RODZINA", "JANIO_RODZINA", "OLUS_RODZINA");
+
+    List<String> wrogowie = of("KLAUDIUSZ", "ZBYSIU_SHN", "BANIA_WSH");
+
+    public void run() {
         new WM(of(W._NOT_, W.PRZED_9, W._88_, W.PO_17),
                 of(M.REMOVE(ME, W.DZIEN))
         );
@@ -103,10 +108,33 @@ public class CPU_SJ extends AbstractCPU {
                         M.GRANT(ME, W.SZANSA_INFORMACJA)
                 )
         );
-        new WM(of(W.NIE_DOSTAJESZ, W._II_ ,W.NIE_FINALIZUJESZ),
+        new WM(of(W.NIE_DOSTAJESZ, W._II_, W.NIE_FINALIZUJESZ),
                 of(
                         M.GRANT(SOMEONE, W.FRAJER_DOSTAJE)
                 )
         );
+    }
+
+    public void wsrodLudzi() {
+        M.thread_while_loop(W.ZLO_KRAZY);
+        M.thread_while_loop(W.SWIADOMY_WLASNEGO_TERYTORIUM);
+        M.thread_while_loop(of(W.SONDA_PRZEWAG, W.SONDA_CZYNOW));
+
+        wszyscy.nastawienie(W.AGRESJA);
+        wszyscy.niktNiePyta();
+        wszyscy.informacjeZGory();
+    }
+
+    public void prioriDzialania() {
+        List<W> primo = of(W.BIBLIA, W.MORALNOSC, W.SPRAWIEDLIWOSC);
+        List<W> drugie = of(W.PRZEWAGA_NA_SWOJA_STRONE);
+    }
+
+    public void typyOsobZMojejPerspektywy() {
+        wiesniak.threadWhileLoop(W.CZYNY_PRZECIW_TOBIE).przerwanie(W.SILA_PRZECIW_NIEMU);
+        wiesniak.wali().cisnie().skazujeNaSamotnosc();
+        czoloWisly.wali().cisnie().skazujeNaSamotnosc();
+        cracoviaSlabi.wali().cisnie().skazujeNaSamotnosc();
+        me.thread_while_loop(W.WSZEDZIE_OBCY_GADZIO);
     }
 }

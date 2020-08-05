@@ -59,12 +59,21 @@ public class OsobaMetod {
     }
     public String kabluj(TypOsoby me, OsobaMetod manago) {return "kabluj("+ me +" "+ manago +")";}
     public String wyklucz(W warunek) {return "wyklucz("+ warunek +")";}
+    public OsobaMetod threadWhileLoop(W warunek) {return new OsobaMetod();}
     public String thread_while_loop(W warunek) {return "thread_while_loop("+ warunek +")";}
     public String thread_while_loop(List<W> warunki) {return "thread_while_loop("+ warunki +")";}
     public String robKomusKrzywde() {return "robKomusKrzywde()";}
     public String dajZarobicDillowi() {return "dajZarobicDillowi()";}
     public String otoczKorzysc(W warunek) {return "otoczKorzysc("+ warunek +")";}
     public String setNaTobie(W w) {return "setNaTobie("+ w +")";}
+    public String nastawienie(W w) {return "nastawienie("+ w +")";}
+    public String niktNiePyta() {return "niktNiePyta()";}
+    public String informacjeZGory() {return "informacjeZGory()";}
+    public String przerwanie(W w) {return "przerwanie("+w+")";}
+    public OsobaMetod wali() {return new OsobaMetod();}
+    public OsobaMetod cisnie() {return new OsobaMetod();}
+    public String skazujeNaSamotnosc() {return "skazujeNaSamotnosc()";}
+
 
 
 }

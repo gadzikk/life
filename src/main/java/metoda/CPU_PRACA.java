@@ -120,6 +120,7 @@ public class CPU_PRACA extends AbstractCPU {
         );
     }
     public void zachowanie(){
+        M.thread_while_loop(W.UKRYCIE_PRAWDY_PRZED_FESTAMI);
         new WM(of(W.TASK),
                 of(
                         M.zapisz(W.TASK),

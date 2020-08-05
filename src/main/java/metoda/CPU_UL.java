@@ -1013,6 +1013,7 @@ public class CPU_UL extends AbstractCPU {
 
              List<W> cele = of(W.WDUPCENIE_JAKNAJWIECEJ_OSOB_W_BIEGANIE, W.WDUPCENIE_JAKNAJWIECEJ_OSOB_W_CPANIE);
              List<W> przyczynyBiegania = of(W.MODA, W.STARSI, W.WYKLUCZENIE_ZE_SRODOWISKA, W.AGRESJA, W.KORZYSCI, W.WADY, W.NUDA);
+             List<W> klimatBiegania = of(W.NARKOTYKI, W.WYROK, W.KONFIDENCI, W.PIENIADZE, W.KONTUZJA, W.CIERPIENIE, W.ORIENT);
 
              new WM(of(W.WEJSCIE),
                      of(
@@ -1033,7 +1034,31 @@ public class CPU_UL extends AbstractCPU {
                             M.GRANT(ME, of(W.SAMOTNOSC, W.PRZEJEBANE, W.WALKA_SPRZET))
                      )
              );
+        }
+        public void kibicowanieUjecie() {
+            new WM(of(W.NIE_WYKORZYSTUJA),
+                    of(
+                            M.thread_while_loop(W.GNOJA)
+                    )
+            );
+            new WM(of(W.NIE_ZNAJA),
+                    of(
+                            M.zaklecie(),
+                            M.foty()
+                    )
+            );
+            new WM(of(W.SLABY),
+                    of(
+                            M.zaklecie(i++),
+                            M.foty(i++)
+                    )
+            );
 
+            M.GRANT(SOMEONE, of(W.WZGLEDNA_IZOLACJA_RDZENNI, W.ZRODELKO));
+            M.GRANT(SOMEONE, of(W.ZEZWOLENIE_NA_GNOJENIE_INNYCH, W.PRZEWAGA_EKIPY_SPRZETU));
+            M.GRANT(SOMEONE, of(W.ALL_DANY_OBSZAR_DO_ZRODELKA, W.WSZYSCY_SIE_ZNAJA));
+
+            M.OTHERWISE(of(W.PUSTKA, W.FESTY, W.BEZ_PIENIEDZY, W.SLABI));
 
         }
 }

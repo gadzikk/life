@@ -499,5 +499,16 @@ public class M {
     public static W kontrola(List<W> warunki) {return W.WARUNEK;}
     public static M konsekwencje(List<W> warunki) {return new M();}
     public static String BFS_terytorium(W w) {return "BFS_terytorium("+ w +")";}
-
+    public static String OTHERWISE(List<W> warunki) {return "OTHERWISE("+ warunki +")"; }
+    public static String zaklecie() {return "zaklecie()";}
+    public static String foty() {return "foty()";}
+    public static String zaklecie(Integer counter) {return "zaklecie("+ counter + ")";}
+    public static String foty(Integer counter) {return "foty("+ counter +")";}
+    public static String jebZPerspektywyPozycji() {return "jebZPerspektywyPozycji()";}
+    public static String twojeZdanieWazniejsze() {return "twojeZdanieWazniejsze()";}
+    public static String tyKogosPodkopujOnCiebieNieMoze() {return "tyKogosPodkopujOnCiebieNieMoze()";}
+    public static String ukryjOklam() {return "ukryjOklam()";}
+    public static String wykorzystaj() {return "wykorzystaj()";}
+    public static String wonty() {return "wonty()";}
+    public static String brakPochwaly() {return "brakPochwaly()";}
 }
