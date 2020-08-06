@@ -269,6 +269,8 @@ public class CPU_UL extends AbstractCPU {
         teoriaZla();
         teoriaRywalizacji();
         teoriaPrzewagUlicy();
+        algorytmUlicy();
+        kibicowanieUjecie();
     }
     public void shortest(){
         List<W> stan = of(W.WYSILEK_UMYSLOWY, W.WYSILEK_FIZYCZNY, W.DUZO_ZARCIA, W.WZROK, W.SAMOPOCZUCIE);
@@ -338,6 +340,7 @@ public class CPU_UL extends AbstractCPU {
         List<W> priorytety = of(W.ULICA, W.KOBIETA, W.PRACA);
         M.thread_while_loop(W.DOBRO);
         M.thread_while_loop(W.POTENCJALNE_STARCIE);
+        M.thread_while_loop(W.AKTYWNA_WALKA_ZE_ZLEM);
 
         M.thread_while_loop(W.ANTY_POSLUSZNOSC);
         M.thread_while_loop(W.ANTY_FEST);
@@ -1023,10 +1026,15 @@ public class CPU_UL extends AbstractCPU {
              M.oglup(of(W.DOSTEP_DO_PLANSZY, W.NARKOTYKI));
              M.przestrzel(osoba);
              M.wezDoSrodowiska(osoba);
+             M.GRANT(ME, of(W.ZRODELKO, W.STOZEK_SZCZEGOLU, W.SUBSCRIBES_INFORMACJE, W.BLISKOSC, W.TELEFONY, W.PRZEWAGA));
+
              M.thread_while_loop(W.KONTROLA);
-             M.sonda(W.ILE_SIE_DA);
-             M.odkryjWady(osoba);
-             M.wdupcDoHierarchiiPodToba(osoba);
+             me.thread_while_loop(W.WYMAGANIE_DZIALANIA_DLA_ZLA);
+             me.thread_while_loop(W.GNOJ_POSTRONNYCH);  me.thread_while_loop(W.GNOJ_EKIPA_NIZSI_OD_CIEBIE);
+             me.thread_while_loop(W.GNOJ_EKIPA);
+             me.thread_while_loop(W.UNIZAJ_CZYNY);
+
+             M.sonda(W.ILE_SIE_DA); M.odkryjWady(osoba); M.wdupcDoHierarchiiPodToba(osoba);
              M.thread_while_loop(W.WYKORZYSTUJ);
              osoba.otoczKorzysc(W.WALKA_SPRZET);
              new WM(of(W.WYJSCIE),

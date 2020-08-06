@@ -113,6 +113,9 @@ public class CPU_SJ extends AbstractCPU {
                         M.GRANT(SOMEONE, W.FRAJER_DOSTAJE)
                 )
         );
+        wsrodLudzi();
+        prioriDzialania();
+        typyOsobZMojejPerspektywy();
     }
 
     public void wsrodLudzi() {

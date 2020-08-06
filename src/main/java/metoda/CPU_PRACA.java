@@ -69,6 +69,7 @@ public class CPU_PRACA extends AbstractCPU {
         praca();
         zachowanie();
         szponcenie();
+        hardcoreZlyFxTeam();
     }
     public void praca(){
         M.GRANT(ME, of(W.BEZPIECZENSTWO, W.PIENIADZE, W.SZANSA_KOBIETA));
@@ -120,6 +121,7 @@ public class CPU_PRACA extends AbstractCPU {
         );
     }
     public void zachowanie(){
+        M.thread_while_loop(W.WALKA_Z_FESTAMI);
         M.thread_while_loop(W.UKRYCIE_PRAWDY_PRZED_FESTAMI);
         new WM(of(W.TASK),
                 of(
