@@ -73,7 +73,7 @@ public class OsobaMetod {
     public OsobaMetod wali() {return new OsobaMetod();}
     public OsobaMetod cisnie() {return new OsobaMetod();}
     public String skazujeNaSamotnosc() {return "skazujeNaSamotnosc()";}
-
+    public String rozpowiedzDoWszystkich(W w) {return "rozpowiedzDoWszystkich("+w+")";}
 
 
 }

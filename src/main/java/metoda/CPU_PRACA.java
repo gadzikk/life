@@ -182,19 +182,22 @@ public class CPU_PRACA extends AbstractCPU {
         me.thread_while_loop(W.OGROMNY_WYSILEK);
 
         manago.setNaTobie(W.ULTRA_OCZEKWIANIA_Z_KAPELUSZA);
-        manago.setNaTobie(W.OCZEKIWANIA_ULTRASZCZEGOLOWA_WIEDZA_NT_SYSTEMU_Z_KTORYM_NIEMIALES_DO_CZYNIENIA_WCZESNIEJ_NIEMOGLES_MIEC_POJECIA_JAK_DZIALA);
+        manago.thread_while_loop(W.SZUKAJ_ZASTEPSTWA);
+        manago.thread_while_loop(W.ZWRACAJ_WSZYSTKO_NA_REVIEW);
 
+        manago.setNaTobie(W.OCZEKIWANIA_ULTRASZCZEGOLOWA_WIEDZA_NT_SYSTEMU_Z_KTORYM_NIEMIALES_DO_CZYNIENIA_WCZESNIEJ_NIEMOGLES_MIEC_POJECIA_JAK_DZIALA);
         manago.thread_while_loop(of(W.DAJ_ULTRA_SUPPORTOWE_NAJGORSZE_TASKI, W.IFLYRES2, W.PELNY_SUPPORT));
         manago.thread_while_loop(of(W.UNIZ_WYKONANIE_ZADANIA, W.TO_BYLO_LATWE));
         manago.thread_while_loop(W.CIAGLE_PODWYZSZANA_POPRZECZKA_JEDNOCZESNIE_INNE_PROBLEMY_KAZDEGO_TASKU);
         manago.thread_while_loop(W.KAZDY_BLAD_KARA);
         manago.thread_while_loop(W.KAZDE_PYTANIE_EWALUOWANE);
-        manago.thread_while_loop(W.ZLY_FEEDBACK_GDY_PYTASZ);
+        manago.thread_while_loop(of(W.ZLY_FEEDBACK_GDY_PYTASZ, W.NIE_PYTASZ_NIE_WIESZ));
         team.thread_while_loop(W.INFORMACJE_ODRAZU_KRAZA);
 
         manago.thread_while_loop(of(W.OCENA_TYLKO_WEDLE_ZLEGO, W.OCENA_CZEGO_NIE_ZROBILES));
         team.thread_while_loop(W.FARMAZON24_7);
         manago.set(of(W.PIASKOWNICA, W.MALY_RUDY_FEST_GITARA_DLUGIE_WLOSY, W.IGNORANT_MALE_DZIECKO));
+        manago.rozpowiedzDoWszystkich(W.WADA);
 
         manago.thread_while_loop(W.MOWIENIE_MYSL_ROB_PROBOJ);
         manago.thread_while_loop(of(W.NIE_MOWILEM_ABYS_TAK_ZROBIL, W._100PROCENT_UZALEZNIENIE));
