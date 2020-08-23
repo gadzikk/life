@@ -81,7 +81,7 @@ public class CPU_LUDZI extends AbstractCPU {
                         M.foty()
                 )
         );
-        new WM(of(W.NIEZNAJOMY, W._88_, W.PRZEWAGA),
+        new WM(of(W.NIEZNAJOMY, W._88_, W.PRZEWAGA, M.Option(W.AGRESJA)),
                 of(
                         M.zwyzywaj(),
                         M.pobij()

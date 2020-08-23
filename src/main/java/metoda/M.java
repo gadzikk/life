@@ -519,4 +519,5 @@ public class M {
     public static String naklejka() {return "naklejka()";}
     public static String zwyzywaj() {return "zwyzywaj()";}
     public static String pobij() {return "pobij()";}
+    public static W Option(W warunek) {return W.WARUNEK;}
 }
