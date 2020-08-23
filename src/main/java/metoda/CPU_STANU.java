@@ -37,6 +37,8 @@ public class CPU_STANU extends AbstractCPU {
 
         // noc na rynku - pobudzenie w trakcie dnia i wrazliwosc zmyslow, ulica++
 
+        // rewir - aktywnoscOrganizmu++, checUlicy++
+
         // caly dzien komputer - matrix w oczach, migotanie, malo staminy
 
     }

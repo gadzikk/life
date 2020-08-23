@@ -256,17 +256,12 @@ public class CPU_UL extends AbstractCPU {
         zachowanie();
         starcie();
         gadka();
-        fest();
         przewagi();
         shortestSonda();
         sonda();
-        dzialajacy();
         przeplywInformacji();
         nawiazanieRelacji();
-        opisZachowanTypOsoby();
-        endCasyWarunkow();
         hierarchiaOsiedle();
-        teoriaZla();
         teoriaRywalizacji();
         teoriaPrzewagUlicy();
         algorytmUlicy();
@@ -576,34 +571,6 @@ public class CPU_UL extends AbstractCPU {
                     )
             );
         }
-        public void fest(){
-            List<W> festWarunki = DB_Warunki.FEST.getWarunki();
-            List<W> festEndCase = of(W.PODROZE, W.WYGODY, W.PRZEKAZANIE_ZLEGO_GENU, W.NABICIE_KABZY_KAPITALISCIE);
-
-            new WM(of(W.RODZINA, W.KONTROLA, W.PIENIADZE),
-                    of(
-                            M.ochronaPrzed(W.CIERPIENIE),
-                            M.GRANT(SOMEONE, of( W.FEST, W.BURZUA)),
-                            M.GRANT(SOMEONE, of(W.NIESWIADOMOSC, W.LUKI_OSOBOWOSCI))
-                    )
-            );
-            new WM(of(W.POSIADACZ),
-                    of(
-                            M.GRANT(SOMEONE, of(W.PRYWATNY_FOLWARK, W.SUPERPOZYCJA, W.WYDAWANIE_WYROKOW))
-                    )
-            );
-
-            M.sondujWady();
-            M.sondujWartoscioweRzeczy();
-            M.sondujWarunkiSprzyjajace();
-            M.sondujWarunkiNiesprzyjajace();
-            M.sondujLudziWokol();
-
-            M.wypracujLepszaPozycje();
-            M.ukryjDobra();
-            M.wdupcWNajgorszeWarunki();
-            M.zajmijPozycjeIWarunki();
-        }
         public void przewagi(){
             W przewagaGlobal = W.PRZEWAGA_LOCAL;
             List<W> potrzebneWarunki = of(W.STALA_PLANSZA, W.WIELE_INTERAKCJI, W.WIELE_OSOB, W.OSOBA_ODSLANIAJACA_SIE);
@@ -793,28 +760,6 @@ public class CPU_UL extends AbstractCPU {
             );
 
         }
-        public void dzialajacy(){
-            new WM(of(W.DZIALAJACY),
-                    of(
-                            M.DEFAULT(W.ZEROWY_DOSTEP),
-                            dzialacz.robKomusKrzywde(), dzialacz.dajZarobicDillowi(),
-                            dzialacz.siejZlo(), M.otherwise(W.PRZEJEBANE, 0),
-                            dzialacz.uzaleznijSieOdSrd(),
-                            dzialacz.dzialanieWsrodDzialaczy(),
-                            dzialacz.zdobadzInformacjeZeSrodowiskaNaKurestwie(),
-
-                            dzialacz.WHILE(W.DOSTEP),
-                            dzialacz.ukryjDostep(),
-                            dzialacz.wbijNaMuke(),
-                            dzialacz.skazNaIzolacje(),
-                            dzialacz.patrzJakCierpi(),
-                            dzialacz.cieszSieJegoCierpieniem(),
-                            dzialacz.baluj(),
-                            dzialacz.siejZlo(),
-                            dzialacz.WHILE_END()
-                    )
-            );
-        }
         public void przeplywInformacji(){
             new WM(of(W.STALO_SIE),
                     of(
@@ -858,83 +803,6 @@ public class CPU_UL extends AbstractCPU {
                     )
             );
         }
-        public void opisZachowanTypOsoby(){
-            new WM(of(W.MIESZANIEC, W.FEST),
-                    of(
-                            M.pobierzNieswiadomosc(), M.pobierzLukiOsobowosci(),
-                            M.wyklucz(of(W.RDZENNI, W.SILNIEJSI)), M.utrudniaj(of(W.RDZENNI, W.SILNIEJSI)),
-                            M.stworzKolkoAdoracji(),
-                            M.thread_while_loop(W.POSLUSZNY)
-                    )
-            );
-            new WM(of(W.RDZENNY_DOBRY),
-                    of(
-                            M.pobierzPatologie(),
-                            M.wyklucz(of(W.MIESZANIEC, W.FEST)), M.utrudniaj(of(W.MIESZANIEC, W.FEST)),
-                            M.wezPrzewage(), M.pracuj(W.PRZEWAGA),
-                            M.przemoc(W.OBRONA),
-                            M.thread_while_loop(of(W.ANTY_POSLUSZNOSC, W.ANTY_PUSTKA, W.ANTY_NUDA))
-                    )
-            );
-            new WM(of(W.ZLY),
-                    of(
-                            M.pobierzHierarchie(),
-                            M.dzialajDlaZla(), M.tworzPatologie(),
-                            M.wal(W.NIEDZIALAJACY),
-                            M.przemoc(W.DOMINACJA),
-                            M.thread_while_loop(W.DOMINACJA)
-                    )
-            );
-            new WM(of(W.AGRESOR),
-                    of(
-                            M.DEFAULT(W.AGRESJA),
-                            M.zaczep(osoba),
-                            M.wrocZPrzewaga(),
-                            M.wal(osoba, W.PRZEWAGA),
-                            M.rozpowiedz(W.WSZYSCY),
-                            M.thread_while_loop(W.DOMINACJA)
-                    )
-            );
-        }
-        public void endCasyWarunkow(){
-            new WW((W.DEFAULT),
-                    of(
-                            W.TEMPOTA,
-                            W.GLUPOTA,
-                            W.NIEODPOWIADA,
-                            W.NIESWIADOMOSC,
-                            W.ZALEZNY
-                    )
-            );
-            new WW((W.OSIEDLE),
-                    of(
-                            W.ANTY_NORMALNOSC,
-                            W.HIERARCHIA,
-                            W.ZAZDROSC,
-                            W.ZLO,
-                            W.NUDA
-                    )
-            );
-            new WW((W.PASJA),
-                    of(
-                            W.TYLKO_TO,
-                            W.STYL_ZYCIA,
-                            W.ODERWANIE_OD_RZECZYWISTOSCI
-                    )
-            );
-            new WW((W.STUDIA),
-                    of(
-                            W.ODERWANIE_OD_RZECZYWISTOSCI,
-                            W.BRAK_CHETNOSCI,
-                            W.MARZY_OBCOKRAJOWIEC
-                    )
-            );
-            new WW((W.RODZINA),
-                    of(
-                            W.KONTROLA
-                    )
-            );
-        }
         public void hierarchiaOsiedle(){
             List<W> warunki = of(W.ANTY_NORMALNOSC, W.HIERARCHIA, W.ZAZDROSC, W.BRAK_ZASAD, W.TWORZENIE_WZAJEMNEGO_CIERPIENIA,
                     W.ZLO, W.NUDA, W.ZLE_EMOCJE);
@@ -954,36 +822,6 @@ public class CPU_UL extends AbstractCPU {
             OH ogarniety3 = new OH(of(przydupas7, przydupas8, przydupas9));
 
             OH gangusZHajsem = new OH(of(ogarniety, ogarniety2, ogarniety3));
-        }
-        public void teoriaZla(){
-            List<W> essentials = of(W.KTO_SZYBSZY_TEN_LEPSZY);
-
-            List<W> endCaseZla = of(
-                    W.ZLE_SAMOPOCZUCIE, W.STRATY_MATERIALNE, W.STRATY_MORALNE, W.STRATA_MIEJSCA_W_HIERARCHII,
-                    W.PRZERWA_KONTUZJA, W.USUNIECIE_Z_PLANSZY
-            );
-            new WM(of(W.NOWA_OSOBA),
-                    of(
-                            M.pierwszaReakcja(of(W.PROWOKUJE, W.CISNIE, W.WYPROWADZA_Z_ROWNOWAGI, W.WALKA_PIESCI))
-                    )
-            );
-            new WM(of(W.KTOS_MI_COS_ZROBIL, W._II_, W.ZAZDROSC),
-                    of(
-                            M.reakcjaMocniejNizszemuWHierarchii(rany)
-                    )
-            );
-
-            M.sondaPrzewagPodZrobienieZla();
-            M.zniszczJakNajwiecej(rany);
-            M.zabierzJakNajwiecej();
-
-            new WM(of(W.OBRONA),
-                    of(
-                            M.brakReakcji(W.WYZSZE_DOBRO),
-                            M.II(),
-                            M.reakcjaMocniej(rany)
-                    )
-            );
         }
         public void teoriaRywalizacji(){
             new WM(of(W.NIKOGO),
@@ -1067,6 +905,5 @@ public class CPU_UL extends AbstractCPU {
             M.GRANT(SOMEONE, of(W.ALL_DANY_OBSZAR_DO_ZRODELKA, W.WSZYSCY_SIE_ZNAJA));
 
             M.OTHERWISE(of(W.PUSTKA, W.FESTY, W.BEZ_PIENIEDZY, W.SLABI));
-
         }
 }
