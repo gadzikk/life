@@ -266,6 +266,8 @@ public class CPU_UL extends AbstractCPU {
         teoriaPrzewagUlicy();
         algorytmUlicy();
         kibicowanieUjecie();
+        krajobrazUlicy();
+        dojscieDoWalki();
     }
     public void shortest(){
         List<W> stan = of(W.WYSILEK_UMYSLOWY, W.WYSILEK_FIZYCZNY, W.DUZO_ZARCIA, W.WZROK, W.SAMOPOCZUCIE);
@@ -905,5 +907,14 @@ public class CPU_UL extends AbstractCPU {
             M.GRANT(SOMEONE, of(W.ALL_DANY_OBSZAR_DO_ZRODELKA, W.WSZYSCY_SIE_ZNAJA));
 
             M.OTHERWISE(of(W.PUSTKA, W.FESTY, W.BEZ_PIENIEDZY, W.SLABI));
+        }
+        public void krajobrazUlicy() {
+            List<W> conditions = of(W.PUSTKA, W.BRAK_PIENIEDZY, W.NARKOTYKI, W.KAZDE_DOBRO_NA_DOL);
+
+            M.thread_while_loop(W.KUMULUJACA_SIE_PATOLOGIA);
+            M.tlo(of(W.AGRESJA, W.WKURWIENIE, W.ZLO, W.DOSTEP));
+        }
+        public void dojscieDoWalki() {
+            M.NEEDED(of(W.BEZPRZYPALOWE_MIEJSCE, W.OPPONENT_NIEPRZESTRASZONY));
         }
 }

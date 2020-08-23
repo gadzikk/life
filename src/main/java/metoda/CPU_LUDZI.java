@@ -12,6 +12,7 @@ import static typy_bazowe.TypOsoby.SOMEONE;
  */
 public class CPU_LUDZI extends AbstractCPU {
     public void run() {
+        relacjeWarunkowLudzi();
         endCasyWarunkow();
         opisZachowanTypOsoby();
         teoriaZla();
@@ -37,7 +38,6 @@ public class CPU_LUDZI extends AbstractCPU {
 
         new WWs(of(W.ZAZDROSC, W.WRAZLIWOSC, W.NIEPOSLUSZONSC_B, W.SILNIEJSZY_B), "--->", of(W.WYKLUCZA, W.WYLACZY_DOSTEP));
 
-        new WWs(of(W.WYCHOWANIE_POD_KLOSZEM), "--->", of(W.CHEC_BEZPIECZENSTWA));
         // ****
 
         new WWs(of(W.POZNANIE_WARTOSCI_PIENIADZA, W.FAZA_Z_NAUKI, W.FART, W.DZIWNA_PASJA), "--->", of(W.DOBRY_ZAWOD));
@@ -49,6 +49,49 @@ public class CPU_LUDZI extends AbstractCPU {
         new WWs(of(W.SUMIENIE, W.DOBRE_CZYNY), "--->", of(W.PRZYCHYLNOSC_BOGA));
 
         new WWs(of(W.PRZYCHYLNOSC_BOGA), "--->", of(W.FART));
+
+        // ZALETY
+        new WWs(of(W.DOBRE_WYCHOWANIE, W._88_, W.SILNI_RODZICE),
+                "--->", of(W.CIERPIENIE, W.PRACA, W.ZARADNOSC, W.POZNANIE_NAUKI, W.SPORT, W.SZCZESLIWE_DZIECINSTWO));
+
+        new WWs(of(W.PRACA, W.CIERPIENIE), "--->", of(W.KALKULACJA_FIRST, W.ZDOLNOSC_DO_WYSILKU, W.KONSEKWENCJA));
+
+        new WWs(of(W.PRACA, W.CIERPIENIE, W.DOBRE_WYCHOWANIE),
+                "--->", of(W.REWIR, W.ZNAJOMOSC_OTOCZENIA, W.NORMALNE_EMOCJE, W.KONKURENCJA));
+
+        new WWs(of(W.REWIR, W.ZNAJOMOSC_OTOCZENIA, W.NORMALNE_EMOCJE, W.KONKURENCJA),
+                "--->", of(W.PRAWDZIWA_PASJA, W.SPORT, W.SILNE_JEDNOSTKI, W.UMIEJETNOSCI, W.WLASCIWA_OCENA));
+
+        new WWs(of(W.SPORT, W.SILNE_JEDNOSTKI, W.UMIEJETNOSCI, W.WLASCIWA_OCENA),
+                "--->", of(W.MOCNA_JEDNOSTKA, W.SILNA_JEDNOSTKA_FIRST));
+
+        new WWs(of(W.KALKULACJA_FIRST, W.ZDOLNOSC_DO_WYSILKU, W.KONSEKWENCJA), "--->", of(W.DOBRE_WYBORY, W.OSIAGNIETE_CELE));
+
+        // ****
+    }
+
+    public void defaultZleZachowanie() {
+        M.ukryjZlo();
+        M.ukryjWady();
+        M.aktywujEmocje();
+        M.wezNajwiecejDlaSiebie();
+        new WM(of(W.NIEZNAJOMY),
+                of(
+                        M.naklejka(),
+                        M.foty()
+                )
+        );
+        new WM(of(W.NIEZNAJOMY, W._88_, W.PRZEWAGA),
+                of(
+                        M.zwyzywaj(),
+                        M.pobij()
+                )
+        );
+        new WM(of(W.ZNAJOMI),
+                of(
+                        M.wykorzystaj()
+                )
+        );
     }
 
     public void endCasyWarunkow() {

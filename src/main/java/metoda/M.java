@@ -511,4 +511,12 @@ public class M {
     public static String wykorzystaj() {return "wykorzystaj()";}
     public static String wonty() {return "wonty()";}
     public static String brakPochwaly() {return "brakPochwaly()";}
+    public static String tlo(List<W> warunki) {return "tlo("+ warunki +")";}
+    public static String ukryjZlo() {return "ukryjZlo()";}
+    public static String ukryjWady() {return "ukryjWady()";}
+    public static String aktywujEmocje() {return "aktywujEmocje()";}
+    public static String wezNajwiecejDlaSiebie() {return "wezNajwiecejDlaSiebie()";}
+    public static String naklejka() {return "naklejka()";}
+    public static String zwyzywaj() {return "zwyzywaj()";}
+    public static String pobij() {return "pobij()";}
 }
