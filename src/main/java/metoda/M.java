@@ -520,4 +520,5 @@ public class M {
     public static String zwyzywaj() {return "zwyzywaj()";}
     public static String pobij() {return "pobij()";}
     public static W Option(W warunek) {return W.WARUNEK;}
+    public static W WYMAGANIA(List<W> warunki) {return W.WARUNEK;}
 }

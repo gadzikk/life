@@ -102,6 +102,13 @@ public class CPU_PRACA extends AbstractCPU {
                         manago.teoriaPrzesuwania(zasob)
                 )
         );
+        new WM(of(W._NOT_, M.WYMAGANIA(of(W.WARTOSC_DODATNIA, W.FINE, W.LADNY, W.KULTURA, W.ULEGLOSC_WZGL_MANAGERA, W.PRZYCHYLNOSC_MANAGERA,
+                                                                W.DOBRY_FEEDBACK_LUDZIE, W.ATMOSFERA))),
+                of(
+                        manago.wymaganaAkcja(ME)
+                )
+        );
+
         new WM(of(W.TWORZYSZ_PROBLEMY, W._II_, W.PSUJESZ_ATMOSFERE, W._II_, W._NOT_, W.FINE),
                 of(
                         manago.ostry(ME)

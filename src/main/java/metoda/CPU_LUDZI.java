@@ -21,7 +21,7 @@ public class CPU_LUDZI extends AbstractCPU {
     }
 
     public void relacjeWarunkowLudzi() {
-        // WADY
+        // WADY WYCHOWANIE
         new WWs(of(W.ZLE_WYCHOWANIE, W._II_, W.WYCHOWANIE_POD_KLOSZEM, W._II_, W.ROZPASANIE_ROZPIESZCZANIE, W._II_, W.SLABI_RODZICE),
                 "--->", of(W.BRAK_CIERPIENIA, W.BRAK_PRACY, W.ZAZDROSC, W.BRAK_POZNANIA_NAUKI, W.BRAK_SPORTU, W.CHEC_BEZPIECZENSTWA));
 
@@ -42,6 +42,8 @@ public class CPU_LUDZI extends AbstractCPU {
 
         new WWs(of(W.POZNANIE_WARTOSCI_PIENIADZA, W.FAZA_Z_NAUKI, W.FART, W.DZIWNA_PASJA), "--->", of(W.DOBRY_ZAWOD));
 
+        new WWs(of(W.ZNAJOMI_PRZESTEPCY, W.CHECI), "--->", of(W.JUMA));
+
         new WWs(of(W.JUMA, W.PRACA), "--->", of(W.POZNANIE_WARTOSCI_PIENIADZA));
 
         new WWs(of(W.POZNANIE_NAUKI), "--->", of(W.FAZA_Z_NAUKI));
@@ -50,7 +52,7 @@ public class CPU_LUDZI extends AbstractCPU {
 
         new WWs(of(W.PRZYCHYLNOSC_BOGA), "--->", of(W.FART));
 
-        // ZALETY
+        // ZALETY WYCHOWANIE
         new WWs(of(W.DOBRE_WYCHOWANIE, W._88_, W.SILNI_RODZICE),
                 "--->", of(W.CIERPIENIE, W.PRACA, W.ZARADNOSC, W.POZNANIE_NAUKI, W.SPORT, W.SZCZESLIWE_DZIECINSTWO));
 
@@ -81,6 +83,36 @@ public class CPU_LUDZI extends AbstractCPU {
 
         new WWs(of(W.ZLA_PRACA, W.BRAK_PIENIEDZY, W.BRAK_PERSPEKTYW, W.CHECI), "--->", of(W.ZLAMANIE_PRAWA));
 
+        new WWs(of(W.ZYSK, W.PRZEWAGA, W.SPODOBANIE_SIE), "--->", of(W.UTRZYMANIE_RELACJI));
+
+        new WWs(of(W.NIESPODOBANIE_SIE, W.BLISKOSC),"--->", of(W.WALKA_PIESCI));
+
+        // ***
+
+        // POSIADANIE
+
+        new WWs(of(W.SILA_SPRAWCZA_PRACA, W._II_, W.SILA_SPRAWCZA_ULICA),"--->", of(W.SUPERPOZYCJA));
+
+        new WWs(of(W.POSIADACZ, W.WADY),"--->", of(W.PRYWATNY_FOLWARK, W.NADUZYWANIE_WYSOKIEJ_POZYCJI));
+
+        new WWs(of(W.SUPERPOZYCJA), "--->", of(W.REALNY_WPLYW_NA_WYDARZENIA, W.REALNY_WPLYW_NA_LUDZI,
+                                                W.ULGA_DLA_SWOICH, M.Option(W.PODKOPANIE_INNYCH),
+                                                W.SILA_SPRAWCZA_W_MIEJSCU_POD_WARUNKAMI, W.OCHRONA_SWEJ_POZYCJI));
+
+        new WWs(of(W.SUPERPOZYCJA, W.PRZEWAGA_SILY, W.ATRAKCYJNA_EGOISTKA),"--->", of(W.BEZKARNOSC, W.NIE_PAMIETA_SWOICH_OFIAR,
+                                                                        M.Option(W.PYSZNY), M.Option(W.NIEOGLADA_SIE_NA_KONKURENCJE)));
+
+        new WWs(of(W.ROZMIAR, W.PODNOSZENIE_CIEZAROW, W.SILNE_UDERZENIE,
+                W.ZAPASY, W.OBRONA, W.SILNI_KUMPLE_ZDOLNI_DO_WALKI),"--->", of(W.PRZEWAGA_SILY));
+
+        // ***
+
+        // SWIADOMOSC
+
+        new WWs(of(W.SIEDZENIE_MIEJSCA_RESTRYKCYJNE, W.SIEDZENIE_OSOBY_RESTRYKCYJNE),"--->", of(W.INFORMACJA));
+
+        new WWs(of(W.WNIOSKI_HISTORIA, W.WLASCIWA_OCENA, W.TRZEZWOSC,
+                W.ZNAJOMOSC_OTOCZENIA, W.WNIOSKI_DOSWIADCZENIA, W.INFORMACJA),"--->", of(W.TRAFNE_DECYZJE));
     }
 
     public void defaultZleZachowanie() {

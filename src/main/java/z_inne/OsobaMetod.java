@@ -74,6 +74,6 @@ public class OsobaMetod {
     public OsobaMetod cisnie() {return new OsobaMetod();}
     public String skazujeNaSamotnosc() {return "skazujeNaSamotnosc()";}
     public String rozpowiedzDoWszystkich(W w) {return "rozpowiedzDoWszystkich("+w+")";}
-
+    public String wymaganaAkcja(TypOsoby osoba) {return "wymaganaAkcja("+ osoba +")";}
 
 }
