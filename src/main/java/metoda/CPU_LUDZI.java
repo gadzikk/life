@@ -95,6 +95,10 @@ public class CPU_LUDZI extends AbstractCPU {
 
         new WWs(of(W.POSIADACZ, W.WADY),"--->", of(W.PRYWATNY_FOLWARK, W.NADUZYWANIE_WYSOKIEJ_POZYCJI));
 
+        new WWs(of(W.POSIADACZ, W._88_,
+           W.UNDERDOG, W.OD_ZERA_DO_MILIONERA_PRZEZ_CIERPIENIE),"--->", of(W.ANTY_FOLWARK, W.NAJWIEKSZA_WIEDZA_STOPIEN_PO_STOPNIU,
+                                                                                W.SWIADOMOSC_PIENIADZ_NIC, W.SWIADOMOSC_SILA_SPRAWCZA_DUZO));
+
         new WWs(of(W.SUPERPOZYCJA), "--->", of(W.REALNY_WPLYW_NA_WYDARZENIA, W.REALNY_WPLYW_NA_LUDZI,
                                                 W.ULGA_DLA_SWOICH, M.Option(W.PODKOPANIE_INNYCH),
                                                 W.SILA_SPRAWCZA_W_MIEJSCU_POD_WARUNKAMI, W.OCHRONA_SWEJ_POZYCJI));

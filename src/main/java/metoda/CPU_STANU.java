@@ -43,6 +43,8 @@ public class CPU_STANU extends AbstractCPU {
 
         // sluchanie - pustkaWGlowie, wrazliwosc++, dziwneUczucie
 
+        // braksnu - nieChceSieSpac++, nieWrazliwosc++, stanuPsychiczne++, popedSexualny++
+
     }
 
     public void zmeczenie(){
