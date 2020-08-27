@@ -140,4 +140,14 @@ public class CPU_SJ extends AbstractCPU {
         cracoviaSlabi.wali().cisnie().skazujeNaSamotnosc();
         me.thread_while_loop(W.WSZEDZIE_OBCY_GADZIO);
     }
+
+    public void ciebie() {
+        new WWs(of(
+                W.KOBIETA, W.ZNAJOMOSCI, W.SAMOCHOD,
+                W.SONDA, W.UKRYCIE, W.NAKLEJ_NALEPKE, W.CISNIE, W.SKAZYWANIE_SAMOTNOSC,
+                W.BOJKA, W.ZMECZENIE, W.BRAK_CZASU,
+                W.RESTRYKCJA_ZNAJOMYCH, W.SPRZET, W.PUSTKA,
+                W.DOMINACJA
+        ),                                                                        "--->", of(W.W_CIEBIE));
+    }
 }

@@ -191,6 +191,10 @@ public class CPU_PRACA extends AbstractCPU {
         manago.setNaTobie(W.ULTRA_OCZEKWIANIA_Z_KAPELUSZA);
         manago.thread_while_loop(W.SZUKAJ_ZASTEPSTWA);
         manago.thread_while_loop(W.ZWRACAJ_WSZYSTKO_NA_REVIEW);
+        manago.thread_while_loop(M.uniz(W.DOBRE));
+        manago.thread_while_loop(M.zapomnij(W.DOBRE));
+        manago.thread_while_loop(M.wyolbrzym(W.ZLE));
+        manago.thread_while_loop(M.pamietaj(W.ZLE));
 
         manago.setNaTobie(W.OCZEKIWANIA_ULTRASZCZEGOLOWA_WIEDZA_NT_SYSTEMU_Z_KTORYM_NIEMIALES_DO_CZYNIENIA_WCZESNIEJ_NIEMOGLES_MIEC_POJECIA_JAK_DZIALA);
         manago.thread_while_loop(of(W.DAJ_ULTRA_SUPPORTOWE_NAJGORSZE_TASKI, W.IFLYRES2, W.PELNY_SUPPORT));

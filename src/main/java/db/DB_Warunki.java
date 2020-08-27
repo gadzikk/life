@@ -959,7 +959,7 @@ public class DB_Warunki {
             Arrays.asList(
                     W.ZAGRANICZNI_CIEMNI, W.ZAGRANICZNI_JASNI,
                     W.BURZUA_DZIALAJACA, W.BURZUA_NIESWIADOMA,
-                    W.DZIALACZE_PRZECIWNI, W.DUZI_TEMPI
+                    W.DZIALACZE_PRZECIWNI, W.DUZI_TEMPI, W.TEGO_CO_RUCHA
             )
     );
 

@@ -268,6 +268,7 @@ public class CPU_UL extends AbstractCPU {
         kibicowanieUjecie();
         krajobrazUlicy();
         dojscieDoWalki();
+        ulicaRelacjeWarunkow();
     }
     public void shortest(){
         List<W> stan = of(W.WYSILEK_UMYSLOWY, W.WYSILEK_FIZYCZNY, W.DUZO_ZARCIA, W.WZROK, W.SAMOPOCZUCIE);
@@ -668,9 +669,14 @@ public class CPU_UL extends AbstractCPU {
         public void shortestSonda(){
             new WM(of(W.MEZCZYZNA),
                     of(
+                            M.sonda(W.SWIADOMOSC), // 1: FEST
+                            M.sonda(W.SILA_SPRAWCZA), // WPLYW: 0
                             M.sonda(W.ROZMIAR),
-                            M.sonda(W.SRODOWISKO),
-                            M.sonda(W.CZYNY_DZIALANIA)
+                            M.sonda(W.ZLO_DOBRO), // UZASADNIENIE: 0
+                            M.sonda(W.WIEK),
+                            M.sonda(W.CZY_CWEL) // NICNIEMOZE : 0
+//                            M.sonda(W.SRODOWISKO),
+//                            M.sonda(W.CZYNY_DZIALANIA)
                     )
             );
 
@@ -915,6 +921,17 @@ public class CPU_UL extends AbstractCPU {
             M.tlo(of(W.AGRESJA, W.WKURWIENIE, W.ZLO, W.DOSTEP));
         }
         public void dojscieDoWalki() {
-            M.NEEDED(of(W.BEZPRZYPALOWE_MIEJSCE, W.OPPONENT_NIEPRZESTRASZONY));
+            M.NEEDED(of(W.BEZPRZYPALOWE_MIEJSCE, W.OPPONENT_NIEPRZESTRASZONY, W.BLISKOSC_70PROC));
+        }
+        public void ulicaRelacjeWarunkow() {
+            new WWs(of(W.MILY_TEAMT, W.ZARTY, W.POCHWALA, W.WSPARCIE, W.DOBRE_EMOCJE), "--->", of(W.DOBRA_ROZMOWA));
+
+            new WWs(of(W.PIERWSZA_REAKCJA, W.REAKCJA_PO_SONDZIE, W.REAKCJA_PO_NARADZIE), "--->", of(W.REAKCJA));
+
+            new WWs(of(W.KOBIETA_W_ZWIAZKU), "--->", of(W.NAPEWNO_DAJE));
+
+            new WWs(of(W.CIEKAWOSC_LUDZI, W.CIEKAWOSC_NIE_DEFAULTOWYCH_SYTUACJI), "--->", of(W.ATRAKCYJNOSC_ULICY));
+
+            new WWs(of(W.MALO_CZASU, W.NIE_ODZYWA_SIE), "--->", of(W.BRAK_SONDY));
         }
 }

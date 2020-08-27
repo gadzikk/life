@@ -21,11 +21,13 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
                 W.ROBIENIE_CIERPIENIA,
                 W.WIECZNA_PRZEGRANA,
                 W.OBOWIAZEK_ZLA,
-
+                W.PRAGNIENIE_ZLA,
+                W.NASTAWIENIE_NA_ZLO,
+                W.SONDA_ZLO,
 
                 W.BIEGANIE,
                 W.NARKOTYKI,
-                W.KAZDY_KAZDEGO_AGRESJA_BEZSENSOWNIE,
+                W.KAZDY_KAZDEGO_AGRESJA_DLA_EMOCJI,
 
                 W.KLAMSTWO,
 

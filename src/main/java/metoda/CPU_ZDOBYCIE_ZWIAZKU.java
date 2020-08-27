@@ -79,6 +79,10 @@ public class CPU_ZDOBYCIE_ZWIAZKU extends AbstractCPU {
             )
     );
 
+    public void reakcja() {
+        new WWs(of(W.NIE_ZNAJA, W.NIE_KOJARZY, W.BRAK_WSPOLNYCH_ZNAJOMYCH), "--->", of(W.ODMOWA));
+    }
+
 
 
 //    __Bariery do znalezienia zwiazku [K] *s* >
