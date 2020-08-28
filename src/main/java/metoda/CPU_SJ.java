@@ -116,6 +116,8 @@ public class CPU_SJ extends AbstractCPU {
         wsrodLudzi();
         prioriDzialania();
         typyOsobZMojejPerspektywy();
+        ciebie();
+        denerwuje();
     }
 
     public void wsrodLudzi() {
@@ -149,5 +151,9 @@ public class CPU_SJ extends AbstractCPU {
                 W.RESTRYKCJA_ZNAJOMYCH, W.SPRZET, W.PUSTKA,
                 W.DOMINACJA
         ),                                                                        "--->", of(W.W_CIEBIE));
+    }
+
+    public void denerwuje() {
+        List<W> denerwuje = of(W.BEZKARNOSC ,W.NIESPRAWNOSC, W.RESET, W.PRZEWAGA_MIMO_BLEDU, W.BRAK_KONSEKWENCJI);
     }
 }
