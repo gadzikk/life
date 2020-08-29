@@ -56,6 +56,9 @@ public class AbstractCPU {
     OsobaMetod cracoviaSlabi = new OsobaMetod();
     OsobaMetod wysokaPozycja = new OsobaMetod();
     OsobaMetod silaFizyczna = new OsobaMetod();
+    OsobaMetod diabel = new OsobaMetod();
+    OsobaMetod usa = new OsobaMetod();
+    OsobaMetod polskiRzad = new OsobaMetod();
     Integer i = 0;
 
     public <T> List<T> of(T... elements){

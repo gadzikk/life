@@ -16,7 +16,6 @@ import java.util.List;
  * Created by gadzik on 21.12.19.
  */
 public class M {
-
     public static String wejsciePlansza(List<W> plansza){
         return "wejsciePlansza("+ plansza +")";
     }
@@ -525,4 +524,8 @@ public class M {
     public static W zapomnij(W warunek) {return W.WARUNEK;}
     public static W wyolbrzym(W warunek) {return W.WARUNEK;}
     public static W pamietaj(W warunek) {return W.WARUNEK;}
+    public static String subscribe(List<W> warunki) {return "subscribe("+ warunki +")"; }
+    public static W MALO(List<W> warunki) {return W.WARUNEK;}
+    public static W oddalanieSieOdWalkiZagrozenia(List<W> warunki) {return W.WARUNEK;}
+    public static W oddalanieOdKonkurencji(List<W> warunki) {return W.WARUNEK;}
 }

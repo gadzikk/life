@@ -45,6 +45,8 @@ public class CPU_STANU extends AbstractCPU {
 
         // braksnu - nieChceSieSpac++, nieWrazliwosc++, stanuPsychiczne++, popedSexualny++
 
+        // mocnyWzrok x wysilekFiyzyczny x wysilekUmyslowy x nocki => stan mordercy niezlomny
+
     }
 
     public void zmeczenie(){

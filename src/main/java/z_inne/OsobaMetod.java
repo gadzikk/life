@@ -71,6 +71,8 @@ public class OsobaMetod {
     public String informacjeZGory() {return "informacjeZGory()";}
     public String przerwanie(W w) {return "przerwanie("+w+")";}
     public OsobaMetod wali() {return new OsobaMetod();}
+    public OsobaMetod waliWedlePreferencji() {return new OsobaMetod();}
+    public OsobaMetod wali(OsobaMetod osobaMetod) {return new OsobaMetod();}
     public OsobaMetod cisnie() {return new OsobaMetod();}
     public String skazujeNaSamotnosc() {return "skazujeNaSamotnosc()";}
     public String rozpowiedzDoWszystkich(W w) {return "rozpowiedzDoWszystkich("+w+")";}

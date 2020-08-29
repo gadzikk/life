@@ -935,5 +935,22 @@ public class CPU_UL extends AbstractCPU {
             new WWs(of(W.MALO_CZASU, W.NIE_ODZYWA_SIE), "--->", of(W.BRAK_SONDY));
 
             new WWs(of(W.DOSTRZEZENIE_OKAZJI, W.NASTAWIENIE), "--->", of(W.ZAMKNIECIE));
+
+            new WWs(of(W.BEZKARNOSC, W.ZLE_EMOCJE, W.PRZEWAGA, W.NARKOTYKI), "--->", of(W.ZACHETA_DO_ZLA));
+
+            new WWs(of(W.OBECNOSC, W.ZOBACZENIE_WARTOSCI, W.DZIALANIE,
+                    W.NIEDANIE_WYBORU, W._II_, W.ZDOMINOWANIE, W.UTRZYMANIE), "--->", of(W.OSIAGNIECIE_WARUNKU));
+
+            new WWs(of(W.BOKS_DLUGOTRWALY), "--->", of(W.UZALEZNIENIE_OD_SPORTU));
+
+            new WWs(of(W.OSOBA_ZASIEG_WZROKU), "--->", of(W.SONDA_PO_WADACH));
+
+            new WWs(of(W.SRODOWISKO, W.UMNIEJSZANIE_WAD, W.WZAJEMNE_WSPARCIE,
+            M.oddalanieSieOdWalkiZagrozenia(of(W.SKAZYWANIE_SAMOTNOSC, W.PRZEWAGA, W.PRZYJEMNOSC)),
+            M.oddalanieOdKonkurencji(of(W.SIEDZENIE_MELINY, W.PRZYCHYLNOSC))),                "--->", of(W.NIE_ODKRYTY, W.BRAK_TRUDNOSCI,
+                                                                                                                W.NIE_ODKRYCIE_WAD));
+            new WWs(of(W.NIEDOJEBANIE_UMYSLOWE,W.NIEDOJEBANIE_FIZYCZNE, W.AGRESJA,
+                    W.DOMINACJA, W.GLEBOKO_SZUKA_ZLA, W.TRAKTUJA_SIE_JAK_DZIECI,
+                        W.NIE_ODKRYTY, W.BRAK_TRUDNOSCI, W.NIE_ODKRYCIE_WAD), "--->", of(W.DZIALAJACY));
         }
 }

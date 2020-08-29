@@ -86,6 +86,12 @@ public class CPU_SJ extends AbstractCPU {
     List<String> wrogowie = of("KLAUDIUSZ", "ZBYSIU_SHN", "BANIA_WSH");
 
     public void run() {
+        M.subscribe(of(
+                W.ZAGROZENIA,
+                W.WARTOSC,
+                W.ULICA
+        ));
+
         new WM(of(W._NOT_, W.PRZED_9, W._88_, W.PO_17),
                 of(M.REMOVE(ME, W.DZIEN))
         );
@@ -118,6 +124,7 @@ public class CPU_SJ extends AbstractCPU {
         typyOsobZMojejPerspektywy();
         ciebie();
         denerwuje();
+        zagrozenia();
     }
 
     public void wsrodLudzi() {
@@ -155,5 +162,10 @@ public class CPU_SJ extends AbstractCPU {
 
     public void denerwuje() {
         List<W> denerwuje = of(W.BEZKARNOSC ,W.NIESPRAWNOSC, W.RESET, W.PRZEWAGA_MIMO_BLEDU, W.BRAK_KONSEKWENCJI);
+    }
+
+    public void zagrozenia() {
+        W oni = M.MALO(of(W.SPRZET, W.ZNAJOMOSCI, W.FOTY, W.NAKLEJ_NALEPKE));
+        List<W> ja = of(W.OTWARTE_STARCIE, W.GLOSNO_CISNIECIE, W.WALKA_PIESCI);
     }
 }

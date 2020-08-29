@@ -13,6 +13,7 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
         dobro();
         dobroDzialacz();
         general();
+        zloUjecieSwiatowe();
     }
 
     public void zlo() {
@@ -24,6 +25,7 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
                 W.PRAGNIENIE_ZLA,
                 W.NASTAWIENIE_NA_ZLO,
                 W.SONDA_ZLO,
+                W.GLEBOKO_SZUKA_ZLA,
 
                 W.BIEGANIE,
                 W.NARKOTYKI,
@@ -87,5 +89,11 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
                 W.POBIJ_JAK_NAJWIECEJ_OSOB,
                 W.ZDOBADZ_JAK_NAJWIECEJ_PRZEWAG
         );
+    }
+    public void zloUjecieSwiatowe() {
+        diabel.wali(usa);
+        usa.wali(polskiRzad);
+        polskiRzad.wali(osoba);
+        osoba.waliWedlePreferencji();
     }
 }
