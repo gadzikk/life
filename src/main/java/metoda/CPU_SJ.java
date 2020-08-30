@@ -86,6 +86,8 @@ public class CPU_SJ extends AbstractCPU {
     List<String> wrogowie = of("KLAUDIUSZ", "ZBYSIU_SHN", "BANIA_WSH");
 
     public void run() {
+        W nastawienie = W.AKTYWNA_KONTRA;
+
         M.subscribe(of(
                 W.ZAGROZENIA,
                 W.WARTOSC,
