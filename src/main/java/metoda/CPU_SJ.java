@@ -83,7 +83,7 @@ public class CPU_SJ extends AbstractCPU {
     List<String> przyjaciele = of("RENA_RODZINA", "T_RODZINA", "DZIADZIUS_RODZINA", "KS_ANDRZEJ_RODZINA",
             "CIOCIA_RODZINA", "ANIA_RODZINA", "DOMINIK_RODZINA", "JANIO_RODZINA", "OLUS_RODZINA");
 
-    List<String> wrogowie = of("KLAUDIUSZ", "ZBYSIU_SHN", "BANIA_WSH");
+    List<String> wrogowie = of("KLAUDIUSZ", "ZBYSIU_SHN", "BANIA_WSH", "HOOLIGANS", "SLAWO_KPC", "LYSY_KPC");
 
     public void run() {
         W nastawienie = W.AKTYWNA_KONTRA;
@@ -121,6 +121,9 @@ public class CPU_SJ extends AbstractCPU {
                         M.GRANT(SOMEONE, W.FRAJER_DOSTAJE)
                 )
         );
+
+        new WWs(of(W._NOT_, W.SPRZECIW_WZGLEDEM_ZLA), "--->", of(W.CALE_ZLO_W_CIEBIE));
+
         wsrodLudzi();
         prioriDzialania();
         typyOsobZMojejPerspektywy();

@@ -17,6 +17,8 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
     }
 
     public void zlo() {
+        M.FIRST(of(W.KTOS_CIEBIE_LUB_TY_NIEGO, W.SONDA_POD_ZROBIENIE_ZLA, W.AGRESJA, W.ZASOBY_OGRANICZONE));
+
         List<W> conditions = of(
                 W.WDUPCANIE_WSZYSTKICH,
                 W.ROBIENIE_CIERPIENIA,
@@ -24,7 +26,7 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
                 W.OBOWIAZEK_ZLA,
                 W.PRAGNIENIE_ZLA,
                 W.NASTAWIENIE_NA_ZLO,
-                W.SONDA_ZLO,
+                W.SONDA_POD_ZROBIENIE_ZLA,
                 W.GLEBOKO_SZUKA_ZLA,
 
                 W.BIEGANIE,

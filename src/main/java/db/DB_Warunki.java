@@ -1103,6 +1103,12 @@ public class DB_Warunki {
             )
     );
 
+    public static WarunkiKategoria NASTAWIENIA = new WarunkiKategoria(
+            new Kategoria(TypKategoria.LUDZIE, TypKategoria.NASTAWIENIE),
+            Arrays.asList(
+                    W.AGRESJA, W.KONTEMPLACJA, W.PRACA, W.OSZUKANIE_WDUPCENIE, W.DOBRO, W.POZNANIE, W.KONTRA, W.PRZYJEMNOSCI
+            )
+    );
 
     public static List<WarunkiKategoria> ZLY_DOBRY = Arrays.asList(
             PRZYCZYNY_ZLA,
@@ -1121,7 +1127,8 @@ public class DB_Warunki {
             WARTOSC_ZLA,
             WARTOSC_DOBRA,
             OCENIA_WEDLUG,
-            KRYTERIA_WROGA
+            KRYTERIA_WROGA,
+            NASTAWIENIA
     );
 
     public static List<WarunkiKategoria> ZASADY_PRZYMUS_ZAGROZENIA = Arrays.asList(

@@ -926,9 +926,13 @@ public class CPU_UL extends AbstractCPU {
         public void ulicaRelacjeWarunkow() {
             new WWs(of(W.MILY_TEAMT, W.ZARTY, W.POCHWALA, W.WSPARCIE, W.DOBRE_EMOCJE), "--->", of(W.DOBRA_ROZMOWA));
 
+            new WsWs(of(W.SONDA), "--->", of(W.NASTAWIENIE), "--->", of(W.DZIALANIE));
+
             new WWs(of(W.PIERWSZA_REAKCJA, W.REAKCJA_PO_SONDZIE, W.REAKCJA_PO_NARADZIE), "--->", of(W.REAKCJA));
 
             new WWs(of(W.KOBIETA_W_ZWIAZKU), "--->", of(W.NAPEWNO_DAJE));
+
+            new WWs(of(W.ZLE_W_ZYCIU), "--->", of(W.ROBI_GORZEJ_INNYM));
 
             new WWs(of(W.CIEKAWOSC_LUDZI, W.CIEKAWOSC_NIE_DEFAULTOWYCH_SYTUACJI), "--->", of(W.ATRAKCYJNOSC_ULICY));
 
@@ -952,5 +956,11 @@ public class CPU_UL extends AbstractCPU {
             new WWs(of(W.NIEDOJEBANIE_UMYSLOWE,W.NIEDOJEBANIE_FIZYCZNE, W.AGRESJA,
                     W.DOMINACJA, W.GLEBOKO_SZUKA_ZLA, W.TRAKTUJA_SIE_JAK_DZIECI,
                         W.NIE_ODKRYTY, W.BRAK_TRUDNOSCI, W.NIE_ODKRYCIE_WAD), "--->", of(W.DZIALAJACY));
+
+            new WsWs(of(W.LADNY, W.SILNY), "--->", of(W.SONDA_POD_ZROBIENIE_ZLA, W._88_, W.SLABY), "--->", of(W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE));
+
+            new WsWs(of(W.LADNY, W.SILNY), "--->", of(W.SONDA_POD_ZROBIENIE_ZLA, W._88_, W.SILNY), "--->", of(W.OTWARTE_STARCIE, W.WALKA_PIESCI));
+
+            new WWs(of(W.ZLY, W._88_, W.PRZEWAGA), "--->", of(W.WALI_OSOBE_BEZ_PRZEWAGI, W.BEZKARNOSC, W.GLUPOTA));
         }
 }
