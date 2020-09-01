@@ -20,6 +20,7 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
         M.FIRST(of(W.KTOS_CIEBIE_LUB_TY_NIEGO, W.SONDA_POD_ZROBIENIE_ZLA, W.AGRESJA, W.ZASOBY_OGRANICZONE));
 
         List<W> conditions = of(
+                W.NIE_ZATRZYMA_SIE,
                 W.WDUPCANIE_WSZYSTKICH,
                 W.ROBIENIE_CIERPIENIA,
                 W.WIECZNA_PRZEGRANA,
