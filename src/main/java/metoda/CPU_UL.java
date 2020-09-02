@@ -669,14 +669,16 @@ public class CPU_UL extends AbstractCPU {
         public void shortestSonda(){
             new WM(of(W.MEZCZYZNA),
                     of(
+                            M.sonda(W.Z_KIM),
                             M.sonda(W.SWIADOMOSC), // 1: FEST
                             M.sonda(W.SILA_SPRAWCZA), // WPLYW: 0
                             M.sonda(W.ROZMIAR),
                             M.sonda(W.ZLO_DOBRO), // UZASADNIENIE: 0
                             M.sonda(W.WIEK),
-                            M.sonda(W.CZY_CWEL) // NICNIEMOZE : 0
+                            M.sonda(W.CZY_CWEL), // NICNIEMOZE : 0
 //                            M.sonda(W.SRODOWISKO),
 //                            M.sonda(W.CZYNY_DZIALANIA)
+                            M.sonda(W.GDZIE)
                     )
             );
 
@@ -813,7 +815,7 @@ public class CPU_UL extends AbstractCPU {
         }
         public void hierarchiaOsiedle(){
             List<W> warunki = of(W.ANTY_NORMALNOSC, W.HIERARCHIA, W.ZAZDROSC, W.BRAK_ZASAD, W.TWORZENIE_WZAJEMNEGO_CIERPIENIA,
-                    W.ZLO, W.NUDA, W.ZLE_EMOCJE);
+                    W.ZLO, W.NUDA, W.EMOCJE_ZE_ZLA);
 
             OH przydupas = new OH();
             OH przydupas2 = new OH();
@@ -924,6 +926,8 @@ public class CPU_UL extends AbstractCPU {
             M.NEEDED(of(W.BEZPRZYPALOWE_MIEJSCE, W.OPPONENT_NIEPRZESTRASZONY, W.BLISKOSC_70PROC));
         }
         public void ulicaRelacjeWarunkow() {
+            M.NIGDY_MALO(of(W.KASA, W.AGRESJA, W.SEX));
+
             new WWs(of(W.MILY_TEAMT, W.ZARTY, W.POCHWALA, W.WSPARCIE, W.DOBRE_EMOCJE), "--->", of(W.DOBRA_ROZMOWA));
 
             new WsWs(of(W.SONDA), "--->", of(W.NASTAWIENIE), "--->", of(W.DZIALANIE));
@@ -940,7 +944,7 @@ public class CPU_UL extends AbstractCPU {
 
             new WWs(of(W.DOSTRZEZENIE_OKAZJI, W.NASTAWIENIE), "--->", of(W.ZAMKNIECIE));
 
-            new WWs(of(W.BEZKARNOSC, W.ZLE_EMOCJE, W.PRZEWAGA, W.NARKOTYKI), "--->", of(W.ZACHETA_DO_ZLA));
+            new WWs(of(W.BEZKARNOSC, W.EMOCJE_ZE_ZLA, W.PRZEWAGA, W.NARKOTYKI), "--->", of(W.ZACHETA_DO_ZLA));
 
             new WWs(of(W.OBECNOSC, W.ZOBACZENIE_WARTOSCI, W.DZIALANIE,
                     W.NIEDANIE_WYBORU, W._II_, W.ZDOMINOWANIE, W.UTRZYMANIE), "--->", of(W.OSIAGNIECIE_WARUNKU));
@@ -962,5 +966,10 @@ public class CPU_UL extends AbstractCPU {
             new WsWs(of(W.LADNY, W.SILNY), "--->", of(W.SONDA_POD_ZROBIENIE_ZLA, W._88_, W.SILNY), "--->", of(W.OTWARTE_STARCIE, W.WALKA_PIESCI));
 
             new WWs(of(W.ZLY, W._88_, W.PRZEWAGA), "--->", of(W.WALI_OSOBE_BEZ_PRZEWAGI, W.BEZKARNOSC, W.GLUPOTA));
+
+            new WWs(of(W.NUDA, W.KTOS_CIEBIE_LUB_TY_NIEGO,
+                    W.AGRESJA, W.EMOCJE_ZE_ZLA), "--->", of(W.WALI_OSOBE_BEZ_PRZEWAGI, W.OSZUKANIE_WDUPCENIE, W.BEZKARNOSC, W.GLUPOTA));
+
+            new WWs(of(W.DZIALANIE_POZA_RANGA), "--->", of(W.OGLUPIANIE, W.KLAMSTWO, W.PO_CICHU, W.ZAMKNIJ_ZASOB));
         }
 }
