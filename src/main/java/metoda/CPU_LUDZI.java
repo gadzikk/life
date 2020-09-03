@@ -13,6 +13,9 @@ import static typy_bazowe.TypOsoby.SOMEONE;
 public class CPU_LUDZI extends AbstractCPU {
     public void run() {
         relacjeWarunkowLudzi();
+        srodki();
+        ochrona();
+        defaultZleZachowanie();
         endCasyWarunkow();
         opisZachowanTypOsoby();
         teoriaZla();
@@ -119,6 +122,31 @@ public class CPU_LUDZI extends AbstractCPU {
 
         new WWs(of(W.WNIOSKI_HISTORIA, W.WLASCIWA_OCENA, W.TRZEZWOSC,
                 W.ZNAJOMOSC_OTOCZENIA, W.WNIOSKI_DOSWIADCZENIA, W.INFORMACJA),"--->", of(W.TRAFNE_DECYZJE));
+    }
+
+    public void srodki() {
+        List<W> srodkiFest = of(W.KOLKO_WZAJEMNEJ_ADORACJI, W.WSPARCIE, W.ZNAJOMOSC_FESTOW, W.WYKLUCZENIE,
+                W.ZLAMANIE_STANDARDU, W.OSZUKANIE_WDUPCENIE, W.OBGADAC);
+        List<W> antyFest = of(W.ROZWALENIE_KOLKA_ADORACJI, W.ZNAJOMOSC_RDZENNYCH, W.SILA);
+
+        List<W> srodkiSlaby = of(W.KOLKO_WZAJEMNEJ_ADORACJI, W.WSPARCIE, W.ZNAJOMOSC_SLABYCH, W.WYKLUCZENIE,
+                W.ZLAMANIE_STANDARDU, W.OSZUKANIE_WDUPCENIE, W.PO_CICHU, W.OBGADAC);
+        List<W> antySlaby = of(W.OTWARTE_STARCIE, W.SILA, W.ZNAJOMOSC_RDZENNYCH, W.ROZWALENIE_KOLKA_ADORACJI);
+
+        List<W> srodkiRdzenny = of(W.WALKA_PIESCI, W.WALKA_SPRZET, W.ZNAJOMOSC_RDZENNYCH, W.NIEBOI_SIE_WYROKU);
+        List<W> antyRdzenny = of(W.CZOLO, W.PSYCHO, W.BRAK_SENSU);
+
+        List<WWs> srodkiPosiadacz = of(
+                new WWs(of(W.WARTOSC),"--->", of(W.USTALA_ZASADY)),
+                new WWs(of(W.NIE_PRZESTRZEGANIE_ZASAD),"--->", of(W.ODCIECIE_DOSTEPU_WARTOSC))
+        );
+        List<W> antyPosiadacz = of(W.ZNISZCZ_WARTOSC, W.ROB_STARTE, W.ZABURZ_SPOKOJ);
+    }
+
+    public void ochrona() {
+        M.OCHRONA(new WWs(of(W.PRZEJEBANOSC_REGIONU), "--->", of(W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE, W.SPRZET, W.AGRESJA, W.ZLO)));
+        M.OCHRONA(new WWs(of(W.SEX), "--->", of(W.WALKA_PIESCI, W.SKAZYWANIE_SAMOTNOSC, W.OBGADAC, W.EMOCJE_ZE_ZLA)));
+        M.OCHRONA(new WWs(of(W.PRACA), "--->", of(W.PRZYDUPASZENIE, W.WYKONYWANIE_PRACY)));
     }
 
     public void defaultZleZachowanie() {

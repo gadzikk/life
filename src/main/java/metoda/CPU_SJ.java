@@ -83,7 +83,8 @@ public class CPU_SJ extends AbstractCPU {
     List<String> przyjaciele = of("RENA_RODZINA", "T_RODZINA", "DZIADZIUS_RODZINA", "KS_ANDRZEJ_RODZINA",
             "CIOCIA_RODZINA", "ANIA_RODZINA", "DOMINIK_RODZINA", "JANIO_RODZINA", "OLUS_RODZINA");
 
-    List<String> wrogowie = of("KLAUDIUSZ", "ZBYSIU_SHN", "BANIA_WSH", "HOOLIGANS", "SLAWO_KPC", "LYSY_KPC");
+    List<String> wrogowie = of("KLAUDIUSZ", "ZBYSIU_SHN", "BANIA_WSH", "HOOLIGANS", "SLAWO_KPC", "LYSY_KPC",
+            "SZYDELKO", "KOTALA");
 
     public void run() {
         W nastawienie = W.AKTYWNA_KONTRA;
@@ -130,6 +131,7 @@ public class CPU_SJ extends AbstractCPU {
         ciebie();
         denerwuje();
         zagrozenia();
+        antyPan();
     }
 
     public void wsrodLudzi() {
@@ -172,5 +174,10 @@ public class CPU_SJ extends AbstractCPU {
     public void zagrozenia() {
         W oni = M.MALO(of(W.SPRZET, W.ZNAJOMOSCI, W.FOTY, W.NAKLEJ_NALEPKE));
         List<W> ja = of(W.OTWARTE_STARCIE, W.GLOSNO_CISNIECIE, W.WALKA_PIESCI);
+    }
+
+    public void antyPan() {
+        List<W> antyPan = of(W.GRZEBANIE_W_KIBLU_CODZIEN, W.MALY_ODZEW_SZUKANIE_PRACY, W.JEBANIE_PRZEZ_MANAGEROW_ZAWSZE,
+                W.NIEMOZESZ_WYDAC_KASY);
     }
 }

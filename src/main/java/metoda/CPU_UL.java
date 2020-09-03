@@ -971,5 +971,15 @@ public class CPU_UL extends AbstractCPU {
                     W.AGRESJA, W.EMOCJE_ZE_ZLA), "--->", of(W.WALI_OSOBE_BEZ_PRZEWAGI, W.OSZUKANIE_WDUPCENIE, W.BEZKARNOSC, W.GLUPOTA));
 
             new WWs(of(W.DZIALANIE_POZA_RANGA), "--->", of(W.OGLUPIANIE, W.KLAMSTWO, W.PO_CICHU, W.ZAMKNIJ_ZASOB));
+
+            new WWs(of(W.SRODOWISKO, W.UMNIEJSZANIE_WAD, W.WZAJEMNE_WSPARCIE,
+                    M.oddalanieSieOdWalkiZagrozenia(of(W.SKAZYWANIE_SAMOTNOSC, W.PRZEWAGA, W.PRZYJEMNOSC)),
+                    M.oddalanieOdKonkurencji(of(W.SIEDZENIE_MELINY, W.PRZYCHYLNOSC,
+                    W.OGLUPIANIE, W.KLAMSTWO, W.PO_CICHU, W.ZAMKNIJ_ZASOB)),
+                    W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE, W.SPRZET, W.AGRESJA, W.ZLO),   "--->", of(W.NIESPRAWIEDLIWI,
+                                                                                                        W.NIESPRAWIEDLIWE_PRZEWAGI,
+                                                                                                        W.EMOCJE_ZE_ZLA));
+            new WWs(of(W.ZLY, W._88_, W.WIDZIAL) , "--->", of(W.ODRAZU_ZLO,
+                                                                  W.PRAGNIENIE_ZLA));
         }
 }

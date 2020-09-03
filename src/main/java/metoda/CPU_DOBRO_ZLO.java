@@ -29,6 +29,7 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
                 W.NASTAWIENIE_NA_ZLO,
                 W.SONDA_POD_ZROBIENIE_ZLA,
                 W.GLEBOKO_SZUKA_ZLA,
+                W.EMOCJE_ZE_ZLA,
 
                 W.BIEGANIE,
                 W.NARKOTYKI,
@@ -47,7 +48,7 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
 
                 W.PRZEWROTNE_FARYZEJSKIE_SUMIENIE,
                 W.PRZEWAGA_NA_STARCIE,
-                W.ZAZDROSC, W.ZAWISC, W.KRZYWDA
+                W.ZAZDROSC, W.ZAWISC, W.KRZYWDA, W.NIENAWISC
         );
         List<W> NOWY = of(W.NAKLEJ_NALEPKE, W.WDUPC_ZAKLECIEM,
                 W.WYJEBAC_ZDJECIA, W.PRZESTRZELIC, W.SKAZYWANIE_SAMOTNOSC, W.ZWYZYWAC, W.OBGADAC, W.POBIC, W.SHANBIC);
@@ -55,6 +56,8 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
         List<W> sprawdzajacy = of(W.GLUPI, W.AGRESYWNI, W.TEMPIENI_BYLI, W.BEZ_WSTYDU, W.BEZ_ZASAD, W.BRAK_SUMIENIA);
         List<W> staziBiegacze = of(W.DUZI_TEMPI, W.AGRESYWNI, W.ULEGLI, W.ZALEZNY, W.UZALZENIENI);
         List<W> mlodziBiegacze = of(W.WYKRECONE_SZCZURKI, W.OFERMY, W.NIEZDOLNOSC_DO_WYSILKU, W.UZALZENIENI);
+
+        new WWs(of(W.ZLY, W._88_, W.WIDZIAL) , "--->", of(W.ODRAZU_ZLO, W.PRAGNIENIE_ZLA));
     }
     public void dobro() {
         List<W> conditions = of(
