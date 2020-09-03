@@ -926,7 +926,8 @@ public class CPU_UL extends AbstractCPU {
             M.NEEDED(of(W.BEZPRZYPALOWE_MIEJSCE, W.OPPONENT_NIEPRZESTRASZONY, W.BLISKOSC_70PROC));
         }
         public void ulicaRelacjeWarunkow() {
-            M.NIGDY_MALO(of(W.KASA, W.AGRESJA, W.SEX));
+            M.NIGDY_MALO(of(W.KASA, W.SEX, W.PRZYJEMNOSCI)); // MATERIALNE
+            M.NIGDY_MALO(of(W.ZLO, W.DOBRO, W.NIENAWISC, W.MILOSC, W.AGRESJA, W.CIERPLIWOSC)); // MORALNE
 
             new WWs(of(W.MILY_TEAMT, W.ZARTY, W.POCHWALA, W.WSPARCIE, W.DOBRE_EMOCJE), "--->", of(W.DOBRA_ROZMOWA));
 
