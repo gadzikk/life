@@ -694,6 +694,11 @@ public class CPU_UL extends AbstractCPU {
         }
 
         public void sonda(){
+            new WWs(of(W.SONDA_ZASOBU), "--->", of(W.WARTOSC, W.TRUDNOSC_UTRZYMANIA));
+
+            new WWs(of(W.SONDA_DZIALANIA), "--->", of(W.WARTOSC, W.BEZPIECZENSTWO, W.KONSEKWENCJE,
+                                                                        W.CZESTOTLIWOSC,W.EFEKTYWNOSC));
+
             new WM(of(W.LADNY, W._88_, W.BRAK_CIERPIENIA),
                     of(
                             M.GRANT(ME, W.NIEGODNY_POPATRZENIA)
@@ -935,6 +940,10 @@ public class CPU_UL extends AbstractCPU {
 
             new WWs(of(W.PIERWSZA_REAKCJA, W.REAKCJA_PO_SONDZIE, W.REAKCJA_PO_NARADZIE), "--->", of(W.REAKCJA));
 
+            new WWs(of(W.DEFAULT_REAKCJA_ZLO), "--->", of(W.ZNIECZULICA));
+
+            new WWs(of(W.DEFAULT_REAKCJA_DOBRO), "--->", of(W.ZNISZCZYC));
+
             new WWs(of(W.KOBIETA_W_ZWIAZKU), "--->", of(W.NAPEWNO_DAJE));
 
             new WWs(of(W.ZLE_W_ZYCIU), "--->", of(W.ROBI_GORZEJ_INNYM));
@@ -982,5 +991,8 @@ public class CPU_UL extends AbstractCPU {
                                                                                                         W.EMOCJE_ZE_ZLA));
             new WWs(of(W.ZLY, W._88_, W.WIDZIAL) , "--->", of(W.ODRAZU_ZLO,
                                                                   W.PRAGNIENIE_ZLA));
+
+            new WWs(of(W.TEORIA_RYWALIZACJI, W.BLISKOSC), "--->", of(W.KTOS_CIEBIE_LUB_TY_NIEGO, W.ZAMKNIJ_ZASOB,
+                                                                    W.WYKORZYSTUJ, W.OSZUKANIE_WDUPCENIE, W.POBIC));
         }
 }

@@ -17,6 +17,8 @@ public class CPU_ZDOBYCIE_ZWIAZKU extends AbstractCPU {
 
     List<W> warunki = of(W.DEFICYT_WSROD_STARYCH, W.MALE_ZRODLO_MLODYCH_KOBIET, W.POCIAG_DO_ZAGRANICZNYCH);
 
+    List<W> kobieta = of(W.CHODZI_Z_BYLEKIM, W.BYLE_BEZPIECZENSTWO, W.PRZYJEMNOSCI);
+
     WMWM kontakty = new WMWM(
             of(W.PIERWSZY_KONTAKT),
             of(M.odmowa()),

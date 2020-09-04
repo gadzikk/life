@@ -60,6 +60,7 @@ public class AbstractCPU {
     OsobaMetod usa = new OsobaMetod();
     OsobaMetod polskiRzad = new OsobaMetod();
     Integer i = 0;
+    List<W> warunki;
 
     public <T> List<T> of(T... elements){
         return Arrays.asList(elements);

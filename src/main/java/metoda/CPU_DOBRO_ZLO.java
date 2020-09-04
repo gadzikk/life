@@ -14,6 +14,7 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
         dobroDzialacz();
         general();
         zloUjecieSwiatowe();
+        wyborKazdegoCzlowieka();
     }
 
     public void zlo() {
@@ -107,5 +108,16 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
         usa.wali(polskiRzad);
         polskiRzad.wali(osoba);
         osoba.waliWedlePreferencji();
+    }
+
+    public void wyborKazdegoCzlowieka() {
+        List<W> spotykaKazdego = of(W.CIERPIENIE, W.NIESPRAWIEDLIWOSC, W.PRZEWAGA);
+        W sciezkaZycia;
+        if(warunki.containsAll(of(W.MADROSC, W.SUMIENIE, W.BOI_SIE_BOGA))){
+            sciezkaZycia = W.IDZIE_W_PRAWO;
+        }
+        else if(warunki.containsAll(of(W.PRZYJEMNOSCI, W.EMOCJE, W.PRAGNIENIE_ZLA))){
+            sciezkaZycia = W.IDZIE_W_LEWO;
+        }
     }
 }

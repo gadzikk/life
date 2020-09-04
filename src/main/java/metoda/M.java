@@ -531,4 +531,6 @@ public class M {
     public static String FIRST(List<W> warunki) {return "FIRST("+ warunki +")";}
     public static String NIGDY_MALO(List<W> warunki) {return "NIGDY_MALO("+ warunki +")";}
     public static String OCHRONA(WWs warunki) {return "OCHRONA("+ warunki +")";}
+    public static W WHILE() {return W.WARUNEK;}
+    public static W WHILE_END() {return W.WARUNEK;}
 }

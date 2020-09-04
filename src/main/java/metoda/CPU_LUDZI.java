@@ -333,5 +333,13 @@ public class CPU_LUDZI extends AbstractCPU {
                         dzialacz.WHILE_END()
                 )
         );
+
+        List<W> dzialajcyZycie = of(
+                M.WHILE(),
+                W.PRZYJEMNOSCI,
+                W.PRZEWAGA,
+                W.PRZEWAGA_ZE_ZLA_OD_ROBIENIA_ZLA,
+                M.WHILE_END()
+        );
     }
 }
