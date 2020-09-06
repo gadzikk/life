@@ -95,6 +95,8 @@ public class CPU_SJ extends AbstractCPU {
                 W.ULICA
         ));
 
+        new WWs(of(W.WZGL_IZOLACJA), "--->", of(W.ODRAZU_DZIALANIE));
+
         new WM(of(W._NOT_, W.PRZED_9, W._88_, W.PO_17),
                 of(M.REMOVE(ME, W.DZIEN))
         );
