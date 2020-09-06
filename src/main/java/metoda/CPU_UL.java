@@ -970,7 +970,8 @@ public class CPU_UL extends AbstractCPU {
             new WWs(of(W.NIEDOJEBANIE_UMYSLOWE,W.NIEDOJEBANIE_FIZYCZNE, W.AGRESJA,
                     W.DOMINACJA, W.GLEBOKO_SZUKA_ZLA, W.TRAKTUJA_SIE_JAK_DZIECI,
                         W.NIE_ODKRYTY, W.BRAK_TRUDNOSCI, W.NIE_ODKRYCIE_WAD,
-                                    W.BRAK_SUMIENIA, W.ZYSK_Z_DZIALANIA), "--->", of(W.DZIALAJACY));
+                                    W.BRAK_SUMIENIA, W.ZYSK_Z_DZIALANIA,
+                    W.EGOISTA, W.CHEC_KRZYWDY, W.NIEZWRACA_UWAGI_NA_KRZYWDE_INNYCH), "--->", of(W.DZIALAJACY));
 
             new WsWs(of(W.LADNY, W.SILNY), "--->", of(W.SONDA_POD_ZROBIENIE_ZLA, W._88_, W.SLABY), "--->", of(W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE));
 
