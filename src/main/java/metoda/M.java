@@ -533,4 +533,6 @@ public class M {
     public static String OCHRONA(WWs warunki) {return "OCHRONA("+ warunki +")";}
     public static W WHILE() {return W.WARUNEK;}
     public static W WHILE_END() {return W.WARUNEK;}
+    public static W PROSTO(W warunek) {return W.WARUNEK;}
+    public static W OSLONKA(List<W> warunki) {return W.WARUNEK;}
 }

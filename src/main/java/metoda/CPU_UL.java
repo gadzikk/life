@@ -419,6 +419,9 @@ public class CPU_UL extends AbstractCPU {
         public void starcie(){
             List<W> kryteriaPrzypalu = DB_Warunki.KRYTERIA_PRZYPALU.getWarunki();
 
+            M.PROSTO(W.BOJKA);
+            new WWs(of(M.PROSTO(W.CISNIE)), "--->", of(W.ODRAZU_DZIALANIE));
+
             new WMWMWM(of(W.KTOS_SZKODZI),
                     of(
                             M.kontruj()
@@ -971,7 +974,8 @@ public class CPU_UL extends AbstractCPU {
                     W.DOMINACJA, W.GLEBOKO_SZUKA_ZLA, W.TRAKTUJA_SIE_JAK_DZIECI,
                         W.NIE_ODKRYTY, W.BRAK_TRUDNOSCI, W.NIE_ODKRYCIE_WAD,
                                     W.BRAK_SUMIENIA, W.ZYSK_Z_DZIALANIA,
-                    W.EGOISTA, W.CHEC_KRZYWDY, W.NIEZWRACA_UWAGI_NA_KRZYWDE_INNYCH), "--->", of(W.DZIALAJACY));
+                    W.EGOISTA, W.CHEC_KRZYWDY, W.NIEZWRACA_UWAGI_NA_KRZYWDE_INNYCH,
+                    W.LEKCEWAZY_INNYCH, W.ZUCHWALY),                                "--->", of(W.DZIALAJACY));
 
             new WsWs(of(W.LADNY, W.SILNY), "--->", of(W.SONDA_POD_ZROBIENIE_ZLA, W._88_, W.SLABY), "--->", of(W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE));
 
@@ -996,5 +1000,7 @@ public class CPU_UL extends AbstractCPU {
 
             new WWs(of(W.TEORIA_RYWALIZACJI, W.BLISKOSC), "--->", of(W.KTOS_CIEBIE_LUB_TY_NIEGO, W.ZAMKNIJ_ZASOB,
                                                                     W.WYKORZYSTUJ, W.OSZUKANIE_WDUPCENIE, W.POBIC));
+
+            new WWs(of(M.OSLONKA(of(W.PRZEWAGA, W._88_, W.UKRYCIE))) , "--->", of(W.GIERKA_KTO_NAJBARDZIEJ_PRZEJEBANY));
         }
 }

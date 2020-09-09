@@ -11,9 +11,13 @@ public class CPU_SUMMARY extends AbstractCPU {
     // U
     public void ulica() {
         List<W> ulicaConditions = of(W.PUSTKA, W.PRZEWAGA, W.AGRESJA, W.OBECNOSC);
+
+        new WWs(of(M.PROSTO(W.ZLO)), "--->", of(W.AKTYWNA_KONTRA));
     }
     // K
     public void kobiety() {
+        new WWWi(W.OKAZJA, "->" ,W.ZAGADANIE, "->" ,W.PRZEGADANIE);
+
         M schemaSytuacji00 = new M().sytuacja().Is().podbitka()
                 .lub().sytuacja().Is().przeminelo();
 
