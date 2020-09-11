@@ -16,7 +16,7 @@ public class CPU_SUMMARY extends AbstractCPU {
     }
     // K
     public void kobiety() {
-        new WWWi(W.OKAZJA, "->" ,W.ZAGADANIE, "->" ,W.PRZEGADANIE);
+        new WWWi(M.MOCNO(W.OKAZJA), "->" , M.EFEKTYWNA_GADKA(W.ZAGADANIE), "->" , M.PILNOWANIE_BLISKOSC(W.PRZEGADANIE));
 
         M schemaSytuacji00 = new M().sytuacja().Is().podbitka()
                 .lub().sytuacja().Is().przeminelo();

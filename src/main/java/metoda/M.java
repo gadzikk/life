@@ -535,4 +535,8 @@ public class M {
     public static W WHILE_END() {return W.WARUNEK;}
     public static W PROSTO(W warunek) {return W.WARUNEK;}
     public static W OSLONKA(List<W> warunki) {return W.WARUNEK;}
+    public static W MOCNO(W warunek) {return W.WARUNEK;}
+    public static W EFEKTYWNA_GADKA(W warunek) {return W.WARUNEK;}
+    public static W PILNOWANIE_BLISKOSC(W warunek) {return W.WARUNEK;}
+
 }
