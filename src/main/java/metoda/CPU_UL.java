@@ -937,7 +937,8 @@ public class CPU_UL extends AbstractCPU {
             M.NIGDY_MALO(of(W.KASA, W.SEX, W.PRZYJEMNOSCI)); // MATERIALNE
             M.NIGDY_MALO(of(W.ZLO, W.DOBRO, W.NIENAWISC, W.MILOSC, W.AGRESJA, W.CIERPLIWOSC)); // MORALNE
 
-            new WWs(of(W.MILY_TEAMT, W.ZARTY, W.POCHWALA, W.WSPARCIE, W.DOBRE_EMOCJE), "--->", of(W.DOBRA_ROZMOWA));
+            new WWs(of(W.MILY_TEAMT, W.ZARTY, W.POCHWALA, W.WSPARCIE, W.DOBRE_EMOCJE,
+                    W.TEMAT_ZGODNY_Z_WARTOSCIAMI, W.TEMAT_ZGODNY_Z_EMOCJAMI, W.TEMAT_NIEPODWAZALNY), "--->", of(W.DOBRA_ROZMOWA));
 
             new WsWs(of(W.SONDA), "--->", of(W.NASTAWIENIE), "--->", of(W.DZIALANIE));
 
@@ -1002,5 +1003,12 @@ public class CPU_UL extends AbstractCPU {
                                                                     W.WYKORZYSTUJ, W.OSZUKANIE_WDUPCENIE, W.POBIC));
 
             new WWs(of(M.OSLONKA(of(W.PRZEWAGA, W._88_, W.UKRYCIE))) , "--->", of(W.GIERKA_KTO_NAJBARDZIEJ_PRZEJEBANY));
+        }
+
+        public void agresja() {
+            new WWs(of(W.KTOS_SAM, W.KTOS_PATRZY, W.KTOS_POSIADA,
+                    W.CISNIE, W.BOJKA, W.ZLE_W_ZYCIU),               "--->", of(W.AGRESJA));
+
+            new WWs(of(W.AGRESJA), "--->", of(W.WZROK, W.BLISKOSC, W.CISNIE, W.BOJKA));
         }
 }
