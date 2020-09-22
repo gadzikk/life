@@ -269,6 +269,7 @@ public class CPU_UL extends AbstractCPU {
         krajobrazUlicy();
         dojscieDoWalki();
         ulicaRelacjeWarunkow();
+        defaultOsoba();
     }
     public void shortest(){
         List<W> stan = of(W.WYSILEK_UMYSLOWY, W.WYSILEK_FIZYCZNY, W.DUZO_ZARCIA, W.WZROK, W.SAMOPOCZUCIE);
@@ -1003,6 +1004,14 @@ public class CPU_UL extends AbstractCPU {
                                                                     W.WYKORZYSTUJ, W.OSZUKANIE_WDUPCENIE, W.POBIC));
 
             new WWs(of(M.OSLONKA(of(W.PRZEWAGA, W._88_, W.UKRYCIE))) , "--->", of(W.GIERKA_KTO_NAJBARDZIEJ_PRZEJEBANY));
+
+            new WWs(of(W.SPOTKANIE_WZROKIEM), "--->", of(W.KTOS_CIEBIE_LUB_TY_NIEGO, W.KTO_WIECEJ_PATRZY,
+                                                            W.KTO_WIECEJ_CISNIE, W.KTO_WIECEJ_BIJE, W.KTO_WIECEJ_SPRZETU,
+                                                            W.KTO_WIECEJ_OSOB, W.KTO_WIECEJ_KONTUZJI, W.KTO_WIECEJ_STRACHU));
+
+            new WWs(of(W.SAM) , "--->", of(W.LATWY_CEL, W.BRAK_PRZEWAG, W.MALA_SZANSA_POZNANIE));
+
+            new WWs(of(W.DASZ_SIE_POZNAC, W._88_, W.NIESLUCHASZ) , "--->", of(W.GNOJA));
         }
 
         public void agresja() {
@@ -1011,4 +1020,11 @@ public class CPU_UL extends AbstractCPU {
 
             new WWs(of(W.AGRESJA), "--->", of(W.WZROK, W.BLISKOSC, W.CISNIE, W.BOJKA));
         }
+
+        public void defaultOsoba() {
+            List<W> warunki = of(M.MOCNO(W.KIBICOWANIE), M.MOCNO(W.ZLO), M.MOCNO(W.MIEJSCE_STALE), M.MOCNO(W.MODA), M.MOCNO(W.ZNAJOMI),
+                    M.MOCNO(W.HIERARCHIA), M.MOCNO(W.UKLADZIK), M.MOCNO(W.WYKORZYSTANIE), M.MOCNO(W.BRAK_WSTYDU), M.MOCNO(W.KLAMSTWO),
+                    M.SLABO(W.WYSILEK), M.SLABO(W.RYZYKO), M.SLABO(W.UMIEJETNOSCI), M.SLABO(W.OBECNOSC), M.SLABO(W.PRAWDA), M.SLABO(W.DOBRO));
+        }
+
 }

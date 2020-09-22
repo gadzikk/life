@@ -538,5 +538,6 @@ public class M {
     public static W MOCNO(W warunek) {return W.WARUNEK;}
     public static W EFEKTYWNA_GADKA(W warunek) {return W.WARUNEK;}
     public static W PILNOWANIE_BLISKOSC(W warunek) {return W.WARUNEK;}
+    public static W SLABO(W warunek) {return W.WARUNEK;}
 
 }

@@ -90,6 +90,8 @@ public class CPU_LUDZI extends AbstractCPU {
 
         new WWs(of(W.NIESPODOBANIE_SIE, W.BLISKOSC),"--->", of(W.WALKA_PIESCI));
 
+        new WWs(of(W.NIESPRAWIEDLIWE_PRZEWAGI),"--->", of(W.KOLEJNE_NIESPRAWIEDLIWE_PRZEWAGI, W.KURESTWO, W.ZACHETA_DO_ZLA));
+
         // ***
 
         // POSIADANIE
