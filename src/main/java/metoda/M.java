@@ -154,6 +154,7 @@ public class M {
     public static String podbijasz() {return "podbijasz()";}
     public static String DEFAULT(String ...zachowanie) {return "DEFAULT("+ zachowanie +")";}
     public static String DEFAULT(W warunek) {return "DEFAULT("+ warunek +")";}
+    public static W DFAULT(String warunek) {return W.WARUNEK;}
     public static String DEFAULT(List<W> warunki) {return "DEFAULT("+ warunki +")";}
     public static String DEFAULT_WARUNKI(List<W> warunki) {return "DEFAULT("+ warunki +")";}
     public static String piszesz() {return "piszesz()";}
