@@ -70,6 +70,7 @@ public class CPU_PRACA extends AbstractCPU {
         zachowanie();
         szponcenie();
         hardcoreZlyFxTeam();
+        szukaniePracy();
     }
     public void praca(){
         M.GRANT(ME, of(W.BEZPIECZENSTWO, W.PIENIADZE, W.SZANSA_KOBIETA));
@@ -220,6 +221,32 @@ public class CPU_PRACA extends AbstractCPU {
                 M.konsekwencje(of(W.BRAK_MOZLIWOSCI_ESTYMOWANIA, W.ZABIERANIE_CZASU_OSOBOM_ZESPOLU, W.KAZDY_TASK_NOWY_BRAK_NOWY_PROBLEM, W.DELAY, W.ZLA_OCENA_Z_JIRY));
 
         M.GRANT(ME, W.NIEDZIALAJCY_KOMPUTER);
+    }
+
+    public void szukaniePracy() {
+        M.wyslijCVBroadcastem();
+        M.czasOczekiwania(W.DWA_TYGODNIE);
+        M.pierwszyOdzew();
+
+        M.czasOczekiwania(W.TYDZIEN);
+        M.zaproszenieNaRozmowe();
+        M.dowiedzSieCzegosORozmowieRekrutacyjnej();
+        M.czasOczekiwania(W.TYDZIEN);
+        M.pierwszyEtap();
+
+        M.czasOczekiwania(W.TYDZIEN);
+        M.feedback();
+        M.drugiEtap();
+
+        M.czasOczekiwania(W.TYDZIEN);
+        M.feedback();
+        M.wyrazenieCheciWspolpracy();
+
+        M.czasOczekiwania(W.TYDZIEN);
+        M.wyslanieUmowy();
+        M.podpisanieUmowy();
+        M.czasOczekiwania(W.TYDZIEN);
+        M.screening(); // suma 8 tygodni, 2 miesiace
     }
 
 }

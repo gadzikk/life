@@ -540,5 +540,16 @@ public class M {
     public static W EFEKTYWNA_GADKA(W warunek) {return W.WARUNEK;}
     public static W PILNOWANIE_BLISKOSC(W warunek) {return W.WARUNEK;}
     public static W SLABO(W warunek) {return W.WARUNEK;}
-
+    public static String wyslijCVBroadcastem() {return "wyslijCVBroadcastem()";}
+    public static String czasOczekiwania(W warunek) {return "czasOczekiwania("+ warunek +")";}
+    public static String zaproszenieNaRozmowe() {return "zaproszenieNaRozmowe()";}
+    public static String dowiedzSieCzegosORozmowieRekrutacyjnej() {return "dowiedzSieCzegosORozmowieRekrutacyjnej()";}
+    public static String feedback() {return "feedback()";}
+    public static String pierwszyEtap() {return "pierwszyEtap()";}
+    public static String drugiEtap() {return "drugiEtap()";}
+    public static String wyrazenieCheciWspolpracy() {return "wyrazenieCheciWspolpracy()";}
+    public static String wyslanieUmowy() {return "wyslanieUmowy()";}
+    public static String podpisanieUmowy() {return "podpisanieUmowy()";}
+    public static String screening() {return "screening()";}
+    public static String pierwszyOdzew() {return "pierwszyOdzew()";}
 }
