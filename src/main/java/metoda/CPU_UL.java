@@ -1013,6 +1013,13 @@ public class CPU_UL extends AbstractCPU {
             new WWs(of(W.SAM) , "--->", of(W.LATWY_CEL, W.BRAK_PRZEWAG, W.MALA_SZANSA_POZNANIE));
 
             new WWs(of(W.DASZ_SIE_POZNAC, W._88_, W.NIESLUCHASZ) , "--->", of(W.GNOJA));
+
+            new WsWs(of(W.AGRESJA, W.BRAK_PIENIEDZY,
+                    W.GLUPOTA, W.SLUCHAJ_KOLEGOW), "--->",  of(W.EKIPA), "---->", of(W.WYKONYWANIE_ROZKAZOW_DLA_HAJSU_ZLA,
+                                                                                            W.WYROK, W.OGRANICZONE_INFORMACJE,
+                                                                                            W.PRZEWAGA_SILY, W.PRZEWAGA_EKIPY_SPRZETU));
+
+            new WWs(of(W.ZLO), "--->", of(W.ROB_NAJWIEKSZA_KRZYWDE, W.ROZPOWIEDZ_DO_NAJWIEKSZEJ_LICZBY_OSOB, W.PRZEKONAJ_NAJWIECEJ_OSOB));
         }
 
         public void agresja() {
