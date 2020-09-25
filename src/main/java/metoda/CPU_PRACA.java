@@ -1,11 +1,11 @@
 package metoda;
 
+import db.DB_Warunki;
 import warunek.W;
 
 import java.util.List;
 
-import static typy_bazowe.TypOsoby.ME;
-import static typy_bazowe.TypOsoby.SOMEONE;
+import static typy_bazowe.TypOsoby.*;
 
 /**
  * Created by gadzik on 05.01.20.
@@ -22,6 +22,7 @@ public class CPU_PRACA extends AbstractCPU {
     List<W> kontrola = of(W.PATRZENIE_MONITOR, W.DAILY, W.WEEKLY, W.COMMITY, W.PYTANIA, W.PRZEPLYW_WIADOMOSCI, W.FEEDBACK_INNI, W.PROGRESS_ILOSCIOWY, W.PROGRESS_JAKOSCIOWY);
 
     public void run(){
+        W nastawienie = W.NIENAWISC_FESTOW;
 
         new WMWMWM(of(W.WIEDZA, W.NISZA, W.BOGATY_SEKTOR),
                 of(
@@ -247,6 +248,13 @@ public class CPU_PRACA extends AbstractCPU {
         M.podpisanieUmowy();
         M.czasOczekiwania(W.TYDZIEN);
         M.screening(); // suma 8 tygodni, 2 miesiace
+    }
+
+    public void interview() {
+        List<W> target = of(W._70_PROCENT_ZADOWALAJACYCH_ODPOWIEDZI, W.FINE);
+        pytajacy.set(DB_Warunki.FEST.getWarunki());
+        pytajacy.thread_while_loop(W.SZUKA_GLEBOKO_ZAGADNIEN);
+        pytajacy.thread_while_loop(W.LICZY_KAZDY_BLAD);
     }
 
 }
