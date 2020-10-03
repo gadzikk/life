@@ -10,7 +10,7 @@ import java.util.List;
 public class CPU_SUMMARY extends AbstractCPU {
     // U
     public void ulica() {
-        List<W> ulicaConditions = of(W.PUSTKA, W.PRZEWAGA, W.AGRESJA, W.OBECNOSC);
+        List<W> ulicaConditions = of(W.PUSTKA, W.PRZEWAGA, W.AGRESJA_W_DZIALANIU, W.OBECNOSC);
 
         new WWs(of(M.PROSTO(W.ZLO)), "--->", of(W.AKTYWNA_KONTRA));
     }

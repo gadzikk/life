@@ -18,7 +18,7 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
     }
 
     public void zlo() {
-        M.FIRST(of(W.KTOS_CIEBIE_LUB_TY_NIEGO, W.SONDA_POD_ZROBIENIE_ZLA, W.AGRESJA, W.ZASOBY_OGRANICZONE));
+        M.FIRST(of(W.KTOS_CIEBIE_LUB_TY_NIEGO, W.SONDA_POD_ZROBIENIE_ZLA, W.AGRESJA_W_DZIALANIU, W.ZASOBY_OGRANICZONE));
 
         List<W> conditions = of(
                 W.NIE_ZATRZYMA_SIE,

@@ -936,7 +936,7 @@ public class CPU_UL extends AbstractCPU {
         }
         public void ulicaRelacjeWarunkow() {
             M.NIGDY_MALO(of(W.KASA, W.SEX, W.PRZYJEMNOSCI)); // MATERIALNE
-            M.NIGDY_MALO(of(W.ZLO, W.DOBRO, W.NIENAWISC, W.MILOSC, W.AGRESJA, W.CIERPLIWOSC)); // MORALNE
+            M.NIGDY_MALO(of(W.ZLO, W.DOBRO, W.NIENAWISC, W.MILOSC, W.AGRESJA_W_DZIALANIU, W.CIERPLIWOSC)); // MORALNE
             new WWWi(M.DFAULT(M.thread_while_loop(W.WSZYSCY_CHCA_CIE_ROZJEBAC)), "--->", W.HASELKO, "--->",  W.STATUS_QUO);
 
             new WWs(of(W.MILY_TEAMT, W.ZARTY, W.POCHWALA, W.WSPARCIE, W.DOBRE_EMOCJE,
@@ -973,7 +973,7 @@ public class CPU_UL extends AbstractCPU {
             M.oddalanieSieOdWalkiZagrozenia(of(W.SKAZYWANIE_SAMOTNOSC, W.PRZEWAGA, W.PRZYJEMNOSC)),
             M.oddalanieOdKonkurencji(of(W.SIEDZENIE_MELINY, W.PRZYCHYLNOSC))),                "--->", of(W.NIE_ODKRYTY, W.BRAK_TRUDNOSCI,
                                                                                                                 W.NIE_ODKRYCIE_WAD));
-            new WWs(of(W.NIEDOJEBANIE_UMYSLOWE,W.NIEDOJEBANIE_FIZYCZNE, W.AGRESJA,
+            new WWs(of(W.NIEDOJEBANIE_UMYSLOWE,W.NIEDOJEBANIE_FIZYCZNE, W.AGRESJA_W_DZIALANIU,
                     W.DOMINACJA, W.GLEBOKO_SZUKA_ZLA, W.TRAKTUJA_SIE_JAK_DZIECI,
                         W.NIE_ODKRYTY, W.BRAK_TRUDNOSCI, W.NIE_ODKRYCIE_WAD,
                                     W.BRAK_SUMIENIA, W.ZYSK_Z_DZIALANIA,
@@ -987,7 +987,7 @@ public class CPU_UL extends AbstractCPU {
             new WWs(of(W.ZLY, W._88_, W.PRZEWAGA), "--->", of(W.WALI_OSOBE_BEZ_PRZEWAGI, W.BEZKARNOSC, W.GLUPOTA));
 
             new WWs(of(W.NUDA, W.KTOS_CIEBIE_LUB_TY_NIEGO,
-                    W.AGRESJA, W.EMOCJE_ZE_ZLA), "--->", of(W.WALI_OSOBE_BEZ_PRZEWAGI, W.OSZUKANIE_WDUPCENIE, W.BEZKARNOSC, W.GLUPOTA));
+                    W.AGRESJA_W_DZIALANIU, W.EMOCJE_ZE_ZLA), "--->", of(W.WALI_OSOBE_BEZ_PRZEWAGI, W.OSZUKANIE_WDUPCENIE, W.BEZKARNOSC, W.GLUPOTA));
 
             new WWs(of(W.DZIALANIE_POZA_RANGA), "--->", of(W.OGLUPIANIE, W.KLAMSTWO, W.PO_CICHU, W.ZAMKNIJ_ZASOB));
 
@@ -995,7 +995,7 @@ public class CPU_UL extends AbstractCPU {
                     M.oddalanieSieOdWalkiZagrozenia(of(W.SKAZYWANIE_SAMOTNOSC, W.PRZEWAGA, W.PRZYJEMNOSC)),
                     M.oddalanieOdKonkurencji(of(W.SIEDZENIE_MELINY, W.PRZYCHYLNOSC,
                     W.OGLUPIANIE, W.KLAMSTWO, W.PO_CICHU, W.ZAMKNIJ_ZASOB)),
-                    W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE, W.SPRZET, W.AGRESJA, W.ZLO),   "--->", of(W.NIESPRAWIEDLIWI,
+                    W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE, W.SPRZET, W.AGRESJA_W_DZIALANIU, W.ZLO),   "--->", of(W.NIESPRAWIEDLIWI,
                                                                                                         W.NIESPRAWIEDLIWE_PRZEWAGI,
                                                                                                         W.EMOCJE_ZE_ZLA));
             new WWs(of(W.ZLY, W._88_, W.WIDZIAL) , "--->", of(W.ODRAZU_ZLO,
@@ -1024,9 +1024,9 @@ public class CPU_UL extends AbstractCPU {
 
         public void agresja() {
             new WWs(of(W.KTOS_SAM, W.KTOS_PATRZY, W.KTOS_POSIADA,
-                    W.CISNIE, W.BOJKA, W.ZLE_W_ZYCIU),               "--->", of(W.AGRESJA));
+                    W.CISNIE, W.BOJKA, W.ZLE_W_ZYCIU),               "--->", of(W.AGRESJA_W_DZIALANIU));
 
-            new WWs(of(W.AGRESJA), "--->", of(W.WZROK, W.BLISKOSC, W.CISNIE, W.BOJKA));
+            new WWs(of(W.AGRESJA_W_DZIALANIU), "--->", of(W.WZROK, W.BLISKOSC, W.CISNIE, W.BOJKA));
         }
 
         public void defaultOsoba() {
