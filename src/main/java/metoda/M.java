@@ -153,8 +153,9 @@ public class M {
     public static String spojrzenie_2(W warunek) {return "ida("+ warunek +")";}
     public static String podbijasz() {return "podbijasz()";}
     public static String DEFAULT(String ...zachowanie) {return "DEFAULT("+ zachowanie +")";}
-    public static String DEFAULT(W warunek) {return "DEFAULT("+ warunek +")";}
-    public static W DFAULT(String warunek) {return W.WARUNEK;}
+    public static String DEFALT(W warunek) {return "W.WARUNEK;";}
+    public static W DEFAULT(W warunek) {return W.WARUNEK;}
+    public static W DFAULT(W warunek) {return W.WARUNEK;}
     public static String DEFAULT(List<W> warunki) {return "DEFAULT("+ warunki +")";}
     public static String DEFAULT_WARUNKI(List<W> warunki) {return "DEFAULT("+ warunki +")";}
     public static String piszesz() {return "piszesz()";}
@@ -261,8 +262,8 @@ public class M {
     public static String proba() {return "proba()";}
     public static String wnioski() {return "wnioski()";}
     public static String wiedza() {return "wiedza()";}
-    public static String thread_while_loop(W typ) {return "thread_while_loop("+ typ +")";}
-    public static String thread_while_loop(List<W> typy) {return "thread_while_loop("+ typy +")";}
+    public static W thread_while_loop(W typ) {return W.WARUNEK;}
+    public static W thread_while_loop(List<W> typy) {return W.WARUNEK;}
 
     public static String neutral() {return "neutral()";}
     public static String wyjebane() {return "wyjebane()";}
@@ -388,7 +389,7 @@ public class M {
     public static W interakcja(OsobaMetod manago) {return W.WARUNEK;}
     public static String glaskaszPoGlowie(OsobaMetod manago) {return "glaskaszPoGlowie("+ manago +")";}
     public static String pracuj(List<W> warunki) {return "pracuj("+ warunki +")";}
-    public static String pracuj(W warunek) {return "pracuj("+ warunek +")";}
+    public static W pracuj(W warunek) {return W.WARUNEK;}
     public static String lapKontakt(W ludzie) {return "lapKontakt("+ ludzie +")";}
     public static String usmiechajSie() {return "usmiechajSie()";}
     public static String ORIENT(List<W> warunki) {return "DEFAULT("+ warunki +")";}
@@ -433,22 +434,22 @@ public class M {
     public static String zrownanie() {return "zrownanie()";}
     public static String bucikiDeep() {return "bucikiDeep()";}
     public static String bucikiCel() {return "bucikiCel()";}
-    public static String wyklucz(List<W> warunki) {return "wyklucz("+ warunki +")";}
-    public static String utrudniaj(List<W> warunki) {return "utrudniaj("+ warunki +")";}
-    public static String pobierzNieswiadomosc() {return "pobierzNieswiadomosc()";}
-    public static String stworzKolkoAdoracji() {return "stworzKolkoAdoracji()";}
-    public static String pobierzLukiOsobowosci() {return "pobierzLukiOsobowosci()";}
-    public static String pobierzPatologie() {return "pobierzPatologie()";}
-    public static String wezPrzewage() {return "wezPrzewage()";}
-    public static String przemoc(W warunek) {return "przemoc("+ warunek +")";}
-    public static String pobierzHierarchie() {return "pobierzHierarchie()";}
-    public static String dzialajDlaZla() {return "dzialajDlaZla()";}
-    public static String tworzPatologie() {return "tworzPatologie()";}
-    public static String wal(W warunek) {return "wal("+ warunek +")";}
-    public static String wal(OsobaMetod osoba, W warunek) {return "wal("+ osoba +" "+ warunek +")";}
-    public static String rozpowiedz(W warunek) {return "rozpowiedz("+ warunek +")";}
-    public static String zaczep(OsobaMetod osoba) {return "zaczep("+ osoba +")";}
-    public static String wrocZPrzewaga() {return "wrocZPrzewaga()";}
+    public static W wyklucz(List<W> warunki) {return W.WARUNEK;}
+    public static W utrudniaj(List<W> warunki) {return W.WARUNEK;}
+    public static W pobierzNieswiadomosc() {return W.WARUNEK;}
+    public static W stworzKolkoAdoracji() {return W.WARUNEK;}
+    public static W pobierzLukiOsobowosci() {return W.WARUNEK;}
+    public static W pobierzPatologie() {return W.WARUNEK;}
+    public static W wezPrzewage() {return W.WARUNEK;}
+    public static W przemoc(W warunek) {return W.WARUNEK;}
+    public static W pobierzHierarchie() {return W.WARUNEK;}
+    public static W dzialajDlaZla() {return W.WARUNEK;}
+    public static W tworzPatologie() {return W.WARUNEK;}
+    public static W wal(W warunek) {return W.WARUNEK;}
+    public static W wal(OsobaMetod osoba, W warunek) {return W.WARUNEK;}
+    public static W rozpowiedz(W warunek) {return W.WARUNEK;}
+    public static W zaczep(OsobaMetod osoba) {return W.WARUNEK;}
+    public static W wrocZPrzewaga() {return W.WARUNEK;}
     public static String DEEP(List<TypT> tematy) {return "DEEP("+ tematy +")";}
     public static String WNIOSKI(List<TypT> tematy) {return "WNIOSKI("+ tematy +")";}
     public static String WNIOSKI() {return "WNIOSKI()";}
@@ -488,7 +489,7 @@ public class M {
     public static String mowa() {return "mowa()";}
     public static String nieznajomy(W warunek) {return "nieznajomy("+ warunek +")";}
     public static String znajomy(W warunek) {return "znajomy("+ warunek +")";}
-    public static String otherwise(W warunek, Integer i) {return "otherwise("+ warunek +")";}
+    public static W otherwise(W warunek, Integer i) {return W.WARUNEK;}
     public static String reakcjaMocniejNizszemuWHierarchii(List<WarunkiKategoria> rany) {return "zniszczJakNajwiecej("+ rany +")";}
     public static String przewidzenieDrogi() {return "przewidzenieDrogi()";}
     public static String odmowa() {return "odmowa()";}
@@ -563,6 +564,11 @@ public class M {
     public static W KROTKO(W warunek) {return W.WARUNEK;}
     public static W KROTKO(List<W> warunki) {return W.WARUNEK;}
 
+    public static W WARUNEK_UTRZYMANIA(W warunek) {return W.WARUNEK;}
+    public static W WARUNKI_UTRZYMANIA(List<W> warunki) {return W.WARUNEK;}
+    public static W WARUNEK_WSTEPNY(W warunek) {return W.WARUNEK;}
+    public static W WARUNKI_WSTEPNE(List<W> warunki) {return W.WARUNEK;}
+
     public static W EFEKTYWNA_GADKA(W warunek) {return W.WARUNEK;}
     public static W PILNOWANIE_BLISKOSC(W warunek) {return W.WARUNEK;}
     public static String wyslijCVBroadcastem() {return "wyslijCVBroadcastem()";}
@@ -577,4 +583,10 @@ public class M {
     public static String podpisanieUmowy() {return "podpisanieUmowy()";}
     public static String screening() {return "screening()";}
     public static String pierwszyOdzew() {return "pierwszyOdzew()";}
+    public static String dziwadlo(OsobaMetod osoba) {return "dziwadlo()";}
+    public static String gorszeTraktowanieNizReszta(OsobaMetod osoba) {return "utrzymajPozycje()";}
+
+    public static M robKrzywde() {return new M();}
+    public static M dajZarobekGrubasowi() {return new M();}
+    public static M ochronaGrubasa() {return new M();}
 }

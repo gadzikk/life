@@ -216,7 +216,7 @@ public class CPU_LUDZI extends AbstractCPU {
     }
 
     public void opisZachowanTypOsoby() {
-        new WM(of(W.MIESZANIEC, W.FEST),
+        new WW(on(W.MIESZANIEC, W.FEST),
                 of(
                         M.pobierzNieswiadomosc(), M.pobierzLukiOsobowosci(),
                         M.wyklucz(of(W.RDZENNI, W.SILNIEJSI)), M.utrudniaj(of(W.RDZENNI, W.SILNIEJSI)),
@@ -224,7 +224,7 @@ public class CPU_LUDZI extends AbstractCPU {
                         M.thread_while_loop(W.POSLUSZNY)
                 )
         );
-        new WM(of(W.RDZENNY_DOBRY),
+        new WW(W.RDZENNY_DOBRY,
                 of(
                         M.pobierzPatologie(),
                         M.wyklucz(of(W.MIESZANIEC, W.FEST)), M.utrudniaj(of(W.MIESZANIEC, W.FEST)),
@@ -233,7 +233,7 @@ public class CPU_LUDZI extends AbstractCPU {
                         M.thread_while_loop(of(W.ANTY_POSLUSZNOSC, W.ANTY_PUSTKA, W.ANTY_NUDA))
                 )
         );
-        new WM(of(W.ZLY),
+        new WW(W.ZLY,
                 of(
                         M.pobierzHierarchie(),
                         M.dzialajDlaZla(), M.tworzPatologie(),
@@ -242,7 +242,7 @@ public class CPU_LUDZI extends AbstractCPU {
                         M.thread_while_loop(W.DOMINACJA)
                 )
         );
-        new WM(of(W.AGRESOR),
+        new WW(W.AGRESOR,
                 of(
                         M.DEFAULT(W.AGRESJA),
                         M.zaczep(osoba),
@@ -316,10 +316,21 @@ public class CPU_LUDZI extends AbstractCPU {
     }
 
     public void dzialajacy() {
-        new WM(of(W.DZIALAJACY),
+        new WW((W.DZIALAJACY),
                 of(
                         M.DEFAULT(W.ZEROWY_DOSTEP),
-                        dzialacz.robKomusKrzywde(), dzialacz.dajZarobicDillowi(),
+
+                        M.WARUNKI_WSTEPNE(of(
+                                dzialacz.akceptacjaBiegania(),
+                                dzialacz.akceptacjaCpania()
+                        )),
+
+                        M.WARUNKI_UTRZYMANIA(of(
+                                dzialacz.thread_while_loop(M.robKrzywde()),
+                                dzialacz.thread_while_loop(M.dajZarobekGrubasowi()),
+                                dzialacz.thread_while_loop(M.ochronaGrubasa())
+                        )),
+
                         dzialacz.siejZlo(), M.otherwise(W.PRZEJEBANE, 0),
                         dzialacz.uzaleznijSieOdSrd(),
                         dzialacz.dzialanieWsrodDzialaczy(),

@@ -67,6 +67,10 @@ public class AbstractCPU {
         return Arrays.asList(elements);
     }
 
+    public <T> T on(T... elements){
+        return Arrays.stream(elements).findFirst().get();
+    }
+
     public <T> List<T> of(T e1, List<T> elems, T e2, List<T> elems2, List<String> elems3, List<W> elems4){
         return elems;
     }

@@ -86,7 +86,7 @@ public class CPU_PRACA extends AbstractCPU {
                 )
         );
 
-        new WM(of(W.WYSILEK, W.REZULTATY, W.OPLACA_SIE, W.UZYTECZNOSC, W.MANAGO_DOBRA_OPINIA),
+        new WW(on(W.WYSILEK, W.REZULTATY, W.OPLACA_SIE, W.UZYTECZNOSC, W.MANAGO_DOBRA_OPINIA),
                 of(
                         M.thread_while_loop(W.UTRZYMANIE_PRACY)
                 )

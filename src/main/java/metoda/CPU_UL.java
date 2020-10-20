@@ -760,7 +760,7 @@ public class CPU_UL extends AbstractCPU {
             );
             new WMWM(of(W.CZLOWIEK),
                     of(
-                            M.DEFAULT(W.ZLY)
+                            M.DEFALT(W.ZLY)
 
                     ),
                     of(W.FEST, W._II_, W.NIEPRZYDATNY),
@@ -857,7 +857,7 @@ public class CPU_UL extends AbstractCPU {
                             M.GRANT(ME, W.ZLE)
                     )
             );
-            new WM(of(W.KTOS),
+            new WW(W.KTOS,
                     of(
                             M.thread_while_loop(W.RYWALIZACJA)
                     )
@@ -910,7 +910,7 @@ public class CPU_UL extends AbstractCPU {
              );
         }
         public void kibicowanieUjecie() {
-            new WM(of(W.NIE_WYKORZYSTUJA),
+            new WW(W.NIE_WYKORZYSTUJA,
                     of(
                             M.thread_while_loop(W.GNOJA)
                     )
@@ -919,6 +919,14 @@ public class CPU_UL extends AbstractCPU {
                     of(
                             M.zaklecie(),
                             M.foty()
+                    )
+            );
+            new WM(of(W.BRAK_ZAKLECIA),
+                    of(
+                            M.dziwadlo(osoba),
+                            M.gorszeTraktowanieNizReszta(osoba),
+                            M.zamkniecieSytuacjiBezpowrotnie(),
+                            M.naklejka()
                     )
             );
             new WM(of(W.SLABY),

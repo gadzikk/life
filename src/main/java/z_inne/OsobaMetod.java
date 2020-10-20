@@ -25,18 +25,18 @@ public class OsobaMetod {
     public String set(W warunek){ return "set("+ warunek +")";}
     public String set(List<W> warunki){ return "set("+ warunki +")";}
 
-    public String siejZlo() {return "siejZlo()";}
-    public String uzaleznijSieOdSrd() {return "uzaleznijSieOdSrd()";}
-    public String zdobadzInformacjeZeSrodowiskaNaKurestwie() {return "zdobadzInformacjeZeSrodowiskaNaKurestwie()";}
-    public String dzialanieWsrodDzialaczy() {return "dzialanieWsrodDzialaczy()";}
-    public String ukryjDostep() {return "ukryjDostep()";}
-    public String wbijNaMuke() {return "wbijNaMuke()";}
-    public String skazNaIzolacje() {return "skazNaIzolacje()";}
-    public String patrzJakCierpi() {return "patrzJakCierpi()";}
-    public String cieszSieJegoCierpieniem() {return "cieszSieJegoCierpieniem()";}
-    public String baluj() {return "baluj()";}
-    public String WHILE(W warunek) {return "WHILE("+ warunek +")";}
-    public String WHILE_END() {return "WHILE_END()";}
+    public W siejZlo() {return W.WARUNEK;}
+    public W uzaleznijSieOdSrd() {return W.WARUNEK;}
+    public W zdobadzInformacjeZeSrodowiskaNaKurestwie() {return W.WARUNEK;}
+    public W dzialanieWsrodDzialaczy() {return W.WARUNEK;}
+    public W ukryjDostep() {return W.WARUNEK;}
+    public W wbijNaMuke() {return W.WARUNEK;}
+    public W skazNaIzolacje() {return W.WARUNEK;}
+    public W patrzJakCierpi() {return W.WARUNEK;}
+    public W cieszSieJegoCierpieniem() {return W.WARUNEK;}
+    public W baluj() {return W.WARUNEK;}
+    public W WHILE(W warunek) {return W.WARUNEK;}
+    public W WHILE_END() {return W.WARUNEK;}
     public String zabij() {return "zabij()";}
     public String patrzy(TypOsoby osoba) {return "patrzy("+ osoba +")";}
     public String kabluje(TypOsoby osoba) {return "kabluje("+ osoba +")";}
@@ -63,6 +63,7 @@ public class OsobaMetod {
     public String wyklucz(W warunek) {return "wyklucz("+ warunek +")";}
     public OsobaMetod threadWhileLoop(W warunek) {return new OsobaMetod();}
     public String thread_while_loop(W warunek) {return "thread_while_loop("+ warunek +")";}
+    public W thread_while_loop(M m) {return W.WARUNEK;}
     public String thread_while_loop(List<W> warunki) {return "thread_while_loop("+ warunki +")";}
     public String thread_while_loop(WWs ws) {return "thread_while_loop("+ ws +")";}
     public String robKomusKrzywde() {return "robKomusKrzywde()";}
@@ -80,5 +81,6 @@ public class OsobaMetod {
     public String skazujeNaSamotnosc() {return "skazujeNaSamotnosc()";}
     public String rozpowiedzDoWszystkich(W w) {return "rozpowiedzDoWszystkich("+w+")";}
     public String wymaganaAkcja(TypOsoby osoba) {return "wymaganaAkcja("+ osoba +")";}
-
+    public W akceptacjaBiegania() {return W.WARUNEK;}
+    public W akceptacjaCpania() {return W.WARUNEK;}
 }
