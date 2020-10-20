@@ -70,7 +70,9 @@ public class AbstractCPU {
     public <T> List<T> of(T e1, List<T> elems, T e2, List<T> elems2, List<String> elems3, List<W> elems4){
         return elems;
     }
-
+    public M o(W w1, String del ,W w2){
+        return new M();
+    }
     public W o(W w1, W w2, W w3){
         return W.WARUNEK;
     }

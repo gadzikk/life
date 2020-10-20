@@ -468,6 +468,7 @@ public class M {
     public static M latwo(W warunek) {return new M();}
     public M warunek(W warunek) {return new M();}
     public M otherwise(W warunek) {return new M();}
+    public M otherwise(List<W> warunki) {return new M();}
     public M konsekwencje(W warunek) {return new M();}
     public M zamkniecie(W warunek) {return new M();}
     public M sytuacja() {return new M();}
@@ -526,7 +527,6 @@ public class M {
     public static W wyolbrzym(W warunek) {return W.WARUNEK;}
     public static W pamietaj(W warunek) {return W.WARUNEK;}
     public static String subscribe(List<W> warunki) {return "subscribe("+ warunki +")"; }
-    public static W MALO(List<W> warunki) {return W.WARUNEK;}
     public static W oddalanieSieOdWalkiZagrozenia(List<W> warunki) {return W.WARUNEK;}
     public static W oddalanieOdKonkurencji(List<W> warunki) {return W.WARUNEK;}
     public static String FIRST(List<W> warunki) {return "FIRST("+ warunki +")";}
@@ -534,12 +534,37 @@ public class M {
     public static String OCHRONA(WWs warunki) {return "OCHRONA("+ warunki +")";}
     public static W WHILE() {return W.WARUNEK;}
     public static W WHILE_END() {return W.WARUNEK;}
+
     public static W PROSTO(W warunek) {return W.WARUNEK;}
+    public static W PROSTO(List<W> warunki) {return W.WARUNEK;}
     public static W OSLONKA(List<W> warunki) {return W.WARUNEK;}
     public static W MOCNO(W warunek) {return W.WARUNEK;}
+    public static W MOCNO(List<W> warunki) {return W.WARUNEK;}
+    public static W SLABO(W warunek) {return W.WARUNEK;}
+    public static W SLABO(List<W> warunki) {return W.WARUNEK;}
+    public static W CIEZKO(W warunek) {return W.WARUNEK;}
+    public static W CIEZKO(List<W> warunki) {return W.WARUNEK;}
+    public static W LATWO(W warunek) {return W.WARUNEK;}
+    public static W LATWO(List<W> warunki) {return W.WARUNEK;}
+    public static W CZESTO(W warunek) {return W.WARUNEK;}
+    public static W CZESTO(List<W> warunki) {return W.WARUNEK;}
+    public static W RZADKO(W warunek) {return W.WARUNEK;}
+    public static W RZADKO(List<W> warunki) {return W.WARUNEK;}
+    public static W SZYBKO(W warunek) {return W.WARUNEK;}
+    public static W SZYBKO(List<W> warunki) {return W.WARUNEK;}
+    public static W WOLNO(W warunek) {return W.WARUNEK;}
+    public static W WOLNO(List<W> warunki) {return W.WARUNEK;}
+    public static W DUZO(W warunek) {return W.WARUNEK;}
+    public static W DUZO(List<W> warunki) {return W.WARUNEK;}
+    public static W MALO(W warunek) {return W.WARUNEK;}
+    public static W MALO(List<W> warunki) {return W.WARUNEK;}
+    public static W DLUGO(W warunek) {return W.WARUNEK;}
+    public static W DLUGO(List<W> warunki) {return W.WARUNEK;}
+    public static W KROTKO(W warunek) {return W.WARUNEK;}
+    public static W KROTKO(List<W> warunki) {return W.WARUNEK;}
+
     public static W EFEKTYWNA_GADKA(W warunek) {return W.WARUNEK;}
     public static W PILNOWANIE_BLISKOSC(W warunek) {return W.WARUNEK;}
-    public static W SLABO(W warunek) {return W.WARUNEK;}
     public static String wyslijCVBroadcastem() {return "wyslijCVBroadcastem()";}
     public static String czasOczekiwania(W warunek) {return "czasOczekiwania("+ warunek +")";}
     public static String zaproszenieNaRozmowe() {return "zaproszenieNaRozmowe()";}

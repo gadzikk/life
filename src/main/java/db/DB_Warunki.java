@@ -154,7 +154,8 @@ public class DB_Warunki {
                 RANY_FIZYCZNE,
                 RANY_ZNECANIE_SIE,
                 RANY_SPRZET,
-                RANY_DOSTEPOWE
+                RANY_DOSTEPOWE,
+                KTO_KOGO
         );
 
         List<WarunkiKategoria> TYPY_PRAC = Arrays.asList(
@@ -929,6 +930,8 @@ public class DB_Warunki {
                     W.NIEZDOLNY_DO_WYSILKU, W.NIEZDOLNY_DO_CIERPIENIA, W.ZEROWA_SILA, W.NIEZDOLNY_DO_WALKI,
                     W.BOI_SIE_PRAWA, W.BRAK_SILY_SPRAWCZEJ,
 
+                    W.POSLUSZNY, W.POSLUSZNY_SILE,
+
                     W.BRZYDKI, W.EMOCJE_ZE_ZLA, W.DZIWNE_HOBBY, W.DZIWNY_SYSTEM_WARTOSCI, W.KOMPLEKS_WZGLEDEM_LEPSZYCH, W.PRZECIW_LEPSZYM,
                     W.KOLECZKO_WZAJEMNEJ_ADORACJI, W.PODLIZYWANIE_SIE,
 
@@ -1057,7 +1060,7 @@ public class DB_Warunki {
             new Kategoria(TypKategoria.TYP_PRACY, TypKategoria.PRACA_FIZYCZNA),
             Arrays.asList(
                     W.PRZEMYSL, W.HUTNICTWO, W.SPAWALNICTWO,
-                    W.WYDOBYCIE_SUROWCE, W.PRZETWORSTWO_SUROWCE, W.BUDOWNICTWO
+                    W.WYDOBYCIE_SUROWCE, W.PRZETWORSTWO_SUROWCE, W.BUDOWNICTWO, W.ENERGETYKA
             )
     );
 
@@ -1108,6 +1111,16 @@ public class DB_Warunki {
             new Kategoria(TypKategoria.LUDZIE, TypKategoria.NASTAWIENIE),
             Arrays.asList(
                     W.AGRESJA, W.KONTEMPLACJA, W.PRACA, W.OSZUKANIE_WDUPCENIE, W.DOBRO, W.POZNANIE, W.KONTRA, W.PRZYJEMNOSCI
+            )
+    );
+
+    public static WarunkiKategoria KTO_KOGO = new WarunkiKategoria(
+            new Kategoria(TypKategoria.RANY, TypKategoria.KTO_KOGO),
+            Arrays.asList(
+                    W.UKRYCIE, W.KLAMSTWO, W.PO_CICHU, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE,
+                    W.NOTYFIKACJA_EKIPA, W.FOTY, W.NAKLEJ_NALEPKE, W.OBGADAC,
+                    W.CISNIE, W.WALKA_PIESCI,
+                    W.SPRZET, W.AGRESJA_W_DZIALANIU, W.ZLO
             )
     );
 
@@ -1191,7 +1204,8 @@ public class DB_Warunki {
             RANY_FIZYCZNE,
             RANY_ZNECANIE_SIE,
             RANY_SPRZET,
-            RANY_DOSTEPOWE
+            RANY_DOSTEPOWE,
+            KTO_KOGO
     );
 
     public static List<WarunkiKategoria> TYPY_PRAC = Arrays.asList(

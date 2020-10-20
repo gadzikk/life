@@ -30,10 +30,6 @@ public class CPU_UL extends AbstractCPU {
 
     List<String> wchodzisz = of(M.dostepDoInformacjiPrzezManiury(), M.wstrzymajSieZWiezeciemKobiety(), M.szukajHakow());
 
-    List<W> afterTop = of(W.SWOJA_EKIPA, W.PRZECIWNA_EKIPA, W.PSY, W.KAZDE_DZIALANIE_OCENIANE, W.PILNOWANIE_HIERARCHII, W.PILNOWANIE_PRZEWAG,
-            W.WPROWADZANIE_ZASAD, W.ULTIMATUM, W.TWORZENIE_WARUNKOW, W.TWORZENIE_POINTCUTOW, W.ZMANIURAMI_PO_INFORMACJE,
-            W.ZADNEJ_LITOSCI
-    );
     List<W> dobraJednostka = of(W.ZOBOWIAZANIA, W.OCZEKIWANIA, W.WYMAGANIA, W.OBECNOSC, W.CEL, W.ZDOLNY_DO_WALKI, W.ZDOLNY_DO_RYZYKA);
     List<String> holdYourPosition = of(M.reaguj(), M.spedzCzas(), M.utrzymajPozycje());
 
@@ -67,92 +63,7 @@ public class CPU_UL extends AbstractCPU {
 
     List<W> bojka = of(W.WYSILEK, W.BOL, W.RANY_ODNIESIONE, W.REGENERACJA, W.WROG, W.JEGO_KOLEDZY_TWOI_WROGOWIE);
 
-    List<WM> srodki = of(
-            new WM(of(W.WALKA_PIESCI),
-                    of(
-                            M.sondaDostepu(),
-                            M.sondaZagrozenia(),
-                            M.sondaPrzypalu(kryteriaPrzypalu),
-                            M.poCichu(), M.II(), M.otwarteStacieF2F(),
-                            M.NEEDED(of(
-                                    W.ZDOLNY_DO_WALKI,
-                                    W.MALY_DOSTEP, W.MALE_ZAGROZENIE, W.MALY_PRZYPAL, W.ZGODA_OTOCZENIA)
-                            )
-                    )
-            ),
-            new WM(of(W.WALKA_SPRZET),
-                    of(
-                            M.skasowanieDostepu(),
-                            M.postawienieNajwiekszejPrzewagiWKrotkimCzasie(),
-                            M.nieDajSzansObrony(),
-                            M.poCichu(), M.zZaskoczenia(), M.zUkrycia(),
-                            M.NEEDED(of(
-                                    W.ZDOLNY_WALKA_SPRZET,
-                                    W.DOBRE_MIEJSCE, W.DOBRA_GODZINA,
-                                    W.WARTOSC ,W.ZLAMANIE_ZASAD, W.ZGODA_GORY)
-                            )
-                    )
-            ),
-            new WM(of(W.STANDARDY, W._II_, W.PRAWO),
-                    of(
-                            M.przestrzeganie(of(W.STANDARDY, W._II_, W.PRAWO)),
-                            M.oparcieSie(of(W.STANDARDY, W._II_, W.PRAWO)),
-                            M.poCichu(),
-                            M.NEEDED(of(
-                                    W.AUTORYTET,
-                                    W.ZLAMANIE_STANDARDU,W._II_, W.ZLAMANIE_PRAWA,
-                                    W.DLUGA_DOSTEPNOSC, W.LUDZIE , W.PRZEKONANE_OTOCZENIE)
-                            )
-                    )
-            ),
-            new WM(of(W.KLAMSTWO, W._88_, W.PRZEKONYWANIE),
-                    of(
-                            M.poCichu(),
-                            M.NEEDED(of(
-                                    W.WARTOSC, W.LUDZIE_ZA_TOBA)
-                            )
-                    )
-            ),
-            new WM(of(W.OCZY, W.USZY, W.CIERPIENIE, W.POZBAWIENIE_BEZPIECZENSTWA, W.POZBAWIENIE_DOSTEPOW),
-                    of(
-                            M.zamkniecieSytuacjiBezpowrotnie(),
-                            M.dokrecanieSruby(),
-                            M.odnowa(), M.II(), M.odnowaMocniej(),
-                            M.widziszTylkoZlaStrone(),
-                            M.NEEDED(of(
-                                    W.POINTCUT, W.EKIPA_DLUGA_DOSTEPNOSC,
-                                    W.EKIPA_RYZYKO, W.EKIPA_WALKA, W.OGARNIECI_ZA_TOBA)
-                            )
-                    )
-            ),
-            new WM(of(W.POZBAWIENIE_PRZEWAGI, W.KOSZTA, W.CIERPIENIE_DLUGOTERMINOWE, W.PRZEJEBANE),
-                    of(
-                            M.ultimatum(of(W.RODZINA, W.BLISKIE_OSOBY, W.SRODOWISKO, W.PRACA, W.PIENIADZE)),
-                            M.dokrecanieSruby(),
-                            M.wjezdzanieNaCalyCyklDnia(),
-                            M.dlugRosnie(),
-                            M.NEEDED(of(
-                                    W.OWNER_ZA_TOBA, W.GORA_ZA_TOBA, W.EKIPA_SPRZET)
-                            )
-                    )
-            ),
-            new WM(of(W.POZBAWIANIE_AUTORYTETU),
-                    of(
-                            wszyscy.FOR_EACH(),
-                            M.glosno(),
-                            M.obrazanie(obelgi),
-                            M.ukazanieZlychCech(),
-                            M.wspominanieZlychWydarzen(),
-                            M.zartowanie(zarty),
-                            M.otwarteStacieF2F(),
-                            M.terror(terror),
-                            wszyscy.FOR_EACH_END(),
-                            M.ktoZNimTenKurwa(),
-                            M.shanbienie(),
-                            M.NEEDED(of(W.LUDZIE_WOKOL, W.LUDZIE_ZA_TOBA))
-                    )
-            )
-    );
+    List<WM> srodki = srodki();
 
     public void run(){
         new WM(of(W._NOT_, W.CZOLO, W.OGARNIECI),
@@ -271,6 +182,104 @@ public class CPU_UL extends AbstractCPU {
         ulicaRelacjeWarunkow();
         defaultOsoba();
     }
+    public List<WM> srodki() {
+        return of(
+
+                new WM(of(W.WALKA_PIESCI),
+                        of(
+                                M.sondaDostepu(),
+                                M.sondaZagrozenia(),
+                                M.sondaPrzypalu(kryteriaPrzypalu),
+                                M.poCichu(), M.II(), M.otwarteStacieF2F(),
+                                M.NEEDED(of(
+                                        W.ZDOLNY_DO_WALKI,
+                                        W.MALY_DOSTEP, W.MALE_ZAGROZENIE, W.MALY_PRZYPAL, W.ZGODA_OTOCZENIA)
+                                )
+                        )
+                ),
+                new WM(of(W.WALKA_SPRZET),
+                        of(
+                                M.skasowanieDostepu(),
+                                M.postawienieNajwiekszejPrzewagiWKrotkimCzasie(),
+                                M.nieDajSzansObrony(),
+                                M.poCichu(), M.zZaskoczenia(), M.zUkrycia(),
+                                M.NEEDED(of(
+                                        W.ZDOLNY_WALKA_SPRZET,
+                                        W.DOBRE_MIEJSCE, W.DOBRA_GODZINA,
+                                        W.WARTOSC, W.ZLAMANIE_ZASAD, W.ZGODA_GORY)
+                                )
+                        )
+                ),
+                new WM(of(W.STANDARDY, W._II_, W.PRAWO),
+                        of(
+                                M.przestrzeganie(of(W.STANDARDY, W._II_, W.PRAWO)),
+                                M.oparcieSie(of(W.STANDARDY, W._II_, W.PRAWO)),
+                                M.poCichu(),
+                                M.NEEDED(of(
+                                        W.AUTORYTET,
+                                        W.ZLAMANIE_STANDARDU, W._II_, W.ZLAMANIE_PRAWA,
+                                        W.DLUGA_DOSTEPNOSC, W.LUDZIE, W.PRZEKONANE_OTOCZENIE)
+                                )
+                        )
+                ),
+                new WM(of(W.KLAMSTWO, W._88_, W.PRZEKONYWANIE),
+                        of(
+                                M.poCichu(),
+                                M.NEEDED(of(
+                                        W.WARTOSC, W.LUDZIE_ZA_TOBA)
+                                )
+                        )
+                ),
+                new WM(of(W.OCZY, W.USZY, W.CIERPIENIE, W.POZBAWIENIE_BEZPIECZENSTWA, W.POZBAWIENIE_DOSTEPOW),
+                        of(
+                                M.zamkniecieSytuacjiBezpowrotnie(),
+                                M.dokrecanieSruby(),
+                                M.odnowa(), M.II(), M.odnowaMocniej(),
+                                M.widziszTylkoZlaStrone(),
+                                M.NEEDED(of(
+                                        W.POINTCUT, W.EKIPA_DLUGA_DOSTEPNOSC,
+                                        W.EKIPA_RYZYKO, W.EKIPA_WALKA, W.OGARNIECI_ZA_TOBA)
+                                )
+                        )
+                ),
+                new WM(of(W.POZBAWIENIE_PRZEWAGI, W.KOSZTA, W.CIERPIENIE_DLUGOTERMINOWE, W.PRZEJEBANE),
+                        of(
+                                M.ultimatum(of(W.RODZINA, W.BLISKIE_OSOBY, W.SRODOWISKO, W.PRACA, W.PIENIADZE)),
+                                M.dokrecanieSruby(),
+                                M.wjezdzanieNaCalyCyklDnia(),
+                                M.dlugRosnie(),
+                                M.NEEDED(of(
+                                        W.OWNER_ZA_TOBA, W.GORA_ZA_TOBA, W.EKIPA_SPRZET)
+                                )
+                        )
+                ),
+                new WM(of(W.POZBAWIANIE_AUTORYTETU),
+                        of(
+                                wszyscy.FOR_EACH(),
+                                M.glosno(),
+                                M.obrazanie(obelgi),
+                                M.ukazanieZlychCech(),
+                                M.wspominanieZlychWydarzen(),
+                                M.zartowanie(zarty),
+                                M.otwarteStacieF2F(),
+                                M.terror(terror),
+                                wszyscy.FOR_EACH_END(),
+                                M.ktoZNimTenKurwa(),
+                                M.shanbienie(),
+                                M.NEEDED(of(W.LUDZIE_WOKOL, W.LUDZIE_ZA_TOBA))
+                        )
+                )
+        );
+    }
+
+    public List<W> afterTop() {
+        return of(
+                W.SWOJA_EKIPA, W.PRZECIWNA_EKIPA, W.PSY, W.KAZDE_DZIALANIE_OCENIANE, W.PILNOWANIE_HIERARCHII, W.PILNOWANIE_PRZEWAG,
+                W.WPROWADZANIE_ZASAD, W.ULTIMATUM, W.TWORZENIE_WARUNKOW, W.TWORZENIE_POINTCUTOW, W.ZMANIURAMI_PO_INFORMACJE,
+                W.ZADNEJ_LITOSCI
+        );
+    }
+
     public void shortest(){
         List<W> stan = of(W.WYSILEK_UMYSLOWY, W.WYSILEK_FIZYCZNY, W.DUZO_ZARCIA, W.WZROK, W.SAMOPOCZUCIE);
         List<W> shrtOsobaSonda = of(W.TEZYNA_FIZYCZNA, W.UBRANIE, W.OSOBOWOSC, W.WARTOSCI_ZYCIOWE, W.SRODOWISKO, W.SPEDZANIE_WOLNEGO_CZASU, W.RODZENSTWO);
@@ -645,7 +654,7 @@ public class CPU_UL extends AbstractCPU {
                     of(
                             M.GRANT(ME, of(W.TWORZENIE_WARUNKOW, W.TWORZENIE_POINTCUTOW, W.ZBIERANIE_WARTOSCI,
                                     W.TWORZENIE_ZARTY, W.TWORZENIE_MODY)),
-                            M.utrzymaj(afterTop)
+                            M.utrzymaj(afterTop())
                     )
             );
             new WM(of(W.RESTRYKCJA),

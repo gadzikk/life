@@ -212,6 +212,14 @@ public class CPU_PRACA extends AbstractCPU {
         manago.set(of(W.PIASKOWNICA, W.MALY_RUDY_FEST_GITARA_DLUGIE_WLOSY, W.IGNORANT_MALE_DZIECKO));
         manago.rozpowiedzDoWszystkich(W.WADA);
 
+        manago.thread_while_loop(new WWs(of(W.WADA), "--->", of(W.ZAMKNIECIE_DOZYWOTNIE, W.BRAK_MOZLIWOSCI_POPRAWY, W.ZARTY)));
+        manago.thread_while_loop(new WWs(of(W.DOBRE_WYKONANIE), "--->", of(W._0)));
+        manago.thread_while_loop(new WWs(of(W.ZLE_WYKONANIE), "--->", of(W.ZLY_FEEDBACK, W.ZLY_MIDYEAR, W.IMPROVEMENT_PLAN)));
+
+        manago.thread_while_loop(new WWs(of(W.MANAGER_LUBIE), "--->", of(W.ZLEC_SZCZEGOLOWO, W.DAJ_MALO_ROBOTY)));
+        manago.thread_while_loop(new WWs(of(W.MANAGER_NIELUBIE), "--->", of(W.ZLEC_NIESZCZEGOLOWO, W.DAJ_MALO_ROBOTY,
+                                                                                    W.UKRYCIE, W.PRETENSJE)));
+
         manago.thread_while_loop(W.MOWIENIE_MYSL_ROB_PROBOJ);
         manago.thread_while_loop(of(W.NIE_MOWILEM_ABYS_TAK_ZROBIL, W._100PROCENT_UZALEZNIENIE));
         manago.thread_while_loop(W.WCHODZ_ZYCIE_PRYWATNE);
@@ -225,6 +233,10 @@ public class CPU_PRACA extends AbstractCPU {
     }
 
     public void szukaniePracy() {
+        W silneCV = M.DLUGO(M.CIEZKO(of(W.DOBRZE_NAPISANE_CV, W.KILKA_LAT_DOSWIADCZENIA)));
+        W szansa = M.CIEZKO(of(W.WOLNE_MIEJSCE, W.SZANSA, silneCV));
+        W wiedza = M.CIEZKO(M.DLUGO(of(W.CZAS, W.ARTYKULY, W.KSIAZKI, W.PYTANIA_INTERVIEW, W.STUDIA)));
+
         M.wyslijCVBroadcastem();
         M.czasOczekiwania(W.DWA_TYGODNIE);
         M.pierwszyOdzew();
@@ -233,6 +245,7 @@ public class CPU_PRACA extends AbstractCPU {
         M.zaproszenieNaRozmowe();
         M.dowiedzSieCzegosORozmowieRekrutacyjnej();
         M.czasOczekiwania(W.TYDZIEN);
+        M.CIEZKO(interview(of(szansa, wiedza)));
         M.pierwszyEtap();
 
         M.czasOczekiwania(W.TYDZIEN);
@@ -250,11 +263,18 @@ public class CPU_PRACA extends AbstractCPU {
         M.screening(); // suma 8 tygodni, 2 miesiace
     }
 
-    public void interview() {
-        List<W> target = of(W._70_PROCENT_ZADOWALAJACYCH_ODPOWIEDZI, W.FINE);
+    public W interview(List<W> warunki) {
+        List<W> target = of(W.ZADEMONSTROWANIE_WIEDZY, W.FINE);
+        List<W> ocenianieWedlug = of(W.TO_CO_UMIESZ, W._II_, W.TO_CZEGO_NIEUMIESZ, W._II_, W.OCENA_ZE_STUDIOW);
+
         pytajacy.set(DB_Warunki.FEST.getWarunki());
         pytajacy.thread_while_loop(W.SZUKA_GLEBOKO_ZAGADNIEN);
         pytajacy.thread_while_loop(W.LICZY_KAZDY_BLAD);
+
+        o(W.PROBA, "--->", W.ZDOBYCIE_PRACY)
+                    .otherwise(of(W.STRACONA_SZANSA, W.NOTA, W.BRAK_REZULTATOW, W.WYSILEK_NA_DARMO, W.STRES_NA_DARMO));
+
+        return W.WARUNEK;
     }
 
 }

@@ -263,7 +263,8 @@ public class CPU_LUDZI extends AbstractCPU {
         );
         new WM(of(W.NOWA_OSOBA),
                 of(
-                        M.pierwszaReakcja(of(W.PROWOKUJE, W.CISNIE, W.WYPROWADZA_Z_ROWNOWAGI, W.WALKA_PIESCI))
+                        M.pierwszaReakcja(of(W.ROZKMINIA, W.MAGICZNE_ZAKLECIE, W.FOTY, W.NOTYFIKACJA_EKIPA,
+                                W.PROWOKUJE, W.CISNIE, W.WYPROWADZA_Z_ROWNOWAGI, W.WALKA_PIESCI))
                 )
         );
         new WM(of(W.KTOS_MI_COS_ZROBIL, W._II_, W.ZAZDROSC),

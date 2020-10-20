@@ -45,6 +45,8 @@ public class CPU_ALL extends AbstractCPU {
     PriorityQueue<W> wartosciowaRzecz = new PriorityQueue<>(of(W.WYSILEK, W.WALKA, W.UTRZYMANIE_PRZEMOCA, W.UTRZYMANIE_EMOCJAMI));
     PriorityQueue<W> silaSprawcza = new PriorityQueue<>();
 
+    List<W> mainFlows = of(W.GRUPA_PRZESTEPCZA, W.DOBRA_PRACA, W.STUDIA, W.KLUB, W.RESTAURACJA, W.WAKACJE_WODA, W.ZWIAZEK, W.ZNAJOMI);
+
     public void run(){
         new WMWM(
                 of(W.ZAUWAZYLEM, W._II_, W.USLYSZALEM),

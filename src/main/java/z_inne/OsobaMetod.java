@@ -1,6 +1,8 @@
 package z_inne;
 
 import metoda.M;
+import metoda.WWs;
+import metoda.WsWs;
 import typy_bazowe.TypOsoby;
 import warunek.W;
 
@@ -62,6 +64,7 @@ public class OsobaMetod {
     public OsobaMetod threadWhileLoop(W warunek) {return new OsobaMetod();}
     public String thread_while_loop(W warunek) {return "thread_while_loop("+ warunek +")";}
     public String thread_while_loop(List<W> warunki) {return "thread_while_loop("+ warunki +")";}
+    public String thread_while_loop(WWs ws) {return "thread_while_loop("+ ws +")";}
     public String robKomusKrzywde() {return "robKomusKrzywde()";}
     public String dajZarobicDillowi() {return "dajZarobicDillowi()";}
     public String otoczKorzysc(W warunek) {return "otoczKorzysc("+ warunek +")";}
