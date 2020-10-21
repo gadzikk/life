@@ -61,6 +61,8 @@ public class CPU_1_SHORTEST extends AbstractCPU {
     W schemaRelacji = o(W.KOBIETA, "-", jakoscSytuacji, W._II_, W.CHETNOSC, "-", W.RELACJA);
 
     public void run(){
+        W nastawienie = M.ODRAZU(W.BLISKOSC);
+
         new MW(
                 of(M.wejsciePlansza(plansza)),
                 of(W.MESKA_PROSYSTUTKA, W.SMIETNIIK_NA_BUZI_JUZ_DAWNO, W.ENK_1_2, W.INFORMACJA)

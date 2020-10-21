@@ -233,8 +233,9 @@ public class CPU_PRACA extends AbstractCPU {
     }
 
     public void szukaniePracy() {
+        W miejsce = on(W.BUDZET, W.POTRZEBA_AUTOMTAYZACJI);
         W silneCV = M.DLUGO(M.CIEZKO(of(W.DOBRZE_NAPISANE_CV, W.KILKA_LAT_DOSWIADCZENIA)));
-        W szansa = M.CIEZKO(of(W.WOLNE_MIEJSCE, W.SZANSA, silneCV));
+        W szansa = M.CIEZKO(of(miejsce, W.SZANSA, silneCV));
         W wiedza = M.CIEZKO(M.DLUGO(of(W.CZAS, W.ARTYKULY, W.KSIAZKI, W.PYTANIA_INTERVIEW, W.STUDIA)));
 
         M.wyslijCVBroadcastem();
@@ -266,6 +267,10 @@ public class CPU_PRACA extends AbstractCPU {
     public W interview(List<W> warunki) {
         List<W> target = of(W.ZADEMONSTROWANIE_WIEDZY, W.FINE);
         List<W> ocenianieWedlug = of(W.TO_CO_UMIESZ, W._II_, W.TO_CZEGO_NIEUMIESZ, W._II_, W.OCENA_ZE_STUDIOW);
+        M.ww(
+                W.MNIEJ_NIZ_2_LATA_DOSWIADCZENIA, "--->",      pytajacy.oczekiwanie(W.DOBRZE_JEZELI_UMIE),
+                W.WIECEJ_NIZ_2_LATA_DOSWIADCZENIA, "--->", pytajacy.oczekiwanie(W.MUSI_UMIEC_WSZYSTK0)
+        );
 
         pytajacy.set(DB_Warunki.FEST.getWarunki());
         pytajacy.thread_while_loop(W.SZUKA_GLEBOKO_ZAGADNIEN);
@@ -275,6 +280,10 @@ public class CPU_PRACA extends AbstractCPU {
                     .otherwise(of(W.STRACONA_SZANSA, W.NOTA, W.BRAK_REZULTATOW, W.WYSILEK_NA_DARMO, W.STRES_NA_DARMO));
 
         return W.WARUNEK;
+    }
+
+    public void algorytmUczeniaSie() {
+        // todo
     }
 
 }

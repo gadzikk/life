@@ -65,6 +65,9 @@ public class CPU_1 extends AbstractCPU {
     W schemaRelacji = o(W.KOBIETA, "-", jakoscSytuacji, W._II_, W.CHETNOSC, "-", W.RELACJA);
 
     public void run(){
+        W nastawienie = M.ODRAZU(W.BLISKOSC);
+        List<W> mainFlow = of(W.GLOWNA_DROGA, W.MIEJSCE_STALE);
+
         new MW(
                 of(M.namierzenie(), M.nieOddalaszWzroku()),
                 of(W.THREAD_WHILE_LOOP_ZASIEG_WZROKU)

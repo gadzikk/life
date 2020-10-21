@@ -17,6 +17,12 @@ import java.util.List;
  */
 public class M {
     public static M of(W warunek) { return new M();}
+    public static W w(W w1, W w2) { return W.WARUNEK; }
+    public static W w(W w1, String del, W w2) { return W.WARUNEK; }
+    public static W w(List<W> w1, String del, List<W> w2) { return W.WARUNEK; }
+    public static W ww(W w1, W w2, W w3, W w4) { return W.WARUNEK; }
+    public static W ww(List<W> w1, List<W> w2, List<W> w3, List<W> w4) { return W.WARUNEK; }
+    public static W ww(W w1, String del, W w2, W w3, String del2, W w4) { return W.WARUNEK; }
     public static String wejsciePlansza(List<W> plansza){
         return "wejsciePlansza("+ plansza +")";
     }
@@ -565,6 +571,8 @@ public class M {
     public static W DLUGO(List<W> warunki) {return W.WARUNEK;}
     public static W KROTKO(W warunek) {return W.WARUNEK;}
     public static W KROTKO(List<W> warunki) {return W.WARUNEK;}
+    public static W ODRAZU(W warunek) {return W.WARUNEK;}
+    public static W NAJMNIEJSZY_CZAS(W w) {return W.WARUNEK;}
 
     public static W WARUNEK_UTRZYMANIA(W warunek) {return W.WARUNEK;}
     public static W WARUNKI_UTRZYMANIA(List<W> warunki) {return W.WARUNEK;}
@@ -596,4 +604,25 @@ public class M {
     public static W gnojenieZPerspektywyPozycji(OsobaMetod osoba) {return W.WARUNEK;}
     public static W gnojenie(OsobaMetod osoba) {return W.WARUNEK;}
     public static W szkodzi(OsobaMetod osoba) {return W.WARUNEK;}
+
+    public static W budzaceEmocjeWow() {return W.WARUNEK;}
+    public static W wdupcanieOstatnichKolegow() {return W.WARUNEK;}
+    public static W bezpieczneBezSensu() {return W.WARUNEK;}
+    public static W strefaKomfortu() {return W.WARUNEK;}
+    public static W cisnieIleMozna() {return W.WARUNEK;}
+
+    public static W przyjdzNaGotowe() {return W.WARUNEK;}
+    public static W oczekuje(W warunek) {return W.WARUNEK;}
+    public static W nieStaraSieWZwiazku() {return W.WARUNEK;}
+    public static M uznajeHierarchie() {return new M();}
+
+    public static W zaplac() {return W.WARUNEK;}
+    public static W zrobCosExtra() {return W.WARUNEK;}
+    public static M znoszenieGnojenia() {return new M();}
+    public static M tworzEmocje() {return new M();}
+    public static W pobierzNastawienie() {return W.WARUNEK;}
+    public static M wsparcie(W w) {return new M();}
+    public static M wzajemneOddzialywanie() {return new M();}
+    public static M moda() {return new M();}
+    public static M komfort() {return new M();}
 }

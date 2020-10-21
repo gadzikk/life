@@ -718,6 +718,13 @@ public class DB_Warunki {
             )
     );
 
+    public static WarunkiKategoria OSLONY = new WarunkiKategoria(
+            new Kategoria(TypKategoria.OSLONA),
+            Arrays.asList(
+                    W.PRACA, W.LAMUS, W.KOBIETA, W.DUZO_OSOB, W.DOSTEP_RESTRYKTOWANY, W.Z_KOBIETA, W.Z_RODZINA
+            )
+    );
+
     public static WarunkiKategoria PRZYMUS = new WarunkiKategoria(
             new Kategoria(TypKategoria.PRZYMUS),
             Arrays.asList(
@@ -926,11 +933,13 @@ public class DB_Warunki {
                     W.JEDNO_MOWI_DRUGIE_ROBI, W.ODERWANY_OD_RZECZYWISTOSCI, W.ZMAGA_SIE_WRAZLIWE_EMOCJE_NERWY_PARALIZ,
                     W.BRAK_KONSEKWENCJI, W.BRAK_SZACUNKU_DO_LUDZI, W.BRAK_SZACUNKU_DO_ZASAD, W.BRAK_SZACUNKU_DO_CZYNOW,
 
+                    W.BLEDNY_SYSTEM_WARTOSCI, W.MALO_WAZNE_MOCNO, W.WAZNE_SLABO,
+
                     W.PIERWSZA_TRUDNOSC_PODDANIE, W.NIE_UMIE_PRACOWAC, W.PRACUJE_GDY_WYGODA_ZAPEWNIONA,
                     W.NIEZDOLNY_DO_WYSILKU, W.NIEZDOLNY_DO_CIERPIENIA, W.ZEROWA_SILA, W.NIEZDOLNY_DO_WALKI,
                     W.BOI_SIE_PRAWA, W.BRAK_SILY_SPRAWCZEJ,
 
-                    W.POSLUSZNY, W.POSLUSZNY_SILE,
+                    W.POSLUSZNY, W.POSLUSZNY_SILE, W.BRAK_DOSTEPU_RDZENNI,
 
                     W.BRZYDKI, W.EMOCJE_ZE_ZLA, W.DZIWNE_HOBBY, W.DZIWNY_SYSTEM_WARTOSCI, W.KOMPLEKS_WZGLEDEM_LEPSZYCH, W.PRZECIW_LEPSZYM,
                     W.KOLECZKO_WZAJEMNEJ_ADORACJI, W.PODLIZYWANIE_SIE,
@@ -1110,15 +1119,20 @@ public class DB_Warunki {
     public static WarunkiKategoria NASTAWIENIA = new WarunkiKategoria(
             new Kategoria(TypKategoria.LUDZIE, TypKategoria.NASTAWIENIE),
             Arrays.asList(
-                    W.AGRESJA, W.KONTEMPLACJA, W.PRACA, W.OSZUKANIE_WDUPCENIE, W.DOBRO, W.POZNANIE, W.KONTRA, W.PRZYJEMNOSCI
+                    W.NASTAWIENIE_AGRESJA_W_DZIALANIU, W.NASTAWIENIE_KONTEMPLACJA, W.NASTAWIENIE_PRACA,
+                    W.NASTAWIENIE_OSZUKANIE_WDUPCENIE, W.NASTAWIENIE_NA_ZLO, W.NASTAWIENIE_DOBRO, W.NASTAWIENIE_POZNANIE,
+                    W.NASTAWIENIE_KONTRA, W.NASTAWIENIE_PRZYJEMNOSCI, W.NASTAWIENIE_WSPARCIE, W.NASTAWIENIE_PRZECIW,
+
+                    W.NASTAWIENIE_MAM_ZLE_ON_TEZ_MUSI, W.NASTAWIENIE_NIE_MAM_NIC_ON_TEZ_MA_NIE_MIEC, W.NASTAWIENIE_JA_GNOJONY_GNOJE_NIZSZYCH
             )
     );
 
     public static WarunkiKategoria KTO_KOGO = new WarunkiKategoria(
             new Kategoria(TypKategoria.RANY, TypKategoria.KTO_KOGO),
             Arrays.asList(
-                    W.UKRYCIE, W.KLAMSTWO, W.PO_CICHU, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE,
-                    W.NOTYFIKACJA_EKIPA, W.FOTY, W.NAKLEJ_NALEPKE, W.OBGADAC,
+                    W.UKRYCIE, W.KLAMSTWO, W.PO_CICHU,
+                    W.WDUPC_ZAKLECIEM, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE,
+                    W.NOTYFIKACJA_EKIPA, W.FOTY, W.NAKLEJ_NALEPKE, W.OBGADAC, W.PRZEKONYWANIE_OTOCZENIA_PRZECIW,
                     W.CISNIE, W.WALKA_PIESCI,
                     W.SPRZET, W.AGRESJA_W_DZIALANIU, W.ZLO
             )
@@ -1157,7 +1171,8 @@ public class DB_Warunki {
             PRZEWAGI,
             SLABOSCI,
             CIERPIENIA,
-            POTRZEBY
+            POTRZEBY,
+            OSLONY
     );
 
     public static List<WarunkiKategoria> REAKCJE = Arrays.asList(

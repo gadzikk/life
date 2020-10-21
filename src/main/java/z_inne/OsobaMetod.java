@@ -86,4 +86,9 @@ public class OsobaMetod {
     public W pisaniePrawa() {return W.WARUNEK;}
     public W naginaniePrawa() {return W.WARUNEK;}
     public W przestrzeganie(W warunek) {return W.WARUNEK;}
+    public W oczekiwanie(W warunek) {return W.WARUNEK;}
+    public W praca() {return W.WARUNEK;}
+    public W uzaleznijOdSiebie() {return W.WARUNEK;}
+    public W wychodzenieNaUlice() {return W.WARUNEK;}
+
 }

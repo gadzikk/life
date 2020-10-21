@@ -30,4 +30,10 @@ public class CPU_SUMMARY extends AbstractCPU {
         W chcianyWarunek = W.WZGL_IZOLACJA;
         List<W> tematy = of(W.KOMBINACJA_TEMATOW, W.TOPICS);
     }
+
+    public void ludzie() {
+        // todo: typ -> defaultZachowanie ex. fest -> wow(), wdupcanieOstatnichKolegow()
+        M.w(W.FEST, "--->", on(M.budzaceEmocjeWow(), M.wdupcanieOstatnichKolegow()));
+        M.w(W.WIESNIAK, "--->", on(M.bezpieczneBezSensu(), M.strefaKomfortu(), M.cisnieIleMozna()));
+    }
 }

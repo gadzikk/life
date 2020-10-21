@@ -22,10 +22,17 @@ public class CPU_UL extends AbstractCPU {
             M.walkaSila(of(W.ZAGRANICZNI, W.BURZUAZJA)),
             M.walkaWiedza(of(W.BIEGACZE, W.NIECHCACY_WPUSCIC))
     );
+    List<W> typyLudzi = of(
+            W.WYKOLEJONY, W.FEST, W.WIESNIAK, W.OSIEDLOWY_SLABY, W.NORMALNY, W.OSIEDLOWY_MOCNY, W.CZOLO
+    );
+
+    List<W> oslony = OSLONY_WARUNKI;
 
     List<W> podstawa = of(W.OGRANICZENIE_CZASOWE, W.DNI, W.TYGODNIE, W.LATA, W.OBECNOSC, W.DOSTEP, W.POZNANIE_CZLOWIEKA_WADAMI,
             W.ENUM, W.ANTY_FEST, W.ANTY_SYSTEM, W.ANTY_BURZUA, W.ANTY_KONFI, W.DEFAULT_WARUNKI, W.STARCIE, W.KTO_ZYSKUJE);
+
     List<W> prawa = of(W.DOMINACJA, W.GLUPIEGO_CZEKA_KARA, W.PRZEWAGA, W.DOSTEP, W.HIERARCHIA, W.JEDNOSC_PRZECIW_ZAZDROSCI);
+
     List<String> mojeDzialanie = of(M.wszystkoNaChlodno(), M.tyDobrze(), M.karzeszZaWadyZachowania());
 
     List<String> wchodzisz = of(M.dostepDoInformacjiPrzezManiury(), M.wstrzymajSieZWiezeciemKobiety(), M.szukajHakow());
@@ -59,7 +66,10 @@ public class CPU_UL extends AbstractCPU {
 
     List<W> pointcut = of(W.MATERIALNE_ZNALEZIENIE_SIE, W.DEFAULT_ZACHOWANIE, W.DEFAULT_WARUNKI, W.DZIALANIE, W.REAKCJA,
             W.MAKSYMALNIE_ULATWIASZ, W.PRZEKONYWANIE, W.ULTIMATUM);
-    List<W> warunek = of(W.ULTIMATUM, W.POCZATEK, W.KONIEC, W.ZYSK, W.WARTOSC, W.ILOSC_OSOB, W.CZESTOTLIWOSC);
+
+    List<W> warunek = of(
+            W.ULTIMATUM, W.POCZATEK, W.KONIEC, W.ZYSK, W.WARTOSC, W.ILOSC_OSOB, W.CZESTOTLIWOSC, W.SILA, W.PRIORYTET
+    );
 
     List<W> bojka = of(W.WYSILEK, W.BOL, W.RANY_ODNIESIONE, W.REGENERACJA, W.WROG, W.JEGO_KOLEDZY_TWOI_WROGOWIE);
 
@@ -180,7 +190,14 @@ public class CPU_UL extends AbstractCPU {
         krajobrazUlicy();
         dojscieDoWalki();
         ulicaRelacjeWarunkow();
+        agresja();
         defaultOsoba();
+        szansaNaDzialajacego();
+        zzzHandly();
+        nuda();
+        tchorzSchemat();
+        nieZnam();
+        rdzenni();
     }
     public List<WM> srodki() {
         return of(
@@ -427,6 +444,8 @@ public class CPU_UL extends AbstractCPU {
         }
 
         public void starcie(){
+            W dzialanie = M.NAJMNIEJSZY_CZAS(W.NAJWIEKSZA_KRZYWDA);
+
             List<W> kryteriaPrzypalu = DB_Warunki.KRYTERIA_PRZYPALU.getWarunki();
 
             M.PROSTO(W.BOJKA);
@@ -1037,6 +1056,13 @@ public class CPU_UL extends AbstractCPU {
                                                                                             W.PRZEWAGA_SILY, W.PRZEWAGA_EKIPY_SPRZETU));
 
             new WWs(of(W.ZLO), "--->", of(W.ROB_NAJWIEKSZA_KRZYWDE, W.ROZPOWIEDZ_DO_NAJWIEKSZEJ_LICZBY_OSOB, W.PRZEKONAJ_NAJWIECEJ_OSOB));
+
+            M.w(of(W.BLISKOSC, W._88_, W.WROGOSC), "--->", KTO_KOGO_WARUNKI);
+
+            M.w(of(W.SIEDZENIE_W_SRODOWISKU), "--->", of(W.BEZPIECZENSTWO, W.STREFA_KOMFORTU, W.POTRZEBA_EMOCJI,
+                                                            W.ZNUDZENIE_OSOBAMI, W.POTRZEBA_NOWYCH_OSOB));
+
+//            [RZ] projektLife:siedzenieWsrodowisku-3 bezpieczenstwo, strefaKomfortu, potrzeba emocji, znudzenie_osobami, potrzeba_nowych_osob
         }
 
         public void agresja() {
@@ -1050,6 +1076,43 @@ public class CPU_UL extends AbstractCPU {
             List<W> warunki = of(M.MOCNO(W.KIBICOWANIE), M.MOCNO(W.ZLO), M.MOCNO(W.MIEJSCE_STALE), M.MOCNO(W.MODA), M.MOCNO(W.ZNAJOMI),
                     M.MOCNO(W.HIERARCHIA), M.MOCNO(W.UKLADZIK), M.MOCNO(W.WYKORZYSTANIE), M.MOCNO(W.BRAK_WSTYDU), M.MOCNO(W.KLAMSTWO),
                     M.SLABO(W.WYSILEK), M.SLABO(W.RYZYKO), M.SLABO(W.UMIEJETNOSCI), M.SLABO(W.OBECNOSC), M.SLABO(W.PRAWDA), M.SLABO(W.DOBRO));
+        }
+
+        public void szansaNaDzialajacego() {
+            Map<W, Integer> miejsceSzansaProcent = new HashMap<>();
+            miejsceSzansaProcent.put(W.MELINA_NA_OSIEDLU, 80);
+            miejsceSzansaProcent.put(W.MIEJSCE_STALE, 50);
+            miejsceSzansaProcent.put(W.OSIEDLE, 20);
+            miejsceSzansaProcent.put(W.GLOWNA_DROGA, 10);
+        }
+
+        public void zzzHandly() {
+            W wysilek = on(M.zaplac(), M.zrobCosExtra());
+            W zlyRezultat = on(cvia.praca(), wysilek);
+            cvia.rozpowiedzDoWszystkich(zlyRezultat);
+            cvia.uzaleznijOdSiebie();
+            M.GRANT(ME, W.WKURWIENIE);
+        }
+
+        public void nuda() {
+            M.w(W.WYJSCIE_NA_ULICE, "--->", W.NUDA);
+
+            M.w(of(W.WYJSCIE_NA_ULICE, W._88_, W.KIBICOWANIE, W.MAGICZNE_ZAKLECIE,  W.EMOCJE_ZE_ZLA,
+                                                    W.ZNAJOMI, W.SRODOWISKO, W.ZWIAZEK), "--->", of(W.BRAK_NUDY));
+        }
+
+        public void tchorzSchemat() {
+            M.w(W.MIEJSCE_STALE, "--->", W.SONDA_ILE_MOZNA);
+            W nastawienie = M.pobierzNastawienie();
+            M.w(nastawienie, "--->", W.AGRESJA_W_DZIALANIU);
+        }
+
+        public void nieZnam() {
+            M.w(of(W.NIE_ZNAM), "--->", of(W.DRUGA_STRONA, W.NIE_MA_DOSTEPU, W.PRZESTRZELIC, W.ROZKMINIC));
+        }
+
+        public void rdzenni() {
+            rdzenni.wychodzenieNaUlice();
         }
 
 }

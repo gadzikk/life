@@ -85,6 +85,11 @@ public class CPU_ZDOBYCIE_ZWIAZKU extends AbstractCPU {
         new WWs(of(W.NIE_ZNAJA, W.NIE_KOJARZY, W.BRAK_WSPOLNYCH_ZNAJOMYCH), "--->", of(W.ODMOWA));
     }
 
+    public void karyna() {
+                M.przyjdzNaGotowe();
+                karyna.thread_while_loop(M.oczekuje(W.EMOCJE));
+                karyna.thread_while_loop(M.nieStaraSieWZwiazku());
+    }
 
 
 //    __Bariery do znalezienia zwiazku [K] *s* >

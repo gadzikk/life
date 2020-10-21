@@ -47,6 +47,9 @@ public class CPU_ALL extends AbstractCPU {
 
     List<W> mainFlows = of(W.GRUPA_PRZESTEPCZA, W.DOBRA_PRACA, W.STUDIA, W.KLUB, W.RESTAURACJA, W.WAKACJE_WODA, W.ZWIAZEK, W.ZNAJOMI);
 
+    List<W> urodzenieDefault = of(W.RODZINA, W.MIEJSCE_ZAMIESZKANIA, W.BRAK_ZNAJOMYCH, W.BRAK_ZWIAZKU, W.BRAK_PRACY,
+            W.BRAK_ZAKLECIA, W.CZYSTE_SUMIENIE);
+
     public void run(){
         new WMWM(
                 of(W.ZAUWAZYLEM, W._II_, W.USLYSZALEM),
@@ -153,6 +156,7 @@ public class CPU_ALL extends AbstractCPU {
         );
         trudnoLatwo();
         superpozycja();
+        najwiekszaBron();
     }
     public void trudnoLatwo(){
         M.trudno(W.ZWIAZEK).warunek(W.MEZCZYZNA);
@@ -202,5 +206,15 @@ public class CPU_ALL extends AbstractCPU {
         superPozycjaOsoby.set(of(
                 W.DUZO_OBOWIAZKOW, W.MALO_CZASU, W.NIE_PAMIETA_SWOICH_OFIAR, W.OCZEKIWANIA
         ));
+
+        M.w(of(W.SLEPA_LOJALNOSC, W.UZNAJE_HIERARCHIE, W.DUZO_UMIEJETNOSCI, W.MIEJSCE), "--->", of(W.SUPERPOZYCJA));
+
+        M.w(of(W.BRAK_SUPERPOZYCJI), "--->", of(W.NIEWOLNIK, W.TWOJE_ZDANIE_NIC_NIE_ZNACZY));
+    }
+
+    public void najwiekszaBron() {
+        M.w(of(W.ULICA), "--->", of(W.SPRZET, W.KONTUZJA));
+
+        M.w(of(W.PRACA), "--->", of(W.ZWOLNIENIE, W.SPRAWA_W_SADZIE));
     }
 }

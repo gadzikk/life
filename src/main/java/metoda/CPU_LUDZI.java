@@ -322,14 +322,22 @@ public class CPU_LUDZI extends AbstractCPU {
 
                         M.WARUNKI_WSTEPNE(of(
                                 dzialacz.akceptacjaBiegania(),
-                                dzialacz.akceptacjaCpania()
+                                dzialacz.akceptacjaCpania(),
+                                W.UZNAJE_HIERARCHIE
                         )),
 
                         M.WARUNKI_UTRZYMANIA(of(
+                                dzialacz.thread_while_loop(M.znoszenieGnojenia()),
+                                dzialacz.thread_while_loop(M.tworzEmocje()),
                                 dzialacz.thread_while_loop(M.robKrzywde()),
                                 dzialacz.thread_while_loop(M.dajZarobekGrubasowi()),
-                                dzialacz.thread_while_loop(M.ochronaGrubasa())
+                                dzialacz.thread_while_loop(M.ochronaGrubasa()),
+                                dzialacz.thread_while_loop(M.uznajeHierarchie())
                         )),
+                        srodowisko.thread_while_loop(M.wsparcie(W.DZIALANIE_DLA_ZLA)),
+                        srodowisko.thread_while_loop(M.wzajemneOddzialywanie()),
+                        srodowisko.thread_while_loop(M.moda()),
+                        srodowisko.thread_while_loop(M.komfort()),
 
                         dzialacz.siejZlo(), M.otherwise(W.PRZEJEBANE, 0),
                         dzialacz.uzaleznijSieOdSrd(),

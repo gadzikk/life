@@ -64,6 +64,12 @@ public class AbstractCPU {
     OsobaMetod pytajacy = new OsobaMetod();
     OsobaMetod pracownicy = new OsobaMetod();
     OsobaMetod superPozycjaOsoby = new OsobaMetod();
+    List<W> KTO_KOGO_WARUNKI = DB_Warunki.KTO_KOGO.getWarunki();
+    OsobaMetod karyna = new OsobaMetod();
+    OsobaMetod cvia = new OsobaMetod();
+    OsobaMetod rdzenni = new OsobaMetod();
+    OsobaMetod srodowisko = new OsobaMetod();
+    List<W> OSLONY_WARUNKI = DB_Warunki.OSLONY.getWarunki();
 
     public <T> List<T> of(T... elements){
         return Arrays.asList(elements);
