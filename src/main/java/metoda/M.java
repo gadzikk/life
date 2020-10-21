@@ -16,6 +16,7 @@ import java.util.List;
  * Created by gadzik on 21.12.19.
  */
 public class M {
+    public static M of(W warunek) { return new M();}
     public static String wejsciePlansza(List<W> plansza){
         return "wejsciePlansza("+ plansza +")";
     }
@@ -223,6 +224,7 @@ public class M {
     public static String postawienieNajwiekszejPrzewagiWKrotkimCzasie() {return "postawienieNajwiekszejPrzewagiWKrotkimCzasie()";}
     public static String nieDajSzansObrony() {return "nieDajSzansObrony()";}
     public static String przestrzeganie(List<W> warunki) {return "przestrzeganie("+ warunki +")";}
+    public static M przestrzeganie(W warunki) {return new M();}
     public static String poCichu() {return "poCichu()";}
     public static String glosno() {return "glosno()";}
     public static String otwarteStacieF2F() {return "otwarteStacieF2F()";}
@@ -589,4 +591,9 @@ public class M {
     public static M robKrzywde() {return new M();}
     public static M dajZarobekGrubasowi() {return new M();}
     public static M ochronaGrubasa() {return new M();}
+
+    public static W poparcie(W warunek) {return W.WARUNEK;}
+    public static W gnojenieZPerspektywyPozycji(OsobaMetod osoba) {return W.WARUNEK;}
+    public static W gnojenie(OsobaMetod osoba) {return W.WARUNEK;}
+    public static W szkodzi(OsobaMetod osoba) {return W.WARUNEK;}
 }

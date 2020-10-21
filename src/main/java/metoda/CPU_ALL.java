@@ -179,5 +179,28 @@ public class CPU_ALL extends AbstractCPU {
                         M.brakPochwaly()
                 )
         );
+
+        M.WARUNKI_WSTEPNE(of(W.POSLUSZNY, W.UZNAJE_HIERARCHIE));
+        pracownicy.thread_while_loop(M.poparcie(W.SUPERPOZYCJA));
+
+        superPozycjaOsoby.thread_while_loop(M.gnojenieZPerspektywyPozycji(pracownicy));
+        pracownicy.thread_while_loop(M.gnojenie(pracownicy));
+
+        superPozycjaOsoby.naginaniePrawa();
+        W prawo = superPozycjaOsoby.pisaniePrawa();
+
+        wszyscy.thread_while_loop(M.przestrzeganie(prawo)
+                                    .otherwise(W.KONSEKWENCJE));
+
+        M.of(prawo).szkodzi(wszyscy);
+
+        superPozycjaOsoby.set(of(
+                W.ODDANIE_SIE_ZA_PIENIADZE, W.BRAK_WSTEPU_RDZENNI, W.LECZY_KOMPLEKSY_W_PRACY,
+                W.TWARDOGLOWOSC, W.POCZUCIE_SUKCESU, W.PIENIADZE
+        ));
+
+        superPozycjaOsoby.set(of(
+                W.DUZO_OBOWIAZKOW, W.MALO_CZASU, W.NIE_PAMIETA_SWOICH_OFIAR, W.OCZEKIWANIA
+        ));
     }
 }

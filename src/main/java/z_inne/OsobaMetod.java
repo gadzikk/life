@@ -83,4 +83,7 @@ public class OsobaMetod {
     public String wymaganaAkcja(TypOsoby osoba) {return "wymaganaAkcja("+ osoba +")";}
     public W akceptacjaBiegania() {return W.WARUNEK;}
     public W akceptacjaCpania() {return W.WARUNEK;}
+    public W pisaniePrawa() {return W.WARUNEK;}
+    public W naginaniePrawa() {return W.WARUNEK;}
+    public W przestrzeganie(W warunek) {return W.WARUNEK;}
 }

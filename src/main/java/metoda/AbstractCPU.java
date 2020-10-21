@@ -62,6 +62,8 @@ public class AbstractCPU {
     Integer i = 0;
     List<W> warunki;
     OsobaMetod pytajacy = new OsobaMetod();
+    OsobaMetod pracownicy = new OsobaMetod();
+    OsobaMetod superPozycjaOsoby = new OsobaMetod();
 
     public <T> List<T> of(T... elements){
         return Arrays.asList(elements);
