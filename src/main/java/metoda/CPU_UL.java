@@ -731,6 +731,9 @@ public class CPU_UL extends AbstractCPU {
             new WWs(of(W.SONDA_DZIALANIA), "--->", of(W.WARTOSC, W.BEZPIECZENSTWO, W.KONSEKWENCJE,
                                                                         W.CZESTOTLIWOSC,W.EFEKTYWNOSC));
 
+            M.w(of(W.ZLY, W._88_, W.PATRZY), "--->", of(W.SONDA_POD_ZROBIENIE_ZLA));
+
+
             new WM(of(W.LADNY, W._88_, W.BRAK_CIERPIENIA),
                     of(
                             M.GRANT(ME, W.NIEGODNY_POPATRZENIA)

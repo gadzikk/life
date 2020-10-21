@@ -91,6 +91,19 @@ public class CPU_ZDOBYCIE_ZWIAZKU extends AbstractCPU {
                 karyna.thread_while_loop(M.nieStaraSieWZwiazku());
     }
 
+    public void doKosza() {
+        M.w(of(W._NOT_,
+                W.KASA,
+                W.SRODOWISKO,
+                W.LADNY,
+                W.ZNAJOMI), "--->", of(W.DO_KOSZA));
+    }
+
+    public void dzialajacaManiura() {
+        M.w(of(W.POLOZENIE_SIE_PRZED_DZIALAJACYM, W.FOTY,
+                W.NAGADYWANIE_KOLEZANEK),            "--->", of(W.SPOKOJ, W.SRODOWISKO, W.PRACA_PO_ZNAJOMOSCI));
+    }
+
 
 //    __Bariery do znalezienia zwiazku [K] *s* >
 //    Trudnosci = genow/urodzenia, jedynaczki, czorta, burzuy, technologii, szkoly

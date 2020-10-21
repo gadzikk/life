@@ -578,6 +578,9 @@ public class M {
     public static W WARUNKI_UTRZYMANIA(List<W> warunki) {return W.WARUNEK;}
     public static W WARUNEK_WSTEPNY(W warunek) {return W.WARUNEK;}
     public static W WARUNKI_WSTEPNE(List<W> warunki) {return W.WARUNEK;}
+    public static W WIDZISZ(W warunek) {return W.WARUNEK;}
+    public static W WIDZISZ(List<W> warunki) {return W.WARUNEK;}
+    public static List<W> AKTYWNA_WALKA_ZE_ZLEM(List<W> warunki) {return new ArrayList<>();}
 
     public static W EFEKTYWNA_GADKA(W warunek) {return W.WARUNEK;}
     public static W PILNOWANIE_BLISKOSC(W warunek) {return W.WARUNEK;}

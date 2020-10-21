@@ -136,6 +136,7 @@ public class CPU_SJ extends AbstractCPU {
         denerwuje();
         zagrozenia();
         antyPan();
+        widziszDzialacza();
     }
 
     public void wsrodLudzi() {
@@ -183,5 +184,12 @@ public class CPU_SJ extends AbstractCPU {
     public void antyPan() {
         List<W> antyPan = of(W.GRZEBANIE_W_KIBLU_CODZIEN, W.MALY_ODZEW_SZUKANIE_PRACY, W.JEBANIE_PRZEZ_MANAGEROW_ZAWSZE,
                 W.NIEMOZESZ_WYDAC_KASY);
+    }
+
+    public void widziszDzialacza() {
+        M.w(of(M.WIDZISZ(W.DZIALAJACY), W._88_, W.BLISKOSC), "--->", M.AKTYWNA_WALKA_ZE_ZLEM(of(W.BLISKOSC, W.CISNIECIE, W.WALKA_PIESCI)));
+
+        M.w(of(W.WPIERDOL), "--->", of(W.STRACH, W.BOL, W.MORALNIAK, W.STRATA_MANIURY, W.POZBAWIENIE_PRZEWAGI,
+                                                                                M.MOCNO(W.CHEC_POMSZCZENIA)));
     }
 }

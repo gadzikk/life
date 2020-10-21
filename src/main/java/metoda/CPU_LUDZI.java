@@ -363,5 +363,9 @@ public class CPU_LUDZI extends AbstractCPU {
                 W.PRZEWAGA_ZE_ZLA_OD_ROBIENIA_ZLA,
                 M.WHILE_END()
         );
+
+        List<W> dzialajcyPrzewagi = of(W.KLUB, W.MLODE_KOBIETY, W.SRODOWISKO, W.ZNAJOMI, W.EMOCJE, W.GNOJENIE, W.PRACA_PO_ZNAJOMOSCI);
+
+        M.w(of(W.DZIALAJACY, W._88_, W.BLISKOSC), "--->", of(W.NASTAWIENIE_AGRESJA));
     }
 }
