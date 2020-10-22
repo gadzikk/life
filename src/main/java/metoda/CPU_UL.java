@@ -27,6 +27,8 @@ public class CPU_UL extends AbstractCPU {
     );
 
     List<W> oslony = OSLONY_WARUNKI;
+    List<W> ktoKogo = KTO_KOGO_WARUNKI;
+    List<W> kurestwo = KURESTWO_WARUNKI;
 
     List<W> podstawa = of(W.OGRANICZENIE_CZASOWE, W.DNI, W.TYGODNIE, W.LATA, W.OBECNOSC, W.DOSTEP, W.POZNANIE_CZLOWIEKA_WADAMI,
             W.ENUM, W.ANTY_FEST, W.ANTY_SYSTEM, W.ANTY_BURZUA, W.ANTY_KONFI, W.DEFAULT_WARUNKI, W.STARCIE, W.KTO_ZYSKUJE);
@@ -1065,7 +1067,9 @@ public class CPU_UL extends AbstractCPU {
             M.w(of(W.SIEDZENIE_W_SRODOWISKU), "--->", of(W.BEZPIECZENSTWO, W.STREFA_KOMFORTU, W.POTRZEBA_EMOCJI,
                                                             W.ZNUDZENIE_OSOBAMI, W.POTRZEBA_NOWYCH_OSOB));
 
-//            [RZ] projektLife:siedzenieWsrodowisku-3 bezpieczenstwo, strefaKomfortu, potrzeba emocji, znudzenie_osobami, potrzeba_nowych_osob
+            o(M.www(on(W.DZIALAJACY, W._88_, W.ZROBIONE_ZLO), "--->", W.CZEKA_NA_EFEKT,
+                                                            "--->", W.BRAK_REAKCJI, "--->", W.ZACHETA_DO_ZLA))
+                                                            .otherwise(of(W.KARA, W.ZAPRZESTANIE_ZLA, W.SMUTEK, W.WYLACZENIE_DZIALACZA));
         }
 
         public void agresja() {
@@ -1076,7 +1080,7 @@ public class CPU_UL extends AbstractCPU {
         }
 
         public void defaultOsoba() {
-            List<W> warunki = of(M.MOCNO(W.KIBICOWANIE), M.MOCNO(W.ZLO), M.MOCNO(W.MIEJSCE_STALE), M.MOCNO(W.MODA), M.MOCNO(W.ZNAJOMI),
+            List<W> warunki = of(M.MOCNO(W.KIBICOWANIE), M.MOCNO(M.CHETNIE(W.ZLO)), M.MOCNO(W.MIEJSCE_STALE), M.MOCNO(W.MODA), M.MOCNO(W.ZNAJOMI),
                     M.MOCNO(W.HIERARCHIA), M.MOCNO(W.UKLADZIK), M.MOCNO(W.WYKORZYSTANIE), M.MOCNO(W.BRAK_WSTYDU), M.MOCNO(W.KLAMSTWO),
                     M.SLABO(W.WYSILEK), M.SLABO(W.RYZYKO), M.SLABO(W.UMIEJETNOSCI), M.SLABO(W.OBECNOSC), M.SLABO(W.PRAWDA), M.SLABO(W.DOBRO));
         }
@@ -1116,6 +1120,12 @@ public class CPU_UL extends AbstractCPU {
 
         public void rdzenni() {
             rdzenni.wychodzenieNaUlice();
+        }
+
+        public void tworzenieWarunkow() {
+            polskiRzad.tworzyWarunki(of(W.CHRONICZNE_BEZROBOCIE, W.NISKIE_PENSJE, W.PRAWO));
+            grubas.tworzyWarunki(of(W.KLAMSTWO, W.SLABY, W.WADY, W.DZIALAJACY, W.ZMYSLY_DLA_ZLA));
+            fest.tworzyWarunki(of(W.WYWYZSZENIE_SLABYCH));
         }
 
 }

@@ -1,5 +1,6 @@
 package db;
 
+import metoda.M;
 import typy_bazowe.TypKategoria;
 import warunek.W;
 import warunek.WarunkiKategoria;
@@ -99,8 +100,7 @@ public class DB_Warunki {
         List<WarunkiKategoria> ZASADY_PRZYMUS_ZAGROZENIA = Arrays.asList(
                 ZASADY,
                 PRZYMUS,
-                ZAGROZENIA,
-                KURESTWO
+                ZAGROZENIA
         );
 
         List<WarunkiKategoria> TWL_PRZEWAGI_POTRZEBY = Arrays.asList(
@@ -155,7 +155,8 @@ public class DB_Warunki {
                 RANY_ZNECANIE_SIE,
                 RANY_SPRZET,
                 RANY_DOSTEPOWE,
-                KTO_KOGO
+                KTO_KOGO,
+                KURESTWO
         );
 
         List<WarunkiKategoria> TYPY_PRAC = Arrays.asList(
@@ -893,8 +894,10 @@ public class DB_Warunki {
     );
 
     public static WarunkiKategoria KURESTWO = new WarunkiKategoria(
-            new Kategoria(TypKategoria.KURESTWO),
+            new Kategoria(TypKategoria.RANY, TypKategoria.KURESTWO),
             Arrays.asList(
+                    W.FOTY_MIEJSCE_STALE, W.NIE_MILA_OBSLUGA, W.ZLE_WYKONANIE_USLUGI, W.OGRANICZENIE_WOLNOSCI, W.KONTUZJA,
+                    W.ZABRAC_COS,
                     W.POLICJA, W.PUSZCZALSKOSC, W.ZDOLNOSC_KONFIDENTCTWO
             )
     );
@@ -955,7 +958,23 @@ public class DB_Warunki {
 
                     W.TWARDOGLOWY_LUB_MIEKKOGLOWY, W.SPOKOJ, W.DYKTATURA_SZCZESCIA_ZERO_WYSILKU_KONFLIKTOW
             )
+    );
 
+    public static WarunkiKategoria DZIALAJACY = new WarunkiKategoria(
+            new Kategoria(TypKategoria.DZIALAJACY),
+            Arrays.asList(
+                    // TODO
+            )
+    );
+
+    public static WarunkiKategoria DZIALAJACY_ZNAKI_ROZPOZNAWCZE = new WarunkiKategoria(
+            new Kategoria(TypKategoria.DZIALAJACY, TypKategoria.DZIALAJACY_ZNAKI_ROZPOZNAWCZE),
+            Arrays.asList(
+                    W.CZARNE_WLOSY, W.TATUAZE, W.DRESY_SZARE_MATERIALOWE,
+                    W.PATRZY_ZLE, W.PATRZY_Z_EXSTAZA, W.PATRZY_JAKBY_CHCIAL_OKLAMAC, W.SLABA_POSTURA, W.PRZEWIDUJE_ZLE,
+                    W.NIE_PATRZY_ALE_KONSULTUJE,
+                    W.KASZLE, W.MACHA, W.GWIZDZE, W.ZADAJE_GLUPIE_PYTANIA, W.TELEFON_ZDJECIA
+            )
     );
 
     public static WarunkiKategoria BLAD = new WarunkiKategoria(
@@ -1134,7 +1153,9 @@ public class DB_Warunki {
                     W.WDUPC_ZAKLECIEM, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE,
                     W.NOTYFIKACJA_EKIPA, W.FOTY, W.NAKLEJ_NALEPKE, W.OBGADAC, W.PRZEKONYWANIE_OTOCZENIA_PRZECIW,
                     W.CISNIE, W.WALKA_PIESCI,
-                    W.SPRZET, W.AGRESJA_W_DZIALANIU, W.ZLO
+                    W.SPRZET,
+                    M.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA),
+                    W.AGRESJA_W_DZIALANIU, W.ZLO
             )
     );
 

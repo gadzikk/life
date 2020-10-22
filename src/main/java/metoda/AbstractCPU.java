@@ -70,6 +70,9 @@ public class AbstractCPU {
     OsobaMetod rdzenni = new OsobaMetod();
     OsobaMetod srodowisko = new OsobaMetod();
     List<W> OSLONY_WARUNKI = DB_Warunki.OSLONY.getWarunki();
+    List<W> KURESTWO_WARUNKI = DB_Warunki.KURESTWO.getWarunki();
+    OsobaMetod grubas = new OsobaMetod();
+    OsobaMetod fest = new OsobaMetod();
 
     public <T> List<T> of(T... elements){
         return Arrays.asList(elements);
@@ -82,6 +85,11 @@ public class AbstractCPU {
     public <T> List<T> of(T e1, List<T> elems, T e2, List<T> elems2, List<String> elems3, List<W> elems4){
         return elems;
     }
+
+    public M o(W w1){
+        return new M();
+    }
+
     public M o(W w1, String del ,W w2){
         return new M();
     }

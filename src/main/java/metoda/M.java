@@ -23,6 +23,7 @@ public class M {
     public static W ww(W w1, W w2, W w3, W w4) { return W.WARUNEK; }
     public static W ww(List<W> w1, List<W> w2, List<W> w3, List<W> w4) { return W.WARUNEK; }
     public static W ww(W w1, String del, W w2, W w3, String del2, W w4) { return W.WARUNEK; }
+    public static W www(W w1, String del, W w2, String del2, W w3, String del3, W w4) { return W.WARUNEK; }
     public static String wejsciePlansza(List<W> plansza){
         return "wejsciePlansza("+ plansza +")";
     }
@@ -572,6 +573,10 @@ public class M {
     public static W KROTKO(W warunek) {return W.WARUNEK;}
     public static W KROTKO(List<W> warunki) {return W.WARUNEK;}
     public static W ODRAZU(W warunek) {return W.WARUNEK;}
+    public static W ODRAZU(List<W> warunki) {return W.WARUNEK;}
+    public static W CHETNIE(W warunek) {return W.WARUNEK;}
+    public static W CHETNIE(List<W> warunki) {return W.WARUNEK;}
+
     public static W NAJMNIEJSZY_CZAS(W w) {return W.WARUNEK;}
 
     public static W WARUNEK_UTRZYMANIA(W warunek) {return W.WARUNEK;}

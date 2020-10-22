@@ -90,5 +90,5 @@ public class OsobaMetod {
     public W praca() {return W.WARUNEK;}
     public W uzaleznijOdSiebie() {return W.WARUNEK;}
     public W wychodzenieNaUlice() {return W.WARUNEK;}
-
+    public W tworzyWarunki(List<W> warunki) {return W.WARUNEK;}
 }
