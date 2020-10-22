@@ -24,7 +24,7 @@ public class CPU_ALL extends AbstractCPU {
     List<W> jakoscSytuacji = of(W.INTERAKCJA, W.ZNAJOMI, W.POTRZEBA,W.WARTOSC, W.UNIKALNOSC_W_OTOCZENIU);
 
     List<W> przyczyny = of(W.PRZYMUS, W.POTRZEBA, W.ZLO, W.DOBRO, W.ZYSK, W.MODA, W.PRZEWAGA, W.NUDA, W.UCZUCIE, W.CIEKAWOSC, W.ZAZDROSC);
-    List<String> metodySzponcnia = of(M.klamstwo(), M.obelgi_ponizanie(), M.przekonywanie(), M.bojka());
+    List<W> metodySzponcnia = of(M.klamstwo(), M.obelgi_ponizanie(), M.przekonywanie(), M.bojka());
     List<W> pointcut = of(W.MATERIALNE_ZNALEZIENIE_SIE, W.DEFAULT_ZACHOWANIE, W.DEFAULT_WARUNKI, W.DZIALANIE, W.REAKCJA,
             W.MAKSYMALNIE_ULATWIASZ, W.PRZEKONYWANIE, W.ULTIMATUM);
     List<W> warunek = of(W.ULTIMATUM, W.POCZATEK, W.KONIEC, W.ZYSK, W.WARTOSC, W.ILOSC_OSOB, W.CZESTOTLIWOSC);
@@ -35,7 +35,7 @@ public class CPU_ALL extends AbstractCPU {
     List<W> niesprawiedliwosc = of(W.KOBIETA, W.SAMOCHOD, W.EKIPA, W.ZNAJOMI);
     List<W> patologie = PATOLOGIE;
 
-    List<String> sytuacje = of(M.nieznajomy(W.DEFAULT_SYTUACJE), M.znajomy(W.SRODOWISKO_SYTUACJE));
+    List<W> sytuacje = of(M.nieznajomy(W.DEFAULT_SYTUACJE), M.znajomy(W.SRODOWISKO_SYTUACJE));
 
     List<W> zleCzyny = of(W.MAGICZNE_ZAKLECIE, W.POJECHANIE_NA_PRZEWADZE, W.SKAZYWANIE_NA_CIERPIENIE, W.WYKLUCZENIE, W.UKRYCIE, W.ZAZDROSC, W.CHCIWOSC, W.KLAMSTWO, W.WYSMIANIE);
     List<W> dobreCzyny = of(W.PODZIELENIE_SIE_PRZEWAGA, W.WYZWOLENIE_Z_CIERPIENIA, W.PODNIESIENIE, W.UJAWNIENIE, W.PRAWDA, W.WYJEBANIE_ZLA_KONTRA);
@@ -51,7 +51,7 @@ public class CPU_ALL extends AbstractCPU {
             W.BRAK_ZAKLECIA, W.CZYSTE_SUMIENIE);
 
     public void run(){
-        new WMWM(
+        M.WW(
                 of(W.ZAUWAZYLEM, W._II_, W.USLYSZALEM),
                 of(
                         M.GRANT(ME,W.PRZEWAGA_CZASU),
@@ -69,7 +69,7 @@ public class CPU_ALL extends AbstractCPU {
         );
 
 
-        new WMWM(
+        M.WW(
                 of(W.PRACA),
                 of(
                         M.wszystkoAbyOtrzymacRezultat(),
@@ -82,7 +82,7 @@ public class CPU_ALL extends AbstractCPU {
                         M.doKonca()
                 )
         );
-        new WMWM(
+        M.WW(
                 of(W.WARUNEK),
                 of(
                         M.sondujJakDaleki(W.WARUNEK),
@@ -93,12 +93,12 @@ public class CPU_ALL extends AbstractCPU {
                         M.sondaPrzyczyn(przyczyny)
                 )
         );
-        new WM(of(W._NOT_, W.WARUNEK_A),
+        M.W(of(W._NOT_, W.WARUNEK_A),
                 of(
                         M.dzialanieNad(W.WARUNEK_B)
                 )
         );
-        new WM(of(W.ZAGROZENIE),
+        M.W(of(W.ZAGROZENIE),
                 of(
                         M.widziszTylkoPlusy(),
                         M.namierzPotencjalnyZysk(),
@@ -106,7 +106,7 @@ public class CPU_ALL extends AbstractCPU {
                         M.praca()
                 )
         );
-        new WMWM(of(W.NORMALNA_SYTUACJA),
+        M.WW(of(W.NORMALNA_SYTUACJA),
                 of(
                         M.niedopuscDoZlejSytuacji(W.WIEDZA)
                 ),
@@ -116,14 +116,14 @@ public class CPU_ALL extends AbstractCPU {
                 )
 
         );
-        new WM(of(W.WYCHODZISZ_Z_PRACY),
+        M.W(of(W.WYCHODZISZ_Z_PRACY),
                 of(
                         M.estymacja(of(W.CZAS,W.SILY)),
                         M.notify(W.ZNAJOMI),
                         M.getPriorities(of(W.ULICA, W.KOBIETA, W.PRACA, W.NAUKA))
                 )
         );
-        new WMWM(
+        M.WW(
                 of(W.PLAN),
                 of(
                         M.NEEDED(of(W.CZAS, W.BLISKOSC, W.DLUGOSC_DOSTEPU)),
@@ -137,18 +137,18 @@ public class CPU_ALL extends AbstractCPU {
                         M.przechodziDoKolejnegoPokojuCzasu(W.PLAN)
                 )
         );
-        new WM(of(W.CHCESZ_NORMALNA_KOBIETE),
+        M.W(of(W.CHCESZ_NORMALNA_KOBIETE),
                 of(
                         M.pokazujSie(of(W.NORMALNE_MIEJSCE, W.NORMALNA_PORA)),
                         M.zagaduj()
                 )
         );
-        new WM(of(W.IZOLACJA_CZLOWIEKA),
+        M.W(of(W.IZOLACJA_CZLOWIEKA),
                 of(
                         M.poznaj()
                 )
         );
-        new WM(of(W.ZLY, W._88_, W.LUDZIE),
+        M.W(of(W.ZLY, W._88_, W.LUDZIE),
                 of(
                         M.podkop_u(W.WSZYSCY),
                         M.sprobojWziacWartosc(metodySzponcnia)
@@ -172,7 +172,7 @@ public class CPU_ALL extends AbstractCPU {
             silaFizyczna.set(W.SILA_SPRAWCZA);
         }
 
-        new WM(of(W.SUPERPOZYCJA),
+        M.W(of(W.SUPERPOZYCJA),
                 of(
                         M.jebZPerspektywyPozycji(),
                         M.twojeZdanieWazniejsze(),
@@ -207,14 +207,14 @@ public class CPU_ALL extends AbstractCPU {
                 W.DUZO_OBOWIAZKOW, W.MALO_CZASU, W.NIE_PAMIETA_SWOICH_OFIAR, W.OCZEKIWANIA
         ));
 
-        M.w(of(W.SLEPA_LOJALNOSC, W.UZNAJE_HIERARCHIE, W.DUZO_UMIEJETNOSCI, W.MIEJSCE), "--->", of(W.SUPERPOZYCJA));
+        M.W(of(W.SLEPA_LOJALNOSC, W.UZNAJE_HIERARCHIE, W.DUZO_UMIEJETNOSCI, W.MIEJSCE), "--->", of(W.SUPERPOZYCJA));
 
-        M.w(of(W.BRAK_SUPERPOZYCJI), "--->", of(W.NIEWOLNIK, W.TWOJE_ZDANIE_NIC_NIE_ZNACZY));
+        M.W(of(W.BRAK_SUPERPOZYCJI), "--->", of(W.NIEWOLNIK, W.TWOJE_ZDANIE_NIC_NIE_ZNACZY));
     }
 
     public void najwiekszaBron() {
-        M.w(of(W.ULICA), "--->", of(W.SPRZET, W.KONTUZJA));
+        M.W(of(W.ULICA), "--->", of(W.SPRZET, W.KONTUZJA));
 
-        M.w(of(W.PRACA), "--->", of(W.ZWOLNIENIE, W.SPRAWA_W_SADZIE));
+        M.W(of(W.PRACA), "--->", of(W.ZWOLNIENIE, W.SPRAWA_W_SADZIE));
     }
 }

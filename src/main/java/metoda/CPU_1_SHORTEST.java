@@ -28,15 +28,15 @@ public class CPU_1_SHORTEST extends AbstractCPU {
             W.SAMA, W.Z_KOLEZANKA, W.Z_RODZINA);
     List<W> allNiesprzyjajace = of(W.TLUM, W.ZMECZENIE, W.CISZA, W.MOZLIWE_SLUCHAWKI);
 
-    List<String> spojrzenia = of(M.spojrzenie_1(W.BEST_CASE), M.spojrzenie_2(W.NORMAL_CASE));
-    List<String> zaproszenieRandka = of(M.podkreslJejZlaSytuacje(of(W.NUDA, W.MONOTONIA)), M.podkreslSwojeStrania(), M.znamySie(),
+    List<W> spojrzenia = of(M.spojrzenie_1(W.BEST_CASE), M.spojrzenie_2(W.NORMAL_CASE));
+    List<W> zaproszenieRandka = of(M.podkreslJejZlaSytuacje(of(W.NUDA, W.MONOTONIA)), M.podkreslSwojeStrania(), M.znamySie(),
             M.obrazSieJakNieOdpowie(), M.ultimatum(W.KARA));
 
     List<W> extremalne = of(W.IDZIESZ_ZAWRACASZ, W.PRZECIWNY_PRZYSTANEK, W.SIEDZISZ_PRZEJSCIE, W.ONA_SWOJE_GRONO);
 
     List<W> jakoscSytuacji = of(W.INTERAKCJA, W.KOJARZENIE_Z_DOBREGO, W.ZNAJOMI, W.POTRZEBA, W.WARTOSC, W.UNIKALNOSC_W_OTOCZENIU);
 
-    List<W> sytuacja = of(W.LUDZIE, essentials, W.OPCJA_PRZEJSCIE, allSprzyjajace, spojrzenia, jakoscSytuacji);
+    List<Object> sytuacja = of(W.LUDZIE, essentials, W.OPCJA_PRZEJSCIE, allSprzyjajace, spojrzenia, jakoscSytuacji);
 
     W cel = W.ZMIANA_SYTUACJI_DEFAULTOWEJ;
 
@@ -63,35 +63,35 @@ public class CPU_1_SHORTEST extends AbstractCPU {
     public void run(){
         W nastawienie = M.ODRAZU(W.BLISKOSC);
 
-        new MW(
+        M.W(
                 of(M.wejsciePlansza(plansza)),
                 of(W.MESKA_PROSYSTUTKA, W.SMIETNIIK_NA_BUZI_JUZ_DAWNO, W.ENK_1_2, W.INFORMACJA)
         );
-        new MW(
+        M.W(
                 of(M.namierzenie()),
                 of(W.THREAD_WHILE_LOOP_ZASIEG_WZROKU)
         );
-        new MW(
+        M.W(
                 of(M.sondaOsoby(osobaCechy), M.sondaSytuacji(typySytuacji, essentials)),
                 of(W.SYTUACJA)
         );
-        new MW(
+        M.W(
                 of(M.odrazuPochwycenie(W.SYTUACJA), M.dzialanie(mojeCechy)),
                 of(W.BEDZIE_CIEKAWIE, W.ANTY_PARTYZANTKA, W.ANTY_POSLUSZNOSC, W.NIENAWISC_FESTOW, W.JA_DOSTAJE)
         );
-        new MW(
+        M.W(
                 of(M.wstanie(), M.przejscie()),
                 of(W.FOCUS, W.THREAD_WHILE_LOOP_BLISKOSC_K)
         );
-        new MW(
+        M.W(
                 of(M.prefix(prefixes, pdstw)),
                 of(W.WIDZENIE_NA_ROZMOWA, W.REAKCJA, W.INFO_O_POINTCUT)
         );
-        new MW(
+        M.W(
                 of(M.gadka(tematy, kombo)),
                 of(W.NIEUSTANNA_GADKA, W.THREAD_WHILE_LOOP_EFEKTYWNA_GADKA, W.NASTAWIENIE_WZIECIE_KONTAKTU)
         );
-        new MW(
+        M.W(
                 of(M.wziecieKontaktu(), M.temat(), M.ponowienie(), M.temat(), M.ponowienie()),
                 of(W.NUMER)
         );

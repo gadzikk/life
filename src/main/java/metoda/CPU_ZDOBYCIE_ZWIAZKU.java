@@ -19,19 +19,19 @@ public class CPU_ZDOBYCIE_ZWIAZKU extends AbstractCPU {
 
     List<W> kobieta = of(W.CHODZI_Z_BYLEKIM, W.BYLE_BEZPIECZENSTWO, W.BYLE_EMOCJE, W.PRZYJEMNOSCI);
 
-    WMWM kontakty = new WMWM(
+    W kontakty = M.WW(
             of(W.PIERWSZY_KONTAKT),
             of(M.odmowa()),
             of(W.NASTEPNY_KONTAKT),
             of(M.GRANT(YOU, of(W.ZNA, W.BEZPIECZENSTWO, W.WIE_ZE_WARTO, W.CIEKAWOSC)))
     );
 
-    String relacja = M.NEEDED(of(W.BLISKOSC, W.WZGL_IZOLACJA, W.NIE_DEFAULTOWA_SYTUACJA));
+    W relacja = M.NEEDED(of(W.BLISKOSC, W.WZGL_IZOLACJA, W.NIE_DEFAULTOWA_SYTUACJA));
 
     List<W> patologie_ko = of(W.ZWIAZEK_Z_ZAGRANICZNYM, W.DZIECI, W.STARA);
 
-    List<WW> opcje = of(
-            new WW(W.MLODE_KOBIETY,
+    List<W> opcje = of(
+            M.W(W.MLODE_KOBIETY,
                     of(
                             W.WALKA_Z_W8C,
                             W.MALE,
@@ -46,7 +46,7 @@ public class CPU_ZDOBYCIE_ZWIAZKU extends AbstractCPU {
                             W.MOZLIWOSC_WYCHOWANIA
                     )
             ),
-            new WW(W.PLUS_30,
+            M.W(W.PLUS_30,
                     of(
                             W.BRAK_SRODOWISKA, W.BRAK_ZNAJOMYCH, W._II_,
                             W.BRAK_POKAZANIA_SIE, W._II_,
@@ -56,14 +56,14 @@ public class CPU_ZDOBYCIE_ZWIAZKU extends AbstractCPU {
                     )
             ),
             // --- --- ---
-            new WW(W.ZWYKLA_FEST,
-                   of(
-                           W.BRAK_OPCJI,
-                           W.NIESZCZESCIE,
-                           W.LUKI_OSOBOWOSCI
-                   )
+            M.W(W.ZWYKLA_FEST,
+                    of(
+                            W.BRAK_OPCJI,
+                            W.NIESZCZESCIE,
+                            W.LUKI_OSOBOWOSCI
+                    )
             ),
-            new WW(o(W.LADNA, W._88_, W.PIENIADZE),
+            M.W(o(W.LADNA, W._88_, W.PIENIADZE),
                     of(
                             W.MILION_ADORATOROW,
                             W.MALO_PRACY,
@@ -72,7 +72,7 @@ public class CPU_ZDOBYCIE_ZWIAZKU extends AbstractCPU {
                             W.SKRESLA_ZA_1_NIEDOCIAGNIECIE
                     )
             ),
-            new WW(o(W.LADNA, W._88_, W.DOBRE_SERCE),
+            M.W(o(W.LADNA, W._88_, W.DOBRE_SERCE),
                     of(
                             W.DZIEWICA,
                             W.WARTOSCI_RODZINNE,
@@ -82,7 +82,7 @@ public class CPU_ZDOBYCIE_ZWIAZKU extends AbstractCPU {
     );
 
     public void reakcja() {
-        new WWs(of(W.NIE_ZNAJA, W.NIE_KOJARZY, W.BRAK_WSPOLNYCH_ZNAJOMYCH), "--->", of(W.ODMOWA));
+        M.W(of(W.NIE_ZNAJA, W.NIE_KOJARZY, W.BRAK_WSPOLNYCH_ZNAJOMYCH), "--->", of(W.ODMOWA));
     }
 
     public void karyna() {
@@ -92,7 +92,7 @@ public class CPU_ZDOBYCIE_ZWIAZKU extends AbstractCPU {
     }
 
     public void doKosza() {
-        M.w(of(W._NOT_,
+        M.W(of(W._NOT_,
                 W.KASA,
                 W.SRODOWISKO,
                 W.LADNY,
@@ -100,7 +100,7 @@ public class CPU_ZDOBYCIE_ZWIAZKU extends AbstractCPU {
     }
 
     public void dzialajacaManiura() {
-        M.w(of(W.POLOZENIE_SIE_PRZED_DZIALAJACYM, W.FOTY,
+        M.W(of(W.POLOZENIE_SIE_PRZED_DZIALAJACYM, W.FOTY,
                 W.NAGADYWANIE_KOLEZANEK),            "--->", of(W.SPOKOJ, W.SRODOWISKO, W.PRACA_PO_ZNAJOMOSCI));
     }
 

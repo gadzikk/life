@@ -24,7 +24,7 @@ public class CPU_PRACA extends AbstractCPU {
     public void run(){
         W nastawienie = W.NIENAWISC_FESTOW;
 
-        new WMWMWM(of(W.WIEDZA, W.NISZA, W.BOGATY_SEKTOR),
+        M.WWW(of(W.WIEDZA, W.NISZA, W.BOGATY_SEKTOR),
                 of(
                         M.hajs_t()
                 ),
@@ -38,12 +38,12 @@ public class CPU_PRACA extends AbstractCPU {
                         M.walkaKlas_on()
                 )
         );
-        new WM(of(W.MULTICULTI),
+        M.W(of(W.MULTICULTI),
                 of(
                         M.rasizm_on()
                 )
         );
-        new WMWMWM(of(W.KORPO),
+        M.WWW(of(W.KORPO),
                 of(
                         M.poprawnoscPolityczna_on(),
                         M.GRANT(SOMEONE, W.MOZLIWOSC_MALO_PRACY)
@@ -57,12 +57,12 @@ public class CPU_PRACA extends AbstractCPU {
                         _100osob.kabluje(ME)
                 )
         );
-        new WM(of(W.SZUKASZ_PRACY),
+        M.W(of(W.SZUKASZ_PRACY),
                 of(
                         M.NEEDED(of(W.DWA_MIESIACE))
                 )
         );
-        new WM((WYMAGANIA_WSTEPNE_ZARABIANIE),
+        M.W((WYMAGANIA_WSTEPNE_ZARABIANIE),
                 of(
                         M.GRANT(ME,W.PRACA)
                 )
@@ -77,7 +77,7 @@ public class CPU_PRACA extends AbstractCPU {
         M.GRANT(ME, of(W.BEZPIECZENSTWO, W.PIENIADZE, W.SZANSA_KOBIETA));
         osoba.peleryna_on();
         osoba.tylkoHajs_on();
-        new WM(of(W.WESZLES_DO_FIRMY),
+        M.W(of(W.WESZLES_DO_FIRMY),
                 of(
                         M.pracuj(of(W.LUDZIE_WOKOL, W.ATMOSFERA, W.MANAGER)),
                         M.lapKontakt(W.LUDZIE_WOKOL),
@@ -86,7 +86,7 @@ public class CPU_PRACA extends AbstractCPU {
                 )
         );
 
-        new WW(on(W.WYSILEK, W.REZULTATY, W.OPLACA_SIE, W.UZYTECZNOSC, W.MANAGO_DOBRA_OPINIA),
+        M.W(on(W.WYSILEK, W.REZULTATY, W.OPLACA_SIE, W.UZYTECZNOSC, W.MANAGO_DOBRA_OPINIA),
                 of(
                         M.thread_while_loop(W.UTRZYMANIE_PRACY)
                 )
@@ -99,31 +99,31 @@ public class CPU_PRACA extends AbstractCPU {
         manago.set(W.ZDOLNOSC_ATAKU);
         M.REMOVE(ME, W.ZDOLNOSC_ATAKU);
 
-        new WM(of(M.isNiedajeRady(zasob)),
+        M.W(of(M.isNiedajeRady(zasob)),
                 of(
                         manago.teoriaPrzesuwania(zasob)
                 )
         );
-        new WM(of(W._NOT_, M.WYMAGANIA(of(W.WARTOSC_DODATNIA, W.FINE, W.LADNY, W.KULTURA, W.ULEGLOSC_WZGL_MANAGERA, W.PRZYCHYLNOSC_MANAGERA,
-                                                                W.DOBRY_FEEDBACK_LUDZIE, W.ATMOSFERA))),
+        M.W(of(W._NOT_, M.WYMAGANIA(of(W.WARTOSC_DODATNIA, W.FINE, W.LADNY, W.KULTURA, W.ULEGLOSC_WZGL_MANAGERA, W.PRZYCHYLNOSC_MANAGERA,
+                W.DOBRY_FEEDBACK_LUDZIE, W.ATMOSFERA))),
                 of(
                         manago.wymaganaAkcja(ME)
                 )
         );
 
-        new WM(of(W.TWORZYSZ_PROBLEMY, W._II_, W.PSUJESZ_ATMOSFERE, W._II_, W._NOT_, W.FINE),
+        M.W(of(W.TWORZYSZ_PROBLEMY, W._II_, W.PSUJESZ_ATMOSFERE, W._II_, W._NOT_, W.FINE),
                 of(
                         manago.ostry(ME)
                 )
         );
 
-        new WM(of(M.isNieOplacalny(zasob)),
+        M.W(of(M.isNieOplacalny(zasob)),
                 of(
                         manago.zwolnij(zasob)
                 )
         );
 
-        new WW(W.MANAGO_TECHNICZNY,
+        M.W(W.MANAGO_TECHNICZNY,
                 of(
                         W.CZYTAJ_DOKUMENTACJE_MYSL, W._II_, W.PRAKTYKA
                 )
@@ -132,7 +132,7 @@ public class CPU_PRACA extends AbstractCPU {
     public void zachowanie(){
         M.thread_while_loop(W.WALKA_Z_FESTAMI);
         M.thread_while_loop(W.UKRYCIE_PRAWDY_PRZED_FESTAMI);
-        new WM(of(W.TASK),
+        M.W(of(W.TASK),
                 of(
                         M.zapisz(W.TASK),
                         M.przymiezenieDoDzialania(),
@@ -146,12 +146,12 @@ public class CPU_PRACA extends AbstractCPU {
                         M.refactor()
                 )
         );
-        new WM(of(M.interakcja(manago)),
+        M.W(of(M.interakcja(manago)),
                 of(
                         M.glaskaszPoGlowie(manago)
                 )
         );
-        new WM(of(W.BURZUAZJA),
+        M.W(of(W.BURZUAZJA),
                 of(
                         M.REMIND(ME, of(W.POPRAWNOSC_POLITYCZNA, W.ATMOSFERA, W.ZYSK, W.STRATA)),
                         M.ucinaj()
@@ -160,7 +160,7 @@ public class CPU_PRACA extends AbstractCPU {
     }
 
     public void szponcenie(){
-        new WMWM(of(W.TASK),
+        M.WW(of(W.TASK),
                 of(
                         opponent.zlecNieszczegolowo(W.TASK),
                         opponent.zjeb(W.NIEWYKONANIE, W.TASK)
@@ -171,7 +171,7 @@ public class CPU_PRACA extends AbstractCPU {
                 )
         );
 
-        new WM(of(W.NIEPOKOJACE),
+        M.W(of(W.NIEPOKOJACE),
                 of(
                         zaniepokojeni.potwierdzajaZInnymi(W.NIEPOKOJACE),
                         M.robWrazenie(of(W.PROGRAMISTA, W.PASJONAT, W.NIUNIUS)),
@@ -212,13 +212,13 @@ public class CPU_PRACA extends AbstractCPU {
         manago.set(of(W.PIASKOWNICA, W.MALY_RUDY_FEST_GITARA_DLUGIE_WLOSY, W.IGNORANT_MALE_DZIECKO));
         manago.rozpowiedzDoWszystkich(W.WADA);
 
-        manago.thread_while_loop(new WWs(of(W.WADA), "--->", of(W.ZAMKNIECIE_DOZYWOTNIE, W.BRAK_MOZLIWOSCI_POPRAWY, W.ZARTY)));
-        manago.thread_while_loop(new WWs(of(W.DOBRE_WYKONANIE), "--->", of(W._0)));
-        manago.thread_while_loop(new WWs(of(W.ZLE_WYKONANIE), "--->", of(W.ZLY_FEEDBACK, W.ZLY_MIDYEAR, W.IMPROVEMENT_PLAN)));
+        manago.thread_while_loop(M.W(W.WADA, "--->", of(W.ZAMKNIECIE_DOZYWOTNIE, W.BRAK_MOZLIWOSCI_POPRAWY, W.ZARTY)));
+        manago.thread_while_loop(M.W(W.DOBRE_WYKONANIE, "--->", of(W._0)));
+        manago.thread_while_loop(M.W(W.ZLE_WYKONANIE, "--->", of(W.ZLY_FEEDBACK, W.ZLY_MIDYEAR, W.IMPROVEMENT_PLAN)));
 
-        manago.thread_while_loop(new WWs(of(W.MANAGER_LUBIE), "--->", of(W.ZLEC_SZCZEGOLOWO, W.DAJ_MALO_ROBOTY)));
-        manago.thread_while_loop(new WWs(of(W.MANAGER_NIELUBIE), "--->", of(W.ZLEC_NIESZCZEGOLOWO, W.DAJ_MALO_ROBOTY,
-                                                                                    W.UKRYCIE, W.PRETENSJE)));
+        manago.thread_while_loop(M.W(W.MANAGER_LUBIE, "--->", of(W.ZLEC_SZCZEGOLOWO, W.DAJ_MALO_ROBOTY)));
+        manago.thread_while_loop(M.W(W.MANAGER_NIELUBIE, "--->", of(W.ZLEC_NIESZCZEGOLOWO, W.DAJ_MALO_ROBOTY,
+                                                                                     W.UKRYCIE, W.PRETENSJE)));
 
         manago.thread_while_loop(W.MOWIENIE_MYSL_ROB_PROBOJ);
         manago.thread_while_loop(of(W.NIE_MOWILEM_ABYS_TAK_ZROBIL, W._100PROCENT_UZALEZNIENIE));
@@ -267,10 +267,9 @@ public class CPU_PRACA extends AbstractCPU {
     public W interview(List<W> warunki) {
         List<W> target = of(W.ZADEMONSTROWANIE_WIEDZY, W.FINE);
         List<W> ocenianieWedlug = of(W.TO_CO_UMIESZ, W._II_, W.TO_CZEGO_NIEUMIESZ, W._II_, W.OCENA_ZE_STUDIOW);
-        M.ww(
-                W.MNIEJ_NIZ_2_LATA_DOSWIADCZENIA, "--->",      pytajacy.oczekiwanie(W.DOBRZE_JEZELI_UMIE),
-                W.WIECEJ_NIZ_2_LATA_DOSWIADCZENIA, "--->", pytajacy.oczekiwanie(W.MUSI_UMIEC_WSZYSTK0)
-        );
+
+                M.W(W.MNIEJ_NIZ_2_LATA_DOSWIADCZENIA, "--->",      pytajacy.oczekiwanie(W.DOBRZE_JEZELI_UMIE));
+                M.W(W.WIECEJ_NIZ_2_LATA_DOSWIADCZENIA, "--->", pytajacy.oczekiwanie(W.MUSI_UMIEC_WSZYSTK0));
 
         pytajacy.set(DB_Warunki.FEST.getWarunki());
         pytajacy.thread_while_loop(W.SZUKA_GLEBOKO_ZAGADNIEN);

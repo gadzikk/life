@@ -25,104 +25,104 @@ public class CPU_LUDZI extends AbstractCPU {
 
     public void relacjeWarunkowLudzi() {
         // WADY WYCHOWANIE
-        new WWs(of(W.ZLE_WYCHOWANIE, W._II_, W.WYCHOWANIE_POD_KLOSZEM, W._II_, W.ROZPASANIE_ROZPIESZCZANIE, W._II_, W.SLABI_RODZICE),
+        M.W(of(W.ZLE_WYCHOWANIE, W._II_, W.WYCHOWANIE_POD_KLOSZEM, W._II_, W.ROZPASANIE_ROZPIESZCZANIE, W._II_, W.SLABI_RODZICE),
                 "--->", of(W.BRAK_CIERPIENIA, W.BRAK_PRACY, W.ZAZDROSC, W.BRAK_POZNANIA_NAUKI, W.BRAK_SPORTU, W.CHEC_BEZPIECZENSTWA));
 
-        new WWs(of(W.BRAK_PRACY, W.BRAK_CIERPIENIA), "--->", of(W.EMOCJE_FIRST, W.WRAZLIWOSC, W.DZIECKO, W.ZMIENNOSC));
+        M.W(of(W.BRAK_PRACY, W.BRAK_CIERPIENIA), "--->", of(W.EMOCJE_FIRST, W.WRAZLIWOSC, W.DZIECKO, W.ZMIENNOSC));
 
-        new WWs(of(W.BRAK_PRACY, W.BRAK_CIERPIENIA, W.BRAK_DOBREGO_WYCHOWANIA),
+        M.W(of(W.BRAK_PRACY, W.BRAK_CIERPIENIA, W.BRAK_DOBREGO_WYCHOWANIA),
                 "--->", of(W.BRAK_REWIRU, W.BRAK_POZNANIA_OTOCZENIA, W.BRAK_NORMALNYCH_EMOCJI, W.BRAK_KONKURENCJI));
 
-        new WWs(of(W.BRAK_REWIRU, W.BRAK_POZNANIA_OTOCZENIA, W.BRAK_NORMALNYCH_EMOCJI, W.BRAK_KONKURENCJI),
+        M.W(of(W.BRAK_REWIRU, W.BRAK_POZNANIA_OTOCZENIA, W.BRAK_NORMALNYCH_EMOCJI, W.BRAK_KONKURENCJI),
                 "--->", of(W.DZIWNA_PASJA, W.BRAK_SILNYCH_JEDNOSTEK, W.BRAK_UMIEJETNOSCI, W.BRAK_WLASCIWEJ_OCENY));
 
-        new WWs(of(W.CHEC_BEZPIECZENSTWA, W.BRAK_SILNYCH_JEDNOSTEK, W.BRAK_UMIEJETNOSCI, W.BRAK_WLASCIWEJ_OCENY),
+        M.W(of(W.CHEC_BEZPIECZENSTWA, W.BRAK_SILNYCH_JEDNOSTEK, W.BRAK_UMIEJETNOSCI, W.BRAK_WLASCIWEJ_OCENY),
                 "--->", of(W.KOLKO_WZAJEMNEJ_ADORACJI, W.HIERARCHIA_FIRST));
 
-        new WWs(of(W.ZAZDROSC, W.WRAZLIWOSC, W.NIEPOSLUSZONSC_B, W.SILNIEJSZY_B), "--->", of(W.WYKLUCZA, W.WYLACZY_DOSTEP));
+        M.W(of(W.ZAZDROSC, W.WRAZLIWOSC, W.NIEPOSLUSZONSC_B, W.SILNIEJSZY_B), "--->", of(W.WYKLUCZA, W.WYLACZY_DOSTEP));
 
         // ****
 
-        new WWs(of(W.POZNANIE_WARTOSCI_PIENIADZA, W.FAZA_Z_NAUKI, W.FART, W.DZIWNA_PASJA), "--->", of(W.DOBRY_ZAWOD));
+        M.W(of(W.POZNANIE_WARTOSCI_PIENIADZA, W.FAZA_Z_NAUKI, W.FART, W.DZIWNA_PASJA), "--->", of(W.DOBRY_ZAWOD));
 
-        new WWs(of(W.ZNAJOMI_PRZESTEPCY, W.CHECI), "--->", of(W.JUMA));
+        M.W(of(W.ZNAJOMI_PRZESTEPCY, W.CHECI), "--->", of(W.JUMA));
 
-        new WWs(of(W.JUMA, W.PRACA), "--->", of(W.POZNANIE_WARTOSCI_PIENIADZA));
+        M.W(of(W.JUMA, W.PRACA), "--->", of(W.POZNANIE_WARTOSCI_PIENIADZA));
 
-        new WWs(of(W.POZNANIE_NAUKI), "--->", of(W.FAZA_Z_NAUKI));
+        M.W(of(W.POZNANIE_NAUKI), "--->", of(W.FAZA_Z_NAUKI));
 
-        new WWs(of(W.SUMIENIE, W.DOBRE_CZYNY), "--->", of(W.PRZYCHYLNOSC_BOGA));
+        M.W(of(W.SUMIENIE, W.DOBRE_CZYNY), "--->", of(W.PRZYCHYLNOSC_BOGA));
 
-        new WWs(of(W.PRZYCHYLNOSC_BOGA), "--->", of(W.FART));
+        M.W(of(W.PRZYCHYLNOSC_BOGA), "--->", of(W.FART));
 
         // ZALETY WYCHOWANIE
-        new WWs(of(W.DOBRE_WYCHOWANIE, W._88_, W.SILNI_RODZICE),
+        M.W(of(W.DOBRE_WYCHOWANIE, W._88_, W.SILNI_RODZICE),
                 "--->", of(W.CIERPIENIE, W.PRACA, W.ZARADNOSC, W.POZNANIE_NAUKI, W.SPORT, W.SZCZESLIWE_DZIECINSTWO));
 
-        new WWs(of(W.PRACA, W.CIERPIENIE), "--->", of(W.KALKULACJA_FIRST, W.ZDOLNOSC_DO_WYSILKU, W.KONSEKWENCJA));
+        M.W(of(W.PRACA, W.CIERPIENIE), "--->", of(W.KALKULACJA_FIRST, W.ZDOLNOSC_DO_WYSILKU, W.KONSEKWENCJA));
 
-        new WWs(of(W.PRACA, W.CIERPIENIE, W.DOBRE_WYCHOWANIE),
+        M.W(of(W.PRACA, W.CIERPIENIE, W.DOBRE_WYCHOWANIE),
                 "--->", of(W.REWIR, W.ZNAJOMOSC_OTOCZENIA, W.NORMALNE_EMOCJE, W.KONKURENCJA));
 
-        new WWs(of(W.REWIR, W.ZNAJOMOSC_OTOCZENIA, W.NORMALNE_EMOCJE, W.KONKURENCJA),
+        M.W(of(W.REWIR, W.ZNAJOMOSC_OTOCZENIA, W.NORMALNE_EMOCJE, W.KONKURENCJA),
                 "--->", of(W.PRAWDZIWA_PASJA, W.SPORT, W.SILNE_JEDNOSTKI, W.UMIEJETNOSCI, W.WLASCIWA_OCENA));
 
-        new WWs(of(W.SPORT, W.SILNE_JEDNOSTKI, W.UMIEJETNOSCI, W.WLASCIWA_OCENA),
+        M.W(of(W.SPORT, W.SILNE_JEDNOSTKI, W.UMIEJETNOSCI, W.WLASCIWA_OCENA),
                 "--->", of(W.MOCNA_JEDNOSTKA, W.SILNA_JEDNOSTKA_FIRST));
 
-        new WWs(of(W.KALKULACJA_FIRST, W.ZDOLNOSC_DO_WYSILKU, W.KONSEKWENCJA), "--->", of(W.DOBRE_WYBORY, W.OSIAGNIETE_CELE));
+        M.W(of(W.KALKULACJA_FIRST, W.ZDOLNOSC_DO_WYSILKU, W.KONSEKWENCJA), "--->", of(W.DOBRE_WYBORY, W.OSIAGNIETE_CELE));
 
         // ****
 
         // ULICA
-        new WWs(of(W.SLABI_RODZICE), "--->", of(W.SLABY_GEN, W.PATOLOGIA, W.UZYWKI));
+        M.W(of(W.SLABI_RODZICE), "--->", of(W.SLABY_GEN, W.PATOLOGIA, W.UZYWKI));
 
-        new WWs(of(W.SLABY_GEN, W.PATOLOGIA, W.UZYWKI), "--->", of(W.GLUPOTA, W.SLABY, W.AGRESJA));
+        M.W(of(W.SLABY_GEN, W.PATOLOGIA, W.UZYWKI), "--->", of(W.GLUPOTA, W.SLABY, W.AGRESJA));
 
-        new WWs(of(W.GLUPOTA, W.SLABY, W.AGRESJA), "--->", of(W.SPRZET, W.ZALEZNOSC_OD_EKIPY));
+        M.W(of(W.GLUPOTA, W.SLABY, W.AGRESJA), "--->", of(W.SPRZET, W.ZALEZNOSC_OD_EKIPY));
 
-        new WWs(of(W.SPRZET, W.ZALEZNOSC_OD_EKIPY),"--->", of(W.WYROK, W.ZLA_PRACA, W.BRAK_PIENIEDZY, W.NIESTABILNOSC_MATERIALNA,
-                                                            W.SLABA_MANIURA,W.BLISKOSC, W.MONOSRODOWISKO, W.UZALEZNIENIE));
+        M.W(of(W.SPRZET, W.ZALEZNOSC_OD_EKIPY),"--->", of(W.WYROK, W.ZLA_PRACA, W.BRAK_PIENIEDZY, W.NIESTABILNOSC_MATERIALNA,
+                W.SLABA_MANIURA,W.BLISKOSC, W.MONOSRODOWISKO, W.UZALEZNIENIE));
 
-        new WWs(of(W.ZLA_PRACA, W.BRAK_PIENIEDZY, W.BRAK_PERSPEKTYW, W.CHECI), "--->", of(W.ZLAMANIE_PRAWA));
+        M.W(of(W.ZLA_PRACA, W.BRAK_PIENIEDZY, W.BRAK_PERSPEKTYW, W.CHECI), "--->", of(W.ZLAMANIE_PRAWA));
 
-        new WWs(of(W.ZYSK, W.PRZEWAGA, W.SPODOBANIE_SIE), "--->", of(W.UTRZYMANIE_RELACJI));
+        M.W(of(W.ZYSK, W.PRZEWAGA, W.SPODOBANIE_SIE), "--->", of(W.UTRZYMANIE_RELACJI));
 
-        new WWs(of(W.NIESPODOBANIE_SIE, W.BLISKOSC),"--->", of(W.WALKA_PIESCI));
+        M.W(of(W.NIESPODOBANIE_SIE, W.BLISKOSC),"--->", of(W.WALKA_PIESCI));
 
-        new WWs(of(W.NIESPRAWIEDLIWE_PRZEWAGI),"--->", of(W.KOLEJNE_NIESPRAWIEDLIWE_PRZEWAGI, W.KURESTWO, W.ZACHETA_DO_ZLA));
+        M.W(of(W.NIESPRAWIEDLIWE_PRZEWAGI),"--->", of(W.KOLEJNE_NIESPRAWIEDLIWE_PRZEWAGI, W.KURESTWO, W.ZACHETA_DO_ZLA));
 
         // ***
 
         // POSIADANIE
 
-        new WWs(of(W.SILA_SPRAWCZA_PRACA, W._II_, W.SILA_SPRAWCZA_ULICA),"--->", of(W.SUPERPOZYCJA));
+        M.W(of(W.SILA_SPRAWCZA_PRACA, W._II_, W.SILA_SPRAWCZA_ULICA),"--->", of(W.SUPERPOZYCJA));
 
-        new WWs(of(W.POSIADACZ, W.WADY),"--->", of(W.PRYWATNY_FOLWARK, W.NADUZYWANIE_WYSOKIEJ_POZYCJI));
+        M.W(of(W.POSIADACZ, W.WADY),"--->", of(W.PRYWATNY_FOLWARK, W.NADUZYWANIE_WYSOKIEJ_POZYCJI));
 
-        new WWs(of(W.POSIADACZ, W._88_,
-           W.UNDERDOG, W.OD_ZERA_DO_MILIONERA_PRZEZ_CIERPIENIE),"--->", of(W.ANTY_FOLWARK, W.NAJWIEKSZA_WIEDZA_STOPIEN_PO_STOPNIU,
-                                                                                W.SWIADOMOSC_PIENIADZ_NIC, W.SWIADOMOSC_SILA_SPRAWCZA_DUZO,
-                                                                                W.MATERIA_DUZO, W.OKAZJA_DUZO, W.LOKALNOSC_DUZO));
+        M.W(of(W.POSIADACZ, W._88_,
+                W.UNDERDOG, W.OD_ZERA_DO_MILIONERA_PRZEZ_CIERPIENIE),"--->", of(W.ANTY_FOLWARK, W.NAJWIEKSZA_WIEDZA_STOPIEN_PO_STOPNIU,
+                W.SWIADOMOSC_PIENIADZ_NIC, W.SWIADOMOSC_SILA_SPRAWCZA_DUZO,
+                W.MATERIA_DUZO, W.OKAZJA_DUZO, W.LOKALNOSC_DUZO));
 
-        new WWs(of(W.SUPERPOZYCJA), "--->", of(W.REALNY_WPLYW_NA_WYDARZENIA, W.REALNY_WPLYW_NA_LUDZI,
-                                                W.ULGA_DLA_SWOICH, M.Option(W.PODKOPANIE_INNYCH),
-                                                W.SILA_SPRAWCZA_W_MIEJSCU_POD_WARUNKAMI, W.OCHRONA_SWEJ_POZYCJI,
-                                                W.INFORMACJA, W.MIEJSCE_STALE));
+        M.W(of(W.SUPERPOZYCJA), "--->", of(W.REALNY_WPLYW_NA_WYDARZENIA, W.REALNY_WPLYW_NA_LUDZI,
+                W.ULGA_DLA_SWOICH, M.Option(W.PODKOPANIE_INNYCH),
+                W.SILA_SPRAWCZA_W_MIEJSCU_POD_WARUNKAMI, W.OCHRONA_SWEJ_POZYCJI,
+                W.INFORMACJA, W.MIEJSCE_STALE));
 
-        new WWs(of(W.SUPERPOZYCJA, W.PRZEWAGA_SILY, W.ATRAKCYJNA_EGOISTKA),"--->", of(W.BEZKARNOSC, W.NIE_PAMIETA_SWOICH_OFIAR,
-                                                                        M.Option(W.PYSZNY), M.Option(W.NIEOGLADA_SIE_NA_KONKURENCJE)));
+        M.W(of(W.SUPERPOZYCJA, W.PRZEWAGA_SILY, W.ATRAKCYJNA_EGOISTKA),"--->", of(W.BEZKARNOSC, W.NIE_PAMIETA_SWOICH_OFIAR,
+                M.Option(W.PYSZNY), M.Option(W.NIEOGLADA_SIE_NA_KONKURENCJE)));
 
-        new WWs(of(W.ROZMIAR, W.PODNOSZENIE_CIEZAROW, W.SILNE_UDERZENIE,
+        M.W(of(W.ROZMIAR, W.PODNOSZENIE_CIEZAROW, W.SILNE_UDERZENIE,
                 W.ZAPASY, W.OBRONA, W.SILNI_KUMPLE_ZDOLNI_DO_WALKI),"--->", of(W.PRZEWAGA_SILY));
 
         // ***
 
         // SWIADOMOSC
 
-        new WWs(of(W.SIEDZENIE_MIEJSCA_RESTRYKCYJNE, W.SIEDZENIE_OSOBY_RESTRYKCYJNE),"--->", of(W.INFORMACJA));
+        M.W(of(W.SIEDZENIE_MIEJSCA_RESTRYKCYJNE, W.SIEDZENIE_OSOBY_RESTRYKCYJNE),"--->", of(W.INFORMACJA));
 
-        new WWs(of(W.WNIOSKI_HISTORIA, W.WLASCIWA_OCENA, W.TRZEZWOSC,
+        M.W(of(W.WNIOSKI_HISTORIA, W.WLASCIWA_OCENA, W.TRZEZWOSC,
                 W.ZNAJOMOSC_OTOCZENIA, W.WNIOSKI_DOSWIADCZENIA, W.INFORMACJA),"--->", of(W.TRAFNE_DECYZJE));
     }
 
@@ -138,17 +138,17 @@ public class CPU_LUDZI extends AbstractCPU {
         List<W> srodkiRdzenny = of(W.WALKA_PIESCI, W.WALKA_SPRZET, W.ZNAJOMOSC_RDZENNYCH, W.NIEBOI_SIE_WYROKU);
         List<W> antyRdzenny = of(W.CZOLO, W.PSYCHO, W.BRAK_SENSU);
 
-        List<WWs> srodkiPosiadacz = of(
-                new WWs(of(W.WARTOSC),"--->", of(W.USTALA_ZASADY)),
-                new WWs(of(W.NIE_PRZESTRZEGANIE_ZASAD),"--->", of(W.ODCIECIE_DOSTEPU_WARTOSC))
+        List<W> srodkiPosiadacz = of(
+                M.W(of(W.WARTOSC),"--->", of(W.USTALA_ZASADY)),
+                M.W(of(W.NIE_PRZESTRZEGANIE_ZASAD),"--->", of(W.ODCIECIE_DOSTEPU_WARTOSC))
         );
         List<W> antyPosiadacz = of(W.ZNISZCZ_WARTOSC, W.ROB_STARTE, W.ZABURZ_SPOKOJ);
     }
 
     public void ochrona() {
-        M.OCHRONA(new WWs(of(W.PRZEJEBANOSC_REGIONU), "--->", of(W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE, W.SPRZET, W.AGRESJA_W_DZIALANIU, W.ZLO)));
-        M.OCHRONA(new WWs(of(W.SEX), "--->", of(W.WALKA_PIESCI, W.SKAZYWANIE_SAMOTNOSC, W.OBGADAC, W.EMOCJE_ZE_ZLA)));
-        M.OCHRONA(new WWs(of(W.PRACA), "--->", of(W.PRZYDUPASZENIE, W.WYKONYWANIE_PRACY)));
+        M.OCHRONA(M.W(of(W.PRZEJEBANOSC_REGIONU), "--->", of(W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE, W.SPRZET, W.AGRESJA_W_DZIALANIU, W.ZLO)));
+        M.OCHRONA(M.W(of(W.SEX), "--->", of(W.WALKA_PIESCI, W.SKAZYWANIE_SAMOTNOSC, W.OBGADAC, W.EMOCJE_ZE_ZLA)));
+        M.OCHRONA(M.W(of(W.PRACA), "--->", of(W.PRZYDUPASZENIE, W.WYKONYWANIE_PRACY)));
     }
 
     public void defaultZleZachowanie() {
@@ -156,19 +156,19 @@ public class CPU_LUDZI extends AbstractCPU {
         M.ukryjWady();
         M.aktywujEmocje();
         M.wezNajwiecejDlaSiebie();
-        new WM(of(W.NIEZNAJOMY),
+        M.W(of(W.NIEZNAJOMY),
                 of(
                         M.naklejka(),
                         M.foty()
                 )
         );
-        new WM(of(W.NIEZNAJOMY, W._88_, W.PRZEWAGA, M.Option(W.AGRESJA)),
+        M.W(of(W.NIEZNAJOMY, W._88_, W.PRZEWAGA, M.Option(W.AGRESJA)),
                 of(
                         M.zwyzywaj(),
                         M.pobij()
                 )
         );
-        new WM(of(W.ZNAJOMI),
+        M.W(of(W.ZNAJOMI),
                 of(
                         M.wykorzystaj()
                 )
@@ -176,7 +176,7 @@ public class CPU_LUDZI extends AbstractCPU {
     }
 
     public void endCasyWarunkow() {
-        new WW((W.DEFAULT),
+        M.W((W.DEFAULT),
                 of(
                         W.TEMPOTA,
                         W.GLUPOTA,
@@ -185,7 +185,7 @@ public class CPU_LUDZI extends AbstractCPU {
                         W.ZALEZNY
                 )
         );
-        new WW((W.OSIEDLE),
+        M.W((W.OSIEDLE),
                 of(
                         W.ANTY_NORMALNOSC,
                         W.HIERARCHIA,
@@ -194,21 +194,21 @@ public class CPU_LUDZI extends AbstractCPU {
                         W.NUDA
                 )
         );
-        new WW((W.PASJA),
+        M.W((W.PASJA),
                 of(
                         W.TYLKO_TO,
                         W.STYL_ZYCIA,
                         W.ODERWANIE_OD_RZECZYWISTOSCI
                 )
         );
-        new WW((W.STUDIA),
+        M.W((W.STUDIA),
                 of(
                         W.ODERWANIE_OD_RZECZYWISTOSCI,
                         W.BRAK_CHETNOSCI,
                         W.MARZY_OBCOKRAJOWIEC
                 )
         );
-        new WW((W.RODZINA),
+        M.W((W.RODZINA),
                 of(
                         W.KONTROLA
                 )
@@ -216,7 +216,7 @@ public class CPU_LUDZI extends AbstractCPU {
     }
 
     public void opisZachowanTypOsoby() {
-        new WW(on(W.MIESZANIEC, W.FEST),
+        M.W(on(W.MIESZANIEC, W.FEST),
                 of(
                         M.pobierzNieswiadomosc(), M.pobierzLukiOsobowosci(),
                         M.wyklucz(of(W.RDZENNI, W.SILNIEJSI)), M.utrudniaj(of(W.RDZENNI, W.SILNIEJSI)),
@@ -224,7 +224,7 @@ public class CPU_LUDZI extends AbstractCPU {
                         M.thread_while_loop(W.POSLUSZNY)
                 )
         );
-        new WW(W.RDZENNY_DOBRY,
+        M.W(W.RDZENNY_DOBRY,
                 of(
                         M.pobierzPatologie(),
                         M.wyklucz(of(W.MIESZANIEC, W.FEST)), M.utrudniaj(of(W.MIESZANIEC, W.FEST)),
@@ -233,7 +233,7 @@ public class CPU_LUDZI extends AbstractCPU {
                         M.thread_while_loop(of(W.ANTY_POSLUSZNOSC, W.ANTY_PUSTKA, W.ANTY_NUDA))
                 )
         );
-        new WW(W.ZLY,
+        M.W(W.ZLY,
                 of(
                         M.pobierzHierarchie(),
                         M.dzialajDlaZla(), M.tworzPatologie(),
@@ -242,7 +242,7 @@ public class CPU_LUDZI extends AbstractCPU {
                         M.thread_while_loop(W.DOMINACJA)
                 )
         );
-        new WW(W.AGRESOR,
+        M.W(W.AGRESOR,
                 of(
                         M.DEFAULT(W.AGRESJA),
                         M.zaczep(osoba),
@@ -261,13 +261,13 @@ public class CPU_LUDZI extends AbstractCPU {
                 W.ZLE_SAMOPOCZUCIE, W.STRATY_MATERIALNE, W.STRATY_MORALNE, W.STRATA_MIEJSCA_W_HIERARCHII,
                 W.PRZERWA_KONTUZJA, W.USUNIECIE_Z_PLANSZY
         );
-        new WM(of(W.NOWA_OSOBA),
+        M.W(of(W.NOWA_OSOBA),
                 of(
                         M.pierwszaReakcja(of(W.ROZKMINIA, W.MAGICZNE_ZAKLECIE, W.FOTY, W.NOTYFIKACJA_EKIPA,
                                 W.PROWOKUJE, W.CISNIE, W.WYPROWADZA_Z_ROWNOWAGI, W.WALKA_PIESCI))
                 )
         );
-        new WM(of(W.KTOS_MI_COS_ZROBIL, W._II_, W.ZAZDROSC),
+        M.W(of(W.KTOS_MI_COS_ZROBIL, W._II_, W.ZAZDROSC),
                 of(
                         M.reakcjaMocniejNizszemuWHierarchii(rany)
                 )
@@ -277,7 +277,7 @@ public class CPU_LUDZI extends AbstractCPU {
         M.zniszczJakNajwiecej(rany);
         M.zabierzJakNajwiecej();
 
-        new WM(of(W.OBRONA),
+        M.W(of(W.OBRONA),
                 of(
                         M.brakReakcji(W.WYZSZE_DOBRO),
                         M.II(),
@@ -290,14 +290,14 @@ public class CPU_LUDZI extends AbstractCPU {
         List<W> festWarunki = DB_Warunki.FEST.getWarunki();
         List<W> festEndCase = of(W.PODROZE, W.WYGODY, W.PRZEKAZANIE_ZLEGO_GENU, W.NABICIE_KABZY_KAPITALISCIE);
 
-        new WM(of(W.RODZINA, W.KONTROLA, W.PIENIADZE),
+        M.W(of(W.RODZINA, W.KONTROLA, W.PIENIADZE),
                 of(
                         M.ochronaPrzed(W.CIERPIENIE),
                         M.GRANT(SOMEONE, of(W.FEST, W.BURZUA)),
                         M.GRANT(SOMEONE, of(W.NIESWIADOMOSC, W.LUKI_OSOBOWOSCI))
                 )
         );
-        new WM(of(W.POSIADACZ),
+        M.W(of(W.POSIADACZ),
                 of(
                         M.GRANT(SOMEONE, of(W.PRYWATNY_FOLWARK, W.SUPERPOZYCJA, W.WYDAWANIE_WYROKOW))
                 )
@@ -316,7 +316,7 @@ public class CPU_LUDZI extends AbstractCPU {
     }
 
     public void dzialajacy() {
-        new WW((W.DZIALAJACY),
+        M.W((W.DZIALAJACY),
                 of(
                         M.DEFAULT(W.ZEROWY_DOSTEP),
 
@@ -366,6 +366,6 @@ public class CPU_LUDZI extends AbstractCPU {
 
         List<W> dzialajcyPrzewagi = of(W.KLUB, W.MLODE_KOBIETY, W.SRODOWISKO, W.ZNAJOMI, W.EMOCJE, W.GNOJENIE, W.PRACA_PO_ZNAJOMOSCI);
 
-        M.w(of(W.DZIALAJACY, W._88_, W.BLISKOSC), "--->", of(W.NASTAWIENIE_AGRESJA));
+        M.W(of(W.DZIALAJACY, W._88_, W.BLISKOSC), "--->", of(W.NASTAWIENIE_AGRESJA));
     }
 }

@@ -17,432 +17,439 @@ import java.util.List;
  */
 public class M {
     public static M of(W warunek) { return new M();}
-    public static W w(W w1, W w2) { return W.WARUNEK; }
-    public static W w(W w1, String del, W w2) { return W.WARUNEK; }
-    public static W w(List<W> w1, String del, List<W> w2) { return W.WARUNEK; }
-    public static W ww(W w1, W w2, W w3, W w4) { return W.WARUNEK; }
-    public static W ww(List<W> w1, List<W> w2, List<W> w3, List<W> w4) { return W.WARUNEK; }
-    public static W ww(W w1, String del, W w2, W w3, String del2, W w4) { return W.WARUNEK; }
-    public static W www(W w1, String del, W w2, String del2, W w3, String del3, W w4) { return W.WARUNEK; }
-    public static String wejsciePlansza(List<W> plansza){
-        return "wejsciePlansza("+ plansza +")";
+    public static W W(W w1, W w2) { return W.WARUNEK; }
+    public static W W(W w1, List<W> w2) { return W.WARUNEK; }
+    public static W W(List<W> w1, List<W> w2) { return W.WARUNEK; }
+    public static W W(W w1, String del, W w2) { return W.WARUNEK; }
+    public static W W(List<W> w1, String del, List<W> w2) { return W.WARUNEK; }
+    public static W W(W w1, String del, List<W> w2) { return W.WARUNEK; }
+    public static W WW(W w1, W w2, W w3, W w4) { return W.WARUNEK; }
+    public static W WW(List<W> w1, List<W> w2, List<W> w3, List<W> w4) { return W.WARUNEK; }
+    public static W WW(W w1, String del, W w2, String del2, W w3) { return W.WARUNEK; }
+    public static W WW(List<W> w1, String del, List<W> w2, String del2, List<W> w3) { return W.WARUNEK; }
+    public static W WWW(W w1, String del, W w2, String del2, W w3, String del3, W w4) { return W.WARUNEK; }
+    public static W WWW(List<W> w1, List<W> w2, List<W> w3, List<W> w4, List<W> w5, List<W> w6) { return W.WARUNEK; }
+    public static W TM(TypT temat, List<W> kombinacja) { return W.WARUNEK; }
+
+    public static W wejsciePlansza(List<W> plansza){
+        return W.WARUNEK;
     }
-    public static String namierzenie(){
-        return "namierzenie()";
+    public static W namierzenie(){
+        return W.WARUNEK;
     }
-    public static String sondaOsoby(List<W> osobaCechy){
-        return "sondaOsoby("+osobaCechy+")";
+    public static W sondaOsoby(List<W> osobaCechy){
+        return W.WARUNEK;
     }
-    public static String sondaSytuacji(List<TypSytuacja> typySytuacji, List<W> essentials){
-        return "sondaSytuacji("+ typySytuacji +" "+ essentials +")";
+    public static W sondaSytuacji(List<TypSytuacja> typySytuacji, List<W> essentials){
+        return W.WARUNEK;
     }
-    public static String odrazuPochwycenie(W w){
-        return "odrazuPochwycenie("+ w +")";
+    public static W odrazuPochwycenie(W w){
+        return W.WARUNEK;
     }
-    public static String dzialanie(List<W> mojeCechy){
-        return "dzialanie("+ mojeCechy +")";
+    public static W dzialanie(List<W> mojeCechy){
+        return W.WARUNEK;
     }
-    public static String dzialanie(W warunek){return "dzialanie("+ warunek +")";}
-    public static String GRANT(TypOsoby osoba, W w){
-        return "GRANT("+ osoba +" "+ w +")";
+    public static W dzialanie(W warunek){return W.WARUNEK;}
+    public static W GRANT(TypOsoby osoba, W w){
+        return W.WARUNEK;
     }
-    public static String GRANT(TypOsoby osoba, List<W> w){ return "GRANT("+ osoba +" "+ w +")"; }
-    public static String REMIND(TypOsoby osoba, W w){
-        return "REMIND("+ osoba +" "+ w +")";
+    public static W GRANT(TypOsoby osoba, List<W> w){ return W.WARUNEK; }
+    public static W REMIND(TypOsoby osoba, W w){
+        return W.WARUNEK;
     }
-    public static String REMIND(TypOsoby osoba, List<W> w){
-        return "REMIND("+ osoba +" "+ w +")";
+    public static W REMIND(TypOsoby osoba, List<W> w){
+        return W.WARUNEK;
     }
-    public static String REMOVE(TypOsoby osoba, W w){
-        return "REMOVE("+ osoba +" "+ w +")";
+    public static W REMOVE(TypOsoby osoba, W w){
+        return W.WARUNEK;
     }
-    public static String wstanie(){
-        return "wstanie()";
+    public static W wstanie(){
+        return W.WARUNEK;
     }
-    public static String przejscie(){
-        return "przejscie()";
+    public static W przejscie(){
+        return W.WARUNEK;
     }
-    public static String prefix(List<TypT> prefixes, List<TypT> pdstw){
-        return "prefix("+ prefixes + " "+ pdstw +")";
+    public static W prefix(List<TypT> prefixes, List<TypT> pdstw){
+        return W.WARUNEK;
     }
-    public static String pprefix(List<TypT> prefixes, List<TT> kombo){
-        return "prefix("+ prefixes + " "+ kombo +")";
+    public static W pprefix(List<TypT> prefixes, List<TT> kombo){
+        return W.WARUNEK;
     }
-    public static String prefixMimoWszystko(List<TypT> prefixes, List<TypT> pdstw){
-        return "prefix("+ prefixes + " "+ pdstw +")";
+    public static W prefixMimoWszystko(List<TypT> prefixes, List<TypT> pdstw){
+        return W.WARUNEK;
     }
-    public static String gadka(List<TT> tematy, List<TT> kombo){
-        return "gadka("+ tematy +" "+ kombo +")";
+    public static W gadka(List<TT> tematy, List<TT> kombo){
+        return W.WARUNEK;
     }
-    public static String wziecieKontaktu(){
-        return "wziecieKontaktu()";
+    public static W wziecieKontaktu(){
+        return W.WARUNEK;
     }
-    public static String temat(){
-        return "temat()";
+    public static W temat(){
+        return W.WARUNEK;
     }
-    public static String ponowienie(){
-        return "ponowienie()";
+    public static W ponowienie(){
+        return W.WARUNEK;
     }
-    public static String cipa(){
-        return "cipa()";
+    public static W cipa(){
+        return W.WARUNEK;
     }
-    public static String pokazZainteresowanie(){
-        return "pokazZainteresowanie()";
+    public static W pokazZainteresowanie(){
+        return W.WARUNEK;
     }
-    public static String II(){
-        return "II()";
+    public static W II(){
+        return W.WARUNEK;
     }
-    public static String izoluj(){return "izoluj()";}
-    public static String pomysl(List<W> warunki){
-        return "pomysl("+ warunki +")";
+    public static W izoluj(){return W.WARUNEK;}
+    public static W pomysl(List<W> warunki){
+        return W.WARUNEK;
     }
-    public static String nieOddalaszWzroku(){ return "nieOddalaszWzroku()";}
-    public static String zwazNaSzczegoly(){ return "zwazNaSzczegoly()";}
-    public static String pokazSie(){ return "pokazSie()";}
-    public static String wypracujDobraSytuacje(W ogranicznieCzasowe){ return "wypracujDobraSytuacje("+ ogranicznieCzasowe +")";}
-    public static String oczekujNaSpojrzenie(W ogranicznieCzasowe){ return "oczekujNaSpojrzenie("+ ogranicznieCzasowe +")";}
-    public static String wlozDoKubelka(){ return "wlozDoKubelka()";}
-    public static String przechodziszTylkoRaz(){return "przechodziszTylkoRaz()";}
-    public static String omijaszPartyzantke(){return "omijaszPartyzantke()";}
-    public static String podbicieZJednejProby(){return "podbicieZJednejProby()";}
-    public static String popierdalaszObecna() {return "popierdalaszObecna()";}
-    public static String jazdaZLepsza() {return "jazdaZLepsza()";}
-    public static String niesiadasz() {return "niesiadasz()";}
-    public static String szukanieDobrejPlanszy() {return "szukanieDobrejPlanszy()";}
-    public static String pobierzInformacjeStrefy() {return "pobierzInformacjeStrefy()";}
-    public static String wybierzStrefe() {return "wybierzStrefe()";}
-    public static String sondaPrzystanekKoncowy() {return "sondaPrzystanekKoncowy()";}
-    public static String skupiaszNaPrzystankach() {return "szukanieDobrejPlanszy()";}
-    public static String rozgladniecie() {return "rozgladniecie()";}
-    public static String odrazuPoWejsciu() {return "odrazuPoWejsciu()";}
-    public static String poJakimsCzasie() {return "poJakimsCzasie()";}
-    public static String odrazuPoWyjsciu() {return "odrazuPoWyjsciu()";}
-    public static String lecZaNia() {return "lecZaNia()";}
-    public static String dogon() {return "dogon()";}
-    public static String sciagajGadke() {return "sciagajGadke()";}
-    public static String docen() {return "sciagajGadke()";}
-    public static String sondujWarunekDodatni() {return "sondujWarunekDodatni()";}
-    public static String zwrocUwage() {return "zwrocUwage()";}
-    public static String abyInniMysleliZeZnasz() {return "abyInniMysleliZeZnasz()";}
-    public static String wchodziszWychodzisz(W miejsce){ return "oczekujNaSpojrzenie("+ miejsce +")";}
-    public static String niePrzestraszenie() {return "niePrzestraszenie()";}
-    public static String dzialajJakbyNieBylo() {return "dzialajJakbyNieBylo()";}
-    public static String stajesz2s() {return "stajesz2s()";}
-    public static String kontekst() {return "kontekst()";}
-    public static String sondaGdzie() {return "sondaGdzie()";}
-    public static String bijesz() {return "bijesz()";}
-    public static String temat_x3(List<TT> tematy) {return "temat_x3("+ tematy +")";}
-    public static String przewidywanie_x3() {return "przewidywanie_x3()";}
-    public static String CEL(W cel) {return "CEL("+ cel +")";}
-    public static String odrazuJakObsluguje() {return "odrazuJakObsluguje()";}
-    public static String jednoWejscieJednoPodbicie() {return "jednoWejscieJednoPodbicie()";}
-    public static String komplement_x2() {return "jednoWejscieJednoPodbicie()";}
-    public static String ogladneLadnaBuzie() {return "ogladneLadnaBuzie()";}
-    public static String powiemDobrego() {return "powiemDobrego()";}
-    public static String zblizPrzezLudzi() {return "zblizPrzezLudzi()";}
-    public static String partyzantka_on() {return "partyzantka_on()";}
-    public static String zatrzymaj() {return "zatrzymaj()";}
-    public static String obroc() {return "obroc()";}
-    public static String podejdz() {return "podejdz()";}
-    public static String wejdzPrzed(String coTakPatrzysz) {return "wejdzPrzed("+ coTakPatrzysz +")";}
-    public static String ekstremalneRzeczy() {return "ekstremalneRzeczy()";}
-    public static String podbieganieZawracanie() {return "podbieganieZawracanie()";}
-    public static String podbijaszGdyRobiaSwojego() {return "podbijaszGdyRobiaSwojego()";}
-    public static String baczek() {return "baczek()";}
-    public static String namierzZareagowana() {return "namierzZareagowana()";}
-    public static String oswajaj() {return "oswajaj()";}
-    public static String czas_start() {return "czas_start()";}
-    public static String ida(W czas) {return "ida("+ czas +")";}
-    public static String idzieSzybko(W czas) {return "ida("+ czas +")";}
-    public static String idzieTwojaStrone(W czas, W wymaganie) {return "idzieTwojaStrone("+ czas + " "+ wymaganie +")";}
-    public static String idzieDobreMiejscePrzech(W czas) {return "ida("+ czas +")";}
-    public static String dluzejTylko(W warunek) {return "ida("+ warunek +")";}
-    public static String spojrzenie_1(W warunek) {return "ida("+ warunek +")";}
-    public static String spojrzenie_2(W warunek) {return "ida("+ warunek +")";}
-    public static String podbijasz() {return "podbijasz()";}
-    public static String DEFAULT(String ...zachowanie) {return "DEFAULT("+ zachowanie +")";}
-    public static String DEFALT(W warunek) {return "W.WARUNEK;";}
+    public static W nieOddalaszWzroku(){ return W.WARUNEK;}
+    public static W zwazNaSzczegoly(){ return W.WARUNEK;}
+    public static W pokazSie(){ return W.WARUNEK;}
+    public static W wypracujDobraSytuacje(W ogranicznieCzasowe){ return W.WARUNEK;}
+    public static W oczekujNaSpojrzenie(W ogranicznieCzasowe){ return W.WARUNEK;}
+    public static W wlozDoKubelka(){ return W.WARUNEK;}
+    public static W przechodziszTylkoRaz(){return W.WARUNEK;}
+    public static W omijaszPartyzantke(){return W.WARUNEK;}
+    public static W podbicieZJednejProby(){return W.WARUNEK;}
+    public static W popierdalaszObecna() {return W.WARUNEK;}
+    public static W jazdaZLepsza() {return W.WARUNEK;}
+    public static W niesiadasz() {return W.WARUNEK;}
+    public static W szukanieDobrejPlanszy() {return W.WARUNEK;}
+    public static W pobierzInformacjeStrefy() {return W.WARUNEK;}
+    public static W wybierzStrefe() {return W.WARUNEK;}
+    public static W sondaPrzystanekKoncowy() {return W.WARUNEK;}
+    public static W skupiaszNaPrzystankach() {return W.WARUNEK;}
+    public static W rozgladniecie() {return W.WARUNEK;}
+    public static W odrazuPoWejsciu() {return W.WARUNEK;}
+    public static W poJakimsCzasie() {return W.WARUNEK;}
+    public static W odrazuPoWyjsciu() {return W.WARUNEK;}
+    public static W lecZaNia() {return W.WARUNEK;}
+    public static W dogon() {return W.WARUNEK;}
+    public static W sciagajGadke() {return W.WARUNEK;}
+    public static W docen() {return W.WARUNEK;}
+    public static W sondujWarunekDodatni() {return W.WARUNEK;}
+    public static W zwrocUwage() {return W.WARUNEK;}
+    public static W abyInniMysleliZeZnasz() {return W.WARUNEK;}
+    public static W wchodziszWychodzisz(W miejsce){ return W.WARUNEK;}
+    public static W niePrzestraszenie() {return W.WARUNEK;}
+    public static W dzialajJakbyNieBylo() {return W.WARUNEK;}
+    public static W stajesz2s() {return W.WARUNEK;}
+    public static W kontekst() {return W.WARUNEK;}
+    public static W sondaGdzie() {return W.WARUNEK;}
+    public static W bijesz() {return W.WARUNEK;}
+    public static W temat_x3(List<TT> tematy) {return W.WARUNEK;}
+    public static W przewidywanie_x3() {return W.WARUNEK;}
+    public static W CEL(W cel) {return W.WARUNEK;}
+    public static W odrazuJakObsluguje() {return W.WARUNEK;}
+    public static W jednoWejscieJednoPodbicie() {return W.WARUNEK;}
+    public static W komplement_x2() {return W.WARUNEK;}
+    public static W ogladneLadnaBuzie() {return W.WARUNEK;}
+    public static W powiemDobrego() {return W.WARUNEK;}
+    public static W zblizPrzezLudzi() {return W.WARUNEK;}
+    public static W partyzantka_on() {return W.WARUNEK;}
+    public static W zatrzymaj() {return W.WARUNEK;}
+    public static W obroc() {return W.WARUNEK;}
+    public static W podejdz() {return W.WARUNEK;}
+    public static W wejdzPrzed(W coTakPatrzysz) {return W.WARUNEK;}
+    public static W ekstremalneRzeczy() {return W.WARUNEK;}
+    public static W podbieganieZawracanie() {return W.WARUNEK;}
+    public static W podbijaszGdyRobiaSwojego() {return W.WARUNEK;}
+    public static W baczek() {return W.WARUNEK;}
+    public static W namierzZareagowana() {return W.WARUNEK;}
+    public static W oswajaj() {return W.WARUNEK;}
+    public static W czas_start() {return W.WARUNEK;}
+    public static W ida(W czas) {return W.WARUNEK;}
+    public static W idzieSzybko(W czas) {return W.WARUNEK;}
+    public static W idzieTwojaStrone(W czas, W wymaganie) {return W.WARUNEK;}
+    public static W idzieDobreMiejscePrzech(W czas) {return W.WARUNEK;}
+    public static W dluzejTylko(W warunek) {return W.WARUNEK;}
+    public static W spojrzenie_1(W warunek) {return W.WARUNEK;}
+    public static W spojrzenie_2(W warunek) {return W.WARUNEK;}
+    public static W podbijasz() {return W.WARUNEK;}
+    public static W DEFAULT(W ...zachowanie) {return W.WARUNEK;}
+    public static W DEFALT(W warunek) {return W.WARUNEK;}
     public static W DEFAULT(W warunek) {return W.WARUNEK;}
     public static W DFAULT(W warunek) {return W.WARUNEK;}
-    public static String DEFAULT(List<W> warunki) {return "DEFAULT("+ warunki +")";}
-    public static String DEFAULT_WARUNKI(List<W> warunki) {return "DEFAULT("+ warunki +")";}
-    public static String piszesz() {return "piszesz()";}
-    public static String probujeszSieUstawic() {return "probujeszSieUstawic()";}
-    public static String finalizujeszZaproszeniemLubKontakt(List<String> metodyFinalizacji) {return "finalizujeszZaproszeniemLubKontakt("+ metodyFinalizacji +")";}
-    public static String podkreslJejZlaSytuacje(List<W> warunki) {return "podkreslJejZlaSytuacje("+ warunki +")";}
-    public static String podkreslSwojeStrania() {return "podkreslSwojeStrania()";}
-    public static String znamySie() {return "znamySie()";}
-    public static String obrazSieJakNieOdpowie() {return "obrazSieJakNieOdpowie()";}
-    public static String ultimatum(W kara) {return "znamySie()";}
-    public static String ponow() {return "obrazSieJakNieOdpowie()";}
-    public static String zalagodzNeturalTematem() {return "obrazSieJakNieOdpowie()";}
-    public static String tyrajZNiejBeke() {return "obrazSieJakNieOdpowie()";}
-    public static String rozgladnijSieZaSytuacja() {return "rozgladnijSieZaSytuacja()";}
-    public static String zobowiazanie(W warunek) {return "zobowiazanie("+ warunek +")";}
-    public static String _3xWchodziszDopieroZnowSytuacja() {return "_3xWchodziszDopieroZnowSytuacja()";}
-    public static String osiagniecie() {return "osiagniecie()";}
-    public static String utrzymanie() {return "utrzymanie()";}
-    public static String NEEDED(List<W> warunki) {return "NEEDED("+ warunki +")";}
-    public static String najszybszaEgzekucja() {return "najszybszaEgzekucja()";}
-    public static String ominPartyzantke() {return "ominPartyzantke()";}
-    public static String wedleCoGorzej() {return "wedleCoGorzej()";}
-    public static String przechodziDoKolejnegoPokojuCzasu(W warunek) {return "przechodziDoKolejnegoPokojuCzasu("+ warunek +")";}
-    public static String pochwycenie() {return "pochwycenie()";}
-    public static String wszystkoAbyOtrzymacRezultat() {return "wszystkoAbyOtrzymacRezultat()";}
-    public static String doSedna() {return "doSedna()";}
-    public static String doKonca() {return "doKonca()";}
-    public static String sondujJakDaleki(W warunek) {return "sondaPrzyczyn("+ warunek +")";}
-    public static String sondujJakSilny(W warunek) {return "sondujJakSilny("+ warunek +")";}
-    public static String sondaPrzyczyn(List<W> przyczyny) {return "sondaPrzyczyn("+ przyczyny +")";}
-    public static String widziszTylkoPlusy() {return "widziszTylkoPlusy()";}
-    public static String namierzPotencjalnyZysk() {return "namierzPotencjalnyZysk()";}
-    public static String namierzZagrozenia() {return "namierzZagrozenia()";}
-    public static String praca() {return "praca()";}
-    public static String niedopuscDoZlejSytuacji(W srodek) {return "niedopuscDoZlejSytuacji("+ srodek +")";}
-    public static String zbijaj(W srodek) {return "zbijaj("+ srodek +")";}
-    public static String pokazujSie(List<W> warunki) {return "pokazujSie("+ warunki +")";}
-    public static String zagaduj() {return "zagaduj()";}
-    public static String estymacja(List<W> warunki) {return "estymacja("+ warunki +")";}
-    public static String notify(W znajomi) {return "notify("+ znajomi +")";}
-    public static String getPriorities(List<W> priorities) {return "getPriorities("+ priorities +")";}
-    public static String dzialanieNad(W b) {return "notify("+ b +")";}
-    public static String poznaj() {return "poznaj()";}
-    public static String podkop_u(W ukogo) {return "podkop_u("+ ukogo +")";}
-    public static String sprobojWziacWartosc(List<String> metody) {return "sprobojWziacWartosc("+ metody +")";}
-    public static String klamstwo() {return "klamstwo()";}
-    public static String obelgi_ponizanie() {return "obelgi_ponizanie()";}
-    public static String przekonywanie() {return "przekonywanie()";}
-    public static String bojka() {return "bojka()";}
-    public static String walkaSila(List<W> typy) {return "walkaSila("+ typy +")";}
-    public static String walkaWiedza(List<W> typy) {return "walkaWiedza("+ typy +")";}
-    public static String wszystkoNaChlodno() {return "wszystkoNaChlodno()";}
-    public static String tyDobrze() {return "tyDobrze()";}
-    public static String karzeszZaWadyZachowania() {return "karzeszZaWadyZachowania()";}
-    public static String dostepDoInformacjiPrzezManiury() {return "dostepDoInformacjiPrzezManiury()";}
-    public static String wstrzymajSieZWiezeciemKobiety() {return "wstrzymajSieZWiezeciemKobiety()";}
-    public static String szukajHakow() {return "szukajHakow()";}
-    public static String walkaPiesci() {return "walkaPiesci()";}
-    public static String walkaSprzet() {return "walkaSprzet()";}
-    public static String oparcieSie(List<W> warunki) {return "oparcieSie("+ warunki +")";}
-    public static String sondaPrzypalu(List<W> kryteriaPrzypalu) {return "sondaPrzypalu("+ kryteriaPrzypalu +")";}
-    public static String sondaDostepu() {return "sondaDostepu()";}
-    public static String sondaZagrozenia() {return "sondaZagrozenia()";}
-    public static String skasowanieDostepu() {return "skasowanieDostepu()";}
-    public static String postawienieNajwiekszejPrzewagiWKrotkimCzasie() {return "postawienieNajwiekszejPrzewagiWKrotkimCzasie()";}
-    public static String nieDajSzansObrony() {return "nieDajSzansObrony()";}
-    public static String przestrzeganie(List<W> warunki) {return "przestrzeganie("+ warunki +")";}
+    public static W DEFAULT(List<W> warunki) {return W.WARUNEK;}
+    public static W DEFAULT_WARUNKI(List<W> warunki) {return W.WARUNEK;}
+    public static W piszesz() {return W.WARUNEK;}
+    public static W probujeszSieUstawic() {return W.WARUNEK;}
+    public static W finalizujeszZaproszeniemLubKontakt(List<W> metodyFinalizacji) {return W.WARUNEK;}
+    public static W podkreslJejZlaSytuacje(List<W> warunki) {return W.WARUNEK;}
+    public static W podkreslSwojeStrania() {return W.WARUNEK;}
+    public static W znamySie() {return W.WARUNEK;}
+    public static W obrazSieJakNieOdpowie() {return W.WARUNEK;}
+    public static W ultimatum(W kara) {return W.WARUNEK;}
+    public static W ponow() {return W.WARUNEK;}
+    public static W zalagodzNeturalTematem() {return W.WARUNEK;}
+    public static W tyrajZNiejBeke() {return W.WARUNEK;}
+    public static W rozgladnijSieZaSytuacja() {return W.WARUNEK;}
+    public static W zobowiazanie(W warunek) {return W.WARUNEK;}
+    public static W _3xWchodziszDopieroZnowSytuacja() {return W.WARUNEK;}
+    public static W osiagniecie() {return W.WARUNEK;}
+    public static W utrzymanie() {return W.WARUNEK;}
+    public static W NEEDED(List<W> warunki) {return W.WARUNEK;}
+    public static W najszybszaEgzekucja() {return W.WARUNEK;}
+    public static W ominPartyzantke() {return W.WARUNEK;}
+    public static W wedleCoGorzej() {return W.WARUNEK;}
+    public static W przechodziDoKolejnegoPokojuCzasu(W warunek) {return W.WARUNEK;}
+    public static W pochwycenie() {return W.WARUNEK;}
+    public static W wszystkoAbyOtrzymacRezultat() {return W.WARUNEK;}
+    public static W doSedna() {return W.WARUNEK;}
+    public static W doKonca() {return W.WARUNEK;}
+    public static W sondujJakDaleki(W warunek) {return W.WARUNEK;}
+    public static W sondujJakSilny(W warunek) {return W.WARUNEK;}
+    public static W sondaPrzyczyn(List<W> przyczyny) {return W.WARUNEK;}
+    public static W widziszTylkoPlusy() {return W.WARUNEK;}
+    public static W namierzPotencjalnyZysk() {return W.WARUNEK;}
+    public static W namierzZagrozenia() {return W.WARUNEK;}
+    public static W praca() {return W.WARUNEK;}
+    public static W niedopuscDoZlejSytuacji(W srodek) {return W.WARUNEK;}
+    public static W zbijaj(W srodek) {return W.WARUNEK;}
+    public static W pokazujSie(List<W> warunki) {return W.WARUNEK;}
+    public static W zagaduj() {return W.WARUNEK;}
+    public static W estymacja(List<W> warunki) {return W.WARUNEK;}
+    public static W notify(W znajomi) {return W.WARUNEK;}
+    public static W getPriorities(List<W> priorities) {return W.WARUNEK;}
+    public static W dzialanieNad(W b) {return W.WARUNEK;}
+    public static W poznaj() {return W.WARUNEK;}
+    public static W podkop_u(W ukogo) {return W.WARUNEK;}
+    public static W sprobojWziacWartosc(List<W> metody) {return W.WARUNEK;}
+    public static W klamstwo() {return W.WARUNEK;}
+    public static W obelgi_ponizanie() {return W.WARUNEK;}
+    public static W przekonywanie() {return W.WARUNEK;}
+    public static W bojka() {return W.WARUNEK;}
+    public static W walkaSila(List<W> typy) {return W.WARUNEK;}
+    public static W walkaWiedza(List<W> typy) {return W.WARUNEK;}
+    public static W wszystkoNaChlodno() {return W.WARUNEK;}
+    public static W tyDobrze() {return W.WARUNEK;}
+    public static W karzeszZaWadyZachowania() {return W.WARUNEK;}
+    public static W dostepDoInformacjiPrzezManiury() {return W.WARUNEK;}
+    public static W wstrzymajSieZWiezeciemKobiety() {return W.WARUNEK;}
+    public static W szukajHakow() {return W.WARUNEK;}
+    public static W walkaPiesci() {return W.WARUNEK;}
+    public static W walkaSprzet() {return W.WARUNEK;}
+    public static W oparcieSie(List<W> warunki) {return W.WARUNEK;}
+    public static W sondaPrzypalu(List<W> kryteriaPrzypalu) {return W.WARUNEK;}
+    public static W sondaDostepu() {return W.WARUNEK;}
+    public static W sondaZagrozenia() {return W.WARUNEK;}
+    public static W skasowanieDostepu() {return W.WARUNEK;}
+    public static W postawienieNajwiekszejPrzewagiWKrotkimCzasie() {return W.WARUNEK;}
+    public static W nieDajSzansObrony() {return W.WARUNEK;}
+    public static W przestrzeganie(List<W> warunki) {return W.WARUNEK;}
     public static M przestrzeganie(W warunki) {return new M();}
-    public static String poCichu() {return "poCichu()";}
-    public static String glosno() {return "glosno()";}
-    public static String otwarteStacieF2F() {return "otwarteStacieF2F()";}
-    public static String obrazanie(List<TT> obelgi) {return "obrazanie("+ obelgi +")";}
-    public static String ukazanieZlychCech() {return "ukazanieZlychCech()";}
-    public static String wspominanieZlychWydarzen() {return "wspominanieZlychWydarzen()";}
-    public static String zartowanie(List<TT> zarty) {return "zartowanie("+ zarty +")";}
-    public static String terror(List<W> sposoby) {return "obrazanie("+ sposoby +")";}
-    public static String ktoZNimTenKurwa() {return "ktoZNimTenKurwa()";}
-    public static String shanbienie() {return "shanbienie()";}
-    public static String widziszTylkoZlaStrone() {return "widziszTylkoZlaStrone()";}
-    public static String odnowa() {return "odnowa()";}
-    public static String odnowaMocniej() {return "odnowaMocniej()";}
-    public static String wjezdzanieNaCalyCyklDnia() {return "wjezdzanieNaCalyCyklDnia()";}
-    public static String dlugRosnie() {return "dlugRosnie()";}
-    public static String ultimatum(List<W> warunki) {return "ultimatum("+ warunki +")";}
-    public static String dokrecanieSruby() {return "dokrecanieSruby()";}
-    public static String zamkniecieSytuacjiBezpowrotnie() {return "zamkniecieSytuacjiBezpowrotnie()";}
-    public static String zUkrycia() {return "zUkrycia()";}
-    public static String zZaskoczenia() {return "zZaskoczenia()";}
-    public static String reaguj() {return "reaguj()";}
-    public static String spedzCzas() {return "spedzCzas()";}
-    public static String utrzymajPozycje() {return "utrzymajPozycje()";}
-    public static String atak() {return "utrzymajPozycje()";}
-    public static String zamykajDostep() {return "utrzymajPozycje()";}
-    public static String wspieraj() {return "utrzymajPozycje()";}
-    public static String udostepniaj() {return "utrzymajPozycje()";}
-    public static String skreslaj(OsobaMetod osoba) {return "utrzymajPozycje()";}
-    public static String wstrzymajSie() {return "utrzymajPozycje()";}
-    public static String wychodzisz() {return "wychodzisz()";}
-    public static String odslaniasz() {return "odslaniasz()";}
-    public static String wydluzajCzas() {return "wydluzajCzas()";}
-    public static String estymuj() {return "estymuj()";}
-    public static String maloLazBezCelu() {return "maloLazBezCelu()";}
-    public static String duzoGetAndCompare() {return "duzoGetAndCompare()";}
-    public static String od_8_do_22() {return "od_8_do_22()";}
-    public static String proba() {return "proba()";}
-    public static String wnioski() {return "wnioski()";}
-    public static String wiedza() {return "wiedza()";}
+    public static W poCichu() {return W.WARUNEK;}
+    public static W glosno() {return W.WARUNEK;}
+    public static W otwarteStacieF2F() {return W.WARUNEK;}
+    public static W obrazanie(List<TT> obelgi) {return W.WARUNEK;}
+    public static W ukazanieZlychCech() {return W.WARUNEK;}
+    public static W wspominanieZlychWydarzen() {return W.WARUNEK;}
+    public static W zartowanie(List<TT> zarty) {return W.WARUNEK;}
+    public static W terror(List<W> sposoby) {return W.WARUNEK;}
+    public static W ktoZNimTenKurwa() {return W.WARUNEK;}
+    public static W shanbienie() {return W.WARUNEK;}
+    public static W widziszTylkoZlaStrone() {return W.WARUNEK;}
+    public static W odnowa() {return W.WARUNEK;}
+    public static W odnowaMocniej() {return W.WARUNEK;}
+    public static W wjezdzanieNaCalyCyklDnia() {return W.WARUNEK;}
+    public static W dlugRosnie() {return W.WARUNEK;}
+    public static W ultimatum(List<W> warunki) {return W.WARUNEK;}
+    public static W dokrecanieSruby() {return W.WARUNEK;}
+    public static W zamkniecieSytuacjiBezpowrotnie() {return W.WARUNEK;}
+    public static W zUkrycia() {return W.WARUNEK;}
+    public static W zZaskoczenia() {return W.WARUNEK;}
+    public static W reaguj() {return W.WARUNEK;}
+    public static W spedzCzas() {return W.WARUNEK;}
+    public static W utrzymajPozycje() {return W.WARUNEK;}
+    public static W atak() {return W.WARUNEK;}
+    public static W zamykajDostep() {return W.WARUNEK;}
+    public static W wspieraj() {return W.WARUNEK;}
+    public static W udostepniaj() {return W.WARUNEK;}
+    public static W skreslaj(OsobaMetod osoba) {return W.WARUNEK;}
+    public static W wstrzymajSie() {return W.WARUNEK;}
+    public static W wychodzisz() {return W.WARUNEK;}
+    public static W odslaniasz() {return W.WARUNEK;}
+    public static W wydluzajCzas() {return W.WARUNEK;}
+    public static W estymuj() {return W.WARUNEK;}
+    public static W maloLazBezCelu() {return W.WARUNEK;}
+    public static W duzoGetAndCompare() {return W.WARUNEK;}
+    public static W od_8_do_22() {return W.WARUNEK;}
+    public static W proba() {return W.WARUNEK;}
+    public static W wnioski() {return W.WARUNEK;}
+    public static W wiedza() {return W.WARUNEK;}
     public static W thread_while_loop(W typ) {return W.WARUNEK;}
     public static W thread_while_loop(List<W> typy) {return W.WARUNEK;}
 
-    public static String neutral() {return "neutral()";}
-    public static String wyjebane() {return "wyjebane()";}
-    public static String pokazPrzewagi() {return "pokazPrzewagi()";}
-    public static String pokazSieZNajlepszejStronyZachowania() {return "pokazSieZNajlepszejStronyZachowania()";}
-    public static String wzrokiemPowstrzymaj() {return "wzrokiemPowstrzymaj()";}
-    public static String nadajZobowiazanieTonem() {return "nadajZobowiazanieTonem()";}
-    public static String izolujObszar() {return "izolujObszar()";}
-    public static String ocenWedlugWad(Osoba osoba) {return "ocenWedlugWad("+ osoba +")";}
-    public static String oszacujOgraniczenia(Osoba osoba) {return "oszacujOgraniczenia("+ osoba +")";}
-    public static String oszacujDzienCodzienny(Osoba osoba) {return "oszacujDzienCodzienny("+ osoba +")";}
-    public static String oszacujWartosci(Osoba osoba) {return "oszacujWartosci("+ osoba +")";}
-    public static String oszcaujZagrozenia(Osoba osoba) {return "oszcaujZagrozenia("+ osoba +")";}
-    public static String skinaj() {return "skinaj()";}
-    public static String _3pktTwarzy() {return "_3pktTwarzy()";}
-    public static String initGadki() {return "initGadki()";}
+    public static W neutral() {return W.WARUNEK;}
+    public static W wyjebane() {return W.WARUNEK;}
+    public static W pokazPrzewagi() {return W.WARUNEK;}
+    public static W pokazSieZNajlepszejStronyZachowania() {return W.WARUNEK;}
+    public static W wzrokiemPowstrzymaj() {return W.WARUNEK;}
+    public static W nadajZobowiazanieTonem() {return W.WARUNEK;}
+    public static W izolujObszar() {return W.WARUNEK;}
+    public static W ocenWedlugWad(Osoba osoba) {return W.WARUNEK;}
+    public static W oszacujOgraniczenia(Osoba osoba) {return W.WARUNEK;}
+    public static W oszacujDzienCodzienny(Osoba osoba) {return W.WARUNEK;}
+    public static W oszacujWartosci(Osoba osoba) {return W.WARUNEK;}
+    public static W oszcaujZagrozenia(Osoba osoba) {return W.WARUNEK;}
+    public static W skinaj() {return W.WARUNEK;}
+    public static W _3pktTwarzy() {return W.WARUNEK;}
+    public static W initGadki() {return W.WARUNEK;}
 
-    public static String kontrubutujesz() {return "kontrubutujesz()";}
-    public static String wyborOsob() {return "wyborOsob()";}
-    public static String glos() {return "glos()";}
-    public static String odMalegoDoDuzego() {return "odMalegoDoDuzego()";}
-    public static String akcentujCoWazne() {return "akcentujCoWazne()";}
+    public static W kontrubutujesz() {return W.WARUNEK;}
+    public static W wyborOsob() {return W.WARUNEK;}
+    public static W glos() {return W.WARUNEK;}
+    public static W odMalegoDoDuzego() {return W.WARUNEK;}
+    public static W akcentujCoWazne() {return W.WARUNEK;}
 
-    public static String docenDostep() {return "docenDostep()";}
-    public static String inputDodatni() {return "inputDodatni()";}
-    public static String efektywnaInterakcja() {return "efektywnaInterakcja()";}
-    public static String izolujJednostki() {return "izolujJednostki()";}
-    public static String angazujJednostki() {return "angazujJednostki()";}
-    public static String stworzWartosc() {return "stworzWartosc()";}
-    public static String kontruj() {return "kontruj()";}
-    public static String dzialaj() {return "dzialaj()";}
-    public static String przestroga() {return "przestroga()";}
-    public static String upierasz() {return "upierasz()";}
-    public static String udowadniaszPrzytaczasz() {return "udowadniaszPrzytaczasz()";}
-    public static String odpusc() {return "akcentujCoWazne()";}
-    public static String wygrales() {return "wygrales()";}
-    public static String prowokujStarcie() {return "prowokujStarcie()";}
-    public static String udowadniaj() {return "udowadniaj()";}
-    public static String serceZkamienia() {return "serceZkamienia()";}
-    public static String powtarzajGlosnoSensowneArgs() {return "powtarzajGlosnoSensowneArgs()";}
-    public static String mowSzybko() {return "mowSzybko()";}
-    public static String uwagaNaSobie() {return "uwagaNaSobie()";}
-    public static String przywolajPorzadek() {return "udowadniaj()";}
-    public static String starcie() {return "starcie()";}
-    public static String starcie(List<WarunkiKategoria> rany) {return "starcie("+ rany +")";}
-    public static String postawCiezkiWarunek(List<WM> srodki) {return "postawCiezkiWarunek("+ srodki +")";}
-    public static String zapamietaj() {return "zapamietaj()";}
-    public static String zapamietaj(List<W> warunki) {return "zapamietaj("+ warunki +")";}
-    public static String nieCzekaj() {return "nieCzekaj()";}
-    public static String wyprzedz() {return "wyprzedz()";}
-    public static String szybkoDzialaj() {return "szybkoDzialaj()";}
-    public static String punktujWady() {return "punktujWady()";}
-    public static String wprowadzCosLepszego() {return "wprowadzCosLepszego()";}
-    public static String rozdupcSila() {return "rozdupcSila()";}
-    public static String wysmianie() {return "wysmianie()";}
-    public static String zleEmocje() {return "zleEmocje()";}
-    public static String obracaniePrzeciw() {return "zleEmocje()";}
-    public static String odpowiedz() {return "odpowiedz()";}
-    public static String ukazWadyWStarciuSlownym() {return "ukazWadyWStarciuSlownym()";}
-    public static String starcieBezZasad() {return "starcieBezZasad()";}
-    public static String ucinaj() {return "ucinaj()";}
-    public static String patrzCzyZnam() {return "patrzCzyZnam()";}
-    public static String probaZdobyciaInformacji() {return "probaZdobyciaInformacji()";}
-    public static String szykowanieStarcia() {return "szykowanieStarcia()";}
-    public static String cisnie() {return "cisnie()";}
-    public static String tworzKonsekwencje() {return "tworzKonsekwencje()";}
+    public static W docenDostep() {return W.WARUNEK;}
+    public static W inputDodatni() {return W.WARUNEK;}
+    public static W efektywnaInterakcja() {return W.WARUNEK;}
+    public static W izolujJednostki() {return W.WARUNEK;}
+    public static W angazujJednostki() {return W.WARUNEK;}
+    public static W stworzWartosc() {return W.WARUNEK;}
+    public static W kontruj() {return W.WARUNEK;}
+    public static W dzialaj() {return W.WARUNEK;}
+    public static W przestroga() {return W.WARUNEK;}
+    public static W upierasz() {return W.WARUNEK;}
+    public static W udowadniaszPrzytaczasz() {return W.WARUNEK;}
+    public static W odpusc() {return W.WARUNEK;}
+    public static W wygrales() {return W.WARUNEK;}
+    public static W prowokujStarcie() {return W.WARUNEK;}
+    public static W udowadniaj() {return W.WARUNEK;}
+    public static W serceZkamienia() {return W.WARUNEK;}
+    public static W powtarzajGlosnoSensowneArgs() {return W.WARUNEK;}
+    public static W mowSzybko() {return W.WARUNEK;}
+    public static W uwagaNaSobie() {return W.WARUNEK;}
+    public static W przywolajPorzadek() {return W.WARUNEK;}
+    public static W starcie() {return W.WARUNEK;}
+    public static W starcie(List<WarunkiKategoria> rany) {return W.WARUNEK;}
+    public static W postawCiezkiWarunek(List<W> srodki) {return W.WARUNEK;}
+    public static W zapamietaj() {return W.WARUNEK;}
+    public static W zapamietaj(List<W> warunki) {return W.WARUNEK;}
+    public static W nieCzekaj() {return W.WARUNEK;}
+    public static W wyprzedz() {return W.WARUNEK;}
+    public static W szybkoDzialaj() {return W.WARUNEK;}
+    public static W punktujWady() {return W.WARUNEK;}
+    public static W wprowadzCosLepszego() {return W.WARUNEK;}
+    public static W rozdupcSila() {return W.WARUNEK;}
+    public static W wysmianie() {return W.WARUNEK;}
+    public static W zleEmocje() {return W.WARUNEK;}
+    public static W obracaniePrzeciw() {return W.WARUNEK;}
+    public static W odpowiedz() {return W.WARUNEK;}
+    public static W ukazWadyWStarciuSlownym() {return W.WARUNEK;}
+    public static W starcieBezZasad() {return W.WARUNEK;}
+    public static W ucinaj() {return W.WARUNEK;}
+    public static W patrzCzyZnam() {return W.WARUNEK;}
+    public static W probaZdobyciaInformacji() {return W.WARUNEK;}
+    public static W szykowanieStarcia() {return W.WARUNEK;}
+    public static W cisnie() {return W.WARUNEK;}
+    public static W tworzKonsekwencje() {return W.WARUNEK;}
 
-    public static String pamiecOBolach() {return "pamiecOBolach()";}
-    public static String widzisz() {return "widzisz()";}
-    public static String liczysz() {return "liczysz()";}
-    public static String kontrolaSiebieKrokZaKrokiem() {return "kontrolaSiebieKrokZaKrokiem()";}
-    public static String leciszZZaskoczenia() {return "leciszZZaskoczenia()";}
-    public static String zobligowanyDoDzialania() {return "zobligowanyDoDzialania()";}
-    public static String sondujWady() {return "sondujWady()";}
-    public static String sondujWartoscioweRzeczy() {return "sondujWartoscioweRzeczy()";}
-    public static String sondujWarunkiSprzyjajace() {return "sondujWarunkiSprzyjajace()";}
-    public static String sondujWarunkiNiesprzyjajace() {return "sondujWarunkiNiesprzyjajace()";}
-    public static String sondujLudziWokol() {return "sondujLudziWokol()";}
-    public static String wypracujLepszaPozycje() {return "wypracujLepszaPozycje()";}
-    public static String ukryjDobra() {return "ukryjDobra()";}
-    public static String wdupcWNajgorszeWarunki() {return "wdupcWNajgorszeWarunki()";}
-    public static String zajmijPozycjeIWarunki() {return "zajmijPozycjeIWarunki()";}
-    public static String czekajNaBlad(W wiedza) {return "czekajNaBlad("+ wiedza +")";}
-    public static String odlaczDostep(W blad) {return "odlaczDostep("+ blad +")";}
-    public static String srodowiskoWaliBuca() {return "srodowiskoWaliBuca()";}
-    public static String srodowiskoRobiCierpienie() {return "srodowiskoRobiCierpienie()";}
-    public static String dzialajSzybkoZZaskoczenia() {return "dzialajSzybkoZZaskoczenia()";}
-    public static String przejmij() {return "przejmij()";}
-    public static String utrzymaj() {return "utrzymaj()";}
-    public static String utrzymaj(List<W> warunki) {return "utrzymaj("+ warunki +")";}
-    public static String bierzPrzewage() {return "bierzPrzewage()";}
-    public static String kasujMuPrzewage() {return "kasujMuPrzewage()";}
-    public static String dziurkaDoJakNajwiekszejLiczbyOsob() {return "dziurkaDoJakNajwiekszejLiczbyOsob()";}
-    public static String wspieramPrzewage() {return "wspieramPrzewage()";}
-    public static String praca(List<W> warunki) {return "praca("+ warunki +")";}
-    public static String sondaKtoZyskuje() {return "sondaKtoZyskuje()";}
+    public static W pamiecOBolach() {return W.WARUNEK;}
+    public static W widzisz() {return W.WARUNEK;}
+    public static W liczysz() {return W.WARUNEK;}
+    public static W kontrolaSiebieKrokZaKrokiem() {return W.WARUNEK;}
+    public static W leciszZZaskoczenia() {return W.WARUNEK;}
+    public static W zobligowanyDoDzialania() {return W.WARUNEK;}
+    public static W sondujWady() {return W.WARUNEK;}
+    public static W sondujWartoscioweRzeczy() {return W.WARUNEK;}
+    public static W sondujWarunkiSprzyjajace() {return W.WARUNEK;}
+    public static W sondujWarunkiNiesprzyjajace() {return W.WARUNEK;}
+    public static W sondujLudziWokol() {return W.WARUNEK;}
+    public static W wypracujLepszaPozycje() {return W.WARUNEK;}
+    public static W ukryjDobra() {return W.WARUNEK;}
+    public static W wdupcWNajgorszeWarunki() {return W.WARUNEK;}
+    public static W zajmijPozycjeIWarunki() {return W.WARUNEK;}
+    public static W czekajNaBlad(W wiedza) {return W.WARUNEK;}
+    public static W odlaczDostep(W blad) {return W.WARUNEK;}
+    public static W srodowiskoWaliBuca() {return W.WARUNEK;}
+    public static W srodowiskoRobiCierpienie() {return W.WARUNEK;}
+    public static W dzialajSzybkoZZaskoczenia() {return W.WARUNEK;}
+    public static W przejmij() {return W.WARUNEK;}
+    public static W utrzymaj() {return W.WARUNEK;}
+    public static W utrzymaj(List<W> warunki) {return W.WARUNEK;}
+    public static W bierzPrzewage() {return W.WARUNEK;}
+    public static W kasujMuPrzewage() {return W.WARUNEK;}
+    public static W dziurkaDoJakNajwiekszejLiczbyOsob() {return W.WARUNEK;}
+    public static W wspieramPrzewage() {return W.WARUNEK;}
+    public static W praca(List<W> warunki) {return W.WARUNEK;}
+    public static W sondaKtoZyskuje() {return W.WARUNEK;}
     public static W nalezyDo(List<W> typy) {return W.WARUNEK;}
-    public static String sondaBledu(List<W> bledy) {return "sondaBledu("+ bledy +")";}
-    public static String sondaKogo(List<W> typy) {return "sondaKogo("+ typy +")";}
-    public static String pracaNadZasobem(W wiedza) {return "sondaKogo("+ wiedza +")";}
-    public static String bierzZasobNaSwaStrone(List<String> sposoby) {return "sondaKogo("+ sposoby +")";}
-    public static String jebac() {return "jebac()";}
-    public static String raczkaDoGory() {return "raczkaDoGory()";}
-    public static String niszczWieczor() {return "niszczWieczor()";}
-    public static String hajs_t() {return "hajs_t()";}
-    public static String szanuj_t() {return "szanuj_t()";}
-    public static String swoi_t() {return "swoi_t()";}
-    public static String walkaKlas_on() {return "walkaKlas_on()";}
-    public static String rasizm_on() {return "rasizm_on()";}
-    public static String poprawnoscPolityczna_on() {return "poprawnoscPolityczna_on()";}
+    public static W sondaBledu(List<W> bledy) {return W.WARUNEK;}
+    public static W sondaKogo(List<W> typy) {return W.WARUNEK;}
+    public static W pracaNadZasobem(W wiedza) {return W.WARUNEK;}
+    public static W bierzZasobNaSwaStrone(List<W> sposoby) {return W.WARUNEK;}
+    public static W jebac() {return W.WARUNEK;}
+    public static W raczkaDoGory() {return W.WARUNEK;}
+    public static W niszczWieczor() {return W.WARUNEK;}
+    public static W hajs_t() {return W.WARUNEK;}
+    public static W szanuj_t() {return W.WARUNEK;}
+    public static W swoi_t() {return W.WARUNEK;}
+    public static W walkaKlas_on() {return W.WARUNEK;}
+    public static W rasizm_on() {return W.WARUNEK;}
+    public static W poprawnoscPolityczna_on() {return W.WARUNEK;}
     public static W isNiedajeRady(OsobaMetod zasob) {return W.WARUNEK;}
     public static W isNieOplacalny(OsobaMetod zasob) {return W.WARUNEK;}
 
-    public static String zapisz(W task) {return "zapisz("+ task +")";}
-    public static String przymiezenieDoDzialania() {return "przymiezenieDoDzialania()";}
-    public static String check(W zegar, W data) {return "check("+ zegar +" "+ data +")";}
-    public static String estymacja() {return "estymacja()";}
-    public static String idea() {return "idea()";}
-    public static String kartkaSteps() {return "kartkaSteps()";}
-    public static String kodFunkcjonalny() {return "kodFunkcjonalny()";}
-    public static String test() {return "test()";}
-    public static String refactor() {return "refactor()";}
+    public static W zapisz(W task) {return W.WARUNEK;}
+    public static W przymiezenieDoDzialania() {return W.WARUNEK;}
+    public static W check(W zegar, W data) {return W.WARUNEK;}
+    public static W estymacja() {return W.WARUNEK;}
+    public static W idea() {return W.WARUNEK;}
+    public static W kartkaSteps() {return W.WARUNEK;}
+    public static W kodFunkcjonalny() {return W.WARUNEK;}
+    public static W test() {return W.WARUNEK;}
+    public static W refactor() {return W.WARUNEK;}
     public static W interakcja(OsobaMetod manago) {return W.WARUNEK;}
-    public static String glaskaszPoGlowie(OsobaMetod manago) {return "glaskaszPoGlowie("+ manago +")";}
-    public static String pracuj(List<W> warunki) {return "pracuj("+ warunki +")";}
+    public static W glaskaszPoGlowie(OsobaMetod manago) {return W.WARUNEK;}
+    public static W pracuj(List<W> warunki) {return W.WARUNEK;}
     public static W pracuj(W warunek) {return W.WARUNEK;}
-    public static String lapKontakt(W ludzie) {return "lapKontakt("+ ludzie +")";}
-    public static String usmiechajSie() {return "usmiechajSie()";}
-    public static String ORIENT(List<W> warunki) {return "DEFAULT("+ warunki +")";}
-    public static String robWrazenie(List<W> warunki) {return "robWrazenie("+ warunki +")";}
-    public static String zalagodz(W warunek) {return "zalagodz("+ warunek +")";}
-    public static String ponizanie() {return "ponizanie()";}
-    public static String podwazanieArgumentow() {return "podwazanieArgumentow()";}
-    public static String plotkuj() {return "plotkuj()";}
-    public static String wysmiewaj() {return "wysmiewaj()";}
-    public static String sondujWarunekMocniejszy() {return "sondujWarunekMocniejszy()";}
-    public static String ktoMialTrudno() {return "ktoMialTrudno()";}
-    public static String ktoSieUpaja() {return "ktoSieUpaja()";}
-    public static String ktoFest() {return "ktoFest()";}
-    public static String kogoTrzymaStrone() {return "kogoTrzymaStrone()";}
-    public static String jakDuze(W warunek) {return "zalagodz("+ warunek +")";}
-    public static String jakie(W warunek) {return "zalagodz("+ warunek +")";}
-    public static String ile(W warunek) {return "zalagodz("+ warunek +")";}
-    public static String sondaPosiadania() {return "sondaPosiadania()";}
-    public static String sondaPrzewag() {return "sondaPrzewag()";}
-    public static String podzielSie(W warunek) {return "podzielSie("+ warunek +")";}
-    public static String konsekwencje(OsobaMetod opponent) {return "konsekwencje("+ opponent +")";}
-    public static String zdominuj(List<W> warunki) {return "zdominuj("+ warunki +")";}
-    public static String mocnaRestrykcja(List<W> warunki) {return "mocnaRestrykcja("+ warunki +")";}
-    public static String sredniaRestrykcja(List<W> warunki) {return "sredniaRestrykcja("+ warunki +")";}
-    public static String zeSrodowiska(W warunek) {return "zeSrodowiska("+ warunek +")";}
-    public static String fest(W warunek) {return "podzielSie("+ warunek +")";}
-    public static String drugaStrona(W warunek) {return "podzielSie("+ warunek +")";}
-    public static String drugaStronaDzialajacy(W warunek) {return "podzielSie("+ warunek +")";}
-    public static String kolkoWokol(W warunek) {return "podzielSie("+ warunek +")";}
-    public static String dodajDoHotTopics(W warunek) {return "podzielSie("+ warunek +")";}
-    public static String powiazZ(OsobaMetod osoba) {return "podzielSie("+ osoba +")";}
-    public static String wezOstatnieHotTopics() {return "wezOstatnieHotTopics()";}
-    public static String rozpowiedz(OsobaMetod kojarzacy, W warunek2, OsobaMetod osoba) {return "rozpowiedz("+ kojarzacy +" "+ warunek2 +" "+ osoba +")";}
+    public static W lapKontakt(W ludzie) {return W.WARUNEK;}
+    public static W usmiechajSie() {return W.WARUNEK;}
+    public static W ORIENT(List<W> warunki) {return W.WARUNEK;}
+    public static W robWrazenie(List<W> warunki) {return W.WARUNEK;}
+    public static W zalagodz(W warunek) {return W.WARUNEK;}
+    public static W ponizanie() {return W.WARUNEK;}
+    public static W podwazanieArgumentow() {return W.WARUNEK;}
+    public static W plotkuj() {return W.WARUNEK;}
+    public static W wysmiewaj() {return W.WARUNEK;}
+    public static W sondujWarunekMocniejszy() {return W.WARUNEK;}
+    public static W ktoMialTrudno() {return W.WARUNEK;}
+    public static W ktoSieUpaja() {return W.WARUNEK;}
+    public static W ktoFest() {return W.WARUNEK;}
+    public static W kogoTrzymaStrone() {return W.WARUNEK;}
+    public static W jakDuze(W warunek) {return W.WARUNEK;}
+    public static W jakie(W warunek) {return W.WARUNEK;}
+    public static W ile(W warunek) {return W.WARUNEK;}
+    public static W sondaPosiadania() {return W.WARUNEK;}
+    public static W sondaPrzewag() {return W.WARUNEK;}
+    public static W podzielSie(W warunek) {return W.WARUNEK;}
+    public static W konsekwencje(OsobaMetod opponent) {return W.WARUNEK;}
+    public static W zdominuj(List<W> warunki) {return W.WARUNEK;}
+    public static W mocnaRestrykcja(List<W> warunki) {return W.WARUNEK;}
+    public static W sredniaRestrykcja(List<W> warunki) {return W.WARUNEK;}
+    public static W zeSrodowiska(W warunek) {return W.WARUNEK;}
+    public static W fest(W warunek) {return W.WARUNEK;}
+    public static W drugaStrona(W warunek) {return W.WARUNEK;}
+    public static W drugaStronaDzialajacy(W warunek) {return W.WARUNEK;}
+    public static W kolkoWokol(W warunek) {return W.WARUNEK;}
+    public static W dodajDoHotTopics(W warunek) {return W.WARUNEK;}
+    public static W powiazZ(OsobaMetod osoba) {return W.WARUNEK;}
+    public static W wezOstatnieHotTopics() {return W.WARUNEK;}
+    public static W rozpowiedz(OsobaMetod kojarzacy, W warunek2, OsobaMetod osoba) {return W.WARUNEK;}
     public static List<OsobaMetod> wezOsobyKojarzace(OsobaMetod osoba) {return new ArrayList<>();}
-    public static String sonda(W warunek) {return "sonda("+ warunek +")";}
-    public static String sonda(List<W> warunki) {return "sonda("+ warunki +")";}
-    public static String sonda(List<W> warunki, List<W> warunki2) {return "sonda("+ warunki+" "+ warunki2+")";}
-    public static String widzisz(W warunek) {return "widzisz("+ warunek +")";}
-    public static String odrazuNozki() {return "odrazuNozki()";}
-    public static String odrazuMowa() {return "odrazuMowa()";}
-    public static String idzieszWczesniejWJejStrone() {return "idzieszWczesniejWJejStrone()";}
-    public static String zrownanie() {return "zrownanie()";}
-    public static String bucikiDeep() {return "bucikiDeep()";}
-    public static String bucikiCel() {return "bucikiCel()";}
+    public static W sonda(W warunek) {return W.WARUNEK;}
+    public static W sonda(List<W> warunki) {return W.WARUNEK;}
+    public static W sonda(List<W> warunki, List<W> warunki2) {return W.WARUNEK;}
+    public static W widzisz(W warunek) {return W.WARUNEK;}
+    public static W odrazuNozki() {return W.WARUNEK;}
+    public static W odrazuMowa() {return W.WARUNEK;}
+    public static W idzieszWczesniejWJejStrone() {return W.WARUNEK;}
+    public static W zrownanie() {return W.WARUNEK;}
+    public static W bucikiDeep() {return W.WARUNEK;}
+    public static W bucikiCel() {return W.WARUNEK;}
     public static W wyklucz(List<W> warunki) {return W.WARUNEK;}
     public static W utrudniaj(List<W> warunki) {return W.WARUNEK;}
     public static W pobierzNieswiadomosc() {return W.WARUNEK;}
@@ -459,21 +466,21 @@ public class M {
     public static W rozpowiedz(W warunek) {return W.WARUNEK;}
     public static W zaczep(OsobaMetod osoba) {return W.WARUNEK;}
     public static W wrocZPrzewaga() {return W.WARUNEK;}
-    public static String DEEP(List<TypT> tematy) {return "DEEP("+ tematy +")";}
-    public static String WNIOSKI(List<TypT> tematy) {return "WNIOSKI("+ tematy +")";}
-    public static String WNIOSKI() {return "WNIOSKI()";}
-    public static String KONTRA() {return "KONTRA()";}
-    public static String ZMIANA(List<TypT> tematy) {return "ZMIANA("+ tematy +")";}
-    public static String robCosExtra() {return "robCosExtra()";}
-    public static String robRany(W warunek) {return "robRany("+ warunek +")";}
-    public static String ochronaPrzed(W warunek) {return "robRany("+ warunek +")";}
-    public static String opcje(List<W> warunki) {return "opcje("+ warunki +")";}
-    public static String stale() {return "stale()";}
-    public static String ujscie() {return "ujscie()";}
-    public static String zKims() {return "zKims()";}
-    public static String szukajUjscia() {return "szukajUjscia()";}
-    public static String szukajHotspot() {return "szukajHotspot()";}
-    public static String odbicieNaNozkach() {return "odbicieNaNozkach()";}
+    public static W DEEP(List<TypT> tematy) {return W.WARUNEK;}
+    public static W WNIOSKI(List<TypT> tematy) {return W.WARUNEK;}
+    public static W WNIOSKI() {return W.WARUNEK;}
+    public static W KONTRA() {return W.WARUNEK;}
+    public static W ZMIANA(List<TypT> tematy) {return W.WARUNEK;}
+    public static W robCosExtra() {return W.WARUNEK;}
+    public static W robRany(W warunek) {return W.WARUNEK;}
+    public static W ochronaPrzed(W warunek) {return W.WARUNEK;}
+    public static W opcje(List<W> warunki) {return W.WARUNEK;}
+    public static W stale() {return W.WARUNEK;}
+    public static W ujscie() {return W.WARUNEK;}
+    public static W zKims() {return W.WARUNEK;}
+    public static W szukajUjscia() {return W.WARUNEK;}
+    public static W szukajHotspot() {return W.WARUNEK;}
+    public static W odbicieNaNozkach() {return W.WARUNEK;}
     public static M trudno(W warunek) {return new M();}
     public static M latwo(W warunek) {return new M();}
     public M warunek(W warunek) {return new M();}
@@ -486,62 +493,62 @@ public class M {
     public M podbitka() {return new M();}
     public M lub() {return new M();}
     public M przeminelo() {return new M();}
-    public static String celownik(OsobaMetod osoba) {return "celownik("+ osoba +")";}
-    public static String sondaPrzewagPodZrobienieZla() {return "sondaPrzewagPodZrobienieZla()";}
-    public static String zniszczJakNajwiecej(List<WarunkiKategoria> rany) {return "zniszczJakNajwiecej("+ rany +")";}
-    public static String brakReakcji(W warunek) {return "brakReakcji("+ warunek +")";}
-    public static String reakcjaMocniej(List<WarunkiKategoria> rany) {return "zniszczJakNajwiecej("+ rany +")";}
-    public static String pierwszaReakcja(List<W> warunki) {return "pierwszaReakcja("+ warunki +")";}
-    public static String zabierzJakNajwiecej() {return "zabierzJakNajwiecej()";}
-    public static String zczytajStrefy() {return "zczytajStrefy()";}
-    public static String wyborStrefy() {return "wyborStrefy()";}
-    public static String mowa() {return "mowa()";}
-    public static String nieznajomy(W warunek) {return "nieznajomy("+ warunek +")";}
-    public static String znajomy(W warunek) {return "znajomy("+ warunek +")";}
+    public static W celownik(OsobaMetod osoba) {return W.WARUNEK;}
+    public static W sondaPrzewagPodZrobienieZla() {return W.WARUNEK;}
+    public static W zniszczJakNajwiecej(List<WarunkiKategoria> rany) {return W.WARUNEK;}
+    public static W brakReakcji(W warunek) {return W.WARUNEK;}
+    public static W reakcjaMocniej(List<WarunkiKategoria> rany) {return W.WARUNEK;}
+    public static W pierwszaReakcja(List<W> warunki) {return W.WARUNEK;}
+    public static W zabierzJakNajwiecej() {return W.WARUNEK;}
+    public static W zczytajStrefy() {return W.WARUNEK;}
+    public static W wyborStrefy() {return W.WARUNEK;}
+    public static W mowa() {return W.WARUNEK;}
+    public static W nieznajomy(W warunek) {return W.WARUNEK;}
+    public static W znajomy(W warunek) {return W.WARUNEK;}
     public static W otherwise(W warunek, Integer i) {return W.WARUNEK;}
-    public static String reakcjaMocniejNizszemuWHierarchii(List<WarunkiKategoria> rany) {return "zniszczJakNajwiecej("+ rany +")";}
-    public static String przewidzenieDrogi() {return "przewidzenieDrogi()";}
-    public static String odmowa() {return "odmowa()";}
-    public static String oglup(List<W> warunki) {return "oglup("+ warunki +")";}
-    public static String przestrzel(OsobaMetod osoba) {return "przestrzel("+ osoba +")";}
-    public static String wezDoSrodowiska(OsobaMetod osoba) {return "wezDoSrodowiska("+ osoba +")";}
-    public static String odkryjWady(OsobaMetod osoba) {return "odkryjWady("+ osoba +")";}
-    public static String wdupcDoHierarchiiPodToba(OsobaMetod osoba) {return "wdupcDoHierarchiiPodToba("+ osoba +")";}
+    public static W reakcjaMocniejNizszemuWHierarchii(List<WarunkiKategoria> rany) {return W.WARUNEK;}
+    public static W przewidzenieDrogi() {return W.WARUNEK;}
+    public static W odmowa() {return W.WARUNEK;}
+    public static W oglup(List<W> warunki) {return W.WARUNEK;}
+    public static W przestrzel(OsobaMetod osoba) {return W.WARUNEK;}
+    public static W wezDoSrodowiska(OsobaMetod osoba) {return W.WARUNEK;}
+    public static W odkryjWady(OsobaMetod osoba) {return W.WARUNEK;}
+    public static W wdupcDoHierarchiiPodToba(OsobaMetod osoba) {return W.WARUNEK;}
     public static W kontrola(List<W> warunki) {return W.WARUNEK;}
     public static M konsekwencje(List<W> warunki) {return new M();}
-    public static String BFS_terytorium(W w) {return "BFS_terytorium("+ w +")";}
-    public static String OTHERWISE(List<W> warunki) {return "OTHERWISE("+ warunki +")"; }
-    public static String zaklecie() {return "zaklecie()";}
-    public static String foty() {return "foty()";}
-    public static String zaklecie(Integer counter) {return "zaklecie("+ counter + ")";}
-    public static String foty(Integer counter) {return "foty("+ counter +")";}
-    public static String jebZPerspektywyPozycji() {return "jebZPerspektywyPozycji()";}
-    public static String twojeZdanieWazniejsze() {return "twojeZdanieWazniejsze()";}
-    public static String tyKogosPodkopujOnCiebieNieMoze() {return "tyKogosPodkopujOnCiebieNieMoze()";}
-    public static String ukryjOklam() {return "ukryjOklam()";}
-    public static String wykorzystaj() {return "wykorzystaj()";}
-    public static String wonty() {return "wonty()";}
-    public static String brakPochwaly() {return "brakPochwaly()";}
-    public static String tlo(List<W> warunki) {return "tlo("+ warunki +")";}
-    public static String ukryjZlo() {return "ukryjZlo()";}
-    public static String ukryjWady() {return "ukryjWady()";}
-    public static String aktywujEmocje() {return "aktywujEmocje()";}
-    public static String wezNajwiecejDlaSiebie() {return "wezNajwiecejDlaSiebie()";}
-    public static String naklejka() {return "naklejka()";}
-    public static String zwyzywaj() {return "zwyzywaj()";}
-    public static String pobij() {return "pobij()";}
+    public static W BFS_terytorium(W w) {return W.WARUNEK;}
+    public static W OTHERWISE(List<W> warunki) {return W.WARUNEK;}
+    public static W zaklecie() {return W.WARUNEK;}
+    public static W foty() {return W.WARUNEK;}
+    public static W zaklecie(Integer counter) {return W.WARUNEK;}
+    public static W foty(Integer counter) {return W.WARUNEK;}
+    public static W jebZPerspektywyPozycji() {return W.WARUNEK;}
+    public static W twojeZdanieWazniejsze() {return W.WARUNEK;}
+    public static W tyKogosPodkopujOnCiebieNieMoze() {return W.WARUNEK;}
+    public static W ukryjOklam() {return W.WARUNEK;}
+    public static W wykorzystaj() {return W.WARUNEK;}
+    public static W wonty() {return W.WARUNEK;}
+    public static W brakPochwaly() {return W.WARUNEK;}
+    public static W tlo(List<W> warunki) {return W.WARUNEK;}
+    public static W ukryjZlo() {return W.WARUNEK;}
+    public static W ukryjWady() {return W.WARUNEK;}
+    public static W aktywujEmocje() {return W.WARUNEK;}
+    public static W wezNajwiecejDlaSiebie() {return W.WARUNEK;}
+    public static W naklejka() {return W.WARUNEK;}
+    public static W zwyzywaj() {return W.WARUNEK;}
+    public static W pobij() {return W.WARUNEK;}
     public static W Option(W warunek) {return W.WARUNEK;}
     public static W WYMAGANIA(List<W> warunki) {return W.WARUNEK;}
     public static W uniz(W warunek) {return W.WARUNEK;}
     public static W zapomnij(W warunek) {return W.WARUNEK;}
     public static W wyolbrzym(W warunek) {return W.WARUNEK;}
     public static W pamietaj(W warunek) {return W.WARUNEK;}
-    public static String subscribe(List<W> warunki) {return "subscribe("+ warunki +")"; }
+    public static W subscribe(List<W> warunki) {return W.WARUNEK;}
     public static W oddalanieSieOdWalkiZagrozenia(List<W> warunki) {return W.WARUNEK;}
     public static W oddalanieOdKonkurencji(List<W> warunki) {return W.WARUNEK;}
-    public static String FIRST(List<W> warunki) {return "FIRST("+ warunki +")";}
-    public static String NIGDY_MALO(List<W> warunki) {return "NIGDY_MALO("+ warunki +")";}
-    public static String OCHRONA(WWs warunki) {return "OCHRONA("+ warunki +")";}
+    public static W FIRST(List<W> warunki) {return W.WARUNEK;}
+    public static W NIGDY_MALO(List<W> warunki) {return W.WARUNEK;}
+    public static W OCHRONA(W w) {return W.WARUNEK;}
     public static W WHILE() {return W.WARUNEK;}
     public static W WHILE_END() {return W.WARUNEK;}
 
@@ -589,20 +596,20 @@ public class M {
 
     public static W EFEKTYWNA_GADKA(W warunek) {return W.WARUNEK;}
     public static W PILNOWANIE_BLISKOSC(W warunek) {return W.WARUNEK;}
-    public static String wyslijCVBroadcastem() {return "wyslijCVBroadcastem()";}
-    public static String czasOczekiwania(W warunek) {return "czasOczekiwania("+ warunek +")";}
-    public static String zaproszenieNaRozmowe() {return "zaproszenieNaRozmowe()";}
-    public static String dowiedzSieCzegosORozmowieRekrutacyjnej() {return "dowiedzSieCzegosORozmowieRekrutacyjnej()";}
-    public static String feedback() {return "feedback()";}
-    public static String pierwszyEtap() {return "pierwszyEtap()";}
-    public static String drugiEtap() {return "drugiEtap()";}
-    public static String wyrazenieCheciWspolpracy() {return "wyrazenieCheciWspolpracy()";}
-    public static String wyslanieUmowy() {return "wyslanieUmowy()";}
-    public static String podpisanieUmowy() {return "podpisanieUmowy()";}
-    public static String screening() {return "screening()";}
-    public static String pierwszyOdzew() {return "pierwszyOdzew()";}
-    public static String dziwadlo(OsobaMetod osoba) {return "dziwadlo()";}
-    public static String gorszeTraktowanieNizReszta(OsobaMetod osoba) {return "utrzymajPozycje()";}
+    public static W wyslijCVBroadcastem() {return W.WARUNEK;}
+    public static W czasOczekiwania(W warunek) {return W.WARUNEK;}
+    public static W zaproszenieNaRozmowe() {return W.WARUNEK;}
+    public static W dowiedzSieCzegosORozmowieRekrutacyjnej() {return W.WARUNEK;}
+    public static W feedback() {return W.WARUNEK;}
+    public static W pierwszyEtap() {return W.WARUNEK;}
+    public static W drugiEtap() {return W.WARUNEK;}
+    public static W wyrazenieCheciWspolpracy() {return W.WARUNEK;}
+    public static W wyslanieUmowy() {return W.WARUNEK;}
+    public static W podpisanieUmowy() {return W.WARUNEK;}
+    public static W screening() {return W.WARUNEK;}
+    public static W pierwszyOdzew() {return W.WARUNEK;}
+    public static W dziwadlo(OsobaMetod osoba) {return W.WARUNEK;}
+    public static W gorszeTraktowanieNizReszta(OsobaMetod osoba) {return W.WARUNEK;}
 
     public static M robKrzywde() {return new M();}
     public static M dajZarobekGrubasowi() {return new M();}

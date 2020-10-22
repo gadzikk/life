@@ -12,11 +12,11 @@ public class CPU_SUMMARY extends AbstractCPU {
     public void ulica() {
         List<W> ulicaConditions = of(W.PUSTKA, W.PRZEWAGA, W.AGRESJA_W_DZIALANIU, W.OBECNOSC);
 
-        new WWs(of(M.PROSTO(W.ZLO)), "--->", of(W.AKTYWNA_KONTRA));
+        M.W(of(M.PROSTO(W.ZLO)), "--->", of(W.AKTYWNA_KONTRA));
     }
     // K
     public void kobiety() {
-        new WWWi(M.MOCNO(W.OKAZJA), "->" , M.EFEKTYWNA_GADKA(W.ZAGADANIE), "->" , M.PILNOWANIE_BLISKOSC(W.PRZEGADANIE));
+        M.WW(M.MOCNO(W.OKAZJA), "->" , M.EFEKTYWNA_GADKA(W.ZAGADANIE), "->" , M.PILNOWANIE_BLISKOSC(W.PRZEGADANIE));
 
         M schemaSytuacji00 = new M().sytuacja().Is().podbitka()
                 .lub().sytuacja().Is().przeminelo();
@@ -33,7 +33,7 @@ public class CPU_SUMMARY extends AbstractCPU {
 
     public void ludzie() {
         // todo: typ -> defaultZachowanie ex. fest -> wow(), wdupcanieOstatnichKolegow()
-        M.w(W.FEST, "--->", on(M.budzaceEmocjeWow(), M.wdupcanieOstatnichKolegow()));
-        M.w(W.WIESNIAK, "--->", on(M.bezpieczneBezSensu(), M.strefaKomfortu(), M.cisnieIleMozna()));
+        M.W(W.FEST, "--->", on(M.budzaceEmocjeWow(), M.wdupcanieOstatnichKolegow()));
+        M.W(W.WIESNIAK, "--->", on(M.bezpieczneBezSensu(), M.strefaKomfortu(), M.cisnieIleMozna()));
     }
 }

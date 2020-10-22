@@ -20,14 +20,14 @@ import java.util.List;
  * Created by gadzik on 31.12.19.
  */
 public class AbstractCPU {
-    List<MW> all = new ArrayList<>();
+    List<W> all = new ArrayList<>();
     Sytuacja sytuacja = new Sytuacja();
     List<TypT> prefixes = DB_Tematy.PREFIXES;
     List<TypT> pdstw = DB_Tematy.PDSTW;
     List<TT> tematy = DB_Tematy.TEMATY;
     List<TT> kombo = DB_Tematy.KOMBO;
     List<TT> codzienne = DB_Tematy.CODZIENNE;
-    String coTakPatrzysz;
+    W coTakPatrzysz;
     OsobaMetod ona = new OsobaMetod();
     OsobaMetod manago = new OsobaMetod();
     List<W> kryteriaPrzypalu = DB_Warunki.KRYTERIA_PRZYPALU.getWarunki();

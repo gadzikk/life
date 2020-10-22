@@ -31,8 +31,8 @@ public class CPU_1 extends AbstractCPU {
             W.SAMA, W.Z_KOLEZANKA, W.Z_RODZINA);
     List<W> allNiesprzyjajace = of(W.TLUM, W.ZMECZENIE, W.CISZA, W.MOZLIWE_SLUCHAWKI);
 
-    List<String> spojrzenia = of(M.spojrzenie_1(W.BEST_CASE), M.spojrzenie_2(W.NORMAL_CASE));
-    List<String> zaproszenieRandka = of(M.podkreslJejZlaSytuacje(of(W.NUDA, W.MONOTONIA)), M.podkreslSwojeStrania(), M.znamySie(),
+    List<W> spojrzenia = of(M.spojrzenie_1(W.BEST_CASE), M.spojrzenie_2(W.NORMAL_CASE));
+    List<W> zaproszenieRandka = of(M.podkreslJejZlaSytuacje(of(W.NUDA, W.MONOTONIA)), M.podkreslSwojeStrania(), M.znamySie(),
             M.obrazSieJakNieOdpowie(), M.ultimatum(W.KARA));
 
     List<W> extremalne = of(W.UWAGA_NA_TOBIE, W.ROZWALENIE_CISZY,
@@ -40,7 +40,7 @@ public class CPU_1 extends AbstractCPU {
 
     List<W> jakoscSytuacji = of(W.INTERAKCJA, W.KOJARZENIE_Z_DOBREGO, W.ZNAJOMI, W.POTRZEBA, W.WARTOSC, W.UNIKALNOSC_W_OTOCZENIU);
 
-    List<W> sytuacja = of(W.LUDZIE, essentials, W.OPCJA_PRZEJSCIE, allSprzyjajace, spojrzenia, jakoscSytuacji);
+    List<Object> sytuacja = of(W.LUDZIE, essentials, W.OPCJA_PRZEJSCIE, allSprzyjajace, spojrzenia, jakoscSytuacji);
 
     W cel = W.ZMIANA_SYTUACJI_DEFAULTOWEJ;
 
@@ -68,16 +68,16 @@ public class CPU_1 extends AbstractCPU {
         W nastawienie = M.ODRAZU(W.BLISKOSC);
         List<W> mainFlow = of(W.GLOWNA_DROGA, W.MIEJSCE_STALE);
 
-        new MW(
+        M.W(
                 of(M.namierzenie(), M.nieOddalaszWzroku()),
                 of(W.THREAD_WHILE_LOOP_ZASIEG_WZROKU)
         );
 
-        new WM(
+        M.W(
                 of(W.WSTYD, W._II_, W.NIEDOSTEPNA,W._II_, W.NIECHCE_SIE),
                 of(M.REMIND(ME,of(W.STATYSCI,W.SZANSA,W.SAVE_TIME,W.PROC_30_DOBRYCH)))
         );
-        new WM(
+        M.W(
                 of(W.TLUM),
                 of(
                         M.REMIND(ME,of(W.STATYSCI,W.SZANSA,W.SAVE_TIME,W.PROC_30_DOBRYCH)),
@@ -85,21 +85,21 @@ public class CPU_1 extends AbstractCPU {
                         M.izoluj()
                 )
         );
-        new WM(
+        M.W(
                 of(W.ZLE_WYGLADA, W._II_, W.SWOJE_RZECZY),
                 of(M.cipa())
         );
-        new MW(
+        M.W(
                 of(M.odrazuPochwycenie(W.SYTUACJA), M.odrazuNozki(), M.odrazuMowa(), M.pomysl(of(W.PRZESKOCZENIE)), M.dzialanie(mojeCechy)),
                 of(W.BEDZIE_CIEKAWIE, W.ANTY_PARTYZANTKA, W.ANTY_POSLUSZNOSC, W.NIENAWISC_FESTOW, W.JA_DOSTAJE)
         );
-        new WM(
+        M.W(
                 of(W.PODBIJASZ, W._88_, W.BRAK_JAKOSCI_PLANSZY),
                 of(
                         M.DEFAULT(ona.opieraSie(), ona.odpowiadaOdNiechcenia(), ona.nieufna())
                 )
         );
-        new WMWM(
+        M.WW(
                 of(W.NIE_DA_SIE_ZOBACZYC_PIERSCIONKA),
                 of(
                         M.podbijasz()
@@ -109,7 +109,7 @@ public class CPU_1 extends AbstractCPU {
                         ona.znikaZPlanszy()
                 )
         );
-        new WMWM(
+        M.WW(
                 of(W.DOPUSZCZA_ODPISUJE),
                 of(
                         M.piszesz(),
@@ -121,7 +121,7 @@ public class CPU_1 extends AbstractCPU {
                         M.finalizujeszZaproszeniemLubKontakt(zaproszenieRandka)
                 )
         );
-        new WMWM(
+        M.WW(
                 of(W.SZYBKO, W._88_, W.ODSTEP_0_5s, W._88_, W.PRZEWIDYWANIE, W._88_, W.REZULTAT),
                 of(
                         M.GRANT(ME, W.EFEKTYWNA_GADKA),
@@ -132,7 +132,7 @@ public class CPU_1 extends AbstractCPU {
                         M.GRANT(ME, W.SZANSA_KONTAKT)
                 )
         );
-        new WMWM(
+        M.WW(
                 of(W.NIEODPOWIEDZIALA, W._II_, W.UCINA),
                 of(
                         M.ponow(),
@@ -146,7 +146,7 @@ public class CPU_1 extends AbstractCPU {
                         M.zobowiazanie(W.NAJWIECEJ_NA_MIEJSCU)
                 )
         );
-        new WM(
+        M.W(
                 of(W.NIEPODBIJASZ),
                 of(
                         M.GRANT(ME, W.CONTINUE_NUDA),
@@ -181,7 +181,7 @@ public class CPU_1 extends AbstractCPU {
         List<W> sprzyjajace = of(W.DLUGA_DOSTEPNOSC,  W.BEZRUCH, W.SZANSA_NA_SPOTKANIE_WZROKIEM, W.KONTEKST);
         List<W> extremalneWzgl = of(W.UWAGA_NA_TOBIE, W.ROZWALENIE_CISZY);
 
-        new WM(
+        M.W(
                 of(W.WZGL_IZOLACJA),
                 of(
                         M.GRANT(ME, W.X_100),
@@ -189,7 +189,7 @@ public class CPU_1 extends AbstractCPU {
                         M.pokazSie()
                 )
         );
-        new WM(
+        M.W(
                 of(W._1SPOJRZENIE),
                 of(
                         M.GRANT(ME, W.ENOUGH),
@@ -198,7 +198,7 @@ public class CPU_1 extends AbstractCPU {
                         M.gadka(tematy, kombo)
                 )
         );
-        new WMWM(
+        M.WW(
                 of(W.PATRZYSZ),
                 of(
                         M.wypracujDobraSytuacje(W.OGRANICZENIE_CZASOWE),
@@ -209,12 +209,12 @@ public class CPU_1 extends AbstractCPU {
                 of(W.PASS,W._88_, W.BLISKOSC),
                 of(M.GRANT(ME, W.X_1000))
         );
-        new WM(
+        M.W(
                 of(W.GADAJA_ZE_SOBA),
                 of(M.GRANT(ME, W.WIECEJ_NIZ_POPATRZENIE))
         );
 
-        new WM(
+        M.W(
                 of(W.SIEDZA),
                 of(
                         M.GRANT(YOU, W.KOMFORT),
@@ -223,7 +223,7 @@ public class CPU_1 extends AbstractCPU {
                         M.omijaszPartyzantke(),
                         M.podbicieZJednejProby())
         );
-        new WM(
+        M.W(
                 of(W.MIEJSCE_STALE),
                 of(
                         M.kontekst(),
@@ -232,7 +232,7 @@ public class CPU_1 extends AbstractCPU {
                         M.bijesz()
                 )
         );
-        new WMWMWM(
+        M.WWW(
                 of(W.SYTUACJA, W._88_, W.MIEJSCE_STALE, W._88_, W.ODPUSZCZSZ),
                 of(
                         M.GRANT(ME, W.WORST_CASE),
@@ -247,11 +247,11 @@ public class CPU_1 extends AbstractCPU {
                         M.GRANT(ME, W.PARTYZANTKA)
                 )
         );
-        new WM(
+        M.W(
                 of(W.SLUCHAWKI),
                 of(M.niePrzestraszenie(), M.dzialajJakbyNieBylo())
         );
-        new WM(
+        M.W(
                 of(W.CZORCIK),
                 of(M.GRANT(ME, W.SZANSA_BECZKA_ZNAJOMOSC))
         );
@@ -259,14 +259,14 @@ public class CPU_1 extends AbstractCPU {
     public void trauto(){
         W rzeczywistosc = W.BAHNA_1_DO_2_KOBIET;
         List<W> extremalneTrauto = of(W.SIEDZISZ_PRZEJSCIE, W.PRZECIWNY_PRZYSTANEK);
-        List<String> schemaTrauto = of(M.zczytajStrefy(), "-", M.wyborStrefy(), "-", M.przejscie(), "-", M.mowa());
+        W schemaTrauto = M.WWW(M.zczytajStrefy(), "-", M.wyborStrefy(), "-", M.przejscie(), "-", M.mowa());
 
         List<W> sprzjajace = of(W.DLUGA_DOSTEPNOSC, W.BEZRUCH, W.SZANSA_NA_SPOTKANIE_WZROKIEM, W.STREFY_PRZEGUBOWE_3, W.KONTEKST);
         List<W> normalne = of(W.CISZA, W.TLUM, W.CHODZAC_ROZMOWA_UWAGA_NA_TOBIE, W.BIEDACY);
         List<W> niesprzyjajace = of(W.ULOTNOSC, W.ZARAZ_WYSIADZIE, W.ZARAZ_WYCIAGNIE_SLUCHAWKI);
 
         // THREAD WHILE LOOP.START()
-        new WMWM(
+        M.WW(
                 of(W.TRAUTO),
                 of(
                         M.szukanieDobrejPlanszy()
@@ -277,7 +277,7 @@ public class CPU_1 extends AbstractCPU {
                         M.odrazuPochwycenie(W.SYTUACJA)
                 )
         );
-        new WMWM(
+        M.WW(
                 of(W.BAHNA),
                 of(
                         M.pobierzInformacjeStrefy(),
@@ -289,7 +289,7 @@ public class CPU_1 extends AbstractCPU {
                         M.opcje(of(W.SIEDZENIE_PRZED, W.SIEDZENIE_OBOK, W.STOISZ_NAD_SIEDZENIEM, W.STOISZ_OBOK))
                 )
         );
-        new WMWM(of(W.WEJSCIE, W.PRZYSTANEK),
+        M.WW(of(W.WEJSCIE, W.PRZYSTANEK),
                 of(
                         M.rozgladniecie()
                 ),
@@ -301,7 +301,7 @@ public class CPU_1 extends AbstractCPU {
         // THREAD WHILE LOOP.END()
         // NAMIERZONA
 
-        new MWMWMW(
+        M.WWW(
                 of(M.odrazuPoWejsciu()),
                 of(
                         W.OSZCZEDNOSC_CZASU, W.MNIEJSZE_SZANSE,
@@ -320,7 +320,7 @@ public class CPU_1 extends AbstractCPU {
                 )
         );
         // todo przenies do wzgl izolacja
-        new WMWM(
+        M.WW(
                 of(W.Z_KIMS, W._88_, W.PATRZY),
                 of(
                         M.GRANT(ME, W.X_100),
@@ -333,13 +333,13 @@ public class CPU_1 extends AbstractCPU {
                         M.dogon()
                 )
         );
-        new WM(
+        M.W(
                 of(W.BRAK_SLUCHAWEK),
                 of(
                         M.docen()
                 )
         );
-        new WMWM(
+        M.WW(
                 of(W.SIEDZISZ),
                 of(
                         M.wstanie(),
@@ -354,7 +354,7 @@ public class CPU_1 extends AbstractCPU {
                         M.podbicieZJednejProby()
                 )
         );
-        new WMWM(
+        M.WW(
                 of(W.PATRZY, W._88_, W.WRAZLIWA),
                 of(
                         M.GRANT(ME, W.PATRZY_ULAMEK_SEKUNDY)
@@ -364,7 +364,7 @@ public class CPU_1 extends AbstractCPU {
                         M.abyInniMysleliZeZnasz()
                 )
         );
-        new WM(
+        M.W(
                 of(W.POZNALES_KOGOS),
                 of(
                         M.wchodziszWychodzisz(W.MIEJSCE)
@@ -374,7 +374,7 @@ public class CPU_1 extends AbstractCPU {
         // END NAMIERZONA
     }
     public void utrudnienia2strony(){
-        new WMWM(
+        M.WW(
                 of(W.ODWRACA_WZROK, W._II_, W.SPECJALNE_NIEWIDZENIE),
                 of(
                         M.prefixMimoWszystko(prefixes, pdstw)
@@ -395,12 +395,12 @@ public class CPU_1 extends AbstractCPU {
         M.ORIENT(of(W.KASA, W.KOLEJKA, W.UJSCIE));
         M.kolkoWokol(W.SKLEP);
 
-        new WM(
+        M.W(
                 of(W.OBSLUGA,
                         W.ZARAZ_STACI_FOCUS, W.ZARAZ_KTOS_WEJDZIE),
                 of(M.odrazuJakObsluguje())
         );
-        new WM(
+        M.W(
                 of(W.GALERIA),
                 of(
                         M.CEL(W.SKLEPY_DLA_KOBIET),
@@ -409,7 +409,7 @@ public class CPU_1 extends AbstractCPU {
         );
     }
     public void pokazujaSie(){
-        new WMWMWM(
+        M.WWW(
                 of(W.IDA_KOLEZANKI),
                 of(
                         M.GRANT(ME, W.X_100)
@@ -423,7 +423,7 @@ public class CPU_1 extends AbstractCPU {
                         M.GRANT(ME, W.POKAZUJE_SIE)
                 )
         );
-        new WM(
+        M.W(
                 of(W.WYKAZALA_ZAINTERESOWANIE, W._88_, W.MAM_CHLOPAKA),
                 of(
                         M.komplement_x2(),
@@ -434,7 +434,7 @@ public class CPU_1 extends AbstractCPU {
     }
 
     public void parzenie(){
-        new WMWM(
+        M.WW(
                 of(W.OPCJA_PARZENIE),
                 of(
                         M.GRANT(ME, W.SZANSA_POKAZANIE_GADKI),
@@ -448,13 +448,13 @@ public class CPU_1 extends AbstractCPU {
                         M.GRANT(ME, W.ZOBOWIAZANIE_DO_GADANIA)
                 )
         );
-        new WM(
+        M.W(
                 of(W.SRODOWISKO),
                 of(
                         M.zblizPrzezLudzi()
                 )
         );
-        new WM(
+        M.W(
                 of(W.NIE_PARZYSZ),
                 of(
                         M.REMOVE(ME, W.SYTUACJA),
@@ -467,7 +467,7 @@ public class CPU_1 extends AbstractCPU {
         W rzeczywistosc = W.POL_GODZINY_1_DO_2_KOBIET;
         List<W> extremalne = of(W.UWAGA_NA_TOBIE, W.ROZWALENIE_CISZY,
                 W.IDZIESZ_ZAWRACASZ, W.SIEDZISZ_PRZEJSCIE, W.ONA_SWOJE_GRONO);
-        List<String> schemaTrauto = of(M.przewidzenieDrogi(), "-", M.odbicieNaNozkach(), "-", M.przejscie(), "-", M.mowa());
+        W schemaTrauto = M.WWW(M.przewidzenieDrogi(), "-", M.odbicieNaNozkach(), "-", M.przejscie(), "-", M.mowa());
 
         List<W> sprzjajace = of(W.NAJNIZSZY_POZIOM_WARSTWY, W.WLASNE_TERYTORIUM);
         List<W> normalne = of(W.CHODZENIE_WSROD_PUSTKI);
@@ -480,14 +480,14 @@ public class CPU_1 extends AbstractCPU {
                 TypMiejsce.PARKING, TypMiejsce.STACJA_BENZYNOWA
 
         );
-        List<String> nozkiMetody = of(M.zatrzymaj(), M.obroc(), M.podejdz(), M.wejdzPrzed(coTakPatrzysz),
+        List<W> nozkiMetody = of(M.zatrzymaj(), M.obroc(), M.podejdz(), M.wejdzPrzed(coTakPatrzysz),
                 M.szukajUjscia(), M.szukajHotspot()
         );
 
         ona.on(W.TRANS);
         ona.max(W.POPATRZENIE_X2);
 
-        new WMWM(
+        M.WW(
                 of(W._NOT_, W.WZGL_IZOLACJA, W.SKLEP, W.TRAUTO),
                 of(
                         M.GRANT(ME, W.JALOWY_ON)
@@ -499,12 +499,12 @@ public class CPU_1 extends AbstractCPU {
                         M.podbijaszGdyRobiaSwojego()
                 )
         );
-        new WM(of(W.IDZIESZ_NAPRZECIWKO, W._88_, W._2_WZROKOWE),
+        M.W(of(W.IDZIESZ_NAPRZECIWKO, W._88_, W._2_WZROKOWE),
                 of(
                         M.baczek()
                 )
         );
-        new WMWM(of(W.WIDZISZ_SYTUACJE),
+        M.WW(of(W.WIDZISZ_SYTUACJE),
                 of(
                         M.odrazuPochwycenie(W.SYTUACJA)
                 ),
@@ -513,7 +513,7 @@ public class CPU_1 extends AbstractCPU {
                         M.GRANT(ME, W.X_100), M.GRANT(ME, W.BEST_POZYCJA)
                 )
         );
-        new WM(of(W.WIDZISZ_TYL, W._II_, W.NIEPATRZA_GADAJA),
+        M.W(of(W.WIDZISZ_TYL, W._II_, W.NIEPATRZA_GADAJA),
                 of(
                         M.sciagajGadke(),
                         M.pprefix(prefixes, kombo),
@@ -521,7 +521,7 @@ public class CPU_1 extends AbstractCPU {
                         M.oswajaj()
                 )
         );
-        new WM(of(W.ZASIEG_WZROKU, W._88_, W.STOISZ, W._88_, W.MIEJSCE_PRZECHODNIE ),
+        M.W(of(W.ZASIEG_WZROKU, W._88_, W.STOISZ, W._88_, W.MIEJSCE_PRZECHODNIE ),
                 of(
                         M.odbicieNaNozkach(),
                         M.idzieszWczesniejWJejStrone(),
@@ -529,7 +529,7 @@ public class CPU_1 extends AbstractCPU {
                         M.prefix(prefixes, pdstw)
                 )
         );
-        new WM(of(W.ZASIEG_WZROKU, W._II_, W.PRZEWIDZIALES_DROGE),
+        M.W(of(W.ZASIEG_WZROKU, W._II_, W.PRZEWIDZIALES_DROGE),
                 of(
                         M.czas_start(), M.GRANT(ME, W.SYTUACJA),
                         M.ida(W._3s),
@@ -539,14 +539,14 @@ public class CPU_1 extends AbstractCPU {
                         M.dluzejTylko(W.WZGL_IZOLACJA)
                 )
         );
-        new WM(of(W.IDZIESZ_W_MIEJSCE_STALE),
+        M.W(of(W.IDZIESZ_W_MIEJSCE_STALE),
                 of(
                         M.GRANT(ME, W.WIECEJ_OKAZJI_DROGA)
                 )
         );
     }
     public void zagadanie(){
-        new WMWM(of(W.LEKKIE),
+        M.WW(of(W.LEKKIE),
                 of(
                         M.bucikiCel()
                 ),

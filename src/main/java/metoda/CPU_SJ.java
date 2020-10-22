@@ -95,39 +95,39 @@ public class CPU_SJ extends AbstractCPU {
                 W.ULICA
         ));
 
-        new WWs(of(W.WIDZISZ_ZLO), "--->", of(W.ODRAZU_DZIALANIE_KONTRA));
+        M.W(of(W.WIDZISZ_ZLO), "--->", of(W.ODRAZU_DZIALANIE_KONTRA));
 
-        new WWs(of(W.WZGL_IZOLACJA), "--->", of(W.ODRAZU_DZIALANIE));
+        M.W(of(W.WZGL_IZOLACJA), "--->", of(W.ODRAZU_DZIALANIE));
 
-        new WM(of(W._NOT_, W.PRZED_9, W._88_, W.PO_17),
+        M.W(of(W._NOT_, W.PRZED_9, W._88_, W.PO_17),
                 of(M.REMOVE(ME, W.DZIEN))
         );
-        new WM(of(W.MIEJSCE_STALE),
+        M.W(of(W.MIEJSCE_STALE),
                 of(M.robCosExtra())
         );
 
         M.thread_while_loop(W.PUSTKA);
-        new WM(of(W.LUDZIE),
+        M.W(of(W.LUDZIE),
                 of(
                         M.widzisz(W.WADY),
                         M.widzisz(W.ZLO),
                         M.widzisz(W.ZAZDROSC)
                 )
         );
-        new WM(of(W.WZGL_IZOLACJA, W._II_, W.ZNAJOMI, W._88_, W.CZAS, W._88_, W.PODBIJASZ),
+        M.W(of(W.WZGL_IZOLACJA, W._II_, W.ZNAJOMI, W._88_, W.CZAS, W._88_, W.PODBIJASZ),
                 of(
                         M.GRANT(ME, W.SZANSA_POZNANIE),
                         M.GRANT(ME, W.SZANSA_SONDA),
                         M.GRANT(ME, W.SZANSA_INFORMACJA)
                 )
         );
-        new WM(of(W.NIE_DOSTAJESZ, W._II_, W.NIE_FINALIZUJESZ),
+        M.W(of(W.NIE_DOSTAJESZ, W._II_, W.NIE_FINALIZUJESZ),
                 of(
                         M.GRANT(SOMEONE, W.FRAJER_DOSTAJE)
                 )
         );
 
-        new WWs(of(W._NOT_, W.SPRZECIW_WZGLEDEM_ZLA), "--->", of(W.CALE_ZLO_W_CIEBIE));
+        M.W(of(W._NOT_, W.SPRZECIW_WZGLEDEM_ZLA), "--->", of(W.CALE_ZLO_W_CIEBIE));
 
         wsrodLudzi();
         prioriDzialania();
@@ -163,7 +163,7 @@ public class CPU_SJ extends AbstractCPU {
     }
 
     public void ciebie() {
-        new WWs(of(
+        M.W(of(
                 W.KOBIETA, W.ZNAJOMOSCI, W.SAMOCHOD,
                 W.SONDA, W.UKRYCIE, W.NAKLEJ_NALEPKE, W.CISNIE, W.SKAZYWANIE_SAMOTNOSC,
                 W.BOJKA, W.ZMECZENIE, W.BRAK_CZASU,
@@ -187,9 +187,9 @@ public class CPU_SJ extends AbstractCPU {
     }
 
     public void widziszDzialacza() {
-        M.w(of(M.WIDZISZ(W.DZIALAJACY), W._88_, W.BLISKOSC), "--->", M.AKTYWNA_WALKA_ZE_ZLEM(of(W.BLISKOSC, W.CISNIECIE, W.WALKA_PIESCI)));
+        M.W(of(M.WIDZISZ(W.DZIALAJACY), W._88_, W.BLISKOSC), "--->", M.AKTYWNA_WALKA_ZE_ZLEM(of(W.BLISKOSC, W.CISNIECIE, W.WALKA_PIESCI)));
 
-        M.w(of(W.WPIERDOL), "--->", of(W.STRACH, W.BOL, W.MORALNIAK, W.STRATA_MANIURY, W.POZBAWIENIE_PRZEWAGI,
+        M.W(of(W.WPIERDOL), "--->", of(W.STRACH, W.BOL, W.MORALNIAK, W.STRATA_MANIURY, W.POZBAWIENIE_PRZEWAGI,
                                                                                 M.MOCNO(W.CHEC_POMSZCZENIA)));
     }
 }
