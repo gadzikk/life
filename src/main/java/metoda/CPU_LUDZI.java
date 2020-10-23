@@ -332,12 +332,28 @@ public class CPU_LUDZI extends AbstractCPU {
                                 dzialacz.thread_while_loop(M.robKrzywde()),
                                 dzialacz.thread_while_loop(M.dajZarobekGrubasowi()),
                                 dzialacz.thread_while_loop(M.ochronaGrubasa()),
+                                dzialacz.thread_while_loop(M.wykonujeRozkazy(W.GORA)),
                                 dzialacz.thread_while_loop(M.uznajeHierarchie())
                         )),
+                        dzialacz.dostep(of(W.INFORMACJE, W.KONTAKT_TEL, W.OBECNOSC)),
+                        dzialacz.set(W.NIE_ZATRZYMA_SIE),
+                        M.W(dzialacz.otrzymujePrzewagiZDzialania(), "--->", dzialacz.lubiDzialanie()),
+
+                        dzialacz.thread_while_loop(W.NOTYFIKACJA_EKIPA),
+                        dzialacz.policja(W.ZERO),
+
                         srodowisko.thread_while_loop(M.wsparcie(W.DZIALANIE_DLA_ZLA)),
-                        srodowisko.thread_while_loop(M.wzajemneOddzialywanie()),
+
+                        srodowisko.thread_while_loop(M.wplyw(dzialacz)),
+                        dzialacz.thread_while_loop(M.wplyw(srodowisko)),
+
+                        srodowisko.thread_while_loop(M.wzajemneOddzialywanie(srodowisko)),
                         srodowisko.thread_while_loop(M.moda()),
                         srodowisko.thread_while_loop(M.komfort()),
+                        srodowisko.thread_while_loop(M.oczekiwania(W.AGRESJA_W_DZIALANIU, dzialacz)),
+                        srodowisko.thread_while_loop(M.zagluszaSumienie(dzialacz)),
+
+                        dzialacz.thread_while_loop(M.rozkminianie(wszyscy)),
 
                         dzialacz.siejZlo(), M.otherwise(W.PRZEJEBANE, 0),
                         dzialacz.uzaleznijSieOdSrd(),
@@ -365,6 +381,9 @@ public class CPU_LUDZI extends AbstractCPU {
         );
 
         List<W> dzialajcyPrzewagi = of(W.KLUB, W.MLODE_KOBIETY, W.SRODOWISKO, W.ZNAJOMI, W.EMOCJE, W.GNOJENIE, W.PRACA_PO_ZNAJOMOSCI);
+
+        List<W> dzialajcySlabosci = of(W.BRAK_ZDROWIA, W.BRAK_SUMIENIA, W.PIEKLO);
+
 
         M.W(of(W.DZIALAJACY, W._88_, W.BLISKOSC), "--->", of(W.NASTAWIENIE_AGRESJA));
     }

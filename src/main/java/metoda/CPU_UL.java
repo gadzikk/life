@@ -201,6 +201,7 @@ public class CPU_UL extends AbstractCPU {
         nieZnam();
         rdzenni();
         tworzenieWarunkow();
+        wychodzenieNaUlice();
     }
     public List<W> srodki() {
         return of(
@@ -450,6 +451,21 @@ public class CPU_UL extends AbstractCPU {
         W dzialanie = M.NAJMNIEJSZY_CZAS(W.NAJWIEKSZA_KRZYWDA);
 
         List<W> kryteriaPrzypalu = DB_Warunki.KRYTERIA_PRZYPALU.getWarunki();
+
+        M.W(W.SPRZET, "--->", of(W.MALY_WYSILEK, M.DUZA_KRZYWDA(W._1_RUCH), W.NAJWIEKSZ_STRACH,
+                                                                                M.DEFAULT(W.UCIECZKA),
+                                                                                M.DEFAULT_DZIALAJCY(of(W.SPRZET, W.NOTYFIKACJA_EKIPA))));
+
+        M.W(W.WALKA_PIESCI, "--->", of(W.DUZY_WYSILEK, M.DEFAULT(W.BRONI_SIE),
+                                                            M.DEFAULT_DZIALAJCY(of(W.SPRZET, W.NOTYFIKACJA_EKIPA))));
+
+        M.W(W.CISNIE, "--->", of(W.MALY_WYSILEK, M.DEFAULT(W.ODPOWIADA),
+                                                        M.DEFAULT_DZIALAJCY(of(W.SPRZET, W.NOTYFIKACJA_EKIPA))));
+
+        M.W(W.BLISKOSC, "--->", of(W.MALY_WYSILEK, W.SONDA, M.DEFAULT(W.PATRZY),
+                                                                M.DEFAULT_DZIALAJCY(of(W.PATRZY, W.ROZKMINIA, W.FOTY, W.NOTYFIKACJA_EKIPA))));
+
+
 
         M.PROSTO(W.BOJKA);
         M.W(of(M.PROSTO(W.CISNIE)), "--->", of(W.ODRAZU_DZIALANIE));
@@ -1126,6 +1142,10 @@ public class CPU_UL extends AbstractCPU {
         polskiRzad.tworzyWarunki(of(W.CHRONICZNE_BEZROBOCIE, W.NISKIE_PENSJE, W.PRAWO));
         grubas.tworzyWarunki(of(W.KLAMSTWO, W.SLABY, W.WADY, W.DZIALAJACY, W.ZMYSLY_DLA_ZLA));
         fest.tworzyWarunki(of(W.WYWYZSZENIE_SLABYCH));
+    }
+
+    public void wychodzenieNaUlice() {
+        wszyscy.set(of(W.NASTAWIENIE_PRZYJEMNOSCI, W.NASTAWIENIE_AGRESJA_W_DZIALANIU, W.NASTAWIENIE_HIERACHI_PRZYWILEJE));
     }
 
 }

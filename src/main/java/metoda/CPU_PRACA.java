@@ -265,6 +265,8 @@ public class CPU_PRACA extends AbstractCPU {
     }
 
     public W interview(List<W> warunki) {
+        M.przypomnijZaklecia();
+
         List<W> target = of(W.ZADEMONSTROWANIE_WIEDZY, W.FINE);
         List<W> ocenianieWedlug = of(W.TO_CO_UMIESZ, W._II_, W.TO_CZEGO_NIEUMIESZ, W._II_, W.OCENA_ZE_STUDIOW);
 

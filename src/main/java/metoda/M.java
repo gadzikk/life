@@ -170,6 +170,8 @@ public class M {
     public static W DEFAULT(W ...zachowanie) {return W.WARUNEK;}
     public static W DEFALT(W warunek) {return W.WARUNEK;}
     public static W DEFAULT(W warunek) {return W.WARUNEK;}
+    public static W DEFAULT_DZIALAJCY(W warunek) {return W.WARUNEK;}
+    public static W DEFAULT_DZIALAJCY(List<W> warunek) {return W.WARUNEK;}
     public static W DFAULT(W warunek) {return W.WARUNEK;}
     public static W DEFAULT(List<W> warunki) {return W.WARUNEK;}
     public static W DEFAULT_WARUNKI(List<W> warunki) {return W.WARUNEK;}
@@ -592,6 +594,15 @@ public class M {
     public static W WARUNKI_WSTEPNE(List<W> warunki) {return W.WARUNEK;}
     public static W WIDZISZ(W warunek) {return W.WARUNEK;}
     public static W WIDZISZ(List<W> warunki) {return W.WARUNEK;}
+    public static W MALY_WYSILEK(W warunek) {return W.WARUNEK;}
+    public static W MALY_WYSILEK(List<W> warunki) {return W.WARUNEK;}
+    public static W DUZY_WYSILEK(W warunek) {return W.WARUNEK;}
+    public static W DUZY_WYSILEK(List<W> warunki) {return W.WARUNEK;}
+    public static W DUZA_KRZYWDA(W warunek) {return W.WARUNEK;}
+    public static W DUZA_KRZYWDA(List<W> warunki) {return W.WARUNEK;}
+    public static W MALA_KRZYWDA(W warunek) {return W.WARUNEK;}
+    public static W MALA_KRZYWDA(List<W> warunki) {return W.WARUNEK;}
+
     public static List<W> AKTYWNA_WALKA_ZE_ZLEM(List<W> warunki) {return new ArrayList<>();}
 
     public static W EFEKTYWNA_GADKA(W warunek) {return W.WARUNEK;}
@@ -637,7 +648,14 @@ public class M {
     public static M tworzEmocje() {return new M();}
     public static W pobierzNastawienie() {return W.WARUNEK;}
     public static M wsparcie(W w) {return new M();}
-    public static M wzajemneOddzialywanie() {return new M();}
+    public static M wzajemneOddzialywanie(OsobaMetod osoba) {return new M();}
     public static M moda() {return new M();}
     public static M komfort() {return new M();}
+    public static W wplyw(OsobaMetod osoba) {return W.WARUNEK;}
+    public static W rozkminianie(OsobaMetod osoba) {return W.WARUNEK;}
+    public static W zagluszaSumienie(OsobaMetod osoba) {return W.WARUNEK;}
+    public static W oczekiwania(W w, OsobaMetod osoba) {return W.WARUNEK;}
+    public static W przypomnijZaklecia() {return W.WARUNEK;}
+    public static W wykonujeRozkazy(W w) {return W.WARUNEK;}
+
 }

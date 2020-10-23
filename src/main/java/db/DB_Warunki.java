@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by gadzik on 28.12.19.
  */
-public class DB_Warunki {
+public class DB_Warunki extends DB {
     public void init(){
         List<WarunkiKategoria> ALL = new ArrayList<>();
         ALL.addAll(WYMAGANIA_WSTEPNE);
@@ -722,7 +722,8 @@ public class DB_Warunki {
     public static WarunkiKategoria OSLONY = new WarunkiKategoria(
             new Kategoria(TypKategoria.OSLONA),
             Arrays.asList(
-                    W.PRACA, W.LAMUS, W.KOBIETA, W.DUZO_OSOB, W.DOSTEP_RESTRYKTOWANY, W.Z_KOBIETA, W.Z_RODZINA
+                    W.PRACA, W.LAMUS, W.KOBIETA, W.DUZO_OSOB, W.DOSTEP_RESTRYKTOWANY, W.Z_KOBIETA, W.Z_RODZINA,
+                    W.EKIPA, W.SAMOCHOD
             )
     );
 
@@ -896,9 +897,10 @@ public class DB_Warunki {
     public static WarunkiKategoria KURESTWO = new WarunkiKategoria(
             new Kategoria(TypKategoria.RANY, TypKategoria.KURESTWO),
             Arrays.asList(
-                    W.FOTY_MIEJSCE_STALE, W.NIE_MILA_OBSLUGA, W.ZLE_WYKONANIE_USLUGI, W.OGRANICZENIE_WOLNOSCI, W.KONTUZJA,
+                    M.MALY_WYSILEK(of(W.FOTY_MIEJSCE_STALE, W.NIE_MILA_OBSLUGA, W.ZLE_WYKONANIE_USLUGI)),
+                    M.DUZY_WYSILEK(of(W.OGRANICZENIE_WOLNOSCI, W.KONTUZJA)),
                     W.ZABRAC_COS,
-                    W.POLICJA, W.PUSZCZALSKOSC, W.ZDOLNOSC_KONFIDENTCTWO
+                    M.MALY_WYSILEK(of(W.POLICJA, W.PUSZCZALSKOSC, W.ZDOLNOSC_KONFIDENTCTWO))
             )
     );
     public static WarunkiKategoria KRYTERIA_PRZYPALU = new WarunkiKategoria(
@@ -1141,6 +1143,7 @@ public class DB_Warunki {
                     W.NASTAWIENIE_AGRESJA_W_DZIALANIU, W.NASTAWIENIE_KONTEMPLACJA, W.NASTAWIENIE_PRACA,
                     W.NASTAWIENIE_OSZUKANIE_WDUPCENIE, W.NASTAWIENIE_NA_ZLO, W.NASTAWIENIE_DOBRO, W.NASTAWIENIE_POZNANIE,
                     W.NASTAWIENIE_KONTRA, W.NASTAWIENIE_PRZYJEMNOSCI, W.NASTAWIENIE_WSPARCIE, W.NASTAWIENIE_PRZECIW,
+                    W.NASTAWIENIE_HIERACHI_PRZYWILEJE,
 
                     W.NASTAWIENIE_MAM_ZLE_ON_TEZ_MUSI, W.NASTAWIENIE_NIE_MAM_NIC_ON_TEZ_MA_NIE_MIEC, W.NASTAWIENIE_JA_GNOJONY_GNOJE_NIZSZYCH
             )
@@ -1149,13 +1152,21 @@ public class DB_Warunki {
     public static WarunkiKategoria KTO_KOGO = new WarunkiKategoria(
             new Kategoria(TypKategoria.RANY, TypKategoria.KTO_KOGO),
             Arrays.asList(
-                    W.UKRYCIE, W.KLAMSTWO, W.PO_CICHU,
-                    W.WDUPC_ZAKLECIEM, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE,
-                    W.NOTYFIKACJA_EKIPA, W.FOTY, W.NAKLEJ_NALEPKE, W.OBGADAC, W.PRZEKONYWANIE_OTOCZENIA_PRZECIW,
-                    W.CISNIE, W.WALKA_PIESCI,
-                    W.SPRZET,
-                    M.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA),
+                    M.MALY_WYSILEK(of(W.UKRYCIE, W.KLAMSTWO, W.PO_CICHU)),
+                    M.MALY_WYSILEK(of(W.WDUPC_ZAKLECIEM, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE)),
+                    M.MALY_WYSILEK(of(W.NOTYFIKACJA_EKIPA, W.FOTY, W.NAKLEJ_NALEPKE, W.OBGADAC, W.PRZEKONYWANIE_OTOCZENIA_PRZECIW)),
+                    M.MALY_WYSILEK(W.CISNIE),
+                    M.DUZY_WYSILEK(W.WALKA_PIESCI), M.DUZY_WYSILEK(W.ZNISZCZENIE_WARTOSCI_MATERIALNEJ),
+                    M.MALY_WYSILEK(W.SPRZET),
+                    M.MALY_WYSILEK(M.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA)),
                     W.AGRESJA_W_DZIALANIU, W.ZLO
+            )
+    );
+
+    public static WarunkiKategoria KTO_KOGO = new WarunkiKategoria(
+            new Kategoria(TypKategoria.RANY, TypKategoria.STARCIE),
+            Arrays.asList(
+                   // todo
             )
     );
 

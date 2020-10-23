@@ -88,4 +88,8 @@ public class OsobaMetod {
     public W uzaleznijOdSiebie() {return W.WARUNEK;}
     public W wychodzenieNaUlice() {return W.WARUNEK;}
     public W tworzyWarunki(List<W> warunki) {return W.WARUNEK;}
+    public W dostep(List<W> warunki) {return W.WARUNEK;}
+    public W policja(W w) {return W.WARUNEK;}
+    public W otrzymujePrzewagiZDzialania() {return W.WARUNEK;}
+    public W lubiDzialanie() {return W.WARUNEK;}
 }
