@@ -27,9 +27,9 @@ public class CPU_STANU extends AbstractCPU {
 
         // 7dni bez ruchu
 
-        // silka - cardio, malo snu dobre tetno
+        // silkaRower - cardio, malo snu dobre tetno
 
-        // cw w domu - dlugi gorszy sen, mniej sily w ciagu dnia
+        // cw silowe w domu - dlugi gorszy sen, mniej sily w ciagu dnia, myslenie++, cala gorna czesc pracuje
 
         // bieganie - mniejsnu++, rzeskosc, mniej sily w ciagu dnia, stres++, myslenie--, regeneracja_serca++
 

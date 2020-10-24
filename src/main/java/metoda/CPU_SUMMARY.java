@@ -33,7 +33,7 @@ public class CPU_SUMMARY extends AbstractCPU {
 
     public void ludzie() {
         // todo: typ -> defaultZachowanie ex. fest -> wow(), wdupcanieOstatnichKolegow()
-        M.W(W.FEST, "--->", on(M.budzaceEmocjeWow(), M.wdupcanieOstatnichKolegow()));
-        M.W(W.WIESNIAK, "--->", on(M.bezpieczneBezSensu(), M.strefaKomfortu(), M.cisnieIleMozna()));
+        M.W(W.FEST, "--->", of(M.budzaceEmocjeWow(), M.wdupcanieOstatnichKolegow()));
+        M.W(W.WIESNIAK, "--->", of(M.bezpieczneBezSensu(), M.strefaKomfortu(), M.cisnieIleMozna()));
     }
 }

@@ -17,12 +17,14 @@ import java.util.List;
  */
 public class M {
     public static M of(W warunek) { return new M();}
+    public static M of(List<W> warunek) { return new M();}
     public static W W(W w1, W w2) { return W.WARUNEK; }
     public static W W(W w1, List<W> w2) { return W.WARUNEK; }
     public static W W(List<W> w1, List<W> w2) { return W.WARUNEK; }
     public static W W(W w1, String del, W w2) { return W.WARUNEK; }
     public static W W(List<W> w1, String del, List<W> w2) { return W.WARUNEK; }
     public static W W(W w1, String del, List<W> w2) { return W.WARUNEK; }
+    public static W W(List<W> w1, String del, W w2) { return W.WARUNEK; }
     public static W WW(W w1, W w2, W w3, W w4) { return W.WARUNEK; }
     public static W WW(List<W> w1, List<W> w2, List<W> w3, List<W> w4) { return W.WARUNEK; }
     public static W WW(W w1, String del, W w2, String del2, W w3) { return W.WARUNEK; }
@@ -516,7 +518,8 @@ public class M {
     public static W wezDoSrodowiska(OsobaMetod osoba) {return W.WARUNEK;}
     public static W odkryjWady(OsobaMetod osoba) {return W.WARUNEK;}
     public static W wdupcDoHierarchiiPodToba(OsobaMetod osoba) {return W.WARUNEK;}
-    public static W kontrola(List<W> warunki) {return W.WARUNEK;}
+    public static W KONTROLA(List<W> warunki) {return W.WARUNEK;}
+    public static W KONTROLA(W w) {return W.WARUNEK;}
     public static M konsekwencje(List<W> warunki) {return new M();}
     public static W BFS_terytorium(W w) {return W.WARUNEK;}
     public static W OTHERWISE(List<W> warunki) {return W.WARUNEK;}
@@ -585,6 +588,10 @@ public class M {
     public static W ODRAZU(List<W> warunki) {return W.WARUNEK;}
     public static W CHETNIE(W warunek) {return W.WARUNEK;}
     public static W CHETNIE(List<W> warunki) {return W.WARUNEK;}
+    public static W OPCJA(W warunek) {return W.WARUNEK;}
+    public static W OPCJA(List<W> warunki) {return W.WARUNEK;}
+    public static W STANDARD(W warunek) {return W.WARUNEK;}
+    public static W STANDARD(List<W> warunki) {return W.WARUNEK;}
 
     public static W NAJMNIEJSZY_CZAS(W w) {return W.WARUNEK;}
 
@@ -602,6 +609,7 @@ public class M {
     public static W DUZA_KRZYWDA(List<W> warunki) {return W.WARUNEK;}
     public static W MALA_KRZYWDA(W warunek) {return W.WARUNEK;}
     public static W MALA_KRZYWDA(List<W> warunki) {return W.WARUNEK;}
+
 
     public static List<W> AKTYWNA_WALKA_ZE_ZLEM(List<W> warunki) {return new ArrayList<>();}
 
@@ -648,6 +656,7 @@ public class M {
     public static M tworzEmocje() {return new M();}
     public static W pobierzNastawienie() {return W.WARUNEK;}
     public static M wsparcie(W w) {return new M();}
+    public static M wsparcie(List<W> w) {return new M();}
     public static M wzajemneOddzialywanie(OsobaMetod osoba) {return new M();}
     public static M moda() {return new M();}
     public static M komfort() {return new M();}
@@ -657,5 +666,13 @@ public class M {
     public static W oczekiwania(W w, OsobaMetod osoba) {return W.WARUNEK;}
     public static W przypomnijZaklecia() {return W.WARUNEK;}
     public static W wykonujeRozkazy(W w) {return W.WARUNEK;}
-
+    public static M OSOBY(List<OsobaMetod> osoby) {return new M();}
+    public M smiejeSie() {return new M();}
+    public M hanba() {return new M();}
+    public W wesele() {return W.WARUNEK;}
+    public static W DOSTEP(List<W> warunki) {return W.WARUNEK;}
+    public static W WZIECIE_SPRAWIEDLIWOSCI(W w) {return W.WARUNEK;}
+    public static W WZIECIE_SPRAWIEDLIWOSCI(List<W> warunki) {return W.WARUNEK;}
+    public static void SET(W w) {}
+    public static void SET(List<W> warunki) {}
 }

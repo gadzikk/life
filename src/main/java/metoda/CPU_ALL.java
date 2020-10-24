@@ -47,8 +47,7 @@ public class CPU_ALL extends AbstractCPU {
 
     List<W> mainFlows = of(W.GRUPA_PRZESTEPCZA, W.DOBRA_PRACA, W.STUDIA, W.KLUB, W.RESTAURACJA, W.WAKACJE_WODA, W.ZWIAZEK, W.ZNAJOMI);
 
-    List<W> urodzenieDefault = of(W.RODZINA, W.MIEJSCE_ZAMIESZKANIA, W.BRAK_ZNAJOMYCH, W.BRAK_ZWIAZKU, W.BRAK_PRACY,
-            W.BRAK_ZAKLECIA, W.CZYSTE_SUMIENIE);
+    List<W> urodzenieDefault = DEFAULT_WARUNKI;
 
     public void run(){
         M.WW(

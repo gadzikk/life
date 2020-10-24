@@ -21,6 +21,7 @@ public class CPU_LUDZI extends AbstractCPU {
         teoriaZla();
         fest();
         dzialajacy();
+        czlowiekCierpienia();
     }
 
     public void relacjeWarunkowLudzi() {
@@ -335,14 +336,17 @@ public class CPU_LUDZI extends AbstractCPU {
                                 dzialacz.thread_while_loop(M.wykonujeRozkazy(W.GORA)),
                                 dzialacz.thread_while_loop(M.uznajeHierarchie())
                         )),
-                        dzialacz.dostep(of(W.INFORMACJE, W.KONTAKT_TEL, W.OBECNOSC)),
+                        dzialacz.thread_while_loop(M.DOSTEP(of(W.INFORMACJE, W.KONTAKT_TEL, W.OBECNOSC))),
                         dzialacz.set(W.NIE_ZATRZYMA_SIE),
-                        M.W(dzialacz.otrzymujePrzewagiZDzialania(), "--->", dzialacz.lubiDzialanie()),
-
-                        dzialacz.thread_while_loop(W.NOTYFIKACJA_EKIPA),
+                        dzialacz.set(of(W.WYKRECENIE, W.WADY_FIZYCZNE, W.WADY_UMYSLOWE)),
+                        dzialacz.set(KTO_KOGO_WARUNKI),
+                        dzialacz.set(M.OPCJA(KURESTWO_WARUNKI)),
                         dzialacz.policja(W.ZERO),
 
-                        srodowisko.thread_while_loop(M.wsparcie(W.DZIALANIE_DLA_ZLA)),
+                        M.W(W.INFORMACJA, "--->", dzialacz.notyfikacjaEkipa()),
+                        M.W(dzialacz.otrzymujePrzewagiZDzialania(), "--->", dzialacz.lubiDzialanie()),
+
+                        srodowisko.thread_while_loop(M.wsparcie(of(W.DZIALANIE_DLA_ZLA, W.SLEPE_DZIALANIE, W.KROTKOWZROCZNOSC))),
 
                         srodowisko.thread_while_loop(M.wplyw(dzialacz)),
                         dzialacz.thread_while_loop(M.wplyw(srodowisko)),
@@ -385,6 +389,14 @@ public class CPU_LUDZI extends AbstractCPU {
         List<W> dzialajcySlabosci = of(W.BRAK_ZDROWIA, W.BRAK_SUMIENIA, W.PIEKLO);
 
 
-        M.W(of(W.DZIALAJACY, W._88_, W.BLISKOSC), "--->", of(W.NASTAWIENIE_AGRESJA));
+        M.W(of(W.DZIALAJACY, W._88_, W.BLISKOSC), "--->", W.NASTAWIENIE_AGRESJA);
+    }
+
+    public void czlowiekCierpienia() {
+        M.W(M.DLUGO(M.CIEZKO(of(W.CIERPIENIE, W.BOL))), "--->", M.WZIECIE_SPRAWIEDLIWOSCI(of(W.SILA, W.MADROSC, W.DOSWIADCZENIA)));
+    }
+
+    public void sprawiedliwy() {
+        List<W> sprawiedliwy = DEFAULT_WARUNKI;
     }
 }

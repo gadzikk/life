@@ -57,12 +57,9 @@ public class CPU_UL extends AbstractCPU {
     List<W> bledy = of(W.BLAD_POJEDYNCZY, W.BLAD_NIESWIADOMY_PRZYPADKOWY,
             W.BLAD_SPECJALNY, W.BLAD_LENISTWA, W.BLAD_ZLAMANIA_ZASAD);
 
-    List<W> kogo = of(W.ZAGRANICZNI_CIEMNI, W.ZAGRANICZNI_JASNI,
-            W.BURZUA_DZIALAJACA, W.BURZUA_NIESWIADOMA, W.DZIALACZE_PRZECIWNI, W.DUZI_TEMPI);
+    List<W> kogo = KOGO_WARUNKI;
 
-    List<W> musiBycKara = of(W.MONOSRODOWISKO, W.BRAK_STRESU, W.BRAK_TRUDNOSCI, W.KOMFORT, W.BEZPIECZENSTWO,
-            W.WCZESNIE_ZWIAZEK, W.NIEZDOLNY_WALKA_SPRZET, W.GLUPOTA, W.UZYWKI,
-            W.ZAJECIE_SIE_LOKALNYMI_SRPAWAMI, W.WSTYD);
+    List<W> musiBycKara = WYMAGA_KARY_WARUNKI;
 
     List<WarunkiKategoria> rany = DB_Warunki.RANY;
 
@@ -456,11 +453,11 @@ public class CPU_UL extends AbstractCPU {
                                                                                 M.DEFAULT(W.UCIECZKA),
                                                                                 M.DEFAULT_DZIALAJCY(of(W.SPRZET, W.NOTYFIKACJA_EKIPA))));
 
-        M.W(W.WALKA_PIESCI, "--->", of(W.DUZY_WYSILEK, M.DEFAULT(W.BRONI_SIE),
-                                                            M.DEFAULT_DZIALAJCY(of(W.SPRZET, W.NOTYFIKACJA_EKIPA))));
+        M.W(W.WALKA_PIESCI, "--->", of(W.DUZY_WYSILEK, M.DEFAULT(W.PODJECIE_WALKI),
+                                                            M.DEFAULT_DZIALAJCY(of(W.PODJECIE_WALKI ,W.SPRZET, W.NOTYFIKACJA_EKIPA))));
 
         M.W(W.CISNIE, "--->", of(W.MALY_WYSILEK, M.DEFAULT(W.ODPOWIADA),
-                                                        M.DEFAULT_DZIALAJCY(of(W.SPRZET, W.NOTYFIKACJA_EKIPA))));
+                                                        M.DEFAULT_DZIALAJCY(of(W.ODPOWIADA, W.WALKA_PIESCI ,W.SPRZET, W.NOTYFIKACJA_EKIPA))));
 
         M.W(W.BLISKOSC, "--->", of(W.MALY_WYSILEK, W.SONDA, M.DEFAULT(W.PATRZY),
                                                                 M.DEFAULT_DZIALAJCY(of(W.PATRZY, W.ROZKMINIA, W.FOTY, W.NOTYFIKACJA_EKIPA))));
@@ -624,6 +621,8 @@ public class CPU_UL extends AbstractCPU {
                         M.konsekwencje(opponent)
                 )
         );
+        M.W(of(W.BLISKOSC, W.CISNIECIE, W.WALKA_PIESCI, W.WALKA_SPRZET), "--->", of(dzialaczMocny.pomsci(),
+                                                                                        dzialaczMocny.ultimatumEkipie()));
     }
     public void przewagi(){
         W przewagaGlobal = W.PRZEWAGA_LOCAL;
@@ -1085,7 +1084,8 @@ public class CPU_UL extends AbstractCPU {
 
         o(M.WWW(on(W.DZIALAJACY, W._88_, W.ZROBIONE_ZLO), "--->", W.CZEKA_NA_EFEKT,
                                                             "--->", W.BRAK_REAKCJI, "--->", W.ZACHETA_DO_ZLA))
-                                                            .otherwise(of(W.KARA, W.ZAPRZESTANIE_ZLA, W.SMUTEK, W.WYLACZENIE_DZIALACZA));
+                                                            .otherwise(of(W.REAKACJA, W.KARA, M.OPCJA(W.UKAZANIE),
+                                                                        W.ZAPRZESTANIE_ZLA, W.SMUTEK, W.WYLACZENIE_DZIALACZA));
     }
 
     public void agresja() {

@@ -73,6 +73,14 @@ public class AbstractCPU {
     List<W> KURESTWO_WARUNKI = DB_Warunki.KURESTWO.getWarunki();
     OsobaMetod grubas = new OsobaMetod();
     OsobaMetod fest = new OsobaMetod();
+    OsobaMetod twoiWrogowie = new OsobaMetod();
+    OsobaMetod zagraniczni = new OsobaMetod();
+    OsobaMetod drugaStrona = new OsobaMetod();
+    OsobaMetod zazdrosni = new OsobaMetod();
+    OsobaMetod dzialaczMocny = new OsobaMetod();
+    List<W> DEFAULT_WARUNKI = DB_Warunki.DEFAULT_WARUNKI.getWarunki();
+    List<W> WYMAGA_KARY_WARUNKI = DB_Warunki.WYMAGA_KARY.getWarunki();
+    List<W> KOGO_WARUNKI = DB_Warunki.KOGO.getWarunki();
 
     public <T> List<T> of(T... elements){
         return Arrays.asList(elements);

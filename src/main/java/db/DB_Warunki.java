@@ -100,13 +100,18 @@ public class DB_Warunki extends DB {
         List<WarunkiKategoria> ZASADY_PRZYMUS_ZAGROZENIA = Arrays.asList(
                 ZASADY,
                 PRZYMUS,
-                ZAGROZENIA
+                ZAGROZENIA,
+                OSLONY
         );
 
-        List<WarunkiKategoria> TWL_PRZEWAGI_POTRZEBY = Arrays.asList(
+        List<WarunkiKategoria> TWL_PRZEWAGI_SLABOSCI_CIERPIENIA_POTRZEBY = Arrays.asList(
                 THREAD_WHILE_LOOP,
                 PRZEWAGI,
-                POTRZEBY
+                SLABOSCI,
+                CIERPIENIA,
+                POTRZEBY,
+                OSLONY,
+                DEFAULT_WARUNKI
         );
 
         List<WarunkiKategoria> REAKCJE = Arrays.asList(
@@ -116,7 +121,9 @@ public class DB_Warunki extends DB {
 
         List<WarunkiKategoria> SONDA = Arrays.asList(
                 SONDA_GDY,
-                SONDA_PO
+                SONDA_PO,
+                KOGO,
+                WYMAGA_KARY
         );
 
         List<WarunkiKategoria> CZAS = Arrays.asList(
@@ -156,7 +163,8 @@ public class DB_Warunki extends DB {
                 RANY_SPRZET,
                 RANY_DOSTEPOWE,
                 KTO_KOGO,
-                KURESTWO
+                KURESTWO,
+                OBRONA_STARCIE
         );
 
         List<WarunkiKategoria> TYPY_PRAC = Arrays.asList(
@@ -722,8 +730,8 @@ public class DB_Warunki extends DB {
     public static WarunkiKategoria OSLONY = new WarunkiKategoria(
             new Kategoria(TypKategoria.OSLONA),
             Arrays.asList(
-                    W.PRACA, W.LAMUS, W.KOBIETA, W.DUZO_OSOB, W.DOSTEP_RESTRYKTOWANY, W.Z_KOBIETA, W.Z_RODZINA,
-                    W.EKIPA, W.SAMOCHOD
+                    W.PRACA, W.LAMUS, W.DUZO_OSOB, W.KOBIETA, W.Z_KOBIETA, W.Z_RODZINA,
+                    W.SAMOCHOD, W.CHLOPAK, W.DOSTEP_RESTRYKTOWANY, W.EKIPA
             )
     );
 
@@ -894,15 +902,6 @@ public class DB_Warunki extends DB {
             )
     );
 
-    public static WarunkiKategoria KURESTWO = new WarunkiKategoria(
-            new Kategoria(TypKategoria.RANY, TypKategoria.KURESTWO),
-            Arrays.asList(
-                    M.MALY_WYSILEK(of(W.FOTY_MIEJSCE_STALE, W.NIE_MILA_OBSLUGA, W.ZLE_WYKONANIE_USLUGI)),
-                    M.DUZY_WYSILEK(of(W.OGRANICZENIE_WOLNOSCI, W.KONTUZJA)),
-                    W.ZABRAC_COS,
-                    M.MALY_WYSILEK(of(W.POLICJA, W.PUSZCZALSKOSC, W.ZDOLNOSC_KONFIDENTCTWO))
-            )
-    );
     public static WarunkiKategoria KRYTERIA_PRZYPALU = new WarunkiKategoria(
             new Kategoria(TypKategoria.KRYTERIA, TypKategoria.KRYTERIA_PRZYPALU),
             Arrays.asList( W.KONKRETNA_INFORMACJA, W.DOWOD, W.ILE_OSOB_WIDZI_SLYSZY, W.GODZINA, W.MIEJSCE,
@@ -972,10 +971,12 @@ public class DB_Warunki extends DB {
     public static WarunkiKategoria DZIALAJACY_ZNAKI_ROZPOZNAWCZE = new WarunkiKategoria(
             new Kategoria(TypKategoria.DZIALAJACY, TypKategoria.DZIALAJACY_ZNAKI_ROZPOZNAWCZE),
             Arrays.asList(
-                    W.CZARNE_WLOSY, W.TATUAZE, W.DRESY_SZARE_MATERIALOWE,
+                    W.CZARNE_WLOSY, W.TATUAZE, W.RUDY, W.RUMUN, W.CZERWONE_OCZY,
+                    W.DRESY_SZARE_MATERIALOWE, W.GAZ, W.TORBA,
                     W.PATRZY_ZLE, W.PATRZY_Z_EXSTAZA, W.PATRZY_JAKBY_CHCIAL_OKLAMAC, W.SLABA_POSTURA, W.PRZEWIDUJE_ZLE,
                     W.NIE_PATRZY_ALE_KONSULTUJE,
-                    W.KASZLE, W.MACHA, W.GWIZDZE, W.ZADAJE_GLUPIE_PYTANIA, W.TELEFON_ZDJECIA
+                    W.KASZLE, W.MACHA, W.GWIZDZE, W.ZADAJE_GLUPIE_PYTANIA, W.TELEFON_ZDJECIA, W.SLABO_REAGUJE_NA_BODZCE,
+                    W.LEKKI_GLOS, W.DZIWNY_GLOS
             )
     );
 
@@ -1152,21 +1153,72 @@ public class DB_Warunki extends DB {
     public static WarunkiKategoria KTO_KOGO = new WarunkiKategoria(
             new Kategoria(TypKategoria.RANY, TypKategoria.KTO_KOGO),
             Arrays.asList(
-                    M.MALY_WYSILEK(of(W.UKRYCIE, W.KLAMSTWO, W.PO_CICHU)),
-                    M.MALY_WYSILEK(of(W.WDUPC_ZAKLECIEM, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE)),
-                    M.MALY_WYSILEK(of(W.NOTYFIKACJA_EKIPA, W.FOTY, W.NAKLEJ_NALEPKE, W.OBGADAC, W.PRZEKONYWANIE_OTOCZENIA_PRZECIW)),
+                    M.STANDARD(M.MALY_WYSILEK(M.MOCNO(M.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA)))),
+                    M.STANDARD((M.MALY_WYSILEK(M.MOCNO(M.thread_while_loop(W.STWARZA_OKAZJE_ZROBIENIE_ZLA))))),
+                    M.MALY_WYSILEK(M.MOCNO(of(W.UKRYCIE, W.KLAMSTWO, W.PO_CICHU))),
+                    M.MALY_WYSILEK(M.MOCNO(of(W.WDUPC_ZAKLECIEM, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE))),
+                    M.MALY_WYSILEK(M.MOCNO(of(W.NOTYFIKACJA_EKIPA, W.FOTY, W.NAKLEJ_NALEPKE, W.OBGADAC,
+                            W.NOTYFIKACJA_ALL_O_HANBIE, W.PRZEKONYWANIE_OTOCZENIA_PRZECIW,
+                            W.UNIZA, W.LEKCEWAZY_INNYCH))),
                     M.MALY_WYSILEK(W.CISNIE),
                     M.DUZY_WYSILEK(W.WALKA_PIESCI), M.DUZY_WYSILEK(W.ZNISZCZENIE_WARTOSCI_MATERIALNEJ),
                     M.MALY_WYSILEK(W.SPRZET),
-                    M.MALY_WYSILEK(M.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA)),
+                    M.MOCNO(of(W.WYKORZYSTANIE, W.OKRASC_PIENIADZE)),
                     W.AGRESJA_W_DZIALANIU, W.ZLO
             )
     );
 
-    public static WarunkiKategoria KTO_KOGO = new WarunkiKategoria(
+    public static WarunkiKategoria KURESTWO = new WarunkiKategoria(
+            new Kategoria(TypKategoria.RANY, TypKategoria.KURESTWO),
+            Arrays.asList(
+                    M.MALY_WYSILEK(M.MOCNO(of(W.FOTY_MIEJSCE_STALE, W.NIE_MILA_OBSLUGA, W.ZLE_WYKONANIE_USLUGI))),
+                    M.DUZY_WYSILEK(of(W.OGRANICZENIE_WOLNOSCI, W.KONTUZJA)),
+                    W.ZABRAC_COS,
+                    M.MALY_WYSILEK(of(W.POLICJA, W.PUSZCZALSKOSC, W.ZDOLNOSC_KONFIDENTCTWO)),
+                    M.DUZY_WYSILEK(of(W.KLUCENIE_RODZINY, W.ZAMACH_NA_ZYCIE)),
+                    M.MOCNO(of(W.DAZENIE_DO_ZLA, W.SZUKANIE_GLEBOKO_ZLA, W.KAZDE_DZIALANIE_ZMIENIA_W_ZLO))
+            )
+    );
+
+    public static WarunkiKategoria WYMAGA_KARY = new WarunkiKategoria(
+            new Kategoria(TypKategoria.RANY, TypKategoria.WYMAGA_KARY),
+            Arrays.asList(
+                    W.DZIALANIE_DLA_ZLA,
+                    W.BRAK_WYSILKU, W.BRAK_STRESU, W.BRAK_TRUDNOSCI,
+                    W.PRZEWAGI_OD_KOLYSKI, W.PRZYJEMNOSCI_OD_KOLYSKI,
+                    W.KOMFORT, W.BEZPIECZENSTWO, W.MONOSRODOWISKO, W.WCZESNIE_ZWIAZEK,
+                    W.NIEZDOLNY_WALKA_SPRZET, W.GLUPOTA, W.UZYWKI,
+                    W.ZAJECIE_SIE_LOKALNYMI_SRPAWAMI, W.WSTYD
+            )
+    );
+
+    public static WarunkiKategoria STARCIE = new WarunkiKategoria(
             new Kategoria(TypKategoria.RANY, TypKategoria.STARCIE),
             Arrays.asList(
                    // todo
+            )
+    );
+
+    public static WarunkiKategoria OBRONA_STARCIE = new WarunkiKategoria(
+            new Kategoria(TypKategoria.RANY, TypKategoria.OBRONA_STARCIE),
+            Arrays.asList(
+                    W.UCIECZKA,
+                    W.PODJECIE_WALKI,
+                    W.GAZ, W.OSTRY_SPRZET,
+                    W.NOTYFIKACJA_EKIPA,
+                    W.ROBIENIE_PRZYPALU
+            )
+    );
+
+    public static WarunkiKategoria DEFAULT_WARUNKI = new WarunkiKategoria(
+            new Kategoria(TypKategoria.DEFAULT_WARUNKI, TypKategoria.DEFAULT_WARUNKI),
+            Arrays.asList(
+                    W.RODZINA, W.MIEJSCE_ZAMIESZKANIA,
+                    W.BRAK_ZNAJOMYCH, W.BRAK_ZWIAZKU, W.BRAK_PRACY,
+                    W.BRAK_UKLADOW, W.BRAK_ZAKLECIA, W.BRAK_PRZEWAG,
+                    W.POPED_SEXUALNY, W.MARZENIA, W.OCZEKIWANIA_WOBEC_ZYCIA,
+                    W.CHARAKTER, W.CECHY_WRODZONE,
+                    W.CZYSTE_SUMIENIE
             )
     );
 
@@ -1204,7 +1256,8 @@ public class DB_Warunki extends DB {
             SLABOSCI,
             CIERPIENIA,
             POTRZEBY,
-            OSLONY
+            OSLONY,
+            DEFAULT_WARUNKI
     );
 
     public static List<WarunkiKategoria> REAKCJE = Arrays.asList(
@@ -1214,7 +1267,9 @@ public class DB_Warunki extends DB {
 
     public static List<WarunkiKategoria> SONDA = Arrays.asList(
             SONDA_GDY,
-            SONDA_PO
+            SONDA_PO,
+            KOGO,
+            WYMAGA_KARY
     );
 
     public static List<WarunkiKategoria> CZAS = Arrays.asList(
@@ -1252,7 +1307,9 @@ public class DB_Warunki extends DB {
             RANY_ZNECANIE_SIE,
             RANY_SPRZET,
             RANY_DOSTEPOWE,
-            KTO_KOGO
+            KTO_KOGO,
+            KURESTWO,
+            OBRONA_STARCIE
     );
 
     public static List<WarunkiKategoria> TYPY_PRAC = Arrays.asList(

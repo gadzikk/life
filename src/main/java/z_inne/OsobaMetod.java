@@ -92,4 +92,9 @@ public class OsobaMetod {
     public W policja(W w) {return W.WARUNEK;}
     public W otrzymujePrzewagiZDzialania() {return W.WARUNEK;}
     public W lubiDzialanie() {return W.WARUNEK;}
+    public W aktywneZlo() {return W.WARUNEK;}
+    public W probaSkasowania() {return W.WARUNEK;}
+    public W pomsci() {return W.WARUNEK;}
+    public W ultimatumEkipie() {return W.WARUNEK;}
+    public W notyfikacjaEkipa() {return W.WARUNEK;}
 }
