@@ -150,6 +150,7 @@ public class CPU_SJ extends AbstractCPU {
         zagrozenia();
         antyPan();
         antyDzialacz();
+        duzyMalyWarunek();
     }
 
     public void wsrodLudzi() {
@@ -211,5 +212,15 @@ public class CPU_SJ extends AbstractCPU {
 
         M.W(of(W.WPIERDOL), "--->", of(W.STRACH, W.BOL, W.MORALNIAK, W.STRATA_MANIURY, W.POZBAWIENIE_PRZEWAGI,
                                                                                 M.MOCNO(W.CHEC_POMSZCZENIA)));
+    }
+
+    public List<W> duzyMalyWarunek() {
+        return of(
+                M.PERSPEKTYWA(W.ULICA).MALY_WARUNEK(W.PIENIADZE),
+                M.DUZY_WARUNEK(W.RODZINA),
+                M.DUZY_WARUNEK(of(W.INFORMACJA, W.CZAS)),
+                M.DUZY_WARUNEK(of(W.ULICA, W.SILA, W.ZNAJOMI)),
+                M.DUZY_WARUNEK(of(W.ROZWOJ_UMYSLOWY, W.ROZWOJ_FIZYCZNY))
+        );
     }
 }

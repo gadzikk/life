@@ -268,7 +268,7 @@ public class CPU_PRACA extends AbstractCPU {
         M.przypomnijZaklecia();
 
         List<W> target = of(W.ZADEMONSTROWANIE_WIEDZY, W.FINE);
-        List<W> ocenianieWedlug = of(W.TO_CO_UMIESZ, W._II_, W.TO_CZEGO_NIEUMIESZ, W._II_, W.OCENA_ZE_STUDIOW);
+        List<W> ocenianieWedlug = of(W.TO_CO_UMIESZ, W._II_, W.TO_CZEGO_NIEUMIESZ, W._II_, W.OCENA_ZE_STUDIOW, W._II_, W.MOZE_CZYMS_BLYSNIE);
 
                 M.W(W.MNIEJ_NIZ_2_LATA_DOSWIADCZENIA, "--->",      pytajacy.oczekiwanie(W.DOBRZE_JEZELI_UMIE));
                 M.W(W.WIECEJ_NIZ_2_LATA_DOSWIADCZENIA, "--->", pytajacy.oczekiwanie(W.MUSI_UMIEC_WSZYSTK0));
@@ -285,6 +285,12 @@ public class CPU_PRACA extends AbstractCPU {
 
     public void algorytmUczeniaSie() {
         // todo
+    }
+
+    public void normalnyManago() {
+        M.STANDARD(M.DUZY_WYSILEK(M.thread_while_loop(W.CIEZKA_PRACA)));
+        M.STANDARD(M.DUZY_WYSILEK(W.SUKCES));
+
     }
 
 }

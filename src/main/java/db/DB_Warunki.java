@@ -1153,6 +1153,7 @@ public class DB_Warunki extends DB {
     public static WarunkiKategoria KTO_KOGO = new WarunkiKategoria(
             new Kategoria(TypKategoria.RANY, TypKategoria.KTO_KOGO),
             Arrays.asList(
+                    M.START(W.ZLE_ZAMIARY),
                     M.STANDARD(M.MALY_WYSILEK(M.MOCNO(M.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA)))),
                     M.STANDARD((M.MALY_WYSILEK(M.MOCNO(M.thread_while_loop(W.STWARZA_OKAZJE_ZROBIENIE_ZLA))))),
                     M.MALY_WYSILEK(M.MOCNO(of(W.UKRYCIE, W.KLAMSTWO, W.PO_CICHU))),
@@ -1164,7 +1165,8 @@ public class DB_Warunki extends DB {
                     M.DUZY_WYSILEK(W.WALKA_PIESCI), M.DUZY_WYSILEK(W.ZNISZCZENIE_WARTOSCI_MATERIALNEJ),
                     M.MALY_WYSILEK(W.SPRZET),
                     M.MOCNO(of(W.WYKORZYSTANIE, W.OKRASC_PIENIADZE)),
-                    W.AGRESJA_W_DZIALANIU, W.ZLO
+                    W.AGRESJA_W_DZIALANIU, W.ZLO,
+                    M.CEL(W.ZNISZCZENIE)
             )
     );
 

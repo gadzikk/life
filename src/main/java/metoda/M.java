@@ -142,7 +142,6 @@ public class M {
     public static W bijesz() {return W.WARUNEK;}
     public static W temat_x3(List<TT> tematy) {return W.WARUNEK;}
     public static W przewidywanie_x3() {return W.WARUNEK;}
-    public static W CEL(W cel) {return W.WARUNEK;}
     public static W odrazuJakObsluguje() {return W.WARUNEK;}
     public static W jednoWejscieJednoPodbicie() {return W.WARUNEK;}
     public static W komplement_x2() {return W.WARUNEK;}
@@ -485,9 +484,12 @@ public class M {
     public static W szukajUjscia() {return W.WARUNEK;}
     public static W szukajHotspot() {return W.WARUNEK;}
     public static W odbicieNaNozkach() {return W.WARUNEK;}
-    public static M trudno(W warunek) {return new M();}
+    public static M TRUDNO(W warunek) {return new M();}
+    public static M TRUDNO(List<W> warunki) {return new M();}
+    public static M LATWO(W warunek) {return new M();}
+    public static M LATWO(List<W> warunki) {return new M();}
     public static M latwo(W warunek) {return new M();}
-    public M warunek(W warunek) {return new M();}
+    public M WARUNEK(W warunek) {return new M();}
     public M otherwise(W warunek) {return new M();}
     public M otherwise(List<W> warunki) {return new M();}
     public M konsekwencje(W warunek) {return new M();}
@@ -566,8 +568,8 @@ public class M {
     public static W SLABO(List<W> warunki) {return W.WARUNEK;}
     public static W CIEZKO(W warunek) {return W.WARUNEK;}
     public static W CIEZKO(List<W> warunki) {return W.WARUNEK;}
-    public static W LATWO(W warunek) {return W.WARUNEK;}
-    public static W LATWO(List<W> warunki) {return W.WARUNEK;}
+    public static W LEKKO(W warunek) {return W.WARUNEK;}
+    public static W LEKKO(List<W> warunki) {return W.WARUNEK;}
     public static W CZESTO(W warunek) {return W.WARUNEK;}
     public static W CZESTO(List<W> warunki) {return W.WARUNEK;}
     public static W RZADKO(W warunek) {return W.WARUNEK;}
@@ -675,4 +677,13 @@ public class M {
     public static W WZIECIE_SPRAWIEDLIWOSCI(List<W> warunki) {return W.WARUNEK;}
     public static void SET(W w) {}
     public static void SET(List<W> warunki) {}
+    public static M PERSPEKTYWA(W w) {return new M();}
+    public static W MALY_WARUNEK(W w) {return W.WARUNEK;}
+    public static W MALY_WARUNEK(List<W> warunki) {return W.WARUNEK;}
+    public static W DUZY_WARUNEK(W w) {return W.WARUNEK;}
+    public static W DUZY_WARUNEK(List<W> warunki) {return W.WARUNEK;}
+    public static W START(W w) {return W.WARUNEK;}
+    public static W START(List<W> warunki) {return W.WARUNEK;}
+    public static W CEL(W w) {return W.WARUNEK;}
+    public static W CEL(List<W> warunki) {return W.WARUNEK;}
 }
