@@ -686,4 +686,6 @@ public class M {
     public static W START(List<W> warunki) {return W.WARUNEK;}
     public static W CEL(W w) {return W.WARUNEK;}
     public static W CEL(List<W> warunki) {return W.WARUNEK;}
+    public static W NEUTRALNY_RZUT(W w) {return W.WARUNEK;}
+    public static W NEUTRALNY_RZUT(List<W> w) {return W.WARUNEK;}
 }

@@ -730,6 +730,7 @@ public class DB_Warunki extends DB {
     public static WarunkiKategoria OSLONY = new WarunkiKategoria(
             new Kategoria(TypKategoria.OSLONA),
             Arrays.asList(
+                    W.NIESWIADOMOSC_OPPONENTA,
                     W.PRACA, W.LAMUS, W.DUZO_OSOB, W.KOBIETA, W.Z_KOBIETA, W.Z_RODZINA,
                     W.SAMOCHOD, W.CHLOPAK, W.DOSTEP_RESTRYKTOWANY, W.EKIPA
             )
@@ -1165,6 +1166,7 @@ public class DB_Warunki extends DB {
                     M.DUZY_WYSILEK(W.WALKA_PIESCI), M.DUZY_WYSILEK(W.ZNISZCZENIE_WARTOSCI_MATERIALNEJ),
                     M.MALY_WYSILEK(W.SPRZET),
                     M.MOCNO(of(W.WYKORZYSTANIE, W.OKRASC_PIENIADZE)),
+                    M.DUZY_WYSILEK(W.ZAMYKANIE_OPCJI), M.MALY_WYSILEK(W.OGLUPIANIE), M.NEUTRALNY_RZUT(W.NIESWIADOMOSC),
                     W.AGRESJA_W_DZIALANIU, W.ZLO,
                     M.CEL(W.ZNISZCZENIE)
             )
