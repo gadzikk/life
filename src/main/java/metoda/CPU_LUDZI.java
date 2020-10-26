@@ -320,29 +320,33 @@ public class CPU_LUDZI extends AbstractCPU {
         M.W((W.DZIALAJACY),
                 of(
                         M.DEFAULT(W.ZEROWY_DOSTEP),
+                        M.DEFAULT(dzialacz.thread_while_loop(W.NORMALNOSC)),
 
                         M.WARUNKI_WSTEPNE(of(
                                 dzialacz.akceptacjaBiegania(),
                                 dzialacz.akceptacjaCpania(),
-                                W.UZNAJE_HIERARCHIE
+                                dzialacz.akceptacjaHierarchii(),
+                                dzialacz.SET(of(W.BRAK_PIENIEDZY, W.NUDA, W.ZLY, W.AGRESJA, W.NIESWIADOMOSC, W.DOSTEP_OGRANICZONY))
                         )),
 
                         M.WARUNKI_UTRZYMANIA(of(
                                 dzialacz.thread_while_loop(M.znoszenieGnojenia()),
                                 dzialacz.thread_while_loop(M.tworzEmocje()),
-                                dzialacz.thread_while_loop(M.robKrzywde()),
+                                dzialacz.thread_while_loop(M.robKrzywde(KTO_KOGO_WARUNKI)),
                                 dzialacz.thread_while_loop(M.dajZarobekGrubasowi()),
                                 dzialacz.thread_while_loop(M.ochronaGrubasa()),
                                 dzialacz.thread_while_loop(M.wykonujeRozkazy(W.GORA)),
-                                dzialacz.thread_while_loop(M.uznajeHierarchie())
+                                dzialacz.thread_while_loop(M.uznajeHierarchie()),
+                                dzialacz.thread_while_loop(M.zdobywanieHierarchii(M.CZESTO(KTO_KOGO_WARUNKI, KURESTWO_WARUNKI, M.OPCJA(OSLONY_WARUNKI))))
                         )),
                         dzialacz.thread_while_loop(M.DOSTEP(of(W.INFORMACJE, W.KONTAKT_TEL, W.OBECNOSC))),
-                        dzialacz.set(W.NIE_ZATRZYMA_SIE),
-                        dzialacz.set(of(W.WYKRECENIE, W.WADY_FIZYCZNE, W.WADY_UMYSLOWE)),
-                        dzialacz.set(KTO_KOGO_WARUNKI),
-                        dzialacz.set(M.OPCJA(KURESTWO_WARUNKI)),
+                        dzialacz.SET(W.NIE_ZATRZYMA_SIE),
+                        dzialacz.SET(of(W.WYKRECENIE, W.WADY_FIZYCZNE, W.WADY_UMYSLOWE, W.OGRANICZENIE_WOLNOSCI)),
+                        dzialacz.SET(KTO_KOGO_WARUNKI),
+                        dzialacz.SET(M.OPCJA(KURESTWO_WARUNKI)),
                         dzialacz.policja(W.ZERO),
 
+                        dzialacz.thread_while_loop(M.rozkminianie(wszyscy)),
                         M.W(W.INFORMACJA, "--->", dzialacz.notyfikacjaEkipa()),
                         M.W(dzialacz.otrzymujePrzewagiZDzialania(), "--->", dzialacz.lubiDzialanie()),
 
@@ -357,7 +361,9 @@ public class CPU_LUDZI extends AbstractCPU {
                         srodowisko.thread_while_loop(M.oczekiwania(W.AGRESJA_W_DZIALANIU, dzialacz)),
                         srodowisko.thread_while_loop(M.zagluszaSumienie(dzialacz)),
 
-                        dzialacz.thread_while_loop(M.rozkminianie(wszyscy)),
+                        srodowisko.thread_while_loop(M.postawNajgorszeWarunki(drugaStrona,
+                                KTO_KOGO_WARUNKI, KURESTWO_WARUNKI, OSLONY_WARUNKI)),
+
 
                         dzialacz.siejZlo(), M.otherwise(W.PRZEJEBANE, 0),
                         dzialacz.uzaleznijSieOdSrd(),

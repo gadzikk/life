@@ -139,7 +139,9 @@ public class CPU_SJ extends AbstractCPU {
 
         M.W(W.TWOJA_PORAZKA, "--->", M.OSOBY(of(twoiWrogowie, zagraniczni, drugaStrona)).smiejeSie().hanba().wesele());
 
-        M.W(W.JESTES_SILNY, "--->", of(zazdrosni.aktywneZlo(), dzialacz.probaSkasowania(), wszyscy.set(W.ZAGROZENIE)));
+        M.W(W.JESTES_SILNY, "--->", of(zazdrosni.aktywneZlo(), dzialacz.probaSkasowania(), wszyscy.SET(W.ZAGROZENIE)));
+
+        M.W(M.TRZYMANIE_RELACJI(W.RODZICE), "--->", M.thread_while_loop(of(W.KONTROLA, W.SZKODLIWY_WPLYW)));
 
 
         wsrodLudzi();
@@ -205,9 +207,8 @@ public class CPU_SJ extends AbstractCPU {
         M.thread_while_loop(W.DZIALANIE_POD_PRESJA);
         M.thread_while_loop(M.KONTROLA(W.WSZYSCY));
 
-        M.W(of(M.WIDZISZ(W.DZIALAJACY), W._88_, W.BLISKOSC), "--->", M.AKTYWNA_WALKA_ZE_ZLEM(of(W.BLISKOSC, W.CISNIECIE, W.WALKA_PIESCI)));
-
-        M.W(of(M.WIDZISZ(W.DZIALAJACY), W._88_, W.BLISKOSC), "--->", of(W.REAKACJA, W.KARA, M.OPCJA(W.UKAZANIE),
+        M.W(of(M.WIDZISZ(W.DZIALAJACY), W._88_, W.BLISKOSC), "--->", of(W.REAKACJA, M.AKTYWNA_WALKA_ZE_ZLEM(of(W.BLISKOSC, W.CISNIECIE, W.WALKA_PIESCI)),
+                                                                            W.KARA, M.OPCJA(W.UKAZANIE),
                                                                             W.ZAPRZESTANIE_ZLA, W.SMUTEK, W.WYLACZENIE_DZIALACZA));
 
         M.W(of(W.WPIERDOL), "--->", of(W.STRACH, W.BOL, W.MORALNIAK, W.STRATA_MANIURY, W.POZBAWIENIE_PRZEWAGI,

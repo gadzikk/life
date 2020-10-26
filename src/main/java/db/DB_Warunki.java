@@ -78,8 +78,9 @@ public class DB_Warunki extends DB {
         );
 
         List<WarunkiKategoria> ZLY_DOBRY = Arrays.asList(
-                PRZYCZYNY_ZLA,
-                PRZYCZYNY_DOBRA,
+                PRZYCZYNY_SLUZENIA_ZLU,
+                PRZYCZYNY_SLUZENIA_DOBRU,
+                ZACHETA_DO_ZLA,
                 NIESPRAWIEDLIWOSC,
                 DOBRY,
                 ZLY
@@ -561,22 +562,24 @@ public class DB_Warunki extends DB {
             WARUNKI_KONCOWE_KOBIETA
     );
 
-    public static WarunkiKategoria PRZYCZYNY_ZLA = new WarunkiKategoria(
+    public static WarunkiKategoria PRZYCZYNY_SLUZENIA_ZLU = new WarunkiKategoria(
             new Kategoria(TypKategoria.PRZYCZYNY_ZLA),
             Arrays.asList(
-                    W.ZLE_GENY,
-                    W.GLUPOTA,
-                    W.NIESWIADOMOSC,
-                    W.DZIALANIE_ZA_NAMOWA
+                    W.ZLE_GENY, W.GLUPOTA, W.NIESWIADOMOSC, W.DZIALANIE_ZA_NAMOWA,
+
+                    W.ULTIMATUM_OD_SILNIEJSZYCH, W.PIENIADZE, W.POTRZEBA_PARTNERA,
+                    W.KOMFORT, W.PRZYJEMNOSC, W.WARTOSC_MATERIALNA, W.MONOPOL_ZLA,
+                    W.BRAK_OPCJI, W.NUDA, W.ZNAJOMOSCI, W.PRZEWAGA_SILY,
+                    W.POTRZEBA_WSPARCIA, W.POTRZEBA_AKCEPTACJI, W.POTRZEBA_EMOCJI,
+                    W.UZALEZNIENIE, W.NIENAWISC
             )
     );
 
-    public static WarunkiKategoria PRZYCZYNY_DOBRA = new WarunkiKategoria(
+    public static WarunkiKategoria PRZYCZYNY_SLUZENIA_DOBRU = new WarunkiKategoria(
             new Kategoria(TypKategoria.PRZYCZYNY_DOBRA),
             Arrays.asList(
-                    W.MADROSC,
-                    W.WYCHOWANIE,
-                    W.WYKONYWANIE_PRACY
+                    W.MADROSC, W.WYCHOWANIE, W.WYKONYWANIE_PRACY,
+                    W.DOBRO_W_SERCU, W.SUMIENIE, W.CIERPIENIE_OD_ZLYCH
             )
     );
 
@@ -730,9 +733,12 @@ public class DB_Warunki extends DB {
     public static WarunkiKategoria OSLONY = new WarunkiKategoria(
             new Kategoria(TypKategoria.OSLONA),
             Arrays.asList(
-                    W.NIESWIADOMOSC_OPPONENTA,
+                    W.NIESWIADOMOSC_OPPONENTA, W.DYSTANS, M.WOKOL_TYLKO(W.SWOI), W.NIE_KIBICUJE,
+
                     W.PRACA, W.LAMUS, W.DUZO_OSOB, W.KOBIETA, W.Z_KOBIETA, W.Z_RODZINA,
-                    W.SAMOCHOD, W.CHLOPAK, W.DOSTEP_RESTRYKTOWANY, W.EKIPA
+                    W.SAMOCHOD, W.CHLOPAK, W.DOSTEP_RESTRYKTOWANY, W.EKIPA,
+
+                    W.PRZEWAGA_SILY, W.SPRZET
             )
     );
 
@@ -1147,7 +1153,8 @@ public class DB_Warunki extends DB {
                     W.NASTAWIENIE_KONTRA, W.NASTAWIENIE_PRZYJEMNOSCI, W.NASTAWIENIE_WSPARCIE, W.NASTAWIENIE_PRZECIW,
                     W.NASTAWIENIE_HIERACHI_PRZYWILEJE,
 
-                    W.NASTAWIENIE_MAM_ZLE_ON_TEZ_MUSI, W.NASTAWIENIE_NIE_MAM_NIC_ON_TEZ_MA_NIE_MIEC, W.NASTAWIENIE_JA_GNOJONY_GNOJE_NIZSZYCH
+                    W.NASTAWIENIE_MAM_ZLE_ON_TEZ_MUSI, W.NASTAWIENIE_NIE_MAM_NIC_ON_TEZ_MA_NIE_MIEC, W.NASTAWIENIE_JA_GNOJONY_GNOJE_NIZSZYCH,
+                    W.NASTAWIENIE_DOMINACJA
             )
     );
 
@@ -1167,8 +1174,10 @@ public class DB_Warunki extends DB {
                     M.MALY_WYSILEK(W.SPRZET),
                     M.MOCNO(of(W.WYKORZYSTANIE, W.OKRASC_PIENIADZE)),
                     M.DUZY_WYSILEK(W.ZAMYKANIE_OPCJI), M.MALY_WYSILEK(W.OGLUPIANIE), M.NEUTRALNY_RZUT(W.NIESWIADOMOSC),
+                    M.DUZY_WYSILEK(W.ZNISZCZENIE_PRZEWAGI),
+                    M.MALY_WYSILEK(M.MOCNO(of(W.WSPARCIE_OSLONY, W.FALSZYWE_WRAZENIE, W.WYSOKIE_OCZEKIWANIE))),
                     W.AGRESJA_W_DZIALANIU, W.ZLO,
-                    M.CEL(W.ZNISZCZENIE)
+                    M.CEL(of(W.ZNISZCZENIE, W.POSTAWIENIE_CIEZKICH_WARUNKOW))
             )
     );
 
@@ -1178,8 +1187,10 @@ public class DB_Warunki extends DB {
                     M.MALY_WYSILEK(M.MOCNO(of(W.FOTY_MIEJSCE_STALE, W.NIE_MILA_OBSLUGA, W.ZLE_WYKONANIE_USLUGI))),
                     M.DUZY_WYSILEK(of(W.OGRANICZENIE_WOLNOSCI, W.KONTUZJA)),
                     W.ZABRAC_COS,
-                    M.MALY_WYSILEK(of(W.POLICJA, W.PUSZCZALSKOSC, W.ZDOLNOSC_KONFIDENTCTWO)),
-                    M.DUZY_WYSILEK(of(W.KLUCENIE_RODZINY, W.ZAMACH_NA_ZYCIE)),
+                    M.MALY_WYSILEK(of(W.INTERAKCJA_POLICJA, W.INTERAKCJA_ZAGRANICZNI, W.PUSZCZALSKOSC, W.ZDOLNOSC_KONFIDENTCTWO)),
+                    M.DUZY_WYSILEK(of(W.KLUCENIE_RODZINY, W.ATAK_NA_CZLONKOW_RODZINY, W.ZAMACH_NA_ZYCIE)),
+                    M.MALY_WYSILEK(M.MOCNO(of(W.LEKCEWAZY_MIEJSCE, W.LEKCEWAZY_OKOLICZNOSCI, W.LEKCEWAZY_OSOBY, W.LEKCEWAZY_WYSILEK))),
+                    M.MALY_WYSILEK(M.MOCNO(W.WYKORZYSTUJE_BRAK_PRZEWAG)),
                     M.MOCNO(of(W.DAZENIE_DO_ZLA, W.SZUKANIE_GLEBOKO_ZLA, W.KAZDE_DZIALANIE_ZMIENIA_W_ZLO))
             )
     );
@@ -1193,6 +1204,14 @@ public class DB_Warunki extends DB {
                     W.KOMFORT, W.BEZPIECZENSTWO, W.MONOSRODOWISKO, W.WCZESNIE_ZWIAZEK,
                     W.NIEZDOLNY_WALKA_SPRZET, W.GLUPOTA, W.UZYWKI,
                     W.ZAJECIE_SIE_LOKALNYMI_SRPAWAMI, W.WSTYD
+            )
+    );
+
+    public static WarunkiKategoria ZACHETA_DO_ZLA = new WarunkiKategoria(
+            new Kategoria(TypKategoria.ZACHETA_DO_ZLA),
+            Arrays.asList(
+                    W.BEZKARNOSC, W.LEKCEWAZENIE,  W.PYCHA, W.ZUCHWALOSC, W.POCZUCIE_WYZSZOSCI, W.HIERARCHIA,
+                    W.PRZEWAGA,  W.EMOCJE_ZE_ZLA, W.NARKOTYKI
             )
     );
 
@@ -1227,8 +1246,9 @@ public class DB_Warunki extends DB {
     );
 
     public static List<WarunkiKategoria> ZLY_DOBRY = Arrays.asList(
-            PRZYCZYNY_ZLA,
-            PRZYCZYNY_DOBRA,
+            PRZYCZYNY_SLUZENIA_ZLU,
+            PRZYCZYNY_SLUZENIA_DOBRU,
+            ZACHETA_DO_ZLA,
             NIESPRAWIEDLIWOSC,
             DOBRY,
             ZLY

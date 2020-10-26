@@ -168,9 +168,9 @@ public class CPU_ALL extends AbstractCPU {
     }
     public void superpozycja(){
         if (W.MIEJSCE == W.MIEJSCE_PRZESTRZEGANIA_PRAWA) {
-            wysokaPozycja.set(W.SILA_SPRAWCZA);
+            wysokaPozycja.SET(W.SILA_SPRAWCZA);
         } else {
-            silaFizyczna.set(W.SILA_SPRAWCZA);
+            silaFizyczna.SET(W.SILA_SPRAWCZA);
         }
 
         M.W(of(W.SUPERPOZYCJA),
@@ -199,12 +199,12 @@ public class CPU_ALL extends AbstractCPU {
 
         M.of(prawo).szkodzi(wszyscy);
 
-        superPozycjaOsoby.set(of(
+        superPozycjaOsoby.SET(of(
                 W.ODDANIE_SIE_ZA_PIENIADZE, W.BRAK_WSTEPU_RDZENNI, W.LECZY_KOMPLEKSY_W_PRACY,
                 W.TWARDOGLOWOSC, W.POCZUCIE_SUKCESU, W.PIENIADZE
         ));
 
-        superPozycjaOsoby.set(of(
+        superPozycjaOsoby.SET(of(
                 W.DUZO_OBOWIAZKOW, W.MALO_CZASU, W.NIE_PAMIETA_SWOICH_OFIAR, W.OCZEKIWANIA
         ));
 

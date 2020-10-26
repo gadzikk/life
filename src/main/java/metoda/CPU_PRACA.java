@@ -96,7 +96,7 @@ public class CPU_PRACA extends AbstractCPU {
         manago.setStatus(W.CZARNA_TOGA_SEDZIOWSKA);
         manago.wyjebane(of(W.ZASOB_ZYCIE_PRYWATNE, W.ZASOB_CZAS));
         manago.thread_while_loop(M.KONTROLA(kontrola));
-        manago.set(W.ZDOLNOSC_ATAKU);
+        manago.SET(W.ZDOLNOSC_ATAKU);
         M.REMOVE(ME, W.ZDOLNOSC_ATAKU);
 
         M.W(of(M.isNiedajeRady(zasob)),
@@ -209,7 +209,7 @@ public class CPU_PRACA extends AbstractCPU {
 
         manago.thread_while_loop(of(W.OCENA_TYLKO_WEDLE_ZLEGO, W.OCENA_CZEGO_NIE_ZROBILES));
         team.thread_while_loop(W.FARMAZON24_7);
-        manago.set(of(W.PIASKOWNICA, W.MALY_RUDY_FEST_GITARA_DLUGIE_WLOSY, W.IGNORANT_MALE_DZIECKO));
+        manago.SET(of(W.PIASKOWNICA, W.MALY_RUDY_FEST_GITARA_DLUGIE_WLOSY, W.IGNORANT_MALE_DZIECKO));
         manago.rozpowiedzDoWszystkich(W.WADA);
 
         manago.thread_while_loop(M.W(W.WADA, "--->", of(W.ZAMKNIECIE_DOZYWOTNIE, W.BRAK_MOZLIWOSCI_POPRAWY, W.ZARTY)));
@@ -273,7 +273,7 @@ public class CPU_PRACA extends AbstractCPU {
                 M.W(W.MNIEJ_NIZ_2_LATA_DOSWIADCZENIA, "--->",      pytajacy.oczekiwanie(W.DOBRZE_JEZELI_UMIE));
                 M.W(W.WIECEJ_NIZ_2_LATA_DOSWIADCZENIA, "--->", pytajacy.oczekiwanie(W.MUSI_UMIEC_WSZYSTK0));
 
-        pytajacy.set(DB_Warunki.FEST.getWarunki());
+        pytajacy.SET(DB_Warunki.FEST.getWarunki());
         pytajacy.thread_while_loop(W.SZUKA_GLEBOKO_ZAGADNIEN);
         pytajacy.thread_while_loop(W.LICZY_KAZDY_BLAD);
 

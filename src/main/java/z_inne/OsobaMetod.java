@@ -20,8 +20,8 @@ public class OsobaMetod {
     public W FOR_EACH_END() {return W.WARUNEK;}
     public W pobierz(W warunek){return W.WARUNEK;}
     public W stworz(W warunek){return W.WARUNEK;}
-    public W set(W warunek){return W.WARUNEK;}
-    public W set(List<W> warunki){return W.WARUNEK;}
+    public W SET(W warunek){return W.WARUNEK;}
+    public W SET(List<W> warunki){return W.WARUNEK;}
 
     public W siejZlo() {return W.WARUNEK;}
     public W uzaleznijSieOdSrd() {return W.WARUNEK;}
@@ -72,7 +72,7 @@ public class OsobaMetod {
     public W informacjeZGory() {return W.WARUNEK;}
     public W przerwanie(W w) {return W.WARUNEK;}
     public OsobaMetod wali() {return new OsobaMetod();}
-    public OsobaMetod waliWedlePreferencji() {return new OsobaMetod();}
+    public OsobaMetod waliWedlePreferencji(OsobaMetod osoba) {return new OsobaMetod();}
     public OsobaMetod wali(OsobaMetod osobaMetod) {return new OsobaMetod();}
     public OsobaMetod cisnie() {return new OsobaMetod();}
     public W skazujeNaSamotnosc() {return W.WARUNEK;}
@@ -80,6 +80,7 @@ public class OsobaMetod {
     public W wymaganaAkcja(TypOsoby osoba) {return W.WARUNEK;}
     public W akceptacjaBiegania() {return W.WARUNEK;}
     public W akceptacjaCpania() {return W.WARUNEK;}
+    public W akceptacjaHierarchii() {return W.WARUNEK;}
     public W pisaniePrawa() {return W.WARUNEK;}
     public W naginaniePrawa() {return W.WARUNEK;}
     public W przestrzeganie(W warunek) {return W.WARUNEK;}
@@ -97,4 +98,8 @@ public class OsobaMetod {
     public W pomsci() {return W.WARUNEK;}
     public W ultimatumEkipie() {return W.WARUNEK;}
     public W notyfikacjaEkipa() {return W.WARUNEK;}
+    public W SLUCHAJA(OsobaMetod osoba){return W.WARUNEK;}
+    public W SLUCHAJA(List<OsobaMetod> osoby){return W.WARUNEK;}
+    public W postawNajgorszeWarunki(OsobaMetod osoba, List<W> ...warunki){return W.WARUNEK;}
+
 }

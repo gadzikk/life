@@ -81,6 +81,12 @@ public class AbstractCPU {
     List<W> DEFAULT_WARUNKI = DB_Warunki.DEFAULT_WARUNKI.getWarunki();
     List<W> WYMAGA_KARY_WARUNKI = DB_Warunki.WYMAGA_KARY.getWarunki();
     List<W> KOGO_WARUNKI = DB_Warunki.KOGO.getWarunki();
+    OsobaMetod zli = new OsobaMetod();
+    OsobaMetod najwyzszyHierarchiaWokol = new OsobaMetod();
+    OsobaMetod swoi = new OsobaMetod();
+    List<W> PRZYCZYNY_SLUZENIA_ZLU_WARUNKI = DB_Warunki.PRZYCZYNY_SLUZENIA_ZLU.getWarunki();
+    List<W> PRZYCZYNY_SLUZENIA_DOBRU_WARUNKI = DB_Warunki.PRZYCZYNY_SLUZENIA_DOBRU.getWarunki();
+    List<W> ZACHETA_DO_ZLA_WARUNKI = DB_Warunki.ZACHETA_DO_ZLA.getWarunki();
 
     public <T> List<T> of(T... elements){
         return Arrays.asList(elements);
@@ -88,6 +94,10 @@ public class AbstractCPU {
 
     public <T> T on(T... elements){
         return Arrays.stream(elements).findFirst().get();
+    }
+
+    public <T> T oraz(List<T> elements){
+        return elements.stream().findFirst().get();
     }
 
     public <T> List<T> of(T e1, List<T> elems, T e2, List<T> elems2, List<String> elems3, List<W> elems4){

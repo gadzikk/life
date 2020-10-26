@@ -9,6 +9,15 @@ import java.util.List;
  */
 public class CPU_DOBRO_ZLO extends AbstractCPU {
     public void run(){
+        M.W(W.UKAZANIE_W_PRAWDZIE, "--->", of(W.SPOGLADANIE_NA_SIEBIE, W.CISZA, M.WHILE(of(W.UMNIEJSZENIE, W.USPRAWIEDLIWINIE,
+                                                                                    W.KLAMSTWO, W.PRZEKONYWANIE))));
+        M.WW(of(W.TOLEROWANIE_ZLA,
+                W.POZWOLENIE_NA_ZLO,
+                W.SLUCHANIE_ZLEGO,
+                W.DZIALANIE_DLA_ZLA), "--->", W.PELNE_POPARCIE_ZLA, "--->", W.PIEKLO);
+
+        M.DEFAULT(of(M.MOCNO(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI), M.SLABO(PRZYCZYNY_SLUZENIA_DOBRU_WARUNKI)));
+
         zlo();
         dobro();
         dobroDzialacz();
@@ -65,6 +74,15 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
                                                                                     W.WYKORZYSTANIE,
                                                                                 W.ROBIENIE_CIERPIENIA,
                                                                                     W.CIEZKIE_RANY));
+
+        M.W(M.thread_while_loop(M.KONTROLA(W.ZLY)), "--->", of(W.REAKACJA, M.AKTYWNA_WALKA_ZE_ZLEM(of(W.BLISKOSC, W.CISNIECIE, W.WALKA_PIESCI)),
+                                                                                    W.KARA, M.OPCJA(W.UKAZANIE),
+                                                                                    W.ZAPRZESTANIE_ZLA, W.SMUTEK, W.WYLACZENIE_DZIALACZA));
+
+        M.W(W.ZLY, "--->", M.DUZY_WYSILEKK(M.thread_while_loop(M.KONTROLA(W.ZLY)))
+                                                                    .MIMO_TO(W.ZLY_OWOC)
+                                                                    .KONCOWO(of(W.STRATA_CZASU, W.STRATA_PIENIEDZY,
+                                                                                W.STRATA_SIL ,W.STRATY_MORALNE)));
     }
     public void dobro() {
         List<W> conditions = of(
@@ -107,7 +125,7 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
         diabel.wali(usa);
         usa.wali(polskiRzad);
         polskiRzad.wali(osoba);
-        osoba.waliWedlePreferencji();
+        osoba.waliWedlePreferencji(osoba);
     }
 
     public void wyborKazdegoCzlowieka() {
