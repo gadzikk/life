@@ -209,7 +209,7 @@ public class CPU_UL extends AbstractCPU {
                         of(
                                 M.sondaDostepu(),
                                 M.sondaZagrozenia(),
-                                M.sondaPrzypalu(kryteriaPrzypalu),
+                                M.sondaPrzypalu(KRYTERIA_PRZYPALU_WARUNKI),
                                 M.poCichu(), M.II(), M.otwarteStacieF2F(),
                                 M.NEEDED(of(
                                         W.ZDOLNY_DO_WALKI,
@@ -449,22 +449,11 @@ public class CPU_UL extends AbstractCPU {
     public void starcie(){
         W dzialanie = M.NAJMNIEJSZY_CZAS(W.NAJWIEKSZA_KRZYWDA);
 
-        List<W> kryteriaPrzypalu = DB_Warunki.KRYTERIA_PRZYPALU.getWarunki();
+        List<W> kryteriaPrzypalu = KRYTERIA_PRZYPALU_WARUNKI;
 
-        M.W(W.SPRZET, "--->", of(W.MALY_WYSILEK, M.DUZA_KRZYWDA(W._1_RUCH), W.NAJWIEKSZ_STRACH,
-                                                                                M.DEFAULT(W.UCIECZKA),
-                                                                                M.DEFAULT_DZIALAJCY(of(W.SPRZET, W.NOTYFIKACJA_EKIPA))));
+        List<W> metodaStarcieReakcja = METODA_STARCIE_REAKCJA_WARUNKI;
 
-        M.W(W.WALKA_PIESCI, "--->", of(W.DUZY_WYSILEK, M.DEFAULT(W.PODJECIE_WALKI),
-                                                            M.DEFAULT_DZIALAJCY(of(W.PODJECIE_WALKI ,W.SPRZET, W.NOTYFIKACJA_EKIPA))));
-
-        M.W(W.CISNIE, "--->", of(W.MALY_WYSILEK, M.DEFAULT(W.ODPOWIADA),
-                                                        M.DEFAULT_DZIALAJCY(of(W.ODPOWIADA, W.WALKA_PIESCI ,W.SPRZET, W.NOTYFIKACJA_EKIPA))));
-
-        M.W(W.BLISKOSC, "--->", of(W.MALY_WYSILEK, W.SONDA, M.DEFAULT(W.PATRZY),
-                                                                M.DEFAULT_DZIALAJCY(of(W.PATRZY, W.ROZKMINIA, W.FOTY, W.NOTYFIKACJA_EKIPA))));
-
-
+        List<W> obronaStarcie = OBRONA_STARCIE_WARUNKI;
 
         M.PROSTO(W.BOJKA);
         M.W(of(M.PROSTO(W.CISNIE)), "--->", of(W.ODRAZU_DZIALANIE));
@@ -631,6 +620,8 @@ public class CPU_UL extends AbstractCPU {
         List<W> potrzebneWarunki = of(W.STALA_PLANSZA, W.WIELE_INTERAKCJI, W.WIELE_OSOB, W.OSOBA_ODSLANIAJACA_SIE);
 
         M brakZasad = M.NIEWAZNE(KURESTWO_WARUNKI).MIMO_TO(M.WAZNE(of(W.PRZEWAGA, W.ZYSK, W.WARUNEK_SPRZYJAJACY)));
+
+        M.W(W.DUZA_PRZEWAGA, "--->", of(W.TWORZENIE_WARUNKOW, W.SILA_SPRAWCZA, W.REALNY_WPLYW_NA_LUDZI, W.REALNY_WPLYW_NA_WYDARZENIA));
 
         M.WW(of(W.NIEZNAJOMY, W._88_, W.NIEWSTANIE_OBRONIC_PRZEWAGI),
                 of(

@@ -67,7 +67,7 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
         List<W> staziBiegacze = of(W.DUZI_TEMPI, W.AGRESYWNI, W.ULEGLI, W.ZALEZNY, W.UZALZENIENI);
         List<W> mlodziBiegacze = of(W.WYKRECONE_SZCZURKI, W.OFERMY, W.NIEZDOLNOSC_DO_WYSILKU, W.UZALZENIENI);
 
-        M.W(of(W.ZLY, W._88_, W.WIDZIAL) , "--->", of(W.ODRAZU_ZLO, W.PRAGNIENIE_ZLA));
+        M.W(of(W.ZLY, W._88_, W.WIDZIAL) , "--->", of(M.MOCNO(W.ODRAZU_ZLO), W.PRAGNIENIE_ZLA));
 
         M.W(of(W.ZLY, W._88_, W.BLISKOSC, W._88_, W.DOSTEP) , "--->", of(W.ZMATERIALIZOWANIE_ZLA,
                                                                                     W.WBICIE_NA_MUKE,

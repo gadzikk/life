@@ -124,7 +124,8 @@ public class DB_Warunki extends DB {
                 SONDA_GDY,
                 SONDA_PO,
                 KOGO,
-                WYMAGA_KARY
+                WYMAGA_KARY,
+                SONDA_DZIALACZA
         );
 
         List<WarunkiKategoria> CZAS = Arrays.asList(
@@ -165,7 +166,8 @@ public class DB_Warunki extends DB {
                 RANY_DOSTEPOWE,
                 KTO_KOGO,
                 KURESTWO,
-                OBRONA_STARCIE
+                OBRONA_STARCIE,
+                METODA_STARCIE_REAKCJA
         );
 
         List<WarunkiKategoria> TYPY_PRAC = Arrays.asList(
@@ -1176,6 +1178,7 @@ public class DB_Warunki extends DB {
                     M.DUZY_WYSILEK(W.ZAMYKANIE_OPCJI), M.MALY_WYSILEK(W.OGLUPIANIE), M.NEUTRALNY_RZUT(W.NIESWIADOMOSC),
                     M.DUZY_WYSILEK(W.ZNISZCZENIE_PRZEWAGI),
                     M.MALY_WYSILEK(M.MOCNO(of(W.WSPARCIE_OSLONY, W.FALSZYWE_WRAZENIE, W.WYSOKIE_OCZEKIWANIE))),
+                    M.MALY_WYSILEK(M.MOCNO(M.MIEJSCE_STALE(W.ODCIECIE_DOSTEPU_WARTOSC))),
                     W.AGRESJA_W_DZIALANIU, W.ZLO,
                     M.CEL(of(W.ZNISZCZENIE, W.POSTAWIENIE_CIEZKICH_WARUNKOW))
             )
@@ -1191,12 +1194,14 @@ public class DB_Warunki extends DB {
                     M.DUZY_WYSILEK(of(W.KLUCENIE_RODZINY, W.ATAK_NA_CZLONKOW_RODZINY, W.ZAMACH_NA_ZYCIE)),
                     M.MALY_WYSILEK(M.MOCNO(of(W.LEKCEWAZY_MIEJSCE, W.LEKCEWAZY_OKOLICZNOSCI, W.LEKCEWAZY_OSOBY, W.LEKCEWAZY_WYSILEK))),
                     M.MALY_WYSILEK(M.MOCNO(W.WYKORZYSTUJE_BRAK_PRZEWAG)),
+                    M.MALY_WYSILEK(M.MOCNO(W.DUZA_KRZYWDA_NA_PRZEWADZE)),
+                    M.MALY_WYSILEK(W.GRZEBANIE_PRYWATNE),
                     M.MOCNO(of(W.DAZENIE_DO_ZLA, W.SZUKANIE_GLEBOKO_ZLA, W.KAZDE_DZIALANIE_ZMIENIA_W_ZLO))
             )
     );
 
     public static WarunkiKategoria WYMAGA_KARY = new WarunkiKategoria(
-            new Kategoria(TypKategoria.RANY, TypKategoria.WYMAGA_KARY),
+            new Kategoria(TypKategoria.SONDA, TypKategoria.WYMAGA_KARY),
             Arrays.asList(
                     W.DZIALANIE_DLA_ZLA,
                     W.BRAK_WYSILKU, W.BRAK_STRESU, W.BRAK_TRUDNOSCI,
@@ -1207,6 +1212,17 @@ public class DB_Warunki extends DB {
             )
     );
 
+    public static WarunkiKategoria SONDA_DZIALACZA = new WarunkiKategoria(
+            new Kategoria(TypKategoria.SONDA, TypKategoria.SONDA_DZIALACZA), of(
+                    W.ROZMIAR, W.PRZEWAGA_SILY, W.ZNAJOMOSCI,
+                    W.DZIALA, M.W_JAKI_SPOSOB(W.DZIALA),
+                    W.BIEGA, M.JAK_DLUGO(W.BIEGA),
+                    M.KOGO_ZNA(W.EKIPA),
+                    W.WYROK, M.JAK_DLUGO(W.WYROK),
+                    M.DOSWIADCZENIE(W.SPRZET)
+    ));
+
+
     public static WarunkiKategoria ZACHETA_DO_ZLA = new WarunkiKategoria(
             new Kategoria(TypKategoria.ZACHETA_DO_ZLA),
             Arrays.asList(
@@ -1215,12 +1231,22 @@ public class DB_Warunki extends DB {
             )
     );
 
-    public static WarunkiKategoria STARCIE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.RANY, TypKategoria.STARCIE),
-            Arrays.asList(
-                   // todo
-            )
-    );
+
+    public static WarunkiKategoria METODA_STARCIE_REAKCJA = new WarunkiKategoria(
+            new Kategoria(TypKategoria.RANY, TypKategoria.METODA_STARCIE_REAKCJA), of(
+
+        M.W(M.MALY_WYSILEK(W.SPRZET), "--->", of(M.DUZA_KRZYWDA(W._1_RUCH), W.NAJWIEKSZ_STRACH,
+                                                                                            M.DEFAULT(W.UCIECZKA),
+                                                                                            M.DEFAULT_DZIALAJCY(of(W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
+        M.W(M.DUZY_WYSILEK(W.WALKA_PIESCI), "--->", of(M.DEFAULT(W.PODJECIE_WALKI),
+                                                            M.DEFAULT_DZIALAJCY(of(W.PODJECIE_WALKI ,W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
+
+        M.W(M.MALY_WYSILEK(W.CISNIE), "--->", of(M.DEFAULT(W.ODPOWIADA),
+                                                      M.DEFAULT_DZIALAJCY(of(W.ODPOWIADA, W.WALKA_PIESCI ,W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
+
+        M.W(M.MALY_WYSILEK(W.BLISKOSC), "--->", of(W.SONDA, M.DEFAULT(W.PATRZY),
+                                                                 M.DEFAULT_DZIALAJCY(of(W.PATRZY, W.ROZKMINIA, W.FOTY, W.NOTYFIKACJA_EKIPA))))
+    ));
 
     public static WarunkiKategoria OBRONA_STARCIE = new WarunkiKategoria(
             new Kategoria(TypKategoria.RANY, TypKategoria.OBRONA_STARCIE),
@@ -1293,7 +1319,8 @@ public class DB_Warunki extends DB {
             SONDA_GDY,
             SONDA_PO,
             KOGO,
-            WYMAGA_KARY
+            WYMAGA_KARY,
+            SONDA_DZIALACZA
     );
 
     public static List<WarunkiKategoria> CZAS = Arrays.asList(
@@ -1333,7 +1360,8 @@ public class DB_Warunki extends DB {
             RANY_DOSTEPOWE,
             KTO_KOGO,
             KURESTWO,
-            OBRONA_STARCIE
+            OBRONA_STARCIE,
+            METODA_STARCIE_REAKCJA
     );
 
     public static List<WarunkiKategoria> TYPY_PRAC = Arrays.asList(

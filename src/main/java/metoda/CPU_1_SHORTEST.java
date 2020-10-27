@@ -40,6 +40,8 @@ public class CPU_1_SHORTEST extends AbstractCPU {
 
     W cel = W.ZMIANA_SYTUACJI_DEFAULTOWEJ;
 
+    List<W> malyDuzy = of(M.MALY_WARUNEK(of(W.WYCHODZENIE, W.OBECNOSC)), M.DUZY_WARUNEK(W.ZAGADANIE));
+
     List<W> schemaDzialania = of(W.DOBRA_PLANSZA, W.LADNA, W.CHETNOSC,
             W.MOWA, W.KOMPLEMENT, W.WNIOSKI, W.EMOCJE, W.BECZKA,
             W.DRUGI_RAZ, W.KONTAKT

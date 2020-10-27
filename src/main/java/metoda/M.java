@@ -725,4 +725,16 @@ public class M {
     public static M NIEWAZNE(List<W> warunki){return new M();}
     public static W WAZNE(W w){return W.WARUNEK;}
     public static W WAZNE(List<W> warunki){return W.WARUNEK;}
+
+    public static W W_JAKI_SPOSOB(W w){return W.WARUNEK;}
+    public static W W_JAKI_SPOSOB(List<W> warunki){return W.WARUNEK;}
+    public static W JAK_DLUGO(W w){return W.WARUNEK;}
+    public static W JAK_DLUGO(List<W> warunki){return W.WARUNEK;}
+    public static W KOGO_ZNA(W w){return W.WARUNEK;}
+    public static W KOGO_ZNA(List<W> warunki){return W.WARUNEK;}
+    public static W DOSWIADCZENIE(W w){return W.WARUNEK;}
+    public static W DOSWIADCZENIE(List<W> warunki){return W.WARUNEK;}
+    public static W MIEJSCE_STALE(W w){return W.WARUNEK;}
+    public static W MIEJSCE_STALE(List<W> warunki){return W.WARUNEK;}
+
 }

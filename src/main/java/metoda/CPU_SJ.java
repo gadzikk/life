@@ -221,7 +221,10 @@ public class CPU_SJ extends AbstractCPU {
                 M.DUZY_WARUNEK(W.RODZINA),
                 M.DUZY_WARUNEK(of(W.INFORMACJA, W.CZAS)),
                 M.DUZY_WARUNEK(of(W.ULICA, W.SILA, W.ZNAJOMI)),
-                M.DUZY_WARUNEK(of(W.ROZWOJ_UMYSLOWY, W.ROZWOJ_FIZYCZNY))
+                M.DUZY_WARUNEK(of(W.ROZWOJ_UMYSLOWY, W.ROZWOJ_FIZYCZNY)),
+
+                M.MALY_WARUNEK(of(W.WYCHODZENIE, W.OBECNOSC)),
+                M.DUZY_WARUNEK(W.ZAGADANIE)
         );
     }
 }

@@ -30,7 +30,7 @@ public class AbstractCPU {
     W coTakPatrzysz;
     OsobaMetod ona = new OsobaMetod();
     OsobaMetod manago = new OsobaMetod();
-    List<W> kryteriaPrzypalu = DB_Warunki.KRYTERIA_PRZYPALU.getWarunki();
+    List<W> KRYTERIA_PRZYPALU_WARUNKI = DB_Warunki.KRYTERIA_PRZYPALU.getWarunki();
     List<TT> obelgi = DB_Tematy.TEMATY;
     List<W> terror = DB_Warunki.TERROR.getWarunki();
     List<TT> zarty = DB_Tematy.ZARTY;
@@ -87,6 +87,9 @@ public class AbstractCPU {
     List<W> PRZYCZYNY_SLUZENIA_ZLU_WARUNKI = DB_Warunki.PRZYCZYNY_SLUZENIA_ZLU.getWarunki();
     List<W> PRZYCZYNY_SLUZENIA_DOBRU_WARUNKI = DB_Warunki.PRZYCZYNY_SLUZENIA_DOBRU.getWarunki();
     List<W> ZACHETA_DO_ZLA_WARUNKI = DB_Warunki.ZACHETA_DO_ZLA.getWarunki();
+    List<W> OBRONA_STARCIE_WARUNKI = DB_Warunki.OBRONA_STARCIE.getWarunki();
+    List<W> METODA_STARCIE_REAKCJA_WARUNKI = DB_Warunki.METODA_STARCIE_REAKCJA.getWarunki();
+
 
     public <T> List<T> of(T... elements){
         return Arrays.asList(elements);
