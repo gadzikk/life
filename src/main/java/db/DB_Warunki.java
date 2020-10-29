@@ -1174,6 +1174,7 @@ public class DB_Warunki extends DB {
                     M.MALY_WYSILEK(W.CISNIE),
                     M.DUZY_WYSILEK(W.WALKA_PIESCI), M.DUZY_WYSILEK(W.ZNISZCZENIE_WARTOSCI_MATERIALNEJ),
                     M.MALY_WYSILEK(W.SPRZET),
+                    M.MALY_WYSILEK(M.MOCNO(W.STARCIE_WIELU_NA_JEDNEGO)), M.MALY_WYSILEK(M.MOCNO(W.PRZEWAGA_NA_BRAK_PRZEWAGI)),
                     M.MOCNO(of(W.WYKORZYSTANIE, W.OKRASC_PIENIADZE)),
                     M.DUZY_WYSILEK(W.ZAMYKANIE_OPCJI), M.MALY_WYSILEK(W.OGLUPIANIE), M.NEUTRALNY_RZUT(W.NIESWIADOMOSC),
                     M.DUZY_WYSILEK(W.ZNISZCZENIE_PRZEWAGI),
@@ -1268,6 +1269,25 @@ public class DB_Warunki extends DB {
                     W.POPED_SEXUALNY, W.MARZENIA, W.OCZEKIWANIA_WOBEC_ZYCIA,
                     W.CHARAKTER, W.CECHY_WRODZONE,
                     W.CZYSTE_SUMIENIE
+            )
+    );
+
+    public static WarunkiKategoria STRATY_MORALNE = new WarunkiKategoria(
+            new Kategoria(TypKategoria.RANY, TypKategoria.STRATY_MORALNE),
+            Arrays.asList(
+                    W.OBRAZENIA_FIZYCZNE, W.ZLE_SAMOPOCZUCIE, W.HANBA, W.WYKLUCZENIE, W.STRATA_ZNAJOMYCH,
+                    M.STRATA(W.ZNAJOMI), M.STRATA(W.KOBIETA)
+            )
+    );
+
+    public static WarunkiKategoria STRATY_MATERIALNE = new WarunkiKategoria(
+            new Kategoria(TypKategoria.RANY, TypKategoria.STRATY_MATERIALNE),
+            Arrays.asList(
+                    M.STRATA(of(
+                            W.PRACA, W.PIENIADZE, W.WYSOKA_POZYCJA,
+                            W.CZAS, W.SZANSA, W.LUDZIE_ZA_TOBA, W.EKIPA,
+                            W.SPRYT, W.SZYBKOSC, W.SILA
+                    ))
             )
     );
 

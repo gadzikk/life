@@ -26,9 +26,9 @@ public class CPU_UL extends AbstractCPU {
             W.WYKOLEJONY, W.FEST, W.WIESNIAK, W.OSIEDLOWY_SLABY, W.NORMALNY, W.OSIEDLOWY_MOCNY, W.CZOLO
     );
 
-    List<W> oslony = OSLONY_WARUNKI;
-    List<W> ktoKogo = KTO_KOGO_WARUNKI;
-    List<W> kurestwo = KURESTWO_WARUNKI;
+    W ktoKogo = M.MOCNO(KTO_KOGO_WARUNKI);
+    W kurestwo = M.MOCNO(KURESTWO_WARUNKI);
+    W oslony = M.MOCNO(OSLONY_WARUNKI);
 
     List<W> podstawa = of(W.OGRANICZENIE_CZASOWE, W.DNI, W.TYGODNIE, W.LATA, W.OBECNOSC, W.DOSTEP, W.POZNANIE_CZLOWIEKA_WADAMI,
             W.ENUM, W.ANTY_FEST, W.ANTY_SYSTEM, W.ANTY_BURZUA, W.ANTY_KONFI, W.DEFAULT_WARUNKI, W.STARCIE, W.KTO_ZYSKUJE);
@@ -199,7 +199,7 @@ public class CPU_UL extends AbstractCPU {
         nieZnam();
         rdzenni();
         tworzenieWarunkow();
-        wychodzenieNaUlice();
+        defaultNastawieniaWychodzenieNaUlice();
         przejecie();
     }
     public List<W> srodki() {
@@ -450,10 +450,17 @@ public class CPU_UL extends AbstractCPU {
         W dzialanie = M.NAJMNIEJSZY_CZAS(W.NAJWIEKSZA_KRZYWDA);
 
         List<W> kryteriaPrzypalu = KRYTERIA_PRZYPALU_WARUNKI;
-
         List<W> metodaStarcieReakcja = METODA_STARCIE_REAKCJA_WARUNKI;
-
         List<W> obronaStarcie = OBRONA_STARCIE_WARUNKI;
+        List<WarunkiKategoria> rany = RANY_WARUNKI;
+        List<W> ktoKogo = KTO_KOGO_WARUNKI;
+
+        List<W> sprzety = of(M.OPCJA(M.DDM(W.SPRZET)), M.OPCJA(M.MIEJSCE_STALE(W.SPRZET)), M.OPCJA(M.PRACA(W.SPRZET)),
+                             M.OPCJA(M.SAMOCHOD(W.SPRZET)), M.OPCJA(M.PRZY_SOBIE(W.SPRZET)));
+
+        M.W(of(W.POMSZCZENIE, W.NOTYFIKACJA_EKIPA, W.FOTY,
+                W.OBRAZENIA_FIZYCZNE, W.STARCIE_WIELU_NA_JEDNEGO,
+                W.SPRZET, W.WYJSCIE, W.STARCIE, W.NIESPRAWIEDLIWE_PRZEWAGI), "--->", M.PARALIZUJE(of(W.SLABY, W.NIESWIADOMY)));
 
         M.PROSTO(W.BOJKA);
         M.W(of(M.PROSTO(W.CISNIE)), "--->", of(W.ODRAZU_DZIALANIE));
@@ -1036,6 +1043,8 @@ public class CPU_UL extends AbstractCPU {
         M.WW(of(W.LADNY, W.SILNY), "--->", of(W.SONDA_POD_ZROBIENIE_ZLA, W._88_, W.SILNY), "--->", of(W.OTWARTE_STARCIE, W.WALKA_PIESCI));
 
         M.W(of(W.SAM) , "--->", of(W.LATWY_CEL, W.BRAK_PRZEWAG, W.MALA_SZANSA_POZNANIE));
+
+        M.W(M.SPOTKANY(goscZHanba), "--->", M.ZAWSZE_GDY_BLISKOSC(of(W.CISNIE, W.WYPOMNIENIE_HANBY)));
     }
 
     public void wokolDzialaczaSrodowiska() {
@@ -1154,16 +1163,29 @@ public class CPU_UL extends AbstractCPU {
     }
 
     public void rdzenni() {
-        rdzenni.wychodzenieNaUlice();
+        rdzenni.NAWYK(W.WYCHODZENIE_NA_ULICE);
     }
 
     public void tworzenieWarunkow() {
         polskiRzad.tworzyWarunki(of(W.CHRONICZNE_BEZROBOCIE, W.NISKIE_PENSJE, W.PRAWO));
-        grubas.tworzyWarunki(of(W.KLAMSTWO, W.SLABY, W.WADY, W.DZIALAJACY, W.ZMYSLY_DLA_ZLA, oraz(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI)));
+        grubasPrzewaga.tworzyWarunki(of(W.KLAMSTWO, W.SLABY, W.WADY, W.DZIALAJACY, W.ZMYSLY_DLA_ZLA, oraz(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI)));
+
+        grubasPrzewaga.tworzyWarunki(M.ZAPOTRZEBOWANIE(of(W.ZLO, on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI), on(KTO_KOGO_WARUNKI))));
+        dzialacz.zwiekszaSzanse(of(W.ZLO, on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI), on(KTO_KOGO_WARUNKI)));
+
+        grubasPrzewaga.tworzy(W.SRODOWISKO).CEL(of(
+                M.ZWIEKSZANIE(W.PRZEWAGA), M.MATERIALIZOWANIE_ZLA_DZIEKI(W.PRZEWAGA), M.WYKLUCZENIE(osobyPozaSrodowisko),
+                M.KTO_KOGO_Z_PRZEWAGA(osobyPozaSrodowisko, KTO_KOGO_WARUNKI),
+                M.NABYCIE(of(W.SILA_SPRAWCZA, W.PRZEWAGA_SILY, W.POSLUCH)),
+                M.NABYCIE(W.PRZYJEMNOSCI),
+                M.NISZCZENIE(W.DOBRO),
+                M.TWORZENIE(W.ZLO)
+        ));
+
         fest.tworzyWarunki(of(W.WYWYZSZENIE_SLABYCH));
     }
 
-    public void wychodzenieNaUlice() {
+    public void defaultNastawieniaWychodzenieNaUlice() {
         wszyscy.SET(of(W.NASTAWIENIE_PRZYJEMNOSCI, W.NASTAWIENIE_AGRESJA_W_DZIALANIU, W.NASTAWIENIE_HIERACHI_PRZYWILEJE));
     }
 

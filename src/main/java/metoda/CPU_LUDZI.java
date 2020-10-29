@@ -22,6 +22,7 @@ public class CPU_LUDZI extends AbstractCPU {
         fest();
         dzialajacy();
         czlowiekCierpienia();
+        postawyLudzkie();
     }
 
     public void relacjeWarunkowLudzi() {
@@ -270,19 +271,19 @@ public class CPU_LUDZI extends AbstractCPU {
         );
         M.W(of(W.KTOS_MI_COS_ZROBIL, W._II_, W.ZAZDROSC),
                 of(
-                        M.reakcjaMocniejNizszemuWHierarchii(rany)
+                        M.reakcjaMocniejNizszemuWHierarchii(RANY_WARUNKI)
                 )
         );
 
         M.sondaPrzewagPodZrobienieZla();
-        M.zniszczJakNajwiecej(rany);
+        M.zniszczJakNajwiecej(RANY_WARUNKI);
         M.zabierzJakNajwiecej();
 
         M.W(of(W.OBRONA),
                 of(
                         M.brakReakcji(W.WYZSZE_DOBRO),
                         M.II(),
-                        M.reakcjaMocniej(rany)
+                        M.reakcjaMocniej(RANY_WARUNKI)
                 )
         );
     }
@@ -344,11 +345,15 @@ public class CPU_LUDZI extends AbstractCPU {
                         dzialacz.SET(of(W.WYKRECENIE, W.WADY_FIZYCZNE, W.WADY_UMYSLOWE, W.OGRANICZENIE_WOLNOSCI)),
                         dzialacz.SET(KTO_KOGO_WARUNKI),
                         dzialacz.SET(M.OPCJA(KURESTWO_WARUNKI)),
+                        dzialacz.SET(PATOLOGIE_OSIEDLE_WARUNKI),
                         dzialacz.policja(W.ZERO),
 
                         dzialacz.thread_while_loop(M.rozkminianie(wszyscy)),
                         M.W(W.INFORMACJA, "--->", dzialacz.notyfikacjaEkipa()),
                         M.W(dzialacz.otrzymujePrzewagiZDzialania(), "--->", dzialacz.lubiDzialanie()),
+
+                        dzialacz.WYBOR(of(M.OPCJA(M.DDM(W.SPRZET)), M.OPCJA(M.MIEJSCE_STALE(W.SPRZET)), M.OPCJA(M.PRACA(W.SPRZET)),
+                                M.OPCJA(M.SAMOCHOD(W.SPRZET)), M.OPCJA(M.PRZY_SOBIE(W.SPRZET)))),
 
                         srodowisko.thread_while_loop(M.wsparcie(of(W.DZIALANIE_DLA_ZLA, W.SLEPE_DZIALANIE, W.KROTKOWZROCZNOSC))),
 
@@ -364,16 +369,27 @@ public class CPU_LUDZI extends AbstractCPU {
                         srodowisko.thread_while_loop(M.postawNajgorszeWarunki(drugaStrona,
                                 KTO_KOGO_WARUNKI, KURESTWO_WARUNKI, OSLONY_WARUNKI)),
 
+                        M.W(srodowisko.CZESTO(M.WZAJEMNE_RANY(RANY_WARUNKI)), "--->", srodowisko.TOLERANCJA(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI)),
+                        srodowisko.WHILE(dzialacz.thread_while_loop(of(W.SLUCHAJA, W.OBECNOSC_LUDZI, M.wykonujeRozkazy(W.GORA), M.KTO_KOGO(osobyPozaSrodowisko, KTO_KOGO_WARUNKI)))),
 
                         dzialacz.siejZlo(), M.otherwise(W.PRZEJEBANE, 0),
                         dzialacz.uzaleznijSieOdSrd(),
                         dzialacz.dzialanieWsrodDzialaczy(),
                         dzialacz.zdobadzInformacjeZeSrodowiskaNaKurestwie(),
 
-                        dzialacz.WHILE(W.DOSTEP),
+                        dzialacz.WHILE(of(W.DOSTEP, W.OSOBA_POZA_SRODOWISKO)),
+                        dzialacz.zamknijZasob(),
                         dzialacz.ukryjDostep(),
                         dzialacz.wbijNaMuke(),
+                        dzialacz.wyklucz(),
                         dzialacz.skazNaIzolacje(),
+                        dzialacz.naklejNalepke(),
+                        dzialacz.uniz(),
+                        dzialacz.cisnij(),
+                        dzialacz.notyfikacjaEkipa(),
+
+                        M.W(osobyPozaSrodowisko.nieposlusznosc(), "--->", M.WYBOR(of(dzialacz.walkaPiesci(), dzialacz.sprzet()))),
+
                         dzialacz.patrzJakCierpi(),
                         dzialacz.cieszSieJegoCierpieniem(),
                         dzialacz.baluj(),
@@ -404,5 +420,13 @@ public class CPU_LUDZI extends AbstractCPU {
 
     public void sprawiedliwy() {
         List<W> sprawiedliwy = DEFAULT_WARUNKI;
+    }
+
+    public void postawyLudzkie() {
+        M.DEFAULT(of(M.UKRYCIE(W.WADY), M.POKAZ(W.FALSZYWE_WRAZENIE), M.SKUPIENIE(W.PRZYJEMNOSCI)));
+
+        M.ZLE(of(M.UKRYCIE(W.SLABOSC), M.POKAZ(W.SILA), M.SKUPIENIE(of(W.PRZEWAGA, on(KTO_KOGO_WARUNKI)))));
+
+        M.DOBRE(of(M.PRACA_NAD(W.WADY), M.POKAZ(W.PRAWDA), M.SKUPIENIE(of(W.CEL, W.BYCIE_LEPSZYM))));
     }
 }

@@ -1,5 +1,6 @@
 package db;
 
+import metoda.M;
 import typy_bazowe.TypKategoria;
 import warunek.W;
 import warunek.WarunkiKategoria;
@@ -81,7 +82,7 @@ public class DB_Patologia {
             )
     );
 
-    public static WarunkiKategoria PATOLOGIE_WSTEPNE_OSIEDLE = new WarunkiKategoria(
+    public static WarunkiKategoria PATOLOGIE_WSTEPNE_BRAK_OSIEDLE = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_WSTEPNE_OSIEDLE),
             Arrays.asList(
                     W.INNE_MIASTO, W.ZLE_WYGLADA, W.BRAK_ZNAJOMYCH_W_SRODOWISKU,
@@ -165,7 +166,7 @@ public class DB_Patologia {
             )
     );
 
-    public static WarunkiKategoria PATOLOGIE_UTRZYMANIA_OSIEDLE = new WarunkiKategoria(
+    public static WarunkiKategoria PATOLOGIE_UTRZYMANIA_BRAK_OSIEDLE = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_UTRZYMANIA_OSIEDLE),
             Arrays.asList(
                     W.BRAK_CELU, W.NIE_DZIALA, W.NIE_KIBICUJE, W.NIELOJALNY, W.NIE_PRZESTRZEGA_ZASAD
@@ -211,7 +212,7 @@ public class DB_Patologia {
             )
     );
 
-    public static WarunkiKategoria PATOLOGIE_KONCOWE_OSIEDLE = new WarunkiKategoria(
+    public static WarunkiKategoria PATOLOGIE_KONCOWE_BRAK_OSIEDLE = new WarunkiKategoria(
             new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_KONCOWE_OSIEDLE),
             Arrays.asList(
                     W.BRAK_ZNAJOMYCH, W.BRAK_SRODOWISKA, W.BRAK_KOBIETY, W.BRAK_DOSTEPU_SILNE_JEDNOSTKI,
@@ -250,6 +251,14 @@ public class DB_Patologia {
             )
     );
 
+    public static WarunkiKategoria PATOLOGIE_OSIEDLE = new WarunkiKategoria(
+            new Kategoria(TypKategoria.PATOLOGIA, TypKategoria.PATOLOGIE_OSIEDLE),
+            Arrays.asList(
+                    M.thread_while_loop(W.BIEGANIE), W.NIE_ODBIERANIE_TELEFONU, W.BRAK_PIENIEDZY,
+                    W.KONTUZJA, W.WALKA, M.MALO(M.SLABE(W.KOBIETA)), W.UZYWKI
+            )
+    );
+
     public static List<WarunkiKategoria> PATOLOGIE = Arrays.asList(
             PATOLOGIE_ZWIAZKU,
             PATOLOGIE_WSTEPNE_SWIAT,
@@ -260,7 +269,7 @@ public class DB_Patologia {
             PATOLOGIE_WSTEPNE_PRACA,
             PATOLOGIE_WSTEPNE_ZARABIANIE,
             PATOLOGIE_WSTEPNE_SPORT,
-            PATOLOGIE_WSTEPNE_OSIEDLE,
+            PATOLOGIE_WSTEPNE_BRAK_OSIEDLE,
             PATOLOGIE_WSTEPNE_DOPUSZCZENIE,
             PATOLOGIE_WSTEPNE_KOBIETA,
             PATOLOGIE_UTRZYMANIA_SWIAT,
@@ -271,13 +280,13 @@ public class DB_Patologia {
             PATOLOGIE_UTRZYMANIA_PRACA,
             PATOLOGIE_UTRZYMANIA_ZARABIANIE,
             PATOLOGIE_UTRZYMANIA_SPORT,
-            PATOLOGIE_UTRZYMANIA_OSIEDLE,
+            PATOLOGIE_UTRZYMANIA_BRAK_OSIEDLE,
             PATOLOGIE_UTRZYMANIA_KOBIETA,
             PATOLOGIE_KONCOWE_SWIAT,
             PATOLOGIE_KONCOWE_PRACA,
             PATOLOGIE_KONCOWE_ZARABIANIE,
             PATOLOGIE_KONCOWE_SPORT,
-            PATOLOGIE_KONCOWE_OSIEDLE,
+            PATOLOGIE_KONCOWE_BRAK_OSIEDLE,
             PATOLOGIE_KONCOWE_KOBIETA,
             PATOLOGIE_GLOBAL_PLANSZA_LUDZIE,
             PATOLOGIE_GLOBAL_PLANSZA_PRACA,

@@ -34,6 +34,7 @@ public class OsobaMetod {
     public W cieszSieJegoCierpieniem() {return W.WARUNEK;}
     public W baluj() {return W.WARUNEK;}
     public W WHILE(W warunek) {return W.WARUNEK;}
+    public W WHILE(List<W> warunek) {return W.WARUNEK;}
     public W WHILE_END() {return W.WARUNEK;}
     public W zabij() {return W.WARUNEK;}
     public W patrzy(TypOsoby osoba) {return W.WARUNEK;}
@@ -59,6 +60,7 @@ public class OsobaMetod {
     }
     public W kabluj(TypOsoby me, OsobaMetod manago) {return W.WARUNEK;}
     public W wyklucz(W warunek) {return W.WARUNEK;}
+    public W wyklucz() {return W.WARUNEK;}
     public OsobaMetod threadWhileLoop(W warunek) {return new OsobaMetod();}
     public W thread_while_loop(W warunek) {return W.WARUNEK;}
     public W thread_while_loop(M m) {return W.WARUNEK;}
@@ -89,6 +91,11 @@ public class OsobaMetod {
     public W uzaleznijOdSiebie() {return W.WARUNEK;}
     public W wychodzenieNaUlice() {return W.WARUNEK;}
     public W tworzyWarunki(List<W> warunki) {return W.WARUNEK;}
+    public W tworzyWarunki(W w) {return W.WARUNEK;}
+    public M tworzy(List<W> warunki) {return new M();}
+    public M tworzy(W w) {return new M();}
+    public W zwiekszaSzanse(List<W> warunki) {return W.WARUNEK;}
+    public W zwiekszaSzanse(W w) {return W.WARUNEK;}
     public W dostep(List<W> warunki) {return W.WARUNEK;}
     public W policja(W w) {return W.WARUNEK;}
     public W otrzymujePrzewagiZDzialania() {return W.WARUNEK;}
@@ -101,5 +108,23 @@ public class OsobaMetod {
     public W SLUCHAJA(OsobaMetod osoba){return W.WARUNEK;}
     public W SLUCHAJA(List<OsobaMetod> osoby){return W.WARUNEK;}
     public W postawNajgorszeWarunki(OsobaMetod osoba, List<W> ...warunki){return W.WARUNEK;}
+    public W CZESTO(W warunek) {return W.WARUNEK;}
+    public W CZESTO(List<W> warunki) {return W.WARUNEK;}
+    public W TOLERANCJA(W warunek) {return W.WARUNEK;}
+    public W TOLERANCJA(List<W> warunki) {return W.WARUNEK;}
+    public W DZIALANIE(W warunek) {return W.WARUNEK;}
+    public W DZIALANIE(List<W> warunki) {return W.WARUNEK;}
+    public W WYBOR(W warunek) {return W.WARUNEK;}
+    public W WYBOR(List<W> warunki) {return W.WARUNEK;}
 
+    public W zamknijZasob() {return W.WARUNEK;}
+    public W naklejNalepke() {return W.WARUNEK;}
+    public W uniz() {return W.WARUNEK;}
+    public W cisnij() {return W.WARUNEK;}
+    public W nieposlusznosc() {return W.WARUNEK;}
+    public W walkaPiesci() {return W.WARUNEK;}
+    public W sprzet() {return W.WARUNEK;}
+
+    public W NAWYK(W warunek) {return W.WARUNEK;}
+    public W NAWYK(List<W> warunki) {return W.WARUNEK;}
 }

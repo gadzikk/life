@@ -44,7 +44,7 @@ public class AbstractCPU {
     OsobaMetod zasob = new OsobaMetod();
     OsobaMetod opponent = new OsobaMetod();
     OsobaMetod zaniepokojeni = new OsobaMetod();
-    List<WarunkiKategoria> rany = DB_Warunki.RANY;
+    List<WarunkiKategoria> RANY_WARUNKI = DB_Warunki.RANY;
     OsobaMetod znajomy = new OsobaMetod();
     List<W> PATOLOGIE_WSTEPNE_KOBIET = DB_Patologia.PATOLOGIE_WSTEPNE_KOBIETA.getWarunki();
     List<W> PATOLOGIE_UTRZYMANIA_KOBIET = DB_Patologia.PATOLOGIE_UTRZYMANIA_KOBIETA.getWarunki();
@@ -71,7 +71,7 @@ public class AbstractCPU {
     OsobaMetod srodowisko = new OsobaMetod();
     List<W> OSLONY_WARUNKI = DB_Warunki.OSLONY.getWarunki();
     List<W> KURESTWO_WARUNKI = DB_Warunki.KURESTWO.getWarunki();
-    OsobaMetod grubas = new OsobaMetod();
+    OsobaMetod grubasPrzewaga = new OsobaMetod();
     OsobaMetod fest = new OsobaMetod();
     OsobaMetod twoiWrogowie = new OsobaMetod();
     OsobaMetod zagraniczni = new OsobaMetod();
@@ -82,13 +82,19 @@ public class AbstractCPU {
     List<W> WYMAGA_KARY_WARUNKI = DB_Warunki.WYMAGA_KARY.getWarunki();
     List<W> KOGO_WARUNKI = DB_Warunki.KOGO.getWarunki();
     OsobaMetod zli = new OsobaMetod();
+    OsobaMetod dobrzi = new OsobaMetod();
     OsobaMetod najwyzszyHierarchiaWokol = new OsobaMetod();
     OsobaMetod swoi = new OsobaMetod();
+    OsobaMetod osobyPozaSrodowisko = new OsobaMetod();
+    OsobaMetod goscZHanba = new OsobaMetod();
     List<W> PRZYCZYNY_SLUZENIA_ZLU_WARUNKI = DB_Warunki.PRZYCZYNY_SLUZENIA_ZLU.getWarunki();
     List<W> PRZYCZYNY_SLUZENIA_DOBRU_WARUNKI = DB_Warunki.PRZYCZYNY_SLUZENIA_DOBRU.getWarunki();
     List<W> ZACHETA_DO_ZLA_WARUNKI = DB_Warunki.ZACHETA_DO_ZLA.getWarunki();
     List<W> OBRONA_STARCIE_WARUNKI = DB_Warunki.OBRONA_STARCIE.getWarunki();
     List<W> METODA_STARCIE_REAKCJA_WARUNKI = DB_Warunki.METODA_STARCIE_REAKCJA.getWarunki();
+    List<W> STRATY_MORALNE_WARUNKI = DB_Warunki.STRATY_MORALNE.getWarunki();
+    List<W> STRATY_MATERIALNE_WARUNKI = DB_Warunki.STRATY_MATERIALNE.getWarunki();
+    List<W> PATOLOGIE_OSIEDLE_WARUNKI = DB_Patologia.PATOLOGIE_OSIEDLE.getWarunki();
 
 
     public <T> List<T> of(T... elements){
@@ -97,6 +103,10 @@ public class AbstractCPU {
 
     public <T> T on(T... elements){
         return Arrays.stream(elements).findFirst().get();
+    }
+
+    public <T> T on(List<T> elements){
+        return elements.stream().findFirst().get();
     }
 
     public <T> T oraz(List<T> elements){
@@ -133,9 +143,6 @@ public class AbstractCPU {
 
     public W potrzeba(List<W> warunki){return null;}
 
-    public W temporal(W warunek) {return W.WARUNEK;}
-    public W czas(W warunek) {return W.WARUNEK;}
-    public W czasUlotnosc(W warunek) {return W.WARUNEK;}
     public TypZadania dudki(TypZadania zadanie) {return null;}
     public TypZadania dudki(List<TypZadania> zadania) {return null;}
     public TypZadania stanKondycja(TypZadania zadanie) {return null;}

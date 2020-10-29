@@ -72,6 +72,8 @@ public class CPU_PRACA extends AbstractCPU {
         szponcenie();
         hardcoreZlyFxTeam();
         szukaniePracy();
+        algorytmUczeniaSie();
+        normalnyManago();
     }
     public void praca(){
         M.GRANT(ME, of(W.BEZPIECZENSTWO, W.PIENIADZE, W.SZANSA_KOBIETA));
@@ -291,6 +293,8 @@ public class CPU_PRACA extends AbstractCPU {
         M.STANDARD(M.DUZY_WYSILEK(M.thread_while_loop(W.CIEZKA_PRACA)));
         M.STANDARD(M.DUZY_WYSILEK(W.SUKCES));
 
+        M.MOCNO(W.OCZEKIWANIA);
+        M.MOCNO(W.SUKCES);
     }
 
 }

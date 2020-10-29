@@ -67,7 +67,9 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
         List<W> staziBiegacze = of(W.DUZI_TEMPI, W.AGRESYWNI, W.ULEGLI, W.ZALEZNY, W.UZALZENIENI);
         List<W> mlodziBiegacze = of(W.WYKRECONE_SZCZURKI, W.OFERMY, W.NIEZDOLNOSC_DO_WYSILKU, W.UZALZENIENI);
 
-        M.W(of(W.ZLY, W._88_, W.WIDZIAL) , "--->", of(M.MOCNO(W.ODRAZU_ZLO), W.PRAGNIENIE_ZLA));
+        zly.thread_while_loop(M.KONTROLA(W.WSZYSCY));
+
+        M.W(of(W.ZLY, W._88_, W.WIDZIAL) , "--->", of(M.ODRAZU(M.MOCNO(KTO_KOGO_WARUNKI)), W.PRAGNIENIE_ZLA));
 
         M.W(of(W.ZLY, W._88_, W.BLISKOSC, W._88_, W.DOSTEP) , "--->", of(W.ZMATERIALIZOWANIE_ZLA,
                                                                                     W.WBICIE_NA_MUKE,
@@ -109,6 +111,9 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
 
                 W.WSPARCIE
         );
+        dobrzi.thread_while_loop(M.KONTROLA(W.ZLI));
+
+        M.W(of(W.DOBRY, W._88_, W.WIDZIAL) , "--->", of(M.ODRAZU(M.MOCNO(W.KONTRA)), W.SPRAWIEDLIWOSC));
     }
     public void dobroDzialacz() {
         List<W> conditions = of(
