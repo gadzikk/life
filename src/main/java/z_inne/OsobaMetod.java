@@ -127,4 +127,12 @@ public class OsobaMetod {
 
     public W NAWYK(W warunek) {return W.WARUNEK;}
     public W NAWYK(List<W> warunki) {return W.WARUNEK;}
+    public M ULTIMATUM(OsobaMetod osobaMetod) {return new M();}
+    public W ULTIMATUM(OsobaMetod osobaMetod, W w) {return W.WARUNEK;}
+    public W ULTIMATUM(OsobaMetod osobaMetod, List<W> warunki) {return W.WARUNEK;}
+    public M OCZEKIWANIE_POPRAWY(OsobaMetod osobaMetod) {return new M();}
+    public W ZAMKNIECIE(OsobaMetod osobaMetod) {return W.WARUNEK;}
+    public W WYKLUCZ(OsobaMetod osobaMetod) {return W.WARUNEK;}
+    public W KTO_KOGO(OsobaMetod osobaMetod, List<W> warunki) {return W.WARUNEK;}
+    public W KTO_KOGO_Z_PRZEWAGA(OsobaMetod osobaMetod, List<W> warunki) {return W.WARUNEK;}
 }

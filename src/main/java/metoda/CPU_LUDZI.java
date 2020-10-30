@@ -346,6 +346,7 @@ public class CPU_LUDZI extends AbstractCPU {
                         dzialacz.SET(KTO_KOGO_WARUNKI),
                         dzialacz.SET(M.OPCJA(KURESTWO_WARUNKI)),
                         dzialacz.SET(PATOLOGIE_OSIEDLE_WARUNKI),
+                        dzialacz.SET(TEMATY_RDZENNYCH_WARUNKI),
                         dzialacz.policja(W.ZERO),
 
                         dzialacz.thread_while_loop(M.rozkminianie(wszyscy)),
@@ -355,7 +356,10 @@ public class CPU_LUDZI extends AbstractCPU {
                         dzialacz.WYBOR(of(M.OPCJA(M.DDM(W.SPRZET)), M.OPCJA(M.MIEJSCE_STALE(W.SPRZET)), M.OPCJA(M.PRACA(W.SPRZET)),
                                 M.OPCJA(M.SAMOCHOD(W.SPRZET)), M.OPCJA(M.PRZY_SOBIE(W.SPRZET)))),
 
+                        dzialacz.ULTIMATUM(dzialacz, W.SPRZET),
+
                         srodowisko.thread_while_loop(M.wsparcie(of(W.DZIALANIE_DLA_ZLA, W.SLEPE_DZIALANIE, W.KROTKOWZROCZNOSC))),
+                        srodowisko.thread_while_loop(M.wsparcie(dzialacz)),
 
                         srodowisko.thread_while_loop(M.wplyw(dzialacz)),
                         dzialacz.thread_while_loop(M.wplyw(srodowisko)),
@@ -368,6 +372,12 @@ public class CPU_LUDZI extends AbstractCPU {
 
                         srodowisko.thread_while_loop(M.postawNajgorszeWarunki(drugaStrona,
                                 KTO_KOGO_WARUNKI, KURESTWO_WARUNKI, OSLONY_WARUNKI)),
+
+                        srodowisko.ULTIMATUM(dzialacz).OTHERWISE(of(on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI))),
+                        srodowisko.OCZEKIWANIE_POPRAWY(dzialacz).OTHERWISE(of(
+                                srodowisko.ZAMKNIECIE(dzialacz), srodowisko.WYKLUCZ(dzialacz),
+                                srodowisko.KTO_KOGO_Z_PRZEWAGA(dzialacz, KTO_KOGO_WARUNKI)
+                        )),
 
                         M.W(srodowisko.CZESTO(M.WZAJEMNE_RANY(RANY_WARUNKI)), "--->", srodowisko.TOLERANCJA(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI)),
                         srodowisko.WHILE(dzialacz.thread_while_loop(of(W.SLUCHAJA, W.OBECNOSC_LUDZI, M.wykonujeRozkazy(W.GORA), M.KTO_KOGO(osobyPozaSrodowisko, KTO_KOGO_WARUNKI)))),
@@ -387,6 +397,7 @@ public class CPU_LUDZI extends AbstractCPU {
                         dzialacz.uniz(),
                         dzialacz.cisnij(),
                         dzialacz.notyfikacjaEkipa(),
+                        dzialacz.KTO_KOGO_Z_PRZEWAGA(osobyPozaSrodowisko, KTO_KOGO_WARUNKI),
 
                         M.W(osobyPozaSrodowisko.nieposlusznosc(), "--->", M.WYBOR(of(dzialacz.walkaPiesci(), dzialacz.sprzet()))),
 
@@ -428,5 +439,15 @@ public class CPU_LUDZI extends AbstractCPU {
         M.ZLE(of(M.UKRYCIE(W.SLABOSC), M.POKAZ(W.SILA), M.SKUPIENIE(of(W.PRZEWAGA, on(KTO_KOGO_WARUNKI)))));
 
         M.DOBRE(of(M.PRACA_NAD(W.WADY), M.POKAZ(W.PRAWDA), M.SKUPIENIE(of(W.CEL, W.BYCIE_LEPSZYM))));
+    }
+
+    public void walkaKlas() {
+        M.W(of(W.FEST, W.BLISKOSC, W.RDZENNY), "--->", of(fest.KTO_KOGO(rdzenny, KTO_KOGO_WARUNKI),
+                                                            rdzenny.KTO_KOGO(fest, KTO_KOGO_WARUNKI)));
+
+        M.W(of(W.SUPERPOZYCJA, W.BLISKOSC, W.RDZENNY), "--->", of(superPozycjaOsoby.KTO_KOGO_Z_PRZEWAGA(rdzenny, KTO_KOGO_WARUNKI)));
+
+        M.W(of(W.BIEGACZ, W.BLISKOSC, W.RDZENNY), "--->", of(biegacz.KTO_KOGO_Z_PRZEWAGA(rdzenny, KTO_KOGO_WARUNKI)));
+
     }
 }

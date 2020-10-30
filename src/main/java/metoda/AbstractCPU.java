@@ -67,7 +67,6 @@ public class AbstractCPU {
     List<W> KTO_KOGO_WARUNKI = DB_Warunki.KTO_KOGO.getWarunki();
     OsobaMetod karyna = new OsobaMetod();
     OsobaMetod cvia = new OsobaMetod();
-    OsobaMetod rdzenni = new OsobaMetod();
     OsobaMetod srodowisko = new OsobaMetod();
     List<W> OSLONY_WARUNKI = DB_Warunki.OSLONY.getWarunki();
     List<W> KURESTWO_WARUNKI = DB_Warunki.KURESTWO.getWarunki();
@@ -87,6 +86,9 @@ public class AbstractCPU {
     OsobaMetod swoi = new OsobaMetod();
     OsobaMetod osobyPozaSrodowisko = new OsobaMetod();
     OsobaMetod goscZHanba = new OsobaMetod();
+    OsobaMetod rdzenny = new OsobaMetod();
+    OsobaMetod biegacz = new OsobaMetod();
+
     List<W> PRZYCZYNY_SLUZENIA_ZLU_WARUNKI = DB_Warunki.PRZYCZYNY_SLUZENIA_ZLU.getWarunki();
     List<W> PRZYCZYNY_SLUZENIA_DOBRU_WARUNKI = DB_Warunki.PRZYCZYNY_SLUZENIA_DOBRU.getWarunki();
     List<W> ZACHETA_DO_ZLA_WARUNKI = DB_Warunki.ZACHETA_DO_ZLA.getWarunki();
@@ -95,6 +97,9 @@ public class AbstractCPU {
     List<W> STRATY_MORALNE_WARUNKI = DB_Warunki.STRATY_MORALNE.getWarunki();
     List<W> STRATY_MATERIALNE_WARUNKI = DB_Warunki.STRATY_MATERIALNE.getWarunki();
     List<W> PATOLOGIE_OSIEDLE_WARUNKI = DB_Patologia.PATOLOGIE_OSIEDLE.getWarunki();
+    List<W> TEMATY_NORMALNYCH_LUDZI_WARUNKI = DB_Warunki.TEMATY_NORMALNYCH_LUDZI.getWarunki();
+    List<W> TEMATY_RDZENNYCH_WARUNKI = DB_Warunki.TEMATY_RDZENNYCH.getWarunki();
+
 
 
     public <T> List<T> of(T... elements){

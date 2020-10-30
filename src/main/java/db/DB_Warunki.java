@@ -82,8 +82,9 @@ public class DB_Warunki extends DB {
                 PRZYCZYNY_SLUZENIA_DOBRU,
                 ZACHETA_DO_ZLA,
                 NIESPRAWIEDLIWOSC,
-                DOBRY,
-                ZLY
+                DOBRE_CZYNY,
+                ZLE_CZYNY,
+                ANTY_DZIALACZ
         );
 
         List<WarunkiKategoria> GLOBAL_PLANSZA = Arrays.asList(
@@ -178,6 +179,11 @@ public class DB_Warunki extends DB {
                 PRACA_OSWIATA,
                 PRACA_TRANSPORT,
                 PRACA_TECHNICZNA_UMYSLOWA
+        );
+
+        List<WarunkiKategoria> TEMATY = Arrays.asList(
+                TEMATY_NORMALNYCH_LUDZI,
+                TEMATY_RDZENNYCH
         );
     }
 
@@ -761,11 +767,14 @@ public class DB_Warunki extends DB {
             )
     );
 
-    public static WarunkiKategoria DOBRY = new WarunkiKategoria(
+    public static WarunkiKategoria DOBRE_CZYNY = new WarunkiKategoria(
             new Kategoria(TypKategoria.DOBRY),
             Arrays.asList(
+                    M.CIEZKO(W.DANIE_ZYCIA), M.CIEZKO(W.DOBRE_WYCHOWANIE), M.CIEZKO(of(W.ZMNIEJSZANIE_ZLA, W.AKTYWNA_WALKA_ZE_ZLEM)),
+                    M.CIEZKO(W.USWIADAMIANIE), M.CIEZKO(W.CZYNIENIE_SWIATA_LEPSZYM),
+
                     W.ROBIENIE_PROGRESU, W.ZDOBYWANIE_UMIEJETNOSCI, W.ZDOBYWANIE_WIEDZY, W.ZDOBYWANIE_SILY,
-                    W.USWIADAMIANIE, W.WYCIAGANIE_ZE_ZLEJ_SYTUACJI, W.ZMNIEJSZANIE_ZLA, W.ROBIENIE_OPCJI,
+                    W.WYCIAGANIE_ZE_ZLEJ_SYTUACJI, W.ROBIENIE_OPCJI,
                     W.PRZEKONYWANIE_ZA, W.POLECENIE,
                     W.PRAWDA, W.CIERPLIWOSC,
                     W.TRZEZWOSC,
@@ -776,11 +785,14 @@ public class DB_Warunki extends DB {
             )
     );
 
-    public static WarunkiKategoria ZLY = new WarunkiKategoria(
+    public static WarunkiKategoria ZLE_CZYNY = new WarunkiKategoria(
             new Kategoria(TypKategoria.ZLY),
             Arrays.asList(
+                    M.LATWO(W.ZLE_WYCHOWANIE), M.LATWO(M.WSPARCIE(W.ZLO)),
+                    M.LATWO(W.OGLUPIANIE), M.LATWO(W.CZYNIENIE_SWIATA_GORSZYM),
+
                     W.MARNOWANIE_CZASU, W.POZBAWIANIE_UMIEJETNOSCI, W.POZBAWIANIE_WIEDZY, W.POZBAWIANIE_SILY,
-                    W.OGLUPIANIE, W.WDUPCANIE_W_ZLE_WARUNKI, W.ZAMYKANIE_OPCJI, W.PRZEKONYWANIE_PRZECIW,
+                    W.WDUPCANIE_W_ZLE_WARUNKI, W.ZAMYKANIE_OPCJI, W.PRZEKONYWANIE_PRZECIW,
                     W.PRZEKONYWANIE_ZA, W.POLECENIE,
                     W.KLAMSTWO, W.AGRESJA_FIZYCZNA, W.AGRESJA_PSYCHICZNA,
                     W.ODUZENIE,
@@ -1177,6 +1189,7 @@ public class DB_Warunki extends DB {
                     M.MALY_WYSILEK(M.MOCNO(W.STARCIE_WIELU_NA_JEDNEGO)), M.MALY_WYSILEK(M.MOCNO(W.PRZEWAGA_NA_BRAK_PRZEWAGI)),
                     M.MOCNO(of(W.WYKORZYSTANIE, W.OKRASC_PIENIADZE)),
                     M.DUZY_WYSILEK(W.ZAMYKANIE_OPCJI), M.MALY_WYSILEK(W.OGLUPIANIE), M.NEUTRALNY_RZUT(W.NIESWIADOMOSC),
+                    M.DUZY_WYSILEK(W.ULTIMATUM), M.DUZY_WYSILEK(W.SWIADOMOSC), M.NEUTRALNY_RZUT(W.DOSTEP),
                     M.DUZY_WYSILEK(W.ZNISZCZENIE_PRZEWAGI),
                     M.MALY_WYSILEK(M.MOCNO(of(W.WSPARCIE_OSLONY, W.FALSZYWE_WRAZENIE, W.WYSOKIE_OCZEKIWANIE))),
                     M.MALY_WYSILEK(M.MOCNO(M.MIEJSCE_STALE(W.ODCIECIE_DOSTEPU_WARTOSC))),
@@ -1246,7 +1259,8 @@ public class DB_Warunki extends DB {
                                                       M.DEFAULT_DZIALAJCY(of(W.ODPOWIADA, W.WALKA_PIESCI ,W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
 
         M.W(M.MALY_WYSILEK(W.BLISKOSC), "--->", of(W.SONDA, M.DEFAULT(W.PATRZY),
-                                                                 M.DEFAULT_DZIALAJCY(of(W.PATRZY, W.ROZKMINIA, W.FOTY, W.NOTYFIKACJA_EKIPA))))
+                                                                 M.DEFAULT_DZIALAJCY(of(W.PATRZY, W.ROZKMINIA, W.FOTY, W.NOTYFIKACJA_EKIPA,
+                                                                                                                        M.OPCJA(W.CISNIE)))))
     ));
 
     public static WarunkiKategoria OBRONA_STARCIE = new WarunkiKategoria(
@@ -1291,13 +1305,42 @@ public class DB_Warunki extends DB {
             )
     );
 
+    public static WarunkiKategoria TEMATY_NORMALNYCH_LUDZI = new WarunkiKategoria(
+            new Kategoria(TypKategoria.TEMATY, TypKategoria.TEMATY_NORMALNYCH_LUDZI),
+            Arrays.asList(
+                    M.thread_while_loop(W.BRAK_EMOCJI), W.PRACA, W.SPORT, W.POGODA, W.SLUZBA_ZROWIA,
+                    W.ZDROWIE, W.SAMOPOCZUCIE, W.NAUKA, M.OPCJA(W.DZIECI), W.RODZINA, W.DOM, W.NOWE_TECHNOLOGIE,
+                    W.UBRANIA, W.USLUGI, W.EVENTY, W.AKTUALNE_WYDARZENIA_SWIATA, W.PODROZE, W.KULTURY_SWIATA,
+                    W.GOTOWANIE, W.JEDZENIE, W.WOLNOSC
+            )
+    );
+
+    public static WarunkiKategoria TEMATY_RDZENNYCH = new WarunkiKategoria(
+            new Kategoria(TypKategoria.TEMATY, TypKategoria.TEMATY_RDZENNYCH),
+            Arrays.asList(
+                    M.thread_while_loop(W.EMOCJE),
+                    M.MOCNO(of(
+                            W.NIENAWISC, W.KIBICOWANIE, M.HIERARCHIA(W.ZNAJOMI), W.KLUB, W.MELANZ, W.UZYWKI,
+                            W.STANDARD_ZACHOWANIA, M.OPCJA(W.DZIECI), W.PRZEWAGA, M.TOLERANCJA(M.REAKCJA_SMIECHEM(W.EMOCJE_ZE_ZLA))
+                    )
+            ))
+    );
+
+    public static WarunkiKategoria ANTY_DZIALACZ = new WarunkiKategoria(
+            new Kategoria(TypKategoria.ANTY_DZIALACZ),
+            Arrays.asList(
+                    W._1_VS_1_STARCIE_BEZ_PRZEWAG
+            )
+    );
+
     public static List<WarunkiKategoria> ZLY_DOBRY = Arrays.asList(
             PRZYCZYNY_SLUZENIA_ZLU,
             PRZYCZYNY_SLUZENIA_DOBRU,
             ZACHETA_DO_ZLA,
             NIESPRAWIEDLIWOSC,
-            DOBRY,
-            ZLY
+            DOBRE_CZYNY,
+            ZLE_CZYNY,
+            ANTY_DZIALACZ
     );
 
     public static List<WarunkiKategoria> GLOBAL_PLANSZA = Arrays.asList(
@@ -1392,5 +1435,10 @@ public class DB_Warunki extends DB {
             PRACA_OSWIATA,
             PRACA_TRANSPORT,
             PRACA_TECHNICZNA_UMYSLOWA
+    );
+
+    public static List<WarunkiKategoria> TEMATY = Arrays.asList(
+            TEMATY_NORMALNYCH_LUDZI,
+            TEMATY_RDZENNYCH
     );
 }

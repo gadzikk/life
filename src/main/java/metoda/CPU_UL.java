@@ -1163,7 +1163,7 @@ public class CPU_UL extends AbstractCPU {
     }
 
     public void rdzenni() {
-        rdzenni.NAWYK(W.WYCHODZENIE_NA_ULICE);
+        rdzenny.NAWYK(W.WYCHODZENIE_NA_ULICE);
     }
 
     public void tworzenieWarunkow() {

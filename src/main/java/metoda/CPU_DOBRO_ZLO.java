@@ -18,15 +18,15 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
 
         M.DEFAULT(of(M.MOCNO(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI), M.SLABO(PRZYCZYNY_SLUZENIA_DOBRU_WARUNKI)));
 
-        zlo();
-        dobro();
+        zloDzialanie();
+        dobroDzialanie();
         dobroDzialacz();
         general();
         zloUjecieSwiatowe();
         wyborKazdegoCzlowieka();
     }
 
-    public void zlo() {
+    public void zloDzialanie() {
         M.FIRST(of(W.KTOS_CIEBIE_LUB_TY_NIEGO, W.SONDA_POD_ZROBIENIE_ZLA, W.AGRESJA_W_DZIALANIU, W.ZASOBY_OGRANICZONE));
 
         List<W> conditions = of(
@@ -86,7 +86,7 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
                                                                     .KONCOWO(of(W.STRATA_CZASU, W.STRATA_PIENIEDZY,
                                                                                 W.STRATA_SIL ,W.STRATY_MORALNE)));
     }
-    public void dobro() {
+    public void dobroDzialanie() {
         List<W> conditions = of(
                 W.CIERPIENIE,
                 W.KONTRA,

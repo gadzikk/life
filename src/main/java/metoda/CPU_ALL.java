@@ -158,11 +158,11 @@ public class CPU_ALL extends AbstractCPU {
         najwiekszaBron();
     }
     public void trudnoLatwo(){
-        M.TRUDNO(W.ZWIAZEK).WARUNEK(W.MEZCZYZNA);
-        M.LATWO(W.ZWIAZEK).WARUNEK(W.KOBIETA);
+        o(M.TRUDNO(W.ZWIAZEK)).WARUNEK(W.MEZCZYZNA);
+        o(M.LATWO(W.ZWIAZEK)).WARUNEK(W.KOBIETA);
         M.LATWO(W.EMIGRACJA);
         M.TRUDNO(W.PRACA_KRAJ);
-        M.TRUDNO(W.POZNANIE).WARUNEK(W.MALE_SKUPISKO_LUDZI);
+        o(M.TRUDNO(W.POZNANIE)).WARUNEK(W.MALE_SKUPISKO_LUDZI);
         M.TRUDNO(W.TRZEZWOSC);
         M.LATWO(W.UZYWKI);
     }
@@ -211,6 +211,8 @@ public class CPU_ALL extends AbstractCPU {
         M.W(of(W.SLEPA_LOJALNOSC, W.UZNAJE_HIERARCHIE, W.DUZO_UMIEJETNOSCI, W.MIEJSCE), "--->", of(W.SUPERPOZYCJA));
 
         M.W(of(W.BRAK_SUPERPOZYCJI), "--->", of(W.NIEWOLNIK, W.TWOJE_ZDANIE_NIC_NIE_ZNACZY));
+
+        M.W(W.WYSOKA_POZYCJA, "--->", M.DEFAULT(M.BRAK_DOSTEPU(W.SWIAT), M.DOSTEP(W.FIRMA), M.SILA_SPRAWCZA(W.FIRMA)));
     }
 
     public void najwiekszaBron() {

@@ -494,11 +494,11 @@ public class M {
     public static W szukajUjscia() {return W.WARUNEK;}
     public static W szukajHotspot() {return W.WARUNEK;}
     public static W odbicieNaNozkach() {return W.WARUNEK;}
-    public static M TRUDNO(W warunek) {return new M();}
-    public static M TRUDNO(List<W> warunki) {return new M();}
-    public static M LATWO(W warunek) {return new M();}
-    public static M LATWO(List<W> warunki) {return new M();}
-    public static M latwo(W warunek) {return new M();}
+    public static W TRUDNO(W warunek) {return W.WARUNEK;}
+    public static W TRUDNO(List<W> warunki) {return W.WARUNEK;}
+    public static W LATWO(W warunek) {return W.WARUNEK;}
+    public static W LATWO(List<W> warunki) {return W.WARUNEK;}
+    public static W latwo(W warunek) {return W.WARUNEK;}
     public M WARUNEK(W warunek) {return new M();}
     public M otherwise(W warunek) {return new M();}
     public M otherwise(List<W> warunki) {return new M();}
@@ -673,6 +673,7 @@ public class M {
     public static W pobierzNastawienie() {return W.WARUNEK;}
     public static M wsparcie(W w) {return new M();}
     public static M wsparcie(List<W> w) {return new M();}
+    public static M wsparcie(OsobaMetod osoba) {return new M();}
     public static M wzajemneOddzialywanie(OsobaMetod osoba) {return new M();}
     public static M moda() {return new M();}
     public static M komfort() {return new M();}
@@ -686,6 +687,7 @@ public class M {
     public M smiejeSie() {return new M();}
     public M hanba() {return new M();}
     public W wesele() {return W.WARUNEK;}
+    public static W DOSTEP(W w) {return W.WARUNEK;}
     public static W DOSTEP(List<W> warunki) {return W.WARUNEK;}
     public static W WZIECIE_SPRAWIEDLIWOSCI(W w) {return W.WARUNEK;}
     public static W WZIECIE_SPRAWIEDLIWOSCI(List<W> warunki) {return W.WARUNEK;}
@@ -797,4 +799,20 @@ public class M {
     public static W SPOTKANY(OsobaMetod osoba){return W.WARUNEK;}
     public static W ZAWSZE_GDY_BLISKOSC(W warunek) {return W.WARUNEK;}
     public static W ZAWSZE_GDY_BLISKOSC(List<W> warunki) {return W.WARUNEK;}
+    public static W WSPARCIE(W warunek) {return W.WARUNEK;}
+    public static W WSPARCIE(List<W> warunki) {return W.WARUNEK;}
+    public static W HIERARCHIA(W warunek) {return W.WARUNEK;}
+    public static W HIERARCHIA(List<W> warunki) {return W.WARUNEK;}
+    public static W TOLERANCJA(W warunek) {return W.WARUNEK;}
+    public static W TOLERANCJA(List<W> warunki) {return W.WARUNEK;}
+    public static W REAKCJA_SMIECHEM(W warunek) {return W.WARUNEK;}
+    public static W REAKCJA_SMIECHEM(List<W> warunki) {return W.WARUNEK;}
+    public static W OCZEKIWANIE(W warunek) {return W.WARUNEK;}
+    public static W OCZEKIWANIE(List<W> warunki) {return W.WARUNEK;}
+    public static W EFEKTYWNIE(W warunek) {return W.WARUNEK;}
+    public static W EFEKTYWNIE(List<W> warunki) {return W.WARUNEK;}
+    public static W SILA_SPRAWCZA(W warunek) {return W.WARUNEK;}
+    public static W SILA_SPRAWCZA(List<W> warunki) {return W.WARUNEK;}
+    public static W BRAK_DOSTEPU(W warunek) {return W.WARUNEK;}
+    public static W BRAK_DOSTEPU(List<W> warunki) {return W.WARUNEK;}
 }

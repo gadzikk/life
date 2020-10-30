@@ -295,6 +295,8 @@ public class CPU_PRACA extends AbstractCPU {
 
         M.MOCNO(W.OCZEKIWANIA);
         M.MOCNO(W.SUKCES);
+
+        M.W(W.PYTANIE, "--->", M.MOCNO(M.OCZEKIWANIE(M.EFEKTYWNIE(W.ODPOWIEDZ))));
     }
 
 }
