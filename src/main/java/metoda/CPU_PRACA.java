@@ -286,7 +286,21 @@ public class CPU_PRACA extends AbstractCPU {
     }
 
     public void algorytmUczeniaSie() {
-        // todo
+        M.ZRODLA(of(M.SZYBKO(W.ARTYKULY), M.WOLNO(W.KSIAZKI), W.PYTANIA_INTERVIEW, W.STUDIA, W.GITHUB));
+
+        M.W(W.KSIAZKA, "--->", of(M.POROWNANIE_Z_INNYMI(W.KSIAZKA),
+                                    M.PRZEGLADNIECIE(W.SPIS_TRESCI),
+                                    M.thread_while_loop(M.WYPISYWANIE(W.BUZZWORDY)),
+                                    M.CZYTANIE_OD_POCZATKU(W.KSIAZKA),
+                                    M.CZYTANIE_OD_KONCA(W.KSIAZKA),
+                                    M.CZYTANIE_ARTYKULOW(W.BUZZWORDY)));
+
+        M.W(W.ARTYKUL, "--->", of(M.PRZECZYTANIE(W.ARTYKUL),
+                                        M.BOOKMARK(W.ARTYKUL),
+                                        M.thread_while_loop(M.WYPISYWANIE(W.BUZZWORDY)),
+                                        M.NASTEPNY_DZIEN(M.POWTORZENIE(W.ARTYKUL))));
+
+        M.OPCJA(of(M.IMPLEMENTACJA(), M.SPOTKANIE_SIE_Z_PROBLEMAMI(), M.ROZWIAZANIE_PROBLEMOW()));
     }
 
     public void normalnyManago() {

@@ -815,4 +815,29 @@ public class M {
     public static W SILA_SPRAWCZA(List<W> warunki) {return W.WARUNEK;}
     public static W BRAK_DOSTEPU(W warunek) {return W.WARUNEK;}
     public static W BRAK_DOSTEPU(List<W> warunki) {return W.WARUNEK;}
+    public static W WYPISYWANIE(W warunek) {return W.WARUNEK;}
+    public static W WYPISYWANIE(List<W> warunki) {return W.WARUNEK;}
+    public static W POROWNANIE_Z_INNYMI(W warunek) {return W.WARUNEK;}
+    public static W POROWNANIE_Z_INNYMI(List<W> warunki) {return W.WARUNEK;}
+    public static W PRZEGLADNIECIE(W warunek) {return W.WARUNEK;}
+    public static W PRZEGLADNIECIE(List<W> warunki) {return W.WARUNEK;}
+    public static W CZYTANIE_OD_POCZATKU(W warunek) {return W.WARUNEK;}
+    public static W CZYTANIE_OD_POCZATKU(List<W> warunki) {return W.WARUNEK;}
+    public static W CZYTANIE_OD_KONCA(W warunek) {return W.WARUNEK;}
+    public static W CZYTANIE_OD_KONCA(List<W> warunki) {return W.WARUNEK;}
+    public static W CZYTANIE_ARTYKULOW(W warunek) {return W.WARUNEK;}
+    public static W CZYTANIE_ARTYKULOW(List<W> warunki) {return W.WARUNEK;}
+    public static W ZRODLA(W warunek) {return W.WARUNEK;}
+    public static W ZRODLA(List<W> warunki) {return W.WARUNEK;}
+    public static W PRZECZYTANIE(W warunek) {return W.WARUNEK;}
+    public static W PRZECZYTANIE(List<W> warunki) {return W.WARUNEK;}
+    public static W NASTEPNY_DZIEN(W warunek) {return W.WARUNEK;}
+    public static W NASTEPNY_DZIEN(List<W> warunki) {return W.WARUNEK;}
+    public static W POWTORZENIE(W warunek) {return W.WARUNEK;}
+    public static W POWTORZENIE(List<W> warunki) {return W.WARUNEK;}
+    public static W IMPLEMENTACJA() {return W.WARUNEK;}
+    public static W SPOTKANIE_SIE_Z_PROBLEMAMI() {return W.WARUNEK;}
+    public static W ROZWIAZANIE_PROBLEMOW() {return W.WARUNEK;}
+    public static W BOOKMARK(W warunek) {return W.WARUNEK;}
+
 }
