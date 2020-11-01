@@ -345,6 +345,7 @@ public class CPU_LUDZI extends AbstractCPU {
                         dzialacz.SET(of(W.WYKRECENIE, W.WADY_FIZYCZNE, W.WADY_UMYSLOWE, W.OGRANICZENIE_WOLNOSCI)),
                         dzialacz.SET(KTO_KOGO_WARUNKI),
                         dzialacz.SET(M.OPCJA(KURESTWO_WARUNKI)),
+                        dzialacz.SET(CECHY_RDZENNY_WARUNKI),
                         dzialacz.SET(PATOLOGIE_OSIEDLE_WARUNKI),
                         dzialacz.SET(TEMATY_RDZENNYCH_WARUNKI),
                         dzialacz.policja(W.ZERO),

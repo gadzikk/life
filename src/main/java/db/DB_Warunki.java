@@ -1333,6 +1333,14 @@ public class DB_Warunki extends DB {
             )
     );
 
+    public static WarunkiKategoria CECHY_RDZENNY = new WarunkiKategoria(
+            new Kategoria(TypKategoria.ANTY_DZIALACZ),
+            Arrays.asList(
+                    W.WKURWIENIE_ZYCIEM, W.RYWALIZACJA, W.ZAZDROSC, W.CHRONIENIE_SWOJEGO,
+                    W.WIEDZA_PRZEWAGI, W.WIEDZA_OSIAGANIE_PRZEWAG
+            )
+    );
+
     public static List<WarunkiKategoria> ZLY_DOBRY = Arrays.asList(
             PRZYCZYNY_SLUZENIA_ZLU,
             PRZYCZYNY_SLUZENIA_DOBRU,
@@ -1370,7 +1378,8 @@ public class DB_Warunki extends DB {
             CIERPIENIA,
             POTRZEBY,
             OSLONY,
-            DEFAULT_WARUNKI
+            DEFAULT_WARUNKI,
+            CECHY_RDZENNY
     );
 
     public static List<WarunkiKategoria> REAKCJE = Arrays.asList(

@@ -68,6 +68,8 @@ public class CPU_1 extends AbstractCPU {
 
     public void run(){
         W nastawienie = M.ODRAZU(W.BLISKOSC);
+        nastawienie = M.WYBOR(of(W.BIERZESZ_CO_JEST, W.WG_OCZEKIWANIA,
+                                 W.BEZ_POPATRZENIA, W.NA_POPATRZENIE, W.NA_CHETNOSC, W.NA_ZNAJOMOSC));
         List<W> mainFlow = of(W.GLOWNA_DROGA, W.MIEJSCE_STALE);
 
         M.W(

@@ -64,6 +64,8 @@ public class CPU_1_SHORTEST extends AbstractCPU {
 
     public void run(){
         W nastawienie = M.ODRAZU(W.BLISKOSC);
+        nastawienie = M.WYBOR(of(W.BIERZESZ_CO_JEST, W.WG_OCZEKIWANIA,
+                W.BEZ_POPATRZENIA, W.NA_POPATRZENIE, W.NA_CHETNOSC, W.NA_ZNAJOMOSC));
 
         M.W(
                 of(M.wejsciePlansza(plansza)),
@@ -74,7 +76,7 @@ public class CPU_1_SHORTEST extends AbstractCPU {
                 of(W.THREAD_WHILE_LOOP_ZASIEG_WZROKU)
         );
         M.W(
-                of(M.sondaOsoby(osobaCechy), M.sondaSytuacji(typySytuacji, essentials)),
+                of(M.sondaOsoby(osobaCechy), M.sondaSytuacji(typySytuacji, essentials), M.przewidzenieDrogi()),
                 of(W.SYTUACJA)
         );
         M.W(
