@@ -1337,7 +1337,10 @@ public class DB_Warunki extends DB {
             new Kategoria(TypKategoria.ANTY_DZIALACZ),
             Arrays.asList(
                     W.WKURWIENIE_ZYCIEM, W.RYWALIZACJA, W.ZAZDROSC, W.CHRONIENIE_SWOJEGO,
-                    W.WIEDZA_PRZEWAGI, W.WIEDZA_OSIAGANIE_PRZEWAG
+                    W.NORMALNE_EMOCJE, W.REAKCJA, W.ZDOLNY_DO_WALKI, W.UMIE_CISNAC, W.UMIE_KLUCIC,
+                    W.DAZENIE_DO_CELU,
+                    W.WIEDZA_PRZEWAGI, W.WIEDZA_OSIAGANIE_PRZEWAG,
+                    M.OPCJA(W.AGRESJA)
             )
     );
 

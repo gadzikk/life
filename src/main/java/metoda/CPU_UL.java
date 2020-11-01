@@ -1045,6 +1045,10 @@ public class CPU_UL extends AbstractCPU {
         M.W(of(W.SAM) , "--->", of(W.LATWY_CEL, W.BRAK_PRZEWAG, W.MALA_SZANSA_POZNANIE));
 
         M.W(M.SPOTKANY(goscZHanba), "--->", M.ZAWSZE_GDY_BLISKOSC(of(W.CISNIE, W.WYPOMNIENIE_HANBY)));
+
+        M.W(M.KORZYSTA(W.SILA), "--->", M.MUSI(M.NA(W.ULICA)).OTHERWISE(W.PRZYPAL));
+
+        M.W(of(W.WROG, W._88_, W.BLISKOSC), "--->", M.WALI(wrogowie));
     }
 
     public void wokolDzialaczaSrodowiska() {

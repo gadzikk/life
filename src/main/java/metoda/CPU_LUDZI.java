@@ -428,6 +428,10 @@ public class CPU_LUDZI extends AbstractCPU {
 
     public void czlowiekCierpienia() {
         M.W(M.DLUGO(M.CIEZKO(of(W.CIERPIENIE, W.BOL))), "--->", M.WZIECIE_SPRAWIEDLIWOSCI(of(W.SILA, W.MADROSC, W.DOSWIADCZENIA)));
+
+        M.W(M.KORZYSTA(W.SILA), "--->", M.MUSI(M.NA(W.ULICA)).OTHERWISE(W.PRZYPAL));
+
+        M.W(of(W.WROG, W._88_, W.BLISKOSC), "--->", M.WALI(wrogowie));
     }
 
     public void sprawiedliwy() {

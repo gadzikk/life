@@ -839,5 +839,11 @@ public class M {
     public static W SPOTKANIE_SIE_Z_PROBLEMAMI() {return W.WARUNEK;}
     public static W ROZWIAZANIE_PROBLEMOW() {return W.WARUNEK;}
     public static W BOOKMARK(W warunek) {return W.WARUNEK;}
-
+    public static W KORZYSTA(W warunek) {return W.WARUNEK;}
+    public static W KORZYSTA(List<W> warunki) {return W.WARUNEK;}
+    public static W MUSI(W warunek) {return W.WARUNEK;}
+    public static W MUSI(List<W> warunki) {return W.WARUNEK;}
+    public static W NA(W warunek) {return W.WARUNEK;}
+    public static W NA(List<W> warunki) {return W.WARUNEK;}
+    public static W WALI(OsobaMetod osoba) {return W.WARUNEK;}
 }

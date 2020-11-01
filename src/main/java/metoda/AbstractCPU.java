@@ -88,6 +88,7 @@ public class AbstractCPU {
     OsobaMetod goscZHanba = new OsobaMetod();
     OsobaMetod rdzenny = new OsobaMetod();
     OsobaMetod biegacz = new OsobaMetod();
+    OsobaMetod wrogowie = new OsobaMetod();
 
     List<W> PRZYCZYNY_SLUZENIA_ZLU_WARUNKI = DB_Warunki.PRZYCZYNY_SLUZENIA_ZLU.getWarunki();
     List<W> PRZYCZYNY_SLUZENIA_DOBRU_WARUNKI = DB_Warunki.PRZYCZYNY_SLUZENIA_DOBRU.getWarunki();
