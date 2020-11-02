@@ -211,6 +211,9 @@ public class CPU_PRACA extends AbstractCPU {
 
         manago.thread_while_loop(of(W.OCENA_TYLKO_WEDLE_ZLEGO, W.OCENA_CZEGO_NIE_ZROBILES));
         team.thread_while_loop(W.FARMAZON24_7);
+        team.thread_while_loop(M.SZUKANIE(W.DZIURA_W_CALYM));
+        team.thread_while_loop(M.CZYCHA(W.BLAD));
+
         manago.SET(of(W.PIASKOWNICA, W.MALY_RUDY_FEST_GITARA_DLUGIE_WLOSY, W.IGNORANT_MALE_DZIECKO));
         manago.rozpowiedzDoWszystkich(W.WADA);
 

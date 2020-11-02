@@ -12,15 +12,17 @@ import static typy_bazowe.TypOsoby.SOMEONE;
  * Created by gadzik on 05.01.20.
  */
 public class CPU_SJ extends AbstractCPU {
+    List<W> periodyczneCzynnosci = of(M.CZESTO(W.WYCHODZISZ), M.CZESTO(W.WYSILEK_FIZYCZNY));
+
     List<W> warunkiWyjscia = of(
             M.NIEBOISZ_SIE(W.POMSZCZENIE), M.NIEBOISZ_SIE(W.NOTYFIKACJA_EKIPA), M.NIEBOISZ_SIE(W.FOTY),
             M.NIEBOISZ_SIE(W.OBRAZENIA_FIZYCZNE), M.NIEBOISZ_SIE(W.STARCIE_WIELU_NA_JEDNEGO),
             M.NIEBOISZ_SIE(M.MOZLIWOSC(W.SPRZET)),
             M.NIEBOISZ_SIE(of(W.WYJSCIE, W.STARCIE, W.NIESPRAWIEDLIWE_PRZEWAGI)),
-
+            M.thread_while_loop(M.PRZYGOTOWANY(W.DZIALANIE_POD_PRESJA)),
             M.PRIORYTET(W.WYCHODZENIE_U_SIEBIE), M.ORIENT(W.RZECZY_WARTOSCIOWE), M.DZIALANIE(W.RZECZY_WARTOSCIOWE));
 
-    W ulicyWybor = M.thread_while_loop(M.WYBOR(of(W.IDZIESZ, W.STOISZ_BRAMA, W.STOISZ_MIEJSCE_STALE, W.JEDZIESZ_TRAUTO)));
+    W ciaglaCzynnoscUlica = M.thread_while_loop(M.WYBOR(of(W.IDZIESZ, W.STOISZ_BRAMA, W.STOISZ_MIEJSCE_STALE, W.JEDZIESZ_TRAUTO)));
 
     W nastawienie = W.KONTRA;
 
@@ -94,6 +96,11 @@ public class CPU_SJ extends AbstractCPU {
             "SZYDELKO", "KOTALA");
 
     public void run() {
+        M.W(W.WYCHODZISZ, "--->", of(M.thread_while_loop(W.ZLO_KRAZY),
+                                        zli.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA),
+                                        zli.thread_while_loop(W.STWARZA_OKAZJE_ZROBIENIE_ZLA),
+                M.thread_while_loop(of(ciaglaCzynnoscUlica, W.ZASIEG_WZROKU, W.SCIEZKI, W.LUDZIE, W.WIDOCZNY_GDY_IDZIESZ))));
+
         W nastawienie = W.AKTYWNA_KONTRA;
         W nastawienieOtoczenia = W._80_PROCENT_CHCE_CIE_ROZJEBAC;
 

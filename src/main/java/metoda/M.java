@@ -846,4 +846,26 @@ public class M {
     public static W NA(W warunek) {return W.WARUNEK;}
     public static W NA(List<W> warunki) {return W.WARUNEK;}
     public static W WALI(OsobaMetod osoba) {return W.WARUNEK;}
+    public static W PODSTAWA(W warunek) {return W.WARUNEK;}
+    public static W PODSTAWA(List<W> warunki) {return W.WARUNEK;}
+    public static W ROZKMINANIE(W warunek) {return W.WARUNEK;}
+    public static W ROZKMINANIE(List<W> warunki) {return W.WARUNEK;}
+    public static W ZLE_ZAMIARY() {return W.WARUNEK;}
+    public static W UNIZAJ(W warunek) {return W.WARUNEK;}
+    public static W UNIZAJ(List<W> warunki) {return W.WARUNEK;}
+    public static W PROBUJ_PRZEJAC(W warunek) {return W.WARUNEK;}
+    public static W PROBUJ_PRZEJAC(List<W> warunki) {return W.WARUNEK;}
+    public static W NASYLANIE_DZIALACZY() {return W.WARUNEK;}
+    public static W NASYLANIE_DZIALACZY(W warunek) {return W.WARUNEK;}
+    public static W NASYLANIE_DZIALACZY(List<W> warunki) {return W.WARUNEK;}
+    public static W POBIERZ(W warunek) {return W.WARUNEK;}
+    public static W POBIERZ(List<W> warunki) {return W.WARUNEK;}
+    public static W SWOI(W warunek) {return W.WARUNEK;}
+    public static W SWOI(List<W> warunki) {return W.WARUNEK;}
+    public static W SZUKANIE(W warunek) {return W.WARUNEK;}
+    public static W SZUKANIE(List<W> warunki) {return W.WARUNEK;}
+    public static W CZYCHA(W warunek) {return W.WARUNEK;}
+    public static W CZYCHA(List<W> warunki) {return W.WARUNEK;}
+    public static W PRZYGOTOWANY(W warunek) {return W.WARUNEK;}
+    public static W PRZYGOTOWANY(List<W> warunki) {return W.WARUNEK;}
 }

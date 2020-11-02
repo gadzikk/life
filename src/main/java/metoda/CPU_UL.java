@@ -30,6 +30,8 @@ public class CPU_UL extends AbstractCPU {
     W kurestwo = M.MOCNO(KURESTWO_WARUNKI);
     W oslony = M.MOCNO(OSLONY_WARUNKI);
 
+    W ciaglaCzynnoscUlica = M.thread_while_loop(M.WYBOR(of(W.IDZIESZ, W.STOISZ_BRAMA, W.STOISZ_MIEJSCE_STALE, W.JEDZIESZ_TRAUTO)));
+
     List<W> podstawa = of(W.OGRANICZENIE_CZASOWE, W.DNI, W.TYGODNIE, W.LATA, W.OBECNOSC, W.DOSTEP, W.POZNANIE_CZLOWIEKA_WADAMI,
             W.ENUM, W.ANTY_FEST, W.ANTY_SYSTEM, W.ANTY_BURZUA, W.ANTY_KONFI, W.DEFAULT_WARUNKI, W.STARCIE, W.KTO_ZYSKUJE);
 
@@ -1172,7 +1174,8 @@ public class CPU_UL extends AbstractCPU {
 
     public void tworzenieWarunkow() {
         polskiRzad.tworzyWarunki(of(W.CHRONICZNE_BEZROBOCIE, W.NISKIE_PENSJE, W.PRAWO));
-        grubasPrzewaga.tworzyWarunki(of(W.KLAMSTWO, W.SLABY, W.WADY, W.DZIALAJACY, W.ZMYSLY_DLA_ZLA, oraz(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI)));
+        grubasPrzewaga.tworzyWarunki(of(W.KLAMSTWO, W.SLABY, W.WADY, W.DZIALAJACY, W.ZMYSLY_DLA_ZLA, M.NASYLANIE_DZIALACZY(),
+                                                                                        oraz(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI)));
 
         grubasPrzewaga.tworzyWarunki(M.ZAPOTRZEBOWANIE(of(W.ZLO, on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI), on(KTO_KOGO_WARUNKI))));
         dzialacz.zwiekszaSzanse(of(W.ZLO, on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI), on(KTO_KOGO_WARUNKI)));
@@ -1198,6 +1201,41 @@ public class CPU_UL extends AbstractCPU {
         M.W(M.PRZEJECIE(KTO_KOGO_WARUNKI, KURESTWO_WARUNKI, OSLONY_WARUNKI), "--->", M.OBSADZ_STANOWISKA(of(W.SWOI, W.ZLI)));
         M.ULTIMATIUM(pracownicy.thread_while_loop(M.DZIALANIE_DLA_ZLA(KTO_KOGO_WARUNKI, KURESTWO_WARUNKI, OSLONY_WARUNKI)));
         M.thread_while_loop(M.DOSTEP_TYLKO(W.ZLI));
+    }
+
+    public void wychodzisz() {
+        M.W(W.WYCHODZISZ, "--->", of(M.thread_while_loop(W.ZLO_KRAZY),
+                                        zli.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA),
+                                        zli.thread_while_loop(W.STWARZA_OKAZJE_ZROBIENIE_ZLA),
+                M.thread_while_loop(of(ciaglaCzynnoscUlica, W.ZASIEG_WZROKU, W.SCIEZKI, W.LUDZIE, W.WIDOCZNY_GDY_IDZIESZ))));
+    }
+
+    public void cviiZalosneStarania() {
+        M.thread_while_loop(of(W.NIEUDOLNOSC, M.ROZKMINANIE(W.WSZYSCY), M.ZLE_ZAMIARY()));
+        M.thread_while_loop(M.PODSTAWA(W.KLAMSTWO).WZGLEDEM(of(W.SIEBIE, W.INNI)));
+        M.POBIERZ(METODY_POLICYJNE_WARUNKI);
+        M.SWOI(of(W.SAD, W.POLICJA, W.SZPITAL, W.OCHRONA, W.RYNEK, W.SILOWNIA));
+
+        M.W(W.NIE_OD_NAS, "--->", of(W.NOTYFIKACJA_EKIPA, W.FOTY, W.CISNIE, W.WALKA_SPRZET));
+
+        M.W(W.OD_NAS, "--->", of(W.WYKORZYSTUJ, W.OKRASC_PIENIADZE, W.UNIZA, M.OCZEKIWANIE(W.ZLO)));
+
+        M.W(W.WYROK, "--->", M.UNIZAJ(W.POSIEDZI_CHWILE_NIC_MU_SIE_NIE_STANIE));
+
+        M.W(W.BRAK_KIBICOWANIA, "--->", W.NIC_NIE_MOGA_ZROBIC);
+
+        M.W(of(W.MIEJSCE_STALE, W.OBSLUGA_OD_NAS), "--->", of(
+                                                        obsluga.thread_while_loop(KURESTWO_WARUNKI),
+                                                        kierownictwo.thread_while_loop(M.KONTROLA(KURESTWO_WARUNKI)),
+                                                        kierownictwo.thread_while_loop((M.OCZEKIWANIE(KURESTWO_WARUNKI)))));
+
+        M.W(of(W.MIEJSCE_STALE, W.OBSLUGA_NIE_OD_NAS), "--->", of(M.thread_while_loop(M.PROBUJ_PRZEJAC(of(W.OBSLUGA, W.KIEROWNICTWO))),
+                                        M.thread_while_loop(M.NASYLANIE_DZIALACZY(of(W.NOTYFIKACJA_EKIPA, W.FOTY, W.CISNIE, W.WALKA_SPRZET)))
+                                                        .CEL(of(W.ZASTRASZENIE, W.OGRANICZENIE_WOLNOSCI, W.ZAMKNIECIE_OPCJI,
+                                                                W.WARTOSC, M.DOSTEP(W.ZLO), W.EMOCJE_ZE_ZLA))
+
+
+        ));
     }
 
 }

@@ -103,7 +103,9 @@ public class DB_Warunki extends DB {
                 ZASADY,
                 PRZYMUS,
                 ZAGROZENIA,
-                OSLONY
+                OSLONY,
+                KURESTWO,
+                METODY_POLICYJNE
         );
 
         List<WarunkiKategoria> TWL_PRZEWAGI_SLABOSCI_CIERPIENIA_POTRZEBY = Arrays.asList(
@@ -743,7 +745,7 @@ public class DB_Warunki extends DB {
             Arrays.asList(
                     W.NIESWIADOMOSC_OPPONENTA, W.DYSTANS, M.WOKOL_TYLKO(W.SWOI), W.NIE_KIBICUJE,
 
-                    W.PRACA, W.LAMUS, W.DUZO_OSOB, W.KOBIETA, W.Z_KOBIETA, W.Z_RODZINA,
+                    W.MIEJSCE_STALE ,W.PRACA, W.LAMUS, W.DUZO_OSOB, W.KOBIETA, W.Z_KOBIETA, W.Z_RODZINA,
                     W.SAMOCHOD, W.CHLOPAK, W.DOSTEP_RESTRYKTOWANY, W.EKIPA,
 
                     W.PRZEWAGA_SILY, W.SPRZET
@@ -1178,7 +1180,7 @@ public class DB_Warunki extends DB {
                     M.START(W.ZLE_ZAMIARY),
                     M.STANDARD(M.MALY_WYSILEK(M.MOCNO(M.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA)))),
                     M.STANDARD((M.MALY_WYSILEK(M.MOCNO(M.thread_while_loop(W.STWARZA_OKAZJE_ZROBIENIE_ZLA))))),
-                    M.MALY_WYSILEK(M.MOCNO(of(W.UKRYCIE, W.KLAMSTWO, W.PO_CICHU))),
+                    M.MALY_WYSILEK(M.MOCNO(M.PODSTAWA(of(W.UKRYCIE, W.KLAMSTWO, W.PO_CICHU)))),
                     M.MALY_WYSILEK(M.MOCNO(of(W.WDUPC_ZAKLECIEM, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE))),
                     M.MALY_WYSILEK(M.MOCNO(of(W.NOTYFIKACJA_EKIPA, W.FOTY, W.NAKLEJ_NALEPKE, W.OBGADAC,
                             W.NOTYFIKACJA_ALL_O_HANBIE, W.PRZEKONYWANIE_OTOCZENIA_PRZECIW,
@@ -1344,6 +1346,13 @@ public class DB_Warunki extends DB {
             )
     );
 
+    public static WarunkiKategoria METODY_POLICYJNE = new WarunkiKategoria(
+            new Kategoria(TypKategoria.METODY_POLICYJNE),
+            Arrays.asList(
+                    W.NOTYFIKACJA_EKIPA, W.OPISYWANIE_UBIORU, W.GAZ, W.FOTY_ROZPOZNANIE, M.thread_while_loop(W.KONTROLA)
+            )
+    );
+
     public static List<WarunkiKategoria> ZLY_DOBRY = Arrays.asList(
             PRZYCZYNY_SLUZENIA_ZLU,
             PRZYCZYNY_SLUZENIA_DOBRU,
@@ -1371,7 +1380,9 @@ public class DB_Warunki extends DB {
             ZASADY,
             PRZYMUS,
             ZAGROZENIA,
-            KURESTWO
+            OSLONY,
+            KURESTWO,
+            METODY_POLICYJNE
     );
 
     public static List<WarunkiKategoria> TWL_PRZEWAGI_SLABOSCI_CIERPIENIA_POTRZEBY = Arrays.asList(

@@ -89,6 +89,8 @@ public class AbstractCPU {
     OsobaMetod rdzenny = new OsobaMetod();
     OsobaMetod biegacz = new OsobaMetod();
     OsobaMetod wrogowie = new OsobaMetod();
+    OsobaMetod obsluga = new OsobaMetod();
+    OsobaMetod kierownictwo = new OsobaMetod();
 
     List<W> PRZYCZYNY_SLUZENIA_ZLU_WARUNKI = DB_Warunki.PRZYCZYNY_SLUZENIA_ZLU.getWarunki();
     List<W> PRZYCZYNY_SLUZENIA_DOBRU_WARUNKI = DB_Warunki.PRZYCZYNY_SLUZENIA_DOBRU.getWarunki();
@@ -101,6 +103,7 @@ public class AbstractCPU {
     List<W> TEMATY_NORMALNYCH_LUDZI_WARUNKI = DB_Warunki.TEMATY_NORMALNYCH_LUDZI.getWarunki();
     List<W> TEMATY_RDZENNYCH_WARUNKI = DB_Warunki.TEMATY_RDZENNYCH.getWarunki();
     List<W> CECHY_RDZENNY_WARUNKI = DB_Warunki.CECHY_RDZENNY.getWarunki();
+    List<W> METODY_POLICYJNE_WARUNKI = DB_Warunki.METODY_POLICYJNE.getWarunki();
 
 
 

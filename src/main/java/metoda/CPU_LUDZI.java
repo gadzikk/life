@@ -342,7 +342,7 @@ public class CPU_LUDZI extends AbstractCPU {
                         )),
                         dzialacz.thread_while_loop(M.DOSTEP(of(W.INFORMACJE, W.KONTAKT_TEL, W.OBECNOSC))),
                         dzialacz.SET(W.NIE_ZATRZYMA_SIE),
-                        dzialacz.SET(of(W.WYKRECENIE, W.WADY_FIZYCZNE, W.WADY_UMYSLOWE, W.OGRANICZENIE_WOLNOSCI)),
+                        dzialacz.SET(of(W.WYKRECENIE, W.WADY_FIZYCZNE, W.WADY_UMYSLOWE, W.OGRANICZENIE_WOLNOSCI, W.KROTKOWZROCZNOSC)),
                         dzialacz.SET(KTO_KOGO_WARUNKI),
                         dzialacz.SET(M.OPCJA(KURESTWO_WARUNKI)),
                         dzialacz.SET(CECHY_RDZENNY_WARUNKI),
