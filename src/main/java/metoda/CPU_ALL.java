@@ -156,6 +156,7 @@ public class CPU_ALL extends AbstractCPU {
         trudnoLatwo();
         superpozycja();
         najwiekszaBron();
+        zNieswiadomosci();
     }
     public void trudnoLatwo(){
         o(M.TRUDNO(W.ZWIAZEK)).WARUNEK(W.MEZCZYZNA);
@@ -219,5 +220,11 @@ public class CPU_ALL extends AbstractCPU {
         M.W(of(W.ULICA), "--->", of(W.SPRZET, W.KONTUZJA));
 
         M.W(of(W.PRACA), "--->", of(W.ZWOLNIENIE, W.SPRAWA_W_SADZIE));
+    }
+
+    public void zNieswiadomosci() {
+        M.WW(of(W.NIESWIADOMOSC, W._II_, W.GLUPOTA), "--->", M.SPOTKANY(W.ZLY), "--->", W.ZLO);
+        M.WW(of(W.NIESWIADOMOSC, W._II_, W.GLUPOTA), "--->", M.SPOTKANY(W.DOBRY), "--->", W.DOBRO);
+        M.WW(of(W.NIESWIADOMOSC, W._II_, W.GLUPOTA), "--->", M.POZNANIE(W.CIEZKA_PRACA), "--->", W.PRACA);
     }
 }

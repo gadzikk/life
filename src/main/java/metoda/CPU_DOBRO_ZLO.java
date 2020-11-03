@@ -81,7 +81,7 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
                                                                                     W.KARA, M.OPCJA(W.UKAZANIE),
                                                                                     W.ZAPRZESTANIE_ZLA, W.SMUTEK, W.WYLACZENIE_DZIALACZA));
 
-        M.W(W.ZLY, "--->", M.DUZY_WYSILEKK(M.thread_while_loop(M.KONTROLA(W.ZLY)))
+        M.W(W.ZLY, "--->", M.DUZY_WYSILEK(M.thread_while_loop(M.KONTROLA(W.ZLY)))
                                                                     .MIMO_TO(W.ZLY_OWOC)
                                                                     .KONCOWO(of(W.STRATA_CZASU, W.STRATA_PIENIEDZY,
                                                                                 W.STRATA_SIL ,W.STRATY_MORALNE)));

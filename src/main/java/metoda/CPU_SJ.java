@@ -24,9 +24,9 @@ public class CPU_SJ extends AbstractCPU {
 
     W ciaglaCzynnoscUlica = M.thread_while_loop(M.WYBOR(of(W.IDZIESZ, W.STOISZ_BRAMA, W.STOISZ_MIEJSCE_STALE, W.JEDZIESZ_TRAUTO)));
 
-    W nastawienie = W.KONTRA;
+    List<W> nastawienie = of(W.NASTAWIENIE_BIERZESZ_CO_TWOJE, M.ZABIERASZ_ZLYM(W.WARTOSC) ,W.KONTRA);
 
-    Integer atrakcyjnoscAktywnosci = c(W.PRACA, "<", W.NAUKA, "<", W.REWIR_ULICA);
+    Integer atrakcyjnoscAktywnosci = c(W.PRACA, "<", W.NAUKA, "<", W.REWIR_ULICA, "<", W.REWIR_Z_WARTOSCIA);
 
     List<W> warunekiWejsciowe = of(W.ZLO_NA_CZUBKU_STOSU, W.DZUNGLA, W._100PROCENT_WYSILKU_10PROCENT_OTRZYMUJESZ, W.CALE_ZYCIE_CIERPIENIE,
             W.STARZEJESZ_SIE, W.MIESZKANIE_300TYS_WYPLATA_3TYS, W.KTOS_CIEBIE_LUB_TY_NIEGO, W.PUSTKA, W._1_OSOBA__DUZO,

@@ -31,7 +31,7 @@ public class CPU_STANU extends AbstractCPU {
 
         // cw silowe w domu - dlugi gorszy sen, mniej sily w ciagu dnia, myslenie++, cala gorna czesc pracuje
 
-        // bieganie - mniejsnu++, rzeskosc, mniej sily w ciagu dnia, stres++, myslenie--, regeneracja_serca++
+        // bieganie - mniejsnu++, rzeskosc, mniej sily w ciagu dnia, stres++, myslenie--, regeneracja_serca++, krew++
 
         // boks - tetno++, samopoczucie++
 

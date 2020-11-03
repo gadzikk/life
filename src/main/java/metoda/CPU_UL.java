@@ -63,7 +63,7 @@ public class CPU_UL extends AbstractCPU {
 
     List<W> musiBycKara = WYMAGA_KARY_WARUNKI;
 
-    List<WarunkiKategoria> rany = DB_Warunki.RANY;
+    List<W> rany = RANY_WARUNKI;
 
     List<W> pointcut = of(W.MATERIALNE_ZNALEZIENIE_SIE, W.DEFAULT_ZACHOWANIE, W.DEFAULT_WARUNKI, W.DZIALANIE, W.REAKCJA,
             W.MAKSYMALNIE_ULATWIASZ, W.PRZEKONYWANIE, W.ULTIMATUM);
@@ -453,16 +453,27 @@ public class CPU_UL extends AbstractCPU {
 
         List<W> kryteriaPrzypalu = KRYTERIA_PRZYPALU_WARUNKI;
         List<W> metodaStarcieReakcja = METODA_STARCIE_REAKCJA_WARUNKI;
+        List<W> ulicaPrzewagaReakcja = ULICA_PRZEWAGA_REAKCJA_WARUNKI;
         List<W> obronaStarcie = OBRONA_STARCIE_WARUNKI;
-        List<WarunkiKategoria> rany = RANY_WARUNKI;
+        List<W> rany = RANY_WARUNKI;
         List<W> ktoKogo = KTO_KOGO_WARUNKI;
-
-        List<W> sprzety = of(M.OPCJA(M.DDM(W.SPRZET)), M.OPCJA(M.MIEJSCE_STALE(W.SPRZET)), M.OPCJA(M.PRACA(W.SPRZET)),
-                             M.OPCJA(M.SAMOCHOD(W.SPRZET)), M.OPCJA(M.PRZY_SOBIE(W.SPRZET)));
 
         M.W(of(W.POMSZCZENIE, W.NOTYFIKACJA_EKIPA, W.FOTY,
                 W.OBRAZENIA_FIZYCZNE, W.STARCIE_WIELU_NA_JEDNEGO,
                 W.SPRZET, W.WYJSCIE, W.STARCIE, W.NIESPRAWIEDLIWE_PRZEWAGI), "--->", M.PARALIZUJE(of(W.SLABY, W.NIESWIADOMY)));
+
+        M.W(W.WALKA_PIESCI, "--->", M.ULTIMATIUM(W.BRONI_SIE)).OTHERWISE(W.HANBA);
+        M.W(W.CISNIE, "--->", M.ULTIMATIUM(W.ODPOWIADA)).OTHERWISE(W.HANBA);
+        M.W(W.STRATA, "--->", M.ULTIMATIUM(W.POMSZCZENIE)).OTHERWISE(W.HANBA);
+
+        M.W(W.WIDZISZ, "--->", of(M.POBIERZ(NASTAWIENIA_WARUNKI), M.SONDA_PRZYPALU(kryteriaPrzypalu), M.PLAN(of(W.UCIECZKA, W.UKRYCIE_SIE)),
+                                            M.PRZEWIDZENIE(W.DROGA),
+                                            M.NABYCIE(W.BLISKOSC),
+                                            M.ROBOTA(rany),
+                                            M.UCIECZKA()));
+
+        List<W> sprzety = of(M.OPCJA(M.DDM(W.SPRZET)), M.OPCJA(M.MIEJSCE_STALE(W.SPRZET)), M.OPCJA(M.PRACA(W.SPRZET)),
+                M.OPCJA(M.SAMOCHOD(W.SPRZET)), M.OPCJA(M.PRZY_SOBIE(W.SPRZET)));
 
         M.PROSTO(W.BOJKA);
         M.W(of(M.PROSTO(W.CISNIE)), "--->", of(W.ODRAZU_DZIALANIE));
@@ -628,7 +639,7 @@ public class CPU_UL extends AbstractCPU {
         W przewagaGlobal = W.PRZEWAGA_LOCAL;
         List<W> potrzebneWarunki = of(W.STALA_PLANSZA, W.WIELE_INTERAKCJI, W.WIELE_OSOB, W.OSOBA_ODSLANIAJACA_SIE);
 
-        M brakZasad = M.NIEWAZNE(KURESTWO_WARUNKI).MIMO_TO(M.WAZNE(of(W.PRZEWAGA, W.ZYSK, W.WARUNEK_SPRZYJAJACY)));
+        W brakZasad = M.NIEWAZNE(KURESTWO_WARUNKI).MIMO_TO(M.WAZNE(of(W.PRZEWAGA, W.ZYSK, W.WARUNEK_SPRZYJAJACY)));
 
         M.W(W.DUZA_PRZEWAGA, "--->", of(W.TWORZENIE_WARUNKOW, W.SILA_SPRAWCZA, W.REALNY_WPLYW_NA_LUDZI, W.REALNY_WPLYW_NA_WYDARZENIA));
 
@@ -1006,6 +1017,8 @@ public class CPU_UL extends AbstractCPU {
 
         M.DUZY_WARUNEK(of(W.TRAUTO, W.KOBIETA, W.MIEJSCE_STALE, W.OSIEDLE, W.PRZEWAGA, W.SILA));
 
+        M.W(M.thread_while_loop(of(W.NOTYFIKACJA_EKIPA, W.FOTY)), "--->", M.thread_while_loop(M.PRZEWAGA(W.CIAGLOSC_INFORMACJI)));
+
         M.W(W.SLABY, "--->", M.DEFAULT(W.CEL_ATAKU));
         M.W(W.SILNY, "--->", M.DEFAULT(M.thread_while_loop(M.WYBOR_CELU(W.SLABSI))));
 
@@ -1186,7 +1199,10 @@ public class CPU_UL extends AbstractCPU {
                 M.NABYCIE(of(W.SILA_SPRAWCZA, W.PRZEWAGA_SILY, W.POSLUCH)),
                 M.NABYCIE(W.PRZYJEMNOSCI),
                 M.NISZCZENIE(W.DOBRO),
-                M.TWORZENIE(W.ZLO)
+                M.TWORZENIE(W.ZLO),
+                osoby.DZIALANIE(W.ZLO)
+                        .CEL(of(W.KOMFORT, W.PRZEWAGA, W.PRZYJEMNOSCI, W.BRAK_CIERPIENIA))
+                        .REZULTAT(of(M.USPRAWIEDLIWIENIE(W.ZLE_CZYNY), W.WARTOSC_MATERIALNA))
         ));
 
         fest.tworzyWarunki(of(W.WYWYZSZENIE_SLABYCH));
@@ -1213,6 +1229,8 @@ public class CPU_UL extends AbstractCPU {
     public void cviiZalosneStarania() {
         M.thread_while_loop(of(W.NIEUDOLNOSC, M.ROZKMINANIE(W.WSZYSCY), M.ZLE_ZAMIARY()));
         M.thread_while_loop(M.PODSTAWA(W.KLAMSTWO).WZGLEDEM(of(W.SIEBIE, W.INNI)));
+        M.thread_while_loop(W.ZAKLAMYWANIE_RZECZYWISTOSCI);
+
         M.POBIERZ(METODY_POLICYJNE_WARUNKI);
         M.SWOI(of(W.SAD, W.POLICJA, W.SZPITAL, W.OCHRONA, W.RYNEK, W.SILOWNIA));
 

@@ -170,7 +170,8 @@ public class DB_Warunki extends DB {
                 KTO_KOGO,
                 KURESTWO,
                 OBRONA_STARCIE,
-                METODA_STARCIE_REAKCJA
+                METODA_STARCIE_REAKCJA,
+                ULICA_PRZEWAGA_REAKCJA
         );
 
         List<WarunkiKategoria> TYPY_PRAC = Arrays.asList(
@@ -927,7 +928,9 @@ public class DB_Warunki extends DB {
 
     public static WarunkiKategoria KRYTERIA_PRZYPALU = new WarunkiKategoria(
             new Kategoria(TypKategoria.KRYTERIA, TypKategoria.KRYTERIA_PRZYPALU),
-            Arrays.asList( W.KONKRETNA_INFORMACJA, W.DOWOD, W.ILE_OSOB_WIDZI_SLYSZY, W.GODZINA, W.MIEJSCE,
+            Arrays.asList(
+                M.DZIELNICA(W.NAJLEPSZY_WARUNEK),
+                W.KONKRETNA_INFORMACJA, W.DOWOD, W.ILE_OSOB_WIDZI_SLYSZY, W.GODZINA, W.MIEJSCE,
                 W.SCIEZKA_CZESTOSC_UCZESCZANIA, W.ZNANY_NA_MIEJSCU, W.LATWOSC_SZYBKOSC_ODDALENIA, W.ACCESS_MIEJSCE_ULTRADOSTEPOWE,
                 W.MOZLIWOSC_ZMIANY_GLOBALNEGO_POKOJU
             )
@@ -1167,10 +1170,10 @@ public class DB_Warunki extends DB {
                     W.NASTAWIENIE_AGRESJA_W_DZIALANIU, W.NASTAWIENIE_KONTEMPLACJA, W.NASTAWIENIE_PRACA,
                     W.NASTAWIENIE_OSZUKANIE_WDUPCENIE, W.NASTAWIENIE_NA_ZLO, W.NASTAWIENIE_DOBRO, W.NASTAWIENIE_POZNANIE,
                     W.NASTAWIENIE_KONTRA, W.NASTAWIENIE_PRZYJEMNOSCI, W.NASTAWIENIE_WSPARCIE, W.NASTAWIENIE_PRZECIW,
-                    W.NASTAWIENIE_HIERACHI_PRZYWILEJE,
+                    W.NASTAWIENIE_HIERACHI_PRZYWILEJE, W.NASTAWIENIE_BIERZESZ_CO_TWOJE,
 
                     W.NASTAWIENIE_MAM_ZLE_ON_TEZ_MUSI, W.NASTAWIENIE_NIE_MAM_NIC_ON_TEZ_MA_NIE_MIEC, W.NASTAWIENIE_JA_GNOJONY_GNOJE_NIZSZYCH,
-                    W.NASTAWIENIE_DOMINACJA
+                    W.NASTAWIENIE_DOMINACJA, W.NASTAWIENIE_STARCIE
             )
     );
 
@@ -1346,6 +1349,35 @@ public class DB_Warunki extends DB {
             )
     );
 
+    public static WarunkiKategoria ULICA_PRZEWAGA_REAKCJA = new WarunkiKategoria(
+            new Kategoria(TypKategoria.ULICA_PRZEWAGA_METODY), of(
+                    M.W(W.SAMOCHOD, "--->", of(M.ZNISZCZENIE(W.OPONY), M.ZNISZCZENIE(W.KAROSERIA), M.OPCJA(M.PODPALENIE(W.SAMOCHOD)))),
+
+                    M.W(W.DYSTANS, "--->", W.SZYBKIE_NOGI),
+
+                    M.W(W.MIEJSCE_STALE, "--->", of(M.ZAGAZOWANIE(W.MIEJSCE_STALE), M.ZNISZCZENIE(W.WARTOSC))),
+
+                    M.W(of(W.ZNAJOMI, W.OSIEDLOWE_SRD), "--->", M.NOTIFY_ALL(W.HANBA)),
+
+                    M.W(of(W.INFORMACJA, W.CZAS, W.WIEDZA, W.BRAK_WSTYDU), "--->", of(W.KLAMSTWO, W.UKRYCIE, W.MAGICZNE_ZAKLECIE,
+                                                                                    M.BRAK_DOSTEPU(W.ZLO), W.SAMOTNOSC)),
+
+                    M.W(W.EKIPA, "--->", of(M.WIEKSZY_DOSTEP(W.EKIPA), W.BRAK_SENSU, W.MALO_OSOB)),
+
+                    M.W(of(W.PIENIADZE, W.WYSOKA_POZYCJA), "--->", of(W.WYROK, M.STRATA(W.PRACA), M.STRATA(W.ZDROWIE))),
+
+                    M.W(W.BRAK_CIERPIENIA, "--->", M.PRZEZYCIE(W.CIERPIENIE)),
+
+                    M.W(of(M.ROZKMINIONY(W.OSOBA), W._88_,
+                            W.NIE_KIBICUJE, W.Z_KOBIETA, W.LAMUS, W.DUZO_OSOB) , "--->", M.ORIENT(W.CIERPIENIE).MIMO_TO(M.WALISZ())),
+
+                    M.W(of(M.OPPONENT(of(W.PRZEWAGA_SILY, W.SPRZET)), W._88_, M.WYSTEPUJE(W.WARTOSC)), "--->", M.MIMO_TO(M.WALISZ())),
+
+                    M.W(of(W.NOTYFIKACJA_EKIPA, W.FOTY), "--->", of(M.STRATA(M.ZNISZCZENIE(W.TELEFON)), W.WALKA_PIESCI)),
+
+                    M.W(W.GAZ, "--->", of(W.KOMIN_ANTY_GAZ, W.WALKA_PIESCI))
+    ));
+
     public static WarunkiKategoria METODY_POLICYJNE = new WarunkiKategoria(
             new Kategoria(TypKategoria.METODY_POLICYJNE),
             Arrays.asList(
@@ -1447,7 +1479,8 @@ public class DB_Warunki extends DB {
             KTO_KOGO,
             KURESTWO,
             OBRONA_STARCIE,
-            METODA_STARCIE_REAKCJA
+            METODA_STARCIE_REAKCJA,
+            ULICA_PRZEWAGA_REAKCJA
     );
 
     public static List<WarunkiKategoria> TYPY_PRAC = Arrays.asList(

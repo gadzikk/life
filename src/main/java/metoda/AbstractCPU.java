@@ -44,7 +44,7 @@ public class AbstractCPU {
     OsobaMetod zasob = new OsobaMetod();
     OsobaMetod opponent = new OsobaMetod();
     OsobaMetod zaniepokojeni = new OsobaMetod();
-    List<WarunkiKategoria> RANY_WARUNKI = DB_Warunki.RANY;
+    List<W> RANY_WARUNKI = DB_Warunki.RANY.get(0).getWarunki();
     OsobaMetod znajomy = new OsobaMetod();
     List<W> PATOLOGIE_WSTEPNE_KOBIET = DB_Patologia.PATOLOGIE_WSTEPNE_KOBIETA.getWarunki();
     List<W> PATOLOGIE_UTRZYMANIA_KOBIET = DB_Patologia.PATOLOGIE_UTRZYMANIA_KOBIETA.getWarunki();
@@ -91,6 +91,7 @@ public class AbstractCPU {
     OsobaMetod wrogowie = new OsobaMetod();
     OsobaMetod obsluga = new OsobaMetod();
     OsobaMetod kierownictwo = new OsobaMetod();
+    OsobaMetod osoby = new OsobaMetod();
 
     List<W> PRZYCZYNY_SLUZENIA_ZLU_WARUNKI = DB_Warunki.PRZYCZYNY_SLUZENIA_ZLU.getWarunki();
     List<W> PRZYCZYNY_SLUZENIA_DOBRU_WARUNKI = DB_Warunki.PRZYCZYNY_SLUZENIA_DOBRU.getWarunki();
@@ -104,6 +105,8 @@ public class AbstractCPU {
     List<W> TEMATY_RDZENNYCH_WARUNKI = DB_Warunki.TEMATY_RDZENNYCH.getWarunki();
     List<W> CECHY_RDZENNY_WARUNKI = DB_Warunki.CECHY_RDZENNY.getWarunki();
     List<W> METODY_POLICYJNE_WARUNKI = DB_Warunki.METODY_POLICYJNE.getWarunki();
+    List<W> ULICA_PRZEWAGA_REAKCJA_WARUNKI = DB_Warunki.ULICA_PRZEWAGA_REAKCJA.getWarunki();
+    List<W> NASTAWIENIA_WARUNKI = DB_Warunki.NASTAWIENIA.getWarunki();
 
 
 
@@ -150,6 +153,7 @@ public class AbstractCPU {
     }
 
     public Integer c(W w1,String del1, W w2, String del2, W w3) { return 0;}
+    public Integer c(W w1,String del1, W w2, String del2, W w3, String del3, W w4) { return 0;}
 
     public W potrzeba(List<W> warunki){return null;}
 
