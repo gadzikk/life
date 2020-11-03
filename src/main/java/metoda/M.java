@@ -664,6 +664,32 @@ public class M {
     public static W oczekuje(W warunek) {return W.WARUNEK;}
     public static W nieStaraSieWZwiazku() {return W.WARUNEK;}
     public static M uznajeHierarchie() {return new M();}
+    public static W wjazd() {return W.WARUNEK;}
+    public static W cpanie() {return W.WARUNEK;}
+    public static W mecz() {return W.WARUNEK;}
+    public static W siedzenieOsiedle() {return W.WARUNEK;}
+    public static W podroze() {return W.WARUNEK;}
+    public static W dom() {return W.WARUNEK;}
+    public static W impreza() {return W.WARUNEK;}
+    public static W melanz() {return W.WARUNEK;}
+    public static W zwiazki() {return W.WARUNEK;}
+    public static W znajomi() {return W.WARUNEK;}
+    public static W przyjemnosci() {return W.WARUNEK;}
+    public static W nieudolneDzialanie() {return W.WARUNEK;}
+    public static W wszystkoSlabo() {return W.WARUNEK;}
+    public static W dobreDzialanie() {return W.WARUNEK;}
+    public static W wszystkoDobrze() {return W.WARUNEK;}
+    public static W pozaStrefaKomfortu() {return W.WARUNEK;}
+    public static W odbierzWartosc() {return W.WARUNEK;}
+    public static W dzialaWedleWidzimisie() {return W.WARUNEK;}
+    public static W wykorzystajZasob() {return W.WARUNEK;}
+    public static W ukryjDostep() {return W.WARUNEK;}
+    public static W rozkazyNizszym() {return W.WARUNEK;}
+    public static W bawSie() {return W.WARUNEK;}
+    public static W wykorzystujeOkazjeDobro() {return W.WARUNEK;}
+    public static W dobro() {return W.WARUNEK;}
+    public static W stwarzaOkazjeZlo() {return W.WARUNEK;}
+    public static W zlo() {return W.WARUNEK;}
 
     public static W zaplac() {return W.WARUNEK;}
     public static W zrobCosExtra() {return W.WARUNEK;}
