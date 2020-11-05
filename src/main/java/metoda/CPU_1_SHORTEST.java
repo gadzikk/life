@@ -11,11 +11,14 @@ import java.util.List;
  */
 public class CPU_1_SHORTEST extends AbstractCPU {
     List<W> rzeczywistosc = of(W._1_OSOBA__DUZO, W.POPRUSZONE_NA_MIEJSCACH, W.X, W.KONTEKST);
-    List<W> plansza = of(W.LUDZIE, W.KOBIETA, W.STATYSCI, W.POTRZEBA, W.TRANSPORT, W.SCIEZKI);
-    List<W> essentials = of(W.DOSTEPNOSC, W.BLISKOSC, W.SZYBKOSC_CHODZENIA, W.INFORMACJA,
-            W.ZASIEG_WZROKU, W.ZASIEG_JEJ_WZROKU,
-            W.CZAS_START, W.CZAS_KONIEC,
-            W.SRODOWISKOWE, W.STALE, W.RESTRYKCYJNE);
+
+    List<W> plansza = PLANSZA_WARUNKI;
+    List<W> essentials = ESSENTIALS_WARUNKI;
+
+    List<W> allSprzyjajace = SPRZYJAJACE_WARUNKI;
+    List<W> allNiesprzyjajace = NIE_SPRZYJAJACE_WARUNKI;
+
+    List<W> extremalne = EXTREMALNE_WARUNKI;
 
     List<W> mojeCechy = of(W.SPRYT, W.SZYBKOSC, W.SILA, W.ANTY_POSLUSZNOSC, W.ZMUSZASZ, W.WYJEBKA_NA_WLASNE_ZMECZENIE);
     List<W> osobaCechy = of(W.REAGUJE, W.STWARZA_POINTCUT, W.SWIADOMOSC);
@@ -23,16 +26,9 @@ public class CPU_1_SHORTEST extends AbstractCPU {
     List<TypSytuacja> typySytuacji = of(TypSytuacja.UNIKALNA, TypSytuacja.CHCIANA, TypSytuacja.W_HOTMIEJSCU, TypSytuacja.DEFAULTOWA,
             TypSytuacja.RESTRYKCYJNA, TypSytuacja.KRYZYSOWA);
 
-    List<W> allSprzyjajace = of(W.PRETEKST, W.KONTEKST, W.NUDA,
-            W.WZGL_IZOLACJA, W.DLUGA_DOSTEPNOSC, W.BEZRUCH, W.OSZCZEDNOSC_CZASU, W.MALA_TRUDNOSC, W.MALY_WYSILEK, W.MALA_DROGA, W.MALY_PRZYPAL,
-            W.SAMA, W.Z_KOLEZANKA, W.Z_RODZINA);
-    List<W> allNiesprzyjajace = of(W.TLUM, W.ZMECZENIE, W.CISZA, W.MOZLIWE_SLUCHAWKI);
-
     List<W> spojrzenia = of(M.spojrzenie_1(W.BEST_CASE), M.spojrzenie_2(W.NORMAL_CASE));
     List<W> zaproszenieRandka = of(M.podkreslJejZlaSytuacje(of(W.NUDA, W.MONOTONIA)), M.podkreslSwojeStrania(), M.znamySie(),
             M.obrazSieJakNieOdpowie(), M.ultimatum(W.KARA));
-
-    List<W> extremalne = of(W.IDZIESZ_ZAWRACASZ, W.PRZECIWNY_PRZYSTANEK, W.SIEDZISZ_PRZEJSCIE, W.ONA_SWOJE_GRONO);
 
     List<W> jakoscSytuacji = of(W.INTERAKCJA, W.KOJARZENIE_Z_DOBREGO, W.ZNAJOMI, W.POTRZEBA, W.WARTOSC, W.UNIKALNOSC_W_OTOCZENIU);
 
@@ -64,8 +60,11 @@ public class CPU_1_SHORTEST extends AbstractCPU {
 
     public void run(){
         W nastawienie = M.ODRAZU(W.BLISKOSC);
+
         nastawienie = M.WYBOR(of(W.BIERZESZ_CO_JEST, W.WG_OCZEKIWANIA,
                 W.BEZ_POPATRZENIA, W.NA_POPATRZENIE, W.NA_CHETNOSC, W.NA_ZNAJOMOSC));
+
+        M.thread_while_loop(M.SZUKANIE(of(W.KOBIETA, W.OKAZJA)));
 
         M.W(
                 of(M.wejsciePlansza(plansza)),
@@ -73,7 +72,7 @@ public class CPU_1_SHORTEST extends AbstractCPU {
         );
         M.W(
                 of(M.namierzenie()),
-                of(W.THREAD_WHILE_LOOP_ZASIEG_WZROKU)
+                of(M.thread_while_loop(W.ZASIEG_WZROKU))
         );
         M.W(
                 of(M.sondaOsoby(osobaCechy), M.sondaSytuacji(typySytuacji, essentials), M.przewidzenieDrogi()),

@@ -29,6 +29,7 @@ public class M {
     public static W WW(List<W> w1, List<W> w2, List<W> w3, List<W> w4) { return W.WARUNEK; }
     public static W WW(W w1, String del, W w2, String del2, W w3) { return W.WARUNEK; }
     public static W WW(List<W> w1, String del, List<W> w2, String del2, List<W> w3) { return W.WARUNEK; }
+    public static W WW(W w1, String del, W w2, String del2, List<W> w3) { return W.WARUNEK; }
     public static W WW(List<W> w1, String del, W w2, String del2, W w3) { return W.WARUNEK; }
     public static W WWW(W w1, String del, W w2, String del2, W w3, String del3, W w4) { return W.WARUNEK; }
     public static W WWW(List<W> w1, List<W> w2, List<W> w3, List<W> w4, List<W> w5, List<W> w6) { return W.WARUNEK; }
@@ -738,6 +739,8 @@ public class M {
     public static W INFORMACJA(W w){return W.WARUNEK;}
     public static W INFORMACJA(List<W> warunki){return W.WARUNEK;}
     public static W PRZEJECIE(List<W> w1, List<W> w2, List<W> w3) {return W.WARUNEK;}
+    public static W PRZEJECIE(List<W> w) {return W.WARUNEK;}
+    public static W PRZEJECIE(W w) {return W.WARUNEK;}
     public static W OBSADZ_STANOWISKA(List<W> warunki){return W.WARUNEK;}
     public static W ULTIMATIUM(W w){return W.WARUNEK;}
     public static W ULTIMATIUM(List<W> warunki){return W.WARUNEK;}

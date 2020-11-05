@@ -107,6 +107,13 @@ public class AbstractCPU {
     List<W> METODY_POLICYJNE_WARUNKI = DB_Warunki.METODY_POLICYJNE.getWarunki();
     List<W> ULICA_PRZEWAGA_REAKCJA_WARUNKI = DB_Warunki.ULICA_PRZEWAGA_REAKCJA.getWarunki();
     List<W> NASTAWIENIA_WARUNKI = DB_Warunki.NASTAWIENIA.getWarunki();
+    List<W> WZGL_IZOLACJA_WARUNKI = DB_Warunki.WZGLEDNA_IZOLACJA.getWarunki();
+    List<W> SPRZYJAJACE_WARUNKI = DB_Warunki.SPRZYJAJACE.getWarunki();
+    List<W> NIE_SPRZYJAJACE_WARUNKI = DB_Warunki.NIE_SPRZYJAJACE.getWarunki();
+    List<W> ESSENTIALS_WARUNKI = DB_Warunki.ESSENTIALS.getWarunki();
+    List<W> PLANSZA_WARUNKI = DB_Warunki.PLANSZA.getWarunki();
+    List<W> EXTREMALNE_WARUNKI = DB_Warunki.EXTREMALNE.getWarunki();
+
 
 
 

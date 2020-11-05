@@ -188,6 +188,15 @@ public class DB_Warunki extends DB {
                 TEMATY_NORMALNYCH_LUDZI,
                 TEMATY_RDZENNYCH
         );
+
+        List<WarunkiKategoria> KOBIETA_PRAKTYKA = Arrays.asList(
+                WZGLEDNA_IZOLACJA,
+                SPRZYJAJACE,
+                NIE_SPRZYJAJACE,
+                ESSENTIALS,
+                PLANSZA,
+                EXTREMALNE
+        );
     }
 
 
@@ -1387,6 +1396,59 @@ public class DB_Warunki extends DB {
             )
     );
 
+    public static WarunkiKategoria WZGLEDNA_IZOLACJA = new WarunkiKategoria(
+            new Kategoria(TypKategoria.KOBIETA_PRAKTYKA, TypKategoria.WZGLEDNA_IZOLACJA),
+            Arrays.asList(
+                    W.PRZYSTANEK, W.TRAUTO, W.SWIATLA, W.KLATKA, W.MIEJSCE_STALE, W.STACJA_BENZYNOWA, W.OSIEDLOWE_SRD
+            )
+    );
+
+    public static WarunkiKategoria SPRZYJAJACE = new WarunkiKategoria(
+            new Kategoria(TypKategoria.KOBIETA_PRAKTYKA, TypKategoria.SPRZYJAJACE),
+            Arrays.asList(
+                    W.PRETEKST, W.KONTEKST, W.NUDA,
+                    W.WZGL_IZOLACJA, W.DLUGA_DOSTEPNOSC, W.BEZRUCH, W.OSZCZEDNOSC_CZASU, W.MALA_TRUDNOSC, W.MALY_WYSILEK, W.MALA_DROGA, W.MALY_PRZYPAL,
+                    W.SAMA, W.Z_KOLEZANKA, W.Z_RODZINA
+            )
+    );
+
+    public static WarunkiKategoria NIE_SPRZYJAJACE = new WarunkiKategoria(
+            new Kategoria(TypKategoria.KOBIETA_PRAKTYKA, TypKategoria.NIE_SPRZYJAJACE),
+            Arrays.asList(
+                    W.PRETEKST, W.KONTEKST, W.NUDA,
+                    W.WZGL_IZOLACJA, W.DLUGA_DOSTEPNOSC, W.BEZRUCH, W.OSZCZEDNOSC_CZASU, W.MALA_TRUDNOSC, W.MALY_WYSILEK, W.MALA_DROGA, W.MALY_PRZYPAL,
+                    W.SAMA, W.Z_KOLEZANKA, W.Z_RODZINA
+            )
+    );
+
+    public static WarunkiKategoria ESSENTIALS = new WarunkiKategoria(
+            new Kategoria(TypKategoria.KOBIETA_PRAKTYKA, TypKategoria.ESSENTIALS),
+            Arrays.asList(
+                    W.DOSTEPNOSC, W.BLISKOSC, W.SZYBKOSC_CHODZENIA, W.INFORMACJA,
+                    W.ZASIEG_WZROKU, W.ZASIEG_JEJ_WZROKU,
+                    W.CZAS_START, W.CZAS_KONIEC,
+                    W.SRODOWISKOWE, W.STALE, W.RESTRYKCYJNE
+            )
+    );
+
+    public static WarunkiKategoria PLANSZA = new WarunkiKategoria(
+            new Kategoria(TypKategoria.KOBIETA_PRAKTYKA, TypKategoria.PLANSZA),
+            Arrays.asList(
+                    W.DOSTEPNOSC, W.BLISKOSC, W.SZYBKOSC_CHODZENIA, W.INFORMACJA,
+                    W.ZASIEG_WZROKU, W.ZASIEG_JEJ_WZROKU,
+                    W.CZAS_START, W.CZAS_KONIEC,
+                    W.SRODOWISKOWE, W.STALE, W.RESTRYKCYJNE
+            )
+    );
+
+    public static WarunkiKategoria EXTREMALNE = new WarunkiKategoria(
+            new Kategoria(TypKategoria.KOBIETA_PRAKTYKA, TypKategoria.EXTREMALNE),
+            Arrays.asList(
+                    W.UWAGA_NA_TOBIE, W.ROZWALENIE_CISZY,
+                    W.IDZIESZ_ZAWRACASZ, W.PRZECIWNY_PRZYSTANEK, W.SIEDZISZ_PRZEJSCIE, W.ONA_SWOJE_GRONO
+            )
+    );
+
     public static List<WarunkiKategoria> ZLY_DOBRY = Arrays.asList(
             PRZYCZYNY_SLUZENIA_ZLU,
             PRZYCZYNY_SLUZENIA_DOBRU,
@@ -1498,5 +1560,14 @@ public class DB_Warunki extends DB {
     public static List<WarunkiKategoria> TEMATY = Arrays.asList(
             TEMATY_NORMALNYCH_LUDZI,
             TEMATY_RDZENNYCH
+    );
+
+    public static List<WarunkiKategoria> KOBIETA_PRAKTYKA = Arrays.asList(
+            WZGLEDNA_IZOLACJA,
+            SPRZYJAJACE,
+            NIE_SPRZYJAJACE,
+            ESSENTIALS,
+            PLANSZA,
+            EXTREMALNE
     );
 }

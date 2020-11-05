@@ -1064,6 +1064,8 @@ public class CPU_UL extends AbstractCPU {
         M.W(M.KORZYSTA(W.SILA), "--->", M.MUSI(M.NA(W.ULICA)).OTHERWISE(W.PRZYPAL));
 
         M.W(of(W.WROG, W._88_, W.BLISKOSC), "--->", M.WALI(wrogowie));
+
+        M.WW(W.OSIEDLE, "--->", W.MELINA_NA_OSIEDLU, "--->", of(M.WIDZISZ(W.OSIEDLOWE_SRD), W.ZNASZ));
     }
 
     public void wokolDzialaczaSrodowiska() {
@@ -1198,8 +1200,10 @@ public class CPU_UL extends AbstractCPU {
                 M.KTO_KOGO_Z_PRZEWAGA(osobyPozaSrodowisko, KTO_KOGO_WARUNKI),
                 M.NABYCIE(of(W.SILA_SPRAWCZA, W.PRZEWAGA_SILY, W.POSLUCH)),
                 M.NABYCIE(W.PRZYJEMNOSCI),
+                M.NABYCIE(W.CIAGLOSC_INFORMACJI),
                 M.NISZCZENIE(W.DOBRO),
                 M.TWORZENIE(W.ZLO),
+                M.ULTIMATIUM(W.ZLO).OTHERWISE(of(on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI))),
                 osoby.DZIALANIE(W.ZLO)
                         .CEL(of(W.KOMFORT, W.PRZEWAGA, W.PRZYJEMNOSCI, W.BRAK_CIERPIENIA))
                         .REZULTAT(of(M.USPRAWIEDLIWIENIE(W.ZLE_CZYNY), W.WARTOSC_MATERIALNA))
@@ -1251,9 +1255,14 @@ public class CPU_UL extends AbstractCPU {
                                         M.thread_while_loop(M.NASYLANIE_DZIALACZY(of(W.NOTYFIKACJA_EKIPA, W.FOTY, W.CISNIE, W.WALKA_SPRZET)))
                                                         .CEL(of(W.ZASTRASZENIE, W.OGRANICZENIE_WOLNOSCI, W.ZAMKNIECIE_OPCJI,
                                                                 W.WARTOSC, M.DOSTEP(W.ZLO), W.EMOCJE_ZE_ZLA))
-
-
         ));
+
+        M.ULTIMATIUM(W.ZLO).OTHERWISE(of(on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI)));
+
+        M.PRZEJECIE(of(W.OSIEDLE, W.MIEJSCE_STALE, W.PRACA, W.SLUZBY, W.LUDZIE))
+                .POTRZEBNE(M.thread_while_loop(of(W.POSLUCH, W.OBECNOSC_LUDZI)))
+                .CEL(of(M.TWORZENIE(W.ZLO), M.NISZCZENIE(W.DOBRO), M.ZWIEKSZANIE(W.PRZEWAGA), M.NABYCIE(W.CIAGLOSC_INFORMACJI)));
+
     }
 
 }
