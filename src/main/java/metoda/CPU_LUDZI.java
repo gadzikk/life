@@ -406,7 +406,9 @@ public class CPU_LUDZI extends AbstractCPU {
                         dzialacz.cieszSieJegoCierpieniem(),
                         dzialacz.baluj(),
                         dzialacz.siejZlo(),
-                        dzialacz.WHILE_END()
+                        dzialacz.WHILE_END(),
+
+                        M.WW(M.OSOBA(W.NIESWIADOMOSC), "--->", of(W.MIEJSCE_STALE, W.ZLY, W.PRZEKONYWANIE_PRZECIW), "--->", M.OSOBA(W.ZLO))
                 )
         );
 

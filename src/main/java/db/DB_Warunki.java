@@ -84,7 +84,8 @@ public class DB_Warunki extends DB {
                 NIESPRAWIEDLIWOSC,
                 DOBRE_CZYNY,
                 ZLE_CZYNY,
-                ANTY_DZIALACZ
+                ANTY_DZIALACZ,
+                WADY_ZLYCH
         );
 
         List<WarunkiKategoria> GLOBAL_PLANSZA = Arrays.asList(
@@ -115,7 +116,9 @@ public class DB_Warunki extends DB {
                 CIERPIENIA,
                 POTRZEBY,
                 OSLONY,
-                DEFAULT_WARUNKI
+                DEFAULT_WARUNKI,
+                CECHY_RDZENNY,
+                SLABY_TCHORZ
         );
 
         List<WarunkiKategoria> REAKCJE = Arrays.asList(
@@ -196,6 +199,10 @@ public class DB_Warunki extends DB {
                 ESSENTIALS,
                 PLANSZA,
                 EXTREMALNE
+        );
+
+        List<WarunkiKategoria> UNIWERSALNE_SWIAT = Arrays.asList(
+                WSPOMNIENIA
         );
     }
 
@@ -1371,7 +1378,7 @@ public class DB_Warunki extends DB {
                     M.W(of(W.INFORMACJA, W.CZAS, W.WIEDZA, W.BRAK_WSTYDU), "--->", of(W.KLAMSTWO, W.UKRYCIE, W.MAGICZNE_ZAKLECIE,
                                                                                     M.BRAK_DOSTEPU(W.ZLO), W.SAMOTNOSC)),
 
-                    M.W(W.EKIPA, "--->", of(M.WIEKSZY_DOSTEP(W.EKIPA), W.BRAK_SENSU, W.MALO_OSOB)),
+                    M.W(W.EKIPA, "--->", of(M.WIEKSZY_DOSTEP(W.EKIPA), W.BRAK_SENSU, W.MALO_OSOB, M.BRAK(W.POSLUCH))),
 
                     M.W(of(W.PIENIADZE, W.WYSOKA_POZYCJA), "--->", of(W.WYROK, M.STRATA(W.PRACA), M.STRATA(W.ZDROWIE))),
 
@@ -1449,6 +1456,42 @@ public class DB_Warunki extends DB {
             )
     );
 
+    public static WarunkiKategoria SLABY_TCHORZ = new WarunkiKategoria(
+            new Kategoria(TypKategoria.SLABY_TCHORZ),
+            Arrays.asList(
+                    M.MALY_WYSILEK(M.MOCNO(M.PODSTAWA(of(W.UKRYCIE, W.KLAMSTWO, W.PO_CICHU)))),
+                    M.MALY_WYSILEK(M.MOCNO(of(W.WDUPC_ZAKLECIEM, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE))),
+                    M.MALY_WYSILEK(M.MOCNO(of(W.NOTYFIKACJA_EKIPA, W.FOTY, W.NAKLEJ_NALEPKE, W.OBGADAC,
+                            W.NOTYFIKACJA_ALL_O_HANBIE, W.PRZEKONYWANIE_OTOCZENIA_PRZECIW,
+                            W.UNIZA, W.LEKCEWAZY_INNYCH))),
+                    M.MALY_WYSILEK(M.MOCNO(W.STARCIE_WIELU_NA_JEDNEGO)), M.MALY_WYSILEK(M.MOCNO(W.PRZEWAGA_NA_BRAK_PRZEWAGI)),
+                    M.MOCNO(of(W.WYKORZYSTANIE, W.OKRASC_PIENIADZE)),
+                    M.DUZY_WYSILEK(W.ZAMYKANIE_OPCJI), M.MALY_WYSILEK(W.OGLUPIANIE), M.NEUTRALNY_RZUT(W.NIESWIADOMOSC),
+                    M.MALY_WYSILEK(M.MOCNO(of(W.WSPARCIE_OSLONY, W.FALSZYWE_WRAZENIE, W.WYSOKIE_OCZEKIWANIE))),
+                    M.MALY_WYSILEK(M.MOCNO(M.MIEJSCE_STALE(W.ODCIECIE_DOSTEPU_WARTOSC)))
+            )
+    );
+
+    public static WarunkiKategoria WADY_ZLYCH = new WarunkiKategoria(
+            new Kategoria(TypKategoria.ZLY, TypKategoria.WADY_ZLYCH),
+            Arrays.asList(
+                    W.UZYWKI, W.GLUPOTA, W.BRAK_SUMIENIA, W.KROTKOWZROCZNOSC, M.ROZKMINIONY_PRZEZ(W.CZYNY),
+                    M.DOSTEP(W.ZLO), M.BRAK_DOSTEPU(W.DOBRO),
+                    M.ZALEZNY_OD(W.PRZEWAGA), M.ZALEZNY_OD(W.EKIPA), W.ZYSK.OTHERWISE(W.BRAK_REAKCJI),
+                    M.BOI_SIE(W.PRAWDA), M.BRAK_DOSWIADCZENIA(W.STARCIE_1_NA_1),
+                    M.W(M.BRAK(W.PRZEWAGA), "--->", M.BRAK(W.DZIALANIE)),
+                    M.BRAK(W.PRZYCHYLNOSC_BOGA),
+                    M.WZAJEMNE(W.HAKI)
+            )
+    );
+
+    public static WarunkiKategoria WSPOMNIENIA = new WarunkiKategoria(
+            new Kategoria(TypKategoria.UNIWERSALNE_SWIAT, TypKategoria.WSPOMNIENIA),
+            Arrays.asList(
+                    W.OSOBY, W.SYTUACJE, W.POMIESZCZENIA, W.RZECZY, W.DROGA_DO, W.DROGA_POWROT, W.EMOCJE_DANEJ_CHWILI
+            )
+    );
+
     public static List<WarunkiKategoria> ZLY_DOBRY = Arrays.asList(
             PRZYCZYNY_SLUZENIA_ZLU,
             PRZYCZYNY_SLUZENIA_DOBRU,
@@ -1456,7 +1499,8 @@ public class DB_Warunki extends DB {
             NIESPRAWIEDLIWOSC,
             DOBRE_CZYNY,
             ZLE_CZYNY,
-            ANTY_DZIALACZ
+            ANTY_DZIALACZ,
+            WADY_ZLYCH
     );
 
     public static List<WarunkiKategoria> GLOBAL_PLANSZA = Arrays.asList(
@@ -1489,7 +1533,8 @@ public class DB_Warunki extends DB {
             POTRZEBY,
             OSLONY,
             DEFAULT_WARUNKI,
-            CECHY_RDZENNY
+            CECHY_RDZENNY,
+            SLABY_TCHORZ
     );
 
     public static List<WarunkiKategoria> REAKCJE = Arrays.asList(
@@ -1569,5 +1614,9 @@ public class DB_Warunki extends DB {
             ESSENTIALS,
             PLANSZA,
             EXTREMALNE
+    );
+
+    public static List<WarunkiKategoria> UNIWERSALNE_SWIAT = Arrays.asList(
+            WSPOMNIENIA
     );
 }

@@ -63,6 +63,8 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
         List<W> NOWY = of(W.NAKLEJ_NALEPKE, W.WDUPC_ZAKLECIEM,
                 W.WYJEBAC_ZDJECIA, W.PRZESTRZELIC, W.SKAZYWANIE_SAMOTNOSC, W.ZWYZYWAC, W.OBGADAC, W.POBIC, W.SHANBIC);
 
+        List<W> wadyZlych = WADY_ZLYCH_WARUNKI;
+
         List<W> sprawdzajacy = of(W.GLUPI, W.AGRESYWNI, W.TEMPIENI_BYLI, W.BEZ_WSTYDU, W.BEZ_ZASAD, W.BRAK_SUMIENIA);
         List<W> staziBiegacze = of(W.DUZI_TEMPI, W.AGRESYWNI, W.ULEGLI, W.ZALEZNY, W.UZALZENIENI);
         List<W> mlodziBiegacze = of(W.WYKRECONE_SZCZURKI, W.OFERMY, W.NIEZDOLNOSC_DO_WYSILKU, W.UZALZENIENI);
@@ -85,6 +87,8 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
                                                                     .MIMO_TO(W.ZLY_OWOC)
                                                                     .KONCOWO(of(W.STRATA_CZASU, W.STRATA_PIENIEDZY,
                                                                                 W.STRATA_SIL ,W.STRATY_MORALNE)));
+
+        M.WW(M.OSOBA(W.NIESWIADOMOSC), "--->", of(W.MIEJSCE_STALE, W.ZLY, W.PRZEKONYWANIE_PRZECIW), "--->", M.OSOBA(W.ZLO));
     }
     public void dobroDzialanie() {
         List<W> conditions = of(

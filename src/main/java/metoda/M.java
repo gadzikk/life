@@ -28,6 +28,7 @@ public class M {
     public static W WW(W w1, W w2, W w3, W w4) { return W.WARUNEK; }
     public static W WW(List<W> w1, List<W> w2, List<W> w3, List<W> w4) { return W.WARUNEK; }
     public static W WW(W w1, String del, W w2, String del2, W w3) { return W.WARUNEK; }
+    public static W WW(W w1, String del, List<W> w2, String del2, W w3) { return W.WARUNEK; }
     public static W WW(List<W> w1, String del, List<W> w2, String del2, List<W> w3) { return W.WARUNEK; }
     public static W WW(W w1, String del, W w2, String del2, List<W> w3) { return W.WARUNEK; }
     public static W WW(List<W> w1, String del, W w2, String del2, W w3) { return W.WARUNEK; }
@@ -936,4 +937,18 @@ public class M {
     public static W UKRYCIE() {return W.WARUNEK;}
     public static W PRZEWIDZENIE(W warunek) {return W.WARUNEK;}
     public static W PRZEWIDZENIE(List<W> warunki) {return W.WARUNEK;}
+    public static W OSOBA(W warunek) {return W.WARUNEK;}
+    public static W OSOBA(List<W> warunki) {return W.WARUNEK;}
+    public static W ZALEZNY_OD(W warunek) {return W.WARUNEK;}
+    public static W ZALEZNY_OD(List<W> warunki) {return W.WARUNEK;}
+    public static W BOI_SIE(W warunek) {return W.WARUNEK;}
+    public static W BOI_SIE(List<W> warunki) {return W.WARUNEK;}
+    public static W ROZKMINIONY_PRZEZ(W warunek) {return W.WARUNEK;}
+    public static W ROZKMINIONY_PRZEZ(List<W> warunki) {return W.WARUNEK;}
+    public static W BRAK_DOSWIADCZENIA(W warunek) {return W.WARUNEK;}
+    public static W BRAK_DOSWIADCZENIA(List<W> warunki) {return W.WARUNEK;}
+    public static W BRAK(W warunek) {return W.WARUNEK;}
+    public static W BRAK(List<W> warunki) {return W.WARUNEK;}
+    public static W WZAJEMNE(W warunek) {return W.WARUNEK;}
+    public static W WZAJEMNE(List<W> warunki) {return W.WARUNEK;}
 }

@@ -113,6 +113,9 @@ public class AbstractCPU {
     List<W> ESSENTIALS_WARUNKI = DB_Warunki.ESSENTIALS.getWarunki();
     List<W> PLANSZA_WARUNKI = DB_Warunki.PLANSZA.getWarunki();
     List<W> EXTREMALNE_WARUNKI = DB_Warunki.EXTREMALNE.getWarunki();
+    List<W> SLABY_TCHORZ_WARUNKI = DB_Warunki.SLABY_TCHORZ.getWarunki();
+    List<W> WADY_ZLYCH_WARUNKI = DB_Warunki.WADY_ZLYCH.getWarunki();
+    List<W> WSPOMNIENIA_WARUNKI = DB_Warunki.WSPOMNIENIA.getWarunki();
 
 
 
