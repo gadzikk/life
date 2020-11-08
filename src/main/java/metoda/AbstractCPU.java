@@ -116,8 +116,10 @@ public class AbstractCPU {
     List<W> SLABY_TCHORZ_WARUNKI = DB_Warunki.SLABY_TCHORZ.getWarunki();
     List<W> WADY_ZLYCH_WARUNKI = DB_Warunki.WADY_ZLYCH.getWarunki();
     List<W> WSPOMNIENIA_WARUNKI = DB_Warunki.WSPOMNIENIA.getWarunki();
-
-
+    List<W> KONFRONTACJA_WARUNKI = DB_Warunki.KONFRONTACJA.getWarunki();
+    List<W> OKAZJE_ZROBIENIE_ZLO_WARUNKI = DB_Warunki.OKAZJE_ZROBIENIE_ZLO.getWarunki();
+    List<W> OKAZJE_ZROBIENIE_DOBRO_WARUNKI = DB_Warunki.OKAZJE_ZROBIENIE_DOBRO.getWarunki();
+    List<W> ZLY_ZNAKI_ROZPOZNAWCZE_WARUNKI = DB_Warunki.ZLY_ZNAKI_ROZPOZNAWCZE.getWarunki();
 
 
     public <T> List<T> of(T... elements){

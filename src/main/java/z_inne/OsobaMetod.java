@@ -124,6 +124,13 @@ public class OsobaMetod {
     public W nieposlusznosc() {return W.WARUNEK;}
     public W walkaPiesci() {return W.WARUNEK;}
     public W sprzet() {return W.WARUNEK;}
+    public W wykonuje(W warunek) {return W.WARUNEK;}
+    public W wykonuje(List<W> warunki) {return W.WARUNEK;}
+    public W decyzja(W warunek) {return W.WARUNEK;}
+    public W decyzja(List<W> warunki) {return W.WARUNEK;}
+    public W notyfikacja(W warunek) {return W.WARUNEK;}
+    public W notyfikacja(List<W> warunki) {return W.WARUNEK;}
+
 
     public W NAWYK(W warunek) {return W.WARUNEK;}
     public W NAWYK(List<W> warunki) {return W.WARUNEK;}

@@ -351,7 +351,11 @@ public class CPU_LUDZI extends AbstractCPU {
                         dzialacz.policja(W.ZERO),
 
                         dzialacz.thread_while_loop(M.rozkminianie(wszyscy)),
+
                         M.W(W.INFORMACJA, "--->", dzialacz.notyfikacjaEkipa()),
+                        M.WW(W.INFORMACJA, "--->", of(dzialacz.notyfikacja(W.GORA),
+                                                            grubasPrzewaga.decyzja(W.ROZKAZ)), "--->", dzialacz.wykonuje(W.ROZKAZ)),
+
                         M.W(dzialacz.otrzymujePrzewagiZDzialania(), "--->", dzialacz.lubiDzialanie()),
 
                         dzialacz.WYBOR(of(M.OPCJA(M.DDM(W.SPRZET)), M.OPCJA(M.MIEJSCE_STALE(W.SPRZET)), M.OPCJA(M.PRACA(W.SPRZET)),

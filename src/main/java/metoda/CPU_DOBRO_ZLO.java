@@ -21,7 +21,7 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
         zloDzialanie();
         dobroDzialanie();
         dobroDzialacz();
-        general();
+        generalneZwykleWidzianeZachowanie();
         zloUjecieSwiatowe();
         wyborKazdegoCzlowieka();
     }
@@ -64,6 +64,7 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
                 W.WYJEBAC_ZDJECIA, W.PRZESTRZELIC, W.SKAZYWANIE_SAMOTNOSC, W.ZWYZYWAC, W.OBGADAC, W.POBIC, W.SHANBIC);
 
         List<W> wadyZlych = WADY_ZLYCH_WARUNKI;
+        List<W> okazje = OKAZJE_ZROBIENIE_ZLO_WARUNKI;
 
         List<W> sprawdzajacy = of(W.GLUPI, W.AGRESYWNI, W.TEMPIENI_BYLI, W.BEZ_WSTYDU, W.BEZ_ZASAD, W.BRAK_SUMIENIA);
         List<W> staziBiegacze = of(W.DUZI_TEMPI, W.AGRESYWNI, W.ULEGLI, W.ZALEZNY, W.UZALZENIENI);
@@ -85,8 +86,8 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
 
         M.W(W.ZLY, "--->", M.DUZY_WYSILEK(M.thread_while_loop(M.KONTROLA(W.ZLY)))
                                                                     .MIMO_TO(W.ZLY_OWOC)
-                                                                    .KONCOWO(of(W.STRATA_CZASU, W.STRATA_PIENIEDZY,
-                                                                                W.STRATA_SIL ,W.STRATY_MORALNE)));
+                                                                    .KONCOWO(of(W.STRATA_CZASU, W.STRATA_PIENIEDZY, W.STRATA_SIL,
+                                                                            on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI))));
 
         M.WW(M.OSOBA(W.NIESWIADOMOSC), "--->", of(W.MIEJSCE_STALE, W.ZLY, W.PRZEKONYWANIE_PRZECIW), "--->", M.OSOBA(W.ZLO));
     }
@@ -117,6 +118,10 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
         );
         dobrzi.thread_while_loop(M.KONTROLA(W.ZLI));
 
+        W sonda = M.SONDA(ZLY_ZNAKI_ROZPOZNAWCZE_WARUNKI);
+
+        List<W> okazje = OKAZJE_ZROBIENIE_DOBRO_WARUNKI;
+
         M.W(of(W.DOBRY, W._88_, W.WIDZIAL) , "--->", of(M.ODRAZU(M.MOCNO(W.KONTRA)), W.SPRAWIEDLIWOSC));
     }
     public void dobroDzialacz() {
@@ -124,11 +129,14 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
                 W.POZBAWIENIE_PRZEWAG_NIESPRAWIEDLIWYCH
         );
     }
-    public void general() {
+    public void generalneZwykleWidzianeZachowanie() {
         List<W> conditions = of(
                 W.POBIJ_JAK_NAJWIECEJ_OSOB,
                 W.ZDOBADZ_JAK_NAJWIECEJ_PRZEWAG
         );
+
+        M.WYWYZSZAJ(M.UMACNIAJ(W.SIEBIE));
+        M.UNIZAJ(M.OSLABIAJ(W.INNI));
     }
     public void zloUjecieSwiatowe() {
         diabel.wali(usa);

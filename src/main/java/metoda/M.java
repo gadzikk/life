@@ -951,4 +951,18 @@ public class M {
     public static W BRAK(List<W> warunki) {return W.WARUNEK;}
     public static W WZAJEMNE(W warunek) {return W.WARUNEK;}
     public static W WZAJEMNE(List<W> warunki) {return W.WARUNEK;}
+    public static W NIE_DOSTRZEGA(W warunek) {return W.WARUNEK;}
+    public static W NIE_DOSTRZEGA(List<W> warunki) {return W.WARUNEK;}
+    public static W SONDA(W warunek) {return W.WARUNEK;}
+    public static W SONDA(List<W> warunki) {return W.WARUNEK;}
+    public static W PO_SONDA(W warunek) {return W.WARUNEK;}
+    public static W PO_SONDA(List<W> warunki) {return W.WARUNEK;}
+    public static W NIEUDOLNIE(W warunek) {return W.WARUNEK;}
+    public static W NIEUDOLNIE(List<W> warunki) {return W.WARUNEK;}
+    public static W WYWYZSZAJ(W warunek) {return W.WARUNEK;}
+    public static W WYWYZSZAJ(List<W> warunki) {return W.WARUNEK;}
+    public static W UMACNIAJ(W warunek) {return W.WARUNEK;}
+    public static W UMACNIAJ(List<W> warunki) {return W.WARUNEK;}
+    public static W OSLABIAJ(W warunek) {return W.WARUNEK;}
+    public static W OSLABIAJ(List<W> warunki) {return W.WARUNEK;}
 }

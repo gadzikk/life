@@ -457,6 +457,7 @@ public class CPU_UL extends AbstractCPU {
         List<W> obronaStarcie = OBRONA_STARCIE_WARUNKI;
         List<W> rany = RANY_WARUNKI;
         List<W> ktoKogo = KTO_KOGO_WARUNKI;
+        List<W> konfrontacja = KONFRONTACJA_WARUNKI;
 
         M.W(of(W.POMSZCZENIE, W.NOTYFIKACJA_EKIPA, W.FOTY,
                 W.OBRAZENIA_FIZYCZNE, W.STARCIE_WIELU_NA_JEDNEGO,
@@ -1245,6 +1246,8 @@ public class CPU_UL extends AbstractCPU {
         M.W(W.WYROK, "--->", M.UNIZAJ(W.POSIEDZI_CHWILE_NIC_MU_SIE_NIE_STANIE));
 
         M.W(W.BRAK_KIBICOWANIA, "--->", W.NIC_NIE_MOGA_ZROBIC);
+
+        M.W(W.PORAZKA, "--->", M.thread_while_loop(M.NIEUDOLNIE(W.PONAWIANIE_PROBY)));
 
         M.W(of(W.MIEJSCE_STALE, W.OBSLUGA_OD_NAS), "--->", of(
                                                         obsluga.thread_while_loop(KURESTWO_WARUNKI),

@@ -85,7 +85,10 @@ public class DB_Warunki extends DB {
                 DOBRE_CZYNY,
                 ZLE_CZYNY,
                 ANTY_DZIALACZ,
-                WADY_ZLYCH
+                WADY_ZLYCH,
+                OKAZJE_ZROBIENIE_ZLO,
+                OKAZJE_ZROBIENIE_DOBRO,
+                ZLY_ZNAKI_ROZPOZNAWCZE
         );
 
         List<WarunkiKategoria> GLOBAL_PLANSZA = Arrays.asList(
@@ -174,7 +177,8 @@ public class DB_Warunki extends DB {
                 KURESTWO,
                 OBRONA_STARCIE,
                 METODA_STARCIE_REAKCJA,
-                ULICA_PRZEWAGA_REAKCJA
+                ULICA_PRZEWAGA_REAKCJA,
+                KONFRONTACJA
         );
 
         List<WarunkiKategoria> TYPY_PRAC = Arrays.asList(
@@ -594,6 +598,7 @@ public class DB_Warunki extends DB {
             Arrays.asList(
                     W.ZLE_GENY, W.GLUPOTA, W.NIESWIADOMOSC, W.DZIALANIE_ZA_NAMOWA,
 
+                    W.ZLE_W_ZYCIU, M.NIE_DOSTRZEGA(M.SILA_SPRAWCZA(W.DOBRO)),
                     W.ULTIMATUM_OD_SILNIEJSZYCH, W.PIENIADZE, W.POTRZEBA_PARTNERA,
                     W.KOMFORT, W.PRZYJEMNOSC, W.WARTOSC_MATERIALNA, W.MONOPOL_ZLA,
                     W.BRAK_OPCJI, W.NUDA, W.ZNAJOMOSCI, W.PRZEWAGA_SILY,
@@ -1010,8 +1015,8 @@ public class DB_Warunki extends DB {
             )
     );
 
-    public static WarunkiKategoria DZIALAJACY_ZNAKI_ROZPOZNAWCZE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.DZIALAJACY, TypKategoria.DZIALAJACY_ZNAKI_ROZPOZNAWCZE),
+    public static WarunkiKategoria ZLY_ZNAKI_ROZPOZNAWCZE = new WarunkiKategoria(
+            new Kategoria(TypKategoria.ZLY_ZNAKI_ROZPOZNAWCZE),
             Arrays.asList(
                     W.CZARNE_WLOSY, W.TATUAZE, W.RUDY, W.RUMUN, W.CZERWONE_OCZY,
                     W.DRESY_SZARE_MATERIALOWE, W.GAZ, W.TORBA,
@@ -1488,7 +1493,33 @@ public class DB_Warunki extends DB {
     public static WarunkiKategoria WSPOMNIENIA = new WarunkiKategoria(
             new Kategoria(TypKategoria.UNIWERSALNE_SWIAT, TypKategoria.WSPOMNIENIA),
             Arrays.asList(
-                    W.OSOBY, W.SYTUACJE, W.POMIESZCZENIA, W.RZECZY, W.DROGA_DO, W.DROGA_POWROT, W.EMOCJE_DANEJ_CHWILI
+                    W.OSOBY, W.SYTUACJE, W.KONTEKST, W.EMOCJE_DANEJ_CHWILI, W.POMIESZCZENIA, W.RZECZY, W.DROGA_DO, W.DROGA_POWROT
+            )
+    );
+
+    public static WarunkiKategoria KONFRONTACJA = new WarunkiKategoria(
+            new Kategoria(TypKategoria.RANY, TypKategoria.KTO_KOGO),
+            Arrays.asList(
+                    M.thread_while_loop(W.WYSILEK), M.thread_while_loop(W.KLOTNIA),
+                    M.thread_while_loop(M.ORIENT(W.LUDZIE)), M.thread_while_loop(M.ORIENT(W.SPRZET)),
+                    M.thread_while_loop(W.OBRAZENIA_FIZYCZNE)
+            )
+    );
+
+    public static WarunkiKategoria OKAZJE_ZROBIENIE_ZLO = new WarunkiKategoria(
+            new Kategoria(TypKategoria.OKAZJE_ZROBIENIE_ZLO),
+            Arrays.asList(
+                    W.OBECNOSC_LUDZI, W.BLISKOSC, W.POTRZEBA, W.USLUGI,
+                    M.MOCNO(W.PRZEWAGA), M.MOCNO(M.OPPONENT(W.PRZEWAGA)), M.MOCNO(W.LUDZIE_ZA_TOBA),
+                    M.MOCNO(W.NIESWIADOMOSC), M.MOCNO(M.BRAK_DOSTEPU(W.ZLO))
+            )
+    );
+
+    public static WarunkiKategoria OKAZJE_ZROBIENIE_DOBRO = new WarunkiKategoria(
+            new Kategoria(TypKategoria.OKAZJE_ZROBIENIE_ZLO),
+            Arrays.asList(
+                    W.BLISKOSC, M.WIDZISZ(W.ZLO), M.PRZEWIDZENIE(W.ZLO),
+                    M.PO_SONDA(W.ZLY)
             )
     );
 
@@ -1500,7 +1531,10 @@ public class DB_Warunki extends DB {
             DOBRE_CZYNY,
             ZLE_CZYNY,
             ANTY_DZIALACZ,
-            WADY_ZLYCH
+            WADY_ZLYCH,
+            OKAZJE_ZROBIENIE_ZLO,
+            OKAZJE_ZROBIENIE_DOBRO,
+            ZLY_ZNAKI_ROZPOZNAWCZE
     );
 
     public static List<WarunkiKategoria> GLOBAL_PLANSZA = Arrays.asList(
@@ -1589,7 +1623,8 @@ public class DB_Warunki extends DB {
             KURESTWO,
             OBRONA_STARCIE,
             METODA_STARCIE_REAKCJA,
-            ULICA_PRZEWAGA_REAKCJA
+            ULICA_PRZEWAGA_REAKCJA,
+            KONFRONTACJA
     );
 
     public static List<WarunkiKategoria> TYPY_PRAC = Arrays.asList(
