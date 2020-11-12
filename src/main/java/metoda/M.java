@@ -965,4 +965,8 @@ public class M {
     public static W UMACNIAJ(List<W> warunki) {return W.WARUNEK;}
     public static W OSLABIAJ(W warunek) {return W.WARUNEK;}
     public static W OSLABIAJ(List<W> warunki) {return W.WARUNEK;}
+    public static W WSPOMNIJ(W warunek) {return W.WARUNEK;}
+    public static W WSPOMNIJ(List<W> warunki) {return W.WARUNEK;}
+    public static W ZLE_TRAKTOWANIE(W warunek) {return W.WARUNEK;}
+    public static W ZLE_TRAKTOWANIE(List<W> warunki) {return W.WARUNEK;}
 }

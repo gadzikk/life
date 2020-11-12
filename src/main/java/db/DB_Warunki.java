@@ -597,9 +597,11 @@ public class DB_Warunki extends DB {
             new Kategoria(TypKategoria.PRZYCZYNY_ZLA),
             Arrays.asList(
                     W.ZLE_GENY, W.GLUPOTA, W.NIESWIADOMOSC, W.DZIALANIE_ZA_NAMOWA,
+                    W.ROZKAZ, W.ULTIMATUM_OD_SILNIEJSZYCH,
 
                     W.ZLE_W_ZYCIU, M.NIE_DOSTRZEGA(M.SILA_SPRAWCZA(W.DOBRO)),
-                    W.ULTIMATUM_OD_SILNIEJSZYCH, W.PIENIADZE, W.POTRZEBA_PARTNERA,
+                    W.NASTAWIENIE_JA_GNOJONY_GNOJE_NIZSZYCH, W.NASTAWIENIE_MAM_ZLE_ON_TEZ_MUSI,  W.NASTAWIENIE_NIE_MAM_NIC_ON_TEZ_MA_NIE_MIEC,
+                    W.PIENIADZE, W.POTRZEBA_PARTNERA,
                     W.KOMFORT, W.PRZYJEMNOSC, W.WARTOSC_MATERIALNA, W.MONOPOL_ZLA,
                     W.BRAK_OPCJI, W.NUDA, W.ZNAJOMOSCI, W.PRZEWAGA_SILY,
                     W.POTRZEBA_WSPARCIA, W.POTRZEBA_AKCEPTACJI, W.POTRZEBA_EMOCJI,
@@ -1236,6 +1238,8 @@ public class DB_Warunki extends DB {
                     M.MALY_WYSILEK(M.MOCNO(W.WYKORZYSTUJE_BRAK_PRZEWAG)),
                     M.MALY_WYSILEK(M.MOCNO(W.DUZA_KRZYWDA_NA_PRZEWADZE)),
                     M.MALY_WYSILEK(W.GRZEBANIE_PRYWATNE),
+                    M.ODRAZU(W.ZLO), M.DOSWIADCZENIE(W.ZLO),
+                    M.DEFAULT(M.ZLE_TRAKTOWANIE(W.OSOBA)), M.BRAK(W.WSTYD),
                     M.MOCNO(of(W.DAZENIE_DO_ZLA, W.SZUKANIE_GLEBOKO_ZLA, W.KAZDE_DZIALANIE_ZMIENIA_W_ZLO))
             )
     );
@@ -1510,8 +1514,8 @@ public class DB_Warunki extends DB {
             new Kategoria(TypKategoria.OKAZJE_ZROBIENIE_ZLO),
             Arrays.asList(
                     W.OBECNOSC_LUDZI, W.BLISKOSC, W.POTRZEBA, W.USLUGI,
-                    M.MOCNO(W.PRZEWAGA), M.MOCNO(M.OPPONENT(W.PRZEWAGA)), M.MOCNO(W.LUDZIE_ZA_TOBA),
-                    M.MOCNO(W.NIESWIADOMOSC), M.MOCNO(M.BRAK_DOSTEPU(W.ZLO))
+                    M.MOCNO(W.PRZEWAGA), M.MOCNO(M.OPPONENT(W.WARTOSC)), M.MOCNO(M.OPPONENT(W.BRAK_PRZEWAG)), M.MOCNO(W.LUDZIE_ZA_TOBA),
+                    M.MOCNO(M.OPPONENT(W.NIESWIADOMOSC)), M.MOCNO(M.OPPONENT(M.BRAK_DOSTEPU(W.ZLO)))
             )
     );
 

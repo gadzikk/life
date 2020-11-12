@@ -1059,7 +1059,8 @@ public enum W {
         ZLE_CZYNY, NASTAWIENIE_STARCIE, UKRYCIE_SIE, DROGA, PRACOWNIK_KORPORACJI, FEST_FOLWARCZANY, GRUBAS_Z_PRZEWAGA,
         SLUZBY, SWIATLA, KLATKA, STACJA_BENZYNOWA, CZYNY, STARCIE_1_NA_1, HAKI, PORAZKA, PONAWIANIE_PROBY,
 
-        OSOBY, SYTUACJE, POMIESZCZENIA, RZECZY, DROGA_DO, DROGA_POWROT, EMOCJE_DANEJ_CHWILI, ROZKAZ,
+        OSOBY, SYTUACJE, POMIESZCZENIA, RZECZY, DROGA_DO, DROGA_POWROT, EMOCJE_DANEJ_CHWILI, ROZKAZ, SKOJARZONE,
+        SYTUACJA_SRODOWISKOWA,
 
         // OPERATORY
         _II_, _88_, _NOT_;
@@ -1078,4 +1079,8 @@ public enum W {
         public W REZULTAT(List<W> warunki) {return W.WARUNEK;}
         public W POTRZEBNE(W warunek) {return W.WARUNEK;}
         public W POTRZEBNE(List<W> warunki) {return W.WARUNEK;}
+        public W POWIAZ_Z(W warunek) {return W.WARUNEK;}
+        public W POWIAZ_Z(List<W> warunki) {return W.WARUNEK;}
+        public W WSPOMIJ(W warunek) {return W.WARUNEK;}
+        public W WSPOMIJ(List<W> warunki) {return W.WARUNEK;}
 }
