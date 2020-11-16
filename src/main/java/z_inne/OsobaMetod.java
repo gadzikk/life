@@ -130,6 +130,8 @@ public class OsobaMetod {
     public W decyzja(List<W> warunki) {return W.WARUNEK;}
     public W notyfikacja(W warunek) {return W.WARUNEK;}
     public W notyfikacja(List<W> warunki) {return W.WARUNEK;}
+    public W forEach(W warunek) {return W.WARUNEK;}
+    public W forEach(List<W> warunki) {return W.WARUNEK;}
 
 
     public W NAWYK(W warunek) {return W.WARUNEK;}
@@ -142,4 +144,5 @@ public class OsobaMetod {
     public W WYKLUCZ(OsobaMetod osobaMetod) {return W.WARUNEK;}
     public W KTO_KOGO(OsobaMetod osobaMetod, List<W> warunki) {return W.WARUNEK;}
     public W KTO_KOGO_Z_PRZEWAGA(OsobaMetod osobaMetod, List<W> warunki) {return W.WARUNEK;}
+
 }

@@ -534,6 +534,7 @@ public class M {
     public static W wdupcDoHierarchiiPodToba(OsobaMetod osoba) {return W.WARUNEK;}
     public static W KONTROLA(List<W> warunki) {return W.WARUNEK;}
     public static W KONTROLA(W w) {return W.WARUNEK;}
+    public static W KONTROLA(OsobaMetod osoba) {return W.WARUNEK;}
     public static M konsekwencje(List<W> warunki) {return new M();}
     public static W BFS_terytorium(W w) {return W.WARUNEK;}
     public static W OTHERWISE(List<W> warunki) {return W.WARUNEK;}
@@ -969,4 +970,12 @@ public class M {
     public static W WSPOMNIJ(List<W> warunki) {return W.WARUNEK;}
     public static W ZLE_TRAKTOWANIE(W warunek) {return W.WARUNEK;}
     public static W ZLE_TRAKTOWANIE(List<W> warunki) {return W.WARUNEK;}
+    public static W POROWNANIE(W warunek) {return W.WARUNEK;}
+    public static W POROWNANIE(List<W> warunki) {return W.WARUNEK;}
+    public static W SPRZET(W warunek) {return W.WARUNEK;}
+    public static W SPRZET(List<W> warunki) {return W.WARUNEK;}
+    public static W EKIPA(W warunek) {return W.WARUNEK;}
+    public static W EKIPA(List<W> warunki) {return W.WARUNEK;}
+    public static W ITERACYJNIE(W warunek) {return W.WARUNEK;}
+    public static W ITERACYJNIE(List<W> warunki) {return W.WARUNEK;}
 }

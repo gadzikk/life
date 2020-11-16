@@ -370,6 +370,8 @@ public class CPU_LUDZI extends AbstractCPU {
                         dzialacz.thread_while_loop(M.wplyw(srodowisko)),
 
                         srodowisko.thread_while_loop(M.wzajemneOddzialywanie(srodowisko)),
+                        srodowisko.thread_while_loop(M.KONTROLA(dzialacz)),
+
                         srodowisko.thread_while_loop(M.moda()),
                         srodowisko.thread_while_loop(M.komfort()),
                         srodowisko.thread_while_loop(M.oczekiwania(W.AGRESJA_W_DZIALANIU, dzialacz)),
@@ -386,6 +388,8 @@ public class CPU_LUDZI extends AbstractCPU {
 
                         M.W(srodowisko.CZESTO(M.WZAJEMNE_RANY(RANY_WARUNKI)), "--->", srodowisko.TOLERANCJA(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI)),
                         srodowisko.WHILE(dzialacz.thread_while_loop(of(W.SLUCHAJA, W.OBECNOSC_LUDZI, M.wykonujeRozkazy(W.GORA), M.KTO_KOGO(osobyPozaSrodowisko, KTO_KOGO_WARUNKI)))),
+
+                        M.W(M.INFORMACJA(W.WROG), "--->", dzialajcyBliskoMiejsca.forEach(of(M.NABYCIE(W.BLISKOSC), W.CISNIE, W.WALKA_PIESCI, W.WALKA_SPRZET))),
 
                         dzialacz.siejZlo(), M.otherwise(W.PRZEJEBANE, 0),
                         dzialacz.uzaleznijSieOdSrd(),

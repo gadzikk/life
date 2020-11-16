@@ -742,7 +742,8 @@ public class CPU_UL extends AbstractCPU {
                         M.sonda(W.ZLO_DOBRO), // UZASADNIENIE: 0
                         M.sonda(W.WIEK),
                         M.sonda(W.CZY_CWEL), // NICNIEMOZE : 0
-//                            M.sonda(W.SRODOWISKO),
+                        M.POROWNANIE(W.INNI),
+                        M.sonda(W.SRODOWISKO),
 //                            M.sonda(W.CZYNY_DZIALANIA)
                         M.sonda(W.GDZIE)
                 )
@@ -763,7 +764,9 @@ public class CPU_UL extends AbstractCPU {
         M.W(of(W.SONDA_ZASOBU), "--->", of(W.WARTOSC, W.TRUDNOSC_UTRZYMANIA));
 
         M.W(of(W.SONDA_DZIALANIA), "--->", of(W.WARTOSC, W.BEZPIECZENSTWO, W.KONSEKWENCJE,
-                W.CZESTOTLIWOSC,W.EFEKTYWNOSC));
+                                                     W.CZESTOTLIWOSC,W.EFEKTYWNOSC));
+
+        M.W(W.POKAZUJE_EMOCJE, "--->", W.SLABY);
 
         M.W(of(W.ZLY, W._88_, W.PATRZY), "--->", of(W.SONDA_POD_ZROBIENIE_ZLA));
 
@@ -1194,6 +1197,8 @@ public class CPU_UL extends AbstractCPU {
                                                                                         oraz(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI)));
 
         grubasPrzewaga.tworzyWarunki(M.ZAPOTRZEBOWANIE(of(W.ZLO, on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI), on(KTO_KOGO_WARUNKI))));
+        grubasPrzewaga.tworzyWarunki(M.TOLERANCJA(of(on(KTO_KOGO_WARUNKI), on(KURESTWO_WARUNKI))).CEL(M.CZESTO(of(W.WYKORZYSTANIE, W.DZIALANIE_DLA_ZLA))));
+
         dzialacz.zwiekszaSzanse(of(W.ZLO, on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI), on(KTO_KOGO_WARUNKI)));
 
         grubasPrzewaga.tworzy(W.SRODOWISKO).CEL(of(
@@ -1237,7 +1242,7 @@ public class CPU_UL extends AbstractCPU {
         M.thread_while_loop(W.ZAKLAMYWANIE_RZECZYWISTOSCI);
 
         M.POBIERZ(METODY_POLICYJNE_WARUNKI);
-        M.SWOI(of(W.SAD, W.POLICJA, W.SZPITAL, W.OCHRONA, W.RYNEK, W.SILOWNIA));
+        M.SWOI(of(W.SAD, W.POLICJA, W.SZPITAL, W.OCHRONA, W.RYNEK, W.SILOWNIA, W.Z_PIESKIEM));
 
         M.W(W.NIE_OD_NAS, "--->", of(W.NOTYFIKACJA_EKIPA, W.FOTY, W.CISNIE, W.WALKA_SPRZET));
 

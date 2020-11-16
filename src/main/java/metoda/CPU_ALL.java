@@ -153,6 +153,12 @@ public class CPU_ALL extends AbstractCPU {
                         M.sprobojWziacWartosc(metodySzponcnia)
                 )
         );
+
+        M.W(M.WZAJEMNE(W.WARTOSC), "--->", W.STATUS_QUO);
+        M.W(M.BRAK(W.WARTOSC), "--->", W.STARCIE);
+
+        M.W(W.ILOSC, "--->", W.JAKOSC);
+
         trudnoLatwo();
         superpozycja();
         najwiekszaBron();

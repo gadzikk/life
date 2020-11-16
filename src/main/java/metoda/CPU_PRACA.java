@@ -291,6 +291,8 @@ public class CPU_PRACA extends AbstractCPU {
     public void algorytmUczeniaSie() {
         M.ZRODLA(of(M.SZYBKO(W.ARTYKULY), M.WOLNO(W.KSIAZKI), W.PYTANIA_INTERVIEW, W.STUDIA, W.GITHUB));
 
+        M.W(M.WOLNO(W.KSIAZKI), "<", M.SZYBKO(M.ITERACYJNIE(W.ARTYKULY)));
+
         M.W(W.KSIAZKA, "--->", of(M.POROWNANIE_Z_INNYMI(W.KSIAZKA),
                                     M.PRZEGLADNIECIE(W.SPIS_TRESCI),
                                     M.thread_while_loop(M.WYPISYWANIE(W.BUZZWORDY)),

@@ -134,7 +134,8 @@ public class DB_Warunki extends DB {
                 SONDA_PO,
                 KOGO,
                 WYMAGA_KARY,
-                SONDA_DZIALACZA
+                SONDA_DZIALACZA,
+                SONDA_SHRTS
         );
 
         List<WarunkiKategoria> CZAS = Arrays.asList(
@@ -601,6 +602,7 @@ public class DB_Warunki extends DB {
 
                     W.ZLE_W_ZYCIU, M.NIE_DOSTRZEGA(M.SILA_SPRAWCZA(W.DOBRO)),
                     W.NASTAWIENIE_JA_GNOJONY_GNOJE_NIZSZYCH, W.NASTAWIENIE_MAM_ZLE_ON_TEZ_MUSI,  W.NASTAWIENIE_NIE_MAM_NIC_ON_TEZ_MA_NIE_MIEC,
+                    M.MOCNO(W.ZAZDROSC), M.MOCNO(W.CHCIWOSC), M.MOCNO(W.DOMINACJA),
                     W.PIENIADZE, W.POTRZEBA_PARTNERA,
                     W.KOMFORT, W.PRZYJEMNOSC, W.WARTOSC_MATERIALNA, W.MONOPOL_ZLA,
                     W.BRAK_OPCJI, W.NUDA, W.ZNAJOMOSCI, W.PRZEWAGA_SILY,
@@ -691,10 +693,11 @@ public class DB_Warunki extends DB {
     public static WarunkiKategoria PRZEWAGI = new WarunkiKategoria(
             new Kategoria(TypKategoria.PRZEWAGI),
             Arrays.asList(
-                    W.ZNAJOMI, W.OSIEDLOWE_SRD, W.KOBIETA,
+                    W.ZNAJOMI, W.OSIEDLOWE_SRD, W.KOBIETA, W.SAMOCHOD,
                     W.SZANSA_ZNAJOMI, W.SZANSA_OSIEDLOWE_SRD, W.SZANSA_KOBIETA,
                     W.INFORMACJA, W.CZAS, W.WIEDZA, W.BRAK_WSTYDU,
-                    W.LUDZIE_ZA_TOBA, W.WALKA_PIESCI, W.WALKA_SPRZET,
+                    W.ROZMIAR, W.PODNOSZENIE_CIEZAROW, W.SILNE_UDERZENIE, W.ZAPASY, W.OBRONA, W.SILNI_KUMPLE_ZDOLNI_DO_WALKI,
+                    W.LUDZIE_ZA_TOBA, W.WALKA_PIESCI, W.WALKA_SPRZET, M.SPRZET(M.EKIPA(W.SAMOCHOD_NA_CHODZIE)), M.SPRZET(M.EKIPA(W.MIEJSCE)),
                     W.UMIEJETNOSC,
                     W.PRACA, W.PIENIADZE,
                     W.WYSOKA_POZYCJA,
@@ -1266,6 +1269,25 @@ public class DB_Warunki extends DB {
                     M.DOSWIADCZENIE(W.SPRZET)
     ));
 
+    public static WarunkiKategoria SONDA_SHRTS = new WarunkiKategoria(
+            new Kategoria(TypKategoria.SONDA, TypKategoria.SONDA_SHRTS), of(
+            M.W(of(W.MEZCZYZNA),
+                    of(
+                            M.sonda(W.Z_KIM),
+                            M.sonda(W.SWIADOMOSC), // 1: FEST
+                            M.sonda(W.SILA_SPRAWCZA), // WPLYW: 0
+                            M.sonda(W.ROZMIAR),
+                            M.sonda(W.ZLO_DOBRO), // UZASADNIENIE: 0
+                            M.sonda(W.WIEK),
+                            M.sonda(W.CZY_CWEL), // NICNIEMOZE : 0
+                            M.POROWNANIE(W.INNI),
+                            M.sonda(W.SRODOWISKO),
+//                            M.sonda(W.CZYNY_DZIALANIA)
+                            M.sonda(W.GDZIE)
+                    )
+            )
+    ));
+
 
     public static WarunkiKategoria ZACHETA_DO_ZLA = new WarunkiKategoria(
             new Kategoria(TypKategoria.ZACHETA_DO_ZLA),
@@ -1520,7 +1542,7 @@ public class DB_Warunki extends DB {
     );
 
     public static WarunkiKategoria OKAZJE_ZROBIENIE_DOBRO = new WarunkiKategoria(
-            new Kategoria(TypKategoria.OKAZJE_ZROBIENIE_ZLO),
+            new Kategoria(TypKategoria.OKAZJE_ZROBIENIE_DOBRO),
             Arrays.asList(
                     W.BLISKOSC, M.WIDZISZ(W.ZLO), M.PRZEWIDZENIE(W.ZLO),
                     M.PO_SONDA(W.ZLY)
@@ -1585,7 +1607,8 @@ public class DB_Warunki extends DB {
             SONDA_PO,
             KOGO,
             WYMAGA_KARY,
-            SONDA_DZIALACZA
+            SONDA_DZIALACZA,
+            SONDA_SHRTS
     );
 
     public static List<WarunkiKategoria> CZAS = Arrays.asList(

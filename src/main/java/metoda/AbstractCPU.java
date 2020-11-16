@@ -92,6 +92,7 @@ public class AbstractCPU {
     OsobaMetod obsluga = new OsobaMetod();
     OsobaMetod kierownictwo = new OsobaMetod();
     OsobaMetod osoby = new OsobaMetod();
+    OsobaMetod dzialajcyBliskoMiejsca = new OsobaMetod();
 
     List<W> PRZYCZYNY_SLUZENIA_ZLU_WARUNKI = DB_Warunki.PRZYCZYNY_SLUZENIA_ZLU.getWarunki();
     List<W> PRZYCZYNY_SLUZENIA_DOBRU_WARUNKI = DB_Warunki.PRZYCZYNY_SLUZENIA_DOBRU.getWarunki();
@@ -120,6 +121,10 @@ public class AbstractCPU {
     List<W> OKAZJE_ZROBIENIE_ZLO_WARUNKI = DB_Warunki.OKAZJE_ZROBIENIE_ZLO.getWarunki();
     List<W> OKAZJE_ZROBIENIE_DOBRO_WARUNKI = DB_Warunki.OKAZJE_ZROBIENIE_DOBRO.getWarunki();
     List<W> ZLY_ZNAKI_ROZPOZNAWCZE_WARUNKI = DB_Warunki.ZLY_ZNAKI_ROZPOZNAWCZE.getWarunki();
+    List<W> SONDA_DZIALACZ_WARUNKI = DB_Warunki.SONDA_DZIALACZA.getWarunki();
+    List<W> SONDA_SHRTS_WARUNKI = DB_Warunki.SONDA_SHRTS.getWarunki();
+    List<W> PRZEWAGI_WARUNKI = DB_Warunki.PRZEWAGI.getWarunki();
+
 
 
     public <T> List<T> of(T... elements){

@@ -18,6 +18,10 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
 
         M.DEFAULT(of(M.MOCNO(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI), M.SLABO(PRZYCZYNY_SLUZENIA_DOBRU_WARUNKI)));
 
+        M.W(W.ZLO, "--->", of(W.PRZYJEMNOSCI, on(PRZEWAGI_WARUNKI), M.MALO(W.WYSILEK)));
+
+        M.W(W.DOBRO, "--->", of(W.CIERPIENIE, W.PRACA, M.DUZO(W.WYSILEK)));
+
         zloDzialanie();
         dobroDzialanie();
         dobroDzialacz();
