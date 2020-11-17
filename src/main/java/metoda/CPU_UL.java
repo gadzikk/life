@@ -22,9 +22,7 @@ public class CPU_UL extends AbstractCPU {
             M.walkaSila(of(W.ZAGRANICZNI, W.BURZUAZJA)),
             M.walkaWiedza(of(W.BIEGACZE, W.NIECHCACY_WPUSCIC))
     );
-    List<W> typyLudzi = of(
-            W.WYKOLEJONY, W.FEST, W.WIESNIAK, W.OSIEDLOWY_SLABY, W.NORMALNY, W.OSIEDLOWY_MOCNY, W.CZOLO
-    );
+    List<W> typyLudzi = TYPY_LUDZI_SHRT_WARUNKI;
 
     W ktoKogo = M.MOCNO(KTO_KOGO_WARUNKI);
     W kurestwo = M.MOCNO(KURESTWO_WARUNKI);
@@ -203,6 +201,9 @@ public class CPU_UL extends AbstractCPU {
         tworzenieWarunkow();
         defaultNastawieniaWychodzenieNaUlice();
         przejecie();
+        wychodzisz();
+        cviiZalosneStarania();
+        terytoriumWroga();
     }
     public List<W> srodki() {
         return of(
@@ -635,6 +636,8 @@ public class CPU_UL extends AbstractCPU {
         );
         M.W(of(W.BLISKOSC, W.CISNIECIE, W.WALKA_PIESCI, W.WALKA_SPRZET), "--->", of(dzialaczMocny.pomsci(),
                                                                                         dzialaczMocny.ultimatumEkipie()));
+
+        M.W(M.POBITY(osoba), "--->", of(M.KOLEJKA_DO(M.POBICIE(osoba)), W.DLUG_MORALNY, W.CHEC_POMSZCZENIA, silniejszy.GNOJI(osoba)));
     }
     public void przewagi(){
         W przewagaGlobal = W.PRZEWAGA_LOCAL;
@@ -761,12 +764,21 @@ public class CPU_UL extends AbstractCPU {
     }
 
     public void sonda(){
+        List<W> sondaShrts = SONDA_SHRTS_WARUNKI;
+        List<W> sondaGdy = SONDA_GDY_WARUNKI;
+        List<W> sondaPo = SONDA_PO_WARUNKI;
+        List<W> kogo = KOGO_WARUNKI;
+        List<W> wymagaKary = WYMAGA_KARY_WARUNKI;
+        List<W> sondaDzialacza = SONDA_DZIALACZA_WARUNKI;
+
         M.W(of(W.SONDA_ZASOBU), "--->", of(W.WARTOSC, W.TRUDNOSC_UTRZYMANIA));
 
         M.W(of(W.SONDA_DZIALANIA), "--->", of(W.WARTOSC, W.BEZPIECZENSTWO, W.KONSEKWENCJE,
                                                      W.CZESTOTLIWOSC,W.EFEKTYWNOSC));
 
         M.W(W.POKAZUJE_EMOCJE, "--->", W.SLABY);
+
+        M.W(W.NIE_UMIE_KLAMAC, "--->", W.MALO_PRZEZYC);
 
         M.W(of(W.ZLY, W._88_, W.PATRZY), "--->", of(W.SONDA_POD_ZROBIENIE_ZLA));
 
@@ -1270,7 +1282,16 @@ public class CPU_UL extends AbstractCPU {
         M.PRZEJECIE(of(W.OSIEDLE, W.MIEJSCE_STALE, W.PRACA, W.SLUZBY, W.LUDZIE))
                 .POTRZEBNE(M.thread_while_loop(of(W.POSLUCH, W.OBECNOSC_LUDZI)))
                 .CEL(of(M.TWORZENIE(W.ZLO), M.NISZCZENIE(W.DOBRO), M.ZWIEKSZANIE(W.PRZEWAGA), M.NABYCIE(W.CIAGLOSC_INFORMACJI)));
+    }
 
+    public void terytoriumWroga() {
+        M.CZESTO(M.ZWIAD(W.OSIEDLE));
+        M.CZESTO(M.MIEJSCE_STALE(W.FOTY));
+
+        M.CZESTO(M.thread_while_loop(W.SAMOCHOD));
+        M.CZASEM(M.WJAZD(W.SPRZET));
+
+        M.thread_while_loop(M.PROBUJ(M.PRZEJECIE(of(W.OSIEDLE, W.MIEJSCE_STALE, W.PRACA, W.SLUZBY, W.LUDZIE))));
     }
 
 }

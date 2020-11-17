@@ -22,6 +22,8 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
 
         M.W(W.DOBRO, "--->", of(W.CIERPIENIE, W.PRACA, M.DUZO(W.WYSILEK)));
 
+        M.W(M.DUZO(W.GRZECH), "--->", M.DUZO(W.WADY));
+
         zloDzialanie();
         dobroDzialanie();
         dobroDzialacz();

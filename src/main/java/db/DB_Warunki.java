@@ -93,7 +93,8 @@ public class DB_Warunki extends DB {
 
         List<WarunkiKategoria> GLOBAL_PLANSZA = Arrays.asList(
                 GLOBAL_PLANSZA_LUDZIE,
-                GLOBAL_PLANSZA_PRACA
+                GLOBAL_PLANSZA_PRACA,
+                TYPY_LUDZI_SHRT
         );
 
         List<WarunkiKategoria> WARTOSCI_OCENA_WROG = Arrays.asList(
@@ -859,7 +860,7 @@ public class DB_Warunki extends DB {
             new Kategoria(TypKategoria.SONDA, TypKategoria.SONDA_PO),
             Arrays.asList(
                     W.OCZY, W.REAGOWANIE, W.CHODZENIE, W.POSTURA, W.ZACHOWANIE,
-                    W.MOWA, W.ZNAJOMI
+                    W.MOWA, W.ZNAJOMI, W.CZYNY
             )
     );
 
@@ -1065,6 +1066,13 @@ public class DB_Warunki extends DB {
                     W.ZLODZIEJ, W.DIL, W.PATOLOG, W.BIEGACZ, W.OSIEDLOWY_OGARNIETY, W.OSIEDLOWY_NORMAL,
                     W.SPORTOWY_FEST, W.OSIEDLOWY_CASUAL,
                     W.OSIEDLOWY_WYKRECONY, W.OSIEDLOWY_BURZUJ
+            )
+    );
+
+    public static WarunkiKategoria TYPY_LUDZI_SHRT = new WarunkiKategoria(
+            new Kategoria(TypKategoria.TYPY_LUDZI_SHRT),
+            Arrays.asList(
+                    W.WYKOLEJONY, W.FEST, W.WIESNIAK, W.OSIEDLOWY_SLABY, W.NORMALNY, W.OSIEDLOWY_MOCNY, W.CZOLO
             )
     );
 
@@ -1565,7 +1573,8 @@ public class DB_Warunki extends DB {
 
     public static List<WarunkiKategoria> GLOBAL_PLANSZA = Arrays.asList(
             GLOBAL_PLANSZA_LUDZIE,
-            GLOBAL_PLANSZA_PRACA
+            GLOBAL_PLANSZA_PRACA,
+            TYPY_LUDZI_SHRT
     );
 
     public static List<WarunkiKategoria> WARTOSCI_OCENA_WROG = Arrays.asList(

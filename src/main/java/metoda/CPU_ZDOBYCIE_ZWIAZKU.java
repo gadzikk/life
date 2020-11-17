@@ -81,6 +81,12 @@ public class CPU_ZDOBYCIE_ZWIAZKU extends AbstractCPU {
             )
     );
 
+    public void run() {
+        M.W(M.BRAK(W.SRODOWISKO), "--->", M.TRUDNO(W.ZWIAZEK));
+
+        M.W(W.KOBIETA, "--->", M.WSPARCIE(M.WYBOR(TYPY_LUDZI_SHRT_WARUNKI)));
+    }
+
     public void reakcja() {
         M.W(of(W.NIE_ZNAJA, W.NIE_KOJARZY, W.BRAK_WSPOLNYCH_ZNAJOMYCH), "--->", of(W.ODMOWA));
     }

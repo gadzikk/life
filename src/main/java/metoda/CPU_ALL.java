@@ -50,6 +50,9 @@ public class CPU_ALL extends AbstractCPU {
     List<W> urodzenieDefault = DEFAULT_WARUNKI;
 
     public void run(){
+        M.WWW(W.INFORMACJA, "--->", W.SONDA, "--->", W.NASTAWIENIE, "--->", W.DZIALANIE);
+        M.WW(W.DZIALANIE, "--->", W.WARUNEK, "--->", M.ZASIEG(M.NOWY(of(W.WARUNEK, W.INFORMACJA))));
+
         M.WW(
                 of(W.ZAUWAZYLEM, W._II_, W.USLYSZALEM),
                 of(
@@ -158,6 +161,8 @@ public class CPU_ALL extends AbstractCPU {
         M.W(M.BRAK(W.WARTOSC), "--->", W.STARCIE);
 
         M.W(W.ILOSC, "--->", W.JAKOSC);
+
+        M.W(W.OSOBA, "--->", of(W.OBECNOSC, W.ENERGIA, W.CHECI, W.DZIALANIE));
 
         trudnoLatwo();
         superpozycja();

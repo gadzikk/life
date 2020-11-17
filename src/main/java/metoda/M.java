@@ -978,4 +978,22 @@ public class M {
     public static W EKIPA(List<W> warunki) {return W.WARUNEK;}
     public static W ITERACYJNIE(W warunek) {return W.WARUNEK;}
     public static W ITERACYJNIE(List<W> warunki) {return W.WARUNEK;}
+    public static W NOWY(W warunek) {return W.WARUNEK;}
+    public static W NOWY(List<W> warunki) {return W.WARUNEK;}
+    public static W STARY(W warunek) {return W.WARUNEK;}
+    public static W STARY(List<W> warunki) {return W.WARUNEK;}
+    public static W ZASIEG(W warunek) {return W.WARUNEK;}
+    public static W ZASIEG(List<W> warunki) {return W.WARUNEK;}
+    public static W KOLEJKA_DO(W warunek) {return W.WARUNEK;}
+    public static W KOLEJKA_DO(List<W> warunki) {return W.WARUNEK;}
+    public static W POBITY(OsobaMetod osoba) {return W.WARUNEK;}
+    public static W POBICIE(OsobaMetod osoba) {return W.WARUNEK;}
+    public static W PROBUJ(W warunek) {return W.WARUNEK;}
+    public static W PROBUJ(List<W> warunki) {return W.WARUNEK;}
+    public static W ZWIAD(W warunek) {return W.WARUNEK;}
+    public static W ZWIAD(List<W> warunki) {return W.WARUNEK;}
+    public static W CZASEM(W warunek) {return W.WARUNEK;}
+    public static W CZASEM(List<W> warunki) {return W.WARUNEK;}
+    public static W WJAZD(W warunek) {return W.WARUNEK;}
+    public static W WJAZD(List<W> warunki) {return W.WARUNEK;}
 }
