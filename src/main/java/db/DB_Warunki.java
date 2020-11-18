@@ -14,7 +14,7 @@ import java.util.List;
  * Created by gadzik on 28.12.19.
  */
 public class DB_Warunki extends DB {
-    public void init(){
+    public void init() {
         List<WarunkiKategoria> ALL = new ArrayList<>();
         ALL.addAll(WYMAGANIA_WSTEPNE);
         ALL.addAll(WYMAGANIA_UTRZYMANIA);
@@ -93,8 +93,7 @@ public class DB_Warunki extends DB {
 
         List<WarunkiKategoria> GLOBAL_PLANSZA = Arrays.asList(
                 GLOBAL_PLANSZA_LUDZIE,
-                GLOBAL_PLANSZA_PRACA,
-                TYPY_LUDZI_SHRT
+                GLOBAL_PLANSZA_PRACA
         );
 
         List<WarunkiKategoria> WARTOSCI_OCENA_WROG = Arrays.asList(
@@ -210,6 +209,18 @@ public class DB_Warunki extends DB {
         List<WarunkiKategoria> UNIWERSALNE_SWIAT = Arrays.asList(
                 WSPOMNIENIA
         );
+
+        List<WarunkiKategoria> LUDZIE = Arrays.asList(
+                TYPY_LUDZI_SHRT,
+                TYPY_LUDZI_DOBRE,
+                TYPY_LUDZI_ZLE
+        );
+
+        List<WarunkiKategoria> SYTUACJE = Arrays.asList(
+                TYPY_SYTUACJI,
+                SYTUACJE_STARCIE
+        );
+
     }
 
 
@@ -602,7 +613,7 @@ public class DB_Warunki extends DB {
                     W.ROZKAZ, W.ULTIMATUM_OD_SILNIEJSZYCH,
 
                     W.ZLE_W_ZYCIU, M.NIE_DOSTRZEGA(M.SILA_SPRAWCZA(W.DOBRO)),
-                    W.NASTAWIENIE_JA_GNOJONY_GNOJE_NIZSZYCH, W.NASTAWIENIE_MAM_ZLE_ON_TEZ_MUSI,  W.NASTAWIENIE_NIE_MAM_NIC_ON_TEZ_MA_NIE_MIEC,
+                    W.NASTAWIENIE_JA_GNOJONY_GNOJE_NIZSZYCH, W.NASTAWIENIE_MAM_ZLE_ON_TEZ_MUSI, W.NASTAWIENIE_NIE_MAM_NIC_ON_TEZ_MA_NIE_MIEC,
                     M.MOCNO(W.ZAZDROSC), M.MOCNO(W.CHCIWOSC), M.MOCNO(W.DOMINACJA),
                     W.PIENIADZE, W.POTRZEBA_PARTNERA,
                     W.KOMFORT, W.PRZYJEMNOSC, W.WARTOSC_MATERIALNA, W.MONOPOL_ZLA,
@@ -620,7 +631,7 @@ public class DB_Warunki extends DB {
             )
     );
 
-    public static  WarunkiKategoria WARTOSC_DOBRA = new WarunkiKategoria(
+    public static WarunkiKategoria WARTOSC_DOBRA = new WarunkiKategoria(
             new Kategoria(TypKategoria.WARTOSC),
             Arrays.asList(
                     W.SRODOWISKO,
@@ -634,7 +645,7 @@ public class DB_Warunki extends DB {
             )
     );
 
-    public static  WarunkiKategoria WARTOSC_ZLA = new WarunkiKategoria(
+    public static WarunkiKategoria WARTOSC_ZLA = new WarunkiKategoria(
             new Kategoria(TypKategoria.WARTOSC),
             Arrays.asList(
                     W.WYGODY,
@@ -733,7 +744,7 @@ public class DB_Warunki extends DB {
                     W.CIERPIENIE_PRZEMIJANIA_DLUGOTRWALE, W.CIERPIENIE_UTRATY_DLUGOTRWALE,
                     W.CIERPIENIE_UTRATY_DLUGOTRWALE, W.CIERPIENIE_SAMOTNOSCI_DLUGOTRWALE,
                     W.CIERPIENIE_WIDZENIE_BRAK_DOTKNIECIA_DLUGOTRWALE
-                    )
+            )
     );
 
     public static WarunkiKategoria ZAGROZENIA = new WarunkiKategoria(
@@ -773,7 +784,7 @@ public class DB_Warunki extends DB {
             Arrays.asList(
                     W.NIESWIADOMOSC_OPPONENTA, W.DYSTANS, M.WOKOL_TYLKO(W.SWOI), W.NIE_KIBICUJE,
 
-                    W.MIEJSCE_STALE ,W.PRACA, W.LAMUS, W.DUZO_OSOB, W.KOBIETA, W.Z_KOBIETA, W.Z_RODZINA,
+                    W.MIEJSCE_STALE, W.PRACA, W.LAMUS, W.DUZO_OSOB, W.KOBIETA, W.Z_KOBIETA, W.Z_RODZINA,
                     W.SAMOCHOD, W.CHLOPAK, W.DOSTEP_RESTRYKTOWANY, W.EKIPA,
 
                     W.PRZEWAGA_SILY, W.SPRZET
@@ -956,10 +967,10 @@ public class DB_Warunki extends DB {
     public static WarunkiKategoria KRYTERIA_PRZYPALU = new WarunkiKategoria(
             new Kategoria(TypKategoria.KRYTERIA, TypKategoria.KRYTERIA_PRZYPALU),
             Arrays.asList(
-                M.DZIELNICA(W.NAJLEPSZY_WARUNEK),
-                W.KONKRETNA_INFORMACJA, W.DOWOD, W.ILE_OSOB_WIDZI_SLYSZY, W.GODZINA, W.MIEJSCE,
-                W.SCIEZKA_CZESTOSC_UCZESCZANIA, W.ZNANY_NA_MIEJSCU, W.LATWOSC_SZYBKOSC_ODDALENIA, W.ACCESS_MIEJSCE_ULTRADOSTEPOWE,
-                W.MOZLIWOSC_ZMIANY_GLOBALNEGO_POKOJU
+                    M.DZIELNICA(W.NAJLEPSZY_WARUNEK),
+                    W.KONKRETNA_INFORMACJA, W.DOWOD, W.ILE_OSOB_WIDZI_SLYSZY, W.GODZINA, W.MIEJSCE,
+                    W.SCIEZKA_CZESTOSC_UCZESCZANIA, W.ZNANY_NA_MIEJSCU, W.LATWOSC_SZYBKOSC_ODDALENIA, W.ACCESS_MIEJSCE_ULTRADOSTEPOWE,
+                    W.MOZLIWOSC_ZMIANY_GLOBALNEGO_POKOJU
             )
     );
 
@@ -1004,7 +1015,7 @@ public class DB_Warunki extends DB {
                     W.BRAK_ZOBOWIAZAN, W.BRAK_WYMAGAN, W.BRAK_OCZEKIWAN,
                     W.BRAK_WSTYDU_WEW, W.MULTIKULTI_OK, W.MIECZAK, W.NIE_DOTRZYMUJE_TERMINOW, W.FALSZYWY, W.NIE_UMIE_KLAMAC,
 
-                    W.BRAK_SENSU_INTERAKCJI,  W.FESCIARSKIE_BEZBARWNE_TEMATY, W.BEZSENSOWNE_KLUTNIE,
+                    W.BRAK_SENSU_INTERAKCJI, W.FESCIARSKIE_BEZBARWNE_TEMATY, W.BEZSENSOWNE_KLUTNIE,
                     W.NUDNE_ZYCIE_PRZEWIDYWALNE_BEZ_EMOCJI, W.IMITACJA_ZYCIA, W.BYLE_CO, W.BYLE_GDZIE, W.BYLE_Z_KIM,
 
                     W.CIEKAWSKI, W.LUBI_WYGODY, W.LUBI_PRZYJEMNOSCI, W.MIESZANIEC, W.KONSTRUKTYWNA_KRYTYKA_JAKO_WYZWISKO,
@@ -1069,23 +1080,16 @@ public class DB_Warunki extends DB {
             )
     );
 
-    public static WarunkiKategoria TYPY_LUDZI_SHRT = new WarunkiKategoria(
-            new Kategoria(TypKategoria.TYPY_LUDZI_SHRT),
-            Arrays.asList(
-                    W.WYKOLEJONY, W.FEST, W.WIESNIAK, W.OSIEDLOWY_SLABY, W.NORMALNY, W.OSIEDLOWY_MOCNY, W.CZOLO
-            )
-    );
-
     public static WarunkiKategoria CYKL_DNIA = new WarunkiKategoria(
             new Kategoria(TypKategoria.CYKL_DNIA),
             Arrays.asList(
                     W.OD_00_DO_6, W.OD_6_DO_7, W.OD_7_DO_9, W.OD_9_DO_11_, W.OD_11_DO_14,
                     W.OD_14_DO_17, W.OD_17_DO_19, W.OD_19_DO_21, W.OD_21_DO_24
-                    )
+            )
     );
 
     public static WarunkiKategoria KSZTALTOWANIE_DZIELNICY = new WarunkiKategoria(
-            new Kategoria(TypKategoria.KSZTALTOWANIE ,TypKategoria.KSZTALTOWANIE_DZIELNICY),
+            new Kategoria(TypKategoria.KSZTALTOWANIE, TypKategoria.KSZTALTOWANIE_DZIELNICY),
             Arrays.asList(
                     W.WARUNEK_UTWORZENIA_SIE_MIASTA,
                     W.PRACA, W.RDZENNI, W.LUDZIE
@@ -1093,7 +1097,7 @@ public class DB_Warunki extends DB {
     );
 
     public static WarunkiKategoria KSZTALTOWANIE_CZLOWIEKA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.KSZTALTOWANIE ,TypKategoria.KSZTALTOWANIE_CZLOWIEKA),
+            new Kategoria(TypKategoria.KSZTALTOWANIE, TypKategoria.KSZTALTOWANIE_CZLOWIEKA),
             Arrays.asList(
                     W.OSOBOWOSC, W.WIDZISZ, W.SLYSZYSZ, W.CZUJESZ, W.Z_KIM_PRZYSTAJESZ, W.PRAKTYKA, W.ZNAJOMI,
                     W.CHARAKTER, W.CIERPIENIE, W.CIEZKA_PRACA, W.TRUDNOSCI,
@@ -1201,7 +1205,7 @@ public class DB_Warunki extends DB {
     public static WarunkiKategoria NASTAWIENIA = new WarunkiKategoria(
             new Kategoria(TypKategoria.LUDZIE, TypKategoria.NASTAWIENIE),
             Arrays.asList(
-                    W.NASTAWIENIE_AGRESJA_W_DZIALANIU, W.NASTAWIENIE_KONTEMPLACJA, W.NASTAWIENIE_PRACA,
+                    W.NASTAWIENIE_AGRESJA_W_DZIALANIU, W.NASTAWIENIE_KONTEMPLACJA, W.NASTAWIENIE_RELAKS, W.NASTAWIENIE_PRACA,
                     W.NASTAWIENIE_OSZUKANIE_WDUPCENIE, W.NASTAWIENIE_NA_ZLO, W.NASTAWIENIE_DOBRO, W.NASTAWIENIE_POZNANIE,
                     W.NASTAWIENIE_KONTRA, W.NASTAWIENIE_PRZYJEMNOSCI, W.NASTAWIENIE_WSPARCIE, W.NASTAWIENIE_PRZECIW,
                     W.NASTAWIENIE_HIERACHI_PRZYWILEJE, W.NASTAWIENIE_BIERZESZ_CO_TWOJE,
@@ -1217,6 +1221,8 @@ public class DB_Warunki extends DB {
                     M.START(W.ZLE_ZAMIARY),
                     M.STANDARD(M.MALY_WYSILEK(M.MOCNO(M.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA)))),
                     M.STANDARD((M.MALY_WYSILEK(M.MOCNO(M.thread_while_loop(W.STWARZA_OKAZJE_ZROBIENIE_ZLA))))),
+                    M.DEFAULT(M.WYWYZSZAJ(M.UMACNIAJ(W.SIEBIE)), M.UNIZAJ(M.OSLABIAJ(W.INNI)), W.POBIJ_JAK_NAJWIECEJ_OSOB, W.ZDOBADZ_JAK_NAJWIECEJ_PRZEWAG),
+
                     M.MALY_WYSILEK(M.MOCNO(M.PODSTAWA(of(W.UKRYCIE, W.KLAMSTWO, W.PO_CICHU)))),
                     M.MALY_WYSILEK(M.MOCNO(of(W.WDUPC_ZAKLECIEM, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE))),
                     M.MALY_WYSILEK(M.MOCNO(of(W.NOTYFIKACJA_EKIPA, W.FOTY, W.NAKLEJ_NALEPKE, W.OBGADAC,
@@ -1248,7 +1254,7 @@ public class DB_Warunki extends DB {
                     M.MALY_WYSILEK(M.MOCNO(of(W.LEKCEWAZY_MIEJSCE, W.LEKCEWAZY_OKOLICZNOSCI, W.LEKCEWAZY_OSOBY, W.LEKCEWAZY_WYSILEK))),
                     M.MALY_WYSILEK(M.MOCNO(W.WYKORZYSTUJE_BRAK_PRZEWAG)),
                     M.MALY_WYSILEK(M.MOCNO(W.DUZA_KRZYWDA_NA_PRZEWADZE)),
-                    M.MALY_WYSILEK(W.GRZEBANIE_PRYWATNE),
+                    M.MALY_WYSILEK(of(W.GRZEBANIE_PRYWATNE, W.TRUCIZNA_DO_JEDZENIA)),
                     M.ODRAZU(W.ZLO), M.DOSWIADCZENIE(W.ZLO),
                     M.DEFAULT(M.ZLE_TRAKTOWANIE(W.OSOBA)), M.BRAK(W.WSTYD),
                     M.MOCNO(of(W.DAZENIE_DO_ZLA, W.SZUKANIE_GLEBOKO_ZLA, W.KAZDE_DZIALANIE_ZMIENIA_W_ZLO))
@@ -1269,12 +1275,12 @@ public class DB_Warunki extends DB {
 
     public static WarunkiKategoria SONDA_DZIALACZA = new WarunkiKategoria(
             new Kategoria(TypKategoria.SONDA, TypKategoria.SONDA_DZIALACZA), of(
-                    W.ROZMIAR, W.PRZEWAGA_SILY, W.ZNAJOMOSCI,
-                    W.DZIALA, M.W_JAKI_SPOSOB(W.DZIALA),
-                    W.BIEGA, M.JAK_DLUGO(W.BIEGA),
-                    M.KOGO_ZNA(W.EKIPA),
-                    W.WYROK, M.JAK_DLUGO(W.WYROK),
-                    M.DOSWIADCZENIE(W.SPRZET)
+            W.ROZMIAR, W.PRZEWAGA_SILY, W.ZNAJOMOSCI,
+            W.DZIALA, M.W_JAKI_SPOSOB(W.DZIALA),
+            W.BIEGA, M.JAK_DLUGO(W.BIEGA),
+            M.KOGO_ZNA(W.EKIPA),
+            W.WYROK, M.JAK_DLUGO(W.WYROK),
+            M.DOSWIADCZENIE(W.SPRZET)
     ));
 
     public static WarunkiKategoria SONDA_SHRTS = new WarunkiKategoria(
@@ -1300,8 +1306,8 @@ public class DB_Warunki extends DB {
     public static WarunkiKategoria ZACHETA_DO_ZLA = new WarunkiKategoria(
             new Kategoria(TypKategoria.ZACHETA_DO_ZLA),
             Arrays.asList(
-                    W.BEZKARNOSC, W.LEKCEWAZENIE,  W.PYCHA, W.ZUCHWALOSC, W.POCZUCIE_WYZSZOSCI, W.HIERARCHIA,
-                    W.PRZEWAGA,  W.EMOCJE_ZE_ZLA, W.NARKOTYKI
+                    W.BEZKARNOSC, W.LEKCEWAZENIE, W.PYCHA, W.ZUCHWALOSC, W.POCZUCIE_WYZSZOSCI, W.HIERARCHIA,
+                    W.PRZEWAGA, W.EMOCJE_ZE_ZLA, W.NARKOTYKI
             )
     );
 
@@ -1309,18 +1315,18 @@ public class DB_Warunki extends DB {
     public static WarunkiKategoria METODA_STARCIE_REAKCJA = new WarunkiKategoria(
             new Kategoria(TypKategoria.RANY, TypKategoria.METODA_STARCIE_REAKCJA), of(
 
-        M.W(M.MALY_WYSILEK(W.SPRZET), "--->", of(M.DUZA_KRZYWDA(W._1_RUCH), W.NAJWIEKSZ_STRACH,
-                                                                                            M.DEFAULT(W.UCIECZKA),
-                                                                                            M.DEFAULT_DZIALAJCY(of(W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
-        M.W(M.DUZY_WYSILEK(W.WALKA_PIESCI), "--->", of(M.DEFAULT(W.PODJECIE_WALKI),
-                                                            M.DEFAULT_DZIALAJCY(of(W.PODJECIE_WALKI ,W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
+            M.W(M.MALY_WYSILEK(W.SPRZET), "--->", of(M.DUZA_KRZYWDA(W._1_RUCH), W.NAJWIEKSZ_STRACH,
+                    M.DEFAULT(W.UCIECZKA),
+                    M.DEFAULT_DZIALAJCY(of(W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
+            M.W(M.DUZY_WYSILEK(W.WALKA_PIESCI), "--->", of(M.DEFAULT(W.PODJECIE_WALKI),
+                    M.DEFAULT_DZIALAJCY(of(W.PODJECIE_WALKI, W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
 
-        M.W(M.MALY_WYSILEK(W.CISNIE), "--->", of(M.DEFAULT(W.ODPOWIADA),
-                                                      M.DEFAULT_DZIALAJCY(of(W.ODPOWIADA, W.WALKA_PIESCI ,W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
+            M.W(M.MALY_WYSILEK(W.CISNIE), "--->", of(M.DEFAULT(W.ODPOWIADA),
+                    M.DEFAULT_DZIALAJCY(of(W.ODPOWIADA, W.WALKA_PIESCI, W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
 
-        M.W(M.MALY_WYSILEK(W.BLISKOSC), "--->", of(W.SONDA, M.DEFAULT(W.PATRZY),
-                                                                 M.DEFAULT_DZIALAJCY(of(W.PATRZY, W.ROZKMINIA, W.FOTY, W.NOTYFIKACJA_EKIPA,
-                                                                                                                        M.OPCJA(W.CISNIE)))))
+            M.W(M.MALY_WYSILEK(W.BLISKOSC), "--->", of(W.SONDA, M.DEFAULT(W.PATRZY),
+                    M.DEFAULT_DZIALAJCY(of(W.PATRZY, W.ROZKMINIA, W.FOTY, W.NOTYFIKACJA_EKIPA,
+                            M.OPCJA(W.CISNIE)))))
     ));
 
     public static WarunkiKategoria OBRONA_STARCIE = new WarunkiKategoria(
@@ -1405,34 +1411,46 @@ public class DB_Warunki extends DB {
     );
 
     public static WarunkiKategoria ULICA_PRZEWAGA_REAKCJA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.ULICA_PRZEWAGA_METODY), of(
-                    M.W(W.SAMOCHOD, "--->", of(M.ZNISZCZENIE(W.OPONY), M.ZNISZCZENIE(W.KAROSERIA), M.OPCJA(M.PODPALENIE(W.SAMOCHOD)))),
+            new Kategoria(TypKategoria.ULICA_PRZEWAGA_REAKCJA), of(
+            M.W(W.SAMOCHOD, "--->", of(M.ZNISZCZENIE(W.OPONY), M.ZNISZCZENIE(W.KAROSERIA), M.OPCJA(M.PODPALENIE(W.SAMOCHOD)))),
 
-                    M.W(W.DYSTANS, "--->", W.SZYBKIE_NOGI),
+            M.W(W.DYSTANS, "--->", W.SZYBKIE_NOGI),
 
-                    M.W(W.MIEJSCE_STALE, "--->", of(M.ZAGAZOWANIE(W.MIEJSCE_STALE), M.ZNISZCZENIE(W.WARTOSC))),
+            M.W(W.MIEJSCE_STALE, "--->", of(M.ZAGAZOWANIE(W.MIEJSCE_STALE), M.ZNISZCZENIE(W.WARTOSC))),
 
-                    M.W(of(W.ZNAJOMI, W.OSIEDLOWE_SRD), "--->", M.NOTIFY_ALL(W.HANBA)),
+            M.W(of(W.ZNAJOMI, W.OSIEDLOWE_SRD), "--->", M.NOTIFY_ALL(W.HANBA)),
 
-                    M.W(of(W.INFORMACJA, W.CZAS, W.WIEDZA, W.BRAK_WSTYDU), "--->", of(W.KLAMSTWO, W.UKRYCIE, W.MAGICZNE_ZAKLECIE,
-                                                                                    M.BRAK_DOSTEPU(W.ZLO), W.SAMOTNOSC)),
+            M.W(of(W.INFORMACJA, W.CZAS, W.WIEDZA, W.BRAK_WSTYDU), "--->", of(W.KLAMSTWO, W.UKRYCIE, W.MAGICZNE_ZAKLECIE,
+                    M.BRAK_DOSTEPU(W.ZLO), W.SAMOTNOSC)),
 
-                    M.W(W.EKIPA, "--->", of(M.WIEKSZY_DOSTEP(W.EKIPA), W.BRAK_SENSU, W.MALO_OSOB, M.BRAK(W.POSLUCH))),
+            M.W(W.EKIPA, "--->", of(M.WIEKSZY_DOSTEP(W.EKIPA), W.BRAK_SENSU, W.MALO_OSOB, M.BRAK(W.POSLUCH))),
 
-                    M.W(of(W.PIENIADZE, W.WYSOKA_POZYCJA), "--->", of(W.WYROK, M.STRATA(W.PRACA), M.STRATA(W.ZDROWIE))),
+            M.W(of(W.PIENIADZE, W.WYSOKA_POZYCJA), "--->", of(W.WYROK, M.STRATA(W.PRACA), M.STRATA(W.ZDROWIE))),
 
-                    M.W(W.BRAK_CIERPIENIA, "--->", M.PRZEZYCIE(W.CIERPIENIE)),
+            M.W(W.BRAK_CIERPIENIA, "--->", M.PRZEZYCIE(W.CIERPIENIE)),
 
-                    M.W(of(M.ROZKMINIONY(W.OSOBA), W._88_,
-                            W.NIE_KIBICUJE, W.Z_KOBIETA, W.LAMUS, W.DUZO_OSOB) , "--->", M.ORIENT(W.CIERPIENIE).MIMO_TO(M.WALISZ())),
+            M.W(of(M.ROZKMINIONY(W.OSOBA), W._88_,
+                    W.NIE_KIBICUJE, W.Z_KOBIETA, W.LAMUS, W.DUZO_OSOB), "--->", M.ORIENT(W.CIERPIENIE).MIMO_TO(M.WALISZ())),
 
-                    M.W(of(M.OPPONENT(of(W.PRZEWAGA_SILY, W.SPRZET)), W._88_, M.WYSTEPUJE(W.WARTOSC)), "--->", M.MIMO_TO(M.WALISZ())),
+            M.W(of(M.OPPONENT(of(W.PRZEWAGA_SILY, W.SPRZET)), W._88_, M.WYSTEPUJE(W.WARTOSC)), "--->", M.MIMO_TO(M.WALISZ())),
 
-                    M.W(of(W.NOTYFIKACJA_EKIPA, W.FOTY), "--->", of(M.STRATA(M.ZNISZCZENIE(W.TELEFON)), W.WALKA_PIESCI)),
+            M.W(of(W.NOTYFIKACJA_EKIPA, W.FOTY), "--->", of(M.STRATA(M.ZNISZCZENIE(W.TELEFON)), W.WALKA_PIESCI)),
 
-                    M.W(W.GAZ, "--->", of(W.KOMIN_ANTY_GAZ, W.WALKA_PIESCI)),
+            M.W(W.GAZ, "--->", of(W.KOMIN_ANTY_GAZ, W.WALKA_PIESCI)),
 
-                    M.W(of(W.SPRYT, W.SZYBKOSC, W.SILNY, W.POTRAFI_OCENIC), "--->", of(W.UZYWKI, M.STRATA(W.ZDROWIE)))
+            M.W(of(W.SPRYT, W.SZYBKOSC, W.SILNY, W.POTRAFI_OCENIC), "--->", of(W.UZYWKI, M.STRATA(W.ZDROWIE)))
+    ));
+
+    public static WarunkiKategoria ZACHOWANIE_REZULTAT_ULICA = new WarunkiKategoria(
+            new Kategoria(TypKategoria.ZACHOWANIE_REZULTAT_ULICA), of(
+
+            M.W(of(M.NOTYFIKACJA(W.EKIPA), W.FOTY), "--->", of(M.DEFAULT(M.BRAK(W.REAKCJA)), M.INFORMACJA(W.EKIPA))),
+
+            M.W(W.SPRZET, "--->", M.DEFAULT(of(M.WLASNA(W.OBRONA), M.UZYCIE(M.GDY(W.ZAGROZENIE)), M.NABYCIE(W.WARTOSC)))),
+
+            M.W(M.ZNAJOMY(of(W.CISNIE, W.GADA)), "--->", M.ULTIMATIUM(W.ODPOWIADA)),
+
+            M.W(M.OBCY(of(W.CISNIE, W.GADA)), "--->", of(W.NIC_NIE_ZNACZY, M.SZUKANIE(W.EMOCJE)))
     ));
 
     public static WarunkiKategoria METODY_POLICYJNE = new WarunkiKategoria(
@@ -1557,6 +1575,76 @@ public class DB_Warunki extends DB {
             )
     );
 
+    public static WarunkiKategoria TYPY_LUDZI_SHRT = new WarunkiKategoria(
+            new Kategoria(TypKategoria.TYPY_LUDZI_SHRT),
+            Arrays.asList(
+                    W.WYKOLEJONY, W.FEST, W.WIESNIAK, W.OSIEDLOWY_SLABY, W.NORMALNY, W.OSIEDLOWY_MOCNY, W.CZOLO
+            )
+    );
+
+    public static WarunkiKategoria TYPY_LUDZI_DOBRE = new WarunkiKategoria(
+            new Kategoria(TypKategoria.TYPY_LUDZI_DOBRE), of(
+            W.LOKALNY,
+            W.MLODY, W.SREDNI_WIEK,
+
+            W.OSIEDLOWY_NORMAL, W.OSIEDLOWY_OGARNIETY,
+            W.BIEGACZ, W.PATOLOG, W.DIL, W.ZLODZIEJ,
+            W.WIECZNY_IMIGRANT,
+            W.RDZENNY_GLUPI, W.RDZENNY_DOBRY,
+
+            W.CZOLO, W.OGARNIECI, W.MOCNI_NIE_LICZACY_SIE,
+
+            W.OSIEDLOWA_AGRESORKA, W.OSIEDLOWA_NORMALNA, W.OSIEDLOWA_DOBRA, W.OSIEDLOWA_SWIATOWA
+    ));
+
+    public static WarunkiKategoria TYPY_LUDZI_ZLE = new WarunkiKategoria(
+            new Kategoria(TypKategoria.TYPY_LUDZI_ZLE), of(
+            W.STATYSTA, W.TURYSTA_ZAGRANICZNY,
+            W.STARY,
+            W.FEST, W.BANAN, W.WYGODNIS, W.BURZUJ_NIESWIADOMY, W.BURZUJ_DZIALACZ,
+            W.OSIEDLOWY_SLABY, W.OSIEDLOWY_WYKRECONY, W.OSIEDLOWY_CASUAL, W.SPORTOWY_FEST,
+            M.MLODE(M.CHETNE(W.PIONKI)),
+
+            W.CZORT, W.OSIEDLOWA_KARYNA, W.OSIEDLOWA_KSIEZNICZKA,
+            W.BURZUA, W.KUJONKA, W.ZBYT_WRAZLIWA, W.ZWYKLA_FEST, W.WIESNIARA,
+            W.SWIATOWA_DOBRY_DOM
+    ));
+
+    public static WarunkiKategoria CISNIE = new WarunkiKategoria(
+            new Kategoria(TypKategoria.CISNIE), of(
+            M.WYBOR(of(W.GLOSNO, W.CICHO)),
+
+            W.CISNIE_WYGLAD, W.CISNIE_ZACHOWANIE,
+            W.CISNIE_MOWA, W.CISNIE_WSPOMNIENIA,
+            W.CISNIE_POWIAZANE
+    ));
+
+    public static WarunkiKategoria TYPY_SYTUACJI = new WarunkiKategoria(
+            new Kategoria(TypKategoria.TYPY_SYTUACJI), of(
+            W.SYTUACJA_UNIKALNA, W.SYTUACJA_CHCIANA, W.SYTUACJA_W_HOTMIEJSCU, W.SYTUACJA_DEFAULTOWA, W.SYTUACJA_RESTRYKCYJNA, W.SYTUACJA_KRYZYSOWA
+    ));
+
+    public static WarunkiKategoria SYTUACJE_STARCIE = new WarunkiKategoria(
+            new Kategoria(TypKategoria.SYTUACJE_STARCIE), of(
+            M.SYTUACJA(W.PATRZY),
+            M.SYTUACJA(of(W.PATRZY, W.CISNIE)),
+            M.SYTUACJA(of(W.PATRZY, W.CISNIE, M.IDZIE(W.TWOJA_STRONA))),
+            M.SYTUACJA(of(W.PATRZY, M.BIEGNIE(W.TWOJA_STRONA).CEL(W.WALKA_PIESCI))),
+            M.SYTUACJA(of(W.PATRZY, M.BIEGNIE(W.TWOJA_STRONA).CEL(W.WALKA_SPRZET))),
+            M.SYTUACJA(M.ROBI(W.FOTY)),
+            M.SYTUACJA(M.IDZIE(W.ZWIADY)),
+            M.SYTUACJA(M.IDZIE(W.ZWIADY).Z(W.OSLONA)),
+
+            M.SYTUACJA(M.WIELU(W.PATRZY)),
+            M.SYTUACJA(M.WIELU(of(W.PATRZY, W.CISNIE))),
+            M.SYTUACJA(M.WIELU(of(W.PATRZY, W.CISNIE, M.IDZIE(W.TWOJA_STRONA)))),
+            M.SYTUACJA(M.WIELU(of(W.PATRZY, M.BIEGNIE(W.TWOJA_STRONA).CEL(W.WALKA_PIESCI)))),
+            M.SYTUACJA(M.WIELU(of(W.PATRZY, M.BIEGNIE(W.TWOJA_STRONA).CEL(W.WALKA_SPRZET)))),
+            M.SYTUACJA(M.WIELU(M.ROBI(W.FOTY))),
+            M.SYTUACJA(M.WIELU(M.IDZIE(W.ZWIADY))),
+            M.SYTUACJA(M.WIELU(M.IDZIE(W.ZWIADY).Z(W.OSLONA)))
+    ));
+
     public static List<WarunkiKategoria> ZLY_DOBRY = Arrays.asList(
             PRZYCZYNY_SLUZENIA_ZLU,
             PRZYCZYNY_SLUZENIA_DOBRU,
@@ -1573,8 +1661,7 @@ public class DB_Warunki extends DB {
 
     public static List<WarunkiKategoria> GLOBAL_PLANSZA = Arrays.asList(
             GLOBAL_PLANSZA_LUDZIE,
-            GLOBAL_PLANSZA_PRACA,
-            TYPY_LUDZI_SHRT
+            GLOBAL_PLANSZA_PRACA
     );
 
     public static List<WarunkiKategoria> WARTOSCI_OCENA_WROG = Arrays.asList(
@@ -1689,5 +1776,16 @@ public class DB_Warunki extends DB {
 
     public static List<WarunkiKategoria> UNIWERSALNE_SWIAT = Arrays.asList(
             WSPOMNIENIA
+    );
+
+    public static List<WarunkiKategoria> LUDZIE = Arrays.asList(
+            TYPY_LUDZI_SHRT,
+            TYPY_LUDZI_DOBRE,
+            TYPY_LUDZI_ZLE
+    );
+
+    public static List<WarunkiKategoria> SYTUACJE = Arrays.asList(
+            TYPY_SYTUACJI,
+            SYTUACJE_STARCIE
     );
 }

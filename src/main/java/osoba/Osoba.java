@@ -963,10 +963,10 @@ public class Osoba {
             przewagiCharakteru.add(W.AKTYWNY_NA_ANGAZ);
         }
         typyOsoby.forEach(typ->{
-            if(DB_Osoby.DOBRE_TYPY_OSOB.stream().anyMatch(x->x.equals(typ))){
+            if(DB_Warunki.TYPY_LUDZI_DOBRE.getWarunki().stream().anyMatch(x->x.equals(typ))){
                 przewagiCharakteru.add(W.valueOf(typ.name()));
             }
-            if(DB_Osoby.ZLE_TYPY_OSOB.stream().anyMatch(x->x.equals(typ))){
+            if(DB_Warunki.TYPY_LUDZI_ZLE.getWarunki().stream().anyMatch(x->x.equals(typ))){
                 slabosciCharakteru.add(W.valueOf(typ.name()));
             }
         });

@@ -451,11 +451,12 @@ public class CPU_UL extends AbstractCPU {
 
     public void starcie(){
         W dzialanie = M.NAJMNIEJSZY_CZAS(W.NAJWIEKSZA_KRZYWDA);
-
+        List<W> sytuacjeStarcie = SYTUACJE_STARCIE_WARUNKI;
         List<W> kryteriaPrzypalu = KRYTERIA_PRZYPALU_WARUNKI;
         List<W> metodaStarcieReakcja = METODA_STARCIE_REAKCJA_WARUNKI;
         List<W> ulicaPrzewagaReakcja = ULICA_PRZEWAGA_REAKCJA_WARUNKI;
         List<W> obronaStarcie = OBRONA_STARCIE_WARUNKI;
+        List<W> zachowanieRezulat = ZACHOWANIE_REZULTAT_ULICA_WARUNKI;
         List<W> rany = RANY_WARUNKI;
         List<W> ktoKogo = KTO_KOGO_WARUNKI;
         List<W> konfrontacja = KONFRONTACJA_WARUNKI;
@@ -1124,8 +1125,8 @@ public class CPU_UL extends AbstractCPU {
 
         M.W(of(W.DASZ_SIE_POZNAC, W._88_, W.NIESLUCHASZ) , "--->", of(W.GNOJA));
 
-        M.WW(of(W.AGRESJA, W.BRAK_PIENIEDZY,
-                W.GLUPOTA, W.SLUCHAJ_KOLEGOW), "--->",  of(W.EKIPA), "---->", of(W.WYKONYWANIE_ROZKAZOW_DLA_HAJSU_ZLA,
+        M.WW(of(M.MOCNO(of(W.AGRESJA, W.CHETNY_DZIALANIA, W.GLUPOTA)),
+                W.BRAK_PIENIEDZY, W.SLUCHAJ_KOLEGOW), "--->",  of(W.EKIPA), "---->", of(W.WYKONYWANIE_ROZKAZOW_DLA_HAJSU_ZLA,
                 W.WYROK, W.OGRANICZONE_INFORMACJE,
                 W.PRZEWAGA_SILY, W.PRZEWAGA_EKIPY_SPRZETU));
 
@@ -1245,7 +1246,10 @@ public class CPU_UL extends AbstractCPU {
         M.W(W.WYCHODZISZ, "--->", of(M.thread_while_loop(W.ZLO_KRAZY),
                                         zli.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA),
                                         zli.thread_while_loop(W.STWARZA_OKAZJE_ZROBIENIE_ZLA),
+                                        M.DEFAULT(of(on(KTO_KOGO_WARUNKI), on(OSLONY_WARUNKI))),
                 M.thread_while_loop(of(ciaglaCzynnoscUlica, W.ZASIEG_WZROKU, W.SCIEZKI, W.LUDZIE, W.WIDOCZNY_GDY_IDZIESZ))));
+
+        M.W(W.MIEJSCE_STALE, "--->", M.DEFAULT(KURESTWO_WARUNKI));
     }
 
     public void cviiZalosneStarania() {
@@ -1263,6 +1267,8 @@ public class CPU_UL extends AbstractCPU {
         M.W(W.WYROK, "--->", M.UNIZAJ(W.POSIEDZI_CHWILE_NIC_MU_SIE_NIE_STANIE));
 
         M.W(W.BRAK_KIBICOWANIA, "--->", W.NIC_NIE_MOGA_ZROBIC);
+
+        M.W(W.CVIA, "--->", of(W.SLABY, W.ZALEZNY, M.BRAK(W.UMIEJETNOSCI), M.DZIALANIE(W.ZLO)));
 
         M.W(W.PORAZKA, "--->", M.thread_while_loop(M.NIEUDOLNIE(W.PONAWIANIE_PROBY)));
 

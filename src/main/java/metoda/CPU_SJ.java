@@ -99,6 +99,7 @@ public class CPU_SJ extends AbstractCPU {
         M.W(W.WYCHODZISZ, "--->", of(M.thread_while_loop(W.ZLO_KRAZY),
                                         zli.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA),
                                         zli.thread_while_loop(W.STWARZA_OKAZJE_ZROBIENIE_ZLA),
+                                        M.DEFAULT(of(on(KTO_KOGO_WARUNKI), on(OSLONY_WARUNKI))),
                 M.thread_while_loop(of(ciaglaCzynnoscUlica, W.ZASIEG_WZROKU, W.SCIEZKI, W.LUDZIE, W.WIDOCZNY_GDY_IDZIESZ))));
 
         W nastawienie = W.AKTYWNA_KONTRA;

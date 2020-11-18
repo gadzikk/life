@@ -996,4 +996,30 @@ public class M {
     public static W CZASEM(List<W> warunki) {return W.WARUNEK;}
     public static W WJAZD(W warunek) {return W.WARUNEK;}
     public static W WJAZD(List<W> warunki) {return W.WARUNEK;}
+    public static W MLODE(W warunek) {return W.WARUNEK;}
+    public static W MLODE(List<W> warunki) {return W.WARUNEK;}
+    public static W CHETNE(W warunek) {return W.WARUNEK;}
+    public static W CHETNE(List<W> warunki) {return W.WARUNEK;}
+    public static W NOTYFIKACJA(W warunek) {return W.WARUNEK;}
+    public static W NOTYFIKACJA(List<W> warunki) {return W.WARUNEK;}
+    public static W WLASNA(W warunek) {return W.WARUNEK;}
+    public static W WLASNA(List<W> warunki) {return W.WARUNEK;}
+    public static W UZYCIE(W warunek) {return W.WARUNEK;}
+    public static W UZYCIE(List<W> warunki) {return W.WARUNEK;}
+    public static W GDY(W warunek) {return W.WARUNEK;}
+    public static W GDY(List<W> warunki) {return W.WARUNEK;}
+    public static W ZNAJOMY(W warunek) {return W.WARUNEK;}
+    public static W ZNAJOMY(List<W> warunki) {return W.WARUNEK;}
+    public static W OBCY(W warunek) {return W.WARUNEK;}
+    public static W OBCY(List<W> warunki) {return W.WARUNEK;}
+    public static W SYTUACJA(W warunek) {return W.WARUNEK;}
+    public static W SYTUACJA(List<W> warunki) {return W.WARUNEK;}
+    public static W WIELU(W warunek) {return W.WARUNEK;}
+    public static W WIELU(List<W> warunki) {return W.WARUNEK;}
+    public static W IDZIE(W warunek) {return W.WARUNEK;}
+    public static W IDZIE(List<W> warunki) {return W.WARUNEK;}
+    public static W BIEGNIE(W warunek) {return W.WARUNEK;}
+    public static W BIEGNIE(List<W> warunki) {return W.WARUNEK;}
+    public static W ROBI(W warunek) {return W.WARUNEK;}
+    public static W ROBI(List<W> warunki) {return W.WARUNEK;}
 }

@@ -123,13 +123,20 @@ public class AbstractCPU {
     List<W> OKAZJE_ZROBIENIE_DOBRO_WARUNKI = DB_Warunki.OKAZJE_ZROBIENIE_DOBRO.getWarunki();
     List<W> ZLY_ZNAKI_ROZPOZNAWCZE_WARUNKI = DB_Warunki.ZLY_ZNAKI_ROZPOZNAWCZE.getWarunki();
     List<W> PRZEWAGI_WARUNKI = DB_Warunki.PRZEWAGI.getWarunki();
+
     List<W> SONDA_GDY_WARUNKI = DB_Warunki.SONDA_GDY.getWarunki();
     List<W> SONDA_PO_WARUNKI = DB_Warunki.SONDA_PO.getWarunki();
     List<W> SONDA_DZIALACZA_WARUNKI = DB_Warunki.SONDA_DZIALACZA.getWarunki();
     List<W> SONDA_SHRTS_WARUNKI = DB_Warunki.SONDA_SHRTS.getWarunki();
+
     List<W> TYPY_LUDZI_SHRT_WARUNKI = DB_Warunki.TYPY_LUDZI_SHRT.getWarunki();
+    List<W> TYPY_LUDZI_DOBRE_WARUNKI = DB_Warunki.TYPY_LUDZI_DOBRE.getWarunki();
+    List<W> TYPY_LUDZI_ZLE_WARUNKI = DB_Warunki.TYPY_LUDZI_ZLE.getWarunki();
 
+    List<W> CISNIE_WARUNKI = DB_Warunki.CISNIE.getWarunki();
 
+    List<W> ZACHOWANIE_REZULTAT_ULICA_WARUNKI = DB_Warunki.ZACHOWANIE_REZULTAT_ULICA.getWarunki();
+    List<W> SYTUACJE_STARCIE_WARUNKI = DB_Warunki.SYTUACJE_STARCIE.getWarunki();
 
     public <T> List<T> of(T... elements){
         return Arrays.asList(elements);

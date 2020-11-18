@@ -53,7 +53,7 @@ public class CPU_LUDZI extends AbstractCPU {
 
         M.W(of(W.POZNANIE_NAUKI), "--->", of(W.FAZA_Z_NAUKI));
 
-        M.W(of(W.SUMIENIE, W.DOBRE_CZYNY), "--->", of(W.PRZYCHYLNOSC_BOGA));
+        M.W(of(W.SUMIENIE, W.DOBRE_CZYNY, W.MODLITWA), "--->", of(W.PRZYCHYLNOSC_BOGA));
 
         M.W(of(W.PRZYCHYLNOSC_BOGA), "--->", of(W.FART));
 
