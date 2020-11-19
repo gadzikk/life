@@ -11,6 +11,11 @@ import static typy_bazowe.TypOsoby.ME;
  * Created by gadzik on 02.01.20.
  */
 public class CPU_ALL extends AbstractCPU {
+    List<W> wymaganiaWstepne = WYMAGANIA_WSTEPNE;
+    List<W> wymaganiaUtrzymania = WYMAGANIA_UTRZYMANIA;
+    List<W> koncowe = KONCOWE_WARUNKI;
+    List<W> globalPlanszaLudzie = GLOBAL_PLANSZA_LUDZIE_WARUNKI;
+
     List<W> warunkiWyjscia = of(W.PORA_ROKU, W.CZAS, W.DOSTEPNOSC, W.ZOBACZENIE, W.BLISKOSC, W.KONTAKT);
 
     List<W> warunekiWejsciowe = of(W.ZLO_NA_CZUBKU_STOSU, W.DZUNGLA, W._100PROCENT_WYSILKU_10PROCENT_OTRZYMUJESZ, W.CALE_ZYCIE_CIERPIENIE,
@@ -48,6 +53,22 @@ public class CPU_ALL extends AbstractCPU {
     List<W> mainFlows = of(W.GRUPA_PRZESTEPCZA, W.DOBRA_PRACA, W.STUDIA, W.KLUB, W.RESTAURACJA, W.WAKACJE_WODA, W.ZWIAZEK, W.ZNAJOMI);
 
     List<W> urodzenieDefault = DEFAULT_WARUNKI;
+    List<W> czas = CZAS_WARUNKI;
+    List<W> duzoIf = DUZO_IF_WARUNKI;
+    List<W> ksztaltowanieDzielnicy = KSZTALTOWANIE_DZIELNICY_WARUNKI;
+    List<W> emocjeUczucia = EMOCJE_UCZUCIA_WARUNKI;
+    List<W> rozrywkiZart = ROZRYWKI_ZART_WARUNKI;
+    List<W> przymus = PRZYMUS_WARUNKI;
+    List<W> potrzeby = POTRZEBY_WARUNKI;
+    List<W> zagrozenia = ZAGROZENIA_WARUNKI;
+    List<W> cierpienia = CIERPIENIA_WARUNKI;
+    List<W> przewagi = PRZEWAGI_WARUNKI;
+    List<W> slabosci = SLABOSCI_WARUNKI;
+    List<W> twl = THREAD_WHILE_LOOP_WARUNKI;
+    List<W> typySytuacji = TYPY_SYTUACJI;
+    List<W> typyLudzi = TYPY_LUDZI;
+    List<W> wspomnienia = WSPOMNIENIA_WARUNKI;
+    List<W> tematy = TEMATY_WARUNKI;
 
     public void run(){
         M.WWW(W.INFORMACJA, "--->", W.SONDA, "--->", W.NASTAWIENIE, "--->", W.DZIALANIE);
@@ -245,5 +266,16 @@ public class CPU_ALL extends AbstractCPU {
 
         M.WSPOMNIJ(W.SYTUACJA).POWIAZ_Z(W.OSOBA).WSPOMIJ(W.REZULTAT)
                                                 .WSPOMIJ(W.SKOJARZONE);
+    }
+
+    public void zasobZjawiskoDefault() {
+        M.W(W.OSOBA, "--->", M.DEFAULT(of(W.ZLY, W.GLUPI)));
+
+        M.W(W.DZIALANIE, "--->", M.DEFAULT(of(W.ZLE, W.GLUPIE)));
+
+        M.W(W.NOWA_OSOBA, "--->", M.DEFAULT(KTO_KOGO_WARUNKI));
+
+        M.W(W.DZIALANIE, "--->", M.DEFAULT(W.ZA_CIOSEM));
+
     }
 }

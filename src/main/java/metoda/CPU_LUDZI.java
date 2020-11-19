@@ -23,6 +23,9 @@ public class CPU_LUDZI extends AbstractCPU {
         dzialajacy();
         czlowiekCierpienia();
         postawyLudzkie();
+        walkaKlas();
+        osobaCechyMozliweDzialania();
+        osobaPrzewag();
     }
 
     public void relacjeWarunkowLudzi() {
@@ -116,7 +119,7 @@ public class CPU_LUDZI extends AbstractCPU {
                 M.Option(W.PYSZNY), M.Option(W.NIEOGLADA_SIE_NA_KONKURENCJE)));
 
         M.W(of(W.ROZMIAR, W.PODNOSZENIE_CIEZAROW, W.SILNE_UDERZENIE,
-                W.ZAPASY, W.OBRONA, W.SILNI_KUMPLE_ZDOLNI_DO_WALKI),"--->", of(W.PRZEWAGA_SILY));
+                W.ZAPASY, W.OBRONA, W.ZDOLNI_DO_WALKI_ZNAJOMI),"--->", of(W.PRZEWAGA_SILY));
 
         // ***
 
@@ -348,6 +351,7 @@ public class CPU_LUDZI extends AbstractCPU {
                         dzialacz.SET(CECHY_RDZENNY_WARUNKI),
                         dzialacz.SET(PATOLOGIE_OSIEDLE_WARUNKI),
                         dzialacz.SET(TEMATY_RDZENNYCH_WARUNKI),
+                        dzialacz.SET(WADY_ZLYCH_WARUNKI),
                         dzialacz.policja(W.ZERO),
 
                         dzialacz.thread_while_loop(M.rozkminianie(wszyscy)),
@@ -464,5 +468,19 @@ public class CPU_LUDZI extends AbstractCPU {
 
         M.W(of(W.BIEGACZ, W.BLISKOSC, W.RDZENNY), "--->", of(biegacz.KTO_KOGO_Z_PRZEWAGA(rdzenny, KTO_KOGO_WARUNKI)));
 
+    }
+
+    public void osobaCechyMozliweDzialania() {
+        // todo
+    }
+
+    public void osobaPrzewag() {
+        M.W(M.OSOBA_Z(PRZEWAGI_WARUNKI), "--->", of(M.SLABY(W.PODLIZYWANIE_SIE), M.SILNY(W.WSPARCIE)));
+
+        M.W(M.OSOBA(M.BRAK(W.PRZEWAGA)), "--->", of(M.SLABY(KTO_KOGO_WARUNKI), M.SILNY(M.SONDA_GLEBOKA(izolowanaOsoba))));
+
+        M.W(M.DOPOKI(of(on(PRZEWAGI_WARUNKI), W.KOMFORT, W.OBECNOSC_LUDZI)), "--->", W.BAWIMY_SIE);
+
+        M.W(M.GDY(M.BRAK(W.PRZEWAGA)), "--->", of(W.SMUTEK, W.MYSLENIE, W.WNIOSKI));
     }
 }

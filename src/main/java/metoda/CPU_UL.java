@@ -1,8 +1,6 @@
 package metoda;
 
-import db.DB_Warunki;
 import warunek.W;
-import warunek.WarunkiKategoria;
 import z_inne.OH;
 
 import java.util.HashMap;
@@ -33,6 +31,9 @@ public class CPU_UL extends AbstractCPU {
     List<W> podstawa = of(W.OGRANICZENIE_CZASOWE, W.DNI, W.TYGODNIE, W.LATA, W.OBECNOSC, W.DOSTEP, W.POZNANIE_CZLOWIEKA_WADAMI,
             W.ENUM, W.ANTY_FEST, W.ANTY_SYSTEM, W.ANTY_BURZUA, W.ANTY_KONFI, W.DEFAULT_WARUNKI, W.STARCIE, W.KTO_ZYSKUJE);
 
+    Integer atr = c(M.SILNY(W.DOBRO), "<", M.OBECNOSC(W.ULICA), "<", W.JUMA, "<", W.KIBICOWANIE, "<", on(W.DILL, W.DZIALANIE_DLA_ZLA));
+
+    List<W> zasady = ZASADY_WARUNKI;
     List<W> prawa = of(W.DOMINACJA, W.GLUPIEGO_CZEKA_KARA, W.PRZEWAGA, W.DOSTEP, W.HIERARCHIA, W.JEDNOSC_PRZECIW_ZAZDROSCI);
 
     List<W> mojeDzialanie = of(M.wszystkoNaChlodno(), M.tyDobrze(), M.karzeszZaWadyZachowania());
@@ -73,6 +74,8 @@ public class CPU_UL extends AbstractCPU {
     List<W> bojka = of(W.WYSILEK, W.BOL, W.RANY_ODNIESIONE, W.REGENERACJA, W.WROG, W.JEGO_KOLEDZY_TWOI_WROGOWIE);
 
     List<W> srodki = srodki();
+
+    List<W> zarobekNielegalny = ZAROBEK_NIELEGALNY_WARUNKI;
 
     public void run(){
         M.W(of(W._NOT_, W.CZOLO, W.OGARNIECI),
@@ -346,7 +349,7 @@ public class CPU_UL extends AbstractCPU {
                         M.wychodzisz(),
                         M.odslaniasz()
                 ),
-                of(W.DUZO_IF_OW),
+                DUZO_IF_WARUNKI,
                 of(
                         M.wydluzajCzas(),
                         M.estymuj(),
@@ -451,15 +454,16 @@ public class CPU_UL extends AbstractCPU {
 
     public void starcie(){
         W dzialanie = M.NAJMNIEJSZY_CZAS(W.NAJWIEKSZA_KRZYWDA);
+        List<W> konfrontacja = KONFRONTACJA_WARUNKI;
+        List<W> ktoKogo = KTO_KOGO_WARUNKI;
+        List<W> rany = RANY_WARUNKI;
         List<W> sytuacjeStarcie = SYTUACJE_STARCIE_WARUNKI;
         List<W> kryteriaPrzypalu = KRYTERIA_PRZYPALU_WARUNKI;
         List<W> metodaStarcieReakcja = METODA_STARCIE_REAKCJA_WARUNKI;
         List<W> ulicaPrzewagaReakcja = ULICA_PRZEWAGA_REAKCJA_WARUNKI;
         List<W> obronaStarcie = OBRONA_STARCIE_WARUNKI;
         List<W> zachowanieRezulat = ZACHOWANIE_REZULTAT_ULICA_WARUNKI;
-        List<W> rany = RANY_WARUNKI;
-        List<W> ktoKogo = KTO_KOGO_WARUNKI;
-        List<W> konfrontacja = KONFRONTACJA_WARUNKI;
+        List<W> wymuszenieReakcji = WYMUSZENIE_REAKCJI_WARUNKI;
 
         M.W(of(W.POMSZCZENIE, W.NOTYFIKACJA_EKIPA, W.FOTY,
                 W.OBRAZENIA_FIZYCZNE, W.STARCIE_WIELU_NA_JEDNEGO,
@@ -638,7 +642,8 @@ public class CPU_UL extends AbstractCPU {
         M.W(of(W.BLISKOSC, W.CISNIECIE, W.WALKA_PIESCI, W.WALKA_SPRZET), "--->", of(dzialaczMocny.pomsci(),
                                                                                         dzialaczMocny.ultimatumEkipie()));
 
-        M.W(M.POBITY(osoba), "--->", of(M.KOLEJKA_DO(M.POBICIE(osoba)), W.DLUG_MORALNY, W.CHEC_POMSZCZENIA, silniejszy.GNOJI(osoba)));
+        M.W(M.POBITY(osoba), "--->", of(M.KOLEJKA_DO(M.POBICIE(osoba)), M.NOTIFY_ALL(W.HANBA), W.DLUG_MORALNY, W.CHEC_POMSZCZENIA,
+                                                                    znajomy.PRZESTAJE(W.WSPARCIE), znajomy.ZACZYNA(W.PRZECIW), silniejszy.GNOJI(osoba)));
     }
     public void przewagi(){
         W przewagaGlobal = W.PRZEWAGA_LOCAL;
@@ -771,17 +776,27 @@ public class CPU_UL extends AbstractCPU {
         List<W> kogo = KOGO_WARUNKI;
         List<W> wymagaKary = WYMAGA_KARY_WARUNKI;
         List<W> sondaDzialacza = SONDA_DZIALACZA_WARUNKI;
+        List<W> kryteriaWroga = KRYTERIA_WROGA_WARUNKI;
+        List<W> oceniaWedlug = OCENIA_WEDLUG_WARUNKI;
 
         M.W(of(W.SONDA_ZASOBU), "--->", of(W.WARTOSC, W.TRUDNOSC_UTRZYMANIA));
 
         M.W(of(W.SONDA_DZIALANIA), "--->", of(W.WARTOSC, W.BEZPIECZENSTWO, W.KONSEKWENCJE,
                                                      W.CZESTOTLIWOSC,W.EFEKTYWNOSC));
 
+        M.W(M.MIEJSCE_STALE(WZGL_IZOLACJA_WARUNKI), "--->", M.SONDA_GLEBOKA(izolowanaOsoba));
+
         M.W(W.POKAZUJE_EMOCJE, "--->", W.SLABY);
 
         M.W(W.NIE_UMIE_KLAMAC, "--->", W.MALO_PRZEZYC);
 
-        M.W(of(W.ZLY, W._88_, W.PATRZY), "--->", of(W.SONDA_POD_ZROBIENIE_ZLA));
+        M.W(of(W.ZLY, W._88_, W.PATRZY), "--->", W.SONDA_POD_ZROBIENIE_ZLA.CEL(KTO_KOGO_WARUNKI));
+
+        M.WW(M.INFORMACJA(W.OSOBA), "--->", M.SONDA(W.HASELKO_RDZENNYCH), "--->", of(M.OSOBA(W.OD_NAS), W._II_,
+                                                                                                M.OSOBA(W.WROG), W._II_,
+                                                                                                M.OSOBA(W.NIESTWARZA_ZAGROZENIA)));
+
+        M.W(M.INFORMACJA(W.WROG), "--->", dzialajcyBliskoMiejsca.forEach(of(M.NABYCIE(W.BLISKOSC), W.CISNIE, W.WALKA_PIESCI, W.WALKA_SPRZET)));
 
 
         M.W(of(W.LADNY, W._88_, W.BRAK_CIERPIENIA),
@@ -1026,7 +1041,7 @@ public class CPU_UL extends AbstractCPU {
     public void ulicaRelacjeWarunkow() {
         M.NIGDY_MALO(of(W.KASA, W.SEX, W.PRZYJEMNOSCI)); // MATERIALNE
         M.NIGDY_MALO(of(W.ZLO, W.DOBRO, W.NIENAWISC, W.MILOSC, W.AGRESJA_W_DZIALANIU, W.CIERPLIWOSC)); // MORALNE
-        M.WW(M.DEFAULT(M.thread_while_loop(W.WSZYSCY_CHCA_CIE_ROZJEBAC)), "--->", W.HASELKO, "--->",  W.STATUS_QUO);
+        M.WW(M.DEFAULT(M.thread_while_loop(W.WSZYSCY_CHCA_CIE_ROZJEBAC)), "--->", W.HASELKO_RDZENNYCH, "--->",  W.STATUS_QUO);
 
         M.WW(W.SONDA, "--->", W.NASTAWIENIE, "--->", W.DZIALANIE);
 
@@ -1083,9 +1098,20 @@ public class CPU_UL extends AbstractCPU {
         M.W(of(W.WROG, W._88_, W.BLISKOSC), "--->", M.WALI(wrogowie));
 
         M.WW(W.OSIEDLE, "--->", W.MELINA_NA_OSIEDLU, "--->", of(M.WIDZISZ(W.OSIEDLOWE_SRD), W.ZNASZ));
+
+        M.W(W.NARKOTYKI, "--->", W.NIESTABILNOSC_UMYSLOWA);
+
+        M.W(M.MIEJSCE_STALE(WZGL_IZOLACJA_WARUNKI), "--->", of(M.WPLYW(W.LUDZIE), M.MOZLIWOSC(of(W.KONFLIKT, W.ZNAJOMOSCI, W.PRZYJAZN, W.MILOSC))));
+
+        M.W(of(M.BRAK(W.ORIENT), W.DZIALANIE,
+                M.OPCJA(W.ZUCHWALOSC), M.OPCJA(M.BRAK(W.WIEDZA))), "--->", M.SZYBKO(W.KARA));
+
+        M.W(W.OBCY, "--->", M.SZANSA_NA(of(M.SRODOWISKO(W.BOJA_SIE), W.EMOCJE_ZE_ZLA, W.WYKORZYSTANIE, W.OKRASC_PIENIADZE)));
     }
 
     public void wokolDzialaczaSrodowiska() {
+        M.W(M.OSOBA(W.ZNAJOMI), "--->", M.ULTIMATIUM(W.DZIALANIE_DLA_ZLA).OTHERWISE(KTO_KOGO_WARUNKI));
+
         M.W(of(W.SRODOWISKO, W.UMNIEJSZANIE_WAD, W.WZAJEMNE_WSPARCIE,
                 M.oddalanieSieOdWalkiZagrozenia(of(W.SKAZYWANIE_SAMOTNOSC, W.PRZEWAGA, W.PRZYJEMNOSC)),
                 M.oddalanieOdKonkurencji(of(W.SIEDZENIE_MELINY, W.PRZYCHYLNOSC))),                "--->", of(W.NIE_ODKRYTY, W.BRAK_TRUDNOSCI,
@@ -1218,6 +1244,8 @@ public class CPU_UL extends AbstractCPU {
                 M.ZWIEKSZANIE(W.PRZEWAGA), M.MATERIALIZOWANIE_ZLA_DZIEKI(W.PRZEWAGA), M.WYKLUCZENIE(osobyPozaSrodowisko),
                 M.KTO_KOGO_Z_PRZEWAGA(osobyPozaSrodowisko, KTO_KOGO_WARUNKI),
                 M.NABYCIE(of(W.SILA_SPRAWCZA, W.PRZEWAGA_SILY, W.POSLUCH)),
+                M.NABYCIE(M.WPLYW(W.LUDZIE)),
+                M.NABYCIE(M.MOZLIWOSC(of(W.KONFLIKT, W.ZNAJOMOSCI, W.PRZYJAZN, W.MILOSC))),
                 M.NABYCIE(W.PRZYJEMNOSCI),
                 M.NABYCIE(W.CIAGLOSC_INFORMACJI),
                 M.NISZCZENIE(W.DOBRO),

@@ -222,7 +222,9 @@ public class CPU_SJ extends AbstractCPU {
         M.thread_while_loop(W.DZIALANIE_POD_PRESJA);
         M.thread_while_loop(M.KONTROLA(W.WSZYSCY));
 
-        M.W(of(M.WIDZISZ(W.DZIALAJACY), W._88_, W.BLISKOSC), "--->", of(W.REAKACJA, M.AKTYWNA_WALKA_ZE_ZLEM(of(W.BLISKOSC, W.CISNIECIE, W.WALKA_PIESCI)),
+        M.W(of(M.WIDZISZ(W.DZIALAJACY), W._88_, W.BLISKOSC), "--->", of(W.CIESZY_SIE, M.SZANSA_NA(M.USPRAWIEDLIWIENIE(W.WALKA_PIESCI)),
+                                                                            on(OKAZJE_ZROBIENIE_DOBRO_WARUNKI),
+                                                                            W.REAKACJA, M.AKTYWNA_WALKA_ZE_ZLEM(of(W.BLISKOSC, W.CISNIECIE, W.WALKA_PIESCI)),
                                                                             W.KARA, M.OPCJA(W.UKAZANIE),
                                                                             W.ZAPRZESTANIE_ZLA, W.SMUTEK, W.WYLACZENIE_DZIALACZA));
 

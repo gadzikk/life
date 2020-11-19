@@ -1,6 +1,7 @@
 package metoda;
 
 import db.DB_Patologia;
+import db.DB_Sytuacje;
 import db.DB_Tematy;
 import db.DB_Warunki;
 import osoba.Osoba;
@@ -138,6 +139,44 @@ public class AbstractCPU {
     List<W> ZACHOWANIE_REZULTAT_ULICA_WARUNKI = DB_Warunki.ZACHOWANIE_REZULTAT_ULICA.getWarunki();
     List<W> SYTUACJE_STARCIE_WARUNKI = DB_Warunki.SYTUACJE_STARCIE.getWarunki();
 
+    List<W> CZAS_WARUNKI = WARUNKI(DB_Warunki.CZAS);
+
+    List<W> DUZO_IF_WARUNKI = DB_Warunki.DUZO_IF.getWarunki();
+    List<W> WYMAGANIA_UTRZYMANIA_KOBIETA = DB_Warunki.WYMAGANIA_UTRZYMANIA_KOBIETA.getWarunki();
+    List<W> KSZTALTOWANIE_CZLOWIEKA_WARUNKI = DB_Warunki.KSZTALTOWANIE_CZLOWIEKA.getWarunki();
+    List<W> KSZTALTOWANIE_DZIELNICY_WARUNKI = DB_Warunki.KSZTALTOWANIE_DZIELNICY.getWarunki();
+
+    List<W> HIERARCHIA_PRACA_WARUNKI = DB_Warunki.HIERARCHIA_PRACA.getWarunki();
+    List<W> ZAROBEK_NIELEGALNY_WARUNKI = DB_Warunki.ZAROBEK_NIELEGALNY.getWarunki();
+    List<W> EMOCJE_UCZUCIA_WARUNKI = WARUNKI(DB_Warunki.EMOCJE_UCZUCIA);
+    List<W> ROZRYWKI_ZART_WARUNKI = WARUNKI(DB_Warunki.ROZRYWKI_ZART);
+    List<W> KRYTERIA_WROGA_WARUNKI = DB_Warunki.KRYTERIA_WROGA.getWarunki();
+    List<W> NIESPRAWIEDLIWOSC_WARUNKI = DB_Warunki.NIESPRAWIEDLIWOSC.getWarunki();
+    List<W> PRZYMUS_WARUNKI = DB_Warunki.PRZYMUS.getWarunki();
+    List<W> POTRZEBY_WARUNKI = DB_Warunki.POTRZEBY.getWarunki();
+    List<W> ZASADY_WARUNKI = DB_Warunki.ZASADY.getWarunki();
+    List<W> ZAGROZENIA_WARUNKI = DB_Warunki.ZAGROZENIA.getWarunki();
+    List<W> CIERPIENIA_WARUNKI = DB_Warunki.CIERPIENIA.getWarunki();
+    List<W> SLABOSCI_WARUNKI = DB_Warunki.SLABOSCI.getWarunki();
+    List<W> THREAD_WHILE_LOOP_WARUNKI = DB_Warunki.THREAD_WHILE_LOOP.getWarunki();
+    List<W> OCENIA_WEDLUG_WARUNKI = DB_Warunki.OCENIA_WEDLUG.getWarunki();
+    List<W> GLOBAL_PLANSZA_PRACA_WARUNKI = DB_Warunki.GLOBAL_PLANSZA_PRACA.getWarunki();
+    List<W> GLOBAL_PLANSZA_LUDZIE_WARUNKI = DB_Warunki.GLOBAL_PLANSZA_LUDZIE.getWarunki();
+
+    List<W> WYMAGANIA_WSTEPNE = WARUNKI(DB_Warunki.WYMAGANIA_WSTEPNE);
+    List<W> WYMAGANIA_UTRZYMANIA = WARUNKI(DB_Warunki.WYMAGANIA_UTRZYMANIA);
+    List<W> KONCOWE_WARUNKI = WARUNKI(DB_Warunki.WARUNKI_KONCOWE);
+
+    List<W> TYPY_SYTUACJI = DB_Warunki.TYPY_SYTUACJI.getWarunki();
+    List<W> TYPY_LUDZI = WARUNKI(DB_Warunki.TYPY_LUDZI);
+    List<W> TEMATY_WARUNKI = WARUNKI(DB_Warunki.TEMATY);
+    List<W> WYMUSZENIE_REAKCJI_WARUNKI = DB_Warunki.WYMUSZENIE_REAKCJI.getWarunki();
+
+
+
+
+
+
     public <T> List<T> of(T... elements){
         return Arrays.asList(elements);
     }
@@ -182,6 +221,7 @@ public class AbstractCPU {
 
     public Integer c(W w1,String del1, W w2, String del2, W w3) { return 0;}
     public Integer c(W w1,String del1, W w2, String del2, W w3, String del3, W w4) { return 0;}
+    public Integer c(W w1,String del1, W w2, String del2, W w3, String del3, W w4, String del4, W w5) { return 0;}
 
     public W potrzeba(List<W> warunki){return null;}
 
@@ -190,4 +230,11 @@ public class AbstractCPU {
     public TypZadania stanKondycja(TypZadania zadanie) {return null;}
     public TypZadania stanKondycja(List<TypZadania> zadania) {return null;}
     public TypZadania antySamotnosc(TypZadania zadanie) {return null;}
+
+    public static W OD(Integer wiek) { return W.WARUNEK;  }
+    public static W T0(Integer wiek) { return W.WARUNEK;  }
+
+    public static List<W> WARUNKI(List<WarunkiKategoria> wk){
+        return new ArrayList<>();
+    }
 }

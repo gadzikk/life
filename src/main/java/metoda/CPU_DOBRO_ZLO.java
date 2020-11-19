@@ -8,6 +8,8 @@ import java.util.List;
  * Created by gadzik on 19.06.20.
  */
 public class CPU_DOBRO_ZLO extends AbstractCPU {
+    List<W> niesprawiedliwosc = NIESPRAWIEDLIWOSC_WARUNKI;
+
     public void run(){
         M.W(W.UKAZANIE_W_PRAWDZIE, "--->", of(W.SPOGLADANIE_NA_SIEBIE, W.CISZA, M.WHILE(of(W.UMNIEJSZENIE, W.USPRAWIEDLIWINIE,
                                                                                     W.KLAMSTWO, W.PRZEKONYWANIE))));
@@ -18,9 +20,9 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
 
         M.DEFAULT(of(M.MOCNO(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI), M.SLABO(PRZYCZYNY_SLUZENIA_DOBRU_WARUNKI)));
 
-        M.W(W.ZLO, "--->", of(W.PRZYJEMNOSCI, on(PRZEWAGI_WARUNKI), M.MALO(W.WYSILEK)));
+        M.WW(W.ZLO, "--->", of(W.PRZYJEMNOSCI, on(PRZEWAGI_WARUNKI), M.MALO(W.WYSILEK)), "--->", W.PIEKLO);
 
-        M.W(W.DOBRO, "--->", of(W.CIERPIENIE, W.PRACA, M.DUZO(W.WYSILEK)));
+        M.WW(W.DOBRO, "--->", M.DUZO(of(W.CIERPIENIE, W.PRACA, W.WYSILEK)), "--->", W.NIEBO);
 
         M.W(M.DUZO(W.GRZECH), "--->", M.DUZO(W.WADY));
 
@@ -86,9 +88,11 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
                                                                                 W.ROBIENIE_CIERPIENIA,
                                                                                     W.CIEZKIE_RANY));
 
-        M.W(M.thread_while_loop(M.KONTROLA(W.ZLY)), "--->", of(W.REAKACJA, M.AKTYWNA_WALKA_ZE_ZLEM(of(W.BLISKOSC, W.CISNIECIE, W.WALKA_PIESCI)),
-                                                                                    W.KARA, M.OPCJA(W.UKAZANIE),
-                                                                                    W.ZAPRZESTANIE_ZLA, W.SMUTEK, W.WYLACZENIE_DZIALACZA));
+        M.W(M.thread_while_loop(M.KONTROLA(W.ZLY)), "--->", of(W.CIESZY_SIE, M.SZANSA_NA(M.USPRAWIEDLIWIENIE(W.WALKA_PIESCI)),
+                                                                    on(OKAZJE_ZROBIENIE_DOBRO_WARUNKI),
+                                                                    W.REAKACJA, M.AKTYWNA_WALKA_ZE_ZLEM(of(W.BLISKOSC, W.CISNIECIE, W.WALKA_PIESCI)),
+                                                                    W.KARA, M.OPCJA(W.UKAZANIE),
+                                                                    W.ZAPRZESTANIE_ZLA, W.SMUTEK, W.WYLACZENIE_DZIALACZA));
 
         M.W(W.ZLY, "--->", M.DUZY_WYSILEK(M.thread_while_loop(M.KONTROLA(W.ZLY)))
                                                                     .MIMO_TO(W.ZLY_OWOC)

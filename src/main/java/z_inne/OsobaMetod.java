@@ -145,5 +145,9 @@ public class OsobaMetod {
     public W KTO_KOGO(OsobaMetod osobaMetod, List<W> warunki) {return W.WARUNEK;}
     public W KTO_KOGO_Z_PRZEWAGA(OsobaMetod osobaMetod, List<W> warunki) {return W.WARUNEK;}
     public W GNOJI(OsobaMetod osobaMetod) {return W.WARUNEK;}
+    public W PRZESTAJE(W warunek) {return W.WARUNEK;}
+    public W PRZESTAJE(List<W> warunki) {return W.WARUNEK;}
+    public W ZACZYNA(W warunek) {return W.WARUNEK;}
+    public W ZACZYNA(List<W> warunki) {return W.WARUNEK;}
 
 }
