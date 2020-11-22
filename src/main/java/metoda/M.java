@@ -1059,4 +1059,26 @@ public class M {
     public static W ZDOBYWANIE(List<W> warunki) {return W.WARUNEK;}
     public static W KONTAKT(W warunek) {return W.WARUNEK;}
     public static W KONTAKT(List<W> warunki) {return W.WARUNEK;}
+    public static W OBSERWACJA(W warunek) {return W.WARUNEK;}
+    public static W OBSERWACJA(List<W> warunki) {return W.WARUNEK;}
+    public static W PRZEKAZYWANIE(W warunek) {return W.WARUNEK;}
+    public static W PRZEKAZYWANIE(List<W> warunki) {return W.WARUNEK;}
+    public static W SLOWO_MOWIONE(W warunek) {return W.WARUNEK;}
+    public static W SLOWO_MOWIONE(List<W> warunki) {return W.WARUNEK;}
+    public static W SLOWO_PISANE(W warunek) {return W.WARUNEK;}
+    public static W SLOWO_PISANE(List<W> warunki) {return W.WARUNEK;}
+    public static W WEJSCIE(W warunek) {return W.WARUNEK;}
+    public static W WEJSCIE(List<W> warunki) {return W.WARUNEK;}
+    public static W DYZURY(W warunek) {return W.WARUNEK;}
+    public static W DYZURY(List<W> warunki) {return W.WARUNEK;}
+    public static W SPRAWDZANIE(W warunek) {return W.WARUNEK;}
+    public static W SPRAWDZANIE(List<W> warunki) {return W.WARUNEK;}
+    public static W REZULTAT(W warunek) {return W.WARUNEK;}
+    public static W REZULTAT(List<W> warunki) {return W.WARUNEK;}
+    public static W LEPSZE_TRAKTOWANIE(W warunek) {return W.WARUNEK;}
+    public static W LEPSZE_TRAKTOWANIE(List<W> warunki) {return W.WARUNEK;}
+    public static W SEKUND(Integer i) {return W.WARUNEK;}
+    public static W MINUT(Integer i) {return W.WARUNEK;}
+    public static W GODZIN(Integer i) {return W.WARUNEK;}
+    public static W DNI(Integer i) {return W.WARUNEK;}
 }

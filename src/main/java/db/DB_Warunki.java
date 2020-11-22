@@ -74,7 +74,8 @@ public class DB_Warunki extends DB {
                 WARUNKI_KONCOWE_ZARABIANIE,
                 WARUNKI_KONCOWE_SPORT,
                 WARUNKI_KONCOWE_OSIEDLE,
-                WARUNKI_KONCOWE_KOBIETA
+                WARUNKI_KONCOWE_KOBIETA,
+                WARUNKI_KONCOWE_WIEDZA
         );
 
         List<WarunkiKategoria> ZLY_DOBRY = Arrays.asList(
@@ -248,10 +249,13 @@ public class DB_Warunki extends DB {
     public static WarunkiKategoria WYMAGANIA_WSTEPNE_WIEDZA = new WarunkiKategoria(
             new Kategoria(TypKategoria.WYMAGANIA_WSTEPNE, TypKategoria.WIEDZA),
             Arrays.asList(
+                    M.thread_while_loop(M.OBSERWACJA(of(W.ULICA, W.MIEJSCA_RESTRYKCYJNE))),
                     W.INFORMACJA,
                     W.PRZYCZYNA,
-                    W.SKUTEK,
-                    W.WNIOSKI
+                    W.DZIALANIE,
+                    W.REZULTAT,
+                    W.WNIOSKI,
+                    W.ZAPAMIETANIE
             )
     );
 
@@ -412,6 +416,8 @@ public class DB_Warunki extends DB {
                     W.ODSWIEZANIE,
                     W.PAMIEC,
                     W.ULEPSZANIE,
+                    M.PRZEKAZYWANIE(M.SLOWO_PISANE(W.WIEDZA)),
+                    M.PRZEKAZYWANIE(M.SLOWO_MOWIONE(W.WIEDZA)),
                     W.DZIELENIE_SIE_WIEDZA
             )
     );
@@ -596,13 +602,22 @@ public class DB_Warunki extends DB {
             )
     );
 
+    public static WarunkiKategoria WARUNKI_KONCOWE_WIEDZA = new WarunkiKategoria(
+            new Kategoria(TypKategoria.WARUNKI_KONCOWE, TypKategoria.WIEDZA),
+            Arrays.asList(
+                    W.TRAFNE_DECYZJE,
+                    W.DOBRZE_WYKORZYSTANY_CZAS
+            )
+    );
+
     public static List<WarunkiKategoria> WARUNKI_KONCOWE = Arrays.asList(
             WARUNKI_KONCOWE_SWIAT,
             WARUNKI_KONCOWE_PRACA,
             WARUNKI_KONCOWE_ZARABIANIE,
             WARUNKI_KONCOWE_SPORT,
             WARUNKI_KONCOWE_OSIEDLE,
-            WARUNKI_KONCOWE_KOBIETA
+            WARUNKI_KONCOWE_KOBIETA,
+            WARUNKI_KONCOWE_WIEDZA
     );
 
     public static WarunkiKategoria PRZYCZYNY_SLUZENIA_ZLU = new WarunkiKategoria(
@@ -947,7 +962,7 @@ public class DB_Warunki extends DB {
             new Kategoria(TypKategoria.UCZUCIA, TypKategoria.UCZUCIA_POZYTYWNE),
             Arrays.asList(
                     W.MILOSC, W.PRZYJAZN, W.BRATERSTWO, W.KOLEZENSTWO, W.POCZUCIE_SZCZESCIA,
-                    W.POCZUCIE_ZYSKU, W.POCZUCIE_SUKCESU, W.ZAPAL, W.PRZYJEMNOSC
+                    W.POCZUCIE_ZYSKU, W.POCZUCIE_SUKCESU, W.ZAPAL, W.PRZYJEMNOSC, W.SENTYMENT
             )
     );
 
@@ -1260,7 +1275,8 @@ public class DB_Warunki extends DB {
                     M.MALY_WYSILEK(M.MOCNO(W.DUZA_KRZYWDA_NA_PRZEWADZE)),
                     M.MALY_WYSILEK(of(W.GRZEBANIE_PRYWATNE, W.TRUCIZNA_DO_JEDZENIA)),
                     M.ODRAZU(W.ZLO), M.DOSWIADCZENIE(W.ZLO),
-                    M.DEFAULT(M.ZLE_TRAKTOWANIE(W.OSOBA)), M.BRAK(W.WSTYD),
+                    M.DEFAULT(M.ZLE_TRAKTOWANIE(W.OSOBA)), M.DEFAULT(M.LEPSZE_TRAKTOWANIE(W.SWOI)),
+                    M.BRAK(W.WSTYD),
                     M.MOCNO(M.WYKORZYSTUJE(W.OSLONA)),
                     M.MOCNO(of(W.DAZENIE_DO_ZLA, W.SZUKANIE_GLEBOKO_ZLA, W.KAZDE_DZIALANIE_ZMIENIA_W_ZLO))
             )
@@ -1392,7 +1408,7 @@ public class DB_Warunki extends DB {
                     M.thread_while_loop(W.EMOCJE),
                     M.MOCNO(of(
                             W.NIENAWISC, W.KIBICOWANIE, M.HIERARCHIA(W.ZNAJOMI), W.KLUB, W.MELANZ, W.UZYWKI,
-                            W.STANDARD_ZACHOWANIA, M.OPCJA(W.DZIECI), W.PRZEWAGA, M.TOLERANCJA(M.REAKCJA_SMIECHEM(W.EMOCJE_ZE_ZLA))
+                            W.STANDARD_ZACHOWANIA, W.ZWIAZKI, M.OPCJA(W.DZIECI), W.PRZEWAGA, M.TOLERANCJA(M.REAKCJA_SMIECHEM(W.EMOCJE_ZE_ZLA))
                     )
             ))
     );
@@ -1555,7 +1571,8 @@ public class DB_Warunki extends DB {
                     M.thread_while_loop(W.DZIALANIE_POD_PRESJA),
                     M.thread_while_loop(W.WYSILEK), M.thread_while_loop(W.KLOTNIA),
                     M.thread_while_loop(M.ORIENT(W.LUDZIE)), M.thread_while_loop(M.ORIENT(W.SPRZET)),
-                    M.thread_while_loop(W.OBRAZENIA_FIZYCZNE)
+                    M.thread_while_loop(W.OBRAZENIA_FIZYCZNE),
+                    M.REZULTAT(of(W.RANY_ODNIESIONE, W.REGENERACJA, W.WROG, W.JEGO_KOLEDZY_TWOI_WROGOWIE))
             )
     );
 
@@ -1649,6 +1666,14 @@ public class DB_Warunki extends DB {
     public static WarunkiKategoria DUZO_IF = new WarunkiKategoria(
             new Kategoria(TypKategoria.DUZO_IF), of(
                 W.DUZE_BLOKI, W.DUZO_OSOB, W.SRODOWISKO, W.RDZENNI, W.MOCNE_JEDNOSTKI, W.NORMALNE_EMOCJE
+    ));
+
+    public static WarunkiKategoria RODZAJE_WIEDZA = new WarunkiKategoria(
+            new Kategoria(TypKategoria.WIEDZA), of(
+            W.WIEDZA_ULICA, W.WIEDZA_KOBIETY_PODRYW, W.WIEDZA_KOBIETY_ZWIAZEK, W.WIEDZA_WYCHOWANIE,
+            W.WIEDZA_SPORT, W.WIEDZA_NAUKA,
+            W.WIEDZA_LUDZIE_GENY, W.WIEDZA_LUDZIE_CHARAKTER,
+            W.WIEDZA_RYNEKPRACY, W.WIEDZA_ZAWOD, W.WIEDZA_PRAWO
     ));
 
     public static List<WarunkiKategoria> ZLY_DOBRY = Arrays.asList(
@@ -1792,5 +1817,11 @@ public class DB_Warunki extends DB {
     public static List<WarunkiKategoria> SYTUACJE = Arrays.asList(
             TYPY_SYTUACJI,
             SYTUACJE_STARCIE
+    );
+
+    public static List<WarunkiKategoria> WIEDZA = Arrays.asList(
+            RODZAJE_WIEDZA,
+            WYMAGANIA_WSTEPNE_WIEDZA,
+            WYMAGANIA_UTRZYMANIA_WIEDZA
     );
 }

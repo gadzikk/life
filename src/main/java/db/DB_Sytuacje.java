@@ -1,5 +1,6 @@
 package db;
 
+import metoda.M;
 import sytuacja.Sytuacja;
 import sytuacja.TypSytuacja;
 import warunek.W;
@@ -11,53 +12,50 @@ import java.util.List;
 /**
  * Created by gadzik on 01.01.20.
  */
-public class DB_Sytuacje {
-    public static Sytuacja CHCIANA_TRAUTO = new Sytuacja(
-            of(TypSytuacja.CHCIANA),
-            of(W.SAMA, W.SIEDZI, W.MALO_OSOB, W.POPATRZYLA),
-            LocalDateTime.now().plusMinutes(10L),
-            W.TRANSPORT
-    );
-    public static Sytuacja CHCIANA_TRAUTO_WCHODZISZ = new Sytuacja(
-            of(TypSytuacja.CHCIANA),
-            of(W.SAMA, W.SIEDZI, W.MALO_OSOB, W.POPATRZYLA, W.MIEJSCE_OBOK),
-            LocalDateTime.now(),
-            W.TRANSPORT
+public class DB_Sytuacje extends DB {
+    public static W CHCIANA_TRAUTO = on(
+            W.SAMA, W.SIEDZI, W.MALO_OSOB, W.POPATRZYLA,
+            M.MINUT(10),
+            M.CEL(W.TRANSPORT)
     );
 
-    public static Sytuacja CHCIANA_SKLEP = new Sytuacja(
-            of(TypSytuacja.CHCIANA),
-            of(W.SAMA, W.STOI, W._II_, W.CHODZI, W.MALO_OSOB, W.POPATRZYLA),
-            LocalDateTime.now().plusMinutes(10L),
-            W.KUPNO_PRODUKTOW
-    );
-    public static Sytuacja CHCIANA_SKLEP_WYCHODZI = new Sytuacja(
-            of(TypSytuacja.CHCIANA),
-            of(W.SAMA, W.IDZIE_WOLNO, W.MALO_OSOB, W.POPATRZYLA),
-            LocalDateTime.now().plusMinutes(1L),
-            W.KUPNO_PRODUKTOW
-    );
-    public static Sytuacja CHCIANA_IDZIE = new Sytuacja(
-            of(TypSytuacja.CHCIANA),
-            of(W.SAMA, W.IDZIE_WOLNO, W.WZGL_IZOLACJA, W.POPATRZYLA),
-            LocalDateTime.now(),
-            W.PRZEMIESZCZENIE_SIE
-    );
-    public static Sytuacja CHCIANA_PARZONKO = new Sytuacja(
-            of(TypSytuacja.CHCIANA),
-            of(W.DOPUSZCZENIE, W.USMIECHA_SIE, W.EFEKTYWNA_GADKA, W.EMOCJE, W.ZART),
-            LocalDateTime.now(),
-            W.NA
+    public static W CHCIANA_TRAUTO_WCHODZISZ = on(
+            W.SAMA, W.SIEDZI, W.MALO_OSOB, W.POPATRZYLA, W.MIEJSCE_OBOK,
+            M.MINUT(0),
+            M.CEL(W.TRANSPORT)
     );
 
-    public static Sytuacja CHCIANA_WZIECIE_KONTAKTU = new Sytuacja(
-            of(TypSytuacja.CHCIANA),
-            of(W.ZNASZ, W.KILKA_PARZONEK),
-            LocalDateTime.now(),
-            W.NA
+    public static W CHCIANA_SKLEP = on(
+            W.SAMA, W.STOI, W._II_, W.CHODZI, W.MALO_OSOB, W.POPATRZYLA,
+            M.MINUT(10),
+            M.CEL(W.KUPNO_PRODUKTOW)
     );
 
-    public static List<Sytuacja> CHCIANA_SYTUACJA = Arrays.asList(
+    public static W CHCIANA_SKLEP_WYCHODZI = on(
+            W.SAMA, W.IDZIE_WOLNO, W.MALO_OSOB, W.POPATRZYLA,
+            M.MINUT(1),
+            M.CEL(W.KUPNO_PRODUKTOW)
+    );
+
+    public static W CHCIANA_IDZIE = on(
+            W.SAMA, W.IDZIE_WOLNO, W.WZGL_IZOLACJA, W.POPATRZYLA,
+            M.MINUT(0),
+            M.CEL(W.PRZEMIESZCZANIE_SIE)
+    );
+
+    public static W CHCIANA_PARZONKO = on(
+            W.DOPUSZCZENIE, W.USMIECHA_SIE, W.EFEKTYWNA_GADKA, W.EMOCJE, W.ZART,
+            M.MINUT(0),
+            M.CEL(W.NA)
+    );
+
+    public static W CHCIANA_WZIECIE_KONTAKTU = on(
+            W.ZNASZ, W.KILKA_PARZONEK,
+            M.MINUT(0),
+            M.CEL(W.NA)
+    );
+
+    public static List<W> CHCIANA_SYTUACJA = Arrays.asList(
             CHCIANA_TRAUTO,
             CHCIANA_TRAUTO_WCHODZISZ,
             CHCIANA_SKLEP,
@@ -67,15 +65,9 @@ public class DB_Sytuacje {
             CHCIANA_WZIECIE_KONTAKTU
     );
 
-    public static Sytuacja UNIKALNA_SYTUACJA = new Sytuacja(
-            of(TypSytuacja.UNIKALNA),
-            of(W.UNIKALNA_JEDNOSTKA, W.UNIKALNY_WARUNEK),
-            LocalDateTime.now(),
-            W.NA
+    public static W UNIKALNA_SYTUACJA = on(
+            W.UNIKALNA_JEDNOSTKA, W.UNIKALNY_WARUNEK,
+            M.MINUT(0),
+            M.CEL(W.NA)
     );
-
-    public static <T> List<T> of(T... elements){
-        return Arrays.asList(elements);
-    }
-
 }

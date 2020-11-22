@@ -69,6 +69,7 @@ public class CPU_ALL extends AbstractCPU {
     List<W> typyLudzi = TYPY_LUDZI;
     List<W> wspomnienia = WSPOMNIENIA_WARUNKI;
     List<W> tematy = TEMATY_WARUNKI;
+    List<W> wiedza = WIEDZA;
 
     public void run(){
         M.WWW(W.INFORMACJA, "--->", W.SONDA, "--->", W.NASTAWIENIE, "--->", W.DZIALANIE);

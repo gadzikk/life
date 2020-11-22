@@ -171,6 +171,11 @@ public class AbstractCPU {
     List<W> TYPY_LUDZI = WARUNKI(DB_Warunki.TYPY_LUDZI);
     List<W> TEMATY_WARUNKI = WARUNKI(DB_Warunki.TEMATY);
     List<W> WYMUSZENIE_REAKCJI_WARUNKI = DB_Warunki.WYMUSZENIE_REAKCJI.getWarunki();
+    List<W> RODZAJE_WIEDZA = DB_Warunki.RODZAJE_WIEDZA.getWarunki();
+    List<W> REAKCJA_KOBIET_WARUNKI = DB_Warunki.REAKCJA_KOBIET.getWarunki();
+
+    List<W> WIEDZA = WARUNKI(DB_Warunki.WIEDZA);
+    List<W> CHCIANA_SYTUACJE = DB_Sytuacje.CHCIANA_SYTUACJA;
 
 
 

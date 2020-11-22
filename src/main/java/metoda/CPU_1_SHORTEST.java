@@ -19,6 +19,8 @@ public class CPU_1_SHORTEST extends AbstractCPU {
     List<W> allNiesprzyjajace = NIE_SPRZYJAJACE_WARUNKI;
 
     List<W> extremalne = EXTREMALNE_WARUNKI;
+    List<W> reakcjeKobiet = REAKCJA_KOBIET_WARUNKI;
+    List<W> chcianeSytuacje = CHCIANA_SYTUACJE;
 
     List<W> mojeCechy = of(W.SPRYT, W.SZYBKOSC, W.SILA, W.ANTY_POSLUSZNOSC, W.ZMUSZASZ, W.WYJEBKA_NA_WLASNE_ZMECZENIE);
     List<W> osobaCechy = of(W.REAGUJE, W.STWARZA_POINTCUT, W.SWIADOMOSC);

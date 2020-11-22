@@ -71,7 +71,7 @@ public class CPU_UL extends AbstractCPU {
             W.ULTIMATUM, W.POCZATEK, W.KONIEC, W.ZYSK, W.WARTOSC, W.ILOSC_OSOB, W.CZESTOTLIWOSC, W.SILA, W.PRIORYTET
     );
 
-    List<W> bojka = of(W.WYSILEK, W.BOL, W.RANY_ODNIESIONE, W.REGENERACJA, W.WROG, W.JEGO_KOLEDZY_TWOI_WROGOWIE);
+    List<W> konfrontacja = KONFRONTACJA_WARUNKI;
 
     List<W> srodki = srodki();
 
@@ -1268,6 +1268,10 @@ public class CPU_UL extends AbstractCPU {
         M.W(M.PRZEJECIE(KTO_KOGO_WARUNKI, KURESTWO_WARUNKI, OSLONY_WARUNKI), "--->", M.OBSADZ_STANOWISKA(of(W.SWOI, W.ZLI)));
         M.ULTIMATIUM(pracownicy.thread_while_loop(M.DZIALANIE_DLA_ZLA(KTO_KOGO_WARUNKI, KURESTWO_WARUNKI, OSLONY_WARUNKI)));
         M.thread_while_loop(M.DOSTEP_TYLKO(W.ZLI));
+
+        M.W(M.MIEJSCE_STALE(W.DLUGA_DOSTEPNOSC), "--->", of(M.WEJSCIE(W.WCZESNIE_RANO),
+                                                                M.thread_while_loop(M.DYZURY(W.DZIALAJACY)),
+                                                                M.thread_while_loop(M.SPRAWDZANIE(W.WSZYSCY))));
     }
 
     public void wychodzisz() {
