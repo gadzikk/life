@@ -109,7 +109,7 @@ public class CPU_SJ extends AbstractCPU {
                 W.PUSTKA, W.ZLE_W_ZYCIU, W.MALO_OSOB,
                 W.CHRONICZNE_BEZROBOCIE, W.NISKIE_PENSJE, W.NIEMOZLIWOSC_ZDOBYCIA_PRACY_NEUTRALNY_RZUT,
                 W.WIEKSZOSC_DZIALA, W._80_PROCENT_CHCE_CIE_ROZJEBAC,
-                W.CHETNOSC_ZERO, W.DZIALAJACE_KARYNY, W.NIEMOZLIWOSC_PODERWANIA_KOBIETY_NEUTRALNY_RZUT, PATOLOGIE_WSTEPNE_KOBIET.get(0)
+                W.CHETNOSC_ZERO, W.DZIALAJACE_KARYNY, W.NIEMOZLIWOSC_PODERWANIA_KOBIETY_NEUTRALNY_RZUT, PATOLOGIE_WSTEPNE_KOBIETA.get(0)
         ));
 
         M.subscribe(of(
@@ -118,9 +118,9 @@ public class CPU_SJ extends AbstractCPU {
                 W.ULICA
         ));
 
-        M.W(of(W.WIDZISZ_ZLO), "--->", of(W.ODRAZU_DZIALANIE_KONTRA));
+        M.W(W.WIDZISZ_ZLO, "--->", M.ODRAZU(M.DZIALANIE(W.KONTRA)));
 
-        M.W(of(W.WZGL_IZOLACJA), "--->", of(W.ODRAZU_DZIALANIE));
+        M.W(WZGL_IZOLACJA_WARUNKI, "--->", M.ODRAZU(W.DZIALANIE));
 
         M.W(of(W._NOT_, W.PRZED_9, W._88_, W.PO_17),
                 of(M.REMOVE(ME, W.DZIEN))
@@ -128,6 +128,8 @@ public class CPU_SJ extends AbstractCPU {
         M.W(of(W.MIEJSCE_STALE),
                 of(M.robCosExtra())
         );
+
+        M.WW(W.INFORMACJA, "--->", W.CONTENT, "--->", W.PROGRAM, "--->", M.WYKORZYSTANIE_W_PRAKTYCE(W.PROGRAM));
 
         M.thread_while_loop(W.PUSTKA);
         M.W(of(W.LUDZIE),

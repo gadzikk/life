@@ -89,6 +89,14 @@ public class CPU_ZDOBYCIE_ZWIAZKU extends AbstractCPU {
         M.W(W.KOBIETA, "--->", M.WSPARCIE(M.WYBOR(TYPY_LUDZI_SHRT_WARUNKI)));
 
         M.W(W.ZWIAZEK, "--->", WYMAGANIA_UTRZYMANIA_KOBIETA);
+
+        M.W(M.KOBIETA(M.ODCZUCIE(W.SAMOTNOSC)), "--->", of(M.KOBIETA(M.DOCENIA(W.ZWIAZEK)),
+                                                                M.PRAWDZIWY(W.ZWIAZEK),
+                                                                M.PRAWDZIWA(W.MILOSC)));
+
+        M.W(of(on(PATOLOGIE_ZWIAZKU), on(PATOLOGIE_WSTEPNE_KOBIETA),
+                                      on(PATOLOGIE_UTRZYMANIA_KOBIETA)), "--->", of(M.MOZLIWOSC(of(M.SLABY(W.ZWIAZEK), W.NIESZCZESCIE,
+                                                                                                       on(PATOLOGIE_KONCOWE_KOBIETA)))));
     }
 
     public void reakcja() {

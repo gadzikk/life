@@ -76,6 +76,9 @@ public class CPU_ALL extends AbstractCPU {
         M.WWW(W.INFORMACJA, "--->", W.SONDA, "--->", W.NASTAWIENIE, "--->", W.DZIALANIE);
         M.WW(W.DZIALANIE, "--->", W.WARUNEK, "--->", M.ZASIEG(M.NOWY(of(W.WARUNEK, W.INFORMACJA))));
 
+        M.WW(W.POTRZEBA, "--->", of(M.WYMAGANE(W.WARUNKI), W.PODJECIE_DECZYJI,
+                                M.OPCJA(W.WIEDZA), M.OPCJA(M.SONDA(W.SZANSE_NA_SUKCES))), "--->", of(W.DZIALANIE, M.PROBA(M.REALIZACJA(W.POTRZEBA))));
+
         M.W(W.WARTOSC, "--->", of(M.DLUGO(M.CIEZKO(of(W.CIERPIENIE, W.PRACA))), M.MALO_OSOB(M.POSIADA(W.WARTOSC))));
 
         M.W(of(on(PRZEWAGI_WARUNKI), W.WARUNEK_SPRZYJAJACY), "--->", M.WIEKSZE_SZANSE(M.OSIAGNIECIE(W.WARUNEK)));
@@ -191,6 +194,10 @@ public class CPU_ALL extends AbstractCPU {
         M.W(W.ILOSC, "--->", W.JAKOSC);
 
         M.W(W.OSOBA, "--->", of(W.OBECNOSC, W.ENERGIA, W.CHECI, W.DZIALANIE));
+
+        M.W(M.SMIERC(W.BLISKA_OSOBA), "--->", of(M.PERMANENTNA(W.STRATA), on(EMOCJE_NEGATYWNE_WARUNKI), on(UCZUCIA_NEGATYWNE_WARUNKI)));
+
+        M.W(M.OSOBA(W.INNA_RASA), "--->", M.DEFAULT(of(W.RASIZM, M.GORSZE_TRAKTOWANIE(W.OSOBA))));
 
         trudnoLatwo();
         superpozycja();

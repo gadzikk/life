@@ -11,6 +11,8 @@ import static typy_bazowe.TypOsoby.SOMEONE;
  * Created by gadzik on 23.08.20.
  */
 public class CPU_LUDZI extends AbstractCPU {
+    List<W> silneWiezyCzlowieka = SILNE_WIEZY_CZLOWIEKA_WARUNKI;
+
     public void run() {
         relacjeWarunkowLudzi();
         srodki();
@@ -298,7 +300,7 @@ public class CPU_LUDZI extends AbstractCPU {
     }
 
     public void fest() {
-        List<W> festWarunki = DB_Warunki.FEST.getWarunki();
+        List<W> festWarunki = DB_Warunki.FEST;
         List<W> festEndCase = of(W.PODROZE, W.WYGODY, W.PRZEKAZANIE_ZLEGO_GENU, W.NABICIE_KABZY_KAPITALISCIE);
 
         M.W(of(W.RODZINA, W.KONTROLA, W.PIENIADZE),
@@ -351,7 +353,7 @@ public class CPU_LUDZI extends AbstractCPU {
                         )),
                         dzialacz.thread_while_loop(M.DOSTEP(of(W.INFORMACJE, W.KONTAKT_TEL, W.OBECNOSC))),
                         dzialacz.SET(W.NIE_ZATRZYMA_SIE),
-                        dzialacz.SET(of(W.WYKRECENIE, W.WADY_FIZYCZNE, W.WADY_UMYSLOWE, W.OGRANICZENIE_WOLNOSCI, W.KROTKOWZROCZNOSC)),
+                        dzialacz.SET(of(W.WYKRECENIE, W.WADY_FIZYCZNE, W.WADY_UMYSLOWE, W.OGRANICZENIE_WOLNOSCI_ULICA, W.KROTKOWZROCZNOSC)),
                         dzialacz.SET(KTO_KOGO_WARUNKI),
                         dzialacz.SET(M.OPCJA(BRAK_ZASAD_WARUNKI)),
                         dzialacz.SET(CECHY_RDZENNY_WARUNKI),

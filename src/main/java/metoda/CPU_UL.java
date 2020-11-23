@@ -771,7 +771,7 @@ public class CPU_UL extends AbstractCPU {
                         M.sonda(W.LADNA),
                         M.sonda(W.STWARZA_POINTCUT),
                         //-------------------------
-                        M.sonda(PATOLOGIE_WSTEPNE_KOBIET, PATOLOGIE_UTRZYMANIA_KOBIET)
+                        M.sonda(PATOLOGIE_WSTEPNE_KOBIETA, PATOLOGIE_UTRZYMANIA_KOBIETA)
                 )
         );
     }
@@ -1366,7 +1366,7 @@ public class CPU_UL extends AbstractCPU {
 
         M.W(of(W.MIEJSCE_STALE, W.OBSLUGA_NIE_OD_NAS), "--->", of(M.thread_while_loop(M.PROBUJ_PRZEJAC(of(W.OBSLUGA, W.KIEROWNICTWO))),
                                         M.thread_while_loop(M.NASYLANIE_DZIALACZY(of(W.NOTYFIKACJA_EKIPA, W.FOTY, W.CISNIE, W.WALKA_SPRZET)))
-                                                        .CEL(of(W.ZASTRASZENIE, W.OGRANICZENIE_WOLNOSCI, W.ZAMKNIECIE_OPCJI,
+                                                        .CEL(of(W.ZASTRASZENIE, W.OGRANICZENIE_WOLNOSCI_ULICA, W.ZAMKNIECIE_OPCJI,
                                                                 W.WARTOSC, M.DOSTEP(W.ZLO), W.EMOCJE_ZE_ZLA))
         ));
 
@@ -1422,4 +1422,13 @@ public class CPU_UL extends AbstractCPU {
                                                                             .W_INNYM_PRZYPADKU(M.OSOBA(M.WSPOLPRACA(W.POLICJA)));
     }
 
+    public void sprzet() {
+        M.W(W.SPRZET, "--->", of(M.ZMNIEJSZANIE_PRZEWAG(M.OSOBA(W.BEZ_SPRZETU)),
+                                                            M.SILNA_OSLONA(W.WARTOSC),
+                                                            M.NAJWIEKSZY(W.STRACH),
+                                                            M.DUZA_KRZYWDA(W._1_RUCH),
+                                      M.UZYCIE(M.WYMAGA(of(W.SILNA_PSYCHIKA, W._88_, M.NIE_PRZESTRASZENIE_SIE(of(W.KONSEKWENCJE, W.CHEC_POMSZCZENIA,
+                                                                                                            W.STRATA_WOLNOSCI, W.OGRANICZENIE_WOLNOSCI_ULICA,
+                                                                                                            W.USZCZERBEK_NA_ZDROWIU, W.HOSPITALIZACJA)))))));
+    }
 }

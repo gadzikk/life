@@ -1,12 +1,8 @@
 package db;
 
 import metoda.M;
-import typy_bazowe.TypKategoria;
 import warunek.W;
-import warunek.WarunkiKategoria;
-import z_inne.Kategoria;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -71,7 +67,8 @@ public class DB_Warunki extends DB {
 
         List<List<W>> KATEGORIA_GLOBAL_PLANSZA = Arrays.asList(
                 GLOBAL_PLANSZA_LUDZIE,
-                GLOBAL_PLANSZA_PRACA
+                GLOBAL_PLANSZA_PRACA,
+                SILNE_WIEZY_CZLOWIEKA
         );
 
         List<List<W>> KATEGORIA_WARTOSCI_OCENA_WROG = Arrays.asList(
@@ -1099,7 +1096,7 @@ public class DB_Warunki extends DB {
     public static List<W> BRAK_ZASAD =
             Arrays.asList(
                     M.MALY_WYSILEK(M.MOCNO(of(W.FOTY_MIEJSCE_STALE, W.NIE_MILA_OBSLUGA, W.ZLE_WYKONANIE_USLUGI))),
-                    M.DUZY_WYSILEK(of(W.OGRANICZENIE_WOLNOSCI, W.KONTUZJA)),
+                    M.DUZY_WYSILEK(of(W.OGRANICZENIE_WOLNOSCI_ULICA, W.KONTUZJA)),
                     W.ZABRAC_COS,
                     M.MALY_WYSILEK(of(W.INTERAKCJA_POLICJA, W.INTERAKCJA_ZAGRANICZNI, W.PUSZCZALSKOSC, W.ZDOLNOSC_KONFIDENTCTWO)),
                     M.DUZY_WYSILEK(of(W.KLUCENIE_RODZINY, W.ATAK_NA_CZLONKOW_RODZINY, W.ZAMACH_NA_ZYCIE)),
@@ -1458,6 +1455,12 @@ public class DB_Warunki extends DB {
             W.WIEDZA_RYNEKPRACY, W.WIEDZA_ZAWOD, W.WIEDZA_PRAWO
     );
 
+    public static List<W> SILNE_WIEZY_CZLOWIEKA = of(
+            M.MOCNO(of(
+                    W.RASA, W.NARODOWOSC, W.GENY, W.RODZINA, W.RELIGIA
+            ))
+    );
+
     public static List<List<W>> KATEGORIA_ZLY_DOBRY = Arrays.asList(
             PRZYCZYNY_SLUZENIA_ZLU,
             PRZYCZYNY_SLUZENIA_DOBRU,
@@ -1544,7 +1547,8 @@ public class DB_Warunki extends DB {
 
     public static List<List<W>> KATEGORIA_KSZTALTOWANIE = Arrays.asList(
             KSZTALTOWANIE_DZIELNICY,
-            KSZTALTOWANIE_CZLOWIEKA
+            KSZTALTOWANIE_CZLOWIEKA,
+            SILNE_WIEZY_CZLOWIEKA
     );
 
     public static List<List<W>> KATEGORIA_RANY = Arrays.asList(

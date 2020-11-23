@@ -32,6 +32,7 @@ public class M {
     public static W WW(W w1, String del, List<W> w2, String del2, List<W> w3) { return W.WARUNEK; }
     public static W WW(List<W> w1, String del, List<W> w2, String del2, List<W> w3) { return W.WARUNEK; }
     public static W WW(W w1, String del, List<W> w2, String del2, W w3, String del3, List<W> w4) { return W.WARUNEK; }
+    public static W WW(W w1, String del, W w2, String del2, W w3, String del3, W w4) { return W.WARUNEK; }
     public static W WW(W w1, String del, W w2, String del2, List<W> w3) { return W.WARUNEK; }
     public static W WW(List<W> w1, String del, W w2, String del2, W w3) { return W.WARUNEK; }
     public static W WWW(W w1, String del, W w2, String del2, W w3, String del3, W w4) { return W.WARUNEK; }
@@ -1179,4 +1180,32 @@ public class M {
     public static W WIECEJ(List<W> warunki){return W.WARUNEK;}
     public static W POTRZEBA(W w){return W.WARUNEK;}
     public static W POTRZEBA(List<W> warunki){return W.WARUNEK;}
+    public static W WYMAGANE(W w){return W.WARUNEK;}
+    public static W WYMAGANE(List<W> warunki){return W.WARUNEK;}
+    public static W PROBA(W w){return W.WARUNEK;}
+    public static W PROBA(List<W> warunki){return W.WARUNEK;}
+    public static W KOBIETA(W w){return W.WARUNEK;}
+    public static W KOBIETA(List<W> warunki){return W.WARUNEK;}
+    public static W DOCENIA(W w){return W.WARUNEK;}
+    public static W DOCENIA(List<W> warunki){return W.WARUNEK;}
+    public static W ODCZUCIE(W w){return W.WARUNEK;}
+    public static W ODCZUCIE(List<W> warunki){return W.WARUNEK;}
+    public static W ZMNIEJSZANIE_PRZEWAG(W w){return W.WARUNEK;}
+    public static W ZMNIEJSZANIE_PRZEWAG(List<W> warunki){return W.WARUNEK;}
+    public static W SILNA_OSLONA(W w){return W.WARUNEK;}
+    public static W SILNA_OSLONA(List<W> warunki){return W.WARUNEK;}
+    public static W NAJWIEKSZY(W w){return W.WARUNEK;}
+    public static W NAJWIEKSZY(List<W> warunki){return W.WARUNEK;}
+    public static W WYMAGA(W w){return W.WARUNEK;}
+    public static W WYMAGA(List<W> warunki){return W.WARUNEK;}
+    public static W NIE_PRZESTRASZENIE_SIE(W w){return W.WARUNEK;}
+    public static W NIE_PRZESTRASZENIE_SIE(List<W> warunki){return W.WARUNEK;}
+    public static W PERMANENTNA(W w){return W.WARUNEK;}
+    public static W PERMANENTNA(List<W> warunki){return W.WARUNEK;}
+    public static W SMIERC(W w){return W.WARUNEK;}
+    public static W SMIERC(List<W> warunki){return W.WARUNEK;}
+    public static W WYKORZYSTANIE_W_PRAKTYCE(W w){return W.WARUNEK;}
+    public static W WYKORZYSTANIE_W_PRAKTYCE(List<W> warunki){return W.WARUNEK;}
+    public static W GORSZE_TRAKTOWANIE(W w){return W.WARUNEK;}
+    public static W GORSZE_TRAKTOWANIE(List<W> warunki){return W.WARUNEK;}
 }
