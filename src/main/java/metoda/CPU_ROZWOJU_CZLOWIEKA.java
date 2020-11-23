@@ -4,6 +4,8 @@ import warunek.W;
 
 import java.util.List;
 
+import static typy_bazowe.TypOsoby.ME;
+
 /**
  * Created by gadzik on 19.11.20.
  */
@@ -11,6 +13,14 @@ public class CPU_ROZWOJU_CZLOWIEKA extends AbstractCPU {
     List<W> ksztaltowanieCzlowieka = KSZTALTOWANIE_CZLOWIEKA_WARUNKI;
 
     public void run() {
+        M.W(M.DUZE_ILOSC(of(W.MIESO, W.NABIAL, W.WODA)), "--->", of(W.SILA, W.PRAWIDLOWY_ROZWOJ));
+
+        M.W(W.MOCNY_WZROK, "--->", M.POTRZEBA(of(W.WYSILEK_FIZYCZNY, W.WYSILEK_UMYSLOWY)));
+
+        M.W(of(M.DLUGO(W.SPORT), W.WYSILEK_UMYSLOWY), "--->", of(W.KREGOSLUP_MORALNY, W.ZDOLNOSC_DO_WYSILKU,
+                                                                                  W.ZDOLNY_DO_WALKI, W.WNIOSKI, W.PODSWIADOMOSC, W.WIEDZA_SPORT));
+
+
         przedzialyCzasowe();
     }
 

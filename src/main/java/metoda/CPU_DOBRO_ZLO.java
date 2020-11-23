@@ -26,6 +26,9 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
 
         M.W(M.DUZO(W.GRZECH), "--->", M.DUZO(W.WADY));
 
+        M.W(M.OSOBA(M.PODANIE_REKI(W.ZLO)), "--->", M.ZLO(W.DOSTEP)
+                                                            .OTHERWISE(M.ZLO(M.BRAK(W.DOSTEP))));
+
         zloDzialanie();
         dobroDzialanie();
         dobroDzialacz();
@@ -100,6 +103,16 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
                                                                             on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI))));
 
         M.WW(M.OSOBA(W.NIESWIADOMOSC), "--->", of(W.MIEJSCE_STALE, W.ZLY, W.PRZEKONYWANIE_PRZECIW), "--->", M.OSOBA(W.ZLO));
+
+        M.POBIERZ_WZORCE_ZASADY(of(W.ZLO, W.SRODOWISKO));
+
+        M.W(W.ZLY, "--->", of(M.DEFAULT(of(W.SLABSZY.NIZ(W.INNI), M.GORSZE(W.ZYCIE).NIZ(W.INNI), M.GORSZE(W.UMIEJETNOSCI).NIZ(W.INNI))),
+                                                M.TOLERANCJA(of(on(KTO_KOGO_WARUNKI), on(BRAK_ZASAD_WARUNKI))),
+                                                M.DOSWIADCZENIE(M.ZDOLNY(of(on(KTO_KOGO_WARUNKI), on(BRAK_ZASAD_WARUNKI)))),
+                                                M.W(W.OSOBA, "--->", of(M.WYKORZYSTUJE(W.OSOBA), M.KRZYWDZI(W.OSOBA),
+                                                                            M.SZYBKO(M.KTO_KOGO(of(W.OSOBA, on(KTO_KOGO_WARUNKI)))))),
+                                                M.CEL(of(W.ZNISZCZENIE, on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI))))
+        );
     }
     public void dobroDzialanie() {
         List<W> conditions = of(
@@ -133,6 +146,8 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
         List<W> okazje = OKAZJE_ZROBIENIE_DOBRO_WARUNKI;
 
         M.W(of(W.DOBRY, W._88_, W.WIDZIAL) , "--->", of(M.ODRAZU(M.MOCNO(W.KONTRA)), W.SPRAWIEDLIWOSC));
+
+        M.POBIERZ_WZORCE_ZASADY(of(W.RODZINA, W.BIBLIA));
     }
     public void dobroDzialacz() {
         List<W> conditions = of(

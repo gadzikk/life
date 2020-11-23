@@ -50,7 +50,8 @@ public class CPU_ALL extends AbstractCPU {
     PriorityQueue<W> wartosciowaRzecz = new PriorityQueue<>(of(W.WYSILEK, W.WALKA, W.UTRZYMANIE_PRZEMOCA, W.UTRZYMANIE_EMOCJAMI));
     PriorityQueue<W> silaSprawcza = new PriorityQueue<>();
 
-    List<W> mainFlows = of(W.GRUPA_PRZESTEPCZA, W.DOBRA_PRACA, W.STUDIA, W.KLUB, W.RESTAURACJA, W.WAKACJE_WODA, W.ZWIAZEK, W.ZNAJOMI);
+    List<W> mainFlows = of(W.GRUPA_PRZESTEPCZA, W.DOBRA_PRACA, W.STUDIA, W.KLUB, W.RESTAURACJA, W.WAKACJE_WODA, W.ZWIAZKI,
+                            W.ZNAJOMI, W.SLUZBA_ZROWIA, W.SLUZBY_MUNDUROWE, W.INTERNET, W.TELEWIZJA);
 
     List<W> urodzenieDefault = DEFAULT_WARUNKI;
     List<W> czas = CZAS_WARUNKI;
@@ -74,6 +75,11 @@ public class CPU_ALL extends AbstractCPU {
     public void run(){
         M.WWW(W.INFORMACJA, "--->", W.SONDA, "--->", W.NASTAWIENIE, "--->", W.DZIALANIE);
         M.WW(W.DZIALANIE, "--->", W.WARUNEK, "--->", M.ZASIEG(M.NOWY(of(W.WARUNEK, W.INFORMACJA))));
+
+        M.W(W.WARTOSC, "--->", of(M.DLUGO(M.CIEZKO(of(W.CIERPIENIE, W.PRACA))), M.MALO_OSOB(M.POSIADA(W.WARTOSC))));
+
+        M.W(of(on(PRZEWAGI_WARUNKI), W.WARUNEK_SPRZYJAJACY), "--->", M.WIEKSZE_SZANSE(M.OSIAGNIECIE(W.WARUNEK)));
+        M.W(of(on(SLABOSCI_WARUNKI), W.WARUNEK_NIESPRZYJAJACY) ,"--->", M.MNIEJSZE_SZANSE(M.OSIAGNIECIE(W.WARUNEK)));
 
         M.WW(
                 of(W.ZAUWAZYLEM, W._II_, W.USLYSZALEM),
@@ -191,6 +197,7 @@ public class CPU_ALL extends AbstractCPU {
         najwiekszaBron();
         zNieswiadomosci();
         rozmowa();
+        zasobZjawiskoDefault();
     }
     public void trudnoLatwo(){
         o(M.TRUDNO(W.ZWIAZEK)).WARUNEK(W.MEZCZYZNA);

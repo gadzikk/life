@@ -1,8 +1,6 @@
 package osoba;
 
-import db.DB_Osoby;
 import db.DB_Warunki;
-import metoda.M;
 import miejsce.Miejsce;
 import typy_bazowe.*;
 import warunek.W;

@@ -1,6 +1,5 @@
 package metoda;
 
-import sytuacja.TypSytuacja;
 import warunek.W;
 
 import java.util.List;
@@ -13,20 +12,21 @@ public class CPU_1_SHORTEST extends AbstractCPU {
     List<W> rzeczywistosc = of(W._1_OSOBA__DUZO, W.POPRUSZONE_NA_MIEJSCACH, W.X, W.KONTEKST);
 
     List<W> plansza = PLANSZA_WARUNKI;
-    List<W> essentials = ESSENTIALS_WARUNKI;
+    List<W> essentials = ESSENTIALS_SYTUACJE;
 
     List<W> allSprzyjajace = SPRZYJAJACE_WARUNKI;
     List<W> allNiesprzyjajace = NIE_SPRZYJAJACE_WARUNKI;
 
-    List<W> extremalne = EXTREMALNE_WARUNKI;
+    List<W> extremalne = EXTREMALNE_SYTUACJE;
     List<W> reakcjeKobiet = REAKCJA_KOBIET_WARUNKI;
     List<W> chcianeSytuacje = CHCIANA_SYTUACJE;
 
-    List<W> mojeCechy = of(W.SPRYT, W.SZYBKOSC, W.SILA, W.ANTY_POSLUSZNOSC, W.ZMUSZASZ, W.WYJEBKA_NA_WLASNE_ZMECZENIE);
-    List<W> osobaCechy = of(W.REAGUJE, W.STWARZA_POINTCUT, W.SWIADOMOSC);
+    List<W> dopuszczenie = DOPUSZCZENIE_WARUNKI;
 
-    List<TypSytuacja> typySytuacji = of(TypSytuacja.UNIKALNA, TypSytuacja.CHCIANA, TypSytuacja.W_HOTMIEJSCU, TypSytuacja.DEFAULTOWA,
-            TypSytuacja.RESTRYKCYJNA, TypSytuacja.KRYZYSOWA);
+    List<W> mojeCechy = of(W.SPRYT, W.SZYBKOSC, W.SILA, W.ANTY_POSLUSZNOSC, W.ZMUSZASZ, W.WYJEBKA_NA_WLASNE_ZMECZENIE);
+    List<W> osobaChcianeCechy = of(W.REAGUJE, W.STWARZA_POINTCUT, W.SWIADOMOSC);
+
+    List<W> typySytuacji = TYPY_SYTUACJI;
 
     List<W> spojrzenia = of(M.spojrzenie_1(W.BEST_CASE), M.spojrzenie_2(W.NORMAL_CASE));
     List<W> zaproszenieRandka = of(M.podkreslJejZlaSytuacje(of(W.NUDA, W.MONOTONIA)), M.podkreslSwojeStrania(), M.znamySie(),
@@ -77,7 +77,7 @@ public class CPU_1_SHORTEST extends AbstractCPU {
                 of(M.thread_while_loop(W.ZASIEG_WZROKU))
         );
         M.W(
-                of(M.sondaOsoby(osobaCechy), M.sondaSytuacji(typySytuacji, essentials), M.przewidzenieDrogi()),
+                of(M.sondaOsoby(osobaChcianeCechy), M.sondaSytuacji(typySytuacji, essentials), M.przewidzenieDrogi()),
                 of(W.SYTUACJA)
         );
         M.W(

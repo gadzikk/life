@@ -26,6 +26,7 @@ public class CPU_LUDZI extends AbstractCPU {
         walkaKlas();
         osobaCechyMozliweDzialania();
         osobaPrzewag();
+        wyrok();
     }
 
     public void relacjeWarunkowLudzi() {
@@ -118,7 +119,7 @@ public class CPU_LUDZI extends AbstractCPU {
         M.W(of(W.SUPERPOZYCJA, W.PRZEWAGA_SILY, W.ATRAKCYJNA_EGOISTKA),"--->", of(W.BEZKARNOSC, W.NIE_PAMIETA_SWOICH_OFIAR,
                 M.Option(W.PYSZNY), M.Option(W.NIEOGLADA_SIE_NA_KONKURENCJE)));
 
-        M.W(of(W.ROZMIAR, W.PODNOSZENIE_CIEZAROW, W.SILNE_UDERZENIE,
+        M.W(of(W.ROZMIAR, W.SILA_FIZYCZNA, W.SILNE_UDERZENIE,
                 W.ZAPASY, W.OBRONA, W.ZDOLNI_DO_WALKI_ZNAJOMI),"--->", of(W.PRZEWAGA_SILY));
 
         // ***
@@ -129,6 +130,11 @@ public class CPU_LUDZI extends AbstractCPU {
 
         M.W(of(W.WNIOSKI_HISTORIA, W.WLASCIWA_OCENA, W.TRZEZWOSC,
                 W.ZNAJOMOSC_OTOCZENIA, W.WNIOSKI_DOSWIADCZENIA, W.INFORMACJA),"--->", of(W.TRAFNE_DECYZJE));
+        // ***
+
+        M.W(W.OSOBA, "--->", of(W.SRODOWISKO, W._II_, W.RODZINA)).OTHERWISE(W.SAMOTNOSC);
+
+        M.W(M.WIECEJ(W.LAT), "--->", M.WIECEJ(W.CIERPIENIE));
     }
 
     public void srodki() {
@@ -242,7 +248,7 @@ public class CPU_LUDZI extends AbstractCPU {
                 of(
                         M.pobierzHierarchie(),
                         M.dzialajDlaZla(), M.tworzPatologie(),
-                        M.wal(W.NIEDZIALAJACY),
+                        M.walZPrzewaga(W.NIEDZIALAJACY),
                         M.przemoc(W.DOMINACJA),
                         M.thread_while_loop(W.DOMINACJA)
                 )
@@ -250,9 +256,9 @@ public class CPU_LUDZI extends AbstractCPU {
         M.W(W.AGRESOR,
                 of(
                         M.DEFAULT(W.AGRESJA),
-                        M.zaczep(osoba),
+                        M.zaczepSprowokuj(osoba),
                         M.wrocZPrzewaga(),
-                        M.wal(osoba, W.PRZEWAGA),
+                        M.walZPrzewaga(osoba, W.PRZEWAGA),
                         M.rozpowiedz(W.WSZYSCY),
                         M.thread_while_loop(W.DOMINACJA)
                 )
@@ -341,13 +347,13 @@ public class CPU_LUDZI extends AbstractCPU {
                                 dzialacz.thread_while_loop(M.ochronaGrubasa()),
                                 dzialacz.thread_while_loop(M.wykonujeRozkazy(W.GORA)),
                                 dzialacz.thread_while_loop(M.uznajeHierarchie()),
-                                dzialacz.thread_while_loop(M.zdobywanieHierarchii(M.CZESTO(KTO_KOGO_WARUNKI, KURESTWO_WARUNKI, M.OPCJA(OSLONY_WARUNKI))))
+                                dzialacz.thread_while_loop(M.zdobywanieHierarchii(M.CZESTO(KTO_KOGO_WARUNKI, BRAK_ZASAD_WARUNKI, M.OPCJA(OSLONY_WARUNKI))))
                         )),
                         dzialacz.thread_while_loop(M.DOSTEP(of(W.INFORMACJE, W.KONTAKT_TEL, W.OBECNOSC))),
                         dzialacz.SET(W.NIE_ZATRZYMA_SIE),
                         dzialacz.SET(of(W.WYKRECENIE, W.WADY_FIZYCZNE, W.WADY_UMYSLOWE, W.OGRANICZENIE_WOLNOSCI, W.KROTKOWZROCZNOSC)),
                         dzialacz.SET(KTO_KOGO_WARUNKI),
-                        dzialacz.SET(M.OPCJA(KURESTWO_WARUNKI)),
+                        dzialacz.SET(M.OPCJA(BRAK_ZASAD_WARUNKI)),
                         dzialacz.SET(CECHY_RDZENNY_WARUNKI),
                         dzialacz.SET(PATOLOGIE_OSIEDLE_WARUNKI),
                         dzialacz.SET(TEMATY_RDZENNYCH_WARUNKI),
@@ -382,7 +388,7 @@ public class CPU_LUDZI extends AbstractCPU {
                         srodowisko.thread_while_loop(M.zagluszaSumienie(dzialacz)),
 
                         srodowisko.thread_while_loop(M.postawNajgorszeWarunki(drugaStrona,
-                                KTO_KOGO_WARUNKI, KURESTWO_WARUNKI, OSLONY_WARUNKI)),
+                                KTO_KOGO_WARUNKI, BRAK_ZASAD_WARUNKI, OSLONY_WARUNKI)),
 
                         srodowisko.ULTIMATUM(dzialacz).OTHERWISE(of(on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI))),
                         srodowisko.OCZEKIWANIE_POPRAWY(dzialacz).OTHERWISE(of(
@@ -482,5 +488,19 @@ public class CPU_LUDZI extends AbstractCPU {
         M.W(M.DOPOKI(of(on(PRZEWAGI_WARUNKI), W.KOMFORT, W.OBECNOSC_LUDZI)), "--->", W.BAWIMY_SIE);
 
         M.W(M.GDY(M.BRAK(W.PRZEWAGA)), "--->", of(W.SMUTEK, W.MYSLENIE, W.WNIOSKI));
+
+        M.WW(W.OSOBA, "--->", M.OSOBY_Z_PRZEWAGAMI(M.SONDA(M.OSOBA(PRZEWAGI_WARUNKI))), "--->", of(M.W(W.DUZA_PRZEWAGA, "--->", of(M.SRODOWISKO(M.AKCEPTACJA(W.OSOBA)),
+                                                                                                                                             M.SRODOWISKO(M.WSPARCIE(W.OSOBA)))),
+
+                                                                                                        M.W(W.MALA_PRZEWAGA, "--->", of(M.SRODOWISKO(M.ODRZUCENIE(W.OSOBA)),
+                                                                                                                                        M.SRODOWISKO(M.KTO_KOGO(W.OSOBA))))));
+        M.thread_while_loop(M.OSOBY_Z_PRZEWAGAMI(M.PRZEBYWANIE(M.OSOBA(W.PRZEWAGA))));
+
+        M.thread_while_loop(M.OSOBY_BEZ_PRZEWAG(M.PRZEBYWANIE(M.OSOBA(W.BRAK_PRZEWAG))));
+    }
+
+    public void wyrok() {
+        M.W(M.WYROK_POWYZEJ_LAT(3), "--->", of(M.DLUGOTRWALE(W.CIERPIENIE), M.MOZLIWOSC(of(W.SZCZEGOLNIE_NIEBEZPIECZNY, W.KAMIKADZE,
+                                                                                    W.WIEDZA_LUDZIE_CHARAKTER, W.PSYCHIKA_ZRYTA))));
     }
 }

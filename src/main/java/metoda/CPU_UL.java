@@ -23,7 +23,7 @@ public class CPU_UL extends AbstractCPU {
     List<W> typyLudzi = TYPY_LUDZI_SHRT_WARUNKI;
 
     W ktoKogo = M.MOCNO(KTO_KOGO_WARUNKI);
-    W kurestwo = M.MOCNO(KURESTWO_WARUNKI);
+    W kurestwo = M.MOCNO(BRAK_ZASAD_WARUNKI);
     W oslony = M.MOCNO(OSLONY_WARUNKI);
 
     W ciaglaCzynnoscUlica = M.thread_while_loop(M.WYBOR(of(W.IDZIESZ, W.STOISZ_BRAMA, W.STOISZ_MIEJSCE_STALE, W.JEDZIESZ_TRAUTO)));
@@ -205,8 +205,9 @@ public class CPU_UL extends AbstractCPU {
         defaultNastawieniaWychodzenieNaUlice();
         przejecie();
         wychodzisz();
-        cviiZalosneStarania();
+        slabszegoKlubuZalosneStarania();
         terytoriumWroga();
+        ANTY_60_sledztwoPolicyjne();
     }
     public List<W> srodki() {
         return of(
@@ -473,6 +474,10 @@ public class CPU_UL extends AbstractCPU {
         M.W(W.CISNIE, "--->", M.ULTIMATIUM(W.ODPOWIADA)).OTHERWISE(W.HANBA);
         M.W(W.STRATA, "--->", M.ULTIMATIUM(W.POMSZCZENIE)).OTHERWISE(W.HANBA);
 
+        M.WW(M.WIDZISZ(W.OSOBY), "--->", SYTUACJE_STARCIE_WARUNKI, "---->", W.STARCIE, "---->", of(W.WYGRANA, W._II_, W.PRZEGRANA,
+                                                                                                                M.OPCJA(STRATY_MATERIALNE_WARUNKI),
+                                                                                                                M.OPCJA(STRATY_MORALNE_WARUNKI)));
+
         M.W(W.WIDZISZ, "--->", of(M.POBIERZ(NASTAWIENIA_WARUNKI), M.SONDA_PRZYPALU(kryteriaPrzypalu), M.PLAN(of(W.UCIECZKA, W.UKRYCIE_SIE)),
                                             M.PRZEWIDZENIE(W.DROGA),
                                             M.NABYCIE(W.BLISKOSC),
@@ -649,7 +654,7 @@ public class CPU_UL extends AbstractCPU {
         W przewagaGlobal = W.PRZEWAGA_LOCAL;
         List<W> potrzebneWarunki = of(W.STALA_PLANSZA, W.WIELE_INTERAKCJI, W.WIELE_OSOB, W.OSOBA_ODSLANIAJACA_SIE);
 
-        W brakZasad = M.NIEWAZNE(KURESTWO_WARUNKI).MIMO_TO(M.WAZNE(of(W.PRZEWAGA, W.ZYSK, W.WARUNEK_SPRZYJAJACY)));
+        W brakZasad = M.NIEWAZNE(BRAK_ZASAD_WARUNKI).MIMO_TO(M.WAZNE(of(W.PRZEWAGA, W.ZYSK, W.WARUNEK_SPRZYJAJACY)));
 
         M.W(W.DUZA_PRZEWAGA, "--->", of(W.TWORZENIE_WARUNKOW, W.SILA_SPRAWCZA, W.REALNY_WPLYW_NA_LUDZI, W.REALNY_WPLYW_NA_WYDARZENIA));
 
@@ -744,6 +749,8 @@ public class CPU_UL extends AbstractCPU {
     public void shortestSonda(){
         M.W(of(W.MEZCZYZNA),
                 of(
+                        M.MOCNO(M.sonda(W.OCZY)),
+                        M.MOCNO(M.sonda(W.HASELKO_RDZENNYCH)),
                         M.sonda(W.Z_KIM),
                         M.sonda(W.SWIADOMOSC), // 1: FEST
                         M.sonda(W.SILA_SPRAWCZA), // WPLYW: 0
@@ -753,7 +760,7 @@ public class CPU_UL extends AbstractCPU {
                         M.sonda(W.CZY_CWEL), // NICNIEMOZE : 0
                         M.POROWNANIE(W.INNI),
                         M.sonda(W.SRODOWISKO),
-//                            M.sonda(W.CZYNY_DZIALANIA)
+                        M.sonda(W.CZYNY_DZIALANIA),
                         M.sonda(W.GDZIE)
                 )
         );
@@ -779,16 +786,17 @@ public class CPU_UL extends AbstractCPU {
         List<W> kryteriaWroga = KRYTERIA_WROGA_WARUNKI;
         List<W> oceniaWedlug = OCENIA_WEDLUG_WARUNKI;
 
-        M.W(of(W.SONDA_ZASOBU), "--->", of(W.WARTOSC, W.TRUDNOSC_UTRZYMANIA));
+        M.WWW(W.INFORMACJA, "--->", W.SONDA, "--->", W.NASTAWIENIE, "--->", W.DZIALANIE);
 
-        M.W(of(W.SONDA_DZIALANIA), "--->", of(W.WARTOSC, W.BEZPIECZENSTWO, W.KONSEKWENCJE,
-                                                     W.CZESTOTLIWOSC,W.EFEKTYWNOSC));
+        M.W(of(W.SONDA_ZASOBU), "--->", M.SONDA(of(W.WARTOSC, W.TRUDNOSC_UTRZYMANIA)));
+
+        M.W(of(W.SONDA_DZIALANIA), "--->", M.SONDA(of(W.WARTOSC, W.BEZPIECZENSTWO, W.KONSEKWENCJE, W.CZESTOTLIWOSC, W.EFEKTYWNOSC)));
 
         M.W(M.MIEJSCE_STALE(WZGL_IZOLACJA_WARUNKI), "--->", M.SONDA_GLEBOKA(izolowanaOsoba));
 
         M.W(W.POKAZUJE_EMOCJE, "--->", W.SLABY);
 
-        M.W(W.NIE_UMIE_KLAMAC, "--->", W.MALO_PRZEZYC);
+        M.W(W.NIE_UMIE_KLAMAC, "--->", W.MALO_PRZEZYL);
 
         M.W(of(W.ZLY, W._88_, W.PATRZY), "--->", W.SONDA_POD_ZROBIENIE_ZLA.CEL(KTO_KOGO_WARUNKI));
 
@@ -798,6 +806,10 @@ public class CPU_UL extends AbstractCPU {
 
         M.W(M.INFORMACJA(W.WROG), "--->", dzialajcyBliskoMiejsca.forEach(of(M.NABYCIE(W.BLISKOSC), W.CISNIE, W.WALKA_PIESCI, W.WALKA_SPRZET)));
 
+        M.WW(W.OSOBA, "--->", of(M.SONDA(SONDA_SHRTS_WARUNKI),
+                                      M.SONDA(PRZEWAGI_WARUNKI)), "--->", of(M.W(W.MOCNY, "--->", of(M.AKCEPTACJA(W.OSOBA), M.WSPARCIE(W.OSOBA))),
+                                                                                  M.W(W.SLABY, "--->", of(M.ODRZUCENIE(W.OSOBA), M.KTO_KOGO(of(W.OSOBA,
+                                                                                                                                      on(KTO_KOGO_WARUNKI)))))));
 
         M.W(of(W.LADNY, W._88_, W.BRAK_CIERPIENIA),
                 of(
@@ -840,10 +852,8 @@ public class CPU_UL extends AbstractCPU {
                 )
         );
         M.W(of(W.SONDA_DZIALACZY),
-                of(
-                        M.jebac(),
-                        M.raczkaDoGory()
-                )
+
+                        sondaDzialacza
         );
         M.WW(of(W.CZLOWIEK),
                 of(
@@ -1089,7 +1099,7 @@ public class CPU_UL extends AbstractCPU {
 
         M.WW(of(W.LADNY, W.SILNY), "--->", of(W.SONDA_POD_ZROBIENIE_ZLA, W._88_, W.SILNY), "--->", of(W.OTWARTE_STARCIE, W.WALKA_PIESCI));
 
-        M.W(of(W.SAM) , "--->", of(W.LATWY_CEL, W.BRAK_PRZEWAG, W.MALA_SZANSA_POZNANIE));
+        M.W(of(W.SAM) , "--->", of(W.LATWY_CEL, W.BRAK_PRZEWAG));
 
         M.W(M.SPOTKANY(goscZHanba), "--->", M.ZAWSZE_GDY_BLISKOSC(of(W.CISNIE, W.WYPOMNIENIE_HANBY)));
 
@@ -1107,6 +1117,17 @@ public class CPU_UL extends AbstractCPU {
                 M.OPCJA(W.ZUCHWALOSC), M.OPCJA(M.BRAK(W.WIEDZA))), "--->", M.SZYBKO(W.KARA));
 
         M.W(W.OBCY, "--->", M.SZANSA_NA(of(M.SRODOWISKO(W.BOJA_SIE), W.EMOCJE_ZE_ZLA, W.WYKORZYSTANIE, W.OKRASC_PIENIADZE)));
+
+        M.WW(M.WALKA_DWOCH_OSOB((of(on(KTO_KOGO_WARUNKI),
+                            M.OPCJA(BRAK_ZASAD_WARUNKI),
+                            M.OPCJA(OSLONY_WARUNKI)))), "--->", M.WALKA(W.ZLO.PRZECIW(W.ZLO)), "---->",
+                                                                                                    M.REZULTAT(M.OBOJE(of(
+                                                                                                    on(STRATY_MORALNE_WARUNKI),
+                                                                                                    on(STRATY_MATERIALNE_WARUNKI),
+                                                                                                    W.ZERO_ZYSKU))));
+
+        M.W(M.NIEZDOLNOSC(of(W.WALKA_PIESCI, W.WALKA_SPRZET)), "--->", M.BRAK(W.SILA_SPRAWCZA_ULICA));
+
     }
 
     public void wokolDzialaczaSrodowiska() {
@@ -1132,7 +1153,7 @@ public class CPU_UL extends AbstractCPU {
         M.W(of(W.DZIALANIE_POZA_RANGA), "--->", of(W.OGLUPIANIE, W.KLAMSTWO, W.PO_CICHU, W.ZAMKNIJ_ZASOB));
 
         M.W(of(W.SRODOWISKO, W.UMNIEJSZANIE_WAD, W.WZAJEMNE_WSPARCIE,
-                M.oddalanieSieOdWalkiZagrozenia(of(W.SKAZYWANIE_SAMOTNOSC, W.PRZEWAGA, W.PRZYJEMNOSC)),
+                M.oddalanieSieOdWalkiZagrozenia(of(M.OSOBA(W.SKAZYWANIE_SAMOTNOSC), W.PRZEWAGA, W.PRZYJEMNOSC)),
                 M.oddalanieOdKonkurencji(of(W.SIEDZENIE_MELINY, W.PRZYCHYLNOSC,
                         W.OGLUPIANIE, W.KLAMSTWO, W.PO_CICHU, W.ZAMKNIJ_ZASOB)),
                 W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE, W.SPRZET, W.AGRESJA_W_DZIALANIU, W.ZLO),   "--->", of(W.NIESPRAWIEDLIWI,
@@ -1178,6 +1199,40 @@ public class CPU_UL extends AbstractCPU {
 
         M.W(of(M.WOKOL_TYLKO(swoi), W.ZLO, W._88_, W.INTERAKCJA), "--->", of(W.NOTYFIKACJA_EKIPA, W.WSPARCIE_OSLONY, W.PRZEKONYWANIE_PRZECIW));
 
+        M.W(of(M.OSOBA(W.BIEGAJACY),
+                W.BLISKOSC,
+                M.OSOBA(W.NIE_BIEGAJACY)), "--->", M.OSOBA(W.BIEGAJACY).KTO_KOGO(of(M.OSOBA(W.NIE_BIEGAJACY), on(KTO_KOGO_WARUNKI))));
+
+        M.W(M.NAUCZ((M.OSOBA(of(on(ZAROBEK_NIELEGALNY_WARUNKI),
+                                on(KTO_KOGO_WARUNKI),
+                                on(BRAK_ZASAD_WARUNKI))))), "---->", M.CEL(of(M.WYKORZYSTUJE(W.OSOBA), W.OKRASC_PIENIADZE)));
+
+        M.WW(M.thread_while_loop(M.KONTROLA(W.OSOBA)), "--->", of(M.thread_while_loop(M.OSOBA(M.DZIALANIE(W.ZLO))),
+                                                                         M.thread_while_loop(M.OSOBA(M.WYKONUJE(W.ROZKAZ)))),
+                                                                "--->", M.REZULTAT(M.thread_while_loop(M.OSOBA(M.DOSTEP(PRZEWAGI_Z_ULICY_WARUNKI)))));
+        M.W(M.SLABY(W.DZIALAJACY), "--->", W.WSPARCIE);
+        M.W(M.SILNY(W.NIE_DZIALAJACY), "--->", M.KTO_KOGO(KTO_KOGO_WARUNKI));
+
+        M.W(M.OSOBA(M.PRZESTAJE(of(M.WYKONUJE(W.ROZKAZ), M.DZIALANIE(W.ZLO)))), "--->",of(M.OSOBA(M.BRAK_DOSTEPU(PRZEWAGI_Z_ULICY_WARUNKI)),
+                                                                                            M.KTO_KOGO(of(W.OSOBA, on(KTO_KOGO_WARUNKI)))));
+
+        M.W(M.MIEJSCE_STALE(WZGL_IZOLACJA_WARUNKI), "--->", of(M.thread_while_loop(M.KONTROLA(W.OSOBY)),
+                                                                    M.thread_while_loop(M.SONDA(W.OSOBY)),
+                                                                    M.thread_while_loop(M.ORIENT(W.WARTOSC)),
+                                                                    M.W(W.WARTOSC, "--->", M.DZIALANIE(W.WARTOSC)),
+                                                            M.W(W.OSOBA,"--->", of(M.zeSrodowiska(W.OK),
+                                                                                    M.fest(W.KUP_COS),
+                                                                                    M.drugaStrona(W.WYPAD),
+                                                                                    M.drugaStronaDzialajacy(W.SZPITAL)))));
+
+        M.W(M.DZIALAJACY(W.STARCIE), "--->", of(M.zaczepSprowokuj(osoba),
+                                                     M.wrocZPrzewaga(),
+                                                     M.walZPrzewaga(osoba, W.PRZEWAGA),
+                                                     M.rozpowiedz(W.WSZYSCY),
+                                                     M.thread_while_loop(W.DOMINACJA)));
+
+        M.W(W.HASELKO_RDZENNYCH, "--->", of(M.SPRAWDZANIE(W.SWOI), M.SPRAWDZANIE(W.WROG),
+                                                 M.UPEWNIENIE_SIE(M.BEZ_KONSEKWENCJI(M.W_SRODOWISKU(KTO_KOGO_WARUNKI)))));
     }
 
     public void agresja() {
@@ -1236,7 +1291,7 @@ public class CPU_UL extends AbstractCPU {
                                                                                         oraz(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI)));
 
         grubasPrzewaga.tworzyWarunki(M.ZAPOTRZEBOWANIE(of(W.ZLO, on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI), on(KTO_KOGO_WARUNKI))));
-        grubasPrzewaga.tworzyWarunki(M.TOLERANCJA(of(on(KTO_KOGO_WARUNKI), on(KURESTWO_WARUNKI))).CEL(M.CZESTO(of(W.WYKORZYSTANIE, W.DZIALANIE_DLA_ZLA))));
+        grubasPrzewaga.tworzyWarunki(M.TOLERANCJA(of(on(KTO_KOGO_WARUNKI), on(BRAK_ZASAD_WARUNKI))).CEL(M.CZESTO(of(W.WYKORZYSTANIE, W.DZIALANIE_DLA_ZLA))));
 
         dzialacz.zwiekszaSzanse(of(W.ZLO, on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI), on(KTO_KOGO_WARUNKI)));
 
@@ -1265,8 +1320,8 @@ public class CPU_UL extends AbstractCPU {
 
     public void przejecie() {
         M.thread_while_loop(W.NORMALNOSC);
-        M.W(M.PRZEJECIE(KTO_KOGO_WARUNKI, KURESTWO_WARUNKI, OSLONY_WARUNKI), "--->", M.OBSADZ_STANOWISKA(of(W.SWOI, W.ZLI)));
-        M.ULTIMATIUM(pracownicy.thread_while_loop(M.DZIALANIE_DLA_ZLA(KTO_KOGO_WARUNKI, KURESTWO_WARUNKI, OSLONY_WARUNKI)));
+        M.W(M.PRZEJECIE(KTO_KOGO_WARUNKI, BRAK_ZASAD_WARUNKI, OSLONY_WARUNKI), "--->", M.OBSADZ_STANOWISKA(of(W.SWOI, W.ZLI)));
+        M.ULTIMATIUM(pracownicy.thread_while_loop(M.DZIALANIE_DLA_ZLA(KTO_KOGO_WARUNKI, BRAK_ZASAD_WARUNKI, OSLONY_WARUNKI)));
         M.thread_while_loop(M.DOSTEP_TYLKO(W.ZLI));
 
         M.W(M.MIEJSCE_STALE(W.DLUGA_DOSTEPNOSC), "--->", of(M.WEJSCIE(W.WCZESNIE_RANO),
@@ -1281,10 +1336,10 @@ public class CPU_UL extends AbstractCPU {
                                         M.DEFAULT(of(on(KTO_KOGO_WARUNKI), on(OSLONY_WARUNKI))),
                 M.thread_while_loop(of(ciaglaCzynnoscUlica, W.ZASIEG_WZROKU, W.SCIEZKI, W.LUDZIE, W.WIDOCZNY_GDY_IDZIESZ))));
 
-        M.W(W.MIEJSCE_STALE, "--->", M.DEFAULT(KURESTWO_WARUNKI));
+        M.W(W.MIEJSCE_STALE, "--->", M.DEFAULT(BRAK_ZASAD_WARUNKI));
     }
 
-    public void cviiZalosneStarania() {
+    public void slabszegoKlubuZalosneStarania() {
         M.thread_while_loop(of(W.NIEUDOLNOSC, M.ROZKMINANIE(W.WSZYSCY), M.ZLE_ZAMIARY()));
         M.thread_while_loop(M.PODSTAWA(W.KLAMSTWO).WZGLEDEM(of(W.SIEBIE, W.INNI)));
         M.thread_while_loop(W.ZAKLAMYWANIE_RZECZYWISTOSCI);
@@ -1305,9 +1360,9 @@ public class CPU_UL extends AbstractCPU {
         M.W(W.PORAZKA, "--->", M.thread_while_loop(M.NIEUDOLNIE(W.PONAWIANIE_PROBY)));
 
         M.W(of(W.MIEJSCE_STALE, W.OBSLUGA_OD_NAS), "--->", of(
-                                                        obsluga.thread_while_loop(KURESTWO_WARUNKI),
-                                                        kierownictwo.thread_while_loop(M.KONTROLA(KURESTWO_WARUNKI)),
-                                                        kierownictwo.thread_while_loop((M.OCZEKIWANIE(KURESTWO_WARUNKI)))));
+                                                        obsluga.thread_while_loop(BRAK_ZASAD_WARUNKI),
+                                                        kierownictwo.thread_while_loop(M.KONTROLA(BRAK_ZASAD_WARUNKI)),
+                                                        kierownictwo.thread_while_loop((M.OCZEKIWANIE(BRAK_ZASAD_WARUNKI)))));
 
         M.W(of(W.MIEJSCE_STALE, W.OBSLUGA_NIE_OD_NAS), "--->", of(M.thread_while_loop(M.PROBUJ_PRZEJAC(of(W.OBSLUGA, W.KIEROWNICTWO))),
                                         M.thread_while_loop(M.NASYLANIE_DZIALACZY(of(W.NOTYFIKACJA_EKIPA, W.FOTY, W.CISNIE, W.WALKA_SPRZET)))
@@ -1330,6 +1385,41 @@ public class CPU_UL extends AbstractCPU {
         M.CZASEM(M.WJAZD(W.SPRZET));
 
         M.thread_while_loop(M.PROBUJ(M.PRZEJECIE(of(W.OSIEDLE, W.MIEJSCE_STALE, W.PRACA, W.SLUZBY, W.LUDZIE))));
+    }
+
+    public void ANTY_60_sledztwoPolicyjne() {
+        W pierwszePrawo = M.BRON_BOZE(W.NIGDY_NIE_GADAJ_Z_POLICJA);
+
+        W obligatoryjnie = M.MOCNO(of(W.NIE_ZNAM_OSOBY_X, W.NIE_BYLEM_NA_MIEJSCU, W.NIE_DOKONALEM_ZARZUCANEGO_CZYNU, W.NIE_BYLEM_Z_OSOBA_X,
+                                    W.NIE_ZNAM_PODEJRZANYCH, W.NIE_ROZPOZNAJE_OSOB_NA_ZDJECIACH, W.NIE_POTRAFIE_WSKAZAC_WINNYCH,
+                                    W.NIE_POTRAFIE_POMOC_W_SLEDZTWIE, W.NIE_POTWIERDZAM_WERSJI_SWIADKOW_POKRZYWDZONYCH));
+
+        M.START(of(
+                M.WYRZUCENIE_Z_GLOWY(M.CELOWE_ZAPOMNIENIE(W.PRAWDZIWA_WERSJA_WYDARZEN)),
+
+                M.ZAPAMIETANIE(of(W.BEZ_PRZYPALOWA_WERSJA_WYDARZEN, W._II_, W.NIE_PAMIETAM_CO_ROBILEM_TEGO_DNIA))
+        ));
+
+        W konsekwetnie = M.thread_while_loop(M.TRZYMANIE_DO_KONCA(W.JEDNA_WERSJA_WYDARZEN)
+                                                    .MIMO(of(W.DOWODY_OBCIAZAJACE, M.MOZLIWOSC(W.STRATA_WOLNOSCI))));
+
+        // kryterium oceny zachowania
+
+        M.WWW(W.ZDARZENIE, "->", W.SPRAWA_W_SADZIE,
+                                        "--->", M.OSOBA(M.BRAK(M.WSPOLPRACA(W.POLICJA))), "--->", W.WYROK_SADU, "--->", M.OSOBA(W.OK));
+
+        M.WWW(W.ZDARZENIE, "->", W.SPRAWA_W_SADZIE,
+                                   "--->", M.OSOBA(M.WSPOLPRACA(W.POLICJA)), "--->", M.WYROK_SKAZUJACY(W.WINNY), "--->", M.OSOBA(W.KONFI));
+
+        M.REZULTAT(of(
+         M.WW(M.WYROK_SKAZUJACY(M.OSOBA(W.OK)), "->", M.OSOBA(M.TYMCZASOWE(W.STRATA_WOLNOSCI)), "->", M.DOSTEP(of(W.SRODOWISKO, W.PRZEWAGA, W.ZNAJOMI))),
+
+         M.W(M.OSOBA(W.KONFI), "--->", M.OSOBA(M.DOZYWOTNIO(of(W.WYKLUCZENIE, W.HANBA, M.BRAK_DOSTEPU(of(W.SRODOWISKO, W.PRZEWAGA, W.ZNAJOMI))))))
+        ));
+
+        // DPK
+        M.W(W.DOBROWOLNE_PODDANIE_SIE_KARZE, "---->", M.POTRZEBNE(W.ZGODA_WSZYSTKICH_OSKARZONYCH_NA_DPK))
+                                                                            .W_INNYM_PRZYPADKU(M.OSOBA(M.WSPOLPRACA(W.POLICJA)));
     }
 
 }

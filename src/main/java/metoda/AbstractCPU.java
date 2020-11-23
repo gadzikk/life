@@ -70,7 +70,7 @@ public class AbstractCPU {
     OsobaMetod cvia = new OsobaMetod();
     OsobaMetod srodowisko = new OsobaMetod();
     List<W> OSLONY_WARUNKI = DB_Warunki.OSLONY.getWarunki();
-    List<W> KURESTWO_WARUNKI = DB_Warunki.KURESTWO.getWarunki();
+    List<W> BRAK_ZASAD_WARUNKI = DB_Warunki.BRAK_ZASAD.getWarunki();
     OsobaMetod grubasPrzewaga = new OsobaMetod();
     OsobaMetod fest = new OsobaMetod();
     OsobaMetod twoiWrogowie = new OsobaMetod();
@@ -113,9 +113,9 @@ public class AbstractCPU {
     List<W> WZGL_IZOLACJA_WARUNKI = DB_Warunki.WZGLEDNA_IZOLACJA.getWarunki();
     List<W> SPRZYJAJACE_WARUNKI = DB_Warunki.SPRZYJAJACE.getWarunki();
     List<W> NIE_SPRZYJAJACE_WARUNKI = DB_Warunki.NIE_SPRZYJAJACE.getWarunki();
-    List<W> ESSENTIALS_WARUNKI = DB_Warunki.ESSENTIALS.getWarunki();
+    List<W> ESSENTIALS_SYTUACJE = DB_Warunki.ESSENTIALS_SYTUACJE.getWarunki();
     List<W> PLANSZA_WARUNKI = DB_Warunki.PLANSZA.getWarunki();
-    List<W> EXTREMALNE_WARUNKI = DB_Warunki.EXTREMALNE.getWarunki();
+    List<W> EXTREMALNE_SYTUACJE = DB_Warunki.EXTREMALNE_SYTUACJE.getWarunki();
     List<W> SLABY_TCHORZ_WARUNKI = DB_Warunki.SLABY_TCHORZ.getWarunki();
     List<W> WADY_ZLYCH_WARUNKI = DB_Warunki.WADY_ZLYCH.getWarunki();
     List<W> WSPOMNIENIA_WARUNKI = DB_Warunki.WSPOMNIENIA.getWarunki();
@@ -176,6 +176,9 @@ public class AbstractCPU {
 
     List<W> WIEDZA = WARUNKI(DB_Warunki.WIEDZA);
     List<W> CHCIANA_SYTUACJE = DB_Sytuacje.CHCIANA_SYTUACJA;
+    List<W> DOPUSZCZENIE_WARUNKI = WARUNKI(DB_Warunki.DOPUSZCZENIE);
+    List<W> KATEGORIA_PRZEWAGI = WARUNKI(DB_Warunki.KATEGORIA_PRZEWAGI);
+    List<W> PRZEWAGI_Z_ULICY_WARUNKI = DB_Warunki.PRZEWAGI_Z_ULICY.getWarunki();
 
 
 
