@@ -5,12 +5,10 @@ import db.DB_Sytuacje;
 import db.DB_Tematy;
 import db.DB_Warunki;
 import osoba.Osoba;
-import sytuacja.Sytuacja;
 import temat.TT;
 import typy_bazowe.TypT;
 import typy_bazowe.TypZadania;
 import warunek.W;
-import warunek.WarunkiKategoria;
 import z_inne.OsobaMetod;
 
 import java.util.ArrayList;
@@ -21,8 +19,6 @@ import java.util.List;
  * Created by gadzik on 31.12.19.
  */
 public class AbstractCPU {
-    List<W> all = new ArrayList<>();
-    Sytuacja sytuacja = new Sytuacja();
     List<TypT> prefixes = DB_Tematy.PREFIXES;
     List<TypT> pdstw = DB_Tematy.PDSTW;
     List<TT> tematy = DB_Tematy.TEMATY;
@@ -31,9 +27,9 @@ public class AbstractCPU {
     W coTakPatrzysz;
     OsobaMetod ona = new OsobaMetod();
     OsobaMetod manago = new OsobaMetod();
-    List<W> KRYTERIA_PRZYPALU_WARUNKI = DB_Warunki.KRYTERIA_PRZYPALU.getWarunki();
+    List<W> KRYTERIA_PRZYPALU_WARUNKI = DB_Warunki.KRYTERIA_PRZYPALU;
     List<TT> obelgi = DB_Tematy.TEMATY;
-    List<W> terror = DB_Warunki.TERROR.getWarunki();
+    List<W> terror = DB_Warunki.TERROR;
     List<TT> zarty = DB_Tematy.ZARTY;
     OsobaMetod wszyscy = new OsobaMetod();
     OsobaMetod osoba = new OsobaMetod();
@@ -41,15 +37,15 @@ public class AbstractCPU {
     OsobaMetod dzialacz = new OsobaMetod();
     OsobaMetod zly = new OsobaMetod();
     OsobaMetod _100osob = new OsobaMetod();
-    List<W> WYMAGANIA_WSTEPNE_ZARABIANIE =  DB_Warunki.WYMAGANIA_WSTEPNE_ZARABIANIE.getWarunki();
+    List<W> WYMAGANIA_WSTEPNE_ZARABIANIE =  DB_Warunki.WYMAGANIA_WSTEPNE_ZARABIANIE;
     OsobaMetod zasob = new OsobaMetod();
     OsobaMetod opponent = new OsobaMetod();
     OsobaMetod zaniepokojeni = new OsobaMetod();
-    List<W> RANY_WARUNKI = DB_Warunki.RANY.get(0).getWarunki();
+    List<W> KATEGORIA_RANY = WARUNKI(DB_Warunki.KATEGORIA_RANY);
     OsobaMetod znajomy = new OsobaMetod();
-    List<W> PATOLOGIE_WSTEPNE_KOBIET = DB_Patologia.PATOLOGIE_WSTEPNE_KOBIETA.getWarunki();
-    List<W> PATOLOGIE_UTRZYMANIA_KOBIET = DB_Patologia.PATOLOGIE_UTRZYMANIA_KOBIETA.getWarunki();
-    List<W> PATOLOGIE = DB_Patologia.PATOLOGIE.get(0).getWarunki();
+    List<W> PATOLOGIE_WSTEPNE_KOBIET = DB_Patologia.PATOLOGIE_WSTEPNE_KOBIETA;
+    List<W> PATOLOGIE_UTRZYMANIA_KOBIET = DB_Patologia.PATOLOGIE_UTRZYMANIA_KOBIETA;
+    List<W> KATEGORIA_PATOLOGIE = WARUNKI(DB_Patologia.KATEGORIA_PATOLOGIE);
     OsobaMetod me = new OsobaMetod();
     OsobaMetod team = new OsobaMetod();
     OsobaMetod wiesniak = new OsobaMetod();
@@ -65,12 +61,12 @@ public class AbstractCPU {
     OsobaMetod pytajacy = new OsobaMetod();
     OsobaMetod pracownicy = new OsobaMetod();
     OsobaMetod superPozycjaOsoby = new OsobaMetod();
-    List<W> KTO_KOGO_WARUNKI = DB_Warunki.KTO_KOGO.getWarunki();
+    List<W> KTO_KOGO_WARUNKI = DB_Warunki.KTO_KOGO;
     OsobaMetod karyna = new OsobaMetod();
     OsobaMetod cvia = new OsobaMetod();
     OsobaMetod srodowisko = new OsobaMetod();
-    List<W> OSLONY_WARUNKI = DB_Warunki.OSLONY.getWarunki();
-    List<W> BRAK_ZASAD_WARUNKI = DB_Warunki.BRAK_ZASAD.getWarunki();
+    List<W> OSLONY_WARUNKI = DB_Warunki.OSLONY;
+    List<W> BRAK_ZASAD_WARUNKI = DB_Warunki.BRAK_ZASAD;
     OsobaMetod grubasPrzewaga = new OsobaMetod();
     OsobaMetod fest = new OsobaMetod();
     OsobaMetod twoiWrogowie = new OsobaMetod();
@@ -78,9 +74,9 @@ public class AbstractCPU {
     OsobaMetod drugaStrona = new OsobaMetod();
     OsobaMetod zazdrosni = new OsobaMetod();
     OsobaMetod dzialaczMocny = new OsobaMetod();
-    List<W> DEFAULT_WARUNKI = DB_Warunki.DEFAULT_WARUNKI.getWarunki();
-    List<W> WYMAGA_KARY_WARUNKI = DB_Warunki.WYMAGA_KARY.getWarunki();
-    List<W> KOGO_WARUNKI = DB_Warunki.KOGO.getWarunki();
+    List<W> DEFAULT_WARUNKI = DB_Warunki.DEFAULT_WARUNKI;
+    List<W> WYMAGA_KARY_WARUNKI = DB_Warunki.WYMAGA_KARY;
+    List<W> KOGO_WARUNKI = DB_Warunki.KOGO;
     OsobaMetod zli = new OsobaMetod();
     OsobaMetod dobrzi = new OsobaMetod();
     OsobaMetod najwyzszyHierarchiaWokol = new OsobaMetod();
@@ -96,93 +92,89 @@ public class AbstractCPU {
     OsobaMetod dzialajcyBliskoMiejsca = new OsobaMetod();
     OsobaMetod silniejszy = new OsobaMetod();
 
-    List<W> PRZYCZYNY_SLUZENIA_ZLU_WARUNKI = DB_Warunki.PRZYCZYNY_SLUZENIA_ZLU.getWarunki();
-    List<W> PRZYCZYNY_SLUZENIA_DOBRU_WARUNKI = DB_Warunki.PRZYCZYNY_SLUZENIA_DOBRU.getWarunki();
-    List<W> ZACHETA_DO_ZLA_WARUNKI = DB_Warunki.ZACHETA_DO_ZLA.getWarunki();
-    List<W> OBRONA_STARCIE_WARUNKI = DB_Warunki.OBRONA_STARCIE.getWarunki();
-    List<W> METODA_STARCIE_REAKCJA_WARUNKI = DB_Warunki.METODA_STARCIE_REAKCJA.getWarunki();
-    List<W> STRATY_MORALNE_WARUNKI = DB_Warunki.STRATY_MORALNE.getWarunki();
-    List<W> STRATY_MATERIALNE_WARUNKI = DB_Warunki.STRATY_MATERIALNE.getWarunki();
-    List<W> PATOLOGIE_OSIEDLE_WARUNKI = DB_Patologia.PATOLOGIE_OSIEDLE.getWarunki();
-    List<W> TEMATY_NORMALNYCH_LUDZI_WARUNKI = DB_Warunki.TEMATY_NORMALNYCH_LUDZI.getWarunki();
-    List<W> TEMATY_RDZENNYCH_WARUNKI = DB_Warunki.TEMATY_RDZENNYCH.getWarunki();
-    List<W> CECHY_RDZENNY_WARUNKI = DB_Warunki.CECHY_RDZENNY.getWarunki();
-    List<W> METODY_POLICYJNE_WARUNKI = DB_Warunki.METODY_POLICYJNE.getWarunki();
-    List<W> ULICA_PRZEWAGA_REAKCJA_WARUNKI = DB_Warunki.ULICA_PRZEWAGA_REAKCJA.getWarunki();
-    List<W> NASTAWIENIA_WARUNKI = DB_Warunki.NASTAWIENIA.getWarunki();
-    List<W> WZGL_IZOLACJA_WARUNKI = DB_Warunki.WZGLEDNA_IZOLACJA.getWarunki();
-    List<W> SPRZYJAJACE_WARUNKI = DB_Warunki.SPRZYJAJACE.getWarunki();
-    List<W> NIE_SPRZYJAJACE_WARUNKI = DB_Warunki.NIE_SPRZYJAJACE.getWarunki();
-    List<W> ESSENTIALS_SYTUACJE = DB_Warunki.ESSENTIALS_SYTUACJE.getWarunki();
-    List<W> PLANSZA_WARUNKI = DB_Warunki.PLANSZA.getWarunki();
-    List<W> EXTREMALNE_SYTUACJE = DB_Warunki.EXTREMALNE_SYTUACJE.getWarunki();
-    List<W> SLABY_TCHORZ_WARUNKI = DB_Warunki.SLABY_TCHORZ.getWarunki();
-    List<W> WADY_ZLYCH_WARUNKI = DB_Warunki.WADY_ZLYCH.getWarunki();
-    List<W> WSPOMNIENIA_WARUNKI = DB_Warunki.WSPOMNIENIA.getWarunki();
-    List<W> KONFRONTACJA_WARUNKI = DB_Warunki.KONFRONTACJA.getWarunki();
-    List<W> OKAZJE_ZROBIENIE_ZLO_WARUNKI = DB_Warunki.OKAZJE_ZROBIENIE_ZLO.getWarunki();
-    List<W> OKAZJE_ZROBIENIE_DOBRO_WARUNKI = DB_Warunki.OKAZJE_ZROBIENIE_DOBRO.getWarunki();
-    List<W> ZLY_ZNAKI_ROZPOZNAWCZE_WARUNKI = DB_Warunki.ZLY_ZNAKI_ROZPOZNAWCZE.getWarunki();
-    List<W> PRZEWAGI_WARUNKI = DB_Warunki.PRZEWAGI.getWarunki();
+    List<W> PRZYCZYNY_SLUZENIA_ZLU_WARUNKI = DB_Warunki.PRZYCZYNY_SLUZENIA_ZLU;
+    List<W> PRZYCZYNY_SLUZENIA_DOBRU_WARUNKI = DB_Warunki.PRZYCZYNY_SLUZENIA_DOBRU;
+    List<W> ZACHETA_DO_ZLA_WARUNKI = DB_Warunki.ZACHETA_DO_ZLA;
+    List<W> OBRONA_STARCIE_WARUNKI = DB_Warunki.OBRONA_STARCIE;
+    List<W> METODA_STARCIE_REAKCJA_WARUNKI = DB_Warunki.METODA_STARCIE_REAKCJA;
+    List<W> STRATY_MORALNE_WARUNKI = DB_Warunki.STRATY_MORALNE;
+    List<W> STRATY_MATERIALNE_WARUNKI = DB_Warunki.STRATY_MATERIALNE;
+    List<W> PATOLOGIE_OSIEDLE_WARUNKI = DB_Patologia.PATOLOGIE_OSIEDLE;
+    List<W> TEMATY_NORMALNYCH_LUDZI_WARUNKI = DB_Warunki.TEMATY_NORMALNYCH_LUDZI;
+    List<W> TEMATY_RDZENNYCH_WARUNKI = DB_Warunki.TEMATY_RDZENNYCH;
+    List<W> CECHY_RDZENNY_WARUNKI = DB_Warunki.CECHY_RDZENNY;
+    List<W> METODY_POLICYJNE_WARUNKI = DB_Warunki.METODY_POLICYJNE;
+    List<W> ULICA_PRZEWAGA_REAKCJA_WARUNKI = DB_Warunki.ULICA_PRZEWAGA_REAKCJA;
+    List<W> NASTAWIENIA_WARUNKI = DB_Warunki.NASTAWIENIA;
+    List<W> WZGL_IZOLACJA_WARUNKI = DB_Warunki.WZGLEDNA_IZOLACJA;
+    List<W> SPRZYJAJACE_WARUNKI = DB_Warunki.SPRZYJAJACE;
+    List<W> NIE_SPRZYJAJACE_WARUNKI = DB_Warunki.NIE_SPRZYJAJACE;
+    List<W> ESSENTIALS_SYTUACJE = DB_Warunki.ESSENTIALS_SYTUACJE;
+    List<W> PLANSZA_WARUNKI = DB_Warunki.PLANSZA;
+    List<W> EXTREMALNE_SYTUACJE = DB_Warunki.EXTREMALNE_SYTUACJE;
+    List<W> SLABY_TCHORZ_WARUNKI = DB_Warunki.SLABY_TCHORZ;
+    List<W> WADY_ZLYCH_WARUNKI = DB_Warunki.WADY_ZLYCH;
+    List<W> WSPOMNIENIA_WARUNKI = DB_Warunki.WSPOMNIENIA;
+    List<W> KONFRONTACJA_WARUNKI = DB_Warunki.KONFRONTACJA;
+    List<W> OKAZJE_ZROBIENIE_ZLO_WARUNKI = DB_Warunki.OKAZJE_ZROBIENIE_ZLO;
+    List<W> OKAZJE_ZROBIENIE_DOBRO_WARUNKI = DB_Warunki.OKAZJE_ZROBIENIE_DOBRO;
+    List<W> ZLY_ZNAKI_ROZPOZNAWCZE_WARUNKI = DB_Warunki.ZLY_ZNAKI_ROZPOZNAWCZE;
+    List<W> PRZEWAGI_WARUNKI = DB_Warunki.PRZEWAGI;
 
-    List<W> SONDA_GDY_WARUNKI = DB_Warunki.SONDA_GDY.getWarunki();
-    List<W> SONDA_PO_WARUNKI = DB_Warunki.SONDA_PO.getWarunki();
-    List<W> SONDA_DZIALACZA_WARUNKI = DB_Warunki.SONDA_DZIALACZA.getWarunki();
-    List<W> SONDA_SHRTS_WARUNKI = DB_Warunki.SONDA_SHRTS.getWarunki();
+    List<W> SONDA_GDY_WARUNKI = DB_Warunki.SONDA_GDY;
+    List<W> SONDA_PO_WARUNKI = DB_Warunki.SONDA_PO;
+    List<W> SONDA_DZIALACZA_WARUNKI = DB_Warunki.SONDA_DZIALACZA;
+    List<W> SONDA_SHRTS_WARUNKI = DB_Warunki.SONDA_SHRTS;
 
-    List<W> TYPY_LUDZI_SHRT_WARUNKI = DB_Warunki.TYPY_LUDZI_SHRT.getWarunki();
-    List<W> TYPY_LUDZI_DOBRE_WARUNKI = DB_Warunki.TYPY_LUDZI_DOBRE.getWarunki();
-    List<W> TYPY_LUDZI_ZLE_WARUNKI = DB_Warunki.TYPY_LUDZI_ZLE.getWarunki();
+    List<W> TYPY_LUDZI_SHRT_WARUNKI = DB_Warunki.TYPY_LUDZI_SHRT;
+    List<W> TYPY_LUDZI_DOBRE_WARUNKI = DB_Warunki.TYPY_LUDZI_DOBRE;
+    List<W> TYPY_LUDZI_ZLE_WARUNKI = DB_Warunki.TYPY_LUDZI_ZLE;
 
-    List<W> CISNIE_WARUNKI = DB_Warunki.CISNIE.getWarunki();
+    List<W> CISNIE_WARUNKI = DB_Warunki.CISNIE;
 
-    List<W> ZACHOWANIE_REZULTAT_ULICA_WARUNKI = DB_Warunki.ZACHOWANIE_REZULTAT_ULICA.getWarunki();
-    List<W> SYTUACJE_STARCIE_WARUNKI = DB_Warunki.SYTUACJE_STARCIE.getWarunki();
+    List<W> ZACHOWANIE_REZULTAT_ULICA_WARUNKI = DB_Warunki.ZACHOWANIE_REZULTAT_ULICA;
+    List<W> SYTUACJE_STARCIE_WARUNKI = DB_Warunki.SYTUACJE_STARCIE;
 
-    List<W> CZAS_WARUNKI = WARUNKI(DB_Warunki.CZAS);
+    List<W> KATEGORIA_CZAS = WARUNKI(DB_Warunki.KATEGORIA_CZAS);
 
-    List<W> DUZO_IF_WARUNKI = DB_Warunki.DUZO_IF.getWarunki();
-    List<W> WYMAGANIA_UTRZYMANIA_KOBIETA = DB_Warunki.WYMAGANIA_UTRZYMANIA_KOBIETA.getWarunki();
-    List<W> KSZTALTOWANIE_CZLOWIEKA_WARUNKI = DB_Warunki.KSZTALTOWANIE_CZLOWIEKA.getWarunki();
-    List<W> KSZTALTOWANIE_DZIELNICY_WARUNKI = DB_Warunki.KSZTALTOWANIE_DZIELNICY.getWarunki();
+    List<W> DUZO_IF_WARUNKI = DB_Warunki.DUZO_IF;
+    List<W> WYMAGANIA_UTRZYMANIA_KOBIETA = DB_Warunki.WYMAGANIA_UTRZYMANIA_KOBIETA;
+    List<W> KSZTALTOWANIE_CZLOWIEKA_WARUNKI = DB_Warunki.KSZTALTOWANIE_CZLOWIEKA;
+    List<W> KSZTALTOWANIE_DZIELNICY_WARUNKI = DB_Warunki.KSZTALTOWANIE_DZIELNICY;
 
-    List<W> HIERARCHIA_PRACA_WARUNKI = DB_Warunki.HIERARCHIA_PRACA.getWarunki();
-    List<W> ZAROBEK_NIELEGALNY_WARUNKI = DB_Warunki.ZAROBEK_NIELEGALNY.getWarunki();
-    List<W> EMOCJE_UCZUCIA_WARUNKI = WARUNKI(DB_Warunki.EMOCJE_UCZUCIA);
-    List<W> ROZRYWKI_ZART_WARUNKI = WARUNKI(DB_Warunki.ROZRYWKI_ZART);
-    List<W> KRYTERIA_WROGA_WARUNKI = DB_Warunki.KRYTERIA_WROGA.getWarunki();
-    List<W> NIESPRAWIEDLIWOSC_WARUNKI = DB_Warunki.NIESPRAWIEDLIWOSC.getWarunki();
-    List<W> PRZYMUS_WARUNKI = DB_Warunki.PRZYMUS.getWarunki();
-    List<W> POTRZEBY_WARUNKI = DB_Warunki.POTRZEBY.getWarunki();
-    List<W> ZASADY_WARUNKI = DB_Warunki.ZASADY.getWarunki();
-    List<W> ZAGROZENIA_WARUNKI = DB_Warunki.ZAGROZENIA.getWarunki();
-    List<W> CIERPIENIA_WARUNKI = DB_Warunki.CIERPIENIA.getWarunki();
-    List<W> SLABOSCI_WARUNKI = DB_Warunki.SLABOSCI.getWarunki();
-    List<W> THREAD_WHILE_LOOP_WARUNKI = DB_Warunki.THREAD_WHILE_LOOP.getWarunki();
-    List<W> OCENIA_WEDLUG_WARUNKI = DB_Warunki.OCENIA_WEDLUG.getWarunki();
-    List<W> GLOBAL_PLANSZA_PRACA_WARUNKI = DB_Warunki.GLOBAL_PLANSZA_PRACA.getWarunki();
-    List<W> GLOBAL_PLANSZA_LUDZIE_WARUNKI = DB_Warunki.GLOBAL_PLANSZA_LUDZIE.getWarunki();
+    List<W> HIERARCHIA_PRACA_WARUNKI = DB_Warunki.HIERARCHIA_PRACA;
+    List<W> ZAROBEK_NIELEGALNY_WARUNKI = DB_Warunki.ZAROBEK_NIELEGALNY;
+    List<W> KATEGORIA_EMOCJE_UCZUCIA = WARUNKI(DB_Warunki.KATEGORIA_EMOCJE_UCZUCIA);
+    List<W> KATEGORIA_ROZRYWKI_ZART = WARUNKI(DB_Warunki.KATEGORIA_ROZRYWKI_ZART);
+    List<W> KRYTERIA_WROGA_WARUNKI = DB_Warunki.KRYTERIA_WROGA;
+    List<W> NIESPRAWIEDLIWOSC_WARUNKI = DB_Warunki.NIESPRAWIEDLIWOSC;
+    List<W> PRZYMUS_WARUNKI = DB_Warunki.PRZYMUS;
+    List<W> POTRZEBY_WARUNKI = DB_Warunki.POTRZEBY;
+    List<W> ZASADY_WARUNKI = DB_Warunki.ZASADY;
+    List<W> ZAGROZENIA_WARUNKI = DB_Warunki.ZAGROZENIA;
+    List<W> CIERPIENIA_WARUNKI = DB_Warunki.CIERPIENIA;
+    List<W> SLABOSCI_WARUNKI = DB_Warunki.SLABOSCI;
+    List<W> THREAD_WHILE_LOOP_WARUNKI = DB_Warunki.THREAD_WHILE_LOOP;
+    List<W> OCENIA_WEDLUG_WARUNKI = DB_Warunki.OCENIA_WEDLUG;
+    List<W> GLOBAL_PLANSZA_PRACA_WARUNKI = DB_Warunki.GLOBAL_PLANSZA_PRACA;
+    List<W> GLOBAL_PLANSZA_LUDZIE_WARUNKI = DB_Warunki.GLOBAL_PLANSZA_LUDZIE;
 
-    List<W> WYMAGANIA_WSTEPNE = WARUNKI(DB_Warunki.WYMAGANIA_WSTEPNE);
-    List<W> WYMAGANIA_UTRZYMANIA = WARUNKI(DB_Warunki.WYMAGANIA_UTRZYMANIA);
-    List<W> KONCOWE_WARUNKI = WARUNKI(DB_Warunki.WARUNKI_KONCOWE);
+    List<W> KATEGORIA_WYMAGANIA_WSTEPNE = WARUNKI(DB_Warunki.KATEGORIA_WYMAGANIA_WSTEPNE);
+    List<W> KATEGORIA_WYMAGANIA_UTRZYMANIA = WARUNKI(DB_Warunki.KATEGORIA_WYMAGANIA_UTRZYMANIA);
+    List<W> KATEGORIA_WARUNKI_KONCOWE = WARUNKI(DB_Warunki.KATEGORIA_WARUNKI_KONCOWE);
 
-    List<W> TYPY_SYTUACJI = DB_Warunki.TYPY_SYTUACJI.getWarunki();
-    List<W> TYPY_LUDZI = WARUNKI(DB_Warunki.TYPY_LUDZI);
-    List<W> TEMATY_WARUNKI = WARUNKI(DB_Warunki.TEMATY);
-    List<W> WYMUSZENIE_REAKCJI_WARUNKI = DB_Warunki.WYMUSZENIE_REAKCJI.getWarunki();
-    List<W> RODZAJE_WIEDZA = DB_Warunki.RODZAJE_WIEDZA.getWarunki();
-    List<W> REAKCJA_KOBIET_WARUNKI = DB_Warunki.REAKCJA_KOBIET.getWarunki();
+    List<W> TYPY_SYTUACJI = DB_Warunki.TYPY_SYTUACJI;
+    List<W> KATEGORIA_TYPY_LUDZI = WARUNKI(DB_Warunki.KATEGORIA_TYPY_LUDZI);
+    List<W> KATEGORIA_TEMATY = WARUNKI(DB_Warunki.KATEGORIA_TEMATY);
+    List<W> WYMUSZENIE_REAKCJI_WARUNKI = DB_Warunki.WYMUSZENIE_REAKCJI;
+    List<W> RODZAJE_WIEDZA_WARUNKI = DB_Warunki.RODZAJE_WIEDZA;
+    List<W> REAKCJA_KOBIET_WARUNKI = DB_Warunki.REAKCJA_KOBIET;
 
-    List<W> WIEDZA = WARUNKI(DB_Warunki.WIEDZA);
+    List<W> KATEGORIA_WIEDZA = WARUNKI(DB_Warunki.KATEGORIA_WIEDZA);
     List<W> CHCIANA_SYTUACJE = DB_Sytuacje.CHCIANA_SYTUACJA;
-    List<W> DOPUSZCZENIE_WARUNKI = WARUNKI(DB_Warunki.DOPUSZCZENIE);
+    List<W> KATEGORIA_DOPUSZCZENIE_WARUNKI = WARUNKI(DB_Warunki.KATEGORIA_DOPUSZCZENIE);
     List<W> KATEGORIA_PRZEWAGI = WARUNKI(DB_Warunki.KATEGORIA_PRZEWAGI);
-    List<W> PRZEWAGI_Z_ULICY_WARUNKI = DB_Warunki.PRZEWAGI_Z_ULICY.getWarunki();
-
-
-
-
+    List<W> PRZEWAGI_Z_ULICY_WARUNKI = DB_Warunki.PRZEWAGI_Z_ULICY;
 
 
     public <T> List<T> of(T... elements){
@@ -242,7 +234,7 @@ public class AbstractCPU {
     public static W OD(Integer wiek) { return W.WARUNEK;  }
     public static W T0(Integer wiek) { return W.WARUNEK;  }
 
-    public static List<W> WARUNKI(List<WarunkiKategoria> wk){
+    public static List<W> WARUNKI(List<List<W>> w){
         return new ArrayList<>();
     }
 }

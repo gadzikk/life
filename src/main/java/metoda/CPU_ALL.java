@@ -11,9 +11,9 @@ import static typy_bazowe.TypOsoby.ME;
  * Created by gadzik on 02.01.20.
  */
 public class CPU_ALL extends AbstractCPU {
-    List<W> wymaganiaWstepne = WYMAGANIA_WSTEPNE;
-    List<W> wymaganiaUtrzymania = WYMAGANIA_UTRZYMANIA;
-    List<W> koncowe = KONCOWE_WARUNKI;
+    List<W> wymaganiaWstepne = KATEGORIA_WYMAGANIA_WSTEPNE;
+    List<W> wymaganiaUtrzymania = KATEGORIA_WYMAGANIA_UTRZYMANIA;
+    List<W> koncowe = KATEGORIA_WARUNKI_KONCOWE;
     List<W> globalPlanszaLudzie = GLOBAL_PLANSZA_LUDZIE_WARUNKI;
 
     List<W> warunkiWyjscia = of(W.PORA_ROKU, W.CZAS, W.DOSTEPNOSC, W.ZOBACZENIE, W.BLISKOSC, W.KONTAKT);
@@ -38,7 +38,7 @@ public class CPU_ALL extends AbstractCPU {
     List<W> okazja = of(W.DOBRO, W.POZNANIE, W.WALKA_PIESCI);
 
     List<W> niesprawiedliwosc = of(W.KOBIETA, W.SAMOCHOD, W.EKIPA, W.ZNAJOMI);
-    List<W> patologie = PATOLOGIE;
+    List<W> patologie = KATEGORIA_PATOLOGIE;
 
     List<W> sytuacje = of(M.nieznajomy(W.DEFAULT_SYTUACJE), M.znajomy(W.SRODOWISKO_SYTUACJE));
 
@@ -54,11 +54,11 @@ public class CPU_ALL extends AbstractCPU {
                             W.ZNAJOMI, W.SLUZBA_ZROWIA, W.SLUZBY_MUNDUROWE, W.INTERNET, W.TELEWIZJA);
 
     List<W> urodzenieDefault = DEFAULT_WARUNKI;
-    List<W> czas = CZAS_WARUNKI;
+    List<W> czas = KATEGORIA_CZAS;
     List<W> duzoIf = DUZO_IF_WARUNKI;
     List<W> ksztaltowanieDzielnicy = KSZTALTOWANIE_DZIELNICY_WARUNKI;
-    List<W> emocjeUczucia = EMOCJE_UCZUCIA_WARUNKI;
-    List<W> rozrywkiZart = ROZRYWKI_ZART_WARUNKI;
+    List<W> emocjeUczucia = KATEGORIA_EMOCJE_UCZUCIA;
+    List<W> rozrywkiZart = KATEGORIA_ROZRYWKI_ZART;
     List<W> przymus = PRZYMUS_WARUNKI;
     List<W> potrzeby = POTRZEBY_WARUNKI;
     List<W> zagrozenia = ZAGROZENIA_WARUNKI;
@@ -67,10 +67,10 @@ public class CPU_ALL extends AbstractCPU {
     List<W> slabosci = SLABOSCI_WARUNKI;
     List<W> twl = THREAD_WHILE_LOOP_WARUNKI;
     List<W> typySytuacji = TYPY_SYTUACJI;
-    List<W> typyLudzi = TYPY_LUDZI;
+    List<W> typyLudzi = KATEGORIA_TYPY_LUDZI;
     List<W> wspomnienia = WSPOMNIENIA_WARUNKI;
-    List<W> tematy = TEMATY_WARUNKI;
-    List<W> wiedza = WIEDZA;
+    List<W> tematy = KATEGORIA_TEMATY;
+    List<W> wiedza = KATEGORIA_WIEDZA;
 
     public void run(){
         M.WWW(W.INFORMACJA, "--->", W.SONDA, "--->", W.NASTAWIENIE, "--->", W.DZIALANIE);

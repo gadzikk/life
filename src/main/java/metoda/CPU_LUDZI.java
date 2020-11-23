@@ -280,19 +280,19 @@ public class CPU_LUDZI extends AbstractCPU {
         );
         M.W(of(W.KTOS_MI_COS_ZROBIL, W._II_, W.ZAZDROSC),
                 of(
-                        M.reakcjaMocniejNizszemuWHierarchii(RANY_WARUNKI)
+                        M.reakcjaMocniejNizszemuWHierarchii(KATEGORIA_RANY)
                 )
         );
 
         M.sondaPrzewagPodZrobienieZla();
-        M.zniszczJakNajwiecej(RANY_WARUNKI);
+        M.zniszczJakNajwiecej(KATEGORIA_RANY);
         M.zabierzJakNajwiecej();
 
         M.W(of(W.OBRONA),
                 of(
                         M.brakReakcji(W.WYZSZE_DOBRO),
                         M.II(),
-                        M.reakcjaMocniej(RANY_WARUNKI)
+                        M.reakcjaMocniej(KATEGORIA_RANY)
                 )
         );
     }
@@ -396,7 +396,7 @@ public class CPU_LUDZI extends AbstractCPU {
                                 srodowisko.KTO_KOGO_Z_PRZEWAGA(dzialacz, KTO_KOGO_WARUNKI)
                         )),
 
-                        M.W(srodowisko.CZESTO(M.WZAJEMNE_RANY(RANY_WARUNKI)), "--->", srodowisko.TOLERANCJA(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI)),
+                        M.W(srodowisko.CZESTO(M.WZAJEMNE_RANY(KATEGORIA_RANY)), "--->", srodowisko.TOLERANCJA(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI)),
                         srodowisko.WHILE(dzialacz.thread_while_loop(of(W.SLUCHAJA, W.OBECNOSC_LUDZI, M.wykonujeRozkazy(W.GORA), M.KTO_KOGO(osobyPozaSrodowisko, KTO_KOGO_WARUNKI)))),
 
                         M.W(M.INFORMACJA(W.WROG), "--->", dzialajcyBliskoMiejsca.forEach(of(M.NABYCIE(W.BLISKOSC), W.CISNIE, W.WALKA_PIESCI, W.WALKA_SPRZET))),

@@ -15,30 +15,7 @@ import java.util.List;
  */
 public class DB_Warunki extends DB {
     public void init() {
-        List<WarunkiKategoria> ALL = new ArrayList<>();
-        ALL.addAll(WYMAGANIA_WSTEPNE);
-        ALL.addAll(WYMAGANIA_UTRZYMANIA);
-        ALL.addAll(WARUNKI_KONCOWE);
-
-        ALL.addAll(GLOBAL_PLANSZA);
-        ALL.addAll(TWL_PRZEWAGI_SLABOSCI_CIERPIENIA_POTRZEBY);
-        ALL.addAll(ZASADY_PRZYMUS_ZAGROZENIA);
-        ALL.addAll(WARTOSCI_OCENA_WROG);
-        ALL.addAll(ZLY_DOBRY);
-
-        ALL.addAll(REAKCJE);
-        ALL.addAll(SONDA);
-
-        ALL.addAll(CZAS);
-        ALL.addAll(ROZRYWKI_ZART);
-        ALL.addAll(EMOCJE_UCZUCIA);
-        ALL.addAll(ZDOBYWANIE_WIEDZY_PIENIEDZY);
-        ALL.addAll(KSZTALTOWANIE);
-        ALL.addAll(RANY);
-        ALL.addAll(TYPY_PRAC);
-
-
-        List<WarunkiKategoria> WYMAGANIA_WSTEPNE = Arrays.asList(
+        List<List<W>> KATEGORIA_WYMAGANIA_WSTEPNE = Arrays.asList(
                 WYMAGANIA_WSTEPNE_SWIAT,
                 WYMAGANIA_WSTEPNE_INFORMACJA,
                 WYMAGANIA_WSTEPNE_WIEDZA,
@@ -53,7 +30,7 @@ public class DB_Warunki extends DB {
                 WYMAGANIA_WSTEPNE_KOBIETA
         );
 
-        List<WarunkiKategoria> WYMAGANIA_UTRZYMANIA = Arrays.asList(
+        List<List<W>> KATEGORIA_WYMAGANIA_UTRZYMANIA = Arrays.asList(
                 WYMAGANIA_UTRZYMANIA_SWIAT,
                 WYMAGANIA_UTRZYMANIA_INFORMACJA,
                 WYMAGANIA_UTRZYMANIA_WIEDZA,
@@ -68,7 +45,7 @@ public class DB_Warunki extends DB {
                 WYMAGANIA_UTRZYMANIA_KOBIETA
         );
 
-        List<WarunkiKategoria> WARUNKI_KONCOWE = Arrays.asList(
+        List<List<W>> KATEGORIA_WARUNKI_KONCOWE = Arrays.asList(
                 WARUNKI_KONCOWE_SWIAT,
                 WARUNKI_KONCOWE_PRACA,
                 WARUNKI_KONCOWE_ZARABIANIE,
@@ -78,7 +55,7 @@ public class DB_Warunki extends DB {
                 WARUNKI_KONCOWE_WIEDZA
         );
 
-        List<WarunkiKategoria> ZLY_DOBRY = Arrays.asList(
+        List<List<W>> KATEGORIA_ZLY_DOBRY = Arrays.asList(
                 PRZYCZYNY_SLUZENIA_ZLU,
                 PRZYCZYNY_SLUZENIA_DOBRU,
                 ZACHETA_DO_ZLA,
@@ -92,19 +69,19 @@ public class DB_Warunki extends DB {
                 ZLY_ZNAKI_ROZPOZNAWCZE
         );
 
-        List<WarunkiKategoria> GLOBAL_PLANSZA = Arrays.asList(
+        List<List<W>> KATEGORIA_GLOBAL_PLANSZA = Arrays.asList(
                 GLOBAL_PLANSZA_LUDZIE,
                 GLOBAL_PLANSZA_PRACA
         );
 
-        List<WarunkiKategoria> WARTOSCI_OCENA_WROG = Arrays.asList(
+        List<List<W>> KATEGORIA_WARTOSCI_OCENA_WROG = Arrays.asList(
                 WARTOSC_ZLA,
                 WARTOSC_DOBRA,
                 OCENIA_WEDLUG,
                 KRYTERIA_WROGA
         );
 
-        List<WarunkiKategoria> ZASADY_PRZYMUS_ZAGROZENIA = Arrays.asList(
+        List<List<W>> KATEGORIA_ZASADY_PRZYMUS_ZAGROZENIA = Arrays.asList(
                 ZASADY,
                 PRZYMUS,
                 ZAGROZENIA,
@@ -112,7 +89,7 @@ public class DB_Warunki extends DB {
                 METODY_POLICYJNE
         );
 
-        List<WarunkiKategoria> TWL_PRZEWAGI_SLABOSCI_CIERPIENIA_POTRZEBY = Arrays.asList(
+        List<List<W>> KATEGORIA_TWL_PRZEWAGI_SLABOSCI_CIERPIENIA_POTRZEBY = Arrays.asList(
                 THREAD_WHILE_LOOP,
                 PRZEWAGI,
                 SLABOSCI,
@@ -124,12 +101,12 @@ public class DB_Warunki extends DB {
                 SLABY_TCHORZ
         );
 
-        List<WarunkiKategoria> REAKCJE = Arrays.asList(
+        List<List<W>> KATEGORIA_REAKCJE = Arrays.asList(
                 WYMUSZENIE_REAKCJI,
                 REAKCJA_KOBIET
         );
 
-        List<WarunkiKategoria> SONDA = Arrays.asList(
+        List<List<W>> KATEGORIA_SONDA = Arrays.asList(
                 SONDA_GDY,
                 SONDA_PO,
                 KOGO,
@@ -138,36 +115,36 @@ public class DB_Warunki extends DB {
                 SONDA_SHRTS
         );
 
-        List<WarunkiKategoria> CZAS = Arrays.asList(
+        List<List<W>> KATEGORIA_CZAS = Arrays.asList(
                 CYKL_DNIA,
                 PLAN_TERMIN,
                 ERA,
                 POZYTECZNE_SPEDZANIE_CZASU
         );
 
-        List<WarunkiKategoria> ROZRYWKI_ZART = Arrays.asList(
+        List<List<W>> KATEGORIA_ROZRYWKI_ZART = Arrays.asList(
                 ROZRYWKI,
                 ZART
         );
 
-        List<WarunkiKategoria> EMOCJE_UCZUCIA = Arrays.asList(
+        List<List<W>> KATEGORIA_EMOCJE_UCZUCIA = Arrays.asList(
                 EMOCJE_NEGATYWNE,
                 EMOCJE_POZYTYWNE,
                 UCZUCIA_NEGATYWNE,
                 UCZUCIA_POZYTYWNE
         );
 
-        List<WarunkiKategoria> ZDOBYWANIE_WIEDZY_PIENIEDZY = Arrays.asList(
+        List<List<W>> KATEGORIA_ZDOBYWANIE_WIEDZY_PIENIEDZY = Arrays.asList(
                 ZAROBEK_NIELEGALNY
         );
 
-        List<WarunkiKategoria> KSZTALTOWANIE = Arrays.asList(
+        List<List<W>> KATEGORIA_KSZTALTOWANIE = Arrays.asList(
                 KSZTALTOWANIE_DZIELNICY,
                 KSZTALTOWANIE_CZLOWIEKA
 
         );
 
-        List<WarunkiKategoria> RANY = Arrays.asList(
+        List<List<W>> KATEGORIA_RANY = Arrays.asList(
                 RANY_PSYCHICZNE,
                 RANY_FIZYCZNE,
                 RANY_ZNECANIE_SIE,
@@ -181,7 +158,7 @@ public class DB_Warunki extends DB {
                 KONFRONTACJA
         );
 
-        List<WarunkiKategoria> TYPY_PRAC = Arrays.asList(
+        List<List<W>> KATEGORIA_TYPY_PRAC = Arrays.asList(
                 PRACA_FIZYCZNA,
                 PRACA_HANDEL,
                 PRACA_WYMAGAJACA_UMIEJETNOSCI,
@@ -191,12 +168,12 @@ public class DB_Warunki extends DB {
                 PRACA_TECHNICZNA_UMYSLOWA
         );
 
-        List<WarunkiKategoria> TEMATY = Arrays.asList(
+        List<List<W>> KATEGORIA_TEMATY = Arrays.asList(
                 TEMATY_NORMALNYCH_LUDZI,
                 TEMATY_RDZENNYCH
         );
 
-        List<WarunkiKategoria> KOBIETA_PRAKTYKA = Arrays.asList(
+        List<List<W>> KATEGORIA_KOBIETA_PRAKTYKA = Arrays.asList(
                 WZGLEDNA_IZOLACJA,
                 SPRZYJAJACE,
                 NIE_SPRZYJAJACE,
@@ -205,36 +182,52 @@ public class DB_Warunki extends DB {
                 EXTREMALNE_SYTUACJE
         );
 
-        List<WarunkiKategoria> UNIWERSALNE_SWIAT = Arrays.asList(
+        List<List<W>> KATEGORIA_UNIWERSALNE_SWIAT = Arrays.asList(
                 WSPOMNIENIA
         );
 
-        List<WarunkiKategoria> TYPY_LUDZI = Arrays.asList(
+        List<List<W>> KATEGORIA_TYPY_LUDZI = Arrays.asList(
                 TYPY_LUDZI_SHRT,
                 TYPY_LUDZI_DOBRE,
                 TYPY_LUDZI_ZLE
         );
 
-        List<WarunkiKategoria> SYTUACJE = Arrays.asList(
+        List<List<W>> KATEGORIA_SYTUACJE = Arrays.asList(
                 TYPY_SYTUACJI,
                 SYTUACJE_STARCIE
+        );
+
+        List<List<W>> KATEGORIA_WIEDZA = Arrays.asList(
+                RODZAJE_WIEDZA,
+                WYMAGANIA_WSTEPNE_WIEDZA,
+                WYMAGANIA_UTRZYMANIA_WIEDZA
+        );
+
+        List<List<W>> KATEGORIA_DOPUSZCZENIE = Arrays.asList(
+                WYMAGANIA_WSTEPNE_DOPUSZCZENIE_KOBIETA,
+                WYMAGANIA_UTRZYMANIA_DOPUSZCZENIE_KOBIETA,
+                WARUNKI_KONCOWE_DOPUSZCZENIE_KOBIETA
+        );
+
+        List<List<W>> KATEGORIA_PRZEWAGI = Arrays.asList(
+                PRZEWAGI,
+                PRZEWAGI_LUDZKIE,
+                PRZEWAGI_Z_ULICY,
+                PRZEWAGI_MATERIALNE
         );
 
     }
 
 
-    public static WarunkiKategoria WYMAGANIA_WSTEPNE_SWIAT = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_WSTEPNE, TypKategoria.SWIAT),
+    public static List<W> WYMAGANIA_WSTEPNE_SWIAT =
             Arrays.asList(
                     W.ZWIAZEK_2_OSOB,
                     W.URODZENIE_SIE,
                     W.ZDROWIE,
-                    W.BYT_MATERIALNY)
-    );
+                    W.BYT_MATERIALNY
+            );
 
-    public static WarunkiKategoria WYMAGANIA_WSTEPNE_INFORMACJA = new WarunkiKategoria(
-            new Kategoria(
-                    TypKategoria.WYMAGANIA_WSTEPNE, TypKategoria.INFORMACJA),
+    public static List<W> WYMAGANIA_WSTEPNE_INFORMACJA =
             Arrays.asList(
                     W.CZAS,
                     W.DOSTEP_DO_PLANSZY,
@@ -242,62 +235,50 @@ public class DB_Warunki extends DB {
                     W.MATERIALNE_ZNALEZIENIE_SIE,
                     W.SONDA,
                     W.SZCZEGOLY
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMAGANIA_WSTEPNE_WIEDZA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_WSTEPNE, TypKategoria.WIEDZA),
+    public static List<W> WYMAGANIA_WSTEPNE_WIEDZA =
             Arrays.asList(
                     M.thread_while_loop(M.OBSERWACJA(of(W.ULICA, W.MIEJSCA_RESTRYKCYJNE))),
                     M.OCZY(W.INFORMACJA), M.USZY(W.INFORMACJA), M.PRAKTYKA(W.DOSWIADCZENIA),
                     W.PRZYCZYNA, W.DZIALANIE, W.REZULTAT, W.WNIOSKI, W.ZAPAMIETANIE,
                     M.OTRZYMANIE(W.WIEDZA).OD(of(W.SRODOWISKO, W.RODZINA))
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMAGANIA_WSTEPNE_BRAKWSTYDU = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_WSTEPNE, TypKategoria.BRAKWSTYDU),
+    public static List<W> WYMAGANIA_WSTEPNE_BRAKWSTYDU =
             Arrays.asList(
                     W.INFORMACJA,
                     W.WIEDZA,
                     W.DZIALANIE
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMAGANIA_WSTEPNE_REZULTAT = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_WSTEPNE, TypKategoria.REZULTAT),
+    public static List<W> WYMAGANIA_WSTEPNE_REZULTAT =
             Arrays.asList(
                     W.DZIALANIE,
                     W.KONSEKWENCJE,
                     W.WNIOSKI,
                     W.REZULTAT
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMAGANIA_WSTEPNE_PRACA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_WSTEPNE, TypKategoria.PRACA),
+    public static List<W> WYMAGANIA_WSTEPNE_PRACA =
             Arrays.asList(
                     W.NIEKARALNOSC,
                     W.WYKSZTALCENIE,
                     W.DOSWIADCZENIE,
                     W.UMIEJETNOSCI,
                     W.ZNAJOMOSCI
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMAGANIA_WSTEPNE_PRACA_RESTRYKCYJNA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_WSTEPNE, TypKategoria.PRACA_RESTRYKCYJNA),
+    public static List<W> WYMAGANIA_WSTEPNE_PRACA_RESTRYKCYJNA =
             Arrays.asList(
                     W.NIEKARALNOSC,
                     W.STUDIA,
                     W.KILKA_LAT_DOSWIADCZENIA,
                     W.WIELE_UMIEJETNOSCI,
                     W.Z_POLECENIA
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMAGANIA_WSTEPNE_ZARABIANIE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_WSTEPNE, TypKategoria.ZARABIANIE),
+    public static List<W> WYMAGANIA_WSTEPNE_ZARABIANIE =
             Arrays.asList(
                     W.SPELNIENIE_WYMAGAN,
                     W.POPYT,
@@ -308,33 +289,27 @@ public class DB_Warunki extends DB {
 
                     W.UMOWA_PRACA,
                     W.WYKONYWANIE_PRACY
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMAGANIA_WSTEPNE_SPORT = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_WSTEPNE, TypKategoria.SPORT),
+    public static List<W> WYMAGANIA_WSTEPNE_SPORT =
             Arrays.asList(
                     W.CZAS,
                     W.SPRAWNOSC,
                     W.ZDOLNOSC_DO_WYSILKU,
                     W.EKWIPUNEK,
                     W.ZGODA_OTOCZENIA
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMAGANIA_WSTEPNE_OSIEDLE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_WSTEPNE, TypKategoria.OSIEDLE),
+    public static List<W> WYMAGANIA_WSTEPNE_OSIEDLE =
             Arrays.asList(
                     W.TO_SAMO_MIASTO,
                     W.DOBRZE_WYGLADA,
                     W.ZNAJOMY_W_SRODOWISKU,
                     W.NIE_PRZECIWNY,
                     W.NIE_KONFI
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMAGANIA_WSTEPNE_DOPUSZCZENIE_KOBIETA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_WSTEPNE, TypKategoria.DOPUSZCZENIE),
+    public static List<W> WYMAGANIA_WSTEPNE_DOPUSZCZENIE_KOBIETA =
             Arrays.asList(
                     W.PATRZY,
                     W.REAGUJE,
@@ -350,11 +325,9 @@ public class DB_Warunki extends DB {
                     W.PODOBA_SIE,
 
                     W.MUSI_DOPUSCIC
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMAGANIA_WSTEPNE_KOBIETA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_WSTEPNE, TypKategoria.KOBIETA),
+    public static List<W> WYMAGANIA_WSTEPNE_KOBIETA =
             Arrays.asList(
                     W.STWORZENIE_POINTCUTA,
                     W.ZLAPANIE_POINTCUTA,
@@ -366,11 +339,10 @@ public class DB_Warunki extends DB {
 
                     W.PLUS_GT_MINUS,
                     W.WOLNA
-            )
-    );
+            );
 
 
-    public static List<WarunkiKategoria> WYMAGANIA_WSTEPNE = Arrays.asList(
+    public static List<List<W>> KATEGORIA_WYMAGANIA_WSTEPNE = Arrays.asList(
             WYMAGANIA_WSTEPNE_SWIAT,
             WYMAGANIA_WSTEPNE_INFORMACJA,
             WYMAGANIA_WSTEPNE_WIEDZA,
@@ -385,29 +357,24 @@ public class DB_Warunki extends DB {
             WYMAGANIA_WSTEPNE_KOBIETA
     );
 
-    public static WarunkiKategoria WYMAGANIA_UTRZYMANIA_SWIAT = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_UTRZYMANIA, TypKategoria.SWIAT),
+    public static List<W> WYMAGANIA_UTRZYMANIA_SWIAT =
             Arrays.asList(
                     W.ZNAJOMI,
                     W.SWOJ_ZWIAZEK,
                     W.UNIKANIE_ZAGROZEN,
                     W.DBANIE_ZDROWIE,
-                    W.ZARABIANIE)
-    );
+                    W.ZARABIANIE
+            );
 
-    public static WarunkiKategoria WYMAGANIA_UTRZYMANIA_INFORMACJA = new WarunkiKategoria(
-            new Kategoria(
-                    TypKategoria.WYMAGANIA_UTRZYMANIA, TypKategoria.INFORMACJA),
+    public static List<W> WYMAGANIA_UTRZYMANIA_INFORMACJA =
             Arrays.asList(
                     W.SLEDZENIE_INFORMACJI,
                     W.REZULTAT_INFORMACJI,
                     W.POTWIERDZENIE_Z_KIMS,
                     W.SPRAWDZENIE_SAMEMU
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMAGANIA_UTRZYMANIA_WIEDZA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_UTRZYMANIA, TypKategoria.WIEDZA),
+    public static List<W> WYMAGANIA_UTRZYMANIA_WIEDZA =
             Arrays.asList(
                     W.ODSWIEZANIE,
                     W.PAMIEC,
@@ -415,41 +382,33 @@ public class DB_Warunki extends DB {
                     M.PRZEKAZYWANIE(M.SLOWO_PISANE(W.WIEDZA)),
                     M.PRZEKAZYWANIE(M.SLOWO_MOWIONE(W.WIEDZA)),
                     W.DZIELENIE_SIE_WIEDZA
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMAGANIA_UTRZYMANIA_BRAKWSTYDU = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_UTRZYMANIA, TypKategoria.BRAKWSTYDU),
+    public static List<W> WYMAGANIA_UTRZYMANIA_BRAKWSTYDU =
             Arrays.asList(
                     W.LEPSZE_WYKORZYSTANIE_INFORMACJI,
                     W.LEPSZE_DZIALANIE,
                     W.WNIOSKI
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMAGANIA_UTRZYMANIA_REZULTAT = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_UTRZYMANIA, TypKategoria.REZULTAT),
+    public static List<W> WYMAGANIA_UTRZYMANIA_REZULTAT =
             Arrays.asList(
                     W.LEPSZE_DZIALANIE,
                     W.UNIKNIECIE_KONSEKWENCJI,
                     W.PRZEWIDYWANIE,
                     W.REZULTAT,
                     W.UTRZYMANIE
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMAGANIA_UTRZYMANIA_PRACA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_UTRZYMANIA, TypKategoria.PRACA),
+    public static List<W> WYMAGANIA_UTRZYMANIA_PRACA =
             Arrays.asList(
                     W.WYSILEK,
                     W.UZYTECZNOSC,
                     W.OPLACA,
                     W.PLUS_GT_MINUS
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMAGANIA_UTRZYMANIA_PRACA_RESTRYKCYJNA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_UTRZYMANIA, TypKategoria.PRACA_RESTRYKCYJNA),
+    public static List<W> WYMAGANIA_UTRZYMANIA_PRACA_RESTRYKCYJNA =
             Arrays.asList(
                     W.PRZESTRZEGANIE_ZASAD,
                     W.ATMOSFERA,
@@ -460,21 +419,17 @@ public class DB_Warunki extends DB {
                     W.RELACJE_Z_PRZELOZONY,
                     W.ULEPSZANIE_UMIEJETNOSCI,
                     W.PLUS_GT_MINUS
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMAGANIA_UTRZYMANIA_ZARABIANIE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_UTRZYMANIA, TypKategoria.ZARABIANIE),
+    public static List<W> WYMAGANIA_UTRZYMANIA_ZARABIANIE =
             Arrays.asList(
                     W.BOGATY_SEKTOR,
                     W.WIEDZA,
                     W.NISZA,
                     W.REGION
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMAGANIA_UTRZYMANIA_SPORT = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_UTRZYMANIA, TypKategoria.SPORT),
+    public static List<W> WYMAGANIA_UTRZYMANIA_SPORT =
             Arrays.asList(
                     W.ULEPSZANIE_UMIEJETNOSCI,
                     W.CZAS,
@@ -482,22 +437,18 @@ public class DB_Warunki extends DB {
                     W.ZDOLNOSC_DO_WYSILKU,
                     W.EKWIPUNEK,
                     W.ZGODA_OTOCZENIA
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMAGANIA_UTRZYMANIA_OSIEDLE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_UTRZYMANIA, TypKategoria.OSIEDLE),
+    public static List<W> WYMAGANIA_UTRZYMANIA_OSIEDLE =
             Arrays.asList(
                     W.CZESTO_Z_CELEM,
                     W.DZIALANIE,
                     W.ZACIESNIENIE_GRONA_ZNAJOMYCH,
                     W.STO_PRO_LOJALNY,
                     W.PRZESTRZEGANIE_ZASAD
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMAGANIA_UTRZYMANIA_DOPUSZCZENIE_KOBIETA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_UTRZYMANIA, TypKategoria.DOPUSZCZENIE),
+    public static List<W> WYMAGANIA_UTRZYMANIA_DOPUSZCZENIE_KOBIETA =
             Arrays.asList(
                     W.DOBRZE_ZNA,
                     W.WSPOLNI_ZNAJOMI,
@@ -505,11 +456,9 @@ public class DB_Warunki extends DB {
                     W.EMOCJE,
                     W.PODOBA_SIE,
                     W.PLUS_GT_MINUS
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMAGANIA_UTRZYMANIA_KOBIETA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMAGANIA_UTRZYMANIA, TypKategoria.KOBIETA),
+    public static List<W> WYMAGANIA_UTRZYMANIA_KOBIETA =
             Arrays.asList(
                     W.SPELNIENIE_OCZEKIWAN,
                     W.WSPIERANIE_PREFERENCJI,
@@ -520,10 +469,9 @@ public class DB_Warunki extends DB {
 
                     W.PILNOWANIE,
                     W.KONTROLA
-            )
-    );
+            );
 
-    public static List<WarunkiKategoria> WYMAGANIA_UTRZYMANIA = Arrays.asList(
+    public static List<List<W>> KATEGORIA_WYMAGANIA_UTRZYMANIA = Arrays.asList(
             WYMAGANIA_UTRZYMANIA_SWIAT,
             WYMAGANIA_UTRZYMANIA_INFORMACJA,
             WYMAGANIA_UTRZYMANIA_WIEDZA,
@@ -538,17 +486,14 @@ public class DB_Warunki extends DB {
             WYMAGANIA_UTRZYMANIA_KOBIETA
     );
 
-    public static WarunkiKategoria WARUNKI_KONCOWE_SWIAT = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WARUNKI_KONCOWE, TypKategoria.SWIAT),
+    public static List<W> WARUNKI_KONCOWE_SWIAT =
             Arrays.asList(
                     W.SZCZESCIE,
                     W.DOSWIADCZENIA,
                     W.WSPOMNIENIA
-            )
-    );
+            );
 
-    public static WarunkiKategoria WARUNKI_KONCOWE_PRACA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WARUNKI_KONCOWE, TypKategoria.PRACA),
+    public static List<W> WARUNKI_KONCOWE_PRACA =
             Arrays.asList(
                     W.PIENIADZE,
                     W.STABILIZACJA,
@@ -556,27 +501,21 @@ public class DB_Warunki extends DB {
                     W.POZOSTANIE_W_KRAJU,
                     W.UMIEJETNOSCI,
                     W.WIEDZA
-            )
-    );
+            );
 
-    public static WarunkiKategoria WARUNKI_KONCOWE_ZARABIANIE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WARUNKI_KONCOWE, TypKategoria.ZARABIANIE),
+    public static List<W> WARUNKI_KONCOWE_ZARABIANIE =
             Arrays.asList(
                     W.MOZLIWOSC_WYBORU
-            )
-    );
+            );
 
-    public static WarunkiKategoria WARUNKI_KONCOWE_SPORT = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WARUNKI_KONCOWE, TypKategoria.SPORT),
+    public static List<W> WARUNKI_KONCOWE_SPORT =
             Arrays.asList(
                     W.SPRAWNOSC,
                     W.UMIEJETNOSCI,
                     W.WIEDZA
-            )
-    );
+            );
 
-    public static WarunkiKategoria WARUNKI_KONCOWE_OSIEDLE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WARUNKI_KONCOWE, TypKategoria.OSIEDLE),
+    public static List<W> WARUNKI_KONCOWE_OSIEDLE =
             Arrays.asList(
                     W.ZNAJOMI,
                     W.SRODOWISKO,
@@ -586,34 +525,27 @@ public class DB_Warunki extends DB {
                     W.OSZCZEDNOSC_CZASU,
                     W.AKCEPTACJA,
                     W.LATWY_DOSTEP_PRZEWAGI
-            )
-    );
+            );
 
-    public static WarunkiKategoria WARUNKI_KONCOWE_KOBIETA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WARUNKI_KONCOWE, TypKategoria.KOBIETA),
+    public static List<W> WARUNKI_KONCOWE_KOBIETA =
             Arrays.asList(
                     W.CODZIENNA_BLISKOSC,
                     W.ZYCIE_RAZEM,
                     W.DZIECI
-            )
-    );
+            );
 
-    public static WarunkiKategoria WARUNKI_KONCOWE_WIEDZA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WARUNKI_KONCOWE, TypKategoria.WIEDZA),
+    public static List<W> WARUNKI_KONCOWE_WIEDZA =
             Arrays.asList(
                     W.TRAFNE_DECYZJE,
                     W.DOBRZE_WYKORZYSTANY_CZAS
-            )
-    );
+            );
 
-    public static WarunkiKategoria WARUNKI_KONCOWE_DOPUSZCZENIE_KOBIETA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WARUNKI_KONCOWE, TypKategoria.DOPUSZCZENIE),
+    public static List<W> WARUNKI_KONCOWE_DOPUSZCZENIE_KOBIETA =
             Arrays.asList(
                     W.ZWIAZEK
-            )
-    );
+            );
 
-    public static List<WarunkiKategoria> WARUNKI_KONCOWE = Arrays.asList(
+    public static List<List<W>> KATEGORIA_WARUNKI_KONCOWE = Arrays.asList(
             WARUNKI_KONCOWE_SWIAT,
             WARUNKI_KONCOWE_PRACA,
             WARUNKI_KONCOWE_ZARABIANIE,
@@ -623,8 +555,7 @@ public class DB_Warunki extends DB {
             WARUNKI_KONCOWE_WIEDZA
     );
 
-    public static WarunkiKategoria PRZYCZYNY_SLUZENIA_ZLU = new WarunkiKategoria(
-            new Kategoria(TypKategoria.PRZYCZYNY_ZLA),
+    public static List<W> PRZYCZYNY_SLUZENIA_ZLU =
             Arrays.asList(
                     W.ZLE_GENY, W.GLUPOTA, W.NIESWIADOMOSC, W.DZIALANIE_ZA_NAMOWA,
                     W.ROZKAZ, W.ULTIMATUM_OD_SILNIEJSZYCH,
@@ -638,19 +569,15 @@ public class DB_Warunki extends DB {
                     W.POTRZEBA_WSPARCIA, W.POTRZEBA_AKCEPTACJI, W.POTRZEBA_EMOCJI,
                     W.MODA, W.IDEA, M.NIEZDOLNOSC(W.DOBRO),
                     W.UZALEZNIENIE, W.NIENAWISC
-            )
-    );
+            );
 
-    public static WarunkiKategoria PRZYCZYNY_SLUZENIA_DOBRU = new WarunkiKategoria(
-            new Kategoria(TypKategoria.PRZYCZYNY_DOBRA),
+    public static List<W> PRZYCZYNY_SLUZENIA_DOBRU =
             Arrays.asList(
                     W.MADROSC, W.WYCHOWANIE, W.WYKONYWANIE_PRACY,
                     W.DOBRO_W_SERCU, W.SUMIENIE, W.CIERPIENIE_OD_ZLYCH
-            )
-    );
+            );
 
-    public static WarunkiKategoria WARTOSC_DOBRA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WARTOSC),
+    public static List<W> WARTOSC_DOBRA =
             Arrays.asList(
                     W.SRODOWISKO,
                     W.ZASADY,
@@ -660,11 +587,9 @@ public class DB_Warunki extends DB {
                     W.DZIECI,
                     W.CHLOP,
                     W.RODZINA
-            )
-    );
+            );
 
-    public static WarunkiKategoria WARTOSC_ZLA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WARTOSC),
+    public static List<W> WARTOSC_ZLA =
             Arrays.asList(
                     W.WYGODY,
                     W.ROZRYWKI,
@@ -675,30 +600,24 @@ public class DB_Warunki extends DB {
                     W.BECZKA,
                     W.KOLEZANKI,
                     W.WRAZLIWOSC
-            )
-    );
+            );
 
-    public static WarunkiKategoria GLOBAL_PLANSZA_LUDZIE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.GLOBAL_PLANSZA, TypKategoria.LUDZIE),
+    public static List<W> GLOBAL_PLANSZA_LUDZIE =
             Arrays.asList(
                     W.DZIETNOSC,
                     W.WYCHOWANIE,
                     W.MIESZKANIE
-            )
-    );
+            );
 
-    public static WarunkiKategoria GLOBAL_PLANSZA_PRACA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.GLOBAL_PLANSZA, TypKategoria.PRACA),
+    public static List<W> GLOBAL_PLANSZA_PRACA =
             Arrays.asList(
                     W.FIRMY_NIEWYMAGAJACE_DOSWIADCZENIE,
                     W.FIRMY_WYMAGAJACE_DOSWIADCZENIE,
                     W.RYNEK_PLAC,
                     W.ZASOBY_LUDZKIE
-            )
-    );
+            );
 
-    public static WarunkiKategoria OCENIA_WEDLUG = new WarunkiKategoria(
-            new Kategoria(TypKategoria.OCENIA_WEDLUG),
+    public static List<W> OCENIA_WEDLUG =
             Arrays.asList(
                     W.ZLO,
                     W.DOBRO,
@@ -707,21 +626,17 @@ public class DB_Warunki extends DB {
                     W.EKIPA,
                     W.PRZEWAGA,
                     W.UMIEJETNOSC
-            )
-    );
+            );
 
-    public static WarunkiKategoria THREAD_WHILE_LOOP = new WarunkiKategoria(
-            new Kategoria(TypKategoria.THREAD_WHILE_LOOP),
+    public static List<W> THREAD_WHILE_LOOP =
             Arrays.asList(
                     W.THREAD_WHILE_LOOP_ZASIEG_WZROKU,
                     W.THREAD_WHILE_LOOP_BLISKOSC_U,
                     W.THREAD_WHILE_LOOP_BLISKOSC_K,
                     W.THREAD_WHILE_LOOP_EFEKTYWNA_GADKA
-            )
-    );
+            );
 
-    public static WarunkiKategoria PRZEWAGI = new WarunkiKategoria(
-            new Kategoria(TypKategoria.PRZEWAGI),
+    public static List<W> PRZEWAGI =
             Arrays.asList(
                     W.INFORMACJA, W.CZAS, W.WIEDZA, W.SWIADOMOSC, W.BRAK_WSTYDU, W.OBECNOSC, M.OBECNOSC(W.UJSCIE),
                     W.ZNAJOMI, W.WSPARCIE, W.OSIEDLOWE_SRD, W.KOBIETY_SRODOWISKO, W.CIAGLOSC_INFORMACJI, W.KOBIETA, W.SAMOCHOD,
@@ -735,22 +650,18 @@ public class DB_Warunki extends DB {
                     W.WYSOKA_POZYCJA,
                     W.SPRYT, W.SZYBKOSC, W.SILNY, W.POTRAFI_OCENIC,
                     W.PRZEZYCIE_CIERPIENIA
-            )
-    );
+            );
 
-    public static WarunkiKategoria PRZEWAGI_Z_ULICY = new WarunkiKategoria(
-            new Kategoria(TypKategoria.PRZEWAGI),
+    public static List<W> PRZEWAGI_Z_ULICY =
             Arrays.asList(
                     W.ZNAJOMI, W.WSPARCIE, W.OSIEDLOWE_SRD, W.KOBIETY_SRODOWISKO, W.CIAGLOSC_INFORMACJI, W.WALKA_SPRZET,
                     M.SZANSA_NA(of(W.ZNAJOMI, W.WSPARCIE, W.OSIEDLOWE_SRD, W.CIAGLOSC_INFORMACJI, W.WALKA_SPRZET)),
                     W.ZDOLNI_DO_WALKI_ZNAJOMI,
                     W.LUDZIE_ZA_TOBA, W.WALKA_PIESCI,  M.SPRZET(M.EKIPA(W.SAMOCHOD_NA_CHODZIE)), M.SPRZET(M.EKIPA(W.MIEJSCE)),
                     W.EKIPA, M.BLISKO(W.EKIPA), W.HASELKO_RDZENNYCH, W.PIERWSZENSTWO
-            )
-    );
+            );
 
-    public static WarunkiKategoria PRZEWAGI_LUDZKIE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.PRZEWAGI),
+    public static List<W> PRZEWAGI_LUDZKIE =
             Arrays.asList(
                     W.INFORMACJA, W.CZAS, W.WIEDZA, W.SWIADOMOSC, W.BRAK_WSTYDU, W.OBECNOSC, M.OBECNOSC(W.UJSCIE),
                     W.ROZMIAR, W.SILA_FIZYCZNA, W.SILNE_UDERZENIE, W.ZAPASY, W.OBRONA,
@@ -758,18 +669,14 @@ public class DB_Warunki extends DB {
                     W.UMIEJETNOSC,
                     W.SPRYT, W.SZYBKOSC, W.SILNY, W.POTRAFI_OCENIC,
                     W.PRZEZYCIE_CIERPIENIA
-            )
-    );
+            );
 
-    public static WarunkiKategoria PRZEWAGI_MATERIALNE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.PRZEWAGI),
+    public static List<W> PRZEWAGI_MATERIALNE =
             Arrays.asList(
                     W.KOBIETA, W.SAMOCHOD, W.PRACA, W.PIENIADZE, W.WYSOKA_POZYCJA
-            )
-    );
+            );
 
-    public static WarunkiKategoria SLABOSCI = new WarunkiKategoria(
-            new Kategoria(TypKategoria.SLABOSCI),
+    public static List<W> SLABOSCI =
             Arrays.asList(
                     W.BRAK_ZNAJOMYCH, W.BRAK_SRODOWISKA, W.BRAK_KOBIETY,
                     W.BRAK_SZANS_ZNAJOMI, W.BRAK_SZANS_SRODOWISKO, W.BRAK_SZANS_KOBIETA,
@@ -780,11 +687,9 @@ public class DB_Warunki extends DB {
                     W.SLABA_POZYCJA,
                     W.TEMPOTA, W.POWOLNY, W.SLABY, W.NIEUMIE_OCENIC,
                     W.PRZEZYCIE_WYGOD, W.PRZEZYCIE_DOBRA
-            )
-    );
+            );
 
-    public static WarunkiKategoria CIERPIENIA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.CIERPIENIE),
+    public static List<W> CIERPIENIA =
             Arrays.asList(
                     W.ZMECZENIE, W.CIERPIENIE_FIZYCZNE, W.CIERPIENIE_PSYCHICZNE,
                     W.CIERPIENIE_PRZEMIJANIA, W.CIERPIENIE_UTRATY, W.CIERPIENIE_SAMOTNOSCI,
@@ -794,22 +699,19 @@ public class DB_Warunki extends DB {
                     W.CIERPIENIE_PRZEMIJANIA_DLUGOTRWALE, W.CIERPIENIE_UTRATY_DLUGOTRWALE,
                     W.CIERPIENIE_UTRATY_DLUGOTRWALE, W.CIERPIENIE_SAMOTNOSCI_DLUGOTRWALE,
                     W.CIERPIENIE_WIDZENIE_BRAK_DOTKNIECIA_DLUGOTRWALE
-            )
-    );
+            );
 
-    public static WarunkiKategoria ZAGROZENIA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.ZAGROZENIA),
+
+    public static List<W> ZAGROZENIA =
             Arrays.asList(
                     W.STRATA_WOLNOSCI, W.STRATA_CZASU, W.STRATA_INFORMACJI, W.STRATA_WIEDZY,
                     W.STRATA_DOSTEPU_PLANSZA, W.STRATA_DOSTEPU_ZNAJOMI, W.STRATA_MIEJSCA_W_HIERARCHII, W.STRATA_POZYCJI,
                     W.STRATA_ZDROWIA, W.STRATA_HONORU,
                     W.STRATA_PRACY, W.STRATA_PIENIEDZY, W.STRATA_ZARABIANIA, W.STRATA_WYKSZTALCENIA,
                     W.STRATA_KOBIETY, W.ROZWOD, W.ALIMENTY
-            )
-    );
+            );
 
-    public static WarunkiKategoria ZASADY = new WarunkiKategoria(
-            new Kategoria(TypKategoria.ZASADY),
+    public static List<W> ZASADY =
             Arrays.asList(
                     W.NIE_KONFI, W.NIE_PRZECIWNA_STRONA,
                     W.OBCY_WALIMY,
@@ -820,19 +722,15 @@ public class DB_Warunki extends DB {
                     W.R1_HOLD_YOUR_POSITION, W.R2_ONLY_ONE_CHANCE_TO_SCORE,
                     W.R3_LIFE_IN_YOUR_HANDS_NOT_LORDS, W.R4_WATCH_YOUR_ACTIONS,
                     W.SPRAWIEDLIWA_WALKA, W.SPRAWIEDLIWA_RYWALIZACJA
-            )
-    );
+            );
 
-    public static WarunkiKategoria POTRZEBY = new WarunkiKategoria(
-            new Kategoria(TypKategoria.POTRZEBA),
+    public static List<W> POTRZEBY =
             Arrays.asList(
                     W.KONTAKTU, W.AKCEPTACJI, W.DOBRYCH_JEDNOSTKEK, W.ZWIAZKU, W.ZROZUMIENIA,
                     W.HIGIENY, W.UBRANIA, W.RELIGII, W.ROZRYWKI, W.RUCHU
-            )
-    );
+            );
 
-    public static WarunkiKategoria OSLONY = new WarunkiKategoria(
-            new Kategoria(TypKategoria.OSLONA),
+    public static List<W> OSLONY =
             Arrays.asList(
                     W.NIESWIADOMOSC_OPPONENTA, W.DYSTANS, M.WOKOL_TYLKO(W.SWOI), W.NIE_KIBICUJE,
 
@@ -840,28 +738,22 @@ public class DB_Warunki extends DB {
                     W.SAMOCHOD, W.CHLOPAK, W.DOSTEP_RESTRYKTOWANY, W.EKIPA,
 
                     W.PRZEWAGA_SILY, W.SPRZET
-            )
-    );
+            );
 
-    public static WarunkiKategoria PRZYMUS = new WarunkiKategoria(
-            new Kategoria(TypKategoria.PRZYMUS),
+    public static List<W> PRZYMUS =
             Arrays.asList(
                     W.JEDZENIE, W.PICIE, W.PRACA, W.EDUKACJA, W.PRZEMIESZCZANIE_SIE,
                     W.TRANSPORT, W.KUPNO_PRODUKTOW, W.WALKA
-            )
-    );
+            );
 
-    public static WarunkiKategoria NIESPRAWIEDLIWOSC = new WarunkiKategoria(
-            new Kategoria(TypKategoria.NIESPRAWIEDLIWOSC),
+    public static List<W> NIESPRAWIEDLIWOSC =
             Arrays.asList(
                     W.PRACA_XCZASU_BRAK_REZULATU, W.WDUPCANIE_WYSILKU_DO_PIECA,
                     W.NADUZYWANIE_WYSOKIEJ_POZYCJI, W.GORZEJ_NA_STARCIE, W.PRZEWAGA_NA_STARCIE,
                     W.STRONNICZOSC, W.WYKLUCZENIE
-            )
-    );
+            );
 
-    public static WarunkiKategoria DOBRE_CZYNY = new WarunkiKategoria(
-            new Kategoria(TypKategoria.DOBRY),
+    public static List<W> DOBRE_CZYNY =
             Arrays.asList(
                     M.CIEZKO(W.DANIE_ZYCIA), M.CIEZKO(W.DOBRE_WYCHOWANIE), M.CIEZKO(of(W.ZMNIEJSZANIE_ZLA, W.AKTYWNA_WALKA_ZE_ZLEM)),
                     M.CIEZKO(W.USWIADAMIANIE), M.CIEZKO(W.CZYNIENIE_SWIATA_LEPSZYM),
@@ -875,11 +767,9 @@ public class DB_Warunki extends DB {
                     W.NOWY_DEFAULT_DOBRA_OSOBA,
                     W.NIEPOZWALA_NA_ZLO,
                     W.TWORZENIE_KONTAKTU, W.TWORZENIE_ISTNIENIA
-            )
-    );
+            );
 
-    public static WarunkiKategoria ZLE_CZYNY = new WarunkiKategoria(
-            new Kategoria(TypKategoria.ZLY),
+    public static List<W> ZLE_CZYNY =
             Arrays.asList(
                     M.LATWO(W.ZLE_WYCHOWANIE), M.LATWO(M.WSPARCIE(W.ZLO)),
                     M.LATWO(W.OGLUPIANIE), M.LATWO(W.CZYNIENIE_SWIATA_GORSZYM),
@@ -893,142 +783,108 @@ public class DB_Warunki extends DB {
                     W.NOWY_DEFAULT_RYWAL,
                     W.JEBIE_DOBRO, W.WYMAGA_PRZEWAG_NA_ZLU,
                     W.SKAZYWANIE_SAMOTNOSC, W.SKAZYWANIE_PUSTKA
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMUSZENIE_REAKCJI = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WYMUSZENIE_REAKCJI),
+    public static List<W> WYMUSZENIE_REAKCJI =
             Arrays.asList(
                     W.KONTEKST, W.OSKARZENIE, W.ULTIMATUM, W.CISNIECIE
-            )
-    );
+            );
 
-    public static WarunkiKategoria REAKCJA_KOBIET = new WarunkiKategoria(
-            new Kategoria(TypKategoria.REAKCJA_KOBIET),
+    public static List<W> REAKCJA_KOBIET =
             Arrays.asList(
                     W.BRAK_ODPOWIEDZI, W.PRZESTRASZENIE_SIE, W.UCIECIE,
                     W.ODPOWIEDZ_ODCZEP, W.ODPOWIEDZ_NEUTRAL, W.ODPOWIEDZ_ZAINTERESOWANIE,
                     W.EKSCYTACJA, W.PRZEJCIE_INICJATYWY
-            )
-    );
+            );
 
-    public static WarunkiKategoria SONDA_GDY = new WarunkiKategoria(
-            new Kategoria(TypKategoria.SONDA, TypKategoria.SONDA_GDY),
+    public static List<W> SONDA_GDY =
             Arrays.asList(
                     W.WIDZISZ, W.MOWI, W.ROBI, W.POSIADA
-            )
-    );
+            );
 
-    public static WarunkiKategoria SONDA_PO = new WarunkiKategoria(
-            new Kategoria(TypKategoria.SONDA, TypKategoria.SONDA_PO),
+
+    public static List<W> SONDA_PO =
             Arrays.asList(
                     W.OCZY, W.REAGOWANIE, W.CHODZENIE, W.POSTURA, W.ZACHOWANIE,
                     W.MOWA, W.ZNAJOMI, W.CZYNY
-            )
-    );
+            );
 
-    public static WarunkiKategoria KRYTERIA_WROGA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.KRYTERIA, TypKategoria.KRYTERIA_WROGA),
+    public static List<W> KRYTERIA_WROGA =
             Arrays.asList(
                     W.PRZECIWNA_RASA, W.PRZECIWNY_NAROD, W.PRZECIWNA_KLASA, W.PRZECIWNY_KLUB,
                     W.PRZECIWNA_STRONA, W.ZASZKODZIL
-            )
-    );
+            );
 
-    public static WarunkiKategoria PLAN_TERMIN = new WarunkiKategoria(
-            new Kategoria(TypKategoria.PLAN_TERMIN),
+    public static List<W> PLAN_TERMIN =
             Arrays.asList(
                     W.CYKL_DNIA, W.DZIEN, W.TYDZIEN, W.MIESIAC, W.TRZY_MIESIACE, W.POL_ROKU,
                     W.ROK
-            )
-    );
+            );
 
-    public static WarunkiKategoria ZART = new WarunkiKategoria(
-            new Kategoria(TypKategoria.ZART),
+    public static List<W> ZART =
             Arrays.asList(
                     W.UKAZANIE_OSOBY_W_KOMICZNEJ_SYTUACJI, W.WYOLBRZYMIENIE, W.ZAMIANA,
                     W.RZECZYWISTOSC_ODBIEGAJACA_OD_NORMY
-            )
-    );
+            );
 
-    public static WarunkiKategoria ERA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.ERA),
+    public static List<W> ERA =
             Arrays.asList(
                     W.PONIZEJ_1900, W.OD_1900_DO_1939, W.OD_1939_DO_1945, W.OD_1945_DO_1953,
                     W.OD_1953_DO_1970, W.OD_1970_DO_1990, W.OD_1990_DO_2000, W.OD_2000_DO_2005,
                     W.OD_2005_DO_2011, W.OD_2011_DO_2016, W.OD_2016_DO_TERAZ
-            )
-    );
+            );
 
-    public static WarunkiKategoria ROZRYWKI = new WarunkiKategoria(
-            new Kategoria(TypKategoria.ROZRYWKI),
+    public static List<W> ROZRYWKI =
             Arrays.asList(
                     W.MUZYKA, W.TANIEC, W.TELEWIZJA, W.PRZYJEMNA_ROZMOWA, W.GRY,
                     W.ODUZENIE
-            )
-    );
+            );
 
-    public static WarunkiKategoria EMOCJE_NEGATYWNE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.EMOCJE, TypKategoria.EMOCJE_NEGATYWNE),
+    public static List<W> EMOCJE_NEGATYWNE =
             Arrays.asList(
                     W.STRACH, W.LEK, W.ADRENALINA, W.NIEPOKOJ, W.TESKNOTA, W.SAMOTNOSC,
                     W.GNIEW, W.ZLOSC, W.ROZPACZ, W.SMUTEK, W.ZAZDROSC,
                     W.AGRESJA_FIZYCZNA, W.AGRESJA_PSYCHICZNA
-            )
-    );
+            );
 
-    public static WarunkiKategoria EMOCJE_POZYTYWNE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.EMOCJE, TypKategoria.EMOCJE_POZYTYWNE),
+    public static List<W> EMOCJE_POZYTYWNE =
             Arrays.asList(
                     W.SZCZESCIE, W.RADOSC, W.KONTEMPLACJA, W.SPELNIENIE,
                     W.SPOKOJ, W.CIEKAWOSC, W.ZASKOCZENIE, W.PODNIECENIE
-            )
-    );
+            );
 
-    public static WarunkiKategoria UCZUCIA_NEGATYWNE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.UCZUCIA, TypKategoria.UCZUCIA_NEGATYWNE),
+    public static List<W> UCZUCIA_NEGATYWNE =
             Arrays.asList(
                     W.ZREZYGNOWANIE, W.POCZUCIE_UTRATY, W.PRZYKROSC, W.POCZUCIE_WYKLUCZENIA,
                     W.ZAGROZENIE
-            )
-    );
+            );
 
-    public static WarunkiKategoria UCZUCIA_POZYTYWNE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.UCZUCIA, TypKategoria.UCZUCIA_POZYTYWNE),
+    public static List<W> UCZUCIA_POZYTYWNE =
             Arrays.asList(
                     W.MILOSC, W.PRZYJAZN, W.BRATERSTWO, W.KOLEZENSTWO, W.POCZUCIE_SZCZESCIA,
                     W.POCZUCIE_ZYSKU, W.POCZUCIE_SUKCESU, W.ZAPAL, W.PRZYJEMNOSC, W.SENTYMENT
-            )
-    );
+            );
 
-    public static WarunkiKategoria ZAROBEK_NIELEGALNY = new WarunkiKategoria(
-            new Kategoria(TypKategoria.ZAROBEK_NIELEGALNY),
+    public static List<W> ZAROBEK_NIELEGALNY =
             Arrays.asList(
                     W.DILLERKA, W.ZLODZIEJKA, W.PRZEMYT, W.JAZDA_ZE_SPRZETEM
-            )
-    );
+            );
 
-    public static WarunkiKategoria KRYTERIA_PRZYPALU = new WarunkiKategoria(
-            new Kategoria(TypKategoria.KRYTERIA, TypKategoria.KRYTERIA_PRZYPALU),
+    public static List<W> KRYTERIA_PRZYPALU =
             Arrays.asList(
                     M.DZIELNICA(W.NAJLEPSZY_WARUNEK),
                     W.KONKRETNA_INFORMACJA, W.DOWOD, W.ILE_OSOB_WIDZI_SLYSZY, W.GODZINA, W.MIEJSCE,
                     W.SCIEZKA_CZESTOSC_UCZESCZANIA, W.ZNANY_NA_MIEJSCU, W.LATWOSC_SZYBKOSC_ODDALENIA, W.ACCESS_MIEJSCE_ULTRADOSTEPOWE,
                     W.MOZLIWOSC_ZMIANY_GLOBALNEGO_POKOJU
-            )
-    );
+            );
 
-    public static WarunkiKategoria TERROR = new WarunkiKategoria(
-            new Kategoria(TypKategoria.TERROR),
+    public static List<W> TERROR =
             Arrays.asList(
                     W.OCZY, W.USZY, W.CIERPIENIE, W.CIERPIENIE_DLUGOTERMINOWE, W.POZBAWIENIE_PRZEWAGI, W.KOSZTA,
                     W.POZBAWIENIE_BEZPIECZENSTWA, W.POZBAWIENIE_DOSTEPOW, W.POZBAWIANIE_AUTORYTETU, W.PRZEJEBANE
-            )
+            );
 
-    );
-
-    public static WarunkiKategoria FEST = new WarunkiKategoria(
-            new Kategoria(TypKategoria.FEST),
+    public static List<W> FEST =
             Arrays.asList(
                     W.CHRONI_FESTA, W.TWORZY_KOLECZKO_ADORACJI, W.WYLACZY_DOSTEP, M.WYKLUCZA(W.RDZENNY), W.ZAZDROSC,
                     W.EMOCJE_FIRST, W.HIERARCHIA_FIRST, W.ZMIENNOSC, W.WRAZLIWOSC, W.WOLNOSC, W.RESET, W.SAMOPOCZUCIE, W.KOMFORT,
@@ -1067,18 +923,14 @@ public class DB_Warunki extends DB {
                     W.GNIEW, W.BRAK_OBIEKTYWNEJ_OCENY, W.BRAK_OKRESLENIA_SKALI, W.BIZNES_PRYWATNY_FOLWARK_SUPERPOZYCJA,
 
                     W.TWARDOGLOWY_LUB_MIEKKOGLOWY, W.SPOKOJ, W.DYKTATURA_SZCZESCIA_ZERO_WYSILKU_KONFLIKTOW
-            )
-    );
+            );
 
-    public static WarunkiKategoria DZIALAJACY = new WarunkiKategoria(
-            new Kategoria(TypKategoria.DZIALAJACY),
+    public static List<W> DZIALAJACY =
             Arrays.asList(
                     // TODO
-            )
-    );
+            );
 
-    public static WarunkiKategoria ZLY_ZNAKI_ROZPOZNAWCZE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.ZLY_ZNAKI_ROZPOZNAWCZE),
+    public static List<W> ZLY_ZNAKI_ROZPOZNAWCZE =
             Arrays.asList(
                     W.CZARNE_WLOSY, W.TATUAZE, W.RUDY, W.RUMUN, W.CZERWONE_OCZY,
                     W.PATRZY_ZLE, W.PATRZY_Z_EXSTAZA, W.PATRZY_JAKBY_CHCIAL_OKLAMAC, W.SLABA_POSTURA, W.PRZEWIDUJE_ZLE,
@@ -1086,170 +938,128 @@ public class DB_Warunki extends DB {
                     W.DRESY_SZARE_MATERIALOWE, W.GAZ, W.TORBA, W.UZYWKI,
                     W.KASZLE, W.MACHA, W.GWIZDZE, W.ZADAJE_GLUPIE_PYTANIA, W.TELEFON_ZDJECIA, W.SLABO_REAGUJE_NA_BODZCE,
                     W.LEKKI_GLOS, W.DZIWNY_GLOS
-            )
-    );
+            );
 
-    public static WarunkiKategoria BLAD = new WarunkiKategoria(
-            new Kategoria(TypKategoria.BLAD),
+    public static List<W> BLAD =
             Arrays.asList(
                     W.BLAD_POJEDYNCZY, W.BLAD_NIESWIADOMY_PRZYPADKOWY,
                     W.BLAD_SPECJALNY, W.BLAD_LENISTWA,
                     W.BLAD_ZLAMANIA_ZASAD
-            )
-    );
+            );
 
-    public static WarunkiKategoria KOGO = new WarunkiKategoria(
-            new Kategoria(TypKategoria.SONDA, TypKategoria.KOGO),
+    public static List<W> KOGO =
             Arrays.asList(
                     W.ZAGRANICZNI_CIEMNI, W.ZAGRANICZNI_JASNI,
                     W.BURZUA_DZIALAJACA, W.BURZUA_NIESWIADOMA,
                     W.DZIALACZE_PRZECIWNI, W.DUZI_TEMPI, W.TEGO_CO_RUCHA
-            )
-    );
+            );
 
-    public static WarunkiKategoria HIERARCHIA_PRACA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.HIERARCHIA, TypKategoria.HIERARCHIA_PRACA),
+    public static List<W> HIERARCHIA_PRACA =
             Arrays.asList(
                     M.BRAK(W.PRACA), W.PRACA_NA_ETACIE, W.MANAGER, W.OKRESLAJACY_BUDZET, W.ZARZAD_FIRMY, W.OWNER_FIRMY,
                     W.WLASCICIEL_KORPORACJI
-            )
-    );
+            );
 
-    public static WarunkiKategoria HIERARCHIA_ULICA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.HIERARCHIA, TypKategoria.HIERARCHIA_ULICA),
+    public static List<W> HIERARCHIA_ULICA =
             Arrays.asList(
                     W.RDZENNY_DOBRY,
                     W.ZLODZIEJ, W.PATOLOG, W.BIEGACZ, W.OSIEDLOWY_OGARNIETY, W.OSIEDLOWY_NORMAL, W.DIL,
                     W.SPORTOWY_FEST, W.OSIEDLOWY_CASUAL,
                     W.OSIEDLOWY_WYKRECONY, W.OSIEDLOWY_BURZUJ
-            )
-    );
+            );
 
-    public static WarunkiKategoria CYKL_DNIA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.CYKL_DNIA),
+    public static List<W> CYKL_DNIA =
             Arrays.asList(
                     W.OD_00_DO_6, W.OD_6_DO_7, W.OD_7_DO_9, W.OD_9_DO_11_, W.OD_11_DO_14,
                     W.OD_14_DO_17, W.OD_17_DO_19, W.OD_19_DO_21, W.OD_21_DO_24
-            )
-    );
+            );
 
-    public static WarunkiKategoria KSZTALTOWANIE_DZIELNICY = new WarunkiKategoria(
-            new Kategoria(TypKategoria.KSZTALTOWANIE, TypKategoria.KSZTALTOWANIE_DZIELNICY),
+    public static List<W> KSZTALTOWANIE_DZIELNICY =
             Arrays.asList(
                     W.WARUNEK_UTWORZENIA_SIE_MIASTA,
                     W.PRACA, W.RDZENNI, W.LUDZIE
-            )
-    );
+            );
 
-    public static WarunkiKategoria KSZTALTOWANIE_CZLOWIEKA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.KSZTALTOWANIE, TypKategoria.KSZTALTOWANIE_CZLOWIEKA),
+    public static List<W> KSZTALTOWANIE_CZLOWIEKA =
             Arrays.asList(
                     W.OSOBOWOSC, W.WIDZISZ, W.SLYSZYSZ, W.CZUJESZ, W.Z_KIM_PRZYSTAJESZ, W.PRAKTYKA, W.ZNAJOMI,
                     W.CHARAKTER, W.CIERPIENIE, W.CIEZKA_PRACA, W.TRUDNOSCI,
                     W.UMYSL, W.PRACA_UMYSLOWA, W.CZYTANIE,
                     W.FIZYCZNE, W.MAX_WZROKU, W.BIEGANIE, W.ROWER, W.BOKS, W.CIEZARY, W.PLYWANIE
-            )
-    );
+            );
 
-    public static WarunkiKategoria POZYTECZNE_SPEDZANIE_CZASU = new WarunkiKategoria(
-            new Kategoria(TypKategoria.POZYTECZNE_SPEDZANIE_CZASU),
+    public static List<W> POZYTECZNE_SPEDZANIE_CZASU =
             Arrays.asList(
                     M.REALIZACJA(W.CEL), M.ZDOBYWANIE(of(W.PIENIADZE, W.UMIEJETNOSCI, W.WIEDZA)),
                     W.WYCHOWYWANIE,
                     M.KONTAKT(of(W.RDZENNA_LUDNOSC, W.DOBRE_KOBIETY_CHCACE_RODZINY))
-            )
-    );
+            );
 
-    public static WarunkiKategoria RANY_PSYCHICZNE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.RANY, TypKategoria.RANY_PSYCHICZNE),
+    public static List<W> RANY_PSYCHICZNE =
             Arrays.asList(
                     W.PATRZENIE_W_OCZY, W.OBELGI_WYSOKA_CZESTOTLIWOSC, W.OBELGI_W_PETLI, W.UKAZANIE_WAD, W.WYSMIANIE, W.WYSMIANIE_POWIAZANE, W.UKAZANIE_WAD_POWIAZANE,
                     W.POBICIE_PRZY_ZNAJOMYCH, W.POBICIE_PRZY_RODZINIE,
                     W.POBICIE_ZNAJOMYCH, W.POBICIE_RODZINY, W.USZCZERBEK_ZDROWIE, W.STRATA_HONORU
-            )
-    );
+            );
 
-    public static WarunkiKategoria RANY_FIZYCZNE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.RANY, TypKategoria.RANY_FIZYCZNE),
+    public static List<W> RANY_FIZYCZNE =
             Arrays.asList(
                     W.POPCHNIECIE, W.LEPIEC, W.STRZAL, W.KILKA_STRZALOW, W.BICIE_DO_UPADKU, W.BICIE_DO_UTRATY_PRZYTOMNOSCI
-            )
-    );
+            );
 
-    public static WarunkiKategoria RANY_ZNECANIE_SIE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.RANY, TypKategoria.RANY_ZNECANIE_SIE),
+    public static List<W> RANY_ZNECANIE_SIE =
             Arrays.asList(
                     W.KOPANIE_KONCZYNY, W.KOPANIE_BRZUCH, W.KLEPANIE_KARK, W.GLOWA_O_POWIERZCHNIE
-            )
-    );
+            );
 
-    public static WarunkiKategoria RANY_SPRZET = new WarunkiKategoria(
-            new Kategoria(TypKategoria.RANY, TypKategoria.RANY_SPRZET),
+    public static List<W> RANY_SPRZET =
             Arrays.asList(
                     W.CIECIE_MIEJSCA_NIEZAGRAZJACE, W.CICIE_MIEJSCA_WIDOCZNE, W.CIECIE_MIEJSCA_ZAGRAZAJACE
-            )
-    );
+            );
 
-    public static WarunkiKategoria RANY_DOSTEPOWE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.RANY, TypKategoria.RANY_DOSTEPOWE),
+    public static List<W> RANY_DOSTEPOWE =
             Arrays.asList(
                     W.WYLACZENIE_SRODOWISKA, W.WYLACZENIE_KOBIETY, W.WYLACZENIE_ZAROBKU, W.KAZDY_SPOTYKA_BIJE, W.KAZDY_KTO_SIEDZI_POJECHANE
-            )
-    );
+            );
 
-    public static WarunkiKategoria PRACA_FIZYCZNA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.TYP_PRACY, TypKategoria.PRACA_FIZYCZNA),
+    public static List<W> PRACA_FIZYCZNA =
             Arrays.asList(
                     W.PRZEMYSL, W.HUTNICTWO, W.SPAWALNICTWO,
                     W.WYDOBYCIE_SUROWCE, W.PRZETWORSTWO_SUROWCE, W.BUDOWNICTWO, W.ENERGETYKA
-            )
-    );
+            );
 
 
-    public static WarunkiKategoria PRACA_HANDEL = new WarunkiKategoria(
-            new Kategoria(TypKategoria.TYP_PRACY, TypKategoria.PRACA_HANDEL),
+    public static List<W> PRACA_HANDEL =
             Arrays.asList(
                     W.KASJERKA, W.MAGAZYN
-            )
-    );
+            );
 
-    public static WarunkiKategoria PRACA_WYMAGAJACA_UMIEJETNOSCI = new WarunkiKategoria(
-            new Kategoria(TypKategoria.TYP_PRACY, TypKategoria.PRACA_WYMAGAJACA_UMIEJETNOSCI),
+    public static List<W> PRACA_WYMAGAJACA_UMIEJETNOSCI =
             Arrays.asList(
                     W.FRYZJERKA, W.KOSMETYCZKA, W.MAKIJARZYSTKA
-            )
-    );
+            );
 
-    public static WarunkiKategoria PRACA_USLUGI = new WarunkiKategoria(
-            new Kategoria(TypKategoria.TYP_PRACY, TypKategoria.PRACA_USLUGI),
+    public static List<W> PRACA_USLUGI =
             Arrays.asList(
                     W.HOTEL, W.GASTRONOMIA, W.OCHRONA
-            )
-    );
+            );
 
-    public static WarunkiKategoria PRACA_OSWIATA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.TYP_PRACY, TypKategoria.PRACA_OSWIATA),
+    public static List<W> PRACA_OSWIATA =
             Arrays.asList(
                     W.NAUCZYCIEL
-            )
-    );
+            );
 
-    public static WarunkiKategoria PRACA_TRANSPORT = new WarunkiKategoria(
-            new Kategoria(TypKategoria.TYP_PRACY, TypKategoria.PRACA_TRANSPORT),
+    public static List<W> PRACA_TRANSPORT =
             Arrays.asList(
                     W.KIEROWCA, W.MOTORNICZY
-            )
-    );
+            );
 
-    public static WarunkiKategoria PRACA_TECHNICZNA_UMYSLOWA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.TYP_PRACY, TypKategoria.PRACA_TECHNICZNA_UMYSLOWA),
+    public static List<W> PRACA_TECHNICZNA_UMYSLOWA =
             Arrays.asList(
                     W.KSIEGOWA, W.HR, W.MECHANIK, W.ELEKTRONIK, W.INFORMATYK
-            )
-    );
+            );
 
-    public static WarunkiKategoria NASTAWIENIA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.LUDZIE, TypKategoria.NASTAWIENIE),
+    public static List<W> NASTAWIENIA =
             Arrays.asList(
                     W.NASTAWIENIE_AGRESJA_W_DZIALANIU, W.NASTAWIENIE_KONTEMPLACJA, W.NASTAWIENIE_RELAKS, W.NASTAWIENIE_PRACA,
                     W.NASTAWIENIE_OSZUKANIE_WDUPCENIE, W.NASTAWIENIE_NA_ZLO, W.NASTAWIENIE_DOBRO, W.NASTAWIENIE_POZNANIE,
@@ -1258,11 +1068,9 @@ public class DB_Warunki extends DB {
 
                     W.NASTAWIENIE_MAM_ZLE_ON_TEZ_MUSI, W.NASTAWIENIE_NIE_MAM_NIC_ON_TEZ_MA_NIE_MIEC, W.NASTAWIENIE_JA_GNOJONY_GNOJE_NIZSZYCH,
                     W.NASTAWIENIE_DOMINACJA, W.NASTAWIENIE_STARCIE
-            )
-    );
+            );
 
-    public static WarunkiKategoria KTO_KOGO = new WarunkiKategoria(
-            new Kategoria(TypKategoria.RANY, TypKategoria.KTO_KOGO),
+    public static List<W> KTO_KOGO =
             Arrays.asList(
                     M.START(W.ZLE_ZAMIARY),
                     M.STANDARD(M.MALY_WYSILEK(M.MOCNO(M.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA)))),
@@ -1286,11 +1094,9 @@ public class DB_Warunki extends DB {
                     M.MALY_WYSILEK(M.MOCNO(M.MIEJSCE_STALE(W.ODCIECIE_DOSTEPU_WARTOSC))),
                     W.AGRESJA_W_DZIALANIU, W.ZLO,
                     M.CEL(of(W.ZNISZCZENIE, W.POSTAWIENIE_CIEZKICH_WARUNKOW))
-            )
-    );
+            );
 
-    public static WarunkiKategoria BRAK_ZASAD = new WarunkiKategoria(
-            new Kategoria(TypKategoria.RANY, TypKategoria.BRAK_ZASAD),
+    public static List<W> BRAK_ZASAD =
             Arrays.asList(
                     M.MALY_WYSILEK(M.MOCNO(of(W.FOTY_MIEJSCE_STALE, W.NIE_MILA_OBSLUGA, W.ZLE_WYKONANIE_USLUGI))),
                     M.DUZY_WYSILEK(of(W.OGRANICZENIE_WOLNOSCI, W.KONTUZJA)),
@@ -1306,11 +1112,9 @@ public class DB_Warunki extends DB {
                     M.BRAK(W.WSTYD_PRZED_LUDZMI), M.BRAK(W.SZACUNEK_ZYCIE_LUDZKIE),
                     M.MOCNO(M.WYKORZYSTUJE(W.OSLONA)),
                     M.MOCNO(of(W.DAZENIE_DO_ZLA, W.SZUKANIE_GLEBOKO_ZLA, W.KAZDE_DZIALANIE_ZMIENIA_W_ZLO))
-            )
-    );
+            );
 
-    public static WarunkiKategoria WYMAGA_KARY = new WarunkiKategoria(
-            new Kategoria(TypKategoria.SONDA, TypKategoria.WYMAGA_KARY),
+    public static List<W> WYMAGA_KARY =
             Arrays.asList(
                     W.DZIALANIE_DLA_ZLA,
                     W.BRAK_WYSILKU, W.BRAK_STRESU, W.BRAK_TRUDNOSCI,
@@ -1318,21 +1122,18 @@ public class DB_Warunki extends DB {
                     W.KOMFORT, W.BEZPIECZENSTWO, W.MONOSRODOWISKO, W.WCZESNIE_ZWIAZEK,
                     W.NIEZDOLNY_WALKA_SPRZET, W.GLUPOTA, W.UZYWKI,
                     W.ZAJECIE_SIE_LOKALNYMI_SRPAWAMI, W.WSTYD
-            )
-    );
+            );
 
-    public static WarunkiKategoria SONDA_DZIALACZA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.SONDA, TypKategoria.SONDA_DZIALACZA), of(
+    public static List<W> SONDA_DZIALACZA = of(
             W.ROZMIAR, W.PRZEWAGA_SILY, W.ZNAJOMOSCI,
             W.DZIALA, M.W_JAKI_SPOSOB(W.DZIALA),
             W.BIEGA, M.JAK_DLUGO(W.BIEGA),
             M.KOGO_ZNA(W.EKIPA),
             W.WYROK, M.JAK_DLUGO(W.WYROK),
             M.DOSWIADCZENIE(W.SPRZET)
-    ));
+    );
 
-    public static WarunkiKategoria SONDA_SHRTS = new WarunkiKategoria(
-            new Kategoria(TypKategoria.SONDA, TypKategoria.SONDA_SHRTS), of(
+    public static List<W> SONDA_SHRTS =  of(
             M.W(of(W.MEZCZYZNA),
                     of(
                             M.MOCNO(M.sonda(W.OCZY)),
@@ -1358,21 +1159,17 @@ public class DB_Warunki extends DB {
                             //-------------------------
 //                            M.sonda(PATOLOGIE_WSTEPNE_KOBIET, PATOLOGIE_UTRZYMANIA_KOBIET)
                     )
-            )
-    ));
+            ));
 
 
-    public static WarunkiKategoria ZACHETA_DO_ZLA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.ZACHETA_DO_ZLA),
+    public static List<W> ZACHETA_DO_ZLA =
             Arrays.asList(
                     W.BEZKARNOSC, W.LEKCEWAZENIE, W.PYCHA, W.ZUCHWALOSC, W.POCZUCIE_WYZSZOSCI, W.HIERARCHIA,
                     W.PRZEWAGA, W.EMOCJE_ZE_ZLA, W.NARKOTYKI
-            )
-    );
+            );
 
 
-    public static WarunkiKategoria METODA_STARCIE_REAKCJA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.RANY, TypKategoria.METODA_STARCIE_REAKCJA), of(
+    public static List<W> METODA_STARCIE_REAKCJA = of(
 
             M.W(M.MALY_WYSILEK(W.SPRZET), "--->", of(M.DUZA_KRZYWDA(W._1_RUCH), W.NAJWIEKSZ_STRACH,
                                                                 M.DEFAULT(W.UCIECZKA),
@@ -1386,90 +1183,73 @@ public class DB_Warunki extends DB {
 
             M.W(M.MALY_WYSILEK(W.BLISKOSC), "--->", of(W.SONDA, M.DEFAULT(W.PATRZY),
                                                             M.DEFAULT_DZIALAJCY(of(W.PATRZY, W.ROZKMINIA, W.FOTY, W.NOTYFIKACJA_EKIPA, M.OPCJA(W.CISNIE)))))
-    ));
+    );
 
-    public static WarunkiKategoria OBRONA_STARCIE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.RANY, TypKategoria.OBRONA_STARCIE),
+    public static List<W> OBRONA_STARCIE =
             Arrays.asList(
                     W.UCIECZKA,
                     W.PODJECIE_WALKI,
                     W.GAZ, W.OSTRY_SPRZET,
                     W.NOTYFIKACJA_EKIPA,
                     W.ROBIENIE_PRZYPALU
-            )
-    );
+            );
 
-    public static WarunkiKategoria DEFAULT_WARUNKI = new WarunkiKategoria(
-            new Kategoria(TypKategoria.DEFAULT_WARUNKI, TypKategoria.DEFAULT_WARUNKI),
+    public static List<W> DEFAULT_WARUNKI =
             Arrays.asList(
                     W.RODZINA, W.MIEJSCE_ZAMIESZKANIA,
                     M.BRAK(of(W.ZNAJOMI, W.ZWIAZEK, W.PRACA, W.UKLADY, W.HASELKO_RDZENNYCH, W.PRZEWAGA)),
                     W.POPED_SEXUALNY, W.MARZENIA, W.OCZEKIWANIA_WOBEC_ZYCIA,
                     W.CHARAKTER, W.CECHY_WRODZONE,
                     W.CZYSTE_SUMIENIE
-            )
-    );
+            );
 
-    public static WarunkiKategoria STRATY_MORALNE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.RANY, TypKategoria.STRATY_MORALNE),
+    public static List<W> STRATY_MORALNE =
             Arrays.asList(
                     W.OBRAZENIA_FIZYCZNE, W.KONTUZJA, W.ZLE_SAMOPOCZUCIE, W.HANBA, W.WYKLUCZENIE,
                     M.STRATA(W.ZNAJOMI), M.STRATA(W.KOBIETA)
-            )
-    );
+            );
 
-    public static WarunkiKategoria STRATY_MATERIALNE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.RANY, TypKategoria.STRATY_MATERIALNE),
+    public static List<W> STRATY_MATERIALNE =
             Arrays.asList(
                     M.STRATA(of(
                             W.PRACA, W.PIENIADZE, W.WYSOKA_POZYCJA,
                             W.CZAS, W.SZANSA, W.LUDZIE_ZA_TOBA, W.EKIPA,
                             W.SPRYT, W.SZYBKOSC, W.SILA
                     ))
-            )
-    );
+            );
 
-    public static WarunkiKategoria TEMATY_NORMALNYCH_LUDZI = new WarunkiKategoria(
-            new Kategoria(TypKategoria.TEMATY, TypKategoria.TEMATY_NORMALNYCH_LUDZI),
+    public static List<W> TEMATY_NORMALNYCH_LUDZI =
             Arrays.asList(
                     M.thread_while_loop(W.BRAK_EMOCJI), W.PRACA, W.SPORT, W.POGODA, W.SLUZBA_ZROWIA,
                     W.ZDROWIE, W.SAMOPOCZUCIE, W.NAUKA, M.OPCJA(W.DZIECI), W.RODZINA, W.DOM, W.NOWE_TECHNOLOGIE,
                     W.UBRANIA, W.USLUGI, W.EVENTY, W.AKTUALNE_WYDARZENIA_SWIATA, W.PODROZE, W.KULTURY_SWIATA,
                     W.GOTOWANIE, W.JEDZENIE, W.WOLNOSC
-            )
-    );
+            );
 
-    public static WarunkiKategoria TEMATY_RDZENNYCH = new WarunkiKategoria(
-            new Kategoria(TypKategoria.TEMATY, TypKategoria.TEMATY_RDZENNYCH),
+    public static List<W> TEMATY_RDZENNYCH =
             Arrays.asList(
                     M.thread_while_loop(W.EMOCJE),
                     M.MOCNO(of(
                             W.NIENAWISC, W.KIBICOWANIE, M.HIERARCHIA(W.ZNAJOMI), W.KLUB, W.MELANZ, W.UZYWKI,
                             W.STANDARD_ZACHOWANIA, W.ZWIAZKI, M.OPCJA(W.DZIECI), W.PRZEWAGA, M.TOLERANCJA(M.REAKCJA_SMIECHEM(W.EMOCJE_ZE_ZLA))
                     )
-            ))
-    );
+            ));
 
-    public static WarunkiKategoria ANTY_DZIALACZ = new WarunkiKategoria(
-            new Kategoria(TypKategoria.ANTY_DZIALACZ),
+    public static List<W> ANTY_DZIALACZ =
             Arrays.asList(
                     W._1_VS_1_STARCIE_BEZ_PRZEWAG, W.UKAZANIE
-            )
-    );
+            );
 
-    public static WarunkiKategoria CECHY_RDZENNY = new WarunkiKategoria(
-            new Kategoria(TypKategoria.ANTY_DZIALACZ),
+    public static List<W> CECHY_RDZENNY =
             Arrays.asList(
                     W.WKURWIENIE_ZYCIEM, W.RYWALIZACJA, W.ZAZDROSC, W.CHRONIENIE_SWOJEGO,
                     W.NORMALNE_EMOCJE, W.REAKCJA, W.ZDOLNY_DO_WALKI, W.UMIE_CISNAC, W.UMIE_KLUCIC,
                     W.DAZENIE_DO_CELU,
                     W.WIEDZA_PRZEWAGI, W.WIEDZA_OSIAGANIE_PRZEWAG,
                     M.OPCJA(W.AGRESJA)
-            )
-    );
+            );
 
-    public static WarunkiKategoria ULICA_PRZEWAGA_REAKCJA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.ULICA_PRZEWAGA_REAKCJA), of(
+    public static List<W> ULICA_PRZEWAGA_REAKCJA = of(
             M.W(W.SAMOCHOD, "--->", of(M.ZNISZCZENIE(W.OPONY), M.ZNISZCZENIE(W.KAROSERIA), M.OPCJA(M.PODPALENIE(W.SAMOCHOD)))),
 
             M.W(W.DYSTANS, "--->", of(W.SZYBKIE_NOGI, W.ROWER, W.SAMOCHOD)),
@@ -1497,10 +1277,9 @@ public class DB_Warunki extends DB {
             M.W(W.GAZ, "--->", of(W.KOMIN_ANTY_GAZ, W._88_, W.WALKA_PIESCI)),
 
             M.W(of(W.SPRYT, W.SZYBKOSC, W.SILNY, W.POTRAFI_OCENIC), "--->", of(W.UZYWKI, M.STRATA(W.ZDROWIE)))
-    ));
+    );
 
-    public static WarunkiKategoria ZACHOWANIE_REZULTAT_ULICA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.ZACHOWANIE_REZULTAT_ULICA), of(
+    public static List<W> ZACHOWANIE_REZULTAT_ULICA =  of(
 
             M.W(of(M.NOTYFIKACJA(W.EKIPA), W.FOTY), "--->", of(M.DEFAULT(M.BRAK(W.REAKCJA)), M.INFORMACJA(W.EKIPA))),
 
@@ -1509,65 +1288,50 @@ public class DB_Warunki extends DB {
             M.W(M.ZNAJOMY(of(W.CISNIE, W.GADA)), "--->", M.ULTIMATIUM(W.ODPOWIADA)),
 
             M.W(M.OBCY(of(W.CISNIE, W.GADA)), "--->", of(W.NIC_NIE_ZNACZY, M.OBCY(M.SZUKANIE(W.EMOCJE))))
-    ));
+    );
 
-    public static WarunkiKategoria METODY_POLICYJNE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.METODY_POLICYJNE),
+    public static List<W> METODY_POLICYJNE =
             Arrays.asList(
                     W.NOTYFIKACJA_EKIPA, W.OPISYWANIE_UBIORU, W.GAZ, W.FOTY_ROZPOZNANIE, M.thread_while_loop(W.KONTROLA)
-            )
-    );
+            );
 
-    public static WarunkiKategoria WZGLEDNA_IZOLACJA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.KOBIETA_PRAKTYKA, TypKategoria.WZGLEDNA_IZOLACJA),
+    public static List<W> WZGLEDNA_IZOLACJA =
             Arrays.asList(
                     W.PRZYSTANEK, W.TRAUTO, W.SWIATLA, W.KLATKA, W.MIEJSCE_STALE, W.STACJA_BENZYNOWA, W.OSIEDLOWE_SRD
-            )
-    );
+            );
 
-    public static WarunkiKategoria SPRZYJAJACE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.KOBIETA_PRAKTYKA, TypKategoria.SPRZYJAJACE),
+    public static List<W> SPRZYJAJACE =
             Arrays.asList(
                     W.PRETEKST, W.KONTEKST, W.NUDA,
                     W.WZGL_IZOLACJA, W.DLUGA_DOSTEPNOSC, W.BEZRUCH, W.OSZCZEDNOSC_CZASU, W.MALA_TRUDNOSC, W.MALY_WYSILEK, W.MALA_DROGA, W.MALY_PRZYPAL,
                     W.SAMA, W.Z_KOLEZANKA, W.Z_RODZINA
-            )
-    );
+            );
 
-    public static WarunkiKategoria NIE_SPRZYJAJACE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.KOBIETA_PRAKTYKA, TypKategoria.NIE_SPRZYJAJACE),
+    public static List<W> NIE_SPRZYJAJACE =
             Arrays.asList(
                     W.TLUM, W.ZMECZENIE, W.CISZA, W.MOZLIWE_SLUCHAWKI
-            )
-    );
+            );
 
-    public static WarunkiKategoria ESSENTIALS_SYTUACJE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.KOBIETA_PRAKTYKA, TypKategoria.ESSENTIALS_SYTUACJE),
+    public static List<W> ESSENTIALS_SYTUACJE =
             Arrays.asList(
                     W.DOSTEPNOSC, W.BLISKOSC, W.SZYBKOSC_CHODZENIA, W.INFORMACJA,
                     W.ZASIEG_WZROKU, W.ZASIEG_JEJ_WZROKU,
                     W.CZAS_START, W.CZAS_KONIEC,
                     W.SRODOWISKOWE, W.STALE, W.RESTRYKCYJNE
-            )
-    );
+            );
 
-    public static WarunkiKategoria PLANSZA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.KOBIETA_PRAKTYKA, TypKategoria.PLANSZA),
+    public static List<W> PLANSZA =
             Arrays.asList(
                     W.LUDZIE, W.KOBIETA, W.STATYSCI, W.POTRZEBA, W.TRANSPORT, W.SCIEZKI
-            )
-    );
+            );
 
-    public static WarunkiKategoria EXTREMALNE_SYTUACJE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.KOBIETA_PRAKTYKA, TypKategoria.EXTREMALNE_SYTUACJE),
+    public static List<W> EXTREMALNE_SYTUACJE =
             Arrays.asList(
                     W.UWAGA_NA_TOBIE, W.ROZWALENIE_CISZY,
                     W.IDZIESZ_ZAWRACASZ, W.PRZECIWNY_PRZYSTANEK, W.SIEDZISZ_PRZEJSCIE, W.ONA_SWOJE_GRONO
-            )
-    );
+            );
 
-    public static WarunkiKategoria SLABY_TCHORZ = new WarunkiKategoria(
-            new Kategoria(TypKategoria.SLABY_TCHORZ),
+    public static List<W> SLABY_TCHORZ =
             Arrays.asList(
                     M.MALY_WYSILEK(M.MOCNO(M.PODSTAWA(of(W.UKRYCIE, W.KLAMSTWO, W.PO_CICHU)))),
                     M.MALY_WYSILEK(M.MOCNO(of(W.WDUPC_ZAKLECIEM, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE))),
@@ -1579,11 +1343,9 @@ public class DB_Warunki extends DB {
                     M.DUZY_WYSILEK(W.ZAMYKANIE_OPCJI), M.MALY_WYSILEK(W.OGLUPIANIE), M.NEUTRALNY_RZUT(W.NIESWIADOMOSC),
                     M.MALY_WYSILEK(M.MOCNO(of(W.WSPARCIE_OSLONY, W.FALSZYWE_WRAZENIE, W.WYSOKIE_OCZEKIWANIE))),
                     M.MALY_WYSILEK(M.MOCNO(M.MIEJSCE_STALE(W.ODCIECIE_DOSTEPU_WARTOSC)))
-            )
-    );
+            );
 
-    public static WarunkiKategoria WADY_ZLYCH = new WarunkiKategoria(
-            new Kategoria(TypKategoria.ZLY, TypKategoria.WADY_ZLYCH),
+    public static List<W> WADY_ZLYCH =
             Arrays.asList(
                     W.UZYWKI, W.GLUPOTA, W.BRAK_SUMIENIA, W.KROTKOWZROCZNOSC, M.ROZKMINIONY_PRZEZ(W.CZYNY),
                     M.DOSTEP(W.ZLO), M.BRAK_DOSTEPU(W.DOBRO),
@@ -1592,53 +1354,42 @@ public class DB_Warunki extends DB {
                     M.W(M.BRAK(W.PRZEWAGA), "--->", M.BRAK(W.DZIALANIE)),
                     M.BRAK(W.PRZYCHYLNOSC_BOGA),
                     M.WZAJEMNE(W.HAKI)
-            )
-    );
+            );
 
-    public static WarunkiKategoria WSPOMNIENIA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.UNIWERSALNE_SWIAT, TypKategoria.WSPOMNIENIA),
+    public static List<W> WSPOMNIENIA =
             Arrays.asList(
                     W.OSOBY, W.SYTUACJE, W.KONTEKST, W.EMOCJE_DANEJ_CHWILI, W.POMIESZCZENIA, W.RZECZY, W.DROGA_DO, W.DROGA_POWROT
-            )
-    );
+            );
 
-    public static WarunkiKategoria KONFRONTACJA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.RANY, TypKategoria.KTO_KOGO),
+    public static List<W> KONFRONTACJA =
             Arrays.asList(
                     M.thread_while_loop(W.DZIALANIE_POD_PRESJA),
                     M.thread_while_loop(W.WYSILEK), M.thread_while_loop(W.KLOTNIA),
                     M.thread_while_loop(M.ORIENT(W.LUDZIE)), M.thread_while_loop(M.ORIENT(W.SPRZET)),
                     M.thread_while_loop(W.OBRAZENIA_FIZYCZNE),
                     M.REZULTAT(of(W.RANY_ODNIESIONE, W.REGENERACJA, W.WROG, W.JEGO_KOLEDZY_TWOI_WROGOWIE))
-            )
-    );
+            );
 
-    public static WarunkiKategoria OKAZJE_ZROBIENIE_ZLO = new WarunkiKategoria(
-            new Kategoria(TypKategoria.OKAZJE_ZROBIENIE_ZLO),
+    public static List<W> OKAZJE_ZROBIENIE_ZLO =
             Arrays.asList(
                     W.OBECNOSC_LUDZI, W.BLISKOSC, W.POTRZEBA, W.USLUGI,
                     M.MOCNO(W.PRZEWAGA), M.MOCNO(M.OPPONENT(W.WARTOSC)), M.MOCNO(M.OPPONENT(W.BRAK_PRZEWAG)), M.MOCNO(W.LUDZIE_ZA_TOBA),
                     M.MOCNO(M.OPPONENT(W.NIESWIADOMOSC)), M.MOCNO(M.OPPONENT(M.BRAK_DOSTEPU(W.ZLO)))
-            )
-    );
+            );
 
-    public static WarunkiKategoria OKAZJE_ZROBIENIE_DOBRO = new WarunkiKategoria(
-            new Kategoria(TypKategoria.OKAZJE_ZROBIENIE_DOBRO),
+
+    public static List<W> OKAZJE_ZROBIENIE_DOBRO =
             Arrays.asList(
                     W.BLISKOSC, M.WIDZISZ(W.ZLO), M.PRZEWIDZENIE(W.ZLO),
                     M.PO_SONDA(W.ZLY)
-            )
-    );
+            );
 
-    public static WarunkiKategoria TYPY_LUDZI_SHRT = new WarunkiKategoria(
-            new Kategoria(TypKategoria.TYPY_LUDZI_SHRT),
+    public static List<W> TYPY_LUDZI_SHRT =
             Arrays.asList(
                     W.WYKOLEJONY, W.FEST, W.WIESNIAK, W.OSIEDLOWY_SLABY, W.NORMALNY, W.OSIEDLOWY_MOCNY, W.CZOLO
-            )
-    );
+            );
 
-    public static WarunkiKategoria TYPY_LUDZI_DOBRE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.TYPY_LUDZI_DOBRE), of(
+    public static List<W> TYPY_LUDZI_DOBRE = of(
             W.LOKALNY,
             W.MLODY, W.SREDNI_WIEK,
 
@@ -1650,10 +1401,9 @@ public class DB_Warunki extends DB {
             W.CZOLO, W.OGARNIECI, W.MOCNI_NIE_LICZACY_SIE,
             // KOBIETA
             W.OSIEDLOWA_AGRESORKA, W.OSIEDLOWA_NORMALNA, W.OSIEDLOWA_DOBRA, W.OSIEDLOWA_SWIATOWA
-    ));
+    );
 
-    public static WarunkiKategoria TYPY_LUDZI_ZLE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.TYPY_LUDZI_ZLE), of(
+    public static List<W> TYPY_LUDZI_ZLE = of(
             W.STATYSTA, W.TURYSTA_ZAGRANICZNY,
             W.STARY,
             W.FEST, W.BANAN, W.WYGODNIS, W.BURZUJ_NIESWIADOMY, W.BURZUJ_DZIALACZ,
@@ -1663,24 +1413,21 @@ public class DB_Warunki extends DB {
             W.CZORT, W.OSIEDLOWA_KARYNA, W.OSIEDLOWA_KSIEZNICZKA,
             W.BURZUA, W.KUJONKA, W.ZBYT_WRAZLIWA, W.ZWYKLA_FEST, W.WIESNIARA,
             W.SWIATOWA_DOBRY_DOM
-    ));
+    );
 
-    public static WarunkiKategoria CISNIE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.CISNIE), of(
+    public static List<W> CISNIE = of(
             M.WYBOR(of(W.GLOSNO, W.CICHO)),
 
             W.CISNIE_WYGLAD, W.CISNIE_ZACHOWANIE,
             W.CISNIE_MOWA, W.CISNIE_WSPOMNIENIA,
             W.CISNIE_POWIAZANE
-    ));
+    );
 
-    public static WarunkiKategoria TYPY_SYTUACJI = new WarunkiKategoria(
-            new Kategoria(TypKategoria.TYPY_SYTUACJI), of(
+    public static List<W> TYPY_SYTUACJI = of(
             W.SYTUACJA_UNIKALNA, W.SYTUACJA_CHCIANA, W.SYTUACJA_W_HOTMIEJSCU, W.SYTUACJA_DEFAULTOWA, W.SYTUACJA_RESTRYKCYJNA, W.SYTUACJA_KRYZYSOWA
-    ));
+    );
 
-    public static WarunkiKategoria SYTUACJE_STARCIE = new WarunkiKategoria(
-            new Kategoria(TypKategoria.SYTUACJE_STARCIE), of(
+    public static List<W> SYTUACJE_STARCIE = of(
             M.SYTUACJA(W.PATRZY),
             M.SYTUACJA(of(W.PATRZY, W.CISNIE)),
             M.SYTUACJA(of(W.PATRZY, W.CISNIE, M.IDZIE(W.TWOJA_STRONA))),
@@ -1698,22 +1445,20 @@ public class DB_Warunki extends DB {
             M.SYTUACJA(M.WIELU(M.ROBI(W.FOTY))),
             M.SYTUACJA(M.WIELU(M.IDZIE(W.ZWIADY))),
             M.SYTUACJA(M.WIELU(M.IDZIE(W.ZWIADY).Z(W.OSLONA)))
-    ));
+    );
 
-    public static WarunkiKategoria DUZO_IF = new WarunkiKategoria(
-            new Kategoria(TypKategoria.DUZO_IF), of(
+    public static List<W> DUZO_IF = of(
                 W.DUZE_BLOKI, W.DUZO_OSOB, W.SRODOWISKO, W.RDZENNI, W.MOCNE_JEDNOSTKI, W.NORMALNE_EMOCJE
-    ));
+    );
 
-    public static WarunkiKategoria RODZAJE_WIEDZA = new WarunkiKategoria(
-            new Kategoria(TypKategoria.WIEDZA), of(
+    public static List<W> RODZAJE_WIEDZA = of(
             W.WIEDZA_ULICA, W.WIEDZA_KOBIETY_PODRYW, W.WIEDZA_KOBIETY_ZWIAZEK, W.WIEDZA_WYCHOWANIE,
             W.WIEDZA_SPORT, W.WIEDZA_NAUKA,
             W.WIEDZA_LUDZIE_GENY, W.WIEDZA_LUDZIE_CHARAKTER,
             W.WIEDZA_RYNEKPRACY, W.WIEDZA_ZAWOD, W.WIEDZA_PRAWO
-    ));
+    );
 
-    public static List<WarunkiKategoria> ZLY_DOBRY = Arrays.asList(
+    public static List<List<W>> KATEGORIA_ZLY_DOBRY = Arrays.asList(
             PRZYCZYNY_SLUZENIA_ZLU,
             PRZYCZYNY_SLUZENIA_DOBRU,
             ZACHETA_DO_ZLA,
@@ -1727,12 +1472,12 @@ public class DB_Warunki extends DB {
             ZLY_ZNAKI_ROZPOZNAWCZE
     );
 
-    public static List<WarunkiKategoria> GLOBAL_PLANSZA = Arrays.asList(
+    public static List<List<W>> KATEGORIA_GLOBAL_PLANSZA = Arrays.asList(
             GLOBAL_PLANSZA_LUDZIE,
             GLOBAL_PLANSZA_PRACA
     );
 
-    public static List<WarunkiKategoria> WARTOSCI_OCENA_WROG = Arrays.asList(
+    public static List<List<W>> KATEGORIA_WARTOSCI_OCENA_WROG = Arrays.asList(
             WARTOSC_ZLA,
             WARTOSC_DOBRA,
             OCENIA_WEDLUG,
@@ -1740,7 +1485,7 @@ public class DB_Warunki extends DB {
             NASTAWIENIA
     );
 
-    public static List<WarunkiKategoria> ZASADY_PRZYMUS_ZAGROZENIA = Arrays.asList(
+    public static List<List<W>> KATEGORIA_ZASADY_PRZYMUS_ZAGROZENIA = Arrays.asList(
             ZASADY,
             PRZYMUS,
             ZAGROZENIA,
@@ -1748,7 +1493,7 @@ public class DB_Warunki extends DB {
             METODY_POLICYJNE
     );
 
-    public static List<WarunkiKategoria> TWL_PRZEWAGI_SLABOSCI_CIERPIENIA_POTRZEBY = Arrays.asList(
+    public static List<List<W>> KATEGORIA_TWL_PRZEWAGI_SLABOSCI_CIERPIENIA_POTRZEBY = Arrays.asList(
             THREAD_WHILE_LOOP,
             PRZEWAGI,
             SLABOSCI,
@@ -1760,12 +1505,12 @@ public class DB_Warunki extends DB {
             SLABY_TCHORZ
     );
 
-    public static List<WarunkiKategoria> REAKCJE = Arrays.asList(
+    public static List<List<W>> KATEGORIA_REAKCJE = Arrays.asList(
             WYMUSZENIE_REAKCJI,
             REAKCJA_KOBIET
     );
 
-    public static List<WarunkiKategoria> SONDA = Arrays.asList(
+    public static List<List<W>> KATEGORIA_SONDA = Arrays.asList(
             SONDA_GDY,
             SONDA_PO,
             KOGO,
@@ -1774,35 +1519,35 @@ public class DB_Warunki extends DB {
             SONDA_SHRTS
     );
 
-    public static List<WarunkiKategoria> CZAS = Arrays.asList(
+    public static List<List<W>> KATEGORIA_CZAS = Arrays.asList(
             CYKL_DNIA,
             PLAN_TERMIN,
             ERA,
             POZYTECZNE_SPEDZANIE_CZASU
     );
 
-    public static List<WarunkiKategoria> ROZRYWKI_ZART = Arrays.asList(
+    public static List<List<W>> KATEGORIA_ROZRYWKI_ZART = Arrays.asList(
             ROZRYWKI,
             ZART
     );
 
-    public static List<WarunkiKategoria> EMOCJE_UCZUCIA = Arrays.asList(
+    public static List<List<W>> KATEGORIA_EMOCJE_UCZUCIA = Arrays.asList(
             EMOCJE_NEGATYWNE,
             EMOCJE_POZYTYWNE,
             UCZUCIA_NEGATYWNE,
             UCZUCIA_POZYTYWNE
     );
 
-    public static List<WarunkiKategoria> ZDOBYWANIE_WIEDZY_PIENIEDZY = Arrays.asList(
+    public static List<List<W>> KATEGORIA_ZDOBYWANIE_WIEDZY_PIENIEDZY = Arrays.asList(
             ZAROBEK_NIELEGALNY
     );
 
-    public static List<WarunkiKategoria> KSZTALTOWANIE = Arrays.asList(
+    public static List<List<W>> KATEGORIA_KSZTALTOWANIE = Arrays.asList(
             KSZTALTOWANIE_DZIELNICY,
             KSZTALTOWANIE_CZLOWIEKA
     );
 
-    public static List<WarunkiKategoria> RANY = Arrays.asList(
+    public static List<List<W>> KATEGORIA_RANY = Arrays.asList(
             RANY_PSYCHICZNE,
             RANY_FIZYCZNE,
             RANY_ZNECANIE_SIE,
@@ -1816,7 +1561,7 @@ public class DB_Warunki extends DB {
             KONFRONTACJA
     );
 
-    public static List<WarunkiKategoria> TYPY_PRAC = Arrays.asList(
+    public static List<List<W>> KATEGORIA_TYPY_PRAC = Arrays.asList(
             PRACA_FIZYCZNA,
             PRACA_HANDEL,
             PRACA_WYMAGAJACA_UMIEJETNOSCI,
@@ -1826,12 +1571,12 @@ public class DB_Warunki extends DB {
             PRACA_TECHNICZNA_UMYSLOWA
     );
 
-    public static List<WarunkiKategoria> TEMATY = Arrays.asList(
+    public static List<List<W>> KATEGORIA_TEMATY = Arrays.asList(
             TEMATY_NORMALNYCH_LUDZI,
             TEMATY_RDZENNYCH
     );
 
-    public static List<WarunkiKategoria> KOBIETA_PRAKTYKA = Arrays.asList(
+    public static List<List<W>> KATEGORIA_KOBIETA_PRAKTYKA = Arrays.asList(
             WZGLEDNA_IZOLACJA,
             SPRZYJAJACE,
             NIE_SPRZYJAJACE,
@@ -1840,34 +1585,34 @@ public class DB_Warunki extends DB {
             EXTREMALNE_SYTUACJE
     );
 
-    public static List<WarunkiKategoria> UNIWERSALNE_SWIAT = Arrays.asList(
+    public static List<List<W>> KATEGORIA_UNIWERSALNE_SWIAT = Arrays.asList(
             WSPOMNIENIA
     );
 
-    public static List<WarunkiKategoria> TYPY_LUDZI = Arrays.asList(
+    public static List<List<W>> KATEGORIA_TYPY_LUDZI = Arrays.asList(
             TYPY_LUDZI_SHRT,
             TYPY_LUDZI_DOBRE,
             TYPY_LUDZI_ZLE
     );
 
-    public static List<WarunkiKategoria> SYTUACJE = Arrays.asList(
+    public static List<List<W>> KATEGORIA_SYTUACJE = Arrays.asList(
             TYPY_SYTUACJI,
             SYTUACJE_STARCIE
     );
 
-    public static List<WarunkiKategoria> WIEDZA = Arrays.asList(
+    public static List<List<W>> KATEGORIA_WIEDZA = Arrays.asList(
             RODZAJE_WIEDZA,
             WYMAGANIA_WSTEPNE_WIEDZA,
             WYMAGANIA_UTRZYMANIA_WIEDZA
     );
 
-    public static List<WarunkiKategoria> DOPUSZCZENIE = Arrays.asList(
+    public static List<List<W>> KATEGORIA_DOPUSZCZENIE = Arrays.asList(
             WYMAGANIA_WSTEPNE_DOPUSZCZENIE_KOBIETA,
             WYMAGANIA_UTRZYMANIA_DOPUSZCZENIE_KOBIETA,
             WARUNKI_KONCOWE_DOPUSZCZENIE_KOBIETA
     );
 
-    public static List<WarunkiKategoria> KATEGORIA_PRZEWAGI = Arrays.asList(
+    public static List<List<W>> KATEGORIA_PRZEWAGI = Arrays.asList(
             PRZEWAGI,
             PRZEWAGI_LUDZKIE,
             PRZEWAGI_Z_ULICY,

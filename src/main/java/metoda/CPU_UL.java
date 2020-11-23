@@ -62,7 +62,7 @@ public class CPU_UL extends AbstractCPU {
 
     List<W> musiBycKara = WYMAGA_KARY_WARUNKI;
 
-    List<W> rany = RANY_WARUNKI;
+    List<W> rany = KATEGORIA_RANY;
 
     List<W> pointcut = of(W.MATERIALNE_ZNALEZIENIE_SIE, W.DEFAULT_ZACHOWANIE, W.DEFAULT_WARUNKI, W.DZIALANIE, W.REAKCJA,
             W.MAKSYMALNIE_ULATWIASZ, W.PRZEKONYWANIE, W.ULTIMATUM);
@@ -457,7 +457,7 @@ public class CPU_UL extends AbstractCPU {
         W dzialanie = M.NAJMNIEJSZY_CZAS(W.NAJWIEKSZA_KRZYWDA);
         List<W> konfrontacja = KONFRONTACJA_WARUNKI;
         List<W> ktoKogo = KTO_KOGO_WARUNKI;
-        List<W> rany = RANY_WARUNKI;
+        List<W> rany = KATEGORIA_RANY;
         List<W> sytuacjeStarcie = SYTUACJE_STARCIE_WARUNKI;
         List<W> kryteriaPrzypalu = KRYTERIA_PRZYPALU_WARUNKI;
         List<W> metodaStarcieReakcja = METODA_STARCIE_REAKCJA_WARUNKI;

@@ -87,7 +87,7 @@ public class CPU_SJ extends AbstractCPU {
 
     List<W> random = of(W.RESET, W.ZMIANA, W.NIE_PRZEWIDZISZ_PRZYSZLOSCI);
 
-    List<W> patologie = PATOLOGIE;
+    List<W> patologie = KATEGORIA_PATOLOGIE;
 
     List<String> przyjaciele = of("RENA_RODZINA", "T_RODZINA", "DZIADZIUS_RODZINA", "KS_ANDRZEJ_RODZINA",
             "CIOCIA_RODZINA", "ANIA_RODZINA", "DOMINIK_RODZINA", "JANIO_RODZINA", "OLUS_RODZINA");
