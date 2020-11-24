@@ -5,8 +5,6 @@ import warunek.W;
 import java.util.List;
 import java.util.PriorityQueue;
 
-import static typy_bazowe.TypOsoby.ME;
-
 /**
  * Created by gadzik on 02.01.20.
  */
@@ -36,18 +34,16 @@ public class CPU_ALL extends AbstractCPU {
     List<W> jakoscSytuacji = of(W.INTERAKCJA, W.ZNAJOMI, W.POTRZEBA,W.WARTOSC, W.UNIKALNOSC_W_OTOCZENIU);
 
     List<W> przyczyny = of(W.PRZYMUS, W.POTRZEBA, W.ZLO, W.DOBRO, W.ZYSK, W.MODA, W.PRZEWAGA, W.NUDA, W.UCZUCIE, W.CIEKAWOSC, W.ZAZDROSC);
-    List<W> metodySzponcnia = of(M.klamstwo(), M.obelgi_ponizanie(), M.przekonywanie(), M.bojka());
-    List<W> pointcut = of(W.MATERIALNE_ZNALEZIENIE_SIE, W.DEFAULT_ZACHOWANIE, W.DEFAULT_WARUNKI, W.DZIALANIE, W.REAKCJA,
+
+    List<W> pointcut = of(W.OBECNOSC, W.DEFAULT_ZACHOWANIE, W.DEFAULT_WARUNKI, W.DZIALANIE, W.REAKCJA,
             W.MAKSYMALNIE_ULATWIASZ, W.PRZEKONYWANIE, W.ULTIMATUM);
-    List<W> warunek = of(W.ULTIMATUM, W.POCZATEK, W.KONIEC, W.ZYSK, W.WARTOSC, W.ILOSC_OSOB, W.CZESTOTLIWOSC);
+    List<W> warunek = of(W.POCZATEK, W.KONIEC, W.ZYSK, W.WARTOSC, W.ILOSC_OSOB, W.CZESTOTLIWOSC);
 
     List<W> orient = of(W.END_CASE, W.OBJECIE_POCZATEK_KONIEC, W.PRZEWIDZENIE_KONSEKWENCJI);
     List<W> okazja = of(W.DOBRO, W.POZNANIE, W.WALKA_PIESCI);
 
     List<W> niesprawiedliwosc = of(W.KOBIETA, W.SAMOCHOD, W.EKIPA, W.ZNAJOMI);
     List<W> patologie = KATEGORIA_PATOLOGIE;
-
-    List<W> sytuacje = of(M.nieznajomy(W.DEFAULT_SYTUACJE), M.znajomy(W.SRODOWISKO_SYTUACJE));
 
     List<W> zleCzyny = of(W.MAGICZNE_ZAKLECIE, W.POJECHANIE_NA_PRZEWADZE, W.SKAZYWANIE_NA_CIERPIENIE, W.WYKLUCZENIE, W.UKRYCIE, W.ZAZDROSC, W.CHCIWOSC, W.KLAMSTWO, W.WYSMIANIE);
     List<W> dobreCzyny = of(W.PODZIELENIE_SIE_PRZEWAGA, W.WYZWOLENIE_Z_CIERPIENIA, W.PODNIESIENIE, W.UJAWNIENIE, W.PRAWDA, W.WYJEBANIE_ZLA_KONTRA);
@@ -80,8 +76,8 @@ public class CPU_ALL extends AbstractCPU {
     List<W> wiedza = ZBIOR_WIEDZA;
 
     public void run(){
-        M.WWW(W.INFORMACJA, "--->", W.SONDA, "--->", W.NASTAWIENIE, "--->", W.DZIALANIE);
-        M.WW(W.DZIALANIE, "--->", W.WARUNEK, "--->", M.ZASIEG(M.NOWY(of(W.WARUNEK, W.INFORMACJA))));
+        M.WWW(W.INFORMACJA, "--->", M.SONDA(W.INFORMACJA), "--->", W.NASTAWIENIE, "--->", W.DZIALANIE);
+        M.WW(W.DZIALANIE, "--->", M.OSIAGNIECIE(W.WARUNEK), "--->", M.ZASIEG(M.NOWY(of(W.WARUNEK, W.INFORMACJA))));
 
         M.WW(W.POTRZEBA, "--->", of(M.WYMAGANE(W.WARUNKI), W.PODJECIE_DECZYJI,
                                 M.OPCJA(W.WIEDZA), M.OPCJA(M.SONDA(W.SZANSE_NA_SUKCES))), "--->", of(W.DZIALANIE, M.PROBA(M.REALIZACJA(W.POTRZEBA))));
@@ -91,109 +87,55 @@ public class CPU_ALL extends AbstractCPU {
         M.W(of(on(PRZEWAGI_WARUNKI), W.WARUNEK_SPRZYJAJACY), "--->", M.WIEKSZE_SZANSE(M.OSIAGNIECIE(W.WARUNEK)));
         M.W(of(on(SLABOSCI_WARUNKI), W.WARUNEK_NIESPRZYJAJACY) ,"--->", M.MNIEJSZE_SZANSE(M.OSIAGNIECIE(W.WARUNEK)));
 
-        M.WW(
-                of(W.ZAUWAZYLEM, W._II_, W.USLYSZALEM),
-                of(
-                        M.GRANT(ME,W.PRZEWAGA_CZASU),
-                        M.GRANT(ME,W.PRZEWAGA_INFORMACJI),
-                        M.pochwycenie(),
-                        M.dzialanie(W.WIEDZA),
-                        M.osiagniecie(),
-                        M.utrzymanie()
-                ),
-                of(W.BRAK_DZIALANIA),
-                of(
-                        M.GRANT(ME, W.PATOLOGIA),
-                        M.REMOVE(ME, W.ANTY_POSLUSZNOSC)
-                )
-        );
+        M.W(M.ZAUWAZYLEM(M.USLYSZALEM(W.INFORMACJA)), "--->", of(W.PRZEWAGA_CZASU, W.PRZEWAGA_INFORMACJI,
+                                                                                    M.pochwycenie(),
+                                                                                    M.dzialanie(W.WIEDZA),
+                                                                                    M.osiagniecie(),
+                                                                                    M.utrzymanie()));
+
+        M.W(of(M.ZAUWAZYLEM(M.USLYSZALEM(W.INFORMACJA)),
+                              W._88_, W.BRAK_DZIALANIA), "--->", of(W.STRACONA_SZANSA, M.INNA_OSOBA(M.OTRZYMANIE(W.SZANSA))));
+
+        M.W(M.WYKONYWANIE(W.PRACA), "--->", of(M.wszystkoAbyOtrzymacRezultat(),
+                                                         M.doSedna(),
+                                                         M.doKonca()));
+        M.W(of(on(PRZEWAGI_WARUNKI),
+               on(SLABOSCI_WARUNKI),
+               on(KRZYWDY_WARUNKI),
+               on(BRAK_ZASAD_WARUNKI),
+               on(ZBIOR_EMOCJE_UCZUCIA),
+               on(RELACJE_WARUNKI),
+               on(WALKA_WARUNKI),
+               on(CIERPIENIA_WARUNKI),
+               W.PUSTKA),  "-------->", M.DOTYCZA(M.UDERZAJA(W.KAZDEGO_CZLOWIEKA)));
+
+        M.W(W.NA_MIEJSCU, "--->", of(M.doSedna(), M.doKonca()));
 
 
-        M.WW(
-                of(W.PRACA),
-                of(
-                        M.wszystkoAbyOtrzymacRezultat(),
-                        M.doSedna(),
-                        M.doKonca()
-                ),
-                of(W.NA_PLANSZY),
-                of(
-                        M.doSedna(),
-                        M.doKonca()
-                )
-        );
-        M.WW(
-                of(W.WARUNEK),
-                of(
-                        M.sondujJakDaleki(W.WARUNEK),
-                        M.sondujJakSilny(W.WARUNEK)
-                ),
-                of(W.WIDZISZ_DZIALANIE),
-                of(
-                        M.sondaPrzyczyn(przyczyny)
-                )
-        );
-        M.W(of(W._NOT_, W.WARUNEK_A),
-                of(
-                        M.dzialanieNad(W.WARUNEK_B)
-                )
-        );
-        M.W(of(W.ZAGROZENIE),
-                of(
-                        M.widziszTylkoPlusy(),
-                        M.namierzPotencjalnyZysk(),
-                        M.namierzZagrozenia(),
-                        M.praca()
-                )
-        );
-        M.WW(of(W.NORMALNA_SYTUACJA),
-                of(
-                        M.niedopuscDoZlejSytuacji(W.WIEDZA)
-                ),
-                of(W.ZLA_SYTUACJA),
-                of(
-                        M.zbijaj(W.WIEDZA)
-                )
+        M.W(of(W._NOT_, W.WARUNEK_A), "--->", M.dzialanieNad(W.WARUNEK_B));
 
-        );
-        M.W(of(W.WYCHODZISZ_Z_PRACY),
-                of(
-                        M.estymacja(of(W.CZAS,W.SILY)),
-                        M.notify(W.ZNAJOMI),
-                        M.getPriorities(of(W.ULICA, W.KOBIETA, W.PRACA, W.NAUKA))
-                )
-        );
-        M.WW(
-                of(W.PLAN),
-                of(
-                        M.NEEDED(of(W.CZAS, W.BLISKOSC, W.DLUGOSC_DOSTEPU)),
-                        M.najszybszaEgzekucja(),
-                        M.ominPartyzantke(),
-                        M.wedleCoGorzej()
+        M.W(of(W.ZAGROZENIE), "--->", of(M.widziszTylkoPlusy(),
+                                              M.namierzPotencjalnyZysk(),
+                                              M.namierzZagrozenia(),
+                                              M.praca()));
 
-                ),
-                of(W.BRAK_WYKONANIA_PLANU),
-                of(
-                        M.przechodziDoKolejnegoPokojuCzasu(W.PLAN)
-                )
-        );
-        M.W(of(W.CHCESZ_NORMALNA_KOBIETE),
-                of(
-                        M.pokazujSie(of(W.NORMALNE_MIEJSCE, W.NORMALNA_PORA)),
-                        M.zagaduj()
-                )
-        );
-        M.W(of(W.IZOLACJA_CZLOWIEKA),
-                of(
-                        M.poznaj()
-                )
-        );
-        M.W(of(W.ZLY, W._88_, W.LUDZIE),
-                of(
-                        M.podkop_u(W.WSZYSCY),
-                        M.sprobojWziacWartosc(metodySzponcnia)
-                )
-        );
+        M.W(M.thread_while_loop(W.NORMALNA_SYTUACJA), "--->", M.niedopuscDoZlejSytuacji(W.WIEDZA));
+
+        M.W(W.ZLA_SYTUACJA, "--->", M.zbijaj(W.WIEDZA));
+
+        M.W(of(W.WYCHODZISZ_Z_PRACY), "---->", of(M.estymacja(of(W.CZAS,W.SILY)),
+                                                       M.poinformuj(W.ZNAJOMI),
+                                                       M.priorytety(of(W.ULICA, W.KOBIETA, W.PRACA, W.NAUKA))));
+
+        M.W(W.PLAN, "--->", of(M.POTRZEBNE(of(W.CZAS, W.BLISKOSC, W.DLUGOSC_DOSTEPU)),
+                                                M.najszybszaWprowadzenieWZycie(),
+                                                M.ominOdlozenieNaPozniej(),
+                                                M.ocenWedleCoGorzej()));
+
+        M.W(W.BRAK_WYKONANIA_PLANU, "--->", M.przechodziDoKolejnegoPokojuCzasu(W.PLAN));
+
+        M.W(W.CHCESZ_NORMALNA_KOBIETE, of(M.pokazujSie(of(W.NORMALNE_MIEJSCE, W.NORMALNA_PORA)),
+                                          M.zagaduj()));
 
         M.W(M.WZAJEMNE(W.WARTOSC), "--->", W.STATUS_QUO);
         M.W(M.BRAK(W.WARTOSC), "--->", W.STARCIE);
@@ -211,22 +153,41 @@ public class CPU_ALL extends AbstractCPU {
         M.W(W.SILA_RZADZI, "--->", of(M.PRAWDZIWA(W.WARTOSC), W.PRAWDA));
         M.W(M.BRAK(W.SILA_RZADZI), "--->", of(M.BRAK(W.WARTOSC), W.KLAMSTWO));
 
-        trudnoLatwo();
+        M.W(of(W.WIEDZA, W.INFORMACJA, M.WNIOSKI(W.DOSWIADCZENIA),
+               W.SONDA, W.WLASCIWA_OCENA, W.ZNAJOMOSC_OTOCZENIA,
+                             W.TRZEZWOSC, M.WNIOSKI(W.HISTORIA)),"--->", W.TRAFNE_DECYZJE);
+
+        M.W(W.NIEZNAJOMY, "--->", W.DEFAULT_SYTUACJA);
+        M.W(W.ZNAJOMY, "--->", W.SRODOWISKOWA_SYTUACJA);
+        M.W(W.WARUNEK_SPRZYJAJACY, "--->", W.CHCIANA_SYTUACJA);
+
+        waznyTrudnyWarunek();
         superpozycja();
         najwiekszaBron();
         zNieswiadomosci();
         rozmowa();
         zasobZjawiskoDefault();
     }
-    public void trudnoLatwo(){
-        o(M.TRUDNO(W.ZWIAZEK)).WARUNEK(W.MEZCZYZNA);
-        o(M.LATWO(W.ZWIAZEK)).WARUNEK(W.KOBIETA);
-        M.LATWO(W.EMIGRACJA);
-        M.TRUDNO(W.PRACA_KRAJ);
-        o(M.TRUDNO(W.POZNANIE)).WARUNEK(W.MALE_SKUPISKO_LUDZI);
-        M.TRUDNO(W.TRZEZWOSC);
-        M.LATWO(W.UZYWKI);
+    public void waznyTrudnyWarunek() {
+        of(
+                M.PERSPEKTYWA(W.ULICA).MALY_WARUNEK(W.PIENIADZE),
+                M.WAZNE(W.RODZINA),
+                M.WAZNE(of(W.INFORMACJA, W.CZAS)),
+                M.WAZNE(of(W.ULICA, W.SILA, W.ZNAJOMI)),
+                M.WAZNE(of(W.ROZWOJ_UMYSLOWY, W.ROZWOJ_FIZYCZNY)),
+                M.WAZNE(of(W.WYCHODZENIE, W.OBECNOSC)),
+                M.WAZNE(W.ZAGADANIE),
+
+                M.TRUDNO(M.MEZCZYZNA(W.ZWIAZEK)),
+                M.LATWO(M.KOBIETA(W.ZWIAZEK)),
+                M.LATWO(W.EMIGRACJA),
+                M.TRUDNO(W.PRACA_KRAJ),
+                M.TRUDNO(W.POZNANIE).GDY(W.MALE_SKUPISKO_LUDZI),
+                M.TRUDNO(W.TRZEZWOSC),
+                M.LATWO(W.UZYWKI)
+        );
     }
+
     public void superpozycja(){
         if (W.MIEJSCE == W.MIEJSCE_PRZESTRZEGANIA_PRAWA) {
             wysokaPozycja.SET(W.SILA_SPRAWCZA);
@@ -304,7 +265,6 @@ public class CPU_ALL extends AbstractCPU {
 
         M.W(W.NOWA_OSOBA, "--->", M.DEFAULT(KRZYWDY_WARUNKI));
 
-        M.W(W.DZIALANIE, "--->", M.DEFAULT(W.ZA_CIOSEM));
-
+        M.W(W.DZIALANIE, "--->", M.DEFAULT(M.DZIALANIE(W.ZA_CIOSEM)));
     }
 }

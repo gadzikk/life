@@ -62,7 +62,7 @@ public class CPU_PRACA extends AbstractCPU {
         );
         M.W(of(W.SZUKASZ_PRACY),
                 of(
-                        M.NEEDED(of(W.DWA_MIESIACE))
+                        M.POTRZEBNE(of(W.DWA_MIESIACE))
                 )
         );
         M.W((WYMAGANIA_WSTEPNE_ZARABIANIE),

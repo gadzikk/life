@@ -130,8 +130,8 @@ public class OsobaMetod {
     public W decyzja(List<W> warunki) {return W.WARUNEK;}
     public W notyfikacja(W warunek) {return W.WARUNEK;}
     public W notyfikacja(List<W> warunki) {return W.WARUNEK;}
-    public W forEach(W warunek) {return W.WARUNEK;}
-    public W forEach(List<W> warunki) {return W.WARUNEK;}
+    public W KAZDY(W warunek) {return W.WARUNEK;}
+    public W KAZDY(List<W> warunki) {return W.WARUNEK;}
 
 
     public W NAWYK(W warunek) {return W.WARUNEK;}

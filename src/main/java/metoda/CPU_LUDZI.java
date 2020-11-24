@@ -25,7 +25,7 @@ public class CPU_LUDZI extends AbstractCPU {
         dzialajacy();
         czlowiekCierpienia();
         postawyLudzkie();
-        walkaKlas();
+        walkaKlasSpolecznych();
         osobaCechyMozliweDzialania();
         osobaPrzewag();
         wyrok();
@@ -401,7 +401,7 @@ public class CPU_LUDZI extends AbstractCPU {
                         M.W(srodowisko.CZESTO(M.WZAJEMNE_RANY(ZBIOR_RANY)), "--->", srodowisko.TOLERANCJA(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI)),
                         srodowisko.WHILE(dzialacz.thread_while_loop(of(W.SLUCHAJA, W.OBECNOSC_LUDZI, M.wykonujeRozkazy(W.GORA), M.KRZYWDY(osobyPozaSrodowisko, KRZYWDY_WARUNKI)))),
 
-                        M.W(M.INFORMACJA(W.WROG), "--->", dzialajcyBliskoMiejsca.forEach(of(M.NABYCIE(W.BLISKOSC), W.CISNIE, W.WALKA_PIESCI, W.WALKA_SPRZET))),
+                        M.W(M.INFORMACJA(W.WROG), "--->", dzialajcyBliskoMiejsca.KAZDY(on(KRZYWDY_BEZPOSREDNIE_WARUNKI))),
 
                         dzialacz.siejZlo(), M.w_przeciwnym_przypadku(W.POJECHANE, 0),
                         dzialacz.uzaleznijSieOdSrd(),
@@ -468,14 +468,16 @@ public class CPU_LUDZI extends AbstractCPU {
         M.DOBRE(of(M.PRACA_NAD(W.WADY), M.POKAZ(W.PRAWDA), M.SKUPIENIE(of(W.CEL, W.BYCIE_LEPSZYM))));
     }
 
-    public void walkaKlas() {
-        M.W(of(W.FEST, W.BLISKOSC, W.RDZENNY), "--->", of(fest.ROBI_KRZYWDE(rdzenny, KRZYWDY_WARUNKI),
-                                                            rdzenny.ROBI_KRZYWDE(fest, KRZYWDY_WARUNKI)));
+    public void walkaKlasSpolecznych() {
+        M.W(of(W.FEST, W.BLISKOSC, W.RDZENNY), "--->", of(M.OSOBA(W.FEST).ROBI_KRZYWDE(of(M.OSOBA(W.RDZENNY), on(KRZYWDY_WARUNKI))),
+                                                                M.OSOBA(W.RDZENNY).ROBI_KRZYWDE(of(M.OSOBA(W.FEST), on(KRZYWDY_WARUNKI)))));
 
-        M.W(of(W.SUPERPOZYCJA, W.BLISKOSC, W.RDZENNY), "--->", of(superPozycjaOsoby.ROBI_KRZYWDE_Z_PRZEWAGA(rdzenny, KRZYWDY_WARUNKI)));
+        M.W(of(W.SUPERPOZYCJA, W.BLISKOSC, W.RDZENNY), "--->", of(M.OSOBA(W.SUPERPOZYCJA).
+                                                                        ROBI_KRZYWDE_Z_PRZEWAGA(of(M.OSOBA(W.RDZENNY), on(KRZYWDY_WARUNKI)))));
 
-        M.W(of(W.BIEGACZ, W.BLISKOSC, W.RDZENNY), "--->", of(biegacz.ROBI_KRZYWDE_Z_PRZEWAGA(rdzenny, KRZYWDY_WARUNKI)));
+        M.W(of(W.BIEGACZ, W.BLISKOSC, W.RDZENNY), "--->", of(M.OSOBA(W.BIEGACZ).ROBI_KRZYWDE_Z_PRZEWAGA(of(M.OSOBA(W.RDZENNY) , on(KRZYWDY_WARUNKI)))));
 
+        M.W(of(W.BOGATY, W.BLISKOSC, W.BIEDNY), "--->", of(M.OSOBA(W.BOGATY).ROBI_KRZYWDE_Z_PRZEWAGA(of(M.OSOBA(W.BIEDNY), on(KRZYWDY_WARUNKI)))));
     }
 
     public void osobaCechyMozliweDzialania() {

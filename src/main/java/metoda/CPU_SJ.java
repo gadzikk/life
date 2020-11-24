@@ -53,7 +53,7 @@ public class CPU_SJ extends AbstractCPU {
             W.WIEDZA_LUDZIE_GENY, W.WIEDZA_LUDZIE_CHARAKTER, W.WIEDZA_SPORT,
             W.Z_KAZDEGO_NARODU,
             W.NA_HUCIE_30_LATKI_BOJA_SIE,
-            W.BRAK_ROZRYWEK, W.BRAK_DOBRYCH_UCZUC, W.PUSTKA, W.DEFAULT_SYTUACJE
+            W.BRAK_ROZRYWEK, W.BRAK_DOBRYCH_UCZUC, W.PUSTKA, W.DEFAULT_SYTUACJA
     );
     List<W> umiejetnosci = of(
             W.PODBICIE, W.STWORZENIE_SYTUACJI, W.MOWI_SZYBKO
@@ -199,13 +199,13 @@ public class CPU_SJ extends AbstractCPU {
     }
 
     public void ciebie() {
-        M.W(of(
-                W.KOBIETA, W.ZNAJOMOSCI, W.SAMOCHOD,
-                W.SONDA, W.UKRYCIE, W.NAKLEJ_NALEPKE, W.CISNIE, W.SKAZYWANIE_SAMOTNOSC,
-                W.BOJKA, W.ZMECZENIE, W.BRAK_CZASU,
-                W.RESTRYKCJA_ZNAJOMYCH, W.SPRZET, W.PUSTKA,
-                W.DOMINACJA
-        ),                                                                        "--->", of(W.W_CIEBIE));
+        M.W(of(on(PRZEWAGI_WARUNKI),
+               on(SLABOSCI_WARUNKI),
+               on(KRZYWDY_WARUNKI),
+               on(BRAK_ZASAD_WARUNKI),
+               on(RELACJE_WARUNKI),
+               W.PUSTKA,
+               W.DOMINACJA),  "------------>", M.DOTYCZA(M.UDERZAJA(W.KAZDEGO_CZLOWIEKA)));
     }
 
     public void denerwuje() {
@@ -224,7 +224,7 @@ public class CPU_SJ extends AbstractCPU {
 
     public void antyDzialacz() {
         M.SET(W.ZERO_TOLERANCJI_DZIALAJACY);
-        M.thread_while_loop(W.DZIALANIE_POD_PRESJA);
+        M.thread_while_loop(KONFRONTACJA_WARUNKI);
         M.thread_while_loop(M.KONTROLA(W.WSZYSCY));
 
         M.W(of(M.WIDZISZ(W.DZIALAJACY), W._88_, W.BLISKOSC), "--->", of(W.CIESZY_SIE, M.SZANSA_NA(M.USPRAWIEDLIWIENIE(W.WALKA_PIESCI)),
