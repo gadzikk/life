@@ -118,7 +118,7 @@ public class CPU_ZDOBYCIE_ZWIAZKU extends AbstractCPU {
     }
 
     public void dzialajacaManiura() {
-        M.W(of(W.POLOZENIE_SIE_PRZED_DZIALAJACYM, W.FOTY,
+        M.W(of(W.POLOZENIE_SIE_PRZED_DZIALAJACYM, W.ZDJECIA_TWARZOWKI,
                 W.NAGADYWANIE_KOLEZANEK),            "--->", of(W.SPOKOJ, W.SRODOWISKO, W.PRACA_PO_ZNAJOMOSCI));
     }
 

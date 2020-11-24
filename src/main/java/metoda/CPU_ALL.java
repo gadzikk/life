@@ -17,7 +17,7 @@ public class CPU_ALL extends AbstractCPU {
 
     List<W> globalnaPlanszaSwiata = of(W.SWIAT, W.KONTYNENT, W.KRAJ, W.MIASTO, W.DZIELNICA, W.OSIEDLE,
                                        W.CZAS_W_HISTORII,
-                                       W.LUDZIE, on(PRZEWAGI_WARUNKI), on(SLABOSCI_WARUNKI), on(KATEGORIA_EMOCJE_UCZUCIA),
+                                       W.LUDZIE, on(PRZEWAGI_WARUNKI), on(SLABOSCI_WARUNKI), on(ZBIOR_EMOCJE_UCZUCIA),
                                                  on(RELACJE_WARUNKI), on(WALKA_WARUNKI),
                                         on(GLOBAL_PLANSZA_PRACA_WARUNKI), on(GLOBAL_PLANSZA_LUDZIE_WARUNKI),
                                         on(KSZTALTOWANIE_CZLOWIEKA_WARUNKI), on(KSZTALTOWANIE_DZIELNICY_WARUNKI));
@@ -61,11 +61,11 @@ public class CPU_ALL extends AbstractCPU {
                             W.ZNAJOMI, W.SLUZBA_ZROWIA, W.SLUZBY_MUNDUROWE, W.INTERNET, W.TELEWIZJA);
 
     List<W> urodzenieDefault = DEFAULT_WARUNKI;
-    List<W> czas = KATEGORIA_CZAS;
+    List<W> czas = ZBIOR_CZAS;
     List<W> duzoIf = DUZO_IF_WARUNKI;
     List<W> ksztaltowanieDzielnicy = KSZTALTOWANIE_DZIELNICY_WARUNKI;
-    List<W> emocjeUczucia = KATEGORIA_EMOCJE_UCZUCIA;
-    List<W> rozrywkiZart = KATEGORIA_ROZRYWKI_ZART;
+    List<W> emocjeUczucia = ZBIOR_EMOCJE_UCZUCIA;
+    List<W> rozrywkiZart = ZBIOR_ROZRYWKI_ZART;
     List<W> przymus = PRZYMUS_WARUNKI;
     List<W> potrzeby = POTRZEBY_WARUNKI;
     List<W> zagrozenia = ZAGROZENIA_WARUNKI;
@@ -74,10 +74,10 @@ public class CPU_ALL extends AbstractCPU {
     List<W> slabosci = SLABOSCI_WARUNKI;
     List<W> twl = THREAD_WHILE_LOOP_WARUNKI;
     List<W> typySytuacji = TYPY_SYTUACJI;
-    List<W> typyLudzi = KATEGORIA_TYPY_LUDZI;
+    List<W> typyLudzi = ZBIOR_TYPY_LUDZI;
     List<W> wspomnienia = WSPOMNIENIA_WARUNKI;
-    List<W> tematy = KATEGORIA_TEMATY;
-    List<W> wiedza = KATEGORIA_WIEDZA;
+    List<W> tematy = ZBIOR_TEMATY;
+    List<W> wiedza = ZBIOR_WIEDZA;
 
     public void run(){
         M.WWW(W.INFORMACJA, "--->", W.SONDA, "--->", W.NASTAWIENIE, "--->", W.DZIALANIE);

@@ -62,7 +62,7 @@ public class CPU_UL extends AbstractCPU {
 
     List<W> musiBycKara = WYMAGA_KARY_WARUNKI;
 
-    List<W> rany = KATEGORIA_RANY;
+    List<W> rany = ZBIOR_RANY;
 
     List<W> pointcut = of(W.MATERIALNE_ZNALEZIENIE_SIE, W.DEFAULT_ZACHOWANIE, W.DEFAULT_WARUNKI, W.DZIALANIE, W.REAKCJA,
             W.MAKSYMALNIE_ULATWIASZ, W.PRZEKONYWANIE, W.ULTIMATUM);
@@ -457,7 +457,7 @@ public class CPU_UL extends AbstractCPU {
         W dzialanie = M.NAJMNIEJSZY_CZAS(W.NAJWIEKSZA_KRZYWDA);
         List<W> konfrontacja = KONFRONTACJA_WARUNKI;
         List<W> ktoKogo = KRZYWDY_WARUNKI;
-        List<W> rany = KATEGORIA_RANY;
+        List<W> rany = ZBIOR_RANY;
         List<W> sytuacjeStarcie = SYTUACJE_STARCIE_WARUNKI;
         List<W> kryteriaPrzypalu = KRYTERIA_PRZYPALU_WARUNKI;
         List<W> metodaStarcieReakcja = METODA_STARCIE_REAKCJA_WARUNKI;
@@ -467,7 +467,7 @@ public class CPU_UL extends AbstractCPU {
         List<W> wymuszenieReakcji = WYMUSZENIE_REAKCJI_WARUNKI;
         List<W> zasiegPrzewagiUlica = ZASIEG_PRZEWAGI_ULICA_WARUNKI;
 
-        M.W(of(W.POMSZCZENIE, W.NOTYFIKACJA_EKIPA, W.FOTY,
+        M.W(of(W.POMSZCZENIE, W.NOTYFIKACJA_EKIPA, W.ZDJECIA_TWARZOWKI,
                 W.OBRAZENIA_FIZYCZNE, W.STARCIE_WIELU_NA_JEDNEGO,
                 W.SPRZET, W.WYJSCIE, W.STARCIE, W.NIESPRAWIEDLIWE_PRZEWAGI), "--->", M.PARALIZUJE(of(W.SLABY, W.NIESWIADOMY)));
 
@@ -482,10 +482,10 @@ public class CPU_UL extends AbstractCPU {
         M.W(W.WIDZISZ, "--->", of(M.POBIERZ(NASTAWIENIA_WARUNKI), M.SONDA_PRZYPALU(kryteriaPrzypalu), M.PLAN(of(W.UCIECZKA, W.UKRYCIE_SIE)),
                                                                         M.PRZEWIDZENIE(W.DROGA),
                                                                         M.NABYCIE(W.BLISKOSC),
-                                                                        M.ROBOTA(KATEGORIA_RANY),
+                                                                        M.ROBOTA(ZBIOR_RANY),
                                                                         M.UCIECZKA()));
 
-        M.W(M.OSOBA(KRYTERIA_WROGA_WARUNKI), "--->", of(M.UTRUDNIAJ(M.OSOBA(W.ZYCIE)),
+        M.W(M.OSOBA(ZBIOR_WROGA_WARUNKI), "--->", of(M.UTRUDNIAJ(M.OSOBA(W.ZYCIE)),
                                                             M.UTRUDNIAJ(M.OSOBA(W.DOSTEP)),
                                                             M.KRZYWDY(of(W.OSOBA, on(KRZYWDY_WARUNKI)))));
 
@@ -788,7 +788,7 @@ public class CPU_UL extends AbstractCPU {
         List<W> kogo = KOGO_WARUNKI;
         List<W> wymagaKary = WYMAGA_KARY_WARUNKI;
         List<W> sondaDzialacza = SONDA_DZIALACZA_WARUNKI;
-        List<W> kryteriaWroga = KRYTERIA_WROGA_WARUNKI;
+        List<W> kryteriaWroga = ZBIOR_WROGA_WARUNKI;
         List<W> oceniaWedlug = OCENIA_WEDLUG_WARUNKI;
 
         M.WWW(W.INFORMACJA, "--->", W.SONDA, "--->", W.NASTAWIENIE, "--->", W.DZIALANIE);
@@ -1064,7 +1064,7 @@ public class CPU_UL extends AbstractCPU {
 
         M.DUZY_WARUNEK(of(W.TRAUTO, W.KOBIETA, W.MIEJSCE_STALE, W.OSIEDLE, W.PRZEWAGA, W.SILA));
 
-        M.W(M.thread_while_loop(of(W.NOTYFIKACJA_EKIPA, W.FOTY)), "--->", M.thread_while_loop(M.PRZEWAGA(W.CIAGLOSC_INFORMACJI)));
+        M.W(M.thread_while_loop(of(W.NOTYFIKACJA_EKIPA, W.ZDJECIA_TWARZOWKI)), "--->", M.thread_while_loop(M.PRZEWAGA(W.CIAGLOSC_INFORMACJI)));
 
         M.W(W.SLABY, "--->", M.DEFAULT(W.CEL_ATAKU));
         M.W(W.SILNY, "--->", M.DEFAULT(M.thread_while_loop(M.WYBOR_CELU(W.SLABSI))));
@@ -1254,10 +1254,10 @@ public class CPU_UL extends AbstractCPU {
 
         M.W(W.SLABY, "--->", of(M.UNIKA(W.WALKA_PIESCI), M.SIEGA_PO(W.SPRZET)));
 
-        M.W(M.DZIALANIE(of(W.OSTRY_SPRZET, W.GAZ, W.ZWIADY, W.FOTY)), "--->", M.CEL(of(M.WYWOLANIE(W.STRACH),
+        M.W(M.DZIALANIE(of(W.OSTRY_SPRZET, W.GAZ, W.ZWIADY, W.ZDJECIA_TWARZOWKI)), "--->", M.CEL(of(M.WYWOLANIE(W.STRACH),
                                                                                             M.PRZEZUCENIE(W.PRZECIWNY_KLUB))));
 
-        M.W(of(M.UDAJE_ZE(W.DZWONI), M.UDAJE_ZE(W.PRZEGLADA_TELEFON)), "--->", M.ROBI(W.FOTY));
+        M.W(of(M.UDAJE_ZE(W.DZWONI), M.UDAJE_ZE(W.PRZEGLADA_TELEFON)), "--->", M.ROBI(W.ZDJECIA_TWARZOWKI));
 
 
         M.WW(M.SLABY_TCHORZ(M.PO_CICHU(of(M.ZWYZYWAJ(W.OSOBA),
@@ -1383,7 +1383,7 @@ public class CPU_UL extends AbstractCPU {
         M.POBIERZ(METODY_POLICYJNE_WARUNKI);
         M.SWOI(of(W.SAD, W.POLICJA, W.SZPITAL, W.OCHRONA, W.RYNEK, W.SILOWNIA, W.Z_PIESKIEM));
 
-        M.W(W.NIE_OD_NAS, "--->", of(W.NOTYFIKACJA_EKIPA, W.FOTY, W.CISNIE, W.WALKA_SPRZET));
+        M.W(W.NIE_OD_NAS, "--->", of(W.NOTYFIKACJA_EKIPA, W.ZDJECIA_TWARZOWKI, W.CISNIE, W.WALKA_SPRZET));
 
         M.W(W.OD_NAS, "--->", of(W.WYKORZYSTUJ, W.OKRASC_PIENIADZE, W.UNIZA, M.OCZEKIWANIE(W.ZLO)));
 
@@ -1401,7 +1401,7 @@ public class CPU_UL extends AbstractCPU {
                                                         kierownictwo.thread_while_loop((M.OCZEKIWANIE(BRAK_ZASAD_WARUNKI)))));
 
         M.W(of(W.MIEJSCE_STALE, W.OBSLUGA_NIE_OD_NAS), "--->", of(M.thread_while_loop(M.PROBUJ_PRZEJAC(of(W.OBSLUGA, W.KIEROWNICTWO))),
-                                        M.thread_while_loop(M.NASYLANIE_DZIALACZY(of(W.NOTYFIKACJA_EKIPA, W.FOTY, W.CISNIE, W.WALKA_SPRZET)))
+                                        M.thread_while_loop(M.NASYLANIE_DZIALACZY(of(W.NOTYFIKACJA_EKIPA, W.ZDJECIA_TWARZOWKI, W.CISNIE, W.WALKA_SPRZET)))
                                                         .CEL(of(W.ZASTRASZENIE, W.OGRANICZENIE_WOLNOSCI_ULICA, W.ZAMKNIECIE_OPCJI,
                                                                 W.WARTOSC, M.DOSTEP(W.ZLO), W.EMOCJE_ZE_ZLA))
         ));
@@ -1415,7 +1415,7 @@ public class CPU_UL extends AbstractCPU {
 
     public void terytoriumWroga() {
         M.CZESTO(M.ZWIAD(W.OSIEDLE));
-        M.CZESTO(M.MIEJSCE_STALE(W.FOTY));
+        M.CZESTO(M.MIEJSCE_STALE(W.ZDJECIA_TWARZOWKI));
 
         M.CZESTO(M.thread_while_loop(W.SAMOCHOD));
         M.CZASEM(M.WJAZD(W.SPRZET));

@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class DB_Warunki extends DB {
     public void init() {
-        List<List<W>> KATEGORIA_WYMAGANIA_WSTEPNE = Arrays.asList(
+        List<List<W>> ZBIOR_WYMAGANIA_WSTEPNE = Arrays.asList(
                 WYMAGANIA_WSTEPNE_SWIAT,
                 WYMAGANIA_WSTEPNE_INFORMACJA,
                 WYMAGANIA_WSTEPNE_WIEDZA,
@@ -26,7 +26,7 @@ public class DB_Warunki extends DB {
                 WYMAGANIA_WSTEPNE_KOBIETA
         );
 
-        List<List<W>> KATEGORIA_WYMAGANIA_UTRZYMANIA = Arrays.asList(
+        List<List<W>> ZBIOR_WYMAGANIA_UTRZYMANIA = Arrays.asList(
                 WYMAGANIA_UTRZYMANIA_SWIAT,
                 WYMAGANIA_UTRZYMANIA_INFORMACJA,
                 WYMAGANIA_UTRZYMANIA_WIEDZA,
@@ -41,7 +41,7 @@ public class DB_Warunki extends DB {
                 WYMAGANIA_UTRZYMANIA_KOBIETA
         );
 
-        List<List<W>> KATEGORIA_WARUNKI_KONCOWE = Arrays.asList(
+        List<List<W>> ZBIOR_WARUNKI_KONCOWE = Arrays.asList(
                 WARUNKI_KONCOWE_SWIAT,
                 WARUNKI_KONCOWE_PRACA,
                 WARUNKI_KONCOWE_ZARABIANIE,
@@ -51,7 +51,7 @@ public class DB_Warunki extends DB {
                 WARUNKI_KONCOWE_WIEDZA
         );
 
-        List<List<W>> KATEGORIA_ZLY_DOBRY = Arrays.asList(
+        List<List<W>> ZBIOR_ZLY_DOBRY = Arrays.asList(
                 PRZYCZYNY_SLUZENIA_ZLU,
                 PRZYCZYNY_SLUZENIA_DOBRU,
                 ZACHETA_DO_ZLA,
@@ -65,20 +65,20 @@ public class DB_Warunki extends DB {
                 ZLY_ZNAKI_ROZPOZNAWCZE
         );
 
-        List<List<W>> KATEGORIA_GLOBAL_PLANSZA = Arrays.asList(
+        List<List<W>> ZBIOR_GLOBAL_PLANSZA = Arrays.asList(
                 GLOBAL_PLANSZA_LUDZIE,
                 GLOBAL_PLANSZA_PRACA,
                 SILNE_WIEZY_CZLOWIEKA
         );
 
-        List<List<W>> KATEGORIA_WARTOSCI_OCENA_WROG = Arrays.asList(
+        List<List<W>> ZBIOR_WARTOSCI_OCENA_WROG = Arrays.asList(
                 WARTOSC_ZLA,
                 WARTOSC_DOBRA,
                 OCENIA_WEDLUG,
                 KRYTERIA_WROGA
         );
 
-        List<List<W>> KATEGORIA_ZASADY_PRZYMUS_ZAGROZENIA = Arrays.asList(
+        List<List<W>> ZBIOR_ZASADY_PRZYMUS_ZAGROZENIA = Arrays.asList(
                 ZASADY,
                 PRZYMUS,
                 ZAGROZENIA,
@@ -86,7 +86,7 @@ public class DB_Warunki extends DB {
                 METODY_POLICYJNE
         );
 
-        List<List<W>> KATEGORIA_TWL_PRZEWAGI_SLABOSCI_CIERPIENIA_POTRZEBY = Arrays.asList(
+        List<List<W>> ZBIOR_TWL_PRZEWAGI_SLABOSCI_CIERPIENIA_POTRZEBY = Arrays.asList(
                 THREAD_WHILE_LOOP,
                 PRZEWAGI,
                 SLABOSCI,
@@ -98,12 +98,12 @@ public class DB_Warunki extends DB {
                 SLABY_TCHORZ
         );
 
-        List<List<W>> KATEGORIA_REAKCJE = Arrays.asList(
+        List<List<W>> ZBIOR_REAKCJE = Arrays.asList(
                 WYMUSZENIE_REAKCJI,
                 REAKCJA_KOBIET
         );
 
-        List<List<W>> KATEGORIA_SONDA = Arrays.asList(
+        List<List<W>> ZBIOR_SONDA = Arrays.asList(
                 SONDA_GDY,
                 SONDA_PO,
                 KOGO,
@@ -112,36 +112,36 @@ public class DB_Warunki extends DB {
                 SONDA_SHRTS
         );
 
-        List<List<W>> KATEGORIA_CZAS = Arrays.asList(
+        List<List<W>> ZBIOR_CZAS = Arrays.asList(
                 CYKL_DNIA,
                 PLAN_TERMIN,
                 ERA,
                 POZYTECZNE_SPEDZANIE_CZASU
         );
 
-        List<List<W>> KATEGORIA_ROZRYWKI_ZART = Arrays.asList(
+        List<List<W>> ZBIOR_ROZRYWKI_ZART = Arrays.asList(
                 ROZRYWKI,
                 ZART
         );
 
-        List<List<W>> KATEGORIA_EMOCJE_UCZUCIA = Arrays.asList(
+        List<List<W>> ZBIOR_EMOCJE_UCZUCIA = Arrays.asList(
                 EMOCJE_NEGATYWNE,
                 EMOCJE_POZYTYWNE,
                 UCZUCIA_NEGATYWNE,
                 UCZUCIA_POZYTYWNE
         );
 
-        List<List<W>> KATEGORIA_ZDOBYWANIE_WIEDZY_PIENIEDZY = Arrays.asList(
+        List<List<W>> ZBIOR_ZDOBYWANIE_WIEDZY_PIENIEDZY = Arrays.asList(
                 ZAROBEK_NIELEGALNY
         );
 
-        List<List<W>> KATEGORIA_KSZTALTOWANIE = Arrays.asList(
+        List<List<W>> ZBIOR_KSZTALTOWANIE = Arrays.asList(
                 KSZTALTOWANIE_DZIELNICY,
                 KSZTALTOWANIE_CZLOWIEKA
 
         );
 
-        List<List<W>> KATEGORIA_RANY = Arrays.asList(
+        List<List<W>> ZBIOR_RANY = Arrays.asList(
                 RANY_PSYCHICZNE,
                 RANY_FIZYCZNE,
                 RANY_ZNECANIE_SIE,
@@ -155,7 +155,7 @@ public class DB_Warunki extends DB {
                 KONFRONTACJA
         );
 
-        List<List<W>> KATEGORIA_TYPY_PRAC = Arrays.asList(
+        List<List<W>> ZBIOR_TYPY_PRAC = Arrays.asList(
                 PRACA_FIZYCZNA,
                 PRACA_HANDEL,
                 PRACA_WYMAGAJACA_UMIEJETNOSCI,
@@ -165,12 +165,12 @@ public class DB_Warunki extends DB {
                 PRACA_TECHNICZNA_UMYSLOWA
         );
 
-        List<List<W>> KATEGORIA_TEMATY = Arrays.asList(
+        List<List<W>> ZBIOR_TEMATY = Arrays.asList(
                 TEMATY_NORMALNYCH_LUDZI,
                 TEMATY_RDZENNYCH
         );
 
-        List<List<W>> KATEGORIA_KOBIETA_PRAKTYKA = Arrays.asList(
+        List<List<W>> ZBIOR_KOBIETA_PRAKTYKA = Arrays.asList(
                 WZGLEDNA_IZOLACJA,
                 SPRZYJAJACE,
                 NIE_SPRZYJAJACE,
@@ -179,34 +179,34 @@ public class DB_Warunki extends DB {
                 EXTREMALNE_SYTUACJE
         );
 
-        List<List<W>> KATEGORIA_UNIWERSALNE_SWIAT = Arrays.asList(
+        List<List<W>> ZBIOR_UNIWERSALNE_SWIAT = Arrays.asList(
                 WSPOMNIENIA
         );
 
-        List<List<W>> KATEGORIA_TYPY_LUDZI = Arrays.asList(
+        List<List<W>> ZBIOR_TYPY_LUDZI = Arrays.asList(
                 TYPY_LUDZI_SHRT,
                 TYPY_LUDZI_DOBRE,
                 TYPY_LUDZI_ZLE
         );
 
-        List<List<W>> KATEGORIA_SYTUACJE = Arrays.asList(
+        List<List<W>> ZBIOR_SYTUACJE = Arrays.asList(
                 TYPY_SYTUACJI,
                 SYTUACJE_STARCIE
         );
 
-        List<List<W>> KATEGORIA_WIEDZA = Arrays.asList(
+        List<List<W>> ZBIOR_WIEDZA = Arrays.asList(
                 RODZAJE_WIEDZA,
                 WYMAGANIA_WSTEPNE_WIEDZA,
                 WYMAGANIA_UTRZYMANIA_WIEDZA
         );
 
-        List<List<W>> KATEGORIA_DOPUSZCZENIE = Arrays.asList(
+        List<List<W>> ZBIOR_DOPUSZCZENIE = Arrays.asList(
                 WYMAGANIA_WSTEPNE_DOPUSZCZENIE_KOBIETA,
                 WYMAGANIA_UTRZYMANIA_DOPUSZCZENIE_KOBIETA,
                 WARUNKI_KONCOWE_DOPUSZCZENIE_KOBIETA
         );
 
-        List<List<W>> KATEGORIA_PRZEWAGI = Arrays.asList(
+        List<List<W>> ZBIOR_PRZEWAGI = Arrays.asList(
                 PRZEWAGI,
                 PRZEWAGI_LUDZKIE,
                 PRZEWAGI_Z_ULICY,
@@ -1086,7 +1086,7 @@ public class DB_Warunki extends DB {
 
                     M.MALY_WYSILEK(M.MOCNO(M.PODSTAWA(of(W.UKRYCIE, W.KLAMSTWO, W.PO_CICHU)))),
                     M.MALY_WYSILEK(M.MOCNO(of(W.WDUPC_ZAKLECIEM, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE))),
-                    M.MALY_WYSILEK(M.MOCNO(of(W.NOTYFIKACJA_EKIPA, W.FOTY, W.NAKLEJ_NALEPKE, W.OBGADAC,
+                    M.MALY_WYSILEK(M.MOCNO(of(W.NOTYFIKACJA_EKIPA, W.ZDJECIA_TWARZOWKI, W.NAKLEJ_NALEPKE, W.OBGADAC,
                             W.NOTYFIKACJA_ALL_O_HANBIE, W.PRZEKONYWANIE_OTOCZENIA_PRZECIW, W.NARZEKANIE_NA_OSOBE,
                             W.UNIZA, W.LEKCEWAZY_INNYCH))),
                     M.MALY_WYSILEK(W.CISNIE),
@@ -1189,7 +1189,7 @@ public class DB_Warunki extends DB {
                                                           M.DEFAULT_DZIALAJCY(of(W.ODPOWIADA, W.WALKA_PIESCI, W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
 
             M.W(M.MALY_WYSILEK(W.BLISKOSC), "--->", of(W.SONDA, M.DEFAULT(W.PATRZY),
-                                                            M.DEFAULT_DZIALAJCY(of(W.PATRZY, W.ROZKMINIA, W.FOTY, W.NOTYFIKACJA_EKIPA, M.OPCJA(W.CISNIE)))))
+                                                            M.DEFAULT_DZIALAJCY(of(W.PATRZY, W.ROZKMINIA, W.ZDJECIA_TWARZOWKI, W.NOTYFIKACJA_EKIPA, M.OPCJA(W.CISNIE)))))
     );
 
     public static List<W> OBRONA_STARCIE =
@@ -1279,7 +1279,7 @@ public class DB_Warunki extends DB {
 
             M.W(of(M.OPPONENT(of(W.PRZEWAGA_SILY, W.SPRZET)), W._88_, M.WYSTEPUJE(W.WARTOSC)), "--->", M.MIMO_TO(M.WALISZ())),
 
-            M.W(of(W.NOTYFIKACJA_EKIPA, W.FOTY), "--->", of(M.STRATA(M.ZNISZCZENIE(W.TELEFON)), W.WALKA_PIESCI)),
+            M.W(of(W.NOTYFIKACJA_EKIPA, W.ZDJECIA_TWARZOWKI), "--->", of(M.STRATA(M.ZNISZCZENIE(W.TELEFON)), W.WALKA_PIESCI)),
 
             M.W(W.GAZ, "--->", of(W.KOMIN_ANTY_GAZ, W._88_, W.WALKA_PIESCI)),
 
@@ -1288,7 +1288,7 @@ public class DB_Warunki extends DB {
 
     public static List<W> ZACHOWANIE_REZULTAT_ULICA =  of(
 
-            M.W(of(M.NOTYFIKACJA(W.EKIPA), W.FOTY), "--->", of(M.DEFAULT(M.BRAK(W.REAKCJA)), M.INFORMACJA(W.EKIPA))),
+            M.W(of(M.NOTYFIKACJA(W.EKIPA), W.ZDJECIA_TWARZOWKI), "--->", of(M.DEFAULT(M.BRAK(W.REAKCJA)), M.INFORMACJA(W.EKIPA))),
 
             M.W(W.SPRZET, "--->", M.DEFAULT(of(M.WLASNA(W.OBRONA), M.UZYCIE(M.GDY(W.ZAGROZENIE)), M.NABYCIE(W.WARTOSC)))),
 
@@ -1342,7 +1342,7 @@ public class DB_Warunki extends DB {
             Arrays.asList(
                     M.MALY_WYSILEK(M.MOCNO(M.PODSTAWA(of(W.UKRYCIE, W.KLAMSTWO, W.PO_CICHU)))),
                     M.MALY_WYSILEK(M.MOCNO(of(W.WDUPC_ZAKLECIEM, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE))),
-                    M.MALY_WYSILEK(M.MOCNO(of(W.NOTYFIKACJA_EKIPA, W.FOTY, W.NAKLEJ_NALEPKE, W.OBGADAC,
+                    M.MALY_WYSILEK(M.MOCNO(of(W.NOTYFIKACJA_EKIPA, W.ZDJECIA_TWARZOWKI, W.NAKLEJ_NALEPKE, W.OBGADAC,
                             W.NOTYFIKACJA_ALL_O_HANBIE, W.PRZEKONYWANIE_OTOCZENIA_PRZECIW,
                             W.UNIZA, W.LEKCEWAZY_INNYCH))),
                     M.MALY_WYSILEK(M.MOCNO(W.STARCIE_WIELU_NA_JEDNEGO)), M.MALY_WYSILEK(M.MOCNO(W.PRZEWAGA_NA_BRAK_PRZEWAGI)),
@@ -1440,7 +1440,7 @@ public class DB_Warunki extends DB {
             M.SYTUACJA(of(W.PATRZY, W.CISNIE, M.IDZIE(W.TWOJA_STRONA))),
             M.SYTUACJA(of(W.PATRZY, M.BIEGNIE(W.TWOJA_STRONA).CEL(W.WALKA_PIESCI))),
             M.SYTUACJA(of(W.PATRZY, M.BIEGNIE(W.TWOJA_STRONA).CEL(W.WALKA_SPRZET))),
-            M.SYTUACJA(M.ROBI(W.FOTY)),
+            M.SYTUACJA(M.ROBI(W.ZDJECIA_TWARZOWKI)),
             M.SYTUACJA(M.IDZIE(W.ZWIADY)),
             M.SYTUACJA(M.IDZIE(W.ZWIADY).Z(W.OSLONA)),
 
@@ -1449,7 +1449,7 @@ public class DB_Warunki extends DB {
             M.SYTUACJA(M.WIELU(of(W.PATRZY, W.CISNIE, M.IDZIE(W.TWOJA_STRONA)))),
             M.SYTUACJA(M.WIELU(of(W.PATRZY, M.BIEGNIE(W.TWOJA_STRONA).CEL(W.WALKA_PIESCI)))),
             M.SYTUACJA(M.WIELU(of(W.PATRZY, M.BIEGNIE(W.TWOJA_STRONA).CEL(W.WALKA_SPRZET)))),
-            M.SYTUACJA(M.WIELU(M.ROBI(W.FOTY))),
+            M.SYTUACJA(M.WIELU(M.ROBI(W.ZDJECIA_TWARZOWKI))),
             M.SYTUACJA(M.WIELU(M.IDZIE(W.ZWIADY))),
             M.SYTUACJA(M.WIELU(M.IDZIE(W.ZWIADY).Z(W.OSLONA)))
     );
@@ -1484,7 +1484,7 @@ public class DB_Warunki extends DB {
             W.OBECNOSC, W.ZASIEG_WZROKU, W.ZASIEG_BIEGU, W.ZASIEG_SAMOCHODU, W.ZASIEG_BRONI
     );
 
-    public static List<List<W>> KATEGORIA_ZLY_DOBRY = Arrays.asList(
+    public static List<List<W>> ZBIOR_ZLY_DOBRY = Arrays.asList(
             PRZYCZYNY_SLUZENIA_ZLU,
             PRZYCZYNY_SLUZENIA_DOBRU,
             ZACHETA_DO_ZLA,
@@ -1498,12 +1498,12 @@ public class DB_Warunki extends DB {
             ZLY_ZNAKI_ROZPOZNAWCZE
     );
 
-    public static List<List<W>> KATEGORIA_GLOBAL_PLANSZA = Arrays.asList(
+    public static List<List<W>> ZBIOR_GLOBAL_PLANSZA = Arrays.asList(
             GLOBAL_PLANSZA_LUDZIE,
             GLOBAL_PLANSZA_PRACA
     );
 
-    public static List<List<W>> KATEGORIA_WARTOSCI_OCENA_WROG = Arrays.asList(
+    public static List<List<W>> ZBIOR_WARTOSCI_OCENA_WROG = Arrays.asList(
             WARTOSC_ZLA,
             WARTOSC_DOBRA,
             OCENIA_WEDLUG,
@@ -1511,7 +1511,7 @@ public class DB_Warunki extends DB {
             NASTAWIENIA
     );
 
-    public static List<List<W>> KATEGORIA_ZASADY_PRZYMUS_ZAGROZENIA = Arrays.asList(
+    public static List<List<W>> ZBIOR_ZASADY_PRZYMUS_ZAGROZENIA = Arrays.asList(
             ZASADY,
             PRZYMUS,
             ZAGROZENIA,
@@ -1519,7 +1519,7 @@ public class DB_Warunki extends DB {
             METODY_POLICYJNE
     );
 
-    public static List<List<W>> KATEGORIA_TWL_PRZEWAGI_SLABOSCI_CIERPIENIA_POTRZEBY = Arrays.asList(
+    public static List<List<W>> ZBIOR_TWL_PRZEWAGI_SLABOSCI_CIERPIENIA_POTRZEBY = Arrays.asList(
             THREAD_WHILE_LOOP,
             PRZEWAGI,
             SLABOSCI,
@@ -1531,12 +1531,12 @@ public class DB_Warunki extends DB {
             SLABY_TCHORZ
     );
 
-    public static List<List<W>> KATEGORIA_REAKCJE = Arrays.asList(
+    public static List<List<W>> ZBIOR_REAKCJE = Arrays.asList(
             WYMUSZENIE_REAKCJI,
             REAKCJA_KOBIET
     );
 
-    public static List<List<W>> KATEGORIA_SONDA = Arrays.asList(
+    public static List<List<W>> ZBIOR_SONDA = Arrays.asList(
             SONDA_GDY,
             SONDA_PO,
             KOGO,
@@ -1545,36 +1545,36 @@ public class DB_Warunki extends DB {
             SONDA_SHRTS
     );
 
-    public static List<List<W>> KATEGORIA_CZAS = Arrays.asList(
+    public static List<List<W>> ZBIOR_CZAS = Arrays.asList(
             CYKL_DNIA,
             PLAN_TERMIN,
             ERA,
             POZYTECZNE_SPEDZANIE_CZASU
     );
 
-    public static List<List<W>> KATEGORIA_ROZRYWKI_ZART = Arrays.asList(
+    public static List<List<W>> ZBIOR_ROZRYWKI_ZART = Arrays.asList(
             ROZRYWKI,
             ZART
     );
 
-    public static List<List<W>> KATEGORIA_EMOCJE_UCZUCIA = Arrays.asList(
+    public static List<List<W>> ZBIOR_EMOCJE_UCZUCIA = Arrays.asList(
             EMOCJE_NEGATYWNE,
             EMOCJE_POZYTYWNE,
             UCZUCIA_NEGATYWNE,
             UCZUCIA_POZYTYWNE
     );
 
-    public static List<List<W>> KATEGORIA_ZDOBYWANIE_WIEDZY_PIENIEDZY = Arrays.asList(
+    public static List<List<W>> ZBIOR_ZDOBYWANIE_WIEDZY_PIENIEDZY = Arrays.asList(
             ZAROBEK_NIELEGALNY
     );
 
-    public static List<List<W>> KATEGORIA_KSZTALTOWANIE = Arrays.asList(
+    public static List<List<W>> ZBIOR_KSZTALTOWANIE = Arrays.asList(
             KSZTALTOWANIE_DZIELNICY,
             KSZTALTOWANIE_CZLOWIEKA,
             SILNE_WIEZY_CZLOWIEKA
     );
 
-    public static List<List<W>> KATEGORIA_RANY = Arrays.asList(
+    public static List<List<W>> ZBIOR_RANY = Arrays.asList(
             RANY_PSYCHICZNE,
             RANY_FIZYCZNE,
             RANY_ZNECANIE_SIE,
@@ -1590,7 +1590,7 @@ public class DB_Warunki extends DB {
             ZASIEG_PRZEWAGI_ULICA
     );
 
-    public static List<List<W>> KATEGORIA_TYPY_PRAC = Arrays.asList(
+    public static List<List<W>> ZBIOR_TYPY_PRAC = Arrays.asList(
             PRACA_FIZYCZNA,
             PRACA_HANDEL,
             PRACA_WYMAGAJACA_UMIEJETNOSCI,
@@ -1600,12 +1600,12 @@ public class DB_Warunki extends DB {
             PRACA_TECHNICZNA_UMYSLOWA
     );
 
-    public static List<List<W>> KATEGORIA_TEMATY = Arrays.asList(
+    public static List<List<W>> ZBIOR_TEMATY = Arrays.asList(
             TEMATY_NORMALNYCH_LUDZI,
             TEMATY_RDZENNYCH
     );
 
-    public static List<List<W>> KATEGORIA_KOBIETA_PRAKTYKA = Arrays.asList(
+    public static List<List<W>> ZBIOR_KOBIETA_PRAKTYKA = Arrays.asList(
             WZGLEDNA_IZOLACJA,
             SPRZYJAJACE,
             NIE_SPRZYJAJACE,
@@ -1614,35 +1614,35 @@ public class DB_Warunki extends DB {
             EXTREMALNE_SYTUACJE
     );
 
-    public static List<List<W>> KATEGORIA_UNIWERSALNE_SWIAT = Arrays.asList(
+    public static List<List<W>> ZBIOR_UNIWERSALNE_SWIAT = Arrays.asList(
             WSPOMNIENIA,
             RELACJE
     );
 
-    public static List<List<W>> KATEGORIA_TYPY_LUDZI = Arrays.asList(
+    public static List<List<W>> ZBIOR_TYPY_LUDZI = Arrays.asList(
             TYPY_LUDZI_SHRT,
             TYPY_LUDZI_DOBRE,
             TYPY_LUDZI_ZLE
     );
 
-    public static List<List<W>> KATEGORIA_SYTUACJE = Arrays.asList(
+    public static List<List<W>> ZBIOR_SYTUACJE = Arrays.asList(
             TYPY_SYTUACJI,
             SYTUACJE_STARCIE
     );
 
-    public static List<List<W>> KATEGORIA_WIEDZA = Arrays.asList(
+    public static List<List<W>> ZBIOR_WIEDZA = Arrays.asList(
             RODZAJE_WIEDZA,
             WYMAGANIA_WSTEPNE_WIEDZA,
             WYMAGANIA_UTRZYMANIA_WIEDZA
     );
 
-    public static List<List<W>> KATEGORIA_DOPUSZCZENIE = Arrays.asList(
+    public static List<List<W>> ZBIOR_DOPUSZCZENIE = Arrays.asList(
             WYMAGANIA_WSTEPNE_DOPUSZCZENIE_KOBIETA,
             WYMAGANIA_UTRZYMANIA_DOPUSZCZENIE_KOBIETA,
             WARUNKI_KONCOWE_DOPUSZCZENIE_KOBIETA
     );
 
-    public static List<List<W>> KATEGORIA_PRZEWAGI = Arrays.asList(
+    public static List<List<W>> ZBIOR_PRZEWAGI = Arrays.asList(
             PRZEWAGI,
             PRZEWAGI_LUDZKIE,
             PRZEWAGI_Z_ULICY,

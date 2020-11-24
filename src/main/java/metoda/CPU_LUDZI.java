@@ -276,25 +276,25 @@ public class CPU_LUDZI extends AbstractCPU {
         );
         M.W(of(W.NOWA_OSOBA),
                 of(
-                        M.pierwszaReakcja(of(W.ROZKMINIA, W.MAGICZNE_ZAKLECIE, W.FOTY, W.NOTYFIKACJA_EKIPA,
+                        M.pierwszaReakcja(of(W.ROZKMINIA, W.MAGICZNE_ZAKLECIE, W.ZDJECIA_TWARZOWKI, W.NOTYFIKACJA_EKIPA,
                                 W.PROWOKUJE, W.CISNIE, W.WYPROWADZA_Z_ROWNOWAGI, W.WALKA_PIESCI))
                 )
         );
         M.W(of(W.KTOS_MI_COS_ZROBIL, W._II_, W.ZAZDROSC),
                 of(
-                        M.reakcjaMocniejNizszemuWHierarchii(KATEGORIA_RANY)
+                        M.reakcjaMocniejNizszemuWHierarchii(ZBIOR_RANY)
                 )
         );
 
         M.sondaPrzewagPodZrobienieZla();
-        M.zniszczJakNajwiecej(KATEGORIA_RANY);
+        M.zniszczJakNajwiecej(ZBIOR_RANY);
         M.zabierzJakNajwiecej();
 
         M.W(of(W.OBRONA),
                 of(
                         M.brakReakcji(W.WYZSZE_DOBRO),
                         M.II(),
-                        M.reakcjaMocniej(KATEGORIA_RANY)
+                        M.reakcjaMocniej(ZBIOR_RANY)
                 )
         );
     }
@@ -398,7 +398,7 @@ public class CPU_LUDZI extends AbstractCPU {
                                 srodowisko.ROBI_KRZYWDE_Z_PRZEWAGA(dzialacz, KRZYWDY_WARUNKI)
                         )),
 
-                        M.W(srodowisko.CZESTO(M.WZAJEMNE_RANY(KATEGORIA_RANY)), "--->", srodowisko.TOLERANCJA(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI)),
+                        M.W(srodowisko.CZESTO(M.WZAJEMNE_RANY(ZBIOR_RANY)), "--->", srodowisko.TOLERANCJA(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI)),
                         srodowisko.WHILE(dzialacz.thread_while_loop(of(W.SLUCHAJA, W.OBECNOSC_LUDZI, M.wykonujeRozkazy(W.GORA), M.KRZYWDY(osobyPozaSrodowisko, KRZYWDY_WARUNKI)))),
 
                         M.W(M.INFORMACJA(W.WROG), "--->", dzialajcyBliskoMiejsca.forEach(of(M.NABYCIE(W.BLISKOSC), W.CISNIE, W.WALKA_PIESCI, W.WALKA_SPRZET))),
