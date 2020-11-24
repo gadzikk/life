@@ -20,14 +20,22 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
 
         M.DEFAULT(of(M.MOCNO(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI), M.SLABO(PRZYCZYNY_SLUZENIA_DOBRU_WARUNKI)));
 
-        M.WW(W.ZLO, "--->", of(W.PRZYJEMNOSCI, on(PRZEWAGI_WARUNKI), M.MALO(W.WYSILEK)), "--->", W.PIEKLO);
+        M.WW(W.ZLO, "--->", of(M.ROBI_KRZYWDE(of(on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI))),
+                                             M.TWORZENIE(of(on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI)))), "--->",of(M.LEKKIE(W.ZYCIE),
+                                                                                                                         M.OTRZYMANIE(of(M.TYMCZASOWE(PRZEWAGI_WARUNKI),
+                                                                                                                                        W.PRZYJEMNOSCI)),
+                                                                                                                                 M.REZULTAT(W.PIEKLO)));
 
-        M.WW(W.DOBRO, "--->", M.DUZO(of(W.CIERPIENIE, W.PRACA, W.WYSILEK)), "--->", W.NIEBO);
+        M.WW(W.DOBRO, "--->", M.DUZO(of(W.CIERPIENIE, W.PRACA, W.WYSILEK)), "--->", of(W.ZMECZENIE, M.CIEZKIE(W.ZYCIE),
+                                                                                                 M.REZULTAT(W.NIEBO)));
 
         M.W(M.DUZO(W.GRZECH), "--->", M.DUZO(W.WADY));
 
         M.W(M.OSOBA(M.PODANIE_REKI(W.ZLO)), "--->", M.ZLO(W.DOSTEP)
-                                                            .OTHERWISE(M.ZLO(M.BRAK(W.DOSTEP))));
+                                                            .W_PRZECIWNYM_PRZYPADKU(M.ZLO(M.BRAK(W.DOSTEP))));
+
+        M.W(W.ZLO, "--->", of(M.FALSZYWE_WRAZENIE(W.SILNI), M.RZECZYWISTOSC(W.SLABI)));
+        M.W(W.DOBRO, "--->", of(M.FALSZYWE_WRAZENIE(W.SLABI), M.RZECZYWISTOSC(W.SILNI)));
 
         zloDzialanie();
         dobroDzialanie();
@@ -83,7 +91,7 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
 
         zly.thread_while_loop(M.KONTROLA(W.WSZYSCY));
 
-        M.W(of(W.ZLY, W._88_, W.WIDZIAL) , "--->", of(M.ODRAZU(M.MOCNO(KTO_KOGO_WARUNKI)), W.PRAGNIENIE_ZLA));
+        M.W(of(W.ZLY, W._88_, W.WIDZIAL) , "--->", of(M.ODRAZU(M.MOCNO(KRZYWDY_WARUNKI)), W.PRAGNIENIE_ZLA));
 
         M.W(of(W.ZLY, W._88_, W.BLISKOSC, W._88_, W.DOSTEP) , "--->", of(W.ZMATERIALIZOWANIE_ZLA,
                                                                                     W.WBICIE_NA_MUKE,
@@ -107,10 +115,10 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
         M.POBIERZ_WZORCE_ZASADY(of(W.ZLO, W.SRODOWISKO));
 
         M.W(W.ZLY, "--->", of(M.DEFAULT(of(W.SLABSZY.NIZ(W.INNI), M.GORSZE(W.ZYCIE).NIZ(W.INNI), M.GORSZE(W.UMIEJETNOSCI).NIZ(W.INNI))),
-                                                M.TOLERANCJA(of(on(KTO_KOGO_WARUNKI), on(BRAK_ZASAD_WARUNKI))),
-                                                M.DOSWIADCZENIE(M.ZDOLNY(of(on(KTO_KOGO_WARUNKI), on(BRAK_ZASAD_WARUNKI)))),
+                                                M.TOLERANCJA(of(on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI))),
+                                                M.DOSWIADCZENIE(M.ZDOLNY(of(on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI)))),
                                                 M.W(W.OSOBA, "--->", of(M.WYKORZYSTUJE(W.OSOBA), M.KRZYWDZI(W.OSOBA),
-                                                                            M.SZYBKO(M.KTO_KOGO(of(W.OSOBA, on(KTO_KOGO_WARUNKI)))))),
+                                                                            M.SZYBKO(M.KRZYWDY(of(W.OSOBA, on(KRZYWDY_WARUNKI)))))),
                                                 M.CEL(of(W.ZNISZCZENIE, on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI))))
         );
     }

@@ -147,7 +147,7 @@ public class DB_Warunki extends DB {
                 RANY_ZNECANIE_SIE,
                 RANY_SPRZET,
                 RANY_DOSTEPOWE,
-                KTO_KOGO,
+                KRZYWDY,
                 BRAK_ZASAD,
                 OBRONA_STARCIE,
                 METODA_STARCIE_REAKCJA,
@@ -278,7 +278,6 @@ public class DB_Warunki extends DB {
     public static List<W> WYMAGANIA_WSTEPNE_ZARABIANIE =
             Arrays.asList(
                     W.SPELNIENIE_WYMAGAN,
-                    W.POPYT,
                     W.ODZEW_HR,
                     W.POZYTYWNY_FEEDBACK_INTERVIEW,
                     W.WYGRANIE_Z_KONKURENTAMI,
@@ -608,6 +607,7 @@ public class DB_Warunki extends DB {
 
     public static List<W> GLOBAL_PLANSZA_PRACA =
             Arrays.asList(
+                    W.POPYT, W.POTRZEBA,
                     W.FIRMY_NIEWYMAGAJACE_DOSWIADCZENIE,
                     W.FIRMY_WYMAGAJACE_DOSWIADCZENIE,
                     W.RYNEK_PLAC,
@@ -636,6 +636,8 @@ public class DB_Warunki extends DB {
     public static List<W> PRZEWAGI =
             Arrays.asList(
                     W.INFORMACJA, W.CZAS, W.WIEDZA, W.SWIADOMOSC, W.BRAK_WSTYDU, W.OBECNOSC, M.OBECNOSC(W.UJSCIE),
+                    M.WAZNE(of(W.ODWAGA, W.SILNA_PSYCHIKA)), W.PRACOWITOSC, W.UMIE_OCENIC, W.UMIE_KLAMAC, W.NIE_POKAZUJE_EMOCJI,
+                    W.CIERPLIWOSC, W.DALEKOWZROCZNOSC_CZYNOW, W.MADROSC, W.WIEDZA, W.PAMIEC, W.PRAWDA, W.DOBRO, W.TRZEZWOSC, W.DOSWIADCZENIA,
                     W.ZNAJOMI, W.WSPARCIE, W.OSIEDLOWE_SRD, W.KOBIETY_SRODOWISKO, W.CIAGLOSC_INFORMACJI, W.KOBIETA, W.SAMOCHOD,
                     M.SZANSA_NA(of(W.ZNAJOMI, W.WSPARCIE, W.OSIEDLOWE_SRD, W.KOBIETY_SRODOWISKO, W.KOBIETA)),
 
@@ -647,6 +649,7 @@ public class DB_Warunki extends DB {
                     W.WYSOKA_POZYCJA,
                     W.SPRYT, W.SZYBKOSC, W.SILNY, W.POTRAFI_OCENIC,
                     W.PRZEZYCIE_CIERPIENIA
+
             );
 
     public static List<W> PRZEWAGI_Z_ULICY =
@@ -661,7 +664,8 @@ public class DB_Warunki extends DB {
     public static List<W> PRZEWAGI_LUDZKIE =
             Arrays.asList(
                     W.INFORMACJA, W.CZAS, W.WIEDZA, W.SWIADOMOSC, W.BRAK_WSTYDU, W.OBECNOSC, M.OBECNOSC(W.UJSCIE),
-                    W.ROZMIAR, W.SILA_FIZYCZNA, W.SILNE_UDERZENIE, W.ZAPASY, W.OBRONA,
+                    M.WAZNE(of(W.ODWAGA, W.SILNA_PSYCHIKA)), W.PRACOWITOSC, W.UMIE_OCENIC, W.UMIE_KLAMAC, W.NIE_POKAZUJE_EMOCJI,
+                    W.CIERPLIWOSC, W.DALEKOWZROCZNOSC_CZYNOW, W.MADROSC, W.WIEDZA, W.PAMIEC, W.PRAWDA, W.DOBRO, W.TRZEZWOSC,
                     W.WALKA_PIESCI, W.WALKA_SPRZET, W.ZASLONIETA_TWARZ,
                     W.UMIEJETNOSC,
                     W.SPRYT, W.SZYBKOSC, W.SILNY, W.POTRAFI_OCENIC,
@@ -675,15 +679,21 @@ public class DB_Warunki extends DB {
 
     public static List<W> SLABOSCI =
             Arrays.asList(
-                    W.BRAK_ZNAJOMYCH, W.BRAK_SRODOWISKA, W.BRAK_KOBIETY,
-                    W.BRAK_SZANS_ZNAJOMI, W.BRAK_SZANS_SRODOWISKO, W.BRAK_SZANS_KOBIETA,
-                    W.BRAK_INFORMACJI, W.BRAK_CZASU, W.BRAK_WIEDZY, W.WSTYD,
-                    W.BRAK_LUDZI_ZA_TOBA, W.NIEZDOLNY_WALKA_PIESCI, W.NIEZDOLNY_WALKA_SPRZET,
-                    W.BRAK_UMIEJETNOSCI,
-                    W.BRAK_PRACY, W.BRAK_PIENIEDZY,
+                    M.BRAK(of(W.INFORMACJA, W.CZAS, W.WIEDZA, W.SWIADOMOSC, W.BRAK_WSTYDU, W.OBECNOSC, M.OBECNOSC(W.UJSCIE))),
+                    W.TCHORZOSTWO, W.SLABA_PSYCHIKA, W.LENISTWO, W.NIEUMIE_OCENIC, W.NIE_UMIE_KLAMAC, W.POKAZUJE_EMOCJE,
+                    W.AGRESJA, W.KROTKOWZROCZNOSC_CZYNOW, W.GLUPOTA, W.BRAK_WIEDZY, W.SLABA_PAMIEC, W.KLAMSTWO, W.ZLO, W.UZYWKI, M.BRAK(W.DOSWIADCZENIA),
+                    M.BRAK(of(W.ZNAJOMI, W.WSPARCIE, W.OSIEDLOWE_SRD, W.KOBIETY_SRODOWISKO, W.CIAGLOSC_INFORMACJI, W.KOBIETA, W.SAMOCHOD)),
+                    M.BRAK_SZANS(of(W.ZNAJOMI, W.WSPARCIE, W.OSIEDLOWE_SRD, W.KOBIETY_SRODOWISKO, W.KOBIETA)),
+
+                    M.BRAK(of(W.ROZMIAR, W.SILA_FIZYCZNA, W.SILNE_UDERZENIE, W.ZAPASY, W.OBRONA, W.ZDOLNI_DO_WALKI_ZNAJOMI,
+                        W.LUDZIE_ZA_TOBA, W.WALKA_PIESCI, W.WALKA_SPRZET, M.SPRZET(M.EKIPA(W.SAMOCHOD_NA_CHODZIE)), M.SPRZET(M.EKIPA(W.MIEJSCE)),
+                        W.EKIPA, M.BLISKO(W.EKIPA), W.ROWER, W.ZASLONIETA_TWARZ, W.HASELKO_RDZENNYCH, W.PIERWSZENSTWO,
+                        W.UMIEJETNOSC,
+                        W.PRACA, W.PIENIADZE,
+                        W.PRZEZYCIE_CIERPIENIA
+                    )),
                     W.SLABA_POZYCJA,
-                    W.TEMPOTA, W.POWOLNY, W.SLABY, W.NIEUMIE_OCENIC,
-                    W.PRZEZYCIE_WYGOD, W.PRZEZYCIE_DOBRA
+                    W.TEMPOTA, W.POWOLNY, W.SLABY
             );
 
     public static List<W> CIERPIENIA =
@@ -808,7 +818,7 @@ public class DB_Warunki extends DB {
 
     public static List<W> KRYTERIA_WROGA =
             Arrays.asList(
-                    W.PRZECIWNA_RASA, W.PRZECIWNY_NAROD, W.PRZECIWNA_KLASA, W.PRZECIWNY_KLUB,
+                    W.PRZECIWNA_RASA, W.PRZECIWNY_NAROD, W.PRZECIWNA_KLASA_SPOLECZNA, W.PRZECIWNY_KLUB,
                     W.PRZECIWNA_STRONA, W.ZASZKODZIL
             );
 
@@ -878,7 +888,7 @@ public class DB_Warunki extends DB {
     public static List<W> TERROR =
             Arrays.asList(
                     W.OCZY, W.USZY, W.CIERPIENIE, W.CIERPIENIE_DLUGOTERMINOWE, W.POZBAWIENIE_PRZEWAGI, W.KOSZTA,
-                    W.POZBAWIENIE_BEZPIECZENSTWA, W.POZBAWIENIE_DOSTEPOW, W.POZBAWIANIE_AUTORYTETU, W.PRZEJEBANE
+                    W.POZBAWIENIE_BEZPIECZENSTWA, W.POZBAWIENIE_DOSTEPOW, W.POZBAWIANIE_AUTORYTETU, W.POJECHANE
             );
 
     public static List<W> FEST =
@@ -981,8 +991,8 @@ public class DB_Warunki extends DB {
             Arrays.asList(
                     W.OSOBOWOSC, W.WIDZISZ, W.SLYSZYSZ, W.CZUJESZ, W.Z_KIM_PRZYSTAJESZ, W.PRAKTYKA, W.ZNAJOMI,
                     W.CHARAKTER, W.CIERPIENIE, W.CIEZKA_PRACA, W.TRUDNOSCI,
-                    W.UMYSL, W.PRACA_UMYSLOWA, W.CZYTANIE,
-                    W.FIZYCZNE, W.MAX_WZROKU, W.BIEGANIE, W.ROWER, W.BOKS, W.CIEZARY, W.PLYWANIE
+                    W.UMYSL, W.WYSILEK_UMYSLOWY,
+                    W.FIZYCZNE, W.WYSILEK_FIZYCZNY, W.SPORT, W.MAX_WZROKU
             );
 
     public static List<W> POZYTECZNE_SPEDZANIE_CZASU =
@@ -1067,7 +1077,7 @@ public class DB_Warunki extends DB {
                     W.NASTAWIENIE_DOMINACJA, W.NASTAWIENIE_STARCIE
             );
 
-    public static List<W> KTO_KOGO =
+    public static List<W> KRZYWDY =
             Arrays.asList(
                     M.START(W.ZLE_ZAMIARY),
                     M.STANDARD(M.MALY_WYSILEK(M.MOCNO(M.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA)))),
@@ -1344,9 +1354,9 @@ public class DB_Warunki extends DB {
 
     public static List<W> WADY_ZLYCH =
             Arrays.asList(
-                    W.UZYWKI, W.GLUPOTA, W.BRAK_SUMIENIA, W.KROTKOWZROCZNOSC, M.ROZKMINIONY_PRZEZ(W.CZYNY),
+                    W.UZYWKI, W.GLUPOTA, W.BRAK_SUMIENIA, W.KROTKOWZROCZNOSC_CZYNOW, M.ROZKMINIONY_PRZEZ(W.CZYNY),
                     M.DOSTEP(W.ZLO), M.BRAK_DOSTEPU(W.DOBRO),
-                    M.ZALEZNY_OD(W.PRZEWAGA), M.ZALEZNY_OD(W.EKIPA), W.ZYSK.OTHERWISE(W.BRAK_REAKCJI),
+                    M.ZALEZNY_OD(W.PRZEWAGA), M.ZALEZNY_OD(W.EKIPA), W.ZYSK.W_PRZECIWNYM_PRZYPADKU(W.BRAK_REAKCJI),
                     M.BOI_SIE(W.PRAWDA), M.BRAK_DOSWIADCZENIA(W.STARCIE_1_NA_1),
                     M.W(M.BRAK(W.PRZEWAGA), "--->", M.BRAK(W.DZIALANIE)),
                     M.BRAK(W.PRZYCHYLNOSC_BOGA),
@@ -1457,8 +1467,21 @@ public class DB_Warunki extends DB {
 
     public static List<W> SILNE_WIEZY_CZLOWIEKA = of(
             M.MOCNO(of(
-                    W.RASA, W.NARODOWOSC, W.GENY, W.RODZINA, W.RELIGIA
+                    W.RASA, W.NARODOWOSC, W.GENY, W.RODZINA, W.MIEJSCE_POCHODZENIA, W.RELIGIA
             ))
+    );
+
+    public static List<W> RELACJE = of(
+            M.BRAK(W.RELACJA), W.ZNAJOMOSC, W.KOLEZENSTWO, W.PRZYJAZN, W.MILOSC,
+            W.WROGOSC, W.NIECHEC, W.NIEZROZUMIENIE, W.LEKCEWAZENIE, W.WYKORZYSTANIE, W.WALKA
+    );
+
+    public static List<W> WALKA = of(
+            W.WALKA_KLAS_SPOLECZNYCH, W.WALKA_NARODOW, W.WALKA_RASOWA, W.WALKA_KLUBY_KIBICOWSKIE, W.WALKA_O_PRZEWAGI
+    );
+
+    public static List<W> ZASIEG_PRZEWAGI_ULICA = of(
+            W.OBECNOSC, W.ZASIEG_WZROKU, W.ZASIEG_BIEGU, W.ZASIEG_SAMOCHODU, W.ZASIEG_BRONI
     );
 
     public static List<List<W>> KATEGORIA_ZLY_DOBRY = Arrays.asList(
@@ -1557,12 +1580,14 @@ public class DB_Warunki extends DB {
             RANY_ZNECANIE_SIE,
             RANY_SPRZET,
             RANY_DOSTEPOWE,
-            KTO_KOGO,
+            KRZYWDY,
             BRAK_ZASAD,
             OBRONA_STARCIE,
             METODA_STARCIE_REAKCJA,
             ULICA_PRZEWAGA_REAKCJA,
-            KONFRONTACJA
+            KONFRONTACJA,
+            WALKA,
+            ZASIEG_PRZEWAGI_ULICA
     );
 
     public static List<List<W>> KATEGORIA_TYPY_PRAC = Arrays.asList(
@@ -1590,7 +1615,8 @@ public class DB_Warunki extends DB {
     );
 
     public static List<List<W>> KATEGORIA_UNIWERSALNE_SWIAT = Arrays.asList(
-            WSPOMNIENIA
+            WSPOMNIENIA,
+            RELACJE
     );
 
     public static List<List<W>> KATEGORIA_TYPY_LUDZI = Arrays.asList(

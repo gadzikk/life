@@ -281,7 +281,7 @@ public class Osoba {
             slabosciCharakteru.add(W.NIEZAZNANIE_CIERPIENIA);
         }
 
-        if(DB_Warunki.WARTOSC_DOBRA.getWarunki().stream().anyMatch(priorytet::contains)){
+        if(DB_Warunki.WARTOSC_DOBRA.stream().anyMatch(priorytet::contains)){
             przewagiCharakteru.add(W.DOBRY_PRIORYTET);
         }
         else {
@@ -913,7 +913,7 @@ public class Osoba {
         }
         if(konfi){
             slabosciCharakteru.add(W.KONFI);
-            slabosciCharakteru.add(W.PRZEJEBANE);
+            slabosciCharakteru.add(W.POJECHANE);
             slabosciCharakteru.add(W.HANBA);
             slabosciCharakteru.add(W.BRAK_THREAD_WHILE_LOOP_BLISKOSC_U);
             slabosciCharakteru.add(W.BRAK_SRODOWISKA);
@@ -961,10 +961,10 @@ public class Osoba {
             przewagiCharakteru.add(W.AKTYWNY_NA_ANGAZ);
         }
         typyOsoby.forEach(typ->{
-            if(DB_Warunki.TYPY_LUDZI_DOBRE.getWarunki().stream().anyMatch(x->x.equals(typ))){
+            if(DB_Warunki.TYPY_LUDZI_DOBRE.stream().anyMatch(x->x.equals(typ))){
                 przewagiCharakteru.add(W.valueOf(typ.name()));
             }
-            if(DB_Warunki.TYPY_LUDZI_ZLE.getWarunki().stream().anyMatch(x->x.equals(typ))){
+            if(DB_Warunki.TYPY_LUDZI_ZLE.stream().anyMatch(x->x.equals(typ))){
                 slabosciCharakteru.add(W.valueOf(typ.name()));
             }
         });

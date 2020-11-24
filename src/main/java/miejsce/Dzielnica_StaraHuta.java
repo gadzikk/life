@@ -11,7 +11,7 @@ import z_inne.PO;
  */
 public class Dzielnica_StaraHuta extends Dzielnica {
     public Dzielnica_StaraHuta() {
-        wymaganiaWstepne = DB_Warunki.WYMAGANIA_WSTEPNE_SWIAT.getWarunki();
+        wymaganiaWstepne = DB_Warunki.WYMAGANIA_WSTEPNE_SWIAT;
         dzielnica = TypDzielnicy.POHUTNICZE;
         iloscMieszkan = TypIlosc.DUZA;
 

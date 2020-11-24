@@ -11,7 +11,7 @@ import z_inne.PO;
  */
 public class Dzielnica_Poludnie extends Dzielnica {
     public Dzielnica_Poludnie() {
-        wymaganiaWstepne = DB_Warunki.WYMAGANIA_WSTEPNE_SWIAT.getWarunki();
+        wymaganiaWstepne = DB_Warunki.WYMAGANIA_WSTEPNE_SWIAT;
         dzielnica = TypDzielnicy.PO_70;
         iloscMieszkan = TypIlosc.BARDZO_DUZA;
 

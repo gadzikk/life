@@ -14,7 +14,14 @@ public class CPU_ALL extends AbstractCPU {
     List<W> wymaganiaWstepne = KATEGORIA_WYMAGANIA_WSTEPNE;
     List<W> wymaganiaUtrzymania = KATEGORIA_WYMAGANIA_UTRZYMANIA;
     List<W> koncowe = KATEGORIA_WARUNKI_KONCOWE;
-    List<W> globalPlanszaLudzie = GLOBAL_PLANSZA_LUDZIE_WARUNKI;
+
+    List<W> globalnaPlanszaSwiata = of(W.SWIAT, W.KONTYNENT, W.KRAJ, W.MIASTO, W.DZIELNICA, W.OSIEDLE,
+                                       W.CZAS_W_HISTORII,
+                                       W.LUDZIE, on(PRZEWAGI_WARUNKI), on(SLABOSCI_WARUNKI), on(KATEGORIA_EMOCJE_UCZUCIA),
+                                                 on(RELACJE_WARUNKI), on(WALKA_WARUNKI),
+                                        on(GLOBAL_PLANSZA_PRACA_WARUNKI), on(GLOBAL_PLANSZA_LUDZIE_WARUNKI),
+                                        on(KSZTALTOWANIE_CZLOWIEKA_WARUNKI), on(KSZTALTOWANIE_DZIELNICY_WARUNKI));
+
 
     List<W> warunkiWyjscia = of(W.PORA_ROKU, W.CZAS, W.DOSTEPNOSC, W.ZOBACZENIE, W.BLISKOSC, W.KONTAKT);
 
@@ -199,6 +206,11 @@ public class CPU_ALL extends AbstractCPU {
 
         M.W(M.OSOBA(W.INNA_RASA), "--->", M.DEFAULT(of(W.RASIZM, M.GORSZE_TRAKTOWANIE(W.OSOBA))));
 
+        M.W(M.POZNANIE(W.OSOBA), "--->", M.NABYCIE(W.RELACJA));
+
+        M.W(W.SILA_RZADZI, "--->", of(M.PRAWDZIWA(W.WARTOSC), W.PRAWDA));
+        M.W(M.BRAK(W.SILA_RZADZI), "--->", of(M.BRAK(W.WARTOSC), W.KLAMSTWO));
+
         trudnoLatwo();
         superpozycja();
         najwiekszaBron();
@@ -244,7 +256,7 @@ public class CPU_ALL extends AbstractCPU {
         W prawo = superPozycjaOsoby.pisaniePrawa();
 
         wszyscy.thread_while_loop(M.przestrzeganie(prawo)
-                                    .otherwise(W.KONSEKWENCJE));
+                                    .w_przeciwnym_przypadku(W.KONSEKWENCJE));
 
         M.of(prawo).szkodzi(wszyscy);
 
@@ -286,9 +298,11 @@ public class CPU_ALL extends AbstractCPU {
     public void zasobZjawiskoDefault() {
         M.W(W.OSOBA, "--->", M.DEFAULT(of(W.ZLY, W.GLUPI)));
 
+        M.W(W.OSOBA, "--->", M.DEFAULT(W.CIEZKO_W_ZYCIU));
+
         M.W(W.DZIALANIE, "--->", M.DEFAULT(of(W.ZLE, W.GLUPIE)));
 
-        M.W(W.NOWA_OSOBA, "--->", M.DEFAULT(KTO_KOGO_WARUNKI));
+        M.W(W.NOWA_OSOBA, "--->", M.DEFAULT(KRZYWDY_WARUNKI));
 
         M.W(W.DZIALANIE, "--->", M.DEFAULT(W.ZA_CIOSEM));
 

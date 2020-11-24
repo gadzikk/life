@@ -86,7 +86,7 @@ public class OsobaMetod {
     public W pisaniePrawa() {return W.WARUNEK;}
     public W naginaniePrawa() {return W.WARUNEK;}
     public W przestrzeganie(W warunek) {return W.WARUNEK;}
-    public W oczekiwanie(W warunek) {return W.WARUNEK;}
+    public W OCZEKIWANIE(W warunek) {return W.WARUNEK;}
     public W praca() {return W.WARUNEK;}
     public W uzaleznijOdSiebie() {return W.WARUNEK;}
     public W wychodzenieNaUlice() {return W.WARUNEK;}
@@ -142,8 +142,8 @@ public class OsobaMetod {
     public M OCZEKIWANIE_POPRAWY(OsobaMetod osobaMetod) {return new M();}
     public W ZAMKNIECIE(OsobaMetod osobaMetod) {return W.WARUNEK;}
     public W WYKLUCZ(OsobaMetod osobaMetod) {return W.WARUNEK;}
-    public W KTO_KOGO(OsobaMetod osobaMetod, List<W> warunki) {return W.WARUNEK;}
-    public W KTO_KOGO_Z_PRZEWAGA(OsobaMetod osobaMetod, List<W> warunki) {return W.WARUNEK;}
+    public W ROBI_KRZYWDE(OsobaMetod osobaMetod, List<W> warunki) {return W.WARUNEK;}
+    public W ROBI_KRZYWDE_Z_PRZEWAGA(OsobaMetod osobaMetod, List<W> warunki) {return W.WARUNEK;}
     public W GNOJI(OsobaMetod osobaMetod) {return W.WARUNEK;}
     public W PRZESTAJE(W warunek) {return W.WARUNEK;}
     public W PRZESTAJE(List<W> warunki) {return W.WARUNEK;}

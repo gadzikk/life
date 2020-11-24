@@ -22,7 +22,7 @@ public class CPU_SUMMARY extends AbstractCPU {
                 .lub().sytuacja().Is().przeminelo();
 
         M schemaSytuacji2 = o(W.OPCJA_PRZEJSCIE, "-", W.BLISKOSC, "-", W.MOWA)
-                .otherwise(W.CONTINUE_NUDA)
+                .w_przeciwnym_przypadku(W.CONTINUE_NUDA)
                 .konsekwencje(W.POWIE_DO_KOLEZANKI);
 
         M schemaSytuacji3 = new M().zamkniecie(W.ZASOB).zamkniecie(W.INFORMACJA);

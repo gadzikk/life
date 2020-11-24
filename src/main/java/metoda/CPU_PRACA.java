@@ -276,19 +276,24 @@ public class CPU_PRACA extends AbstractCPU {
         M.przypomnijZaklecia();
 
         M.DEFAULT(W.NIE_ZATRUDNIONY);
-        List<W> target = of(W.ZADEMONSTROWANIE_WIEDZY, W.FINE);
+        M.CEL(of(W.ZADEMONSTROWANIE_WIEDZY, W.FINE, W.ZDOBYCIE_PRACY));
+
         List<W> ocenianieWedlug = of(W.TO_CO_UMIESZ, W._II_, W.TO_CZEGO_NIEUMIESZ, W._II_, W.OCENA_ZE_STUDIOW, W._II_, W.MOZE_CZYMS_BLYSNIE, W._II_,
                                      W._1_BLAD_NIEZATRUDNIONY);
 
-                M.W(W.MNIEJ_NIZ_2_LATA_DOSWIADCZENIA, "--->",      pytajacy.oczekiwanie(W.DOBRZE_JEZELI_UMIE));
-                M.W(W.WIECEJ_NIZ_2_LATA_DOSWIADCZENIA, "--->", pytajacy.oczekiwanie(W.MUSI_UMIEC_WSZYSTK0));
+                M.W(W.MNIEJ_NIZ_2_LATA_DOSWIADCZENIA, "--->",      pytajacy.OCZEKIWANIE(W.DOBRZE_JEZELI_UMIE));
+                M.W(W.WIECEJ_NIZ_2_LATA_DOSWIADCZENIA, "--->", pytajacy.OCZEKIWANIE(W.MUSI_UMIEC_WSZYSTK0));
 
-        pytajacy.SET(DB_Warunki.FEST.getWarunki());
-        pytajacy.thread_while_loop(W.SZUKA_GLEBOKO_ZAGADNIEN);
+        pytajacy.SET(DB_Warunki.FEST);
+        pytajacy.thread_while_loop(W.SZUKA_GLEBOKO_PYTAN);
         pytajacy.thread_while_loop(W.LICZY_KAZDY_BLAD);
 
+        M.W(W.OGLOSZENIE_O_PRACE, "--->", W.LISTA_ZAGADNIEN);
+        M.W(W.ZAGADNIENIE, "--->", M.PYTANIA(M.MAX(3)));
+        M.W(W.PYTANIE, "--->", M.ZOBOWIAZANIE(M.ODPOWIEDZ(M.GLEBOKIE_WYCZERPANIE(W.TEMAT))));
+
         o(W.PROBA, "--->", W.ZDOBYCIE_PRACY)
-                    .otherwise(of(W.STRACONA_SZANSA, W.NOTA, W.BRAK_REZULTATOW, W.WYSILEK_NA_DARMO, W.STRES_NA_DARMO));
+                    .w_przeciwnym_przypadku(of(W.STRACONA_SZANSA, W.NOTA, W.BRAK_REZULTATOW, W.WYSILEK_NA_DARMO, W.STRES_NA_DARMO));
 
         return W.WARUNEK;
     }

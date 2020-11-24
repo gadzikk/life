@@ -49,11 +49,11 @@ public class CPU_1_SHORTEST extends AbstractCPU {
             .lub().sytuacja().Is().przeminelo();
 
     M schemaSytuacji1 = o(essentials, W._II_, allSprzyjajace, "-", W.PRZEJSCIE, "-", W.MOWA)
-            .otherwise(W.CONTINUE_NUDA)
+            .w_przeciwnym_przypadku(W.CONTINUE_NUDA)
             .konsekwencje(W.NIKT_NIE_REAGUJE);
 
     M schemaSytuacji2 = o(W.OPCJA_PRZEJSCIE, "-", W.PRZEJSCIE, "-", W.MOWA)
-                        .otherwise(W.CONTINUE_NUDA)
+                        .w_przeciwnym_przypadku(W.CONTINUE_NUDA)
                         .konsekwencje(W.NIKT_NIE_REAGUJE);
 
     M schemaSytuacji3 = new M().zamkniecie(W.ZASOB).zamkniecie(W.INFORMACJA);

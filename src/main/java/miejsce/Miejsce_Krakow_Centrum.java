@@ -7,13 +7,15 @@ import typy_bazowe.TypOsoby;
 import warunek.W;
 import z_inne.PO;
 
+import static db.DB.on;
+
 /**
  * Created by gadzik on 15.01.20.
  */
 public class Miejsce_Krakow_Centrum extends Miejsce {
     public Miejsce_Krakow_Centrum() {
         typMiejsce = TypMiejsce.CENTRUM_MIASTA;
-        wymaganiaWstepne = DB_Warunki.POTRZEBY.getWarunki(); DB_Warunki.PRZYMUS.getWarunki();
+        wymaganiaWstepne = of(on(DB_Warunki.POTRZEBY),  on(DB_Warunki.PRZYMUS));
 
         przechodnie = true;
 //        stale;

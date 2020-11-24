@@ -8,7 +8,7 @@ import db.DB_Warunki;
 public class Miasto_Krakow extends Miasto {
     String klubyKibicowskie = "WISLA > HUTNIK > CVIA";
     public Miasto_Krakow() {
-        wymaganiaWstepne = DB_Warunki.WYMAGANIA_WSTEPNE_SWIAT.getWarunki();
+        wymaganiaWstepne = DB_Warunki.WYMAGANIA_WSTEPNE_SWIAT;
         dzielnice = of(new Dzielnica_StaraHuta(), new Dzielnica_NowaHuta(), new Dzielnica_Poludnie(), new Dzielnica_Polnoc());
 
 //        List<HotSpot> hotSpots;

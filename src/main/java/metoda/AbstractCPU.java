@@ -61,7 +61,7 @@ public class AbstractCPU {
     OsobaMetod pytajacy = new OsobaMetod();
     OsobaMetod pracownicy = new OsobaMetod();
     OsobaMetod superPozycjaOsoby = new OsobaMetod();
-    List<W> KTO_KOGO_WARUNKI = DB_Warunki.KTO_KOGO;
+    List<W> KRZYWDY_WARUNKI = DB_Warunki.KRZYWDY;
     OsobaMetod karyna = new OsobaMetod();
     OsobaMetod cvia = new OsobaMetod();
     OsobaMetod srodowisko = new OsobaMetod();
@@ -181,6 +181,10 @@ public class AbstractCPU {
     List<W> PATOLOGIE_ZWIAZKU = DB_Patologia.PATOLOGIE_ZWIAZKU;
     List<W> PATOLOGIE_KONCOWE_KOBIETA = DB_Patologia.PATOLOGIE_KONCOWE_KOBIETA;
     List<W> SILNE_WIEZY_CZLOWIEKA_WARUNKI = DB_Warunki.SILNE_WIEZY_CZLOWIEKA;
+    List<W> RELACJE_WARUNKI = DB_Warunki.RELACJE;
+    List<W> WALKA_WARUNKI = DB_Warunki.WALKA;
+    List<W> ZASIEG_PRZEWAGI_ULICA_WARUNKI = DB_Warunki.ZASIEG_PRZEWAGI_ULICA;
+    List<W> KRYTERIA_WROGA_WARUNKI = DB_Warunki.KRYTERIA_WROGA;
 
 
     public <T> List<T> of(T... elements){
