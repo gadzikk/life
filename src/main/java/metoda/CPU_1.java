@@ -31,11 +31,16 @@ public class CPU_1 extends AbstractCPU {
     List<W> mojeCechy = of(W.SPRYT, W.SZYBKOSC, W.SILA, W.ANTY_POSLUSZNOSC, W.ZMUSZASZ, W.WYJEBKA_NA_WLASNE_ZMECZENIE);
     List<W> osobaChcianeCechy = of(W.REAGUJE, W.STWARZA_SZANSE, W.SWIADOMOSC);
 
+    List<W> miejscaWstepowania = TYPY_MIEJSC_WARUNKI;
+
     List<W> typySytuacji = TYPY_SYTUACJI;
 
     List<W> spojrzenia = of(M.spojrzenie_1(W.BEST_CASE), M.spojrzenie_2(W.NORMAL_CASE));
+
     List<W> zaproszenieRandka = of(M.podkreslJejZlaSytuacje(of(W.NUDA, W.MONOTONIA)), M.podkreslSwojeStrania(), M.znamySie(),
             M.obrazSieJakNieOdpowie(), M.ultimatum(W.KARA));
+
+    List<W> sekwencjaDzialan = of(W.ZASIEG_WZROKU, M.WSPOLNE(W.SPOJRZENIE), M.NABYCIE(W.BLISKOSC), W.MOWA, M.ZAPROSZENIE(W.RANDKA));
 
     List<W> jakoscSytuacji = of(W.INTERAKCJA, W.KOJARZENIE_Z_DOBREGO, W.ZNAJOMI, W.POTRZEBA, W.WARTOSC, W.UNIKALNOSC_W_OTOCZENIU);
 

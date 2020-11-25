@@ -58,7 +58,7 @@ public class DB_Warunki extends DB {
                 NIESPRAWIEDLIWOSC,
                 DOBRE_CZYNY,
                 ZLE_CZYNY,
-                ANTY_DZIALACZ,
+                ANTY_DZIALACZ_ZLA,
                 WADY_ZLYCH,
                 OKAZJE_ZROBIENIE_ZLO,
                 OKAZJE_ZROBIENIE_DOBRO,
@@ -214,7 +214,12 @@ public class DB_Warunki extends DB {
                 PRZEWAGI,
                 PRZEWAGI_LUDZKIE,
                 PRZEWAGI_Z_ULICY,
-                PRZEWAGI_MATERIALNE
+                PRZEWAGI_MATERIALNE,
+                PRZEWAGI_DANEJ_CHWILI
+        );
+
+        List<List<W>> ZBIOR_MIEJSCE = Arrays.asList(
+                TYPY_MIEJSC
         );
 
     }
@@ -644,10 +649,11 @@ public class DB_Warunki extends DB {
                     W.CIERPLIWOSC, W.DALEKOWZROCZNOSC_CZYNOW, W.MADROSC, W.WIEDZA, W.PAMIEC, W.PRAWDA, W.DOBRO, W.TRZEZWOSC, W.DOSWIADCZENIA,
                     W.PELNIA_SIL, W.NIEZALEZNOSC, W.SILA_SPRAWCZA,
                     W.ZNAJOMI, W.WSPARCIE, W.OSIEDLOWE_SRD, W.WZGLEDNA_IZOLACJA_RDZENNI, M.SRODOWISKO(W.WSZYSCY_DANY_OBSZAR_SIE_ZNAJA),
-                    W.KOBIETY_SRODOWISKO, W.CIAGLOSC_INFORMACJI, W.KOBIETA, W.SAMOCHOD,
+                    W.KOBIETY_SRODOWISKO, W.CIAGLOSC_INFORMACJI, W.KOBIETA, W.SAMOCHOD, M.PO_ZNAJOMOSCI(W.PRACA), M.SRODOWISKO(W.EMOCJE),
+                    M.SRODOWISKO(W.PRZYJEMNOSCI),
                     M.SZANSA_NA(of(W.ZNAJOMI, W.WSPARCIE, W.OSIEDLOWE_SRD, W.WZGLEDNA_IZOLACJA_RDZENNI, M.SRODOWISKO(W.WSZYSCY_DANY_OBSZAR_SIE_ZNAJA),
-                            W.KOBIETY_SRODOWISKO, W.CIAGLOSC_INFORMACJI, W.KOBIETA)),
-
+                            W.KOBIETY_SRODOWISKO, W.CIAGLOSC_INFORMACJI, W.KOBIETA, M.PO_ZNAJOMOSCI(W.PRACA), M.SRODOWISKO(W.EMOCJE),
+                            M.SRODOWISKO(W.PRZYJEMNOSCI))),
                     W.ROZMIAR, W.SILA_FIZYCZNA, W.SILNE_UDERZENIE, W.ZAPASY, W.OBRONA, W.ZDOLNI_DO_WALKI_ZNAJOMI,
                     W.LUDZIE_ZA_TOBA, W.WALKA_PIESCI, W.WALKA_SPRZET, M.SPRZET(M.EKIPA(W.SAMOCHOD_NA_CHODZIE)), M.SPRZET(M.EKIPA(W.MIEJSCE)),
                     W.EKIPA, M.BLISKO(W.EKIPA), W.ROWER, W.ZASLONIETA_TWARZ, W.HASELKO_RDZENNYCH, W.PIERWSZENSTWO,
@@ -661,9 +667,11 @@ public class DB_Warunki extends DB {
     public static List<W> PRZEWAGI_Z_ULICY =
             Arrays.asList(
                     W.ZNAJOMI, W.WSPARCIE, W.OSIEDLOWE_SRD, W.WZGLEDNA_IZOLACJA_RDZENNI, M.SRODOWISKO(W.WSZYSCY_DANY_OBSZAR_SIE_ZNAJA),
-                    W.KOBIETY_SRODOWISKO, W.CIAGLOSC_INFORMACJI, W.WALKA_SPRZET,
+                    W.KOBIETY_SRODOWISKO, W.CIAGLOSC_INFORMACJI, W.WALKA_SPRZET, M.PO_ZNAJOMOSCI(W.PRACA), M.SRODOWISKO(W.EMOCJE),
+                    M.SRODOWISKO(W.PRZYJEMNOSCI),
                     M.SZANSA_NA(of(W.ZNAJOMI, W.WSPARCIE, W.OSIEDLOWE_SRD, W.WZGLEDNA_IZOLACJA_RDZENNI, M.SRODOWISKO(W.WSZYSCY_DANY_OBSZAR_SIE_ZNAJA),
-                            W.KOBIETY_SRODOWISKO, W.CIAGLOSC_INFORMACJI, W.WALKA_SPRZET)),
+                            W.KOBIETY_SRODOWISKO, W.CIAGLOSC_INFORMACJI, W.WALKA_SPRZET, M.PO_ZNAJOMOSCI(W.PRACA), M.SRODOWISKO(W.EMOCJE),
+                            M.SRODOWISKO(W.PRZYJEMNOSCI))),
                     W.ZDOLNI_DO_WALKI_ZNAJOMI,
                     W.LUDZIE_ZA_TOBA, W.WALKA_PIESCI,  M.SPRZET(M.EKIPA(W.SAMOCHOD_NA_CHODZIE)), M.SPRZET(M.EKIPA(W.MIEJSCE)),
                     W.EKIPA, M.BLISKO(W.EKIPA), W.HASELKO_RDZENNYCH, W.PIERWSZENSTWO
@@ -684,6 +692,11 @@ public class DB_Warunki extends DB {
     public static List<W> PRZEWAGI_MATERIALNE =
             Arrays.asList(
                     W.KOBIETA, W.SAMOCHOD, W.PRACA, W.PIENIADZE, W.WYSOKA_POZYCJA
+            );
+
+    public static List<W> PRZEWAGI_DANEJ_CHWILI =
+            Arrays.asList(
+                    W.SPRYT, W.SZYBKOSC, W.SILNY, W.POTRAFI_OCENIC
             );
 
     public static List<W> SLABOSCI =
@@ -950,10 +963,12 @@ public class DB_Warunki extends DB {
     public static List<W> ZLY_ZNAKI_ROZPOZNAWCZE =
             Arrays.asList(
                     W.CZARNE_WLOSY, W.TATUAZE, W.RUDY, W.RUMUN, W.CZERWONE_OCZY,
-                    W.PATRZY_ZLE, W.PATRZY_Z_EXSTAZA, W.PATRZY_JAKBY_CHCIAL_OKLAMAC, W.SLABA_POSTURA, W.PRZEWIDUJE_ZLE,
-                    W.NIE_PATRZY_ALE_KONSULTUJE,
+                    W.PATRZY_ZLE, W.PATRZY_Z_EXSTAZA, W.PATRZY_JAKBY_CHCIAL_OKLAMAC, W.PATRZY_Z_LEKCEWAZENIEM,
+                    W.NIE_PATRZY_ALE_KONSULTUJE, M.BEZ_POWODU(W.CISNIE),
+                    W.SLABA_POSTURA, W.PRZEWIDUJE_ZLE,
+                    M.NAGLE(of(W.PISZE_NA_TELEFONIE, W.DZWONI)), M.ZRYWA_SIE(M.GDY(M.ZOBACZYL(W.OSOBA))), M.DZIALA(M.GDY(M.ZOBACZYL(W.OSOBA))),
                     W.DRESY_SZARE_MATERIALOWE, W.GAZ, W.TORBA, W.UZYWKI,
-                    W.KASZLE, W.MACHA, W.GWIZDZE, W.ZADAJE_GLUPIE_PYTANIA, W.TELEFON_ZDJECIA, W.SLABO_REAGUJE_NA_BODZCE,
+                    M.DZIWNE(W.ZACHOWANIE), W.ZADAJE_GLUPIE_PYTANIA, W.SLABO_REAGUJE_NA_BODZCE,
                     W.LEKKI_GLOS, W.DZIWNY_GLOS
             );
 
@@ -1133,7 +1148,7 @@ public class DB_Warunki extends DB {
 
     public static List<W> KRZYWDY_BEZPOSREDNIE =
             Arrays.asList(
-                    M.NABYCIE(W.BLISKOSC),
+                    M.NABYCIE(of(W.ZASIEG_WZROKU, W.BLISKOSC)),
                     M.MALY_WYSILEK(W.CISNIE),
                     M.DUZY_WYSILEK(W.WALKA_PIESCI), M.DUZY_WYSILEK(W.ZNISZCZENIE_WARTOSCI_MATERIALNEJ),
                     M.MALY_WYSILEK(W.SPRZET),
@@ -1171,7 +1186,7 @@ public class DB_Warunki extends DB {
             );
 
     public static List<W> SONDA_DZIALACZA = of(
-            W.ROZMIAR, W.PRZEWAGA_SILY, W.ZNAJOMOSCI,
+            W.ROZMIAR, W.PRZEWAGA_SILY, W.SRODOWISKO,
             W.DZIALA, M.W_JAKI_SPOSOB(W.DZIALA),
             W.BIEGA, M.JAK_DLUGO(W.BIEGA),
             M.KOGO_ZNA(W.EKIPA),
@@ -1282,9 +1297,9 @@ public class DB_Warunki extends DB {
                     )
             ));
 
-    public static List<W> ANTY_DZIALACZ =
+    public static List<W> ANTY_DZIALACZ_ZLA =
             Arrays.asList(
-                    W._1_VS_1_STARCIE_BEZ_PRZEWAG, W.UKAZANIE
+                    W._1_VS_1_STARCIE_BEZ_PRZEWAG, W.UKAZANIE_W_PRAWDZIE, W.POZBAWIENIE_PRZEWAGI
             );
 
     public static List<W> CECHY_RDZENNY =
@@ -1308,15 +1323,15 @@ public class DB_Warunki extends DB {
             M.W(of(W.INFORMACJA, W.CZAS, W.WIEDZA, W.BRAK_WSTYDU), "--->", of(W.KLAMSTWO, W.UKRYCIE, W.HASELKO_RDZENNYCH,
                                                                                     M.BRAK_DOSTEPU(W.ZLO), W.SAMOTNOSC)),
 
-            M.W(W.EKIPA, "--->", of(M.WALKA(M.SILNIEJSZA((W.EKIPA))), W.BRAK_SENSU, M.BRAK(W.OSOBY), M.BRAK(W.POSLUCH),
-                                                                                    M.BRAK(M.WYKONYWANIE(W.ROZKAZ)))),
+            M.W(W.EKIPA, "--->", of(M.WALKA(M.SILNIEJSZA((W.EKIPA))), M.SKOMPROMITOWANIE(W.EKIPA),
+                                    W.BRAK_SENSU_DZIALANIA, M.BRAK(W.OSOB), M.BRAK(W.POSLUCH), M.BRAK(M.WYKONYWANIE(W.ROZKAZ)))),
 
             M.W(of(W.PIENIADZE, W.WYSOKA_POZYCJA), "--->", of(W.WYROK, M.STRATA(W.PRACA), M.STRATA(W.ZDROWIE))),
 
             M.W(W.BRAK_CIERPIENIA, "--->", M.PRZEZYCIE(W.CIERPIENIE)),
 
             M.W(of(M.ROZKMINIONY(W.OSOBA), W._88_,
-                    W.NIE_KIBICUJE, W.Z_KOBIETA, W.LAMUS, W.DUZO_OSOB), "--->", M.ORIENT(W.CIERPIENIE).MIMO_TO(M.WALISZ())),
+                    W.NIE_KIBICUJE, W.Z_KOBIETA, W.LAMUS, W.DUZO_OSOB), "--->", M.ORIENT(W.PRZYPAL).MIMO_TO(M.WALISZ())),
 
             M.W(of(M.OPPONENT(of(W.PRZEWAGA_SILY, W.SPRZET)), W._88_, M.WYSTEPUJE(W.WARTOSC)), "--->", M.MIMO_TO(M.WALISZ())),
 
@@ -1536,7 +1551,16 @@ public class DB_Warunki extends DB {
 
     public static List<W> SPORT = of(
             W.PILKA_NOZNA, W.BOKS, W.SILOWNIA, W.PLYWANIE, W.ZIMOWE, W.IGRZYSKA_OLIMPIJSKIE,
-            W.HOKEY, W.PILKA_RECZNA, W.SIATKOWKA
+            W.HOKEJ, W.PILKA_RECZNA, W.SIATKOWKA
+    );
+
+    public static List<W> TYPY_MIEJSC = of(
+            W.MIEJSCE_STALE, W.MIEJSCE_RESTRYKCYJNE, W.MIEJSCE_RESTRYKCYJNE_OSIEDLE, W.MIEJSCE_TRANZYTOWE
+    );
+
+    public static List<W> KONTROLA = of(
+            M.OSOBA(M.BLISKO(of(W.KONTROLA_CZYNY, W.KONTROLA_MOWA, W.KONTROLA_RZECZY_POSIADANE, W.KONTROLA_PRZWAG, W.KONTROLA_SLABOSCI, W.KONTROLA_RELACJI, W.KONTROLA_DZIALANIE))),
+            M.SRODOWISKO(of(M.thread_while_loop(W.INFORMACJE_ODRAZU_KRAZA), W.ZDJECIA_TWARZOWKI))
     );
 
     public static List<List<W>> ZBIOR_ZLY_DOBRY = Arrays.asList(
@@ -1546,7 +1570,7 @@ public class DB_Warunki extends DB {
             NIESPRAWIEDLIWOSC,
             DOBRE_CZYNY,
             ZLE_CZYNY,
-            ANTY_DZIALACZ,
+            ANTY_DZIALACZ_ZLA,
             WADY_ZLYCH,
             OKAZJE_ZROBIENIE_ZLO,
             OKAZJE_ZROBIENIE_DOBRO,
@@ -1563,7 +1587,8 @@ public class DB_Warunki extends DB {
             WARTOSC_DOBRA,
             OCENIA_WEDLUG,
             KRYTERIA_WROGA,
-            NASTAWIENIA
+            NASTAWIENIA,
+            KONTROLA
     );
 
     public static List<List<W>> ZBIOR_ZASADY_PRZYMUS_ZAGROZENIA = Arrays.asList(
@@ -1706,6 +1731,11 @@ public class DB_Warunki extends DB {
             PRZEWAGI,
             PRZEWAGI_LUDZKIE,
             PRZEWAGI_Z_ULICY,
-            PRZEWAGI_MATERIALNE
+            PRZEWAGI_MATERIALNE,
+            PRZEWAGI_DANEJ_CHWILI
+    );
+
+    public static List<List<W>> ZBIOR_MIEJSCE = Arrays.asList(
+            TYPY_MIEJSC
     );
 }

@@ -123,6 +123,10 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
                                                 M.CEL(of(W.ZNISZCZENIE, on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI))))
         );
         M.W(W.ZLY, "--->", M.thread_while_loop(M.ZLY(M.PRZEBYWANIE(M.OSOBY(W.ZLI)))));
+
+        M.W(W.ZLY, "--->", of(M.TOLERANCJA(of(W.ZLO, on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI))),
+                                   M.CZESTO(of(W.ZLO, on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI)))));
+
     }
     public void dobroDzialanie() {
         List<W> conditions = of(
@@ -160,6 +164,8 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
         M.POBIERZ_WZORCE_ZASADY(of(W.RODZINA, W.BIBLIA));
 
         M.W(W.DOBRY, "--->", M.thread_while_loop(M.DOBRY(M.PRZEBYWANIE(M.OSOBY(W.DOBRZI)))));
+
+        List<W> metodyAntyDzialacz = ANTY_DZIALACZ_ZLA_WARUNKI;
     }
     public void dobroDzialacz() {
         List<W> conditions = of(

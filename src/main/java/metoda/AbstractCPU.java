@@ -190,6 +190,9 @@ public class AbstractCPU {
     List<W> BLEDY_WARUNKI = DB_Warunki.BLEDY;
     List<W> REAKCJE_WARUNKI = DB_Warunki.REAKCJE;
     List<W> SPORT_WARUNKI = DB_Warunki.SPORT;
+    List<W> TYPY_MIEJSC_WARUNKI = DB_Warunki.TYPY_MIEJSC;
+    List<W> KONTROLA_WARUNKI = DB_Warunki.KONTROLA;
+    List<W> ANTY_DZIALACZ_ZLA_WARUNKI = DB_Warunki.ANTY_DZIALACZ_ZLA;
 
 
     public <T> List<T> of(T... elements){

@@ -838,10 +838,15 @@ public class CPU_UL extends AbstractCPU {
 
         M.W(of(W.LADNY, W._88_, W.BRAK_CIERPIENIA, W._88_, W.PRZEWAGA, W._II_, W.PATRZY), "--->", W.STARCIE);
 
-        M.W(M.BRAK(of(W.ZLODZIEJKA,
-                      W.KIBICOWANIE,
-                      W.DOBRZE_ZMYSLY, W._88_, W.SPORT,
-                      W.ZDOLNY_DO_WALKI)),          "---->", M.OSOBA(W.FEST));
+        M.W((of(W.ZLODZIEJKA,
+                W.KIBICOWANIE,
+                W.DOBRZE_ZMYSLY, W._88_, W.SPORT,
+                W.ZDOLNY_DO_WALKI)),          "---->", M.MOZLIWOSC(M.OSOBA(W.DOBRA_JEDNOSTKA)));
+
+        M.W(of(M.BRAK(W.ZLODZIEJKA),
+                M.BRAK(W.KIBICOWANIE),
+                M.BRAK(of(W.DOBRZE_ZMYSLY, W._88_, W.SPORT)),
+                M.BRAK(W.ZDOLNY_DO_WALKI)),          "---->", M.OSOBA(of(W.FEST, W.SLABY, W.NIESWIADOMY)));
 
 
         M.W(of(W.ZE_WSI, W._88_, W.BRAK_WYSILKU_FIZYCZNEGO), "--->", M.OSOBA(of(W.NIEPATRZY_GLOBALNIE, W.ZAMKNIETY_W_SWOIM_POKOJU)));
@@ -1122,7 +1127,7 @@ public class CPU_UL extends AbstractCPU {
 
         M.W(M.NAUCZ((M.OSOBA(of(on(ZAROBEK_NIELEGALNY_WARUNKI),
                                 on(KRZYWDY_WARUNKI),
-                                on(BRAK_ZASAD_WARUNKI))))), "---->", M.CEL(of(M.WYKORZYSTUJE(W.OSOBA), W.OKRASC_PIENIADZE)));
+                                on(BRAK_ZASAD_WARUNKI))))), "---->", M.CEL(of(M.WYKORZYSTUJE(W.OSOBA), M.OSOBA(M.DZIALANIE_DLA(W.SRODOWISKO)), W.OKRASC_PIENIADZE)));
 
         M.WW(M.thread_while_loop(M.KONTROLA(W.OSOBA)), "--->", of(M.thread_while_loop(M.OSOBA(M.DZIALANIE(W.ZLO))),
                                                                          M.thread_while_loop(M.OSOBA(M.WYKONUJE(W.ROZKAZ)))),
@@ -1162,7 +1167,8 @@ public class CPU_UL extends AbstractCPU {
         of(M.NIEWAZNE(W.PRAWDA), M.WAZNE(W.DOBRO_EKIPY));
 
         M.W(M.MIEJSCE_STALE(W.SPORT), "--->", of(M.RESTRYKCJA(M.DOSTEP(M.MOGA_WEJSC(of(W.JEDEN_KLUB_KIBICOWSKI, M.OPCJA(W.TYLKO_BIEGAJACY))))),
-                                                    M.W(W.OSOBA_POZA_SRODOWISKO, "--->", M.GORSZE_TRAKTOWANIE(W.OSOBA_POZA_SRODOWISKO).NIZ(W.SRODOWISKO))));
+                                                    M.W(W.OSOBA_POZA_SRODOWISKO, "--->", M.GORSZE_TRAKTOWANIE(W.OSOBA_POZA_SRODOWISKO).NIZ(W.SRODOWISKO)),
+                                                    M.CEL(of(M.NABYCIE_PRZEWAGI(M.TYLKO_DLA(of(W.SRODOWISKO, W.BIEGAJACY))), M.POZBAWIENIE(M.MOZLIWOSC(M.NABYCIE_PRZEWAGI(W.OSOBA_POZA_SRODOWISKO)))))));
 
         M.W(W.SLABY, "--->", of(M.UNIKA(W.WALKA_PIESCI), M.SIEGA_PO(W.SPRZET)));
 
@@ -1179,7 +1185,58 @@ public class CPU_UL extends AbstractCPU {
                                                                                                                         M.POCHWAL_SIE(W.EKIPA),
                                                                                                                         M.NOTIFY_ALL(M.OSOBA(W.HANBA)))));
 
-        M.W(M.SPRZET(M.EKIPA(W.SAMOCHOD_NA_CHODZIE), "--->", M.thread_while_loop(M.WJAZD(W.SPRZET));
+        M.W(M.SPRZET(M.EKIPA(W.SAMOCHOD_NA_CHODZIE)), "--->", M.thread_while_loop(M.WJAZD(W.SPRZET)));
+
+        M.W(W.OSOBA_POZA_SRODOWISKO, "--->", M.SRODOWISKO(M.thread_while_loop(M.UKRYCIE(W.INFORMACJE).PRZED(W.OSOBA_POZA_SRODOWISKO))));
+
+        M.TOLERANCJA(of(W.ZLO, on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI)));
+        M.CZESTO(of(W.ZLO, on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI)));
+
+        M.BRAK_SZANS(of(M.KOBIETA(W.DZIEWICA), M.PRAWDZIWA(W.MILOSC), M.DOBRE(M.LEGALNE(W.ZAROBKI))));
+
+        M.SRODOWISKO(M.TWORZY_WARUNKI(M.LATWO(M.WEJSCIE(M.WYMAGANIA(of(W.DZIALANIE_DLA_ZLA, M.WYKONYWANIE(W.ROZKAZ)))))));
+
+        M.SRODOWISKO(M.TWORZY_WARUNKI(M.OSOBY(of(W.DZIALANIE_DLA_ZLA, M.KRZYWDY(of(W.PRZECIWNY_KLUB,
+                                                                                    on(KRZYWDY_WARUNKI),
+                                                                                    on(BRAK_ZASAD_WARUNKI),
+                                                                                    on(OSLONY_WARUNKI))),
+                                                                                    M.NABYWANIE(W.PRZEWAGA).DLA(W.SRODOWISKO)))
+                                                                                  .CEL(M.OTRZYMANIE(of(on(PRZEWAGI_MATERIALNE_WARUNKI), on(PRZEWAGI_Z_ULICY_WARUNKI))))));
+
+        M.W(M.SRODOWISKO(M.thread_while_loop(M.KONTROLA(KONTROLA_WARUNKI))), "--->", M.KONTROLA(of(M.SRODOWISKO(W.KOBIETY),
+                                                                                            M.SRODOWISKO(PRZEWAGI_Z_ULICY_WARUNKI),
+                                                                                            M.SRODOWISKO(W.WARTOSC),
+                                                                                            M.SRODOWISKO(W.OSOBY),
+                                                                                            M.SRODOWISKO(W.CIAGLOSC_INFORMACJI),
+                                                                                            M.SRODOWISKO(of(W.DZIALANIE_DLA_ZLA, M.WYKONYWANIE(W.ROZKAZ))),
+                                                                                M.W(W.WARTOSC, "--->", M.ODRAZU(M.DZIALANIE(W.WARTOSC))),
+                                                                    M.W(M.OSOBA(M.POSIADA(W.PRZEWAGA)), "--->", M.SILNIEJSZY(M.ODRAZU(M.PROBA(M.PRZEJECIE(W.PRZEWAGA))))))));
+
+        M.W(M.OSIEDLE(M.OSOBA(W.OBCY)), "--->", M.OSIEDLE(M.KAZDY_BLLISKO(M.WYCHODZI(W.OSIEDLE)))
+                                                                      .CEL(M.ROBI_KRZYWDE(of(W.OBCY, on(KRZYWDY_WARUNKI))))
+                                                                      .CEL(M.PRZESTRASZENIE(of(W.OBCY, M.OBCY(M.BRAK_DOSTEPU(W.OSIEDLE))))));
+
+        M.W(M.MIEJSCE_STALE(M.WYMAGANE(W.HASELKO_RDZENNYCH)), "--->",
+                                    of(M.W(M.OSOBA(M.POWIEDZIAL(W.HASELKO_RDZENNYCH)), "--->", of(M.OBSLUGA(W.MILA), M.DOBRZE_WYKONANE(W.USLUGI))),
+                                       M.W(M.OSOBA(M.NIE_POWIEDZIAL(W.HASELKO_RDZENNYCH)), "--->", of(M.OBSLUGA(W.NIE_MILA), M.ZLE_WYKONANE(W.USLUGI),
+                                                                                                        M.NOTYFIKACJA(W.EKIPA), W.ZDJECIA_TWARZOWKI,
+                                                                                                        on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI),
+                                                                                                        on(OSLONY_WARUNKI), on(PRZEWAGI_Z_ULICY_WARUNKI)))));
+
+        M.WZIECIE_DO_EKIPY(M.DEFAULT(W.SLABY, W.GLUPI, W.ULEGLY, W.ZALEZNY, W.AGRESYWNY));
+        M.NIEDOPUSC_DO_EKIPY(M.DEFAULT(W.SILNY, W.MADRY, W.NIEZALEZNY));
+
+        M.W(W.WARTOSC, "--->", M.ULTIMATIUM(M.RESTRYKCJA(M.DOSTEP(W.WARTOSC))).W_INNYM_PRZYPADKU(M.ROBI_KRZYWDE_Z_PRZEWAGA(
+                                                                                        of(on(KRZYWDY_WARUNKI), on(PRZEWAGI_Z_ULICY_WARUNKI)))));
+
+        M.W(W.KOBIETA, "--->", of(M.RESTRYKCJA(M.DOSTEP(W.KOBIETA)).TYLKO(M.SRODOWISKO(W.OSOBY)),
+                                M.W(M.OSOBA_POZA_SRODOWISKO(M.PROBA_DOSTEPU(W.KOBIETA)), "--->", M.SRODOWISKO(M.ROBI_KRZYWDE(of(
+                                                                                                    on(KRZYWDY_WARUNKI), on(PRZEWAGI_Z_ULICY_WARUNKI))))),
+                                    M.SRODOWISKO(M.OGLUP_KLAMSTWEM(of(W.CHLOPAK_TYLKO_ZE_SRODOWISKA, M.BRAK_WARTOSCI(of(W.DZIEWICTWO, W.WIERNOSC, W.DZIECI))))),
+                                    M.POKAZ(M.TYMCZASOWE(of(W.PRZYJEMNOSCI, on(PRZEWAGI_WARUNKI)))),
+                                    M.UNIZAJ(M.UTRUDNIAJ(of(W.ZALOZENIE_RODZINY, W.DZIECI))),
+                                    W.WYKORZYSTUJ, M.OPCJA(W.PORZUC),
+                                    M.CZEKAJ_AZ(of(W.STAROSC, W.BRAK_KANDYDATOW, M.ODCZUCIE(W.SAMOTNOSC), W.NISKIE_OCZEKIWANIA))));
     }
 
     public void agresja() {
@@ -1238,6 +1295,14 @@ public class CPU_UL extends AbstractCPU {
 
         grubasPrzewaga.tworzyWarunki(M.ZAPOTRZEBOWANIE(of(W.ZLO, on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI), on(KRZYWDY_WARUNKI))));
         grubasPrzewaga.tworzyWarunki(M.TOLERANCJA(of(on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI))).CEL(M.CZESTO(of(W.WYKORZYSTANIE, W.DZIALANIE_DLA_ZLA))));
+
+        M.W(grubasPrzewaga.tworzyWarunki(M.TOLERANCJA(M.KONTROLA(KONTROLA_WARUNKI))), "--->", M.KONTROLA(of(
+                                                                                                    M.SRODOWISKO(W.KOBIETY),
+                                                                                                    M.SRODOWISKO(PRZEWAGI_Z_ULICY_WARUNKI),
+                                                                                                    M.SRODOWISKO(W.WARTOSC),
+                                                                                                    M.SRODOWISKO(W.OSOBY),
+                                                                                                    M.SRODOWISKO(W.CIAGLOSC_INFORMACJI),
+                                                                                                    M.SRODOWISKO(of(W.DZIALANIE_DLA_ZLA, M.WYKONYWANIE(W.ROZKAZ))))));
 
         dzialacz.zwiekszaSzanse(of(W.ZLO, on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI), on(KRZYWDY_WARUNKI)));
 

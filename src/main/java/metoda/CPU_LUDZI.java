@@ -153,7 +153,7 @@ public class CPU_LUDZI extends AbstractCPU {
         List<W> antySlaby = of(W.OTWARTE_STARCIE, W.SILA, W.ZNAJOMOSC_RDZENNYCH, W.ROZWALENIE_KOLKA_ADORACJI);
 
         List<W> srodkiRdzenny = of(W.WALKA_PIESCI, W.WALKA_SPRZET, W.ZNAJOMOSC_RDZENNYCH, W.NIEBOI_SIE_WYROKU);
-        List<W> antyRdzenny = of(W.CZOLO, W.PSYCHO, W.BRAK_SENSU);
+        List<W> antyRdzenny = of(W.CZOLO, W.PSYCHO, W.BRAK_SENSU_DZIALANIA);
 
         List<W> srodkiPosiadacz = of(
                 M.W(of(W.WARTOSC),"--->", of(W.USTALA_ZASADY)),
