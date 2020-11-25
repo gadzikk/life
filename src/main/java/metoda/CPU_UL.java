@@ -459,7 +459,7 @@ public class CPU_UL extends AbstractCPU {
         List<W> sytuacjeStarcie = SYTUACJE_STARCIE_WARUNKI;
         List<W> kryteriaPrzypalu = KRYTERIA_PRZYPALU_WARUNKI;
         List<W> metodaStarcieReakcja = METODA_STARCIE_REAKCJA_WARUNKI;
-        List<W> ulicaPrzewagaReakcja = ULICA_PRZEWAGA_REAKCJA_WARUNKI;
+        List<W> ulicaPrzewagaReakcja = ULICA_PRZEWAGA_SPOSOB_WARUNKI;
         List<W> obronaStarcie = OBRONA_STARCIE_WARUNKI;
         List<W> zachowanieRezulat = ZACHOWANIE_REZULTAT_ULICA_WARUNKI;
         List<W> wymuszenieReakcji = WYMUSZENIE_REAKCJI_WARUNKI;
@@ -651,7 +651,7 @@ public class CPU_UL extends AbstractCPU {
         M.W(of(W.BLISKOSC, W.CISNIECIE, W.WALKA_PIESCI, W.WALKA_SPRZET), "--->", of(dzialaczMocny.pomsci(),
                                                                                         dzialaczMocny.ultimatumEkipie()));
 
-        M.W(M.POBITY(osoba), "--->", of(M.KOLEJKA_DO(M.POBICIE(osoba)), M.NOTIFY_ALL(W.HANBA), W.DLUG_MORALNY, W.CHEC_POMSZCZENIA,
+        M.W(M.POBITY(osoba), "--->", of(M.KOLEJKA_DO(M.POBICIE(osoba)), M.POINFORMUJ_WSZYSTKICH(W.HANBA), W.DLUG_MORALNY, W.CHEC_POMSZCZENIA,
                                                                     znajomy.PRZESTAJE(W.WSPARCIE), znajomy.ZACZYNA(W.PRZECIW), silniejszy.GNOJI(osoba)));
     }
     public void przewagi(){
@@ -1029,7 +1029,7 @@ public class CPU_UL extends AbstractCPU {
 
         M.W(of(W.WROG, W._88_, W.BLISKOSC), "--->", M.WALI(wrogowie));
 
-        M.WW(W.OSIEDLE, "--->", W.MELINA_NA_OSIEDLU, "--->", of(M.WIDZISZ(W.OSIEDLOWE_SRD), W.ZNASZ));
+        M.WW(W.OSIEDLE, "--->", W.MIEJSCE_RESTRYKCYJNE_OSIEDLE, "--->", of(M.WIDZISZ(W.OSIEDLOWE_SRD), W.ZNASZ));
 
         M.W(W.NARKOTYKI, "--->", W.NIESTABILNOSC_UMYSLOWA);
 
@@ -1049,6 +1049,8 @@ public class CPU_UL extends AbstractCPU {
                                                                                                     W.ZERO_ZYSKU))));
 
         M.W(M.NIEZDOLNOSC(of(W.WALKA_PIESCI, W.WALKA_SPRZET)), "--->", M.BRAK(W.SILA_SPRAWCZA_ULICA));
+
+        M.W(W.POTRZEBA, "--->", M.UZASADNIENIE_OBECNOSCI(W.POTRZEBA));
 
     }
 
@@ -1121,9 +1123,9 @@ public class CPU_UL extends AbstractCPU {
 
         M.W(of(M.WOKOL_TYLKO(W.SWOI), W.ZLO, W._88_, W.INTERAKCJA), "--->", of(W.NOTYFIKACJA_EKIPA, W.WSPARCIE_OSLONY, W.PRZEKONYWANIE_PRZECIW));
 
-        M.W(of(M.OSOBA(W.BIEGAJACY),
+        M.W(of(M.OSOBA(W.BIEGAJACY_SPRZET),
                 W.BLISKOSC,
-                M.OSOBA(W.NIE_BIEGAJACY)), "--->", M.OSOBA(W.BIEGAJACY).ROBI_KRZYWDE(of(M.OSOBA(W.NIE_BIEGAJACY), on(KRZYWDY_WARUNKI))));
+                M.OSOBA(W.NIE_BIEGAJACY)), "--->", M.OSOBA(W.BIEGAJACY_SPRZET).ROBI_KRZYWDE(of(M.OSOBA(W.NIE_BIEGAJACY), on(KRZYWDY_WARUNKI))));
 
         M.W(M.NAUCZ((M.OSOBA(of(on(ZAROBEK_NIELEGALNY_WARUNKI),
                                 on(KRZYWDY_WARUNKI),
@@ -1168,7 +1170,7 @@ public class CPU_UL extends AbstractCPU {
 
         M.W(M.MIEJSCE_STALE(W.SPORT), "--->", of(M.RESTRYKCJA(M.DOSTEP(M.MOGA_WEJSC(of(W.JEDEN_KLUB_KIBICOWSKI, M.OPCJA(W.TYLKO_BIEGAJACY))))),
                                                     M.W(W.OSOBA_POZA_SRODOWISKO, "--->", M.GORSZE_TRAKTOWANIE(W.OSOBA_POZA_SRODOWISKO).NIZ(W.SRODOWISKO)),
-                                                    M.CEL(of(M.NABYCIE_PRZEWAGI(M.TYLKO_DLA(of(W.SRODOWISKO, W.BIEGAJACY))), M.POZBAWIENIE(M.MOZLIWOSC(M.NABYCIE_PRZEWAGI(W.OSOBA_POZA_SRODOWISKO)))))));
+                                                    M.CEL(of(M.NABYCIE_PRZEWAGI(M.TYLKO_DLA(of(W.SRODOWISKO, W.BIEGAJACY_SPRZET))), M.POZBAWIENIE(M.MOZLIWOSC(M.NABYCIE_PRZEWAGI(W.OSOBA_POZA_SRODOWISKO)))))));
 
         M.W(W.SLABY, "--->", of(M.UNIKA(W.WALKA_PIESCI), M.SIEGA_PO(W.SPRZET)));
 
@@ -1183,7 +1185,7 @@ public class CPU_UL extends AbstractCPU {
                                                                                           W.KRZYWDA))), "--->", M.SLABY_TCHORZ(of(
                                                                                                                         W.CIESZY_SIE,
                                                                                                                         M.POCHWAL_SIE(W.EKIPA),
-                                                                                                                        M.NOTIFY_ALL(M.OSOBA(W.HANBA)))));
+                                                                                                                        M.POINFORMUJ_WSZYSTKICH(M.OSOBA(W.HANBA)))));
 
         M.W(M.SPRZET(M.EKIPA(W.SAMOCHOD_NA_CHODZIE)), "--->", M.thread_while_loop(M.WJAZD(W.SPRZET)));
 
@@ -1237,6 +1239,26 @@ public class CPU_UL extends AbstractCPU {
                                     M.UNIZAJ(M.UTRUDNIAJ(of(W.ZALOZENIE_RODZINY, W.DZIECI))),
                                     W.WYKORZYSTUJ, M.OPCJA(W.PORZUC),
                                     M.CZEKAJ_AZ(of(W.STAROSC, W.BRAK_KANDYDATOW, M.ODCZUCIE(W.SAMOTNOSC), W.NISKIE_OCZEKIWANIA))));
+
+        // ZWIADY
+
+        M.W(W.ZWIADY, "--->", of(M.WEJSCIE(M.REJON(W.PRZECIWNY_KLUB)),
+                                    M.W(M.ZASIEG_WZROKU(W.OSOBA), "--->", of(M.NOTYFIKACJA(W.EKIPA), M.NABYCIE(W.BLISKOSC))),
+                                    M.W(W.BLISKOSC, "--->", W.ZDJECIA_TWARZOWKI)));
+
+        M.WW(W.ZDJECIA_TWARZOWKI, "--->", M.PORTAL_DZIALAJACYCH(M.DOSTEP(M.WSZYSCY(W.DZIALAJACY))), "--->", of(M.DZIALJACY(M.OTRZYMANIE(W.INFORMACJA)),
+                                                                                                                    M.DZIALJACY(W.INFORMACJA_ZWROTNA)));
+
+        M.W(M.INFORMACJA_ZWROTNA(M.OSOBA(W.PRZECIWNY_KLUB)), "--->", M.AKCJA_PRZECIW(of(W.OSOBA, on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI),
+                                                                                                 on(OSLONY_WARUNKI), on(PRZEWAGI_Z_ULICY_WARUNKI))));
+        M.W(M.INFORMACJA_ZWROTNA(M.OSOBA(W.NIE_DZIALAJACY)), "--->", W.BRAK_AKCJI);
+
+        M.W(M.INFORMACJA_ZWROTNA(M.OSOBA(W.HANBA)), "--->", M.POINFORMUJ_WSZYSTKICH(M.OSOBA(W.HANBA)));
+
+        // ***
+
+        M.W(M.DZIALJACY(M.WYPARCIE_SIE(W.KLUB_KIBICOWSKI)), "--->", M.BRAK_DOSTEPU(PRZEWAGI_Z_ULICY_WARUNKI));
+
     }
 
     public void agresja() {
@@ -1333,7 +1355,7 @@ public class CPU_UL extends AbstractCPU {
         M.thread_while_loop(W.NORMALNOSC);
         M.W(M.PRZEJECIE(KRZYWDY_WARUNKI, BRAK_ZASAD_WARUNKI, OSLONY_WARUNKI), "--->", M.OBSADZ_STANOWISKA(of(W.SWOI, W.ZLI)));
         M.ULTIMATIUM(pracownicy.thread_while_loop(M.DZIALANIE_DLA_ZLA(KRZYWDY_WARUNKI, BRAK_ZASAD_WARUNKI, OSLONY_WARUNKI)));
-        M.thread_while_loop(M.DOSTEP_TYLKO(W.ZLI));
+        M.thread_while_loop(M.DOSTEP_TYLKO(M.OSOBY(W.ZLI)));
 
         M.W(M.MIEJSCE_STALE(W.DLUGA_DOSTEPNOSC), "--->", of(M.WEJSCIE(W.WCZESNIE_RANO),
                                                                 M.thread_while_loop(M.DYZURY(W.DZIALAJACY)),

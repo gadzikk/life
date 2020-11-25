@@ -34,6 +34,22 @@ public class CPU_LUDZI extends AbstractCPU {
     }
 
     public void relacjeWarunkowLudzi() {
+        M.W(W.OSOBA, "--->", of(W.SRODOWISKO, W._II_, W.RODZINA)).W_PRZECIWNYM_PRZYPADKU(W.SAMOTNOSC);
+
+        M.W(M.WIECEJ(W.LAT), "--->", M.WIECEJ(W.CIERPIENIE));
+
+        M.W(M.DLUGOTRWALE(of(on(CIERPIENIA_WARUNKI), W.PRZYMUS, W.ULICA)), "--->", M.OSOBA(W.SILNA_JEDNOSTKA));
+
+        M.W(M.OSOBA(W.WIECZNY_IMIGRANT), "--->", of(M.NAJWIEKSZA(W.WIEDZA), M.NAJWIECEJ(W.DOSWIADCZENIE)));
+
+        M.W(M.OSOBA(W.CECHY), "--->", M.MOZLIWOSC((M.DOKONANIE(W.CZYNU))));
+
+        M.W(M.OSOBA(W.ZLE_W_ZYCIU), "--->", of(W.NASTAWIENIE_JA_GNOJONY_GNOJE_NIZSZYCH, W.NASTAWIENIE_MAM_ZLE_ON_TEZ_MUSI,
+                                                            W.NASTAWIENIE_NIE_MAM_NIC_ON_TEZ_MA_NIE_MIEC));
+
+        M.WW(M.OSOBA(W.SLABY), "--->", M.SPOTKANY(W.PROBLEM), "--->", M.OSOBA(of(W.UCIECZKA, W.PODDANIE)));
+        M.WW(M.OSOBA(W.SILNY), "--->", M.SPOTKANY(W.PROBLEM), "--->", M.OSOBA(of(M.PROBA_ROZWIAZANIA(W.PROBLEM), M.PRACA(W.PROBLEM))));
+
         // WADY WYCHOWANIE
         M.W(of(W.ZLE_WYCHOWANIE, W._II_, W.WYCHOWANIE_POD_KLOSZEM, W._II_, W.ROZPASANIE_ROZPIESZCZANIE, W._II_, W.SLABI_RODZICE),
                 "--->", of(W.BRAK_CIERPIENIA, W.BRAK_PRACY, W.ZAZDROSC, W.BRAK_POZNANIA_NAUKI, W.BRAK_SPORTU, W.CHEC_BEZPIECZENSTWA));
@@ -136,11 +152,6 @@ public class CPU_LUDZI extends AbstractCPU {
                 W.ZNAJOMOSC_OTOCZENIA, W.WNIOSKI_DOSWIADCZENIA, W.INFORMACJA),"--->", of(W.TRAFNE_DECYZJE));
         // ***
 
-        M.W(W.OSOBA, "--->", of(W.SRODOWISKO, W._II_, W.RODZINA)).W_PRZECIWNYM_PRZYPADKU(W.SAMOTNOSC);
-
-        M.W(M.WIECEJ(W.LAT), "--->", M.WIECEJ(W.CIERPIENIE));
-
-        M.W(M.OSOBA(W.WIECZNY_IMIGRANT), "--->", of(M.NAJWIEKSZA(W.WIEDZA), M.NAJWIECEJ(W.DOSWIADCZENIE)));
     }
 
     public void srodki() {
@@ -505,6 +516,8 @@ public class CPU_LUDZI extends AbstractCPU {
         M.thread_while_loop(M.OSOBY_Z_PRZEWAGAMI(M.PRZEBYWANIE(M.OSOBA(W.PRZEWAGA))));
 
         M.thread_while_loop(M.OSOBY_BEZ_PRZEWAG(M.PRZEBYWANIE(M.OSOBA(W.BRAK_PRZEWAG))));
+
+        M.W(M.OSOBA(of(W.SLABY, W.CHWIEJNY)), "--->", M.DEFAULT(W.IDZIE_ZA_PRZEWAGA));
     }
 
     public void wyrok() {

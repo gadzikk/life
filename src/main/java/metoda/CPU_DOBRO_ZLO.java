@@ -52,7 +52,8 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
 
         List<W> conditions = of(
                 W.NIE_ZATRZYMA_SIE,
-                W.WDUPCANIE_WSZYSTKICH,
+                M.thread_while_loop(W.PROBUJE),
+                W.OSZUKIWANIE_WYKORZYSTANIE,
                 W.ROBIENIE_CIERPIENIA,
                 W.WIECZNA_PRZEGRANA,
                 W.OBOWIAZEK_ZLA,
