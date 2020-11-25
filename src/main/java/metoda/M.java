@@ -451,9 +451,9 @@ public class M {
     public static W drugaStrona(W warunek) {return W.WARUNEK;}
     public static W drugaStronaDzialajacy(W warunek) {return W.WARUNEK;}
     public static W kolkoWokol(W warunek) {return W.WARUNEK;}
-    public static W dodajDoHotTopics(W warunek) {return W.WARUNEK;}
+    public static W dodajDoGoraceTematy(W warunek) {return W.WARUNEK;}
     public static W powiazZ(OsobaMetod osoba) {return W.WARUNEK;}
-    public static W wezOstatnieHotTopics() {return W.WARUNEK;}
+    public static W wezOstatnieGoraceTematy() {return W.WARUNEK;}
     public static W rozpowiedz(OsobaMetod kojarzacy, W warunek2, OsobaMetod osoba) {return W.WARUNEK;}
     public static List<OsobaMetod> wezOsobyKojarzace(OsobaMetod osoba) {return new ArrayList<>();}
     public static W sonda(W warunek) {return W.WARUNEK;}
@@ -533,7 +533,7 @@ public class M {
     public static W przestrzel(OsobaMetod osoba) {return W.WARUNEK;}
     public static W wezDoSrodowiska(OsobaMetod osoba) {return W.WARUNEK;}
     public static W odkryjWady(OsobaMetod osoba) {return W.WARUNEK;}
-    public static W wdupcDoHierarchiiPodToba(OsobaMetod osoba) {return W.WARUNEK;}
+    public static W wstawDoHierarchiiPodToba(OsobaMetod osoba) {return W.WARUNEK;}
     public static W KONTROLA(List<W> warunki) {return W.WARUNEK;}
     public static W KONTROLA(W w) {return W.WARUNEK;}
     public static W KONTROLA(OsobaMetod osoba) {return W.WARUNEK;}
@@ -556,7 +556,7 @@ public class M {
     public static W ukryjWady() {return W.WARUNEK;}
     public static W aktywujEmocje() {return W.WARUNEK;}
     public static W wezNajwiecejDlaSiebie() {return W.WARUNEK;}
-    public static W naklejka() {return W.WARUNEK;}
+    public static W obgadywanie() {return W.WARUNEK;}
     public static W zwyzywaj() {return W.WARUNEK;}
     public static W pobij() {return W.WARUNEK;}
     public static W Option(W warunek) {return W.WARUNEK;}
@@ -572,10 +572,7 @@ public class M {
     public static W FIRST(List<W> warunki) {return W.WARUNEK;}
     public static W NIGDY_MALO(List<W> warunki) {return W.WARUNEK;}
     public static W OCHRONA(W w) {return W.WARUNEK;}
-    public static W WHILE() {return W.WARUNEK;}
-    public static W WHILE(W w) {return W.WARUNEK;}
-    public static W WHILE(List<W> w) {return W.WARUNEK;}
-    public static W WHILE_END() {return W.WARUNEK;}
+    public static W DOPOKI_KONIEC() {return W.WARUNEK;}
 
     public static W PROSTO(W warunek) {return W.WARUNEK;}
     public static W PROSTO(List<W> warunki) {return W.WARUNEK;}
@@ -648,8 +645,8 @@ public class M {
     public static W podpisanieUmowy() {return W.WARUNEK;}
     public static W screening() {return W.WARUNEK;}
     public static W pierwszyOdzew() {return W.WARUNEK;}
-    public static W dziwadlo(OsobaMetod osoba) {return W.WARUNEK;}
-    public static W gorszeTraktowanieNizReszta(OsobaMetod osoba) {return W.WARUNEK;}
+    public static W dziwadlo(W w) {return W.WARUNEK;}
+    public static W gorszeTraktowanieNizReszta(W w) {return W.WARUNEK;}
 
     public static M robKrzywde(List<W> w) {return new M();}
     public static M dajZarobekGrubasowi() {return new M();}
@@ -714,7 +711,10 @@ public class M {
     public static W oczekiwania(W w, OsobaMetod osoba) {return W.WARUNEK;}
     public static W przypomnijZaklecia() {return W.WARUNEK;}
     public static W wykonujeRozkazy(W w) {return W.WARUNEK;}
-    public static M OSOBY(List<OsobaMetod> osoby) {return new M();}
+    public static W otoczPrzewage(W w) {return W.WARUNEK;}
+    public static W otoczPrzewage(List<W> warunki) {return W.WARUNEK;}
+    public static W OSOBY(List<W> warunki) {return W.WARUNEK;}
+    public static W OSOBY(W w) {return W.WARUNEK;}
     public M smiejeSie() {return new M();}
     public M hanba() {return new M();}
     public W wesele() {return W.WARUNEK;}
@@ -1311,5 +1311,42 @@ public class M {
     public static W WALY(List<W> warunki){return W.WARUNEK;}
     public static W SILNE(W w){return W.WARUNEK;}
     public static W SILNE(List<W> warunki){return W.WARUNEK;}
-
+    public static W KONIEC(W w){return W.WARUNEK;}
+    public static W KONIEC(List<W> warunki){return W.WARUNEK;}
+    public static W ZNAJOMOSC(W w){return W.WARUNEK;}
+    public static W ZNAJOMOSC(List<W> warunki){return W.WARUNEK;}
+    public static W NIE_ZNAJA(W w){return W.WARUNEK;}
+    public static W NIE_ZNAJA(List<W> warunki){return W.WARUNEK;}
+    public static W NIE_WYKORZYSTUJE(W w){return W.WARUNEK;}
+    public static W NIE_WYKORZYSTUJE(List<W> warunki){return W.WARUNEK;}
+    public static W JEZELI_MOZNA(W w){return W.WARUNEK;}
+    public static W JEZELI_MOZNA(List<W> warunki){return W.WARUNEK;}
+    public static W WZIECIE_NA_SWOJA_STRONE(W w){return W.WARUNEK;}
+    public static W WZIECIE_NA_SWOJA_STRONE(List<W> warunki){return W.WARUNEK;}
+    public static W ZASOB(W w){return W.WARUNEK;}
+    public static W ZASOB(List<W> warunki){return W.WARUNEK;}
+    public static W NALEZY_DO(W w){return W.WARUNEK;}
+    public static W NALEZY_DO(List<W> warunki){return W.WARUNEK;}
+    public static W SILNA(W w){return W.WARUNEK;}
+    public static W SILNA(List<W> warunki){return W.WARUNEK;}
+    public static W CALY_CZAS(W w){return W.WARUNEK;}
+    public static W CALY_CZAS(List<W> warunki){return W.WARUNEK;}
+    public static W ZROBIL_DLA(W w){return W.WARUNEK;}
+    public static W ZROBIL_DLA(List<W> warunki){return W.WARUNEK;}
+    public static W ODDALENIE_SIE(W w){return W.WARUNEK;}
+    public static W ODDALENIE_SIE(List<W> warunki){return W.WARUNEK;}
+    public static W TLO(W w){return W.WARUNEK;}
+    public static W TLO(List<W> warunki){return W.WARUNEK;}
+    public static W ZLY(W w){return W.WARUNEK;}
+    public static W ZLY(List<W> warunki){return W.WARUNEK;}
+    public static W DOBRY(W w){return W.WARUNEK;}
+    public static W DOBRY(List<W> warunki){return W.WARUNEK;}
+    public static W NAUKA(W w){return W.WARUNEK;}
+    public static W NAUKA(List<W> warunki){return W.WARUNEK;}
+    public static W NAJWIEKSZA(W w){return W.WARUNEK;}
+    public static W NAJWIEKSZA(List<W> warunki){return W.WARUNEK;}
+    public static W ILE_ZROBIL(W w){return W.WARUNEK;}
+    public static W ILE_ZROBIL(List<W> warunki){return W.WARUNEK;}
+    public static W SILNIEJSZA(W w){return W.WARUNEK;}
+    public static W SILNIEJSZA(List<W> warunki){return W.WARUNEK;}
 }

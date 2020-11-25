@@ -9,6 +9,8 @@ import java.util.PriorityQueue;
  * Created by gadzik on 02.01.20.
  */
 public class CPU_ALL extends AbstractCPU {
+    W wazne = M.WAZNE(of(W.RODZINA, W.KOBIETA, W.PRACA, W.DOM));
+
     List<W> wymaganiaWstepne = KATEGORIA_WYMAGANIA_WSTEPNE;
     List<W> wymaganiaUtrzymania = KATEGORIA_WYMAGANIA_UTRZYMANIA;
     List<W> koncowe = KATEGORIA_WARUNKI_KONCOWE;
@@ -35,7 +37,7 @@ public class CPU_ALL extends AbstractCPU {
 
     List<W> przyczyny = of(W.PRZYMUS, W.POTRZEBA, W.ZLO, W.DOBRO, W.ZYSK, W.MODA, W.PRZEWAGA, W.NUDA, W.UCZUCIE, W.CIEKAWOSC, W.ZAZDROSC);
 
-    List<W> pointcut = of(W.OBECNOSC, W.DEFAULT_ZACHOWANIE, W.DEFAULT_WARUNKI, W.DZIALANIE, W.REAKCJA,
+    List<W> szansaNaWarunek = of(W.OBECNOSC, W.DEFAULT_ZACHOWANIE, W.DEFAULT_WARUNKI, W.DZIALANIE, W.REAKCJA,
             W.MAKSYMALNIE_ULATWIASZ, W.PRZEKONYWANIE, W.ULTIMATUM);
     List<W> warunek = of(W.POCZATEK, W.KONIEC, W.ZYSK, W.WARTOSC, W.ILOSC_OSOB, W.CZESTOTLIWOSC);
 

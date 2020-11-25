@@ -17,7 +17,7 @@ public class CPU_ROZWOJU_CZLOWIEKA extends AbstractCPU {
 
         M.W(W.MOCNY_WZROK, "--->", M.POTRZEBA(of(W.WYSILEK_FIZYCZNY, W.WYSILEK_UMYSLOWY)));
 
-        M.W(of(M.DLUGO(W.SPORT), W.WYSILEK_UMYSLOWY), "--->", of(W.KREGOSLUP_MORALNY, W.ZDOLNOSC_DO_WYSILKU,
+        M.W(of(M.DLUGO(SPORT_WARUNKI), W.WYSILEK_UMYSLOWY), "--->", of(W.KREGOSLUP_MORALNY, W.ZDOLNOSC_DO_WYSILKU,
                                                                                   W.ZDOLNY_DO_WALKI, W.WNIOSKI, W.PODSWIADOMOSC, W.WIEDZA_SPORT));
 
 
@@ -26,6 +26,7 @@ public class CPU_ROZWOJU_CZLOWIEKA extends AbstractCPU {
 
     public void przedzialyCzasowe() {
         M.W(OD(1), "--->", W.ROZUMIENIE);
+        M.W(OD(1).TO(6), "--->", M.NAUKA(W.MOWA));
         M.W(OD(3), "--->", W.MOWA);
         M.W(OD(3), "--->", W.BOZIA);
 
@@ -34,6 +35,8 @@ public class CPU_ROZWOJU_CZLOWIEKA extends AbstractCPU {
         M.W(OD(5), "--->", M.DAM(M.WYMAGANIE(W.PRACA)));
         M.W(T0(5), "--->", M.TOLERANCJA(W.PLACZ));
         M.W(OD(5), "--->", M.WYMAGANIE(M.BRAK(W.PLACZ)));
+
+        M.W(OD(5).TO(7), "--->", M.NAUKA(of(W.CZYTANIE, W.LICZENIE)));
 
         M.W(OD(6), "--->", M.POZNANIE(W.NAUKA));
         M.W(OD(7), "--->", W.BOKS);

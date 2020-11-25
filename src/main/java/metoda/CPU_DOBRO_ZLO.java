@@ -8,10 +8,12 @@ import java.util.List;
  * Created by gadzik on 19.06.20.
  */
 public class CPU_DOBRO_ZLO extends AbstractCPU {
+    W wazne = M.WAZNE(of(M.WYBOR(of(W.DOBRO, W.ZLO))));
+
     List<W> niesprawiedliwosc = NIESPRAWIEDLIWOSC_WARUNKI;
 
     public void run(){
-        M.W(W.UKAZANIE_W_PRAWDZIE, "--->", of(W.SPOGLADANIE_NA_SIEBIE, W.CISZA, M.WHILE(of(W.UMNIEJSZENIE, W.USPRAWIEDLIWINIE,
+        M.W(W.UKAZANIE_W_PRAWDZIE, "--->", of(W.SPOGLADANIE_NA_SIEBIE, W.CISZA, M.DOPOKI(of(W.UMNIEJSZENIE, W.USPRAWIEDLIWINIE,
                                                                                     W.KLAMSTWO, W.PRZEKONYWANIE))));
         M.WW(of(W.TOLEROWANIE_ZLA,
                 W.POZWOLENIE_NA_ZLO,
@@ -79,7 +81,7 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
                 W.PRZEWAGA_NA_STARCIE,
                 W.ZAZDROSC, W.ZAWISC, W.KRZYWDA, W.NIENAWISC
         );
-        List<W> NOWY = of(W.NAKLEJ_NALEPKE, W.WDUPC_ZAKLECIEM,
+        List<W> NOWY = of(W.NAKLEJ_NALEPKE, W.HASELKO_RDZENNYCH,
                 W.WYJEBAC_ZDJECIA, W.PRZESTRZELIC, W.SKAZYWANIE_SAMOTNOSC, W.ZWYZYWAC, W.OBGADAC, W.POBIC, W.SHANBIC);
 
         List<W> wadyZlych = WADY_ZLYCH_WARUNKI;
@@ -117,10 +119,10 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
         M.W(W.ZLY, "--->", of(M.DEFAULT(of(W.SLABSZY.NIZ(W.INNI), M.GORSZE(W.ZYCIE).NIZ(W.INNI), M.GORSZE(W.UMIEJETNOSCI).NIZ(W.INNI))),
                                                 M.TOLERANCJA(of(on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI))),
                                                 M.DOSWIADCZENIE(M.ZDOLNY(of(on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI)))),
-                                                M.W(W.OSOBA, "--->", of(M.WYKORZYSTUJE(W.OSOBA), M.KRZYWDZI(W.OSOBA),
-                                                                            M.SZYBKO(M.KRZYWDY(of(W.OSOBA, on(KRZYWDY_WARUNKI)))))),
+                                                M.W(W.OSOBA, "--->", M.ZLY(of(M.WYKORZYSTUJE(W.OSOBA), M.SZYBKO(M.KRZYWDY(of(W.OSOBA, on(KRZYWDY_WARUNKI))))))),
                                                 M.CEL(of(W.ZNISZCZENIE, on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI))))
         );
+        M.W(W.ZLY, "--->", M.thread_while_loop(M.ZLY(M.PRZEBYWANIE(M.OSOBY(W.ZLI)))));
     }
     public void dobroDzialanie() {
         List<W> conditions = of(
@@ -156,6 +158,8 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
         M.W(of(W.DOBRY, W._88_, W.WIDZIAL) , "--->", of(M.ODRAZU(M.MOCNO(W.KONTRA)), W.SPRAWIEDLIWOSC));
 
         M.POBIERZ_WZORCE_ZASADY(of(W.RODZINA, W.BIBLIA));
+
+        M.W(W.DOBRY, "--->", M.thread_while_loop(M.DOBRY(M.PRZEBYWANIE(M.OSOBY(W.DOBRZI)))));
     }
     public void dobroDzialacz() {
         List<W> conditions = of(

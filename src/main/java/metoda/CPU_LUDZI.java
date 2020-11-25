@@ -11,7 +11,9 @@ import static typy_bazowe.TypOsoby.SOMEONE;
  * Created by gadzik on 23.08.20.
  */
 public class CPU_LUDZI extends AbstractCPU {
-    List<W> silneWiezyCzlowieka = SILNE_WIEZY_CZLOWIEKA_WARUNKI;
+    W wazne = M.WAZNE(SILNE_WIEZY_CZLOWIEKA_WARUNKI);
+
+    List<W> codzienneAktywnosci = of(M.INTERAKCJA(W.RODZINA), M.OPCJA(M.INTERAKCJA(W.ZNAJOMI)), on(PRZYMUS_WARUNKI));
 
     public void run() {
         relacjeWarunkowLudzi();
@@ -137,6 +139,8 @@ public class CPU_LUDZI extends AbstractCPU {
         M.W(W.OSOBA, "--->", of(W.SRODOWISKO, W._II_, W.RODZINA)).W_PRZECIWNYM_PRZYPADKU(W.SAMOTNOSC);
 
         M.W(M.WIECEJ(W.LAT), "--->", M.WIECEJ(W.CIERPIENIE));
+
+        M.W(M.OSOBA(W.WIECZNY_IMIGRANT), "--->", of(M.NAJWIEKSZA(W.WIEDZA), M.NAJWIECEJ(W.DOSWIADCZENIE)));
     }
 
     public void srodki() {
@@ -171,7 +175,7 @@ public class CPU_LUDZI extends AbstractCPU {
         M.wezNajwiecejDlaSiebie();
         M.W(of(W.NIEZNAJOMY),
                 of(
-                        M.naklejka(),
+                        M.obgadywanie(),
                         M.foty()
                 )
         );
@@ -433,11 +437,11 @@ public class CPU_LUDZI extends AbstractCPU {
         );
 
         List<W> dzialajcyZycie = of(
-                M.WHILE(),
+                M.DOPOKI(W.DZIALA),
                 W.PRZYJEMNOSCI,
                 W.PRZEWAGA,
                 W.PRZEWAGA_ZE_ZLA_OD_ROBIENIA_ZLA,
-                M.WHILE_END()
+                M.DOPOKI_KONIEC()
         );
 
         List<W> dzialajcyPrzewagi = of(W.KLUB, W.MLODE_KOBIETY, W.SRODOWISKO, W.ZNAJOMI, W.EMOCJE, W.GNOJENIE, W.PRACA_PO_ZNAJOMOSCI);

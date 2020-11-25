@@ -12,6 +12,8 @@ import static typy_bazowe.TypOsoby.*;
  * Created by gadzik on 31.12.19.
  */
 public class CPU_1 extends AbstractCPU {
+    W wazne = M.WAZNE(of(W.WYCHODZENIE, W.STWORZENIE_SZANSY, W.ZNAJOMOSC));
+
     List<W> rzeczywistosc = of(W._1_OSOBA__DUZO, W.POPRUSZONE_NA_MIEJSCACH, W.X, W.KONTEKST);
 
     List<W> plansza = PLANSZA_WARUNKI;
@@ -27,7 +29,7 @@ public class CPU_1 extends AbstractCPU {
     List<W> dopuszczenie = ZBIOR_DOPUSZCZENIE_WARUNKI;
 
     List<W> mojeCechy = of(W.SPRYT, W.SZYBKOSC, W.SILA, W.ANTY_POSLUSZNOSC, W.ZMUSZASZ, W.WYJEBKA_NA_WLASNE_ZMECZENIE);
-    List<W> osobaChcianeCechy = of(W.REAGUJE, W.STWARZA_POINTCUT, W.SWIADOMOSC);
+    List<W> osobaChcianeCechy = of(W.REAGUJE, W.STWARZA_SZANSE, W.SWIADOMOSC);
 
     List<W> typySytuacji = TYPY_SYTUACJI;
 

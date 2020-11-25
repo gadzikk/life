@@ -24,7 +24,7 @@ public class CPU_1_SHORTEST extends AbstractCPU {
     List<W> dopuszczenie = ZBIOR_DOPUSZCZENIE_WARUNKI;
 
     List<W> mojeCechy = of(W.SPRYT, W.SZYBKOSC, W.SILA, W.ANTY_POSLUSZNOSC, W.ZMUSZASZ, W.WYJEBKA_NA_WLASNE_ZMECZENIE);
-    List<W> osobaChcianeCechy = of(W.REAGUJE, W.STWARZA_POINTCUT, W.SWIADOMOSC);
+    List<W> osobaChcianeCechy = of(W.REAGUJE, W.STWARZA_SZANSE, W.SWIADOMOSC);
 
     List<W> typySytuacji = TYPY_SYTUACJI;
 
@@ -90,7 +90,7 @@ public class CPU_1_SHORTEST extends AbstractCPU {
         );
         M.W(
                 of(M.prefix(prefixes, pdstw)),
-                of(W.WIDZENIE_NA_ROZMOWA, W.REAKCJA, W.INFO_O_POINTCUT)
+                of(W.WIDZENIE_NA_ROZMOWA, W.REAKCJA, W.INFO_O_SZANSACH)
         );
         M.W(
                 of(M.gadka(tematy, kombo)),

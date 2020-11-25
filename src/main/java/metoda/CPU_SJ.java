@@ -157,7 +157,7 @@ public class CPU_SJ extends AbstractCPU {
 
         M.W(of(W._NOT_, W.SPRZECIW_WZGLEDEM_ZLA), "--->", of(W.CALE_ZLO_W_CIEBIE));
 
-        M.W(W.TWOJA_PORAZKA, "--->", M.OSOBY(of(twoiWrogowie, zagraniczni, drugaStrona)).smiejeSie().hanba().wesele());
+        M.W(W.TWOJA_PORAZKA, "--->", M.OSOBY(of(W.WROGOWIE, W.ZAGRANICZNI, W.PRZECIWNY_KLUB)).CIESZA_SIE());
 
         M.W(W.JESTES_SILNY, "--->", of(zazdrosni.aktywneZlo(), dzialacz.probaSkasowania(), wszyscy.SET(W.ZAGROZENIE)));
 

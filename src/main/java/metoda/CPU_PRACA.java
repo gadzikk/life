@@ -11,7 +11,8 @@ import static typy_bazowe.TypOsoby.*;
  * Created by gadzik on 05.01.20.
  */
 public class CPU_PRACA extends AbstractCPU {
-//    List<W> globalneWarunki =
+    W wazne = M.WAZNE(of(W.WIEDZA, W.DOSWIADCZENIE, W.WYSOKA_POZYCJA));
+
     List<W> globalPlanszaPraca = GLOBAL_PLANSZA_PRACA_WARUNKI;
     List<W> hierarchia = HIERARCHIA_PRACA_WARUNKI;
 
