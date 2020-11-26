@@ -77,7 +77,7 @@ public class CPU_SJ extends AbstractCPU {
 
     List<W> miejscaKazni = of(W.DOM, W.G41, W.TM, W.TMTR, W.PK, W.AGH, W.BKS_HTK, W.BXRNIA, W.GRPL, W.CL, W.BBH);
 
-    List<W> walczysz = of(W.RODZICE, W.FESTY, W.BURZUAZJA, W.ZAGRANICZNI, W.OSIEDLOWY, W.RUDZI, W.CYGANIE);
+    List<W> walczysz = of(W.RODZICE, W.FESTY, W.WYGODNY, W.ZAGRANICZNI, W.OSIEDLOWY, W.RUDZI, W.CYGANIE);
 
     W podstawaEgzystencji = W.WYSILEK_FIZYCZNY;
 
@@ -86,6 +86,8 @@ public class CPU_SJ extends AbstractCPU {
     List<W> okazja = of(W.DOBRO, W.POZNANIE, W.WALKA_PIESCI);
 
     List<W> random = of(W.RESET, W.ZMIANA, W.NIE_PRZEWIDZISZ_PRZYSZLOSCI);
+
+    List<W> mojeDzialanie = of(M.wszystkoNaChlodno(), M.tyDobrze(), M.karzeszZaWadyZachowania());
 
     List<W> patologie = KATEGORIA_PATOLOGIE;
 

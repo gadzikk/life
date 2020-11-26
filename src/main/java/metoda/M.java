@@ -141,7 +141,7 @@ public class M {
     public static W odrazuPoWyjsciu() {return W.WARUNEK;}
     public static W lecZaNia() {return W.WARUNEK;}
     public static W dogon() {return W.WARUNEK;}
-    public static W sciagajGadke() {return W.WARUNEK;}
+    public static W sciagajRozmowe() {return W.WARUNEK;}
     public static W docen() {return W.WARUNEK;}
     public static W sondujWarunekDodatni() {return W.WARUNEK;}
     public static W zwrocUwage() {return W.WARUNEK;}
@@ -235,8 +235,8 @@ public class M {
     public static W obelgi_ponizanie() {return W.WARUNEK;}
     public static W przekonywanie() {return W.WARUNEK;}
     public static W bojka() {return W.WARUNEK;}
-    public static W walkaSila(List<W> typy) {return W.WARUNEK;}
-    public static W walkaWiedza(List<W> typy) {return W.WARUNEK;}
+    public static W WALKA_SILA(List<W> typy) {return W.WARUNEK;}
+    public static W WALKA_WIEDZA(List<W> typy) {return W.WARUNEK;}
     public static W wszystkoNaChlodno() {return W.WARUNEK;}
     public static W tyDobrze() {return W.WARUNEK;}
     public static W karzeszZaWadyZachowania() {return W.WARUNEK;}
@@ -256,13 +256,13 @@ public class M {
     public static M przestrzeganie(W warunki) {return new M();}
     public static W poCichu() {return W.WARUNEK;}
     public static W glosno() {return W.WARUNEK;}
-    public static W otwarteStacieF2F() {return W.WARUNEK;}
+    public static W otwarteStacie() {return W.WARUNEK;}
     public static W obrazanie(List<TT> obelgi) {return W.WARUNEK;}
     public static W ukazanieZlychCech() {return W.WARUNEK;}
     public static W wspominanieZlychWydarzen() {return W.WARUNEK;}
     public static W zartowanie(List<TT> zarty) {return W.WARUNEK;}
     public static W terror(List<W> sposoby) {return W.WARUNEK;}
-    public static W ktoZNimTenKurwa() {return W.WARUNEK;}
+    public static W ktoZNimTenPojechane() {return W.WARUNEK;}
     public static W shanbienie() {return W.WARUNEK;}
     public static W widziszTylkoZlaStrone() {return W.WARUNEK;}
     public static W odnowa() {return W.WARUNEK;}
@@ -1475,4 +1475,6 @@ public class M {
     public static W CZOLOWKA_EKIPY(List<W> warunki){return W.WARUNEK;}
     public static W PRZECIWNY_KLUB(W w){return W.WARUNEK;}
     public static W PRZECIWNY_KLUB(List<W> warunki){return W.WARUNEK;}
+    public static W OGRANICZENIE_CZASOWE(W w){return W.WARUNEK;}
+    public static W OGRANICZENIE_CZASOWE(List<W> warunki){return W.WARUNEK;}
 }

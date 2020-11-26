@@ -17,8 +17,8 @@ public class CPU_PRACA extends AbstractCPU {
     List<W> hierarchia = HIERARCHIA_PRACA_WARUNKI;
 
     List<W> warunki = of(W.PROJEKTY, W.TECHNOLOGIE, W.MANAGEROWIE, W.LUDZIE);
-    List<W> ludzieKorporacji = of(W.KONFIDENCI, W.ZAWISTNI, W.ZE_WSI, W.BURZUAZJA, W.FESTY, W.CZYCHA_NA_BLAD, W.DZIWNA_PASJA, W.POSLUSZNY);
-    List<W> managoCechy = of(W.TECHNICZNOSC, W.FEST, W.SYSTEMOWIEC, W.BURZUAZJA, W.STABILNY, W.POSLUSZNY);
+    List<W> ludzieKorporacji = of(W.KONFIDENCI, W.ZAWISTNI, W.ZE_WSI, W.WYGODNY, W.FESTY, W.CZYCHA_NA_BLAD, W.DZIWNA_PASJA, W.POSLUSZNY);
+    List<W> managoCechy = of(W.TECHNICZNOSC, W.FEST, W.SYSTEMOWIEC, W.WYGODNY, W.STABILNY, W.POSLUSZNY);
     List<W> tyVSmanago = of(W.STOSUNEK1VS1, W.ATMOSFERA, W.UZYTECZNOSC);
     List<W> satysfakcjaZPracy = of(W.DOBRY_PROJEKT, W.SZCZEGOLOWE_REQUIREMENTY, W.PROJEKT_UZYTECZNY, W.NOWE_NARZEDZIA, W.MANAGO_TECHNICZNY);
     List<W> zyskiZPracy = of(W.WIEDZA, W.CZAS, W.JEDZENIE, W.DOSWIADCZENIE, W.CHOROBOWE, W.CENTRUM, W.PIENIADZE, W.ODPOCZYNEK, W.PLANSZA);
@@ -157,7 +157,7 @@ public class CPU_PRACA extends AbstractCPU {
                         M.glaskaszPoGlowie(manago)
                 )
         );
-        M.W(of(W.BURZUAZJA),
+        M.W(of(W.WYGODNY),
                 of(
                         M.REMIND(ME, of(W.POPRAWNOSC_POLITYCZNA, W.ATMOSFERA, W.ZYSK, W.STRATA)),
                         M.ucinaj()

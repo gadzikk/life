@@ -334,7 +334,7 @@ public class CPU_1 extends AbstractCPU {
                 of(W.Z_KIMS, W._88_, W.PATRZY),
                 of(
                         M.GRANT(ME, W.X_100),
-                        M.sciagajGadke()
+                        M.sciagajRozmowe()
 
                 ),
                 of(W.WIDZIALA, W._88_, W.WYCHODZI),
@@ -525,7 +525,7 @@ public class CPU_1 extends AbstractCPU {
         );
         M.W(of(W.WIDZISZ_TYL, W._II_, W.NIEPATRZA_GADAJA),
                 of(
-                        M.sciagajGadke(),
+                        M.sciagajRozmowe(),
                         M.pprefix(prefixes, kombo),
                         M.namierzZareagowana(),
                         M.oswajaj()

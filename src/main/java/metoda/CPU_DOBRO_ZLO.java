@@ -45,6 +45,7 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
         generalneZwykleWidzianeZachowanie();
         zloUjecieSwiatowe();
         wyborKazdegoCzlowieka();
+        niesprawiedliwyHandel();
     }
 
     public void zloDzialanie() {
@@ -198,5 +199,9 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
         else if(warunki.containsAll(of(W.PRZYJEMNOSCI, W.EMOCJE, W.PRAGNIENIE_ZLA))){
             sciezkaZycia = W.IDZIE_W_LEWO;
         }
+    }
+
+    public void niesprawiedliwyHandel() {
+        M.WW(M.WIECEJ_NIZ_ZWYKLE(of(W.WYSILEK, W.PIENIADZE, W.KONTROLA)), "--->", M.GORSZE(W.REZULTATY), "--->", M.OSOBA(M.ZLECAJACA(W.NERWY)));
     }
 }

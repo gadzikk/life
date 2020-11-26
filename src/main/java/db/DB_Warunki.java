@@ -108,7 +108,7 @@ public class DB_Warunki extends DB {
         List<List<W>> ZBIOR_SONDA = Arrays.asList(
                 SONDA_GDY,
                 SONDA_PO,
-                KOGO,
+                SONDA_KOGO,
                 WYMAGA_KARY,
                 SONDA_DZIALACZA,
                 SONDA_SHRTS
@@ -979,7 +979,7 @@ public class DB_Warunki extends DB {
                     W.BLAD_ZLAMANIA_ZASAD
             );
 
-    public static List<W> KOGO =
+    public static List<W> SONDA_KOGO =
             Arrays.asList(
                     W.ZAGRANICZNI_CIEMNI, W.ZAGRANICZNI_JASNI,
                     W.BURZUA_DZIALAJACA, W.BURZUA_NIESWIADOMA,
@@ -1640,7 +1640,7 @@ public class DB_Warunki extends DB {
     public static List<List<W>> ZBIOR_SONDA = Arrays.asList(
             SONDA_GDY,
             SONDA_PO,
-            KOGO,
+            SONDA_KOGO,
             WYMAGA_KARY,
             SONDA_DZIALACZA,
             SONDA_SHRTS
