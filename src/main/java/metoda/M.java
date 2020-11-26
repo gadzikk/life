@@ -1485,4 +1485,6 @@ public class M {
     public static W NAJWYZSZY_HIERARCHIA(List<W> warunki){return W.WARUNEK;}
     public static W ZNA(W w){return W.WARUNEK;}
     public static W ZNA(List<W> warunki){return W.WARUNEK;}
+    public static W OKRASC(W w){return W.WARUNEK;}
+    public static W OKRASC(List<W> warunki){return W.WARUNEK;}
 }

@@ -156,11 +156,11 @@ public class CPU_LUDZI extends AbstractCPU {
 
     public void srodki() {
         List<W> srodkiFest = of(W.KOLKO_WZAJEMNEJ_ADORACJI, W.WSPARCIE, W.ZNAJOMOSC_FESTOW, W.WYKLUCZENIE,
-                W.ZLAMANIE_STANDARDU, W.OSZUKANIE_WDUPCENIE, W.OBGADAC);
+                W.ZLAMANIE_STANDARDU, W.OSZUKANIE_WYKORZYSTANIE, W.OBGADAC);
         List<W> antyFest = of(W.ROZWALENIE_KOLKA_ADORACJI, W.ZNAJOMOSC_RDZENNYCH, W.SILA);
 
         List<W> srodkiSlaby = of(W.KOLKO_WZAJEMNEJ_ADORACJI, W.WSPARCIE, W.ZNAJOMOSC_SLABYCH, W.WYKLUCZENIE,
-                W.ZLAMANIE_STANDARDU, W.OSZUKANIE_WDUPCENIE, W.PO_CICHU, W.OBGADAC);
+                W.ZLAMANIE_STANDARDU, W.OSZUKANIE_WYKORZYSTANIE, W.PO_CICHU, W.OBGADAC);
         List<W> antySlaby = of(W.OTWARTE_STARCIE, W.SILA, W.ZNAJOMOSC_RDZENNYCH, W.ROZWALENIE_KOLKA_ADORACJI);
 
         List<W> srodkiRdzenny = of(W.WALKA_PIESCI, W.WALKA_SPRZET, W.ZNAJOMOSC_RDZENNYCH, W.NIEBOI_SIE_WYROKU);
@@ -174,7 +174,7 @@ public class CPU_LUDZI extends AbstractCPU {
     }
 
     public void ochrona() {
-        M.OCHRONA(M.W(of(W.PRZEJEBANOSC_REGIONU), "--->", of(W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE, W.SPRZET, W.AGRESJA_W_DZIALANIU, W.ZLO)));
+        M.OCHRONA(M.W(of(W.PRZEJEBANOSC_REGIONU), "--->", of(W.OSZUKANIE_WYKORZYSTANIE, W.WYKLUCZENIE, W.SPRZET, W.AGRESJA_W_DZIALANIU, W.ZLO)));
         M.OCHRONA(M.W(of(W.SEX), "--->", of(W.WALKA_PIESCI, W.SKAZYWANIE_SAMOTNOSC, W.OBGADAC, W.EMOCJE_ZE_ZLA)));
         M.OCHRONA(M.W(of(W.PRACA), "--->", of(W.PRZYDUPASZENIE, W.WYKONYWANIE_PRACY)));
     }
@@ -353,7 +353,7 @@ public class CPU_LUDZI extends AbstractCPU {
                                 dzialacz.akceptacjaBiegania(),
                                 dzialacz.akceptacjaCpania(),
                                 dzialacz.akceptacjaHierarchii(),
-                                dzialacz.SET(of(W.BRAK_PIENIEDZY, W.NUDA, W.ZLY, W.AGRESJA, W.NIESWIADOMOSC, W.DOSTEP_OGRANICZONY))
+                                dzialacz.SET(of(W.AGRESJA, W.CHETNY_DZIALANIA, W.BRAK_PIENIEDZY, W.POSLUSZNY, W.OGRANICZONE_INFORMACJE, W.NUDA))
                         )),
 
                         M.WARUNKI_UTRZYMANIA(of(

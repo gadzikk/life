@@ -76,7 +76,7 @@ public class AbstractCPU {
     OsobaMetod dzialaczMocny = new OsobaMetod();
     List<W> DEFAULT_WARUNKI = DB_Warunki.DEFAULT_WARUNKI;
     List<W> WYMAGA_KARY_WARUNKI = DB_Warunki.WYMAGA_KARY;
-    List<W> SONDA_KOGO = DB_Warunki.SONDA_KOGO;
+    List<W> SONDA_KOGO_WARUNKI = DB_Warunki.SONDA_KOGO;
     OsobaMetod ZLE_OSOBY = new OsobaMetod();
     OsobaMetod dobrzi = new OsobaMetod();
     OsobaMetod najwyzszyHierarchiaWokol = new OsobaMetod();
@@ -193,6 +193,8 @@ public class AbstractCPU {
     List<W> TYPY_MIEJSC_WARUNKI = DB_Warunki.TYPY_MIEJSC;
     List<W> KONTROLA_WARUNKI = DB_Warunki.KONTROLA;
     List<W> ANTY_DZIALACZ_ZLA_WARUNKI = DB_Warunki.ANTY_DZIALACZ_ZLA;
+    List<W> PRZEWAGI_DANEJ_CHWILI_WARUNKI = DB_Warunki.PRZEWAGI_DANEJ_CHWILI;
+    List<W> SONDA_PRZYCZYN_WARUNKI = DB_Warunki.SONDA_PRZYCZYN;
 
 
     public <T> List<T> of(T... elements){
