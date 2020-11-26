@@ -423,7 +423,7 @@ public class CPU_UL extends AbstractCPU {
 
         M.W(M.NIEZDOLNOSC(of(W.WALKA_PIESCI, W.WALKA_SPRZET)), "--->", M.BRAK(W.SILA_SPRAWCZA_ULICA));
 
-        M.W(W.POTRZEBA, "--->", M.UZASADNIENIE_OBECNOSCI(W.POTRZEBA));
+        M.W(W.POTRZEBA, "--->", M.WRAZENIE(M.UZASADNIENIE_OBECNOSCI(W.POTRZEBA)));
     }
 
     public void wokolDzialaczaSrodowiska() {
@@ -583,6 +583,8 @@ public class CPU_UL extends AbstractCPU {
         M.W(M.INFORMACJA_ZWROTNA(M.OSOBA(W.HANBA)), "--->", M.POINFORMUJ_WSZYSTKICH(M.OSOBA(W.HANBA)));
 
         M.W(of(M.UDAJE_ZE(W.DZWONI), M.UDAJE_ZE(W.PRZEGLADA_TELEFON)), "--->", M.ROBI(W.ZDJECIA_TWARZOWKI));
+
+        M.W(W.POTRZEBA, "--->", M.WRAZENIE(M.UZASADNIENIE_OBECNOSCI(W.POTRZEBA)));
 
         // ***
 

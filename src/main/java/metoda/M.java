@@ -1487,4 +1487,6 @@ public class M {
     public static W ZNA(List<W> warunki){return W.WARUNEK;}
     public static W OKRASC(W w){return W.WARUNEK;}
     public static W OKRASC(List<W> warunki){return W.WARUNEK;}
+    public static W WRAZENIE(W w){return W.WARUNEK;}
+    public static W WRAZENIE(List<W> warunki){return W.WARUNEK;}
 }
