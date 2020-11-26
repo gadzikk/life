@@ -1477,4 +1477,12 @@ public class M {
     public static W PRZECIWNY_KLUB(List<W> warunki){return W.WARUNEK;}
     public static W OGRANICZENIE_CZASOWE(W w){return W.WARUNEK;}
     public static W OGRANICZENIE_CZASOWE(List<W> warunki){return W.WARUNEK;}
+    public static W SLUCHAJA(W w){return W.WARUNEK;}
+    public static W SLUCHAJA(List<W> warunki){return W.WARUNEK;}
+    public static W OTRZYMUJE(W w){return W.WARUNEK;}
+    public static W OTRZYMUJE(List<W> warunki){return W.WARUNEK;}
+    public static W NAJWYZSZY_HIERARCHIA(W w){return W.WARUNEK;}
+    public static W NAJWYZSZY_HIERARCHIA(List<W> warunki){return W.WARUNEK;}
+    public static W ZNA(W w){return W.WARUNEK;}
+    public static W ZNA(List<W> warunki){return W.WARUNEK;}
 }

@@ -129,6 +129,12 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
         M.W(W.ZLY, "--->", of(M.TOLERANCJA(of(W.ZLO, on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI))),
                                    M.CZESTO(of(W.ZLO, on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI)))));
 
+        M.W(of(W.ZLO), "--->", of(W.ROB_NAJWIEKSZA_KRZYWDE, W.ROZPOWIEDZ_DO_NAJWIEKSZEJ_LICZBY_OSOB, W.PRZEKONAJ_NAJWIECEJ_OSOB));
+
+        o(M.WWW(on(W.DZIALAJACY, W._88_, W.ZROBIONE_ZLO), "--->", W.CZEKA_NA_EFEKT, "--->", W.BRAK_REAKCJI, "--->", W.ZACHETA_DO_ZLA))
+                                                                        .w_przeciwnym_przypadku(of(W.REAKACJA, W.KARA, M.OPCJA(W.UKAZANIE),
+                                                            M.DZIALAJACY(of(W.ZAPRZESTANIE_ZLA, W.SMUTEK, W.WYLACZENIE_DZIALACZA, M.OPCJA(W.CHEC_POMSZCZENIA)))));
+
     }
     public void dobroDzialanie() {
         List<W> conditions = of(
