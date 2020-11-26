@@ -22,7 +22,7 @@ public class CPU_PRACA extends AbstractCPU {
     List<W> tyVSmanago = of(W.STOSUNEK1VS1, W.ATMOSFERA, W.UZYTECZNOSC);
     List<W> satysfakcjaZPracy = of(W.DOBRY_PROJEKT, W.SZCZEGOLOWE_REQUIREMENTY, W.PROJEKT_UZYTECZNY, W.NOWE_NARZEDZIA, W.MANAGO_TECHNICZNY);
     List<W> zyskiZPracy = of(W.WIEDZA, W.CZAS, W.JEDZENIE, W.DOSWIADCZENIE, W.CHOROBOWE, W.CENTRUM, W.PIENIADZE, W.ODPOCZYNEK, W.PLANSZA);
-    List<W> stratyZPracy = of(W.STRATA_CZASU, W.ZMECZENIE, W.WKURWIENIE, W.STRES, W.INTERAKCJA_Z_FESTAMI);
+    List<W> stratyZPracy = of(W.STRATA_CZASU, W.ZMECZENIE, W.NERWY, W.STRES, W.INTERAKCJA_Z_FESTAMI);
     List<W> kontrola = of(W.PATRZENIE_MONITOR, W.DAILY, W.WEEKLY, W.COMMITY, W.PYTANIA, W.PRZEPLYW_WIADOMOSCI, W.FEEDBACK_INNI, W.PROGRESS_ILOSCIOWY, W.PROGRESS_JAKOSCIOWY);
 
     public void run(){
@@ -110,14 +110,14 @@ public class CPU_PRACA extends AbstractCPU {
                         manago.teoriaPrzesuwania(zasob)
                 )
         );
-        M.W(of(W._NOT_, M.WYMAGANIA(of(W.WARTOSC_DODATNIA, W.FINE, W.LADNY, W.KULTURA, W.ULEGLOSC_WZGL_MANAGERA, W.PRZYCHYLNOSC_MANAGERA,
+        M.W(of(W._NIE_, M.WYMAGANIA(of(W.WARTOSC_DODATNIA, W.FINE, W.LADNY, W.KULTURA, W.ULEGLOSC_WZGL_MANAGERA, W.PRZYCHYLNOSC_MANAGERA,
                 W.DOBRY_FEEDBACK_LUDZIE, W.ATMOSFERA))),
                 of(
                         manago.wymaganaAkcja(ME)
                 )
         );
 
-        M.W(of(W.TWORZYSZ_PROBLEMY, W._II_, W.PSUJESZ_ATMOSFERE, W._II_, W._NOT_, W.FINE),
+        M.W(of(W.TWORZYSZ_PROBLEMY, W._II_, W.PSUJESZ_ATMOSFERE, W._II_, W._NIE_, W.FINE),
                 of(
                         manago.ostry(ME)
                 )

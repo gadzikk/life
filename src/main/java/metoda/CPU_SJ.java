@@ -97,8 +97,8 @@ public class CPU_SJ extends AbstractCPU {
 
     public void run() {
         M.W(W.WYCHODZISZ, "--->", of(M.thread_while_loop(W.ZLO_KRAZY),
-                                        zli.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA),
-                                        zli.thread_while_loop(W.STWARZA_OKAZJE_ZROBIENIE_ZLA),
+                                        ZLE_OSOBY.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA),
+                                        ZLE_OSOBY.thread_while_loop(W.STWARZA_OKAZJE_ZROBIENIE_ZLA),
                                         M.DEFAULT(of(on(KRZYWDY_WARUNKI), on(OSLONY_WARUNKI))),
                 M.thread_while_loop(of(ciaglaCzynnoscUlica, W.ZASIEG_WZROKU, W.SCIEZKI, W.LUDZIE, W.WIDOCZNY_GDY_IDZIESZ))));
 
@@ -122,7 +122,7 @@ public class CPU_SJ extends AbstractCPU {
 
         M.W(WZGL_IZOLACJA_WARUNKI, "--->", M.ODRAZU(W.DZIALANIE));
 
-        M.W(of(W._NOT_, W.PRZED_9, W._88_, W.PO_17),
+        M.W(of(W._NIE_, W.PRZED_9, W._88_, W.PO_17),
                 of(M.REMOVE(ME, W.DZIEN))
         );
         M.W(of(W.MIEJSCE_STALE),
@@ -155,7 +155,7 @@ public class CPU_SJ extends AbstractCPU {
                 )
         );
 
-        M.W(of(W._NOT_, W.SPRZECIW_WZGLEDEM_ZLA), "--->", of(W.CALE_ZLO_W_CIEBIE));
+        M.W(of(W._NIE_, W.SPRZECIW_WZGLEDEM_ZLA), "--->", of(W.CALE_ZLO_W_CIEBIE));
 
         M.W(W.TWOJA_PORAZKA, "--->", M.OSOBY(of(W.WROGOWIE, W.ZAGRANICZNI, W.PRZECIWNY_KLUB)).CIESZA_SIE());
 
@@ -163,6 +163,7 @@ public class CPU_SJ extends AbstractCPU {
 
         M.W(M.TRZYMANIE_RELACJI(W.RODZICE), "--->", M.thread_while_loop(of(W.KONTROLA, W.SZKODLIWY_WPLYW)));
 
+        M.W(of(W.KOLECZKO_WZAJEMNEJ_ADORACJI), "--->", of(M.punktujWady(), M.II(), M.wprowadzCosLepszego(), M.II(), M.zniszczSila()));
 
         wsrodLudzi();
         prioriDzialania();
@@ -172,7 +173,6 @@ public class CPU_SJ extends AbstractCPU {
         zagrozenia();
         antyPan();
         antyDzialacz();
-        duzyMalyWarunek();
     }
 
     public void wsrodLudzi() {
@@ -183,6 +183,32 @@ public class CPU_SJ extends AbstractCPU {
         wszyscy.nastawienie(W.AGRESJA);
         wszyscy.niktNiePyta();
         wszyscy.informacjeZGory();
+
+        M.thread_while_loop(W.DOBRO);
+        M.thread_while_loop(W.POTENCJALNE_STARCIE);
+        M.thread_while_loop(W.AKTYWNA_WALKA_ZE_ZLEM);
+
+        M.thread_while_loop(W.ANTY_POSLUSZNOSC);
+        M.thread_while_loop(W.ANTY_FEST);
+        M.thread_while_loop(W.ANTY_SYSTEM);
+        M.thread_while_loop(W.ANTY_BURZUA);
+
+        M.WW(of(W.LUDZIE),
+                of(
+                        M.pokazSieZNajlepszejStronyZachowania(),
+
+                        M.wzrokiemPowstrzymaj(),
+                        M.nadajZobowiazanieTonem(),
+                        M.izolujObszar(),
+
+                        M.skinaj(),
+                        M._3pktTwarzy()
+                ),
+                of(W.CZESTO_PATRZY, W._88_, W.NIE_WIE_CO_ZROBIC, W._II_, W.WIDZISZ, W._88_, W.DOBRY),
+                of(
+                        M.rozpoczecieRozmowy()
+                )
+        );
     }
 
     public void prioriDzialania() {
@@ -235,18 +261,5 @@ public class CPU_SJ extends AbstractCPU {
 
         M.W(of(W.WPIERDOL), "--->", of(W.STRACH, W.BOL, W.MORALNIAK, W.STRATA_MANIURY, W.POZBAWIENIE_PRZEWAGI,
                                                                                 M.MOCNO(W.CHEC_POMSZCZENIA)));
-    }
-
-    public List<W> duzyMalyWarunek() {
-        return of(
-                M.PERSPEKTYWA(W.ULICA).MALY_WARUNEK(W.PIENIADZE),
-                M.DUZY_WARUNEK(W.RODZINA),
-                M.DUZY_WARUNEK(of(W.INFORMACJA, W.CZAS)),
-                M.DUZY_WARUNEK(of(W.ULICA, W.SILA, W.ZNAJOMI)),
-                M.DUZY_WARUNEK(of(W.ROZWOJ_UMYSLOWY, W.ROZWOJ_FIZYCZNY)),
-
-                M.MALY_WARUNEK(of(W.WYCHODZENIE, W.OBECNOSC)),
-                M.DUZY_WARUNEK(W.ZAGADANIE)
-        );
     }
 }

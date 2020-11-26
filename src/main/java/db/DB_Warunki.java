@@ -656,7 +656,7 @@ public class DB_Warunki extends DB {
                             M.SRODOWISKO(W.PRZYJEMNOSCI), M.MECZ(W.JEDEN_KLUB_KIBICOWSKI))),
                     W.ROZMIAR, W.SILA_FIZYCZNA, W.SILNE_UDERZENIE, W.ZAPASY, W.OBRONA, W.ZDOLNI_DO_WALKI_ZNAJOMI,
                     W.LUDZIE_ZA_TOBA, W.WALKA_PIESCI, W.WALKA_SPRZET, M.SPRZET(M.EKIPA(W.SAMOCHOD_NA_CHODZIE)), M.SPRZET(M.EKIPA(W.MIEJSCE)),
-                    W.EKIPA, M.BLISKO(W.EKIPA), W.ROWER, W.ZASLONIETA_TWARZ, W.HASELKO_RDZENNYCH, W.PIERWSZENSTWO,
+                    W.EKIPA, M.BLISKO(W.EKIPA), W.ROWER, W.ZASLONIETA_TWARZ, W.HASLO_RDZENNYCH, W.PIERWSZENSTWO,
                     W.UMIEJETNOSC,
                     W.PRACA, W.PIENIADZE,
                     W.WYSOKA_POZYCJA,
@@ -674,7 +674,7 @@ public class DB_Warunki extends DB {
                             M.SRODOWISKO(W.PRZYJEMNOSCI), M.MECZ(W.JEDEN_KLUB_KIBICOWSKI))),
                     W.ZDOLNI_DO_WALKI_ZNAJOMI,
                     W.LUDZIE_ZA_TOBA, W.WALKA_PIESCI,  M.SPRZET(M.EKIPA(W.SAMOCHOD_NA_CHODZIE)), M.SPRZET(M.EKIPA(W.MIEJSCE)),
-                    W.EKIPA, M.BLISKO(W.EKIPA), W.HASELKO_RDZENNYCH, W.PIERWSZENSTWO
+                    W.EKIPA, M.BLISKO(W.EKIPA), W.HASLO_RDZENNYCH, W.PIERWSZENSTWO
             );
 
     public static List<W> PRZEWAGI_LUDZKIE =
@@ -710,7 +710,7 @@ public class DB_Warunki extends DB {
 
                     M.BRAK(of(W.ROZMIAR, W.SILA_FIZYCZNA, W.SILNE_UDERZENIE, W.ZAPASY, W.OBRONA, W.ZDOLNI_DO_WALKI_ZNAJOMI,
                         W.LUDZIE_ZA_TOBA, W.WALKA_PIESCI, W.WALKA_SPRZET, M.SPRZET(M.EKIPA(W.SAMOCHOD_NA_CHODZIE)), M.SPRZET(M.EKIPA(W.MIEJSCE)),
-                        W.EKIPA, M.BLISKO(W.EKIPA), W.ROWER, W.ZASLONIETA_TWARZ, W.HASELKO_RDZENNYCH, W.PIERWSZENSTWO,
+                        W.EKIPA, M.BLISKO(W.EKIPA), W.ROWER, W.ZASLONIETA_TWARZ, W.HASLO_RDZENNYCH, W.PIERWSZENSTWO,
                         W.UMIEJETNOSC,
                         W.PRACA, W.PIENIADZE,
                         W.PRZEZYCIE_CIERPIENIA
@@ -1109,9 +1109,10 @@ public class DB_Warunki extends DB {
                     M.STANDARD(M.MALY_WYSILEK(M.MOCNO(M.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA)))),
                     M.STANDARD((M.MALY_WYSILEK(M.MOCNO(M.thread_while_loop(W.STWARZA_OKAZJE_ZROBIENIE_ZLA))))),
                     M.DEFAULT(M.WYWYZSZAJ(M.UMACNIAJ(W.SIEBIE)), M.UNIZAJ(M.OSLABIAJ(W.INNI)), W.POBIJ_JAK_NAJWIECEJ_OSOB, W.ZDOBADZ_JAK_NAJWIECEJ_PRZEWAG),
+                    M.MALY_WYSILEK(of(M.DLUGO(W.PATRZENIE_W_OCZY) ,M.ROZMOWA(W.PRZERYWANIE_MOWY))),
 
                     M.MALY_WYSILEK(M.MOCNO(M.PODSTAWA(of(W.UKRYCIE, W.KLAMSTWO, W.PO_CICHU)))),
-                    M.MALY_WYSILEK(M.MOCNO(of(W.HASELKO_RDZENNYCH, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE))),
+                    M.MALY_WYSILEK(M.MOCNO(of(W.HASLO_RDZENNYCH, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE))),
                     M.MALY_WYSILEK(M.MOCNO(of(W.NOTYFIKACJA_EKIPA, W.ZDJECIA_TWARZOWKI, W.NAKLEJ_NALEPKE, W.OBGADAC,
                             W.NOTYFIKACJA_ALL_O_HANBIE, W.PRZEKONYWANIE_OTOCZENIA_PRZECIW, W.NARZEKANIE_NA_OSOBE,
                             W.UNIZA, W.LEKCEWAZY_INNYCH))),
@@ -1165,7 +1166,7 @@ public class DB_Warunki extends DB {
                     M.DEFAULT(M.WYWYZSZAJ(M.UMACNIAJ(W.SIEBIE)), M.UNIZAJ(M.OSLABIAJ(W.INNI)), W.ZDOBADZ_JAK_NAJWIECEJ_PRZEWAG),
 
                     M.MALY_WYSILEK(M.MOCNO(M.PODSTAWA(of(W.UKRYCIE, W.KLAMSTWO, W.PO_CICHU)))),
-                    M.MALY_WYSILEK(M.MOCNO(of(W.HASELKO_RDZENNYCH, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE))),
+                    M.MALY_WYSILEK(M.MOCNO(of(W.HASLO_RDZENNYCH, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE))),
                     M.MALY_WYSILEK(M.MOCNO(of(W.NOTYFIKACJA_EKIPA, W.ZDJECIA_TWARZOWKI, W.NAKLEJ_NALEPKE, W.OBGADAC,
                             W.NOTYFIKACJA_ALL_O_HANBIE, W.PRZEKONYWANIE_OTOCZENIA_PRZECIW, W.NARZEKANIE_NA_OSOBE,
                             W.UNIZA, W.LEKCEWAZY_INNYCH))),
@@ -1199,7 +1200,7 @@ public class DB_Warunki extends DB {
             M.W(of(W.MEZCZYZNA),
                     of(
                             M.MOCNO(M.sonda(W.OCZY)),
-                            M.MOCNO(M.sonda(W.HASELKO_RDZENNYCH)),
+                            M.MOCNO(M.sonda(W.HASLO_RDZENNYCH)),
                             M.sonda(W.Z_KIM),
                             M.sonda(W.SWIADOMOSC), // 1: FEST
                             M.sonda(W.SILA_SPRAWCZA), // WPLYW: 0
@@ -1260,7 +1261,7 @@ public class DB_Warunki extends DB {
     public static List<W> DEFAULT_WARUNKI =
             Arrays.asList(
                     W.RODZINA, W.MIEJSCE_ZAMIESZKANIA,
-                    M.BRAK(of(W.ZNAJOMI, W.ZWIAZEK, W.PRACA, W.UKLADY, W.HASELKO_RDZENNYCH, W.PRZEWAGA)),
+                    M.BRAK(of(W.ZNAJOMI, W.ZWIAZEK, W.PRACA, W.UKLADY, W.HASLO_RDZENNYCH, W.PRZEWAGA)),
                     W.POPED_SEXUALNY, W.MARZENIA, W.OCZEKIWANIA_WOBEC_ZYCIA,
                     W.CHARAKTER, W.CECHY_WRODZONE,
                     W.CZYSTE_SUMIENIE
@@ -1314,27 +1315,28 @@ public class DB_Warunki extends DB {
 
     public static List<W> ULICA_PRZEWAGA_SPOSOB = of(
 
-            M.W(W.SAMOCHOD, "--->", of(M.ZNISZCZENIE(W.OPONY), M.ZNISZCZENIE(W.KAROSERIA), M.OPCJA(M.PODPALENIE(W.SAMOCHOD)))),
-
             M.W(W.DYSTANS, "--->", of(W.SZYBKIE_NOGI, W.ROWER, W.SAMOCHOD)),
+
+            M.W(W.SAMOCHOD, "--->", of(M.ZNISZCZENIE(W.OPONY), M.ZNISZCZENIE(W.KAROSERIA), M.OPCJA(M.PODPALENIE(W.SAMOCHOD)))),
 
             M.W(W.ZWIADY, "--->", of(M.STAJESZ(W.ULICA), M.PRZEPYTYWANIE(W.WSZYSCY), M.W(M.OSOBA(W.NIEZNAJOMY), "--->", W.WALKA_PIESCI))),
 
+            M.W(of(W.NOTYFIKACJA_EKIPA, W.ZDJECIA_TWARZOWKI), "--->", of(M.STRATA(M.ZNISZCZENIE(W.TELEFON)), W.WALKA_PIESCI)),
+
             M.W(W.MIEJSCE_STALE, "--->", of(M.ZAGAZOWANIE(W.MIEJSCE_STALE), M.ZNISZCZENIE(W.WARTOSC))),
 
-            M.W(of(W.ZNAJOMI, W.OSIEDLOWE_SRD), "--->", M.POINFORMUJ_WSZYSTKICH(W.HANBA)),
+            M.W(W.CISNIE, "---->", W.WALKA_PIESCI),
 
-            M.W(of(W.INFORMACJA, W.CZAS, W.WIEDZA, W.BRAK_WSTYDU), "--->", of(W.KLAMSTWO, W.UKRYCIE, W.HASELKO_RDZENNYCH,
-                                                                                    M.BRAK_DOSTEPU(W.ZLO), W.SAMOTNOSC)),
+            M.W(W.WALKA_PIESCI, "--->", of(M.SILNIEJSZA(W.WALKA_PIESCI), W.SPRZET)),
+
+            M.W(W.GAZ, "--->", of(W.KOMIN_ANTY_GAZ, W._88_, W.WALKA_PIESCI)),
+
+            M.W(W.OSTRY_SPRZET, "--->", of(M.SILNIEJSZA(M.EKIPA(M.ODWAGA(M.WIECEJ_OSOB(W.OSTRY_SPRZET)))), M.WJAZD_NA_MIESZKANIE(W.BIEGAJACY_SPRZET))),
 
             M.W(W.EKIPA, "--->", of(M.WALKA(M.SILNIEJSZA((W.EKIPA))), M.SKOMPROMITOWANIE(W.EKIPA),
-                                    W.BRAK_SENSU_DZIALANIA, M.BRAK(W.OSOB), M.BRAK(W.POSLUCH), M.BRAK(M.WYKONYWANIE(W.ROZKAZ)))),
+                                            W.BRAK_SENSU_DZIALANIA, M.BRAK(W.OSOB), M.BRAK(W.POSLUCH), M.BRAK(M.WYKONYWANIE(W.ROZKAZ)))),
 
-            M.W(of(W.PIENIADZE, W.WYSOKA_POZYCJA), "--->", of(W.WYROK, M.STRATA(W.PRACA), M.STRATA(W.ZDROWIE))),
-
-            M.W(of(W.OSTRY_SPRZET), "--->", of(M.SILNIEJSZA(M.EKIPA(M.ODWAGA(M.WIECEJ_OSOB(W.OSTRY_SPRZET)))))),
-
-            M.W(W.BRAK_CIERPIENIA, "--->", M.PRZEZYCIE(W.CIERPIENIE)),
+            M.W(M.WJAZD_NA_MIESZKANIE(W.BIEGAJACY_SPRZET), "--->", M.MIESZKANIE(W.BRON_PALNA)),
 
             M.W(W.OSLONA, "--->", M.MIMO_TO(M.BIJESZ())),
 
@@ -1343,16 +1345,19 @@ public class DB_Warunki extends DB {
 
             M.W(of(M.OPPONENT(of(W.PRZEWAGA_SILY, W.SPRZET)), W._88_, M.WYSTEPUJE(W.WARTOSC)), "--->", M.MIMO_TO(M.BIJESZ())),
 
-            M.W(of(W.NOTYFIKACJA_EKIPA, W.ZDJECIA_TWARZOWKI), "--->", of(M.STRATA(M.ZNISZCZENIE(W.TELEFON)), W.WALKA_PIESCI)),
+            M.W(of(W.INFORMACJA, W.CZAS, W.WIEDZA, W.BRAK_WSTYDU), "--->", of(W.KLAMSTWO, W.UKRYCIE, W.HASLO_RDZENNYCH,
+                                                                                M.BRAK_DOSTEPU(W.ZLO), W.SAMOTNOSC)),
 
-            M.W(W.GAZ, "--->", of(W.KOMIN_ANTY_GAZ, W._88_, W.WALKA_PIESCI)),
+            M.W(of(W.ZNAJOMI, W.OSIEDLOWE_SRD), "--->", M.POINFORMUJ_WSZYSTKICH(W.HANBA)),
 
-            M.W(of(W.SPRYT, W.SZYBKOSC, W.SILNY, W.POTRAFI_OCENIC), "--->", of(M.STRATA(W.ZDROWIE), W.UZYWKI, W.UZALEZNIENIE)),
+            M.W(of(W.PIENIADZE, W.WYSOKA_POZYCJA), "--->", of(W.WYROK, M.STRATA(W.PRACA), M.STRATA(W.ZDROWIE))),
 
-            M.W(M.WJAZD_NA_MIESZKANIE(W.BIEGAJACY_SPRZET), "--->", M.MIESZKANIE(W.BRON_PALNA)),
+            M.W(W.BRAK_CIERPIENIA, "--->", M.PRZEZYCIE(W.CIERPIENIE)),
 
             M.W(M.BRAK_ZASAD(M.INTERAKCJA(of(W.POLICJA, W.ZAGRANICZNI))), "--->", of(M.UKAZANIE(M.BRAK_ZASAD(W.HANBA)),
-                                                                                        M.SKOMPROMITOWANIE(W.EKIPA)))
+                                                                                        M.SKOMPROMITOWANIE(W.EKIPA))),
+
+            M.W(of(W.SPRYT, W.SZYBKOSC, W.SILNY, W.POTRAFI_OCENIC), "--->", of(M.STRATA(W.ZDROWIE), W.UZYWKI, W.UZALEZNIENIE))
     );
 
     public static List<W> ZACHOWANIE_REZULTAT_ULICA =  of(
@@ -1410,7 +1415,7 @@ public class DB_Warunki extends DB {
     public static List<W> SLABY_TCHORZ =
             Arrays.asList(
                     M.MALY_WYSILEK(M.MOCNO(M.PODSTAWA(of(W.UKRYCIE, W.KLAMSTWO, W.PO_CICHU)))),
-                    M.MALY_WYSILEK(M.MOCNO(of(W.HASELKO_RDZENNYCH, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE))),
+                    M.MALY_WYSILEK(M.MOCNO(of(W.HASLO_RDZENNYCH, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE))),
                     M.MALY_WYSILEK(M.MOCNO(of(W.NOTYFIKACJA_EKIPA, W.ZDJECIA_TWARZOWKI, W.NAKLEJ_NALEPKE, W.OBGADAC,
                             W.NOTYFIKACJA_ALL_O_HANBIE, W.PRZEKONYWANIE_OTOCZENIA_PRZECIW,
                             W.UNIZA, W.LEKCEWAZY_INNYCH))),

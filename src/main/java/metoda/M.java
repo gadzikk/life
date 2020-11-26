@@ -310,7 +310,7 @@ public class M {
     public static W oszcaujZagrozenia(Osoba osoba) {return W.WARUNEK;}
     public static W skinaj() {return W.WARUNEK;}
     public static W _3pktTwarzy() {return W.WARUNEK;}
-    public static W initGadki() {return W.WARUNEK;}
+    public static W rozpoczecieRozmowy() {return W.WARUNEK;}
 
     public static W kontrubutujesz() {return W.WARUNEK;}
     public static W wyborOsob() {return W.WARUNEK;}
@@ -348,7 +348,7 @@ public class M {
     public static W szybkoDzialaj() {return W.WARUNEK;}
     public static W punktujWady() {return W.WARUNEK;}
     public static W wprowadzCosLepszego() {return W.WARUNEK;}
-    public static W rozdupcSila() {return W.WARUNEK;}
+    public static W zniszczSila() {return W.WARUNEK;}
     public static W wysmianie() {return W.WARUNEK;}
     public static W zleEmocje() {return W.WARUNEK;}
     public static W obracaniePrzeciw() {return W.WARUNEK;}
@@ -568,7 +568,8 @@ public class M {
     public static W pamietaj(W warunek) {return W.WARUNEK;}
     public static W subscribe(List<W> warunki) {return W.WARUNEK;}
     public static W oddalanieSieOdWalkiZagrozenia(List<W> warunki) {return W.WARUNEK;}
-    public static W oddalanieOdKonkurencji(List<W> warunki) {return W.WARUNEK;}
+    public static W oddalanieOdKonkurencji(List<W warunki) {return W.WARUNEK;}
+    public static W pozaSrodowisko(W w) {return W.WARUNEK;}
     public static W FIRST(List<W> warunki) {return W.WARUNEK;}
     public static W NIGDY_MALO(List<W> warunki) {return W.WARUNEK;}
     public static W OCHRONA(W w) {return W.WARUNEK;}
@@ -722,8 +723,8 @@ public class M {
     public static W DOSTEP(List<W> warunki) {return W.WARUNEK;}
     public static W WZIECIE_SPRAWIEDLIWOSCI(W w) {return W.WARUNEK;}
     public static W WZIECIE_SPRAWIEDLIWOSCI(List<W> warunki) {return W.WARUNEK;}
-    public static void SET(W w) {}
-    public static void SET(List<W> warunki) {}
+    public static W SET(W w) {return W.WARUNEK;}
+    public static W SET(List<W> warunki) {return W.WARUNEK;}
     public static M PERSPEKTYWA(W w) {return new M();}
     public static W MALY_WARUNEK(W w) {return W.WARUNEK;}
     public static W MALY_WARUNEK(List<W> warunki) {return W.WARUNEK;}
@@ -781,6 +782,7 @@ public class M {
     public static W ROBI_KRZYWDE_Z_PRZEWAGA(OsobaMetod osoba, List<W> warunki){return W.WARUNEK;}
     public static W DDM(W w){return W.WARUNEK;}
     public static W PRACA(W w){return W.WARUNEK;}
+    public static W PRACA(List<W> warunki){return W.WARUNEK;}
     public static W SAMOCHOD(W w){return W.WARUNEK;}
     public static W PRZY_SOBIE(W w){return W.WARUNEK;}
     public static W WYBOR(W w){return W.WARUNEK;}
@@ -1453,4 +1455,20 @@ public class M {
     public static W ZASIEG_WZROKU(List<W> warunki){return W.WARUNEK;}
     public static W REJON(W w){return W.WARUNEK;}
     public static W REJON(List<W> warunki){return W.WARUNEK;}
+    public static W STARCIE(W w){return W.WARUNEK;}
+    public static W STARCIE(List<W> warunki){return W.WARUNEK;}
+    public static W ROZMOWA(W w){return W.WARUNEK;}
+    public static W ROZMOWA(List<W> warunki){return W.WARUNEK;}
+    public static W ZAPOMNIENIE(W w){return W.WARUNEK;}
+    public static W ZAPOMNIENIE(List<W> warunki){return W.WARUNEK;}
+    public static W KIEROWNICTWO(W w){return W.WARUNEK;}
+    public static W KIEROWNICTWO(List<W> warunki){return W.WARUNEK;}
+    public static W WIECEJ_NIZ_ZWYKLE(W w){return W.WARUNEK;}
+    public static W WIECEJ_NIZ_ZWYKLE(List<W> warunki){return W.WARUNEK;}
+    public static W ZLECAJACA(W w){return W.WARUNEK;}
+    public static W ZLECAJACA(List<W> warunki){return W.WARUNEK;}
+    public static W RDZENNY(W w){return W.WARUNEK;}
+    public static W RDZENNY(List<W> warunki){return W.WARUNEK;}
+    public static W NAWYK(W w){return W.WARUNEK;}
+    public static W NAWYK(List<W> warunki){return W.WARUNEK;}
 }

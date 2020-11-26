@@ -110,7 +110,7 @@ public class CPU_ZDOBYCIE_ZWIAZKU extends AbstractCPU {
     }
 
     public void doKosza() {
-        M.W(of(W._NOT_,
+        M.W(of(W._NIE_,
                 W.KASA,
                 W.SRODOWISKO,
                 W.LADNY,

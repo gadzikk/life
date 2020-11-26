@@ -98,6 +98,8 @@ public class CPU_ALL extends AbstractCPU {
         M.W(of(M.ZAUWAZYLEM(M.USLYSZALEM(W.INFORMACJA)),
                               W._88_, W.BRAK_DZIALANIA), "--->", of(W.STRACONA_SZANSA, M.INNA_OSOBA(M.OTRZYMANIE(W.SZANSA))));
 
+        M.W(W.NIESWIADOMOSC, "--->", W.NIESZCZESCIE);
+
         M.W(M.WYKONYWANIE(W.PRACA), "--->", of(M.wszystkoAbyOtrzymacRezultat(),
                                                          M.doSedna(),
                                                          M.doKonca()));
@@ -114,7 +116,7 @@ public class CPU_ALL extends AbstractCPU {
         M.W(W.NA_MIEJSCU, "--->", of(M.doSedna(), M.doKonca()));
 
 
-        M.W(of(W._NOT_, W.WARUNEK_A), "--->", M.dzialanieNad(W.WARUNEK_B));
+        M.W(of(W._NIE_, W.WARUNEK_A), "--->", M.dzialanieNad(W.WARUNEK_B));
 
         M.W(of(W.ZAGROZENIE), "--->", of(M.widziszTylkoPlusy(),
                                               M.namierzPotencjalnyZysk(),
@@ -153,7 +155,7 @@ public class CPU_ALL extends AbstractCPU {
         M.W(M.POZNANIE(W.OSOBA), "--->", M.NABYCIE(W.RELACJA));
 
         M.W(W.SILA_RZADZI, "--->", of(M.PRAWDZIWA(W.WARTOSC), W.PRAWDA));
-        M.W(M.BRAK(W.SILA_RZADZI), "--->", of(M.BRAK(W.WARTOSC), W.KLAMSTWO));
+        M.W(M.BRAK(W.SILA_RZADZI), "--->", of(M.BRAK(W.WARTOSC), W.KLAMSTWO, W.FEST_RZADZI));
 
         M.W(of(W.WIEDZA, W.INFORMACJA, M.WNIOSKI(W.DOSWIADCZENIA),
                W.SONDA, W.WLASCIWA_OCENA, W.ZNAJOMOSC_OTOCZENIA,

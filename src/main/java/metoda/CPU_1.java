@@ -498,7 +498,7 @@ public class CPU_1 extends AbstractCPU {
         ona.max(W.POPATRZENIE_X2);
 
         M.WW(
-                of(W._NOT_, W.WZGL_IZOLACJA, W.SKLEP, W.TRAUTO),
+                of(W._NIE_, W.WZGL_IZOLACJA, W.SKLEP, W.TRAUTO),
                 of(
                         M.GRANT(ME, W.JALOWY_ON)
                 ),
@@ -565,5 +565,25 @@ public class CPU_1 extends AbstractCPU {
                         M.bucikiDeep()
                 )
         );
+    }
+
+    public void nawiazanieRelacji(){
+        M.thread_while_loop(W.PUSTKA);
+        M.W(of(W.LUDZIE),
+                of(
+                        M.widzisz(W.WADY),
+                        M.widzisz(W.ZLO),
+                        M.widzisz(W.ZAZDROSC)
+                )
+        );
+        M.W(of(on(WZGL_IZOLACJA_WARUNKI), W._II_,
+                W.ZNAJOMI, W._II_,
+                W.CZAS, W._88_, W.PODBIJASZ), "--->", W.SZANSA_POZNANIE);
+
+        M.thread_while_loop(W.UTRZYMANIE_RELACJI);
+
+        M.W(M.BRAK(W.UTRZYMANIE_RELACJI), "--->", of(M.KONIEC(W.RELACJA),
+                M.KONIEC(M.ZNAJOMOSC(W.OSOBA)),
+                W.ZMARNOWANY_CZAS));
     }
 }

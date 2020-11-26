@@ -77,7 +77,7 @@ public class AbstractCPU {
     List<W> DEFAULT_WARUNKI = DB_Warunki.DEFAULT_WARUNKI;
     List<W> WYMAGA_KARY_WARUNKI = DB_Warunki.WYMAGA_KARY;
     List<W> KOGO_WARUNKI = DB_Warunki.KOGO;
-    OsobaMetod zli = new OsobaMetod();
+    OsobaMetod ZLE_OSOBY = new OsobaMetod();
     OsobaMetod dobrzi = new OsobaMetod();
     OsobaMetod najwyzszyHierarchiaWokol = new OsobaMetod();
     OsobaMetod swoi = new OsobaMetod();
