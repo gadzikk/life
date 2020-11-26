@@ -334,7 +334,7 @@ public class M {
     public static W prowokujStarcie() {return W.WARUNEK;}
     public static W udowadniaj() {return W.WARUNEK;}
     public static W serceZkamienia() {return W.WARUNEK;}
-    public static W powtarzajGlosnoSensowneArgs() {return W.WARUNEK;}
+    public static W powtarzajGlosnoSensowneArgumenty() {return W.WARUNEK;}
     public static W mowSzybko() {return W.WARUNEK;}
     public static W uwagaNaSobie() {return W.WARUNEK;}
     public static W przywolajPorzadek() {return W.WARUNEK;}
@@ -1471,4 +1471,8 @@ public class M {
     public static W RDZENNY(List<W> warunki){return W.WARUNEK;}
     public static W NAWYK(W w){return W.WARUNEK;}
     public static W NAWYK(List<W> warunki){return W.WARUNEK;}
+    public static W CZOLOWKA_EKIPY(W w){return W.WARUNEK;}
+    public static W CZOLOWKA_EKIPY(List<W> warunki){return W.WARUNEK;}
+    public static W PRZECIWNY_KLUB(W w){return W.WARUNEK;}
+    public static W PRZECIWNY_KLUB(List<W> warunki){return W.WARUNEK;}
 }

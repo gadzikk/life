@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 import static typy_bazowe.TypOsoby.ME;
-import static typy_bazowe.TypOsoby.YOU;
 
 /**
  * Created by gadzik on 04.01.20.
@@ -99,6 +98,7 @@ public class CPU_UL extends AbstractCPU {
         sonda();
         starcie();
         ulicaRelacjeWarunkow();
+        wokolDzialaczaSrodowiska();
         algorytmUlicy();
         kibicowanieKrotkieUjecie();
         tworzenieWarunkow();
@@ -210,9 +210,9 @@ public class CPU_UL extends AbstractCPU {
         M.W(M.MIEJSCE_STALE(WZGL_IZOLACJA_WARUNKI), "--->", M.SONDA_GLEBOKA(izolowanaOsoba));
 
         M.W(W.CZYN, "--->", M.SONDA(of(M.jakie(W.WARUNKI_POCZATKOWE),
+                                            M.jakie(W.PRZYCZYNY),
                                             M.jakDuze(W.PRZECIWNOSCI),
                                             M.jakDuze(W.ULATWIENIA),
-                                            M.jakie(W.PRZYCZYNY),
                                             M.ile(W.CZAS),
                                             M.jakDuze(W.WARUNKI_OSIAGNIETE))));
 
@@ -264,6 +264,98 @@ public class CPU_UL extends AbstractCPU {
         M.W(M.ZASOB(M.NALEZY_DO(W.SLABY)), "--->", of(M.PRACA_NAD(W.ZASOB), M.WZIECIE_NA_SWOJA_STRONE(W.ZASOB)));
 
         M.W(of(W.BIEGACZE), "--->", of(W.BRAK_PIENIEDZY, W.GLUPI, W.NUDA, W.ZLY, W.DOSTEP_OGRANICZONY));
+    }
+
+    public void starcie(){
+        W dzialanie = M.NAJMNIEJSZY_CZAS(W.NAJWIEKSZA_KRZYWDA);
+        List<W> konfrontacja = KONFRONTACJA_WARUNKI;
+        List<W> ktoKogo = KRZYWDY_WARUNKI;
+        List<W> rany = ZBIOR_RANY;
+        List<W> sytuacjeStarcie = SYTUACJE_STARCIE_WARUNKI;
+        List<W> kryteriaPrzypalu = KRYTERIA_PRZYPALU_WARUNKI;
+        List<W> metodaStarcieReakcja = METODA_STARCIE_REAKCJA_WARUNKI;
+        List<W> ulicaPrzewagaReakcja = ULICA_PRZEWAGA_SPOSOB_WARUNKI;
+        List<W> obronaStarcie = OBRONA_STARCIE_WARUNKI;
+        List<W> zachowanieRezulat = ZACHOWANIE_REZULTAT_ULICA_WARUNKI;
+        List<W> wymuszenieReakcji = WYMUSZENIE_REAKCJI_WARUNKI;
+        List<W> zasiegPrzewagiUlica = ZASIEG_PRZEWAGI_ULICA_WARUNKI;
+
+        M.W(of(W.POMSZCZENIE, W.NOTYFIKACJA_EKIPA, W.ZDJECIA_TWARZOWKI,
+                W.OBRAZENIA_FIZYCZNE, W.STARCIE_WIELU_NA_JEDNEGO,
+                W.SPRZET, W.WYJSCIE, W.STARCIE, W.NIESPRAWIEDLIWE_PRZEWAGI), "--->", M.PARALIZUJE(of(W.SLABY, W.NIESWIADOMY)));
+
+        M.W(W.WALKA_PIESCI, "--->", M.ULTIMATIUM(W.BRONI_SIE)).W_PRZECIWNYM_PRZYPADKU(W.HANBA);
+        M.W(W.CISNIE, "--->", M.ULTIMATIUM(W.ODPOWIADA)).W_PRZECIWNYM_PRZYPADKU(W.HANBA);
+        M.W(W.STRATA, "--->", M.ULTIMATIUM(W.POMSZCZENIE)).W_PRZECIWNYM_PRZYPADKU(W.HANBA);
+
+        M.WW(M.WIDZISZ(W.OSOBY), "--->", SYTUACJE_STARCIE_WARUNKI, "---->", W.STARCIE, "---->", of(W.WYGRANA, W._II_, W.PRZEGRANA,
+                                                                                                                M.OPCJA(STRATY_MATERIALNE_WARUNKI),
+                                                                                                                M.OPCJA(STRATY_MORALNE_WARUNKI)));
+
+        M.W(W.WIDZISZ, "--->", of(M.POBIERZ(NASTAWIENIA_WARUNKI), M.SONDA_PRZYPALU(kryteriaPrzypalu), M.PLAN(of(W.ODDALENIE_SIE, W.UKRYCIE_SIE)),
+                                                                        M.PRZEWIDZENIE(W.DROGA),
+                                                                        M.NABYCIE(W.BLISKOSC),
+                                                                        M.ROBOTA(ZBIOR_RANY),
+                                                                        M.ODDALENIE_SIE(W.MIEJSCE),
+                                                                        M.UKRYCIE()));
+
+        M.W(M.OSOBA(KRYTERIA_WROGA_WARUNKI), "--->", of(M.UTRUDNIAJ(M.OSOBA(W.ZYCIE)),
+                                                             M.UTRUDNIAJ(M.OSOBA(W.DOSTEP)),
+                                                             M.KRZYWDY(of(W.OSOBA, on(KRZYWDY_WARUNKI)))));
+
+        List<W> sprzety = of(M.OPCJA(M.DDM(W.SPRZET)), M.OPCJA(M.MIEJSCE_STALE(W.SPRZET)), M.OPCJA(M.PRACA(W.SPRZET)),
+                             M.OPCJA(M.SAMOCHOD(W.SPRZET)), M.OPCJA(M.PRZY_SOBIE(W.SPRZET)));
+
+        M.W(of(M.PROSTO(W.CISNIE)), "--->", of(W.ODRAZU_DZIALANIE));
+
+        M.W(of(W.KLOTNIA), "--->", of(M.powtarzajGlosnoSensowneArgumenty(),
+                                        M.W(W.ZAPIERA_SIE, "--->", of(M.upierasz(), M.udowadniaszPrzytaczasz())),
+                                        M.W(W.ZAPIERA_SIE_RODZINA_PRACA, "--->", of(M.odpusc(),
+                                                                                        M.wygrales(),
+                                                                                        M.II(),
+                                                                                        M.serceZkamienia(),
+                                                                                        M.udowadniaj(),
+                                                                                        M.prowokujStarcie()))));
+
+        M.W(of(W.ZASIEG_ZMYSLOW, W._88_,
+                W.WROG, W._II_,
+                W.NIEGODNY_POPATRZENIA, W._II_,
+                W.ROBI_ZDJECIA, W._II_,
+                W.KONFI), "             ---->", M.STARCIE(W.OSOBA));
+
+
+        M.W(M.STARCIE(W.MIEJSCE_STALE), "--->",  of(W.MOZLIWOSC_STRATY_DOSTEPU_MIEJSCA,
+                                                        W.MOZLIWOSC_PSOW,
+                                                        W.PO_EKIPE_NIEZDARZY,
+                                                        W.PO_PSY_NIEZDARZY));
+
+        M.W(W.USMIECH_ZNIEWAZAJACY, "--->", W.CISNIJ);
+
+        M.W(of(W.AKCJA), "--->",  of(M.pamiecOBolach(),
+                                          M.widzisz(),
+                                          M.liczysz(),
+                                          M.kontrolaSiebieKrokZaKrokiem(),
+                                          M.leciszZZaskoczenia()));
+
+        M.W(W.KOMIN, "--->", M.zobligowanyDoDzialania());
+
+        M.W(W.SILNY, "--->", of(M.czekajNaBlad(W.WIEDZA),
+                                     M.odlaczDostep(W.BLAD)));
+
+        M.W(W._1SPOJRZENIE, "--->", M.OSOBA(M.SONDA(W.ZNAJOMOSC)));
+
+        M.W(W._2SPOJRZENIA, "--->", of(M.probaZdobyciaInformacji(), M.II(),   M.szykowanieStarcia()));
+
+
+        M.W(of(W.STARZY_LUDZIE, W._II_, W.FESTY), "--->", M.MOZLIWOSC(W.PRZYPAL));
+
+        M.W(of(W.STARCIE), "--->", M.OPPONENT(W.KONSEKWENCJE));
+
+        M.W(of(W.BLISKOSC, W.CISNIECIE, W.WALKA_PIESCI, W.WALKA_SPRZET), "--->", of(dzialaczMocny.pomsci(),
+                                                                                        dzialaczMocny.ultimatumEkipie()));
+
+        M.W(M.POBITY(osoba), "--->", of(M.KOLEJKA_DO(M.POBICIE(osoba)), M.POINFORMUJ_WSZYSTKICH(W.HANBA), W.DLUG_MORALNY, W.CHEC_POMSZCZENIA,
+                                                                    znajomy.PRZESTAJE(W.WSPARCIE), znajomy.ZACZYNA(W.PRZECIW), silniejszy.GNOJI(osoba)));
     }
 
     public void ulicaRelacjeWarunkow() {
@@ -321,7 +413,7 @@ public class CPU_UL extends AbstractCPU {
 
         M.W(of(W.SAM) , "--->", of(W.LATWY_CEL, W.BRAK_PRZEWAG));
 
-        M.W(M.SPOTKANY(goscZHanba), "--->", M.ZAWSZE_GDY_BLISKOSC(of(W.CISNIE, W.WYPOMNIENIE_HANBY)));
+        M.W(M.SPOTKANY(M.OSOBA(W.HANBA)), "--->", M.ZAWSZE_GDY_BLISKOSC(of(W.CISNIE, W.WYPOMNIENIE_HANBY)));
 
         M.W(M.KORZYSTA(W.SILA), "--->", M.MUSI(M.NA(W.ULICA)).W_PRZECIWNYM_PRZYPADKU(W.PRZYPAL));
 
@@ -351,7 +443,246 @@ public class CPU_UL extends AbstractCPU {
         M.W(W.POTRZEBA, "--->", M.UZASADNIENIE_OBECNOSCI(W.POTRZEBA));
     }
 
+    public void wokolDzialaczaSrodowiska() {
+        M.W(M.OSOBA(W.ZNAJOMI), "--->", M.ULTIMATIUM(W.DZIALANIE_DLA_ZLA).W_PRZECIWNYM_PRZYPADKU(KRZYWDY_WARUNKI));
 
+        M.W(of(W.SRODOWISKO, W.UMNIEJSZANIE_WAD, W.WZAJEMNE_WSPARCIE,
+                M.oddalanieSieOdWalkiZagrozenia(of(W.SKAZYWANIE_SAMOTNOSC, W.PRZEWAGA, W.PRZYJEMNOSC)),
+                M.oddalanieOdKonkurencji(of(W.SIEDZENIE_MELINY, W.PRZYCHYLNOSC))),                "--->", of(W.NIE_ODKRYTY,
+                                                                                                                W.BRAK_TRUDNOSCI,
+                                                                                                                W.NIE_ODKRYCIE_WAD));
+
+        M.W(of(W.WADY_UMYSLOWE,W.WADY_FIZYCZNE, W.AGRESJA_W_DZIALANIU,
+                W.DOMINACJA, W.GLEBOKO_SZUKA_ZLA, W.TRAKTUJA_SIE_JAK_DZIECI,
+                W.NIE_ODKRYTY, W.BRAK_TRUDNOSCI, W.NIE_ODKRYCIE_WAD,
+                W.BRAK_SUMIENIA, W.ZYSK_Z_DZIALANIA,
+                W.EGOISTA, W.CHEC_KRZYWDY, W.NIEZWRACA_UWAGI_NA_KRZYWDE_INNYCH,
+                W.LEKCEWAZY_INNYCH, W.UNIZA, W.ZUCHWALY),                                "--->", of(W.DZIALAJACY));
+
+        M.W(of(W.ZLY, W._88_, W.PRZEWAGA), "--->", of(W.WALI_OSOBE_BEZ_PRZEWAGI, W.BEZKARNOSC, W.GLUPOTA));
+
+        M.W(of(W.NUDA, W.KTOS_CIEBIE_LUB_TY_NIEGO,
+                W.AGRESJA_W_DZIALANIU, W.EMOCJE_ZE_ZLA), "--->", of(W.WALI_OSOBE_BEZ_PRZEWAGI, W.OSZUKANIE_WDUPCENIE, W.BEZKARNOSC, W.GLUPOTA));
+
+        M.W(of(W.DZIALANIE_POZA_RANGA), "--->", of(W.OGLUPIANIE, W.KLAMSTWO, W.PO_CICHU, W.ZAMKNIJ_ZASOB));
+
+        M.W(of(W.SRODOWISKO, W.UMNIEJSZANIE_WAD, W.WZAJEMNE_WSPARCIE,
+                M.oddalanieSieOdWalkiZagrozenia(of(M.OSOBA(W.SKAZYWANIE_SAMOTNOSC), W.PRZEWAGA, W.PRZYJEMNOSC)),
+                M.oddalanieOdKonkurencji(of(W.SIEDZENIE_MELINY, W.PRZYCHYLNOSC,
+                        W.OGLUPIANIE, W.KLAMSTWO, W.PO_CICHU, W.ZAMKNIJ_ZASOB)),
+                W.OSZUKANIE_WDUPCENIE, W.WYKLUCZENIE, W.SPRZET, W.AGRESJA_W_DZIALANIU, W.ZLO),   "--->", of(W.NIESPRAWIEDLIWI,
+                                                                                                                W.NIESPRAWIEDLIWE_PRZEWAGI,
+                                                                                                                W.EMOCJE_ZE_ZLA));
+        M.W(of(W.ZLY, W._88_, W.WIDZIAL) , "--->", of(W.ODRAZU_ZLO, W.PRAGNIENIE_ZLA));
+
+        M.W(of(W.TEORIA_RYWALIZACJI, W.BLISKOSC), "--->", of(W.KTOS_CIEBIE_LUB_TY_NIEGO, W.ZAMKNIJ_ZASOB,
+                                                                 W.OSZUKIWANIE_WYKORZYSTANIE, W.POBIC));
+
+        M.W(of(M.OSLONKA(of(W.PRZEWAGA, W._88_, W.UKRYCIE))) , "--->", of(W.GIERKA_KTO_NAJBARDZIEJ_PRZEJEBANY));
+
+        M.W(of(W.SPOTKANIE_WZROKIEM), "--->", of(W.KTOS_CIEBIE_LUB_TY_NIEGO, W.KTO_WIECEJ_PATRZY,
+                                                    W.KTO_WIECEJ_CISNIE, W.KTO_WIECEJ_BIJE, W.KTO_WIECEJ_SPRZETU,
+                                                    W.KTO_WIECEJ_OSOB, W.KTO_WIECEJ_KONTUZJI, W.KTO_WIECEJ_STRACHU));
+
+        M.W(of(W.DASZ_SIE_POZNAC, W._88_, W.NIESLUCHASZ) , "--->", of(W.GNOJA));
+
+        M.WW(of(M.MOCNO(of(W.AGRESJA, W.CHETNY_DZIALANIA, W.GLUPOTA)),
+                W.BRAK_PIENIEDZY, W.SLUCHAJ_KOLEGOW), "--->",  of(W.EKIPA), "---->", of(W.WYKONYWANIE_ROZKAZOW_DLA_HAJSU_ZLA,
+                W.WYROK, W.OGRANICZONE_INFORMACJE,
+                W.PRZEWAGA_SILY, W.PRZEWAGA_EKIPY_SPRZETU));
+
+        M.W(of(W.ZLO), "--->", of(W.ROB_NAJWIEKSZA_KRZYWDE, W.ROZPOWIEDZ_DO_NAJWIEKSZEJ_LICZBY_OSOB, W.PRZEKONAJ_NAJWIECEJ_OSOB));
+
+        M.W(of(W.BLISKOSC, W._88_, W.WROGOSC), "--->", KRZYWDY_WARUNKI);
+
+        M.W(of(W.SIEDZENIE_W_SRODOWISKU), "--->", of(W.BEZPIECZENSTWO, W.STREFA_KOMFORTU, W.POTRZEBA_EMOCJI,
+                                                          W.ZNUDZENIE_OSOBAMI, W.POTRZEBA_NOWYCH_OSOB));
+
+        o(M.WWW(on(W.DZIALAJACY, W._88_, W.ZROBIONE_ZLO), "--->", W.CZEKA_NA_EFEKT, "--->", W.BRAK_REAKCJI, "--->", W.ZACHETA_DO_ZLA))
+                                                                        .w_przeciwnym_przypadku(of(W.REAKACJA, W.KARA, M.OPCJA(W.UKAZANIE),
+                                                                        M.DZIALAJACY(of(W.ZAPRZESTANIE_ZLA, W.SMUTEK, W.WYLACZENIE_DZIALACZA, M.OPCJA(W.CHEC_POMSZCZENIA)))));
+
+        M.W(M.WOKOL_TYLKO(W.ZLI), "--->", of(wszyscy.SLUCHAJA(najwyzszyHierarchiaWokol),
+                                                M.GRANT(najwyzszyHierarchiaWokol, of(W.SILA_SPRAWCZA, W.TWORZENIE_WARUNKOW))));
+
+        M.W(of(W.MIEJSCE_STALE_DZIALAJACE, W._II_, W.SRODOWISKO), "--->", M.thread_while_loop(of(W.KOMFORT, W.INFORMACJE)));
+
+        M.W(M.INFORMACJA(W.KRZYWDA_DRUGIEJ_STRONY), "--->", of(W.NASTAWIENIE_WSPARCIE, W.WESELE, W.CHCEMY_WIECEJ, W.ZA_CIOSEM));
+
+        M.W(of(M.WOKOL_TYLKO(W.SWOI), W.ZLO, W._88_, W.INTERAKCJA), "--->", of(W.NOTYFIKACJA_EKIPA, W.WSPARCIE_OSLONY, W.PRZEKONYWANIE_PRZECIW));
+
+        M.W(of(M.OSOBA(W.BIEGAJACY_SPRZET),
+                W.BLISKOSC,
+                M.OSOBA(W.NIE_BIEGAJACY)), "--->", M.OSOBA(W.BIEGAJACY_SPRZET).ROBI_KRZYWDE(of(M.OSOBA(W.NIE_BIEGAJACY), on(KRZYWDY_WARUNKI))));
+
+        M.W(M.NAUCZ((M.OSOBA(of(on(ZAROBEK_NIELEGALNY_WARUNKI),
+                on(KRZYWDY_WARUNKI),
+                on(BRAK_ZASAD_WARUNKI))))), "---->", M.CEL(of(M.WYKORZYSTUJE(W.OSOBA), M.OSOBA(M.DZIALANIE_DLA(W.SRODOWISKO)), W.OKRASC_PIENIADZE)));
+
+        M.WW(M.thread_while_loop(M.KONTROLA(W.OSOBA)), "--->", of(M.thread_while_loop(M.OSOBA(M.DZIALANIE(W.ZLO))),
+                                                                    M.thread_while_loop(M.OSOBA(M.WYKONUJE(W.ROZKAZ)))),
+                                                                    "--->", M.REZULTAT(M.thread_while_loop(M.OSOBA(M.DOSTEP(PRZEWAGI_Z_ULICY_WARUNKI)))));
+
+        M.W(M.SLABY(W.DZIALAJACY), "--->", W.WSPARCIE);
+        M.W(M.SILNY(W.NIE_DZIALAJACY), "--->", M.KRZYWDY(KRZYWDY_WARUNKI));
+
+        M.W(M.OSOBA(M.PRZESTAJE(of(M.WYKONUJE(W.ROZKAZ), M.DZIALANIE(W.ZLO)))), "--->",of(M.OSOBA(M.BRAK_DOSTEPU(PRZEWAGI_Z_ULICY_WARUNKI)),
+                                                                                                M.KRZYWDY(of(W.OSOBA, on(KRZYWDY_WARUNKI)))));
+
+        M.W(M.MIEJSCE_STALE(WZGL_IZOLACJA_WARUNKI), "--->", of(M.thread_while_loop(M.KONTROLA(W.OSOBY)),
+                                                                    M.thread_while_loop(M.SONDA(W.OSOBY)),
+                                                                    M.thread_while_loop(M.ORIENT(W.WARTOSC)),
+                                                                    M.W(W.WARTOSC, "--->", M.DZIALANIE(W.WARTOSC)),
+                                                                    M.W(W.OSOBA,"--->", of(M.zeSrodowiska(W.OK),
+                                                                                                M.fest(W.KUP_COS),
+                                                                                                M.drugaStrona(W.WYPAD),
+                                                                                                M.drugaStronaDzialajacy(W.SZPITAL)))));
+
+        M.W(M.DZIALAJACY(W.STARCIE), "--->", of(M.zaczepSprowokuj(osoba),
+                                                    M.wrocZPrzewaga(),
+                                                    M.walZPrzewaga(osoba, W.PRZEWAGA),
+                                                    M.rozpowiedz(W.WSZYSCY),
+                                                    M.thread_while_loop(W.DOMINACJA)));
+
+        M.W(W.HASLO_RDZENNYCH, "--->", of(M.SPRAWDZANIE(W.SWOI), M.SPRAWDZANIE(W.WROG),
+                                                M.UPEWNIENIE_SIE(M.BEZ_KONSEKWENCJI(M.W_SRODOWISKU(KRZYWDY_WARUNKI)))));
+
+        M.W(M.SONDA(PRZEWAGI_WARUNKI), "--->", M.DEFAULT(of(M.W(W.BRAK_PRZEWAG, "--->", W.BRAK_DZIALANIA),
+                                                    M.W(W.MALO_PRZEWAG, "--->", M.UKRYTE(W.DZIALANIE)),
+                                                    M.W(W.DUZO_PRZEWAG, "--->", M.OTWARTE(W.DZIALANIE)))));
+
+        M.WW(M.WEJSCIE(W.EKIPA), "--->", M.NABYWANIE(PRZEWAGI_Z_ULICY_WARUNKI), "--->", M.thread_while_loop(M.ROBI_KRZYWDE_Z_PRZEWAGA(of(W.PRZECIWNY_KLUB,
+                                                                                                                    on(KRZYWDY_WARUNKI), on(PRZEWAGI_Z_ULICY_WARUNKI),
+                                                                                                                    on(BRAK_ZASAD_WARUNKI), on(OSLONY_WARUNKI)))));
+
+        of(M.NIEWAZNE(W.PRAWDA), M.WAZNE(W.DOBRO_EKIPY));
+
+        M.W(M.MIEJSCE_STALE(W.SPORT), "--->", of(M.RESTRYKCJA(M.DOSTEP(M.MOGA_WEJSC(of(W.JEDEN_KLUB_KIBICOWSKI, M.OPCJA(W.TYLKO_BIEGAJACY))))),
+                M.W(W.OSOBA_POZA_SRODOWISKO, "--->", M.GORSZE_TRAKTOWANIE(W.OSOBA_POZA_SRODOWISKO).NIZ(W.SRODOWISKO)),
+                M.CEL(of(M.NABYCIE_PRZEWAGI(M.TYLKO_DLA(of(W.SRODOWISKO, W.BIEGAJACY_SPRZET))), M.POZBAWIENIE(M.MOZLIWOSC(M.NABYCIE_PRZEWAGI(W.OSOBA_POZA_SRODOWISKO)))))));
+
+        M.W(W.SLABY, "--->", of(M.UNIKA(W.WALKA_PIESCI), M.SIEGA_PO(W.SPRZET)));
+
+        M.W(M.DZIALANIE(of(W.OSTRY_SPRZET, W.GAZ, W.ZWIADY, W.ZDJECIA_TWARZOWKI)), "--->", M.CEL(of(M.WYWOLANIE(W.STRACH),
+                                                                                                M.PRZEZUCENIE(W.PRZECIWNY_KLUB))));
+
+        M.W(of(M.UDAJE_ZE(W.DZWONI), M.UDAJE_ZE(W.PRZEGLADA_TELEFON)), "--->", M.ROBI(W.ZDJECIA_TWARZOWKI));
+
+
+        M.WW(M.SLABY_TCHORZ(M.PO_CICHU(of(M.ZWYZYWAJ(W.OSOBA),
+                M.DZIALAJ_NA_SZKODE(W.OSOBA)))), "--->", M.OSOBA(M.NIESWIADOMY(of(W.OBELGI,W.KRZYWDA))), "--->", M.SLABY_TCHORZ(of(
+                                                                                                                                   W.CIESZY_SIE,
+                                                                                                                                   M.POCHWAL_SIE(W.EKIPA),
+                                                                                                                            M.POINFORMUJ_WSZYSTKICH(M.OSOBA(W.HANBA)))));
+
+        M.W(M.SPRZET(M.EKIPA(W.SAMOCHOD_NA_CHODZIE)), "--->", M.thread_while_loop(M.WJAZD(W.SPRZET)));
+
+        M.CZOLOWKA_EKIPY(M.thread_while_loop(M.UKRYCIE(W.INFORMACJE))).PRZED(W.SRODOWISKO);
+        M.W(W.OSOBA_POZA_SRODOWISKO, "--->", M.SRODOWISKO(M.thread_while_loop(M.UKRYCIE(W.INFORMACJE).PRZED(W.OSOBA_POZA_SRODOWISKO))));
+
+        M.TOLERANCJA(of(W.ZLO, on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI)));
+        M.CZESTO(of(W.ZLO, on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI)));
+
+        M.BRAK_SZANS(of(M.KOBIETA(W.DZIEWICA), M.PRAWDZIWA(W.MILOSC), M.DOBRE(M.LEGALNE(W.ZAROBKI))));
+
+        M.SRODOWISKO(M.TWORZY_WARUNKI(M.LATWO(M.WEJSCIE(M.WYMAGANIA(of(W.DZIALANIE_DLA_ZLA, M.WYKONYWANIE(W.ROZKAZ)))))));
+
+        M.SRODOWISKO(M.TWORZY_WARUNKI(M.OSOBY(of(W.DZIALANIE_DLA_ZLA, M.KRZYWDY(of(W.PRZECIWNY_KLUB,
+                                                                                        on(KRZYWDY_WARUNKI),
+                                                                                        on(BRAK_ZASAD_WARUNKI),
+                                                                                        on(OSLONY_WARUNKI))),
+                                                                                        M.NABYWANIE(W.PRZEWAGA).DLA(W.SRODOWISKO)
+                                                                .CEL(M.SRODOWISKO(M.OTRZYMANIE(of(on(PRZEWAGI_MATERIALNE_WARUNKI), on(PRZEWAGI_Z_ULICY_WARUNKI))))),
+                                                                 M.REZULTAT(M.PRZECIWNY_KLUB(of(on(STRATY_MATERIALNE_WARUNKI), on(STRATY_MORALNE_WARUNKI))))))));
+
+        M.W(M.SRODOWISKO(M.thread_while_loop(M.KONTROLA(KONTROLA_WARUNKI))), "--->", M.KONTROLA(of(M.SRODOWISKO(W.KOBIETY),
+                                                                                          M.SRODOWISKO(PRZEWAGI_Z_ULICY_WARUNKI),
+                                                                                          M.SRODOWISKO(W.WARTOSC),
+                                                                                          M.SRODOWISKO(W.OSOBY),
+                                                                                          M.SRODOWISKO(W.CIAGLOSC_INFORMACJI),
+                                                                                          M.SRODOWISKO(of(W.DZIALANIE_DLA_ZLA, M.WYKONYWANIE(W.ROZKAZ))),
+                                                                                          M.W(W.WARTOSC, "--->", M.ODRAZU(M.DZIALANIE(W.WARTOSC))),
+                                                                                          M.W(M.OSOBA(M.POSIADA(W.PRZEWAGA)), "--->", M.SILNIEJSZY(M.ODRAZU(M.PROBA(M.PRZEJECIE(W.PRZEWAGA))))))));
+
+        M.W(M.OSIEDLE(M.OSOBA(W.OBCY)), "--->", M.OSIEDLE(M.KAZDY_BLLISKO(M.WYCHODZI(W.OSIEDLE)))
+                                                            .CEL(M.ROBI_KRZYWDE(of(W.OBCY, on(KRZYWDY_WARUNKI))))
+                                                            .CEL(M.PRZESTRASZENIE(of(W.OBCY, M.OBCY(M.BRAK_DOSTEPU(W.OSIEDLE))))));
+
+        M.W(M.MIEJSCE_STALE(M.WYMAGANE(W.HASLO_RDZENNYCH)), "--->",
+                                        of(M.W(M.OSOBA(M.POWIEDZIAL(W.HASLO_RDZENNYCH)), "--->", of(M.OBSLUGA(W.MILA), M.DOBRZE_WYKONANE(W.USLUGI))),
+                                        M.W(M.OSOBA(M.NIE_POWIEDZIAL(W.HASLO_RDZENNYCH)), "--->", of(M.OBSLUGA(W.NIE_MILA), M.ZLE_WYKONANE(W.USLUGI),
+                                                                                                        M.NOTYFIKACJA(W.EKIPA), W.ZDJECIA_TWARZOWKI,
+                                                                                                        on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI),
+                                                                                                        on(OSLONY_WARUNKI), on(PRZEWAGI_Z_ULICY_WARUNKI)))));
+
+        M.WZIECIE_DO_EKIPY(M.DEFAULT(W.SLABY, W.GLUPI, W.ULEGLY, W.ZALEZNY, W.AGRESYWNY));
+        M.NIEDOPUSC_DO_EKIPY(M.DEFAULT(W.SILNY, W.MADRY, W.NIEZALEZNY));
+
+        M.W(W.WARTOSC, "--->", M.ULTIMATIUM(M.RESTRYKCJA(M.DOSTEP(W.WARTOSC))).W_INNYM_PRZYPADKU(M.ROBI_KRZYWDE_Z_PRZEWAGA(
+                of(on(KRZYWDY_WARUNKI), on(PRZEWAGI_Z_ULICY_WARUNKI)))));
+
+        M.W(W.KOBIETA, "--->", of(M.RESTRYKCJA(M.DOSTEP(W.KOBIETA)).TYLKO(M.SRODOWISKO(W.OSOBY)),
+                                    M.W(M.OSOBA_POZA_SRODOWISKO(M.PROBA_DOSTEPU(W.KOBIETA)), "--->", M.SRODOWISKO(M.ROBI_KRZYWDE(of(
+                                                                                                                on(KRZYWDY_WARUNKI), on(PRZEWAGI_Z_ULICY_WARUNKI))))),
+                                    M.SRODOWISKO(M.OGLUP_KLAMSTWEM(of(W.CHLOPAK_TYLKO_ZE_SRODOWISKA, M.BRAK_WARTOSCI(of(W.DZIEWICTWO, W.WIERNOSC, W.DZIECI))))),
+                                    M.POKAZ(M.TYMCZASOWE(of(W.PRZYJEMNOSCI, on(PRZEWAGI_WARUNKI)))),
+                                    M.UNIZAJ(M.UTRUDNIAJ(of(W.ZALOZENIE_RODZINY, W.DZIECI))),
+                                    W.WYKORZYSTUJ, M.OPCJA(W.PORZUC),
+                                    M.CZEKAJ_AZ(of(W.STAROSC, W.BRAK_KANDYDATOW, M.ODCZUCIE(W.SAMOTNOSC), W.NISKIE_OCZEKIWANIA))));
+
+        // ZWIADY
+
+        M.W(W.ZWIADY, "--->", of(M.WEJSCIE(M.REJON(W.PRZECIWNY_KLUB)),
+                                        M.W(M.ZASIEG_WZROKU(W.OSOBA), "--->", of(M.NOTYFIKACJA(W.EKIPA), M.NABYCIE(W.BLISKOSC))),
+                                        M.W(W.BLISKOSC, "--->", W.ZDJECIA_TWARZOWKI)));
+
+        M.WW(W.ZDJECIA_TWARZOWKI, "--->", M.PORTAL_DZIALAJACYCH(M.DOSTEP(M.WSZYSCY(W.DZIALAJACY))), "--->", of(M.DZIALJACY(M.OTRZYMANIE(W.INFORMACJA)),
+                                                                                                                        M.DZIALJACY(W.INFORMACJA_ZWROTNA)));
+
+        M.W(M.INFORMACJA_ZWROTNA(M.OSOBA(W.PRZECIWNY_KLUB)), "--->", M.AKCJA_PRZECIW(of(W.OSOBA, on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI),
+                                                                                                      on(OSLONY_WARUNKI), on(PRZEWAGI_Z_ULICY_WARUNKI))));
+        M.W(M.INFORMACJA_ZWROTNA(M.OSOBA(W.NIE_DZIALAJACY)), "--->", W.BRAK_AKCJI);
+
+        M.W(M.INFORMACJA_ZWROTNA(M.OSOBA(W.HANBA)), "--->", M.POINFORMUJ_WSZYSTKICH(M.OSOBA(W.HANBA)));
+
+        // ***
+
+        M.W(M.DZIALJACY(M.WYPARCIE_SIE(W.KLUB_KIBICOWSKI)), "--->", M.BRAK_DOSTEPU(PRZEWAGI_Z_ULICY_WARUNKI));
+
+        M.thread_while_loop(of(W.NIEUDOLNOSC, M.ROZKMINANIE(W.WSZYSCY), M.ZLE_ZAMIARY()));
+        M.thread_while_loop(M.PODSTAWA(W.KLAMSTWO).WZGLEDEM(of(W.SIEBIE, W.INNI)));
+        M.thread_while_loop(W.ZAKLAMYWANIE_RZECZYWISTOSCI);
+
+        M.POBIERZ(METODY_POLICYJNE_WARUNKI);
+        M.SWOI(of(W.SAD, W.POLICJA, W.SZPITAL, W.OCHRONA, W.RYNEK, W.SILOWNIA, W.LUDZIE_Z_PIESKIEM_SPACER));
+
+        M.W(M.OSOBA(W.NIE_OD_NAS), "--->", of(W.HASLO_RDZENNYCH, W.NOTYFIKACJA_EKIPA, W.ZDJECIA_TWARZOWKI, W.CISNIE, W.WALKA_SPRZET));
+
+        M.W(M.OSOBA(W.OD_NAS), "--->", of(W.WYKORZYSTUJ, W.OKRASC_PIENIADZE, W.UNIZA, M.OCZEKIWANIE(KRZYWDY_WARUNKI)));
+
+        M.W(W.WYROK, "--->", M.UNIZAJ(W.POSIEDZI_CHWILE_NIC_MU_SIE_NIE_STANIE));
+
+        M.W(W.BRAK_KIBICOWANIA, "--->", W.NIC_NIE_MOGA_ZROBIC);
+
+        M.W(W.DZIALAJACY, "--->", of(W.SLABY, W.ZALEZNY, M.BRAK(W.UMIEJETNOSCI), M.DZIALANIE(W.ZLO)));
+
+        M.W(W.PORAZKA, "--->", M.thread_while_loop(M.NIEUDOLNIE(W.PONAWIANIE_PROBY)));
+
+        M.W(of(W.MIEJSCE_STALE, W.OBSLUGA_OD_NAS), "--->", of(obsluga.thread_while_loop(BRAK_ZASAD_WARUNKI),
+                                                                kierownictwo.thread_while_loop(M.KONTROLA(BRAK_ZASAD_WARUNKI)),
+                                                                kierownictwo.thread_while_loop((M.OCZEKIWANIE(BRAK_ZASAD_WARUNKI)))));
+
+        M.W(of(W.MIEJSCE_STALE, W.OBSLUGA_NIE_OD_NAS), "--->", of(M.thread_while_loop(M.PROBUJ_PRZEJAC(of(W.OBSLUGA, W.KIEROWNICTWO))),
+                                                                    M.thread_while_loop(M.NASYLANIE_DZIALACZY(of(W.NOTYFIKACJA_EKIPA, W.ZDJECIA_TWARZOWKI, W.CISNIE, W.WALKA_SPRZET)))
+                                                                   .CEL(of(W.ZASTRASZENIE, W.OGRANICZENIE_WOLNOSCI_ULICA, W.ZAMKNIECIE_OPCJI, W.WARTOSC, M.DOSTEP(W.ZLO), W.EMOCJE_ZE_ZLA))
+        ));
+
+//        M.ULTIMATIUM(W.ZLO).W_PRZECIWNYM_PRZYPADKU(of(on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI)));
+
+        M.PRZEJECIE(of(W.OSIEDLE, W.MIEJSCE_STALE, W.PRACA, W.SLUZBY, W.LUDZIE))
+                .POTRZEBNE(M.thread_while_loop(of(W.POSLUCH, W.OBECNOSC_LUDZI, M.SILNA(W.EKIPA))))
+                .CEL(of(M.TWORZENIE(W.ZLO), M.NISZCZENIE(W.DOBRO), M.ZWIEKSZANIE(W.PRZEWAGA), M.NABYCIE(W.CIAGLOSC_INFORMACJI)));
+    }
 
     public List<W> srodki() {
         return of(
@@ -489,98 +820,7 @@ public class CPU_UL extends AbstractCPU {
         M.thread_while_loop(W.NAJBARDZIEJ_CIEKAWY_TEMAT);
         M.thread_while_loop(W.WEDROWKA_PO_POKOJACH);
     }
-    public void starcie(){
-        W dzialanie = M.NAJMNIEJSZY_CZAS(W.NAJWIEKSZA_KRZYWDA);
-        List<W> konfrontacja = KONFRONTACJA_WARUNKI;
-        List<W> ktoKogo = KRZYWDY_WARUNKI;
-        List<W> rany = ZBIOR_RANY;
-        List<W> sytuacjeStarcie = SYTUACJE_STARCIE_WARUNKI;
-        List<W> kryteriaPrzypalu = KRYTERIA_PRZYPALU_WARUNKI;
-        List<W> metodaStarcieReakcja = METODA_STARCIE_REAKCJA_WARUNKI;
-        List<W> ulicaPrzewagaReakcja = ULICA_PRZEWAGA_SPOSOB_WARUNKI;
-        List<W> obronaStarcie = OBRONA_STARCIE_WARUNKI;
-        List<W> zachowanieRezulat = ZACHOWANIE_REZULTAT_ULICA_WARUNKI;
-        List<W> wymuszenieReakcji = WYMUSZENIE_REAKCJI_WARUNKI;
-        List<W> zasiegPrzewagiUlica = ZASIEG_PRZEWAGI_ULICA_WARUNKI;
 
-        M.W(of(W.POMSZCZENIE, W.NOTYFIKACJA_EKIPA, W.ZDJECIA_TWARZOWKI,
-                W.OBRAZENIA_FIZYCZNE, W.STARCIE_WIELU_NA_JEDNEGO,
-                W.SPRZET, W.WYJSCIE, W.STARCIE, W.NIESPRAWIEDLIWE_PRZEWAGI), "--->", M.PARALIZUJE(of(W.SLABY, W.NIESWIADOMY)));
-
-        M.W(W.WALKA_PIESCI, "--->", M.ULTIMATIUM(W.BRONI_SIE)).W_PRZECIWNYM_PRZYPADKU(W.HANBA);
-        M.W(W.CISNIE, "--->", M.ULTIMATIUM(W.ODPOWIADA)).W_PRZECIWNYM_PRZYPADKU(W.HANBA);
-        M.W(W.STRATA, "--->", M.ULTIMATIUM(W.POMSZCZENIE)).W_PRZECIWNYM_PRZYPADKU(W.HANBA);
-
-        M.WW(M.WIDZISZ(W.OSOBY), "--->", SYTUACJE_STARCIE_WARUNKI, "---->", W.STARCIE, "---->", of(W.WYGRANA, W._II_, W.PRZEGRANA,
-                                                                                                                M.OPCJA(STRATY_MATERIALNE_WARUNKI),
-                                                                                                                M.OPCJA(STRATY_MORALNE_WARUNKI)));
-
-        M.W(W.WIDZISZ, "--->", of(M.POBIERZ(NASTAWIENIA_WARUNKI), M.SONDA_PRZYPALU(kryteriaPrzypalu), M.PLAN(of(W.ODDALENIE_SIE, W.UKRYCIE_SIE)),
-                                                                        M.PRZEWIDZENIE(W.DROGA),
-                                                                        M.NABYCIE(W.BLISKOSC),
-                                                                        M.ROBOTA(ZBIOR_RANY),
-                                                                        M.ODDALENIE_SIE(W.MIEJSCE),
-                                                                        M.UKRYCIE()));
-
-        M.W(M.OSOBA(KRYTERIA_WROGA_WARUNKI), "--->", of(M.UTRUDNIAJ(M.OSOBA(W.ZYCIE)),
-                                                            M.UTRUDNIAJ(M.OSOBA(W.DOSTEP)),
-                                                            M.KRZYWDY(of(W.OSOBA, on(KRZYWDY_WARUNKI)))));
-
-        List<W> sprzety = of(M.OPCJA(M.DDM(W.SPRZET)), M.OPCJA(M.MIEJSCE_STALE(W.SPRZET)), M.OPCJA(M.PRACA(W.SPRZET)),
-                M.OPCJA(M.SAMOCHOD(W.SPRZET)), M.OPCJA(M.PRZY_SOBIE(W.SPRZET)));
-
-        M.W(of(M.PROSTO(W.CISNIE)), "--->", of(W.ODRAZU_DZIALANIE));
-
-        M.W(of(W.KLOTNIA), "--->", of(M.powtarzajGlosnoSensowneArgs(),
-                                        M.W(W.ZAPIERA_SIE, "--->", of(M.upierasz(), M.udowadniaszPrzytaczasz())),
-                                        M.W(W.ZAPIERA_SIE_RODZINA_PRACA, "--->", of(M.odpusc(),
-                                                                                        M.wygrales(),
-                                                                                        M.II(),
-                                                                                        M.serceZkamienia(),
-                                                                                        M.udowadniaj(),
-                                                                                        M.prowokujStarcie()))));
-
-
-        M.W(of(W.ZASIEG_ZMYSLOW, W._88_,
-                W.WROG, W._II_,
-                W.NIEGODNY_POPATRZENIA, W._II_,
-                W.ROBI_ZDJECIA, W._II_,
-                W.KONFI), "             ---->", M.STARCIE(W.OSOBA));
-
-
-        M.W(M.STARCIE(W.MIEJSCE_STALE), "--->",  of(W.MOZLIWOSC_STRATY_DOSTEPU_MIEJSCA,
-                                                        W.MOZLIWOSC_PSOW,
-                                                        W.PO_EKIPE_NIEZDARZY,
-                                                        W.PO_PSY_NIEZDARZY));
-
-        M.W(W.USMIECH_ZNIEWAZAJACY, "--->", W.CISNIJ);
-
-        M.W(of(W.AKCJA), "--->",  of(M.pamiecOBolach(),
-                                        M.widzisz(),
-                                        M.liczysz(),
-                                        M.kontrolaSiebieKrokZaKrokiem(),
-                                        M.leciszZZaskoczenia()));
-
-        M.W(W.KOMIN, "--->", M.zobligowanyDoDzialania());
-
-        M.W(W.SILNY, "--->", of(M.czekajNaBlad(W.WIEDZA),
-                                    M.odlaczDostep(W.BLAD)));
-
-        M.W(W._1SPOJRZENIE, "--->", M.OSOBA(M.SONDA(W.ZNAJOMOSC)));
-
-        M.W(W._2SPOJRZENIA, "--->", of(M.probaZdobyciaInformacji(), M.II(),   M.szykowanieStarcia()));
-
-
-        M.W(of(W.STARZY_LUDZIE, W._II_, W.FESTY), "--->", M.MOZLIWOSC(W.PRZYPAL));
-
-        M.W(of(W.STARCIE), "--->", M.OPPONENT(W.KONSEKWENCJE));
-
-        M.W(of(W.BLISKOSC, W.CISNIECIE, W.WALKA_PIESCI, W.WALKA_SPRZET), "--->", of(dzialaczMocny.pomsci(),
-                                                                                        dzialaczMocny.ultimatumEkipie()));
-
-        M.W(M.POBITY(osoba), "--->", of(M.KOLEJKA_DO(M.POBICIE(osoba)), M.POINFORMUJ_WSZYSTKICH(W.HANBA), W.DLUG_MORALNY, W.CHEC_POMSZCZENIA,
-                                                                    znajomy.PRZESTAJE(W.WSPARCIE), znajomy.ZACZYNA(W.PRZECIW), silniejszy.GNOJI(osoba)));
-    }
 
     public void przewagi(){
         List<W> przewagi = PRZEWAGI_WARUNKI;
@@ -684,7 +924,7 @@ public class CPU_UL extends AbstractCPU {
         List<W> budujacyHierarchieDecyzyjni = of(W.MORDERCY, M.DLUGO(W.STRATA_WOLNOSCI), M.DUZO(M.ZROBIL_DLA(W.EKIPA)),
                 W.RUMUNI, W.BANDYCI, W.NIESPRAWIEDLIWI, W.AGRESYWNI, on(PRZEWAGI_WARUNKI));
 
-        List<W> cele = of(W.WZIECIE_JAKNAJWIECEJ_OSOB_DO_BIEGANIA, W.WZIECIE_JAKNAJWIECEJ_OSOB_DO_CPANIA, M.SILNA(W.EKIPA), W.PIENIADZE, W.SILA_SPRAWCZA);
+        List<W> cele = of(W.WZIECIE_JAKNAJWIECEJ_OSOB_DO_BIEGANIA_SPRZET, W.WZIECIE_JAKNAJWIECEJ_OSOB_W_NARKOTYKI, M.SILNA(W.EKIPA), W.PIENIADZE, W.SILA_SPRAWCZA);
         List<W> przyczynyBiegania = of(W.MODA, W.STARSI, W.WYKLUCZENIE_ZE_SRODOWISKA, W.AGRESJA, W.KORZYSCI, W.WADY, W.NUDA);
         List<W> klimatBiegania = of(W.NARKOTYKI, W.WYROK, W.KONFIDENCI, W.PIENIADZE, W.KONTUZJA, W.CIERPIENIE, M.CALY_CZAS(W.ORIENT));
 
