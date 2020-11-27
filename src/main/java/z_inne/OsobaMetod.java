@@ -45,13 +45,13 @@ public class OsobaMetod {
 
     public W setStatus(W status) {return W.WARUNEK;}
     public W dbaj(List<W> warunki) {return W.WARUNEK;}
-    public W wyjebane(List<W> warunki) {return W.WARUNEK;}
+    public W nieObchodzi(List<W> warunki) {return W.WARUNEK;}
     public W teoriaPrzesuwania(OsobaMetod zasob) {return W.WARUNEK;}
     public W ostry(TypOsoby osoba) {return W.WARUNEK;}
     public W zwolnij(OsobaMetod zasob) {return W.WARUNEK;}
 
     public W zlecNieszczegolowo(W task) {return W.WARUNEK;}
-    public W zjeb(W warunek ,W task) {return W.WARUNEK;}
+    public W skrytykuj(W warunek , W task) {return W.WARUNEK;}
     public W potwierdzajaZInnymi(W niepokojace) {return W.WARUNEK;}
     public W rozpoznanieGdzieUderzyc(W gadka) {return W.WARUNEK;}
     public W prowokuj(List<W> sposoby) {return W.WARUNEK;}

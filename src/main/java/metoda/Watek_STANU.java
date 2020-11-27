@@ -11,12 +11,12 @@ public class Watek_STANU extends AbstractWatek {
 
     List<W> warunki = of(W.STERYD, W.ZIELSKO);
 
-    List<W> essentials = of(W.MOCNY_WZROK, W.TLEN, W.JEDZENIE, W.PICIE, W.SEN);
+    List<W> essentials = of(W.MOCNY_WZROK, W.TLEN, W.JEDZENIE, W.WYSILEK_UMYSLOWY, W.WYSILEK_FIZYCZNY,  W.PICIE, W.SEN);
 
-    List<W> przyczynyUjebaniaStanu = of(W.MUZYKA, W.NARKOTYKI, W.CHOROBA, W.KONIK, W.CHEC_REGENERACJI, W.CHEC_ZBICIA_NIEPOKOJU);
+    List<W> przyczynyZlegoStanu = of(W.MUZYKA, W.NARKOTYKI, W.CHOROBA, W.KONIK, W.CHEC_REGENERACJI, W.CHEC_ZBICIA_NIEPOKOJU);
 
     public void run(){
-        M.thread_while_loop(W.COUNTIOUS);
+        M.CALY_CZAS(W.COUNTIOUS);
         // TRACISZ STAN KILKA MIESIECY PRZERWY
 
 
@@ -58,7 +58,7 @@ public class Watek_STANU extends AbstractWatek {
             W.SAMOPOCZUCIE_FAZA
     );
 
-    List<W> ujebanyStan = of(
+    List<W> zlyStan = of(
             W.WIDZISZ_KRAJOBRAZ,
             W.ZLE_SAMOPOCZUCIE,
             W.TRACISZ_WZROK, W.WZROK_NIEOSTRY, W.KREW_SIE_CHOWA, W.NADWRAZLIWY_SLUCH, W.BRAK_SCHIZMY,

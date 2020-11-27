@@ -25,11 +25,10 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
 
     List<W> dopuszczenie = ZBIOR_DOPUSZCZENIE_WARUNKI;
 
-    List<W> mojeCechy = of(W.SPRYT, W.SZYBKOSC, W.SILA, W.ANTY_POSLUSZNOSC, W.ZMUSZASZ, W.WYJEBKA_NA_WLASNE_ZMECZENIE);
+    List<W> potrzebneCechyM = PRZEWAGI_DANEJ_CHWILI_WARUNKI;
     List<W> osobaChcianeCechy = of(W.REAGUJE, W.STWARZA_SZANSE, W.SWIADOMOSC);
 
     List<W> miejscaWstepowania = TYPY_MIEJSC_WARUNKI;
-
     List<W> typySytuacji = TYPY_SYTUACJI;
 
     List<W> spojrzenia = of(M.spojrzenie_1(W.BEST_CASE), M.spojrzenie_2(W.NORMAL_CASE));
@@ -73,7 +72,7 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
         nastawienie = M.WYBOR(of(W.BIERZESZ_CO_JEST, W.WG_OCZEKIWANIA,
                 W.BEZ_POPATRZENIA, W.NA_POPATRZENIE, W.NA_CHETNOSC, W.NA_ZNAJOMOSC));
 
-        M.thread_while_loop(M.SZUKANIE(of(W.KOBIETA, W.OKAZJA)));
+        M.CALY_CZAS(M.SZUKANIE(of(W.KOBIETA, W.OKAZJA)));
 
         M.W(
                 of(M.wejsciePlansza(plansza)),
@@ -81,14 +80,14 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
         );
         M.W(
                 of(M.namierzenie()),
-                of(M.thread_while_loop(W.ZASIEG_WZROKU))
+                of(M.CALY_CZAS(W.ZASIEG_WZROKU))
         );
         M.W(
                 of(M.sondaOsoby(osobaChcianeCechy), M.sondaSytuacji(typySytuacji, essentials), M.przewidzenieDrogi()),
                 of(W.SYTUACJA)
         );
         M.W(
-                of(M.odrazuPochwycenie(W.SYTUACJA), M.dzialanie(mojeCechy)),
+                of(M.odrazuPochwycenie(W.SYTUACJA), M.dzialanie(PRZEWAGI_DANEJ_CHWILI_WARUNKI)),
                 of(W.BEDZIE_CIEKAWIE, W.ANTY_PARTYZANTKA, W.ANTY_POSLUSZNOSC, W.NIENAWISC_FESTOW, W.JA_DOSTAJE)
         );
         M.W(

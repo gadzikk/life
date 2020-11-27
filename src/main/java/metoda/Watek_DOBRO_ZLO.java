@@ -20,7 +20,7 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
                 W.SLUCHANIE_ZLEGO,
                 W.DZIALANIE_DLA_ZLA), "--->", W.PELNE_POPARCIE_ZLA, "--->", W.PIEKLO);
 
-        M.DEFAULT(of(M.MOCNO(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI), M.SLABO(PRZYCZYNY_SLUZENIA_DOBRU_WARUNKI)));
+        M.ZWYKLE(of(M.MOCNO(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI), M.SLABO(PRZYCZYNY_SLUZENIA_DOBRU_WARUNKI)));
 
         M.WW(W.ZLO, "--->", of(M.ROBI_KRZYWDE(of(on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI))),
                                              M.TWORZENIE(of(on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI)))), "--->",of(M.LEKKIE(W.ZYCIE),
@@ -53,7 +53,7 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
 
         List<W> conditions = of(
                 W.NIE_ZATRZYMA_SIE,
-                M.thread_while_loop(W.PROBUJE),
+                M.CALY_CZAS(W.PROBUJE),
                 W.OSZUKIWANIE_WYKORZYSTANIE,
                 W.ROBIENIE_CIERPIENIA,
                 W.WIECZNA_PRZEGRANA,
@@ -86,8 +86,7 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
 
         M.W(M.OSOBA(M.INTERAKCJA(W.ZLY)), "--->", M.REZULTAT(M.OSOBA(of(W.ZERO_ZYSKU, on(KRZYWDY_WARUNKI), on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI)))));
 
-        List<W> NOWY = of(W.NAKLEJ_NALEPKE, W.HASLO_RDZENNYCH,
-                W.WYJEBAC_ZDJECIA, W.PRZESTRZELIC, W.SKAZYWANIE_SAMOTNOSC, W.ZWYZYWAC, W.OBGADAC, W.POBIC, W.SHANBIC);
+        List<W> NOWY = of(M.ODRAZU(KRZYWDY_WARUNKI));
 
         List<W> wadyZlych = WADY_ZLYCH_WARUNKI;
         List<W> okazje = OKAZJE_ZROBIENIE_ZLO_WARUNKI;
@@ -106,13 +105,13 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
                                                                                 W.ROBIENIE_CIERPIENIA,
                                                                                     W.CIEZKIE_RANY));
 
-        M.W(M.thread_while_loop(M.KONTROLA(W.ZLY)), "--->", of(W.CIESZY_SIE, M.SZANSA_NA(M.USPRAWIEDLIWIENIE(W.WALKA_PIESCI)),
+        M.W(M.CALY_CZAS(M.KONTROLA(W.ZLY)), "--->", of(W.CIESZY_SIE, M.SZANSA_NA(M.USPRAWIEDLIWIENIE(W.WALKA_PIESCI)),
                                                                     on(OKAZJE_ZROBIENIE_DOBRO_WARUNKI),
                                                                     W.REAKACJA, M.AKTYWNA_WALKA_ZE_ZLEM(of(W.BLISKOSC, W.CISNIECIE, W.WALKA_PIESCI)),
                                                                     W.KARA, M.OPCJA(W.UKAZANIE),
                                                                     W.ZAPRZESTANIE_ZLA, W.SMUTEK, W.WYLACZENIE_DZIALACZA));
 
-        M.W(W.ZLY, "--->", M.DUZY_WYSILEK(M.thread_while_loop(M.KONTROLA(W.ZLY)))
+        M.W(W.ZLY, "--->", M.DUZY_WYSILEK(M.CALY_CZAS(M.KONTROLA(W.ZLY)))
                                                                     .MIMO_TO(W.ZLY_OWOC)
                                                                     .KONCOWO(of(W.STRATA_CZASU, W.STRATA_PIENIEDZY, W.STRATA_SIL,
                                                                             on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI))));
@@ -121,13 +120,13 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
 
         M.POBIERZ_WZORCE_ZASADY(of(W.ZLO, W.SRODOWISKO));
 
-        M.W(W.ZLY, "--->", of(M.DEFAULT(of(W.SLABSZY.NIZ(W.INNI), M.GORSZE(W.ZYCIE).NIZ(W.INNI), M.GORSZE(W.UMIEJETNOSCI).NIZ(W.INNI))),
+        M.W(W.ZLY, "--->", of(M.ZWYKLE(of(W.SLABSZY.NIZ(W.INNI), M.GORSZE(W.ZYCIE).NIZ(W.INNI), M.GORSZE(W.UMIEJETNOSCI).NIZ(W.INNI))),
                                                 M.TOLERANCJA(of(on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI))),
                                                 M.DOSWIADCZENIE(M.ZDOLNY(of(on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI)))),
                                                 M.W(W.OSOBA, "--->", M.ZLY(of(M.WYKORZYSTUJE(W.OSOBA), M.SZYBKO(M.KRZYWDY(of(W.OSOBA, on(KRZYWDY_WARUNKI))))))),
                                                 M.CEL(of(W.ZNISZCZENIE, on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI))))
         );
-        M.W(W.ZLY, "--->", M.thread_while_loop(M.ZLY(M.PRZEBYWANIE(M.OSOBY(W.ZLI)))));
+        M.W(W.ZLY, "--->", M.CALY_CZAS(M.ZLY(M.PRZEBYWANIE(M.OSOBY(W.ZLI)))));
 
         M.W(W.ZLY, "--->", of(M.TOLERANCJA(of(W.ZLO, on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI))),
                                    M.CZESTO(of(W.ZLO, on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI)))));
@@ -175,7 +174,7 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
 
         M.POBIERZ_WZORCE_ZASADY(of(W.RODZINA, W.BIBLIA));
 
-        M.W(W.DOBRY, "--->", M.thread_while_loop(M.DOBRY(M.PRZEBYWANIE(M.OSOBY(W.DOBRZI)))));
+        M.W(W.DOBRY, "--->", M.CALY_CZAS(M.DOBRY(M.PRZEBYWANIE(M.OSOBY(W.DOBRZI)))));
 
         List<W> metodyAntyDzialacz = ANTY_DZIALACZ_ZLA_WARUNKI;
     }

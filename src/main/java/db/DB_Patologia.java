@@ -190,7 +190,7 @@ public class DB_Patologia {
 
     public static List<W> PATOLOGIE_OSIEDLE =
             Arrays.asList(
-                    M.thread_while_loop(W.BIEGANIE), W.NIE_ODBIERANIE_TELEFONU, W.BRAK_PIENIEDZY,
+                    M.CALY_CZAS(W.BIEGANIE), W.NIE_ODBIERANIE_TELEFONU, W.BRAK_PIENIEDZY,
                     W.KONTUZJA, W.WALKA, M.MALO(M.SLABE(W.KOBIETA)), W.UZYWKI
             );
 

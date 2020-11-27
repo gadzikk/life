@@ -91,7 +91,7 @@ public class Osoba_DefaultPracownikKorporacji extends Osoba {
 //        chceLepszegoZycia;
         chceWygod = true;
 
-//        wkurwionyZyciem;
+//        zdenerwowanyZyciem;
         nuda = true;
         kurestwo = true;
 //        tepiKurestwo;
@@ -166,7 +166,7 @@ public class Osoba_DefaultPracownikKorporacji extends Osoba {
 //        biedny;
 //        brakPerspektyw;
 //        zycieZDniaNaDzien;
-//        wyjebane;
+//        nieObchodzi;
 
         wrazliwy = true;
         wolnoscLekkosc = true;
@@ -227,7 +227,7 @@ public class Osoba_DefaultPracownikKorporacji extends Osoba {
 
 //        majatek;
 //        miejsceZamieszkania;
-//        wyjebaneNa;
+//        nieObchodziGo;
 //        dbaO;
 //        oczekiwania;
         punktZerowy = TypPunktZerowy.WYSOKO;

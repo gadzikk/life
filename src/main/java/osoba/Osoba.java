@@ -85,7 +85,7 @@ public class Osoba {
     boolean chceLepszegoZycia;
     boolean chceWygod;
 
-    boolean wkurwionyZyciem;
+    boolean zdenerwowanyZyciem;
     boolean nuda;
     boolean kurestwo;
     boolean tepiKurestwo;
@@ -166,7 +166,7 @@ public class Osoba {
     boolean biedny;
     boolean brakPerspektyw;
     boolean zycieZDniaNaDzien;
-    boolean wyjebane;
+    boolean niePrzejmujeSie;
 
     boolean wrazliwy;
     boolean wolnoscLekkosc;
@@ -227,7 +227,7 @@ public class Osoba {
     List<W> srodki;
     Majatek majatek;
     Miejsce miejsceZamieszkania;
-    OsobyOrazWarunki wyjebaneNa;
+    OsobyOrazWarunki nieObchodziGo;
     OsobyOrazWarunki dbaO;
     Oczekiwania oczekiwania;
     TypPunktZerowy punktZerowy;
@@ -773,8 +773,8 @@ public class Osoba {
         else {
             przewagiCharakteru.add(W.ZYJE_DLUGOTERMINOWO);
         }
-        if(wyjebane){
-            slabosciCharakteru.add(W.WYJEBANE);
+        if(niePrzejmujeSie){
+            slabosciCharakteru.add(W.NIE_OBCHODZI_GO);
         }
         else {
             przewagiCharakteru.add(W.TRAKTUJE_POWAZNIE);
@@ -1227,8 +1227,8 @@ public class Osoba {
         if(!a.chceWygod == b.chceWygod){
             sb.append("CHCE_WYGOD: " + a.chceWygod + " |#| " + b.chceWygod);
         }
-        if(!a.wkurwionyZyciem == b.wkurwionyZyciem){
-            sb.append("WKURWIONY_ZYCIEM: " + a.wkurwionyZyciem + " |#| " + b.wkurwionyZyciem);
+        if(!a.zdenerwowanyZyciem == b.zdenerwowanyZyciem){
+            sb.append("ZDENERWOWANY_ZYCIEM: " + a.zdenerwowanyZyciem + " |#| " + b.zdenerwowanyZyciem);
         }
         if(!a.nuda == b.nuda){
             sb.append("NUDA: " + a.nuda + " |#| " + b.nuda);
@@ -1416,8 +1416,8 @@ public class Osoba {
         if(!a.zycieZDniaNaDzien == b.zycieZDniaNaDzien){
             sb.append("ZYCIE_Z_DNIA_NA_DZIEN: " + a.zycieZDniaNaDzien + " |#| " + b.zycieZDniaNaDzien);
         }
-        if(!a.wyjebane == b.wyjebane){
-            sb.append("WYJEBANE: " + a.wyjebane + " |#| " + b.wyjebane);
+        if(!a.niePrzejmujeSie == b.niePrzejmujeSie){
+            sb.append("NIE_OBCHODZI_GO: " + a.niePrzejmujeSie + " |#| " + b.niePrzejmujeSie);
         }
         if(!a.wrazliwy == b.wrazliwy){
             sb.append("WRAZLIWY: " + a.wrazliwy + " |#| " + b.wrazliwy);
@@ -1604,7 +1604,7 @@ public class Osoba {
                 ", stwarzaPointCutRandka=" + stwarzaPointCutRandka +
                 ", chceLepszegoZycia=" + chceLepszegoZycia +
                 ", chceWygod=" + chceWygod +
-                ", wkurwionyZyciem=" + wkurwionyZyciem +
+                ", zdenerwowanyZyciem=" + zdenerwowanyZyciem +
                 ", nuda=" + nuda +
                 ", kurestwo=" + kurestwo +
                 ", tepiKurestwo=" + tepiKurestwo +
@@ -1668,7 +1668,7 @@ public class Osoba {
                 ", biedny=" + biedny +
                 ", brakPerspektyw=" + brakPerspektyw +
                 ", zycieZDniaNaDzien=" + zycieZDniaNaDzien +
-                ", wyjebane=" + wyjebane +
+                ", nieObchodzi=" + niePrzejmujeSie +
                 ", wrazliwy=" + wrazliwy +
                 ", wolnoscLekkosc=" + wolnoscLekkosc +
                 ", europejski=" + europejski +
@@ -1717,7 +1717,7 @@ public class Osoba {
                 ", srodki=" + srodki +
                 ", majatek=" + majatek +
                 ", miejsceZamieszkania=" + miejsceZamieszkania +
-                ", wyjebaneNa=" + wyjebaneNa +
+                ", nieObchodziGo=" + nieObchodziGo +
                 ", dbaO=" + dbaO +
                 ", oczekiwania=" + oczekiwania +
                 ", punktZerowy=" + punktZerowy +

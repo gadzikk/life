@@ -25,30 +25,20 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
 
     List<W> warunkiWyjscia = of(W.PORA_ROKU, W.CZAS, W.DOSTEPNOSC, W.ZOBACZENIE, W.BLISKOSC, W.KONTAKT);
 
-    List<W> warunekiWejsciowe = of(W.ZLO_NA_CZUBKU_STOSU, W.DZUNGLA, W._100PROCENT_WYSILKU_10PROCENT_OTRZYMUJESZ, W.CALE_ZYCIE_CIERPIENIE,
-            W.STARZEJESZ_SIE, W.MIESZKANIE_300TYS_WYPLATA_3TYS, W.KTOS_CIEBIE_LUB_TY_NIEGO, W.PUSTKA, W._1_OSOBA__DUZO,
-            W.PRZEWAGA_ZROBIONA_NA_KRZYWDZIE_LUB_KURESTWIE, W.SLABSZA_PRZEWAGA_ULEGA_MOCNIEJSZEJ_W_MOMENCIE_PRZY_WARUNKACH,
-            W.BIJESZ_KTOS_MOZE_ODDAC_MOCNIEJ, W.MALO_OSOB, W.OSOBY_KAZDY_NA_KAZDEGO
-    );
-    List<W> stan = of(W.WYSILEK_UMYSLOWY, W.WYSILEK_FIZYCZNY, W.DUZO_ZARCIA, W.WZROK, W.SAMOPOCZUCIE);
-
     List<W> warunki = of(W.OBECNOSC, W.PLANSZA, W.CZAS_START,W.CZAS_KONIEC, W.FOCUS, W.ZMECZENIE, W.BLISKOSC, W.DOSTEPNOSC);
     List<W> jakoscSytuacji = of(W.INTERAKCJA, W.ZNAJOMI, W.POTRZEBA,W.WARTOSC, W.UNIKALNOSC_W_OTOCZENIU);
 
-    List<W> przyczyny = of(W.PRZYMUS, W.POTRZEBA, W.ZLO, W.DOBRO, W.ZYSK, W.MODA, W.PRZEWAGA, W.NUDA, W.UCZUCIE, W.CIEKAWOSC, W.ZAZDROSC);
+    List<W> przyczyny = SONDA_PRZYCZYN_WARUNKI;
 
     List<W> szansaNaWarunek = of(W.OBECNOSC, W.DEFAULT_ZACHOWANIE, W.DEFAULT_WARUNKI, W.DZIALANIE, W.REAKCJA,
             W.MAKSYMALNIE_ULATWIASZ, W.PRZEKONYWANIE, W.ULTIMATUM);
     List<W> warunek = of(W.POCZATEK, W.KONIEC, W.ZYSK, W.WARTOSC, W.ILOSC_OSOB, W.CZESTOTLIWOSC);
 
-    List<W> orient = of(W.END_CASE, W.OBJECIE_POCZATEK_KONIEC, W.PRZEWIDZENIE_KONSEKWENCJI);
+    W orient = M.ORIENT(of(W.KONCOWY_WARUNEK, W.OBJECIE_POCZATEK_KONIEC, W.PRZEWIDZENIE_KONSEKWENCJI));
     List<W> okazja = of(W.DOBRO, W.POZNANIE, W.WALKA_PIESCI);
 
-    List<W> niesprawiedliwosc = of(W.KOBIETA, W.SAMOCHOD, W.EKIPA, W.ZNAJOMI);
+    List<W> niesprawiedliwosc = PRZEWAGI_MATERIALNE_WARUNKI;
     List<W> patologie = KATEGORIA_PATOLOGIE;
-
-    List<W> zleCzyny = of(W.MAGICZNE_ZAKLECIE, W.POJECHANIE_NA_PRZEWADZE, W.SKAZYWANIE_NA_CIERPIENIE, W.WYKLUCZENIE, W.UKRYCIE, W.ZAZDROSC, W.CHCIWOSC, W.KLAMSTWO, W.WYSMIANIE);
-    List<W> dobreCzyny = of(W.PODZIELENIE_SIE_PRZEWAGA, W.WYZWOLENIE_Z_CIERPIENIA, W.PODNIESIENIE, W.UJAWNIENIE, W.PRAWDA, W.WYJEBANIE_ZLA_KONTRA);
 
     List<W> otaczajacyLudzie = of(W.LUDZIE_RODZINA, W.LUDZIE_PRACA, W.LUDZIE_DZIELNICA, W.ZNAJOMI_DZIELNICA, W.OBSLUGA);
 
@@ -123,7 +113,7 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
                                               M.namierzZagrozenia(),
                                               M.praca()));
 
-        M.W(M.thread_while_loop(W.NORMALNA_SYTUACJA), "--->", M.niedopuscDoZlejSytuacji(W.WIEDZA));
+        M.W(M.CALY_CZAS(W.NORMALNA_SYTUACJA), "--->", M.niedopuscDoZlejSytuacji(W.WIEDZA));
 
         M.W(W.ZLA_SYTUACJA, "--->", M.zbijaj(W.WIEDZA));
 
@@ -150,7 +140,7 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
 
         M.W(M.SMIERC(W.BLISKA_OSOBA), "--->", of(M.PERMANENTNA(W.STRATA), on(EMOCJE_NEGATYWNE_WARUNKI), on(UCZUCIA_NEGATYWNE_WARUNKI)));
 
-        M.W(M.OSOBA(W.INNA_RASA), "--->", M.DEFAULT(of(W.RASIZM, M.GORSZE_TRAKTOWANIE(W.OSOBA))));
+        M.W(M.OSOBA(W.INNA_RASA), "--->", M.ZWYKLE(of(W.RASIZM, M.GORSZE_TRAKTOWANIE(W.OSOBA))));
 
         M.W(M.POZNANIE(W.OSOBA), "--->", M.NABYCIE(W.RELACJA));
 
@@ -201,7 +191,7 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
 
         M.W(of(W.SUPERPOZYCJA),
                 of(
-                        M.jebZPerspektywyPozycji(),
+                        M.niszczZPerspektywyPozycji(),
                         M.twojeZdanieWazniejsze(),
                         M.tyKogosPodkopujOnCiebieNieMoze(),
                         M.ukryjOklam(),
@@ -238,7 +228,7 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
 
         M.W(of(W.BRAK_SUPERPOZYCJI), "--->", of(W.NIEWOLNIK, W.TWOJE_ZDANIE_NIC_NIE_ZNACZY));
 
-        M.W(W.WYSOKA_POZYCJA, "--->", M.DEFAULT(M.BRAK_DOSTEPU(W.SWIAT), M.DOSTEP(W.FIRMA), M.SILA_SPRAWCZA(W.FIRMA)));
+        M.W(W.WYSOKA_POZYCJA, "--->", M.ZWYKLE(M.BRAK_DOSTEPU(W.SWIAT), M.DOSTEP(W.FIRMA), M.SILA_SPRAWCZA(W.FIRMA)));
     }
 
     public void najwiekszaBron() {
@@ -254,21 +244,21 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
     }
 
     public void rozmowa() {
-        M.thread_while_loop(W.SYTUACJA_SRODOWISKOWA);
+        M.CALY_CZAS(W.SYTUACJA_SRODOWISKOWA);
 
         M.WSPOMNIJ(W.SYTUACJA).POWIAZ_Z(W.OSOBA).WSPOMIJ(W.REZULTAT)
                                                 .WSPOMIJ(W.SKOJARZONE);
     }
 
     public void zasobZjawiskoDefault() {
-        M.W(W.OSOBA, "--->", M.DEFAULT(of(W.ZLY, W.GLUPI)));
+        M.W(W.OSOBA, "--->", M.ZWYKLE(of(W.ZLY, W.GLUPI)));
 
-        M.W(W.OSOBA, "--->", M.DEFAULT(W.CIEZKO_W_ZYCIU));
+        M.W(W.OSOBA, "--->", M.ZWYKLE(W.CIEZKO_W_ZYCIU));
 
-        M.W(W.DZIALANIE, "--->", M.DEFAULT(of(W.ZLE, W.GLUPIE)));
+        M.W(W.DZIALANIE, "--->", M.ZWYKLE(of(W.ZLE, W.GLUPIE)));
 
-        M.W(W.NOWA_OSOBA, "--->", M.DEFAULT(KRZYWDY_WARUNKI));
+        M.W(W.NOWA_OSOBA, "--->", M.ZWYKLE(KRZYWDY_WARUNKI));
 
-        M.W(W.DZIALANIE, "--->", M.DEFAULT(M.DZIALANIE(W.ZA_CIOSEM)));
+        M.W(W.DZIALANIE, "--->", M.ZWYKLE(M.DZIALANIE(W.ZA_CIOSEM)));
     }
 }

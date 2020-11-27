@@ -19,10 +19,10 @@ public class Watek_SJ extends AbstractWatek {
             M.NIEBOISZ_SIE(W.OBRAZENIA_FIZYCZNE), M.NIEBOISZ_SIE(W.STARCIE_WIELU_NA_JEDNEGO),
             M.NIEBOISZ_SIE(M.MOZLIWOSC(W.SPRZET)),
             M.NIEBOISZ_SIE(of(W.WYJSCIE, W.STARCIE, W.NIESPRAWIEDLIWE_PRZEWAGI)),
-            M.thread_while_loop(M.PRZYGOTOWANY(W.DZIALANIE_POD_PRESJA)),
+            M.CALY_CZAS(M.PRZYGOTOWANY(W.DZIALANIE_POD_PRESJA)),
             M.PRIORYTET(W.WYCHODZENIE_U_SIEBIE), M.ORIENT(W.RZECZY_WARTOSCIOWE), M.DZIALANIE(W.RZECZY_WARTOSCIOWE));
 
-    W ciaglaCzynnoscUlica = M.thread_while_loop(M.WYBOR(of(W.IDZIESZ, W.STOISZ_BRAMA, W.STOISZ_MIEJSCE_STALE, W.JEDZIESZ_TRAUTO)));
+    W ciaglaCzynnoscUlica = M.CALY_CZAS(M.WYBOR(of(W.IDZIESZ, W.STOISZ_BRAMA, W.STOISZ_MIEJSCE_STALE, W.JEDZIESZ_TRAUTO)));
 
     List<W> nastawienie = of(W.NASTAWIENIE_BIERZESZ_CO_TWOJE, M.ZABIERASZ_ZLYM(W.WARTOSC) ,W.KONTRA);
 
@@ -30,7 +30,7 @@ public class Watek_SJ extends AbstractWatek {
 
     List<W> warunekiWejsciowe = of(W.ZLO_NA_CZUBKU_STOSU, W.DZUNGLA, W._100PROCENT_WYSILKU_10PROCENT_OTRZYMUJESZ, W.CALE_ZYCIE_CIERPIENIE,
             W.STARZEJESZ_SIE, W.MIESZKANIE_300TYS_WYPLATA_3TYS, W.KTOS_CIEBIE_LUB_TY_NIEGO, W.PUSTKA, W._1_OSOBA__DUZO,
-            W.PRZEWAGA_ZROBIONA_NA_KRZYWDZIE_LUB_KURESTWIE, W.SLABSZA_PRZEWAGA_ULEGA_MOCNIEJSZEJ_W_MOMENCIE_PRZY_WARUNKACH,
+            W.PRZEWAGA_ZROBIONA_NA_KRZYWDZIE_LUB_BRAKU_ZASAD, W.SLABSZA_PRZEWAGA_ULEGA_MOCNIEJSZEJ_W_MOMENCIE_PRZY_WARUNKACH,
             W.BIJESZ_KTOS_MOZE_ODDAC_MOCNIEJ, W.MALO_OSOB, W.OSOBY_KAZDY_NA_KAZDEGO
     );
     List<W> warunki = of(
@@ -98,20 +98,20 @@ public class Watek_SJ extends AbstractWatek {
             "SZYDELKO", "KOTALA");
 
     public void run() {
-        M.W(W.WYCHODZISZ, "--->", of(M.thread_while_loop(W.ZLO_KRAZY),
+        M.W(W.WYCHODZISZ, "--->", of(M.CALY_CZAS(W.ZLO_KRAZY),
                                         ZLE_OSOBY.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA),
                                         ZLE_OSOBY.thread_while_loop(W.STWARZA_OKAZJE_ZROBIENIE_ZLA),
-                                        M.DEFAULT(of(on(KRZYWDY_WARUNKI), on(OSLONY_WARUNKI))),
-                M.thread_while_loop(of(ciaglaCzynnoscUlica, W.ZASIEG_WZROKU, W.SCIEZKI, W.LUDZIE, W.WIDOCZNY_GDY_IDZIESZ))));
+                                        M.ZWYKLE(of(on(KRZYWDY_WARUNKI), on(OSLONY_WARUNKI))),
+                M.CALY_CZAS(of(ciaglaCzynnoscUlica, W.ZASIEG_WZROKU, W.SCIEZKI, W.LUDZIE, W.WIDOCZNY_GDY_IDZIESZ))));
 
         W nastawienie = W.AKTYWNA_KONTRA;
-        W nastawienieOtoczenia = W._80_PROCENT_CHCE_CIE_ROZJEBAC;
+        W nastawienieOtoczenia = W.LUDZIE_CHCA_TWOJEJ_KRZYWDY;
 
-        W warunkiNieDoZycia = M.thread_while_loop(of(
+        W warunkiNieDoZycia = M.CALY_CZAS(of(
                 W.PUSTKA, W.ZLE_W_ZYCIU, W.MALO_OSOB,
                 W.CHRONICZNE_BEZROBOCIE, W.NISKIE_PENSJE, W.NIEMOZLIWOSC_ZDOBYCIA_PRACY_NEUTRALNY_RZUT,
-                W.WIEKSZOSC_DZIALA, W._80_PROCENT_CHCE_CIE_ROZJEBAC,
-                W.CHETNOSC_ZERO, W.DZIALAJACE_KARYNY, W.NIEMOZLIWOSC_PODERWANIA_KOBIETY_NEUTRALNY_RZUT, PATOLOGIE_WSTEPNE_KOBIETA.get(0)
+                W.WIEKSZOSC_DZIALA, W.LUDZIE_CHCA_TWOJEJ_KRZYWDY,
+                W.CHETNOSC_ZERO, W.DZIALAJACE_KARYNY, W.NIEMOZLIWOSC_PODERWANIA_KOBIETY_NEUTRALNY_RZUT, on(PATOLOGIE_WSTEPNE_KOBIETA)
         ));
 
         M.subscribe(of(
@@ -136,7 +136,7 @@ public class Watek_SJ extends AbstractWatek {
         M.W(W.PRACA, "--->", M.WEZ(of(W.PIENIADZE, W.STABILIZACJA, W.BENEFITY, W.URLOP, W.CHOROBOWE,
                                            W.KOD_PROJEKTOW, W.WIEDZA, W.DOSWIADCZENIE, W.KONTAKTY)));
 
-        M.thread_while_loop(W.PUSTKA);
+        M.CALY_CZAS(W.PUSTKA);
         M.W(of(W.LUDZIE),
                 of(
                         M.widzisz(W.WADY),
@@ -163,7 +163,7 @@ public class Watek_SJ extends AbstractWatek {
 
         M.W(W.JESTES_SILNY, "--->", of(zazdrosni.aktywneZlo(), dzialacz.probaSkasowania(), wszyscy.SET(W.ZAGROZENIE)));
 
-        M.W(M.TRZYMANIE_RELACJI(W.RODZICE), "--->", M.thread_while_loop(of(W.KONTROLA, W.SZKODLIWY_WPLYW)));
+        M.W(M.TRZYMANIE_RELACJI(W.RODZICE), "--->", M.CALY_CZAS(of(W.KONTROLA, W.SZKODLIWY_WPLYW)));
 
         M.W(of(W.KOLECZKO_WZAJEMNEJ_ADORACJI), "--->", of(M.punktujWady(), M.II(), M.wprowadzCosLepszego(), M.II(), M.zniszczSila()));
 
@@ -178,22 +178,22 @@ public class Watek_SJ extends AbstractWatek {
     }
 
     public void wsrodLudzi() {
-        M.thread_while_loop(W.ZLO_KRAZY);
-        M.thread_while_loop(W.SWIADOMY_WLASNEGO_TERYTORIUM);
-        M.thread_while_loop(of(W.SONDA_PRZEWAG, W.SONDA_CZYNOW));
+        M.CALY_CZAS(W.ZLO_KRAZY);
+        M.CALY_CZAS(W.SWIADOMY_WLASNEGO_TERYTORIUM);
+        M.CALY_CZAS(of(W.SONDA_PRZEWAG, W.SONDA_CZYNOW));
 
         wszyscy.nastawienie(W.AGRESJA);
         wszyscy.niktNiePyta();
         wszyscy.informacjeZGory();
 
-        M.thread_while_loop(W.DOBRO);
-        M.thread_while_loop(W.POTENCJALNE_STARCIE);
-        M.thread_while_loop(W.AKTYWNA_WALKA_ZE_ZLEM);
+        M.CALY_CZAS(W.DOBRO);
+        M.CALY_CZAS(W.POTENCJALNE_STARCIE);
+        M.CALY_CZAS(W.AKTYWNA_WALKA_ZE_ZLEM);
 
-        M.thread_while_loop(W.ANTY_POSLUSZNOSC);
-        M.thread_while_loop(W.ANTY_FEST);
-        M.thread_while_loop(W.ANTY_SYSTEM);
-        M.thread_while_loop(W.ANTY_BURZUA);
+        M.CALY_CZAS(W.ANTY_POSLUSZNOSC);
+        M.CALY_CZAS(W.ANTY_FEST);
+        M.CALY_CZAS(W.ANTY_SYSTEM);
+        M.CALY_CZAS(W.ANTY_BURZUA);
 
         M.WW(of(W.LUDZIE),
                 of(
@@ -246,14 +246,14 @@ public class Watek_SJ extends AbstractWatek {
     }
 
     public void antyPan() {
-        List<W> antyPan = of(W.GRZEBANIE_W_KIBLU_CODZIEN, W.MALY_ODZEW_SZUKANIE_PRACY, W.JEBANIE_PRZEZ_MANAGEROW_ZAWSZE,
+        List<W> antyPan = of(W.GRZEBANIE_W_KIBLU_CODZIEN, W.MALY_ODZEW_SZUKANIE_PRACY, W.GNOJONY_PRZEZ_MANAGEROW_ZAWSZE,
                 W.NIEMOZESZ_WYDAC_KASY);
     }
 
     public void antyDzialacz() {
         M.SET(W.ZERO_TOLERANCJI_DZIALAJACY);
-        M.thread_while_loop(KONFRONTACJA_WARUNKI);
-        M.thread_while_loop(M.KONTROLA(W.WSZYSCY));
+        M.CALY_CZAS(KONFRONTACJA_WARUNKI);
+        M.CALY_CZAS(M.KONTROLA(W.WSZYSCY));
 
         M.W(of(M.WIDZISZ(W.DZIALAJACY), W._88_, W.BLISKOSC), "--->", of(W.CIESZY_SIE, M.SZANSA_NA(M.USPRAWIEDLIWIENIE(W.WALKA_PIESCI)),
                                                                             on(OKAZJE_ZROBIENIE_DOBRO_WARUNKI),

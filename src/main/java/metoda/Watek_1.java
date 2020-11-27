@@ -28,7 +28,7 @@ public class Watek_1 extends AbstractWatek {
 
     List<W> dopuszczenie = ZBIOR_DOPUSZCZENIE_WARUNKI;
 
-    List<W> mojeCechy = of(W.SPRYT, W.SZYBKOSC, W.SILA, W.ANTY_POSLUSZNOSC, W.ZMUSZASZ, W.WYJEBKA_NA_WLASNE_ZMECZENIE);
+    List<W> potrzebneCechyM = PRZEWAGI_DANEJ_CHWILI_WARUNKI;
     List<W> osobaChcianeCechy = of(W.REAGUJE, W.STWARZA_SZANSE, W.SWIADOMOSC);
 
     List<W> miejscaWstepowania = TYPY_MIEJSC_WARUNKI;
@@ -106,7 +106,7 @@ public class Watek_1 extends AbstractWatek {
         M.W(
                 of(W.PODBIJASZ, W._88_, W.BRAK_JAKOSCI_PLANSZY),
                 of(
-                        M.DEFAULT(ona.opieraSie(), ona.odpowiadaOdNiechcenia(), ona.nieufna())
+                        M.ZWYKLE(ona.opieraSie(), ona.odpowiadaOdNiechcenia(), ona.nieufna())
                 )
         );
         M.WW(
@@ -568,7 +568,7 @@ public class Watek_1 extends AbstractWatek {
     }
 
     public void nawiazanieRelacji(){
-        M.thread_while_loop(W.PUSTKA);
+        M.CALY_CZAS(W.PUSTKA);
         M.W(of(W.LUDZIE),
                 of(
                         M.widzisz(W.WADY),
@@ -580,7 +580,7 @@ public class Watek_1 extends AbstractWatek {
                 W.ZNAJOMI, W._II_,
                 W.CZAS, W._88_, W.PODBIJASZ), "--->", W.SZANSA_POZNANIE);
 
-        M.thread_while_loop(W.UTRZYMANIE_RELACJI);
+        M.CALY_CZAS(W.UTRZYMANIE_RELACJI);
 
         M.W(M.BRAK(W.UTRZYMANIE_RELACJI), "--->", of(M.KONIEC(W.RELACJA),
                 M.KONIEC(M.ZNAJOMOSC(W.OSOBA)),

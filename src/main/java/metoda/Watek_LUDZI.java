@@ -31,6 +31,7 @@ public class Watek_LUDZI extends AbstractWatek {
         osobaCechyMozliweDzialania();
         osobaPrzewag();
         wyrok();
+        podsumowanieLudzie();
     }
 
     public void relacjeWarunkowLudzi() {
@@ -174,7 +175,7 @@ public class Watek_LUDZI extends AbstractWatek {
     }
 
     public void ochrona() {
-        M.OCHRONA(M.W(of(W.PRZEJEBANOSC_REGIONU), "--->", of(W.OSZUKANIE_WYKORZYSTANIE, W.WYKLUCZENIE, W.SPRZET, W.AGRESJA_W_DZIALANIU, W.ZLO)));
+        M.OCHRONA(M.W(of(W.PRZESTEPCZOSC_REGIONU), "--->", of(W.OSZUKANIE_WYKORZYSTANIE, W.WYKLUCZENIE, W.SPRZET, W.AGRESJA_W_DZIALANIU, W.ZLO)));
         M.OCHRONA(M.W(of(W.SEX), "--->", of(W.WALKA_PIESCI, W.SKAZYWANIE_SAMOTNOSC, W.OBGADAC, W.EMOCJE_ZE_ZLA)));
         M.OCHRONA(M.W(of(W.PRACA), "--->", of(W.PRZYDUPASZENIE, W.WYKONYWANIE_PRACY)));
     }
@@ -249,7 +250,7 @@ public class Watek_LUDZI extends AbstractWatek {
                         M.pobierzNieswiadomosc(), M.pobierzLukiOsobowosci(),
                         M.wyklucz(of(W.RDZENNI, W.SILNIEJSI)), M.utrudniaj(of(W.RDZENNI, W.SILNIEJSI)),
                         M.stworzKolkoAdoracji(),
-                        M.thread_while_loop(W.POSLUSZNY)
+                        M.CALY_CZAS(W.POSLUSZNY)
                 )
         );
         M.W(W.RDZENNY_DOBRY,
@@ -258,7 +259,7 @@ public class Watek_LUDZI extends AbstractWatek {
                         M.wyklucz(of(W.MIESZANIEC, W.FEST)), M.utrudniaj(of(W.MIESZANIEC, W.FEST)),
                         M.wezPrzewage(), M.pracuj(W.PRZEWAGA),
                         M.przemoc(W.OBRONA),
-                        M.thread_while_loop(of(W.ANTY_POSLUSZNOSC, W.ANTY_PUSTKA, W.ANTY_NUDA))
+                        M.CALY_CZAS(of(W.ANTY_POSLUSZNOSC, W.ANTY_PUSTKA, W.ANTY_NUDA))
                 )
         );
         M.W(W.ZLY,
@@ -267,17 +268,17 @@ public class Watek_LUDZI extends AbstractWatek {
                         M.dzialajDlaZla(), M.tworzPatologie(),
                         M.walZPrzewaga(W.NIEDZIALAJACY),
                         M.przemoc(W.DOMINACJA),
-                        M.thread_while_loop(W.DOMINACJA)
+                        M.CALY_CZAS(W.DOMINACJA)
                 )
         );
         M.W(W.AGRESOR,
                 of(
-                        M.DEFAULT(W.AGRESJA),
+                        M.ZWYKLE(W.AGRESJA),
                         M.zaczepSprowokuj(osoba),
                         M.wrocZPrzewaga(),
                         M.walZPrzewaga(osoba, W.PRZEWAGA),
                         M.rozpowiedz(W.WSZYSCY),
-                        M.thread_while_loop(W.DOMINACJA)
+                        M.CALY_CZAS(W.DOMINACJA)
                 )
         );
     }
@@ -346,8 +347,8 @@ public class Watek_LUDZI extends AbstractWatek {
     public void dzialajacy() {
         M.W((W.DZIALAJACY),
                 of(
-                        M.DEFAULT(W.ZEROWY_DOSTEP),
-                        M.DEFAULT(dzialacz.thread_while_loop(W.NORMALNOSC)),
+                        M.ZWYKLE(W.ZEROWY_DOSTEP),
+                        M.ZWYKLE(dzialacz.thread_while_loop(W.NORMALNOSC)),
 
                         M.WARUNKI_WSTEPNE(of(
                                 dzialacz.akceptacjaBiegania(),
@@ -476,7 +477,7 @@ public class Watek_LUDZI extends AbstractWatek {
     }
 
     public void postawyLudzkie() {
-        M.DEFAULT(of(M.UKRYCIE(W.WADY), M.POKAZ(W.FALSZYWE_WRAZENIE), M.SKUPIENIE(W.PRZYJEMNOSCI)));
+        M.ZWYKLE(of(M.UKRYCIE(W.WADY), M.POKAZ(W.FALSZYWE_WRAZENIE), M.SKUPIENIE(W.PRZYJEMNOSCI)));
 
         M.ZLE(of(M.UKRYCIE(W.SLABOSC), M.POKAZ(W.SILA), M.SKUPIENIE(of(W.PRZEWAGA, on(KRZYWDY_WARUNKI)))));
 
@@ -513,15 +514,31 @@ public class Watek_LUDZI extends AbstractWatek {
 
                                                                                                         M.W(W.MALA_PRZEWAGA, "--->", of(M.SRODOWISKO(M.ODRZUCENIE(W.OSOBA)),
                                                                                                                                         M.SRODOWISKO(M.KRZYWDY(W.OSOBA))))));
-        M.thread_while_loop(M.OSOBY_Z_PRZEWAGAMI(M.PRZEBYWANIE(M.OSOBA(W.PRZEWAGA))));
+        M.CALY_CZAS(M.OSOBY_Z_PRZEWAGAMI(M.PRZEBYWANIE(M.OSOBA(W.PRZEWAGA))));
 
-        M.thread_while_loop(M.OSOBY_BEZ_PRZEWAG(M.PRZEBYWANIE(M.OSOBA(W.BRAK_PRZEWAG))));
+        M.CALY_CZAS(M.OSOBY_BEZ_PRZEWAG(M.PRZEBYWANIE(M.OSOBA(W.BRAK_PRZEWAG))));
 
-        M.W(M.OSOBA(of(W.SLABY, W.CHWIEJNY)), "--->", M.DEFAULT(W.IDZIE_ZA_PRZEWAGA));
+        M.W(M.OSOBA(of(W.SLABY, W.CHWIEJNY)), "--->", M.ZWYKLE(W.IDZIE_ZA_PRZEWAGA));
     }
 
     public void wyrok() {
         M.W(M.WYROK_POWYZEJ_LAT(3), "--->", of(M.DLUGOTRWALE(W.CIERPIENIE), M.MOZLIWOSC(of(W.SZCZEGOLNIE_NIEBEZPIECZNY, W.KAMIKADZE,
                                                                                     W.WIEDZA_LUDZIE_CHARAKTER, W.PSYCHIKA_ZRYTA))));
+    }
+
+    public void podsumowanieLudzie() {
+        M.W(W.DOBRY, "--->", of(M.wykorzystujeOkazjeDobro(), M.dobro()));
+        M.W(W.ZLY, "--->", of(M.stwarzaOkazjeZlo(), M.zlo()));
+
+        M.W(W.FEST, "--->", of(M.budzaceEmocjeWow(), M.wdupcanieOstatnichKolegow()));
+        M.W(W.WIESNIAK, "--->", of(M.bezpieczneBezSensu(), M.strefaKomfortu(), M.cisnieIleMozna()));
+        M.W(W.BURZUA, "--->", of(M.impreza(), M.melanz(), M.zwiazki(), M.znajomi(), M.przyjemnosci()));
+        M.W(W.OSIEDLOWY_SLABY, "--->", of(M.nieudolneDzialanie(), M.wszystkoSlabo(), M.strefaKomfortu()));
+        M.W(W.BIEGACZ, "--->", of(M.wjazd(), M.cpanie(), M.mecz(), M.siedzenieOsiedle()));
+        M.W(W.OSIEDLOWY_MOCNY, "--->", of(M.dobreDzialanie(), M.wszystkoDobrze(), M.pozaStrefaKomfortu()));
+        M.W(W.GRUBAS_Z_PRZEWAGA, "--->", of(M.rozkazyNizszym(), M.bawSie()));
+        M.W(W.PRACOWNIK_KORPORACJI, "--->", of(M.praca(), M.podroze(), M.dom()));
+        M.W(W.FEST_FOLWARCZANY, "--->", of(M.odbierzWartosc(), M.dzialaWedleWidzimisie()));
+        M.W(W.MANAGER, "--->", of(M.wykorzystajZasob(), M.ukryjDostep()));
     }
 }

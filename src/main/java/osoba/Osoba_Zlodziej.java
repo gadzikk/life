@@ -83,7 +83,7 @@ public class Osoba_Zlodziej extends Osoba {
         chceLepszegoZycia = true;
 //        chceWygod;
 
-        wkurwionyZyciem = true;
+        zdenerwowanyZyciem = true;
 //        nuda;
 //        kurestwo;
         tepiKurestwo = true;
@@ -158,7 +158,7 @@ public class Osoba_Zlodziej extends Osoba {
 //        biedny;
 //        brakPerspektyw;
 //        zycieZDniaNaDzien;
-//        wyjebane;
+//        nieObchodzi;
 
 //        wrazliwy;
 //        wolnoscLekkosc;
@@ -218,7 +218,7 @@ public class Osoba_Zlodziej extends Osoba {
         srodki = of(W.WALKA_PIESCI, W.WALKA_SPRZET, W.CISNIE);
 //        majatek;
 //        miejsceZamieszkania;
-//        wyjebaneNa;
+//        nieObchodziGo;
 //        dbaO;
 //        oczekiwania;
         punktZerowy = TypPunktZerowy.BARDZO_WYSOKO;

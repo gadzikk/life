@@ -181,13 +181,13 @@ public class M {
     public static W spojrzenie_1(W warunek) {return W.WARUNEK;}
     public static W spojrzenie_2(W warunek) {return W.WARUNEK;}
     public static W podbijasz() {return W.WARUNEK;}
-    public static W DEFAULT(W ...zachowanie) {return W.WARUNEK;}
+    public static W ZWYKLE(W ...zachowanie) {return W.WARUNEK;}
     public static W DEFALT(W warunek) {return W.WARUNEK;}
-    public static W DEFAULT(W warunek) {return W.WARUNEK;}
-    public static W DEFAULT_DZIALAJCY(W warunek) {return W.WARUNEK;}
-    public static W DEFAULT_DZIALAJCY(List<W> warunek) {return W.WARUNEK;}
+    public static W ZWYKLE(W warunek) {return W.WARUNEK;}
+    public static W DZIALAJACY_ZWYKLE(W warunek) {return W.WARUNEK;}
+    public static W DZIALAJACY_ZWYKLE(List<W> warunek) {return W.WARUNEK;}
     public static W DFAULT(W warunek) {return W.WARUNEK;}
-    public static W DEFAULT(List<W> warunki) {return W.WARUNEK;}
+    public static W ZWYKLE(List<W> warunki) {return W.WARUNEK;}
     public static W DEFAULT_WARUNKI(List<W> warunki) {return W.WARUNEK;}
     public static W piszesz() {return W.WARUNEK;}
     public static W probujeszSieUstawic() {return W.WARUNEK;}
@@ -293,11 +293,9 @@ public class M {
     public static W proba() {return W.WARUNEK;}
     public static W wnioski() {return W.WARUNEK;}
     public static W wiedza() {return W.WARUNEK;}
-    public static W thread_while_loop(W typ) {return W.WARUNEK;}
-    public static W thread_while_loop(List<W> typy) {return W.WARUNEK;}
+    public static W CALY_CZAS(W typ) {return W.WARUNEK;}
+    public static W CALY_CZAS(List<W> typy) {return W.WARUNEK;}
 
-    public static W neutral() {return W.WARUNEK;}
-    public static W wyjebane() {return W.WARUNEK;}
     public static W pokazPrzewagi() {return W.WARUNEK;}
     public static W pokazSieZNajlepszejStronyZachowania() {return W.WARUNEK;}
     public static W wzrokiemPowstrzymaj() {return W.WARUNEK;}
@@ -396,7 +394,6 @@ public class M {
     public static W sondaKogo(List<W> typy) {return W.WARUNEK;}
     public static W pracaNadZasobem(W wiedza) {return W.WARUNEK;}
     public static W bierzZasobNaSwaStrone(List<W> sposoby) {return W.WARUNEK;}
-    public static W jebac() {return W.WARUNEK;}
     public static W raczkaDoGory() {return W.WARUNEK;}
     public static W niszczWieczor() {return W.WARUNEK;}
     public static W hajs_t() {return W.WARUNEK;}
@@ -544,7 +541,7 @@ public class M {
     public static W foty() {return W.WARUNEK;}
     public static W zaklecie(Integer counter) {return W.WARUNEK;}
     public static W foty(Integer counter) {return W.WARUNEK;}
-    public static W jebZPerspektywyPozycji() {return W.WARUNEK;}
+    public static W niszczZPerspektywyPozycji() {return W.WARUNEK;}
     public static W twojeZdanieWazniejsze() {return W.WARUNEK;}
     public static W tyKogosPodkopujOnCiebieNieMoze() {return W.WARUNEK;}
     public static W ukryjOklam() {return W.WARUNEK;}
@@ -1331,8 +1328,6 @@ public class M {
     public static W NALEZY_DO(List<W> warunki){return W.WARUNEK;}
     public static W SILNA(W w){return W.WARUNEK;}
     public static W SILNA(List<W> warunki){return W.WARUNEK;}
-    public static W CALY_CZAS(W w){return W.WARUNEK;}
-    public static W CALY_CZAS(List<W> warunki){return W.WARUNEK;}
     public static W ZROBIL_DLA(W w){return W.WARUNEK;}
     public static W ZROBIL_DLA(List<W> warunki){return W.WARUNEK;}
     public static W ODDALENIE_SIE(W w){return W.WARUNEK;}

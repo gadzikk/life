@@ -31,19 +31,5 @@ public class Watek_SUMMARY extends AbstractWatek {
         List<W> tematy = of(W.KOMBINACJA_TEMATOW, W.TOPICS);
     }
 
-    public void ludzie() {
-        M.W(W.DOBRY, "--->", of(M.wykorzystujeOkazjeDobro(), M.dobro()));
-        M.W(W.ZLY, "--->", of(M.stwarzaOkazjeZlo(), M.zlo()));
 
-        M.W(W.FEST, "--->", of(M.budzaceEmocjeWow(), M.wdupcanieOstatnichKolegow()));
-        M.W(W.WIESNIAK, "--->", of(M.bezpieczneBezSensu(), M.strefaKomfortu(), M.cisnieIleMozna()));
-        M.W(W.BURZUA, "--->", of(M.impreza(), M.melanz(), M.zwiazki(), M.znajomi(), M.przyjemnosci()));
-        M.W(W.OSIEDLOWY_SLABY, "--->", of(M.nieudolneDzialanie(), M.wszystkoSlabo(), M.strefaKomfortu()));
-        M.W(W.BIEGACZ, "--->", of(M.wjazd(), M.cpanie(), M.mecz(), M.siedzenieOsiedle()));
-        M.W(W.OSIEDLOWY_MOCNY, "--->", of(M.dobreDzialanie(), M.wszystkoDobrze(), M.pozaStrefaKomfortu()));
-        M.W(W.GRUBAS_Z_PRZEWAGA, "--->", of(M.rozkazyNizszym(), M.bawSie()));
-        M.W(W.PRACOWNIK_KORPORACJI, "--->", of(M.praca(), M.podroze(), M.dom()));
-        M.W(W.FEST_FOLWARCZANY, "--->", of(M.odbierzWartosc(), M.dzialaWedleWidzimisie()));
-        M.W(W.MANAGER, "--->", of(M.wykorzystajZasob(), M.ukryjDostep()));
-    }
 }

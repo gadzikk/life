@@ -245,7 +245,7 @@ public class DB_Warunki extends DB {
 
     public static List<W> WYMAGANIA_WSTEPNE_WIEDZA =
             Arrays.asList(
-                    M.thread_while_loop(M.OBSERWACJA(of(W.ULICA, W.MIEJSCA_RESTRYKCYJNE))),
+                    M.CALY_CZAS(M.OBSERWACJA(of(W.ULICA, W.MIEJSCA_RESTRYKCYJNE))),
                     M.OCZY(W.INFORMACJA), M.USZY(W.INFORMACJA), M.PRAKTYKA(W.DOSWIADCZENIA),
                     W.PRZYCZYNA, W.DZIALANIE, W.REZULTAT, W.WNIOSKI, W.ZAPAMIETANIE,
                     M.OTRZYMANIE(W.WIEDZA).OD(of(W.SRODOWISKO, W.RODZINA))
@@ -811,7 +811,7 @@ public class DB_Warunki extends DB {
                     W.ODUZENIE,
                     W.GLUPOTA,
                     W.NOWY_DEFAULT_RYWAL,
-                    W.JEBIE_DOBRO, W.WYMAGA_PRZEWAG_NA_ZLU,
+                    W.NISZCZENIE_DOBRA, W.WYMAGA_PRZEWAG_NA_ZLU,
                     W.SKAZYWANIE_SAMOTNOSC, W.SKAZYWANIE_PUSTKA
             );
 
@@ -1106,9 +1106,9 @@ public class DB_Warunki extends DB {
     public static List<W> KRZYWDY =
             Arrays.asList(
                     M.START(W.ZLE_ZAMIARY),
-                    M.STANDARD(M.MALY_WYSILEK(M.MOCNO(M.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA)))),
-                    M.STANDARD((M.MALY_WYSILEK(M.MOCNO(M.thread_while_loop(W.STWARZA_OKAZJE_ZROBIENIE_ZLA))))),
-                    M.DEFAULT(M.WYWYZSZAJ(M.UMACNIAJ(W.SIEBIE)), M.UNIZAJ(M.OSLABIAJ(W.INNI)), W.POBIJ_JAK_NAJWIECEJ_OSOB, W.ZDOBADZ_JAK_NAJWIECEJ_PRZEWAG),
+                    M.STANDARD(M.MALY_WYSILEK(M.MOCNO(M.CALY_CZAS(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA)))),
+                    M.STANDARD((M.MALY_WYSILEK(M.MOCNO(M.CALY_CZAS(W.STWARZA_OKAZJE_ZROBIENIE_ZLA))))),
+                    M.ZWYKLE(M.WYWYZSZAJ(M.UMACNIAJ(W.SIEBIE)), M.UNIZAJ(M.OSLABIAJ(W.INNI)), W.POBIJ_JAK_NAJWIECEJ_OSOB, W.ZDOBADZ_JAK_NAJWIECEJ_PRZEWAG),
                     M.MALY_WYSILEK(of(M.DLUGO(W.PATRZENIE_W_OCZY) ,M.ROZMOWA(W.PRZERYWANIE_MOWY))),
 
                     M.MALY_WYSILEK(M.MOCNO(M.PODSTAWA(of(W.UKRYCIE, W.KLAMSTWO, W.PO_CICHU)))),
@@ -1142,7 +1142,7 @@ public class DB_Warunki extends DB {
                     M.MALY_WYSILEK(M.MOCNO(W.DUZA_KRZYWDA_NA_PRZEWADZE)),
                     M.MALY_WYSILEK(of(W.GRZEBANIE_PRYWATNE, W.TRUCIZNA_DO_JEDZENIA)),
                     M.ODRAZU(W.ZLO), M.DOSWIADCZENIE(W.ZLO),
-                    M.DEFAULT(M.ZLE_TRAKTOWANIE(W.OSOBA)), M.DEFAULT(M.LEPSZE_TRAKTOWANIE(W.SWOI)),
+                    M.ZWYKLE(M.ZLE_TRAKTOWANIE(W.OSOBA)), M.ZWYKLE(M.LEPSZE_TRAKTOWANIE(W.SWOI)),
                     M.BRAK(W.WSTYD_PRZED_LUDZMI), M.BRAK(W.SZACUNEK_ZYCIE_LUDZKIE),
                     M.MOCNO(M.WYKORZYSTUJE(W.OSLONA)),
                     M.MOCNO(of(W.DAZENIE_DO_ZLA, W.SZUKANIE_GLEBOKO_ZLA, W.KAZDE_DZIALANIE_ZMIENIA_W_ZLO))
@@ -1161,9 +1161,9 @@ public class DB_Warunki extends DB {
     public static List<W> KRZYWDY_POSREDNIE =
             Arrays.asList(
                     M.START(W.ZLE_ZAMIARY),
-                    M.STANDARD(M.MALY_WYSILEK(M.MOCNO(M.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA)))),
-                    M.STANDARD((M.MALY_WYSILEK(M.MOCNO(M.thread_while_loop(W.STWARZA_OKAZJE_ZROBIENIE_ZLA))))),
-                    M.DEFAULT(M.WYWYZSZAJ(M.UMACNIAJ(W.SIEBIE)), M.UNIZAJ(M.OSLABIAJ(W.INNI)), W.ZDOBADZ_JAK_NAJWIECEJ_PRZEWAG),
+                    M.STANDARD(M.MALY_WYSILEK(M.MOCNO(M.CALY_CZAS(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA)))),
+                    M.STANDARD((M.MALY_WYSILEK(M.MOCNO(M.CALY_CZAS(W.STWARZA_OKAZJE_ZROBIENIE_ZLA))))),
+                    M.ZWYKLE(M.WYWYZSZAJ(M.UMACNIAJ(W.SIEBIE)), M.UNIZAJ(M.OSLABIAJ(W.INNI)), W.ZDOBADZ_JAK_NAJWIECEJ_PRZEWAG),
 
                     M.MALY_WYSILEK(M.MOCNO(M.PODSTAWA(of(W.UKRYCIE, W.KLAMSTWO, W.PO_CICHU)))),
                     M.MALY_WYSILEK(M.MOCNO(of(W.HASLO_RDZENNYCH, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WYKORZYSTANIE, W.WYKLUCZENIE))),
@@ -1236,17 +1236,17 @@ public class DB_Warunki extends DB {
     public static List<W> METODA_STARCIE_REAKCJA = of(
 
             M.W(M.MALY_WYSILEK(W.SPRZET), "--->", of(M.DUZA_KRZYWDA(W._1_RUCH), W.NAJWIEKSZ_STRACH,
-                                                                M.DEFAULT(W.UCIECZKA),
-                                                                M.DEFAULT_DZIALAJCY(of(W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
+                                                                M.ZWYKLE(W.UCIECZKA),
+                                                                M.DZIALAJACY_ZWYKLE(of(W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
 
-            M.W(M.DUZY_WYSILEK(W.WALKA_PIESCI), "--->", of(M.DEFAULT(W.PODJECIE_WALKI),
-                                                            M.DEFAULT_DZIALAJCY(of(W.PODJECIE_WALKI, W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
+            M.W(M.DUZY_WYSILEK(W.WALKA_PIESCI), "--->", of(M.ZWYKLE(W.PODJECIE_WALKI),
+                                                            M.DZIALAJACY_ZWYKLE(of(W.PODJECIE_WALKI, W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
 
-            M.W(M.MALY_WYSILEK(W.CISNIE), "--->", of(M.DEFAULT(W.ODPOWIADA),
-                                                          M.DEFAULT_DZIALAJCY(of(W.ODPOWIADA, W.WALKA_PIESCI, W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
+            M.W(M.MALY_WYSILEK(W.CISNIE), "--->", of(M.ZWYKLE(W.ODPOWIADA),
+                                                          M.DZIALAJACY_ZWYKLE(of(W.ODPOWIADA, W.WALKA_PIESCI, W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
 
-            M.W(M.MALY_WYSILEK(W.BLISKOSC), "--->", of(W.SONDA, M.DEFAULT(W.PATRZY),
-                                                            M.DEFAULT_DZIALAJCY(of(W.PATRZY, W.ROZKMINIA, W.ZDJECIA_TWARZOWKI, W.NOTYFIKACJA_EKIPA, M.OPCJA(W.CISNIE)))))
+            M.W(M.MALY_WYSILEK(W.BLISKOSC), "--->", of(W.SONDA, M.ZWYKLE(W.PATRZY),
+                                                            M.DZIALAJACY_ZWYKLE(of(W.PATRZY, W.ROZKMINIA, W.ZDJECIA_TWARZOWKI, W.NOTYFIKACJA_EKIPA, M.OPCJA(W.CISNIE)))))
     );
 
     public static List<W> OBRONA_STARCIE =
@@ -1284,7 +1284,7 @@ public class DB_Warunki extends DB {
 
     public static List<W> TEMATY_NORMALNYCH_LUDZI =
             Arrays.asList(
-                    M.thread_while_loop(W.BRAK_EMOCJI), W.PRACA, W.SPORT, W.POGODA, W.SLUZBA_ZROWIA,
+                    M.CALY_CZAS(W.BRAK_EMOCJI), W.PRACA, W.SPORT, W.POGODA, W.SLUZBA_ZROWIA,
                     W.ZDROWIE, W.SAMOPOCZUCIE, W.NAUKA, M.OPCJA(W.DZIECI), W.RODZINA, W.DOM, W.NOWE_TECHNOLOGIE,
                     W.UBRANIA, W.USLUGI, W.EVENTY, W.AKTUALNE_WYDARZENIA_SWIATA, W.PODROZE, W.KULTURY_SWIATA,
                     W.GOTOWANIE, W.JEDZENIE, W.WOLNOSC
@@ -1292,7 +1292,7 @@ public class DB_Warunki extends DB {
 
     public static List<W> TEMATY_RDZENNYCH =
             Arrays.asList(
-                    M.thread_while_loop(W.EMOCJE),
+                    M.CALY_CZAS(W.EMOCJE),
                     M.MOCNO(of(
                             W.NIENAWISC, W.KIBICOWANIE, M.HIERARCHIA(W.ZNAJOMI), W.KLUB, W.MELANZ, W.UZYWKI,
                             W.STANDARD_ZACHOWANIA, W.ZWIAZKI, M.OPCJA(W.DZIECI), W.PRZEWAGA, M.TOLERANCJA(M.REAKCJA_SMIECHEM(W.EMOCJE_ZE_ZLA))
@@ -1306,7 +1306,7 @@ public class DB_Warunki extends DB {
 
     public static List<W> CECHY_RDZENNY =
             Arrays.asList(
-                    W.WKURWIENIE_ZYCIEM, W.RYWALIZACJA, W.ZAZDROSC, W.CHRONIENIE_SWOJEGO,
+                    W.ZDENERWOWANY_ZYCIEM, W.RYWALIZACJA, W.ZAZDROSC, W.CHRONIENIE_SWOJEGO,
                     W.NORMALNE_EMOCJE, W.REAKCJA, W.ZDOLNY_DO_WALKI, W.UMIE_CISNAC, W.UMIE_KLUCIC,
                     W.DAZENIE_DO_CELU,
                     W.WIEDZA_PRZEWAGI, W.WIEDZA_OSIAGANIE_PRZEWAG,
@@ -1362,9 +1362,9 @@ public class DB_Warunki extends DB {
 
     public static List<W> ZACHOWANIE_REZULTAT_ULICA =  of(
 
-            M.W(of(M.NOTYFIKACJA(W.EKIPA), W.ZDJECIA_TWARZOWKI), "--->", of(M.DEFAULT(M.BRAK(W.REAKCJA)), M.INFORMACJA(W.EKIPA))),
+            M.W(of(M.NOTYFIKACJA(W.EKIPA), W.ZDJECIA_TWARZOWKI), "--->", of(M.ZWYKLE(M.BRAK(W.REAKCJA)), M.INFORMACJA(W.EKIPA))),
 
-            M.W(W.SPRZET, "--->", M.DEFAULT(of(M.WLASNA(W.OBRONA), M.UZYCIE(M.GDY(W.ZAGROZENIE)), M.NABYCIE(W.WARTOSC)))),
+            M.W(W.SPRZET, "--->", M.ZWYKLE(of(M.WLASNA(W.OBRONA), M.UZYCIE(M.GDY(W.ZAGROZENIE)), M.NABYCIE(W.WARTOSC)))),
 
             M.W(M.ZNAJOMY(of(W.CISNIE, W.GADA)), "--->", M.ULTIMATIUM(W.ODPOWIADA)),
 
@@ -1373,7 +1373,7 @@ public class DB_Warunki extends DB {
 
     public static List<W> METODY_POLICYJNE =
             Arrays.asList(
-                    W.NOTYFIKACJA_EKIPA, W.OPISYWANIE_UBIORU, W.GAZ, W.FOTY_ROZPOZNANIE, M.thread_while_loop(W.KONTROLA)
+                    W.NOTYFIKACJA_EKIPA, W.OPISYWANIE_UBIORU, W.GAZ, W.FOTY_ROZPOZNANIE, M.CALY_CZAS(W.KONTROLA)
             );
 
     public static List<W> WZGLEDNA_IZOLACJA =
@@ -1444,10 +1444,10 @@ public class DB_Warunki extends DB {
 
     public static List<W> KONFRONTACJA =
             Arrays.asList(
-                    M.thread_while_loop(W.DZIALANIE_POD_PRESJA),
-                    M.thread_while_loop(W.WYSILEK), M.thread_while_loop(W.KLOTNIA),
-                    M.thread_while_loop(M.ORIENT(W.LUDZIE)), M.thread_while_loop(M.ORIENT(W.SPRZET)),
-                    M.thread_while_loop(W.OBRAZENIA_FIZYCZNE),
+                    M.CALY_CZAS(W.DZIALANIE_POD_PRESJA),
+                    M.CALY_CZAS(W.WYSILEK), M.CALY_CZAS(W.KLOTNIA),
+                    M.CALY_CZAS(M.ORIENT(W.LUDZIE)), M.CALY_CZAS(M.ORIENT(W.SPRZET)),
+                    M.CALY_CZAS(W.OBRAZENIA_FIZYCZNE),
                     M.REZULTAT(of(W.RANY_ODNIESIONE, W.REGENERACJA, W.WROG, W.JEGO_ZNAJOMI_TWOI_WROGOWIE))
             );
 
@@ -1579,7 +1579,7 @@ public class DB_Warunki extends DB {
 
     public static List<W> KONTROLA = of(
             M.OSOBA(M.BLISKO(of(W.KONTROLA_CZYNY, W.KONTROLA_MOWA, W.KONTROLA_RZECZY_POSIADANE, W.KONTROLA_PRZWAG, W.KONTROLA_SLABOSCI, W.KONTROLA_RELACJI, W.KONTROLA_DZIALANIE))),
-            M.SRODOWISKO(of(M.thread_while_loop(W.INFORMACJE_ODRAZU_KRAZA), W.ZDJECIA_TWARZOWKI))
+            M.SRODOWISKO(of(M.CALY_CZAS(W.INFORMACJE_ODRAZU_KRAZA), W.ZDJECIA_TWARZOWKI))
     );
 
     public static List<W> SONDA_PRZYCZYN = of(

@@ -1,8 +1,6 @@
 package osoba;
 
-import miejsce.Miejsce;
 import typy_bazowe.*;
-import warunek.Przewaga;
 import warunek.W;
 import z_inne.*;
 
@@ -92,7 +90,7 @@ public class Osoba_DefaultOsiedlowy extends Osoba {
         chceLepszegoZycia = true;
         chceWygod = true;
 
-//        wkurwionyZyciem;
+//        zdenerwowanyZyciem;
         nuda = true;
         kurestwo =true;
 //        tepiKurestwo;
@@ -164,7 +162,7 @@ public class Osoba_DefaultOsiedlowy extends Osoba {
         biedny = true;
 //        brakPerspektyw;
 //        zycieZDniaNaDzien;
-        wyjebane = true;
+        niePrzejmujeSie = true;
 
 //        wrazliwy;
 //        wolnoscLekkosc;
@@ -224,7 +222,7 @@ public class Osoba_DefaultOsiedlowy extends Osoba {
         srodki = of(W.LUDZIE_ZA_TOBA, W.PRZEKONYWANIE, W.WALKA_PIESCI, W.WALKA_SPRZET, W.KLAMSTWO, W.CISNIE, W.STANDARDY, W.PRAWO);
 //        majatek;
 //        miejsceZamieszkania;
-//        wyjebaneNa;
+//        nieObchodziGo;
 //        dbaO;
 //        oczekiwania;
         punktZerowy = TypPunktZerowy.NA_SWOIM_POZIOMIE;

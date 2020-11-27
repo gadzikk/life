@@ -94,13 +94,13 @@ public class Watek_PRACA extends AbstractWatek {
 
         M.W(on(W.WYSILEK, W.REZULTATY, W.OPLACA_SIE, W.UZYTECZNOSC, W.MANAGO_DOBRA_OPINIA),
                 of(
-                        M.thread_while_loop(W.UTRZYMANIE_PRACY)
+                        M.CALY_CZAS(W.UTRZYMANIE_PRACY)
                 )
         );
         manago.setStatus(W.POSLUSZNY);
         manago.setStatus(W.STRAZNIK_PRAWA);
         manago.setStatus(W.CZARNA_TOGA_SEDZIOWSKA);
-        manago.wyjebane(of(W.ZASOB_ZYCIE_PRYWATNE, W.ZASOB_CZAS));
+        manago.nieObchodzi(of(W.ZASOB_ZYCIE_PRYWATNE, W.ZASOB_CZAS));
         manago.thread_while_loop(M.KONTROLA(kontrola));
         manago.SET(W.ZDOLNOSC_ATAKU);
         M.REMOVE(ME, W.ZDOLNOSC_ATAKU);
@@ -136,8 +136,8 @@ public class Watek_PRACA extends AbstractWatek {
         );
     }
     public void zachowanie(){
-        M.thread_while_loop(W.WALKA_Z_FESTAMI);
-        M.thread_while_loop(W.UKRYCIE_PRAWDY_PRZED_FESTAMI);
+        M.CALY_CZAS(W.WALKA_Z_FESTAMI);
+        M.CALY_CZAS(W.UKRYCIE_PRAWDY_PRZED_FESTAMI);
         M.W(of(W.TASK),
                 of(
                         M.zapisz(W.TASK),
@@ -169,11 +169,11 @@ public class Watek_PRACA extends AbstractWatek {
         M.WW(of(W.TASK),
                 of(
                         opponent.zlecNieszczegolowo(W.TASK),
-                        opponent.zjeb(W.NIEWYKONANIE, W.TASK)
+                        opponent.skrytykuj(W.NIEWYKONANIE, W.TASK)
                 ),
                 of(W.ZALEZNY_TASK),
                 of(
-                        opponent.zjeb(W.ZALEZNY_TASK, W.TASK)
+                        opponent.skrytykuj(W.ZALEZNY_TASK, W.TASK)
                 )
         );
 
@@ -276,7 +276,7 @@ public class Watek_PRACA extends AbstractWatek {
     public W interview(List<W> warunki) {
         M.przypomnijZaklecia();
 
-        M.DEFAULT(W.NIE_ZATRUDNIONY);
+        M.ZWYKLE(W.NIE_ZATRUDNIONY);
         M.CEL(of(W.ZADEMONSTROWANIE_WIEDZY, W.FINE, W.ZDOBYCIE_PRACY));
 
         List<W> ocenianieWedlug = of(W.TO_CO_UMIESZ, W._II_, W.TO_CZEGO_NIEUMIESZ, W._II_, W.OCENA_ZE_STUDIOW, W._II_, W.MOZE_CZYMS_BLYSNIE, W._II_,
@@ -306,21 +306,21 @@ public class Watek_PRACA extends AbstractWatek {
 
         M.W(W.KSIAZKA, "--->", of(M.POROWNANIE_Z_INNYMI(W.KSIAZKA),
                                     M.PRZEGLADNIECIE(W.SPIS_TRESCI),
-                                    M.thread_while_loop(M.WYPISYWANIE(W.BUZZWORDY)),
+                                    M.CALY_CZAS(M.WYPISYWANIE(W.BUZZWORDY)),
                                     M.CZYTANIE_OD_POCZATKU(W.KSIAZKA),
                                     M.CZYTANIE_OD_KONCA(W.KSIAZKA),
                                     M.CZYTANIE_ARTYKULOW(W.BUZZWORDY)));
 
         M.W(W.ARTYKUL, "--->", of(M.PRZECZYTANIE(W.ARTYKUL),
                                         M.BOOKMARK(W.ARTYKUL),
-                                        M.thread_while_loop(M.WYPISYWANIE(W.BUZZWORDY)),
+                                        M.CALY_CZAS(M.WYPISYWANIE(W.BUZZWORDY)),
                                         M.NASTEPNY_DZIEN(M.POWTORZENIE(W.ARTYKUL))));
 
         M.OPCJA(of(M.IMPLEMENTACJA(), M.SPOTKANIE_SIE_Z_PROBLEMAMI(), M.ROZWIAZANIE_PROBLEMOW()));
     }
 
     public void normalnyManago() {
-        M.STANDARD(M.DUZY_WYSILEK(M.thread_while_loop(W.CIEZKA_PRACA)));
+        M.STANDARD(M.DUZY_WYSILEK(M.CALY_CZAS(W.CIEZKA_PRACA)));
         M.STANDARD(M.DUZY_WYSILEK(W.SUKCES));
 
         M.MOCNO(W.OCZEKIWANIA);
