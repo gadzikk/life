@@ -8,13 +8,7 @@ import db.DBW;
 public class Miasto_Krakow extends Miasto {
     String klubyKibicowskie = "WISLA > HUTNIK > CVIA";
     public Miasto_Krakow() {
-        wymaganiaWstepne = DBW.WYMAGANIA_WSTEPNE_SWIAT;
         dzielnice = of(new Dzielnica_StaraHuta(), new Dzielnica_NowaHuta(), new Dzielnica_Poludnie(), new Dzielnica_Polnoc());
-
-//        List<HotSpot> hotSpots;
-//        rasaIlosc ;
-//        warunkiSprzyjajace;
-//        warunkiNiesprzyjajace;
     }
 
 

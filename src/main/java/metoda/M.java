@@ -1,9 +1,7 @@
 package metoda;
 
 import osoba.Osoba;
-import temat.TT;
 import typy_bazowe.TypOsoby;
-import typy_bazowe.TypT;
 import warunek.W;
 import z_inne.OsobaMetod;
 
@@ -37,7 +35,7 @@ public class M {
     public static W WWW(W w1, String del, W w2, String del2, W w3, String del3, W w4) { return W.WARUNEK; }
     public static W WWW(W w1, String del, W w2, String del2, W w3, String del3, W w4, String del4, W w5) { return W.WARUNEK; }
     public static W WWW(List<W> w1, List<W> w2, List<W> w3, List<W> w4, List<W> w5, List<W> w6) { return W.WARUNEK; }
-    public static W TM(TypT temat, List<W> kombinacja) { return W.WARUNEK; }
+    public static W TM(W temat, List<W> kombinacja) { return W.WARUNEK; }
 
     public static W wejsciePlansza(List<W> plansza){
         return W.WARUNEK;
@@ -86,16 +84,16 @@ public class M {
     public static W przejscie(){
         return W.WARUNEK;
     }
-    public static W prefix(List<TypT> prefixes, List<TypT> pdstw){
+    public static W prefix(List<W> prefixes, List<W> pdstw){
         return W.WARUNEK;
     }
-    public static W pprefix(List<TypT> prefixes, List<TT> kombo){
+    public static W pprefix(List<W> prefixes, List<W> kombo){
         return W.WARUNEK;
     }
-    public static W prefixMimoWszystko(List<TypT> prefixes, List<TypT> pdstw){
+    public static W prefixMimoWszystko(List<W> prefixes, List<W> pdstw){
         return W.WARUNEK;
     }
-    public static W gadka(List<TT> tematy, List<TT> kombo){
+    public static W gadka(List<W> tematy, List<W> kombo){
         return W.WARUNEK;
     }
     public static W wziecieKontaktu(){
@@ -129,7 +127,7 @@ public class M {
     public static W przechodziszTylkoRaz(){return W.WARUNEK;}
     public static W omijaszPartyzantke(){return W.WARUNEK;}
     public static W podbicieZJednejProby(){return W.WARUNEK;}
-    public static W popierdalaszObecna() {return W.WARUNEK;}
+    public static W porzucaszObecnaSytuacje() {return W.WARUNEK;}
     public static W jazdaZLepsza() {return W.WARUNEK;}
     public static W niesiadasz() {return W.WARUNEK;}
     public static W szukanieDobrejPlanszy() {return W.WARUNEK;}
@@ -155,7 +153,7 @@ public class M {
     public static W kontekst() {return W.WARUNEK;}
     public static W sondaGdzie() {return W.WARUNEK;}
     public static W bijesz() {return W.WARUNEK;}
-    public static W temat_x3(List<TT> tematy) {return W.WARUNEK;}
+    public static W temat_x3(List<W> tematy) {return W.WARUNEK;}
     public static W przewidywanie_x3() {return W.WARUNEK;}
     public static W odrazuJakObsluguje() {return W.WARUNEK;}
     public static W jednoWejscieJednoPodbicie() {return W.WARUNEK;}
@@ -259,10 +257,10 @@ public class M {
     public static W poCichu() {return W.WARUNEK;}
     public static W glosno() {return W.WARUNEK;}
     public static W otwarteStacie() {return W.WARUNEK;}
-    public static W obrazanie(List<TT> obelgi) {return W.WARUNEK;}
+    public static W obrazanie(List<W> obelgi) {return W.WARUNEK;}
     public static W ukazanieZlychCech() {return W.WARUNEK;}
     public static W wspominanieZlychWydarzen() {return W.WARUNEK;}
-    public static W zartowanie(List<TT> zarty) {return W.WARUNEK;}
+    public static W zartowanie(List<W> zarty) {return W.WARUNEK;}
     public static W terror(W w) {return W.WARUNEK;}
     public static W ktoZNimTenPojechane() {return W.WARUNEK;}
     public static W shanbienie() {return W.WARUNEK;}

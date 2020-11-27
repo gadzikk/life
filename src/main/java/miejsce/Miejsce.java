@@ -1,7 +1,7 @@
 package miejsce;
 
-import typy_bazowe.TypMiejsce;
 import typy_bazowe.TypIlosc;
+import typy_bazowe.TypMiejsce;
 import warunek.W;
 import z_inne.PO;
 
@@ -25,7 +25,7 @@ public class Miejsce {
     boolean cisza;
     boolean nuda;
 
-    List<HotSpot> hotSpots;
+    List<W> hotSpots;
 
     List<PO> procentOsob;
     List<W> warunkiSprzyjajace;

@@ -285,7 +285,7 @@ public class Watek_1 extends AbstractWatek {
                 ),
                 of(W.LEPSZA_OPCJA),
                 of(
-                        M.popierdalaszObecna(),
+                        M.porzucaszObecnaSytuacje(),
                         M.odrazuPochwycenie(W.SYTUACJA)
                 )
         );

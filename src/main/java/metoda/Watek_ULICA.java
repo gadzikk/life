@@ -60,7 +60,7 @@ public class Watek_ULICA extends AbstractWatek {
 
     List<W> warunek = of(W.ULTIMATUM, W.POCZATEK, W.KONIEC, W.ZYSK, W.WARTOSC, W.ILOSC_OSOB, W.CZESTOTLIWOSC, W.SILA, W.PRIORYTET);
 
-    W typyLudzi = DBW.TYPY_LUDZI_SHRT_WARUNKI();
+    W typyLudzi = DBW.TYPY_LUDZI_KROTKO_WARUNKI();
     W zarobekNielegalny = DBW.ZAROBEK_NIELEGALNY_WARUNKI();
 
 
@@ -98,7 +98,7 @@ public class Watek_ULICA extends AbstractWatek {
         przeplywInformacji();
         hierarchiaOsiedle();
         agresja();
-        shortest();
+        dzialanieKrotko();
         przewagi();
         ANTY_60_sledztwoPolicyjne();
         przejecieMiejsceStale();
@@ -184,7 +184,7 @@ public class Watek_ULICA extends AbstractWatek {
     }
 
     public void sonda(){
-        W sondaShrts = DBW.SONDA_SHRTS_WARUNKI();
+        W sondaKrotka = DBW.SONDA_KROTKA_WARUNKI();
         W sondaGdy = DBW.SONDA_GDY_WARUNKI();
         W sondaPo = DBW.SONDA_PO_WARUNKI();
         W kogo = DBW.SONDA_KOGO_WARUNKI();
@@ -226,7 +226,7 @@ public class Watek_ULICA extends AbstractWatek {
 
         M.W(M.INFORMACJA(W.WROG), "--->", M.OSOBY(M.BLISKO(W.DZIALAJACY)).KAZDY(DBW.KRZYWDY_BEZPOSREDNIE_WARUNKI()));
 
-        M.WW(W.OSOBA, "--->", of(M.SONDA(DBW.SONDA_SHRTS_WARUNKI()),
+        M.WW(W.OSOBA, "--->", of(M.SONDA(DBW.SONDA_KROTKA_WARUNKI()),
                                     M.SONDA(DBW.PRZEWAGI_WARUNKI())), "--->", of(M.W(W.MOCNY, "--->", of(M.AKCEPTACJA(W.OSOBA), M.WSPARCIE(W.OSOBA))),
                                                                             M.W(W.SLABY, "--->", of(M.ODRZUCENIE(W.OSOBA), M.KRZYWDY(of(W.OSOBA, DBW.KRZYWDY_WARUNKI()))))));
         M.W(W.WIDZISZ_BLAD, "--->", M.SONDA(DBW.BLEDY_WARUNKI()));
@@ -815,16 +815,16 @@ public class Watek_ULICA extends AbstractWatek {
         M.W(W.STARCIE, "--->", DBW.KRZYWDY_BEZPOSREDNIE_WARUNKI());
     }
 
-    public void shortest(){
+    public void dzialanieKrotko(){
         List<W> stan = of(W.WYSILEK_UMYSLOWY, W.WYSILEK_FIZYCZNY, W.DUZO_ZARCIA, W.WZROK, W.SAMOPOCZUCIE);
-        W shrtOsobaSonda = DBW.SONDA_SHRTS_WARUNKI();
+        W sondaKrotka = DBW.SONDA_KROTKA_WARUNKI();
 
         M.W(of(W._01, W._II_, W.TRACISZ), "--->", W.REAKACJA);
 
         M.W(W.ZASZKODZIL,"--->", of(M.zapamietaj(),
-                M.postawCiezkiWarunek(srodki()),
-                M.nieCzekaj(),
-                M.wyprzedz(), M.szybkoDzialaj()));
+                                        M.postawCiezkiWarunek(srodki()),
+                                        M.nieCzekaj(),
+                                        M.wyprzedz(), M.szybkoDzialaj()));
     }
 
     public void przewagi(){

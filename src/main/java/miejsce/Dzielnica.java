@@ -23,11 +23,11 @@ public class Dzielnica {
     boolean restrykcyjne;
     boolean kibicowanie;
 
-    List<HotSpot> hotSpots;
+    List<W> hotSpots;
     List<PO> procentOsob;
 
     TypIlosc iloscCierpienia;
-    TypIlosc iloscBurzuazji;
+    TypIlosc iloscWygod;
     TypIlosc iloscPatologii;
 
     List<W> warunkiSprzyjajace;

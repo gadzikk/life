@@ -1,6 +1,5 @@
 package miejsce;
 
-import db.DBW;
 import typy_bazowe.TypDzielnicy;
 import typy_bazowe.TypIlosc;
 import typy_bazowe.TypOsoby;
@@ -11,7 +10,6 @@ import z_inne.PO;
  */
 public class Dzielnica_StaraHuta extends Dzielnica {
     public Dzielnica_StaraHuta() {
-        wymaganiaWstepne = DBW.WYMAGANIA_WSTEPNE_SWIAT;
         dzielnica = TypDzielnicy.POHUTNICZE;
         iloscMieszkan = TypIlosc.DUZA;
 
@@ -46,7 +44,7 @@ public class Dzielnica_StaraHuta extends Dzielnica {
         );
 
         iloscCierpienia = TypIlosc.DUZA;
-        iloscBurzuazji = TypIlosc.SREDNIA;
+        iloscWygod = TypIlosc.SREDNIA;
         iloscPatologii = TypIlosc.DUZA;
 
 //        warunkiSprzyjajace;

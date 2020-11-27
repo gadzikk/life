@@ -88,7 +88,7 @@ public class Watek_ZWIAZEK extends AbstractWatek {
 
         M.W(M.BRAK(W.SRODOWISKO), "--->", M.TRUDNO(W.KOBIETA));
 
-        M.W(W.KOBIETA, "--->", M.WSPARCIE(M.WYBOR(DBW.TYPY_LUDZI_SHRT_WARUNKI())));
+        M.W(W.KOBIETA, "--->", M.WSPARCIE(M.WYBOR(DBW.TYPY_LUDZI_KROTKO_WARUNKI())));
 
         M.W(W.ZWIAZEK, "--->", DBW.WYMAGANIA_UTRZYMANIA_KOBIETA_WARUNKI());
 

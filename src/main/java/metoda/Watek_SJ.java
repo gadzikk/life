@@ -263,7 +263,7 @@ public class Watek_SJ extends AbstractWatek {
                                                                             W.KARA, M.OPCJA(W.UKAZANIE),
                                                                             W.ZAPRZESTANIE_ZLA, W.SMUTEK, W.WYLACZENIE_DZIALACZA));
 
-        M.W(of(W.WPIERDOL), "--->", of(W.STRACH, W.BOL, W.MORALNIAK, W.STRATA_MANIURY, W.POZBAWIENIE_PRZEWAGI,
+        M.W(of(W.PRZEGRANE_STARCIE), "--->", of(W.STRACH, W.BOL, W.MORALNIAK, W.STRATA_MANIURY, W.POZBAWIENIE_PRZEWAGI,
                                                                                 M.MOCNO(W.CHEC_POMSZCZENIA)));
     }
 }

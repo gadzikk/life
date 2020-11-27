@@ -133,7 +133,7 @@ public class DBW extends DB {
                 SONDA_KOGO_WARUNKI(),
                 SONDA_WYMAGA_KARY_WARUNKI(),
                 SONDA_DZIALACZA_WARUNKI(),
-                SONDA_SHRTS_WARUNKI(),
+                SONDA_KROTKA_WARUNKI(),
                 SONDA_PRZYCZYN_WARUNKI(),
                 SONDA_BLAD_WARUNKI(),
                 SONDA_PRZYPALU_WARUNKI()
@@ -244,7 +244,7 @@ public class DBW extends DB {
 
     public static List<W> ZBIOR_TYPY_LUDZI() {
         return of(
-                TYPY_LUDZI_SHRT_WARUNKI(),
+                TYPY_LUDZI_KROTKO_WARUNKI(),
                 TYPY_LUDZI_DOBRE_WARUNKI(),
                 TYPY_LUDZI_ZLE_WARUNKI(),
                 FEST_WARUNKI()
@@ -1326,7 +1326,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W SONDA_SHRTS_WARUNKI() {
+    public static W SONDA_KROTKA_WARUNKI() {
         return on(
                 M.W(of(W.MEZCZYZNA),
                         of(
@@ -1627,7 +1627,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W TYPY_LUDZI_SHRT_WARUNKI() {
+    public static W TYPY_LUDZI_KROTKO_WARUNKI() {
         return on(
                 W.WYKOLEJONY, W.FEST, W.WIESNIAK, W.OSIEDLOWY_SLABY, W.NORMALNY, W.OSIEDLOWY_MOCNY, W.CZOLO
         );

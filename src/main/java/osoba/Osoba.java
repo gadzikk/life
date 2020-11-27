@@ -474,11 +474,11 @@ public class Osoba {
         }
         if(kurestwo){
             slabosciCharakteru.add(W.KURESTWO);
-            slabosciCharakteru.add(W.PIERDOLI_GO_MIEJSCE);
-            slabosciCharakteru.add(W.PIERDOLI_GO_OKOLICZNOSC);
-            slabosciCharakteru.add(W.PIERDOLA_GO_OSOBY);
-            slabosciCharakteru.add(W.PIERDOLI_GO_TWOJ_WYSILEK);
-            slabosciCharakteru.add(W.PIERDOLI_GO_ILE_PRACOWALES);
+            slabosciCharakteru.add(W.NIEOBCHODZI_GO_MIEJSCE);
+            slabosciCharakteru.add(W.NIEOBCHODZI_GO_OKOLICZNOSC);
+            slabosciCharakteru.add(W.NIEOBCHODZA_GO_OSOBY);
+            slabosciCharakteru.add(W.NIEOBCHODZI_GO_TWOJ_WYSILEK);
+            slabosciCharakteru.add(W.NIEOBCHODZI_GO_ILE_PRACOWALES);
             slabosciCharakteru.add(W.WYKORZYSTUJE_BRAK_PRZEWAG);
         }
         else {

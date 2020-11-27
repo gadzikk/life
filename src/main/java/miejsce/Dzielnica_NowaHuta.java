@@ -11,7 +11,6 @@ import z_inne.PO;
  */
 public class Dzielnica_NowaHuta extends Dzielnica {
     public Dzielnica_NowaHuta() {
-        wymaganiaWstepne = DBW.WYMAGANIA_WSTEPNE_SWIAT;
         dzielnica = TypDzielnicy.PO_70;
         iloscMieszkan = TypIlosc.DUZA;
 
@@ -46,7 +45,7 @@ public class Dzielnica_NowaHuta extends Dzielnica {
         );
 
         iloscCierpienia = TypIlosc.SREDNIA;
-        iloscBurzuazji = TypIlosc.SREDNIA;
+        iloscWygod = TypIlosc.SREDNIA;
         iloscPatologii = TypIlosc.SREDNIA;
 
 //        warunkiSprzyjajace;

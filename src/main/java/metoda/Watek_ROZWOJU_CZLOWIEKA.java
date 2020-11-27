@@ -38,9 +38,9 @@ public class Watek_ROZWOJU_CZLOWIEKA extends AbstractWatek {
         M.W(OD(5).TO(7), "--->", M.NAUKA(of(W.CZYTANIE, W.LICZENIE)));
 
         M.W(OD(6), "--->", M.POZNANIE(W.NAUKA));
-        M.W(OD(7), "--->", W.BOKS);
+        M.W(OD(7), "--->", DBW.SPORT_WARUNKI());
         M.W(OD(15), "--->", M.PRAWDZIWA(W.NAUKA));
-        M.W(OD(15), "--->", M.PRAWDZIWY(W.BOKS));
+        M.W(OD(15), "--->", M.PRAWDZIWY(DBW.SPORT_WARUNKI()));
 
         M.W(OD(20), "--->", W.DOJRZALOSC);
         M.W(OD(25), "--->", W.NA_SWOIM);

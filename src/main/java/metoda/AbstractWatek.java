@@ -1,10 +1,7 @@
 package metoda;
 
-import db.DBT;
 import db.DBW;
 import osoba.Osoba;
-import temat.TT;
-import typy_bazowe.TypT;
 import typy_bazowe.TypZadania;
 import warunek.W;
 import z_inne.OH;
@@ -19,16 +16,16 @@ import java.util.List;
  */
 public class AbstractWatek {
     DBW dbw = new DBW();
-    List<TypT> prefixes = null;
-    List<TypT> pdstw = null;
-    List<TT> tematy = null;
-    List<TT> kombo = null;
-    List<TT> codzienne = null;
+    List<W> prefixes = null;
+    List<W> pdstw = null;
+    List<W> tematy = null;
+    List<W> kombo = null;
+    List<W> codzienne = null;
     W coTakPatrzysz;
     OsobaMetod ona = new OsobaMetod();
     OsobaMetod manago = new OsobaMetod();
-    List<TT> obelgi = null
-    List<TT> zarty = null;
+    List<W> obelgi = null
+    List<W> zarty = null;
     OsobaMetod wszyscy = new OsobaMetod();
     OsobaMetod osoba = new OsobaMetod();
     Osoba izolowanaOsoba = new Osoba();

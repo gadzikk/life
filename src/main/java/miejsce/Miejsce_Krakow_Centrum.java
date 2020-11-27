@@ -15,7 +15,7 @@ import static db.DB.on;
 public class Miejsce_Krakow_Centrum extends Miejsce {
     public Miejsce_Krakow_Centrum() {
         typMiejsce = TypMiejsce.CENTRUM_MIASTA;
-        wymaganiaWstepne = of(on(DBW.POTRZEBY),  on(DBW.PRZYMUS));
+        wymaganiaWstepne = of(on(DBW.POTRZEBY_WARUNKI()),  on(DBW.PRZYMUS_WARUNKI()));
 
         przechodnie = true;
 //        stale;

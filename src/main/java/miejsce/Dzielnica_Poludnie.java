@@ -11,7 +11,6 @@ import z_inne.PO;
  */
 public class Dzielnica_Poludnie extends Dzielnica {
     public Dzielnica_Poludnie() {
-        wymaganiaWstepne = DBW.WYMAGANIA_WSTEPNE_SWIAT;
         dzielnica = TypDzielnicy.PO_70;
         iloscMieszkan = TypIlosc.BARDZO_DUZA;
 
@@ -45,7 +44,7 @@ public class Dzielnica_Poludnie extends Dzielnica {
         );
 
         iloscCierpienia = TypIlosc.MALA;
-        iloscBurzuazji = TypIlosc.DUZA;
+        iloscWygod = TypIlosc.DUZA;
         iloscPatologii = TypIlosc.MALA;
 
 //        warunkiSprzyjajace;
