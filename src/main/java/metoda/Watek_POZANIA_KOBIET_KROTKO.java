@@ -1,5 +1,6 @@
 package metoda;
 
+import db.DBS;
 import db.DBW;
 import warunek.W;
 
@@ -14,23 +15,23 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
 
     List<W> rzeczywistosc = of(W._1_OSOBA__DUZO, W.POPRUSZONE_NA_MIEJSCACH, W.X, W.KONTEKST);
 
-    List<W> plansza = PLANSZA_WARUNKI;
-    List<W> essentials = ESSENTIALS_SYTUACJE;
+    W plansza = DBW.PLANSZA_WARUNKI();
+    W essentials = DBW.ESSENTIALS_SYTUACJE_WARUNKI();
 
-    List<W> allSprzyjajace = SPRZYJAJACE_WARUNKI;
-    List<W> allNiesprzyjajace = NIE_SPRZYJAJACE_WARUNKI;
+    W allSprzyjajace = DBW.SPRZYJAJACE_WARUNKI();
+    W allNiesprzyjajace = DBW.NIE_SPRZYJAJACE_WARUNKI();
 
-    List<W> extremalne = EXTREMALNE_SYTUACJE;
-    List<W> reakcjeKobiet = REAKCJA_KOBIET_WARUNKI;
-    List<W> chcianeSytuacje = CHCIANA_SYTUACJE;
+    W extremalne = DBW.EXTREMALNE_SYTUACJE_WARUNKI();
+    W reakcjeKobiet = DBW.REAKCJA_KOBIET_WARUNKI();
+    List<W> chcianeSytuacje = DBS.ZBIOR_CHCIANA_SYTUACJA();
 
-    List<W> dopuszczenie = ZBIOR_DOPUSZCZENIE_WARUNKI;
+    List<W> dopuszczenie = DBW.ZBIOR_DOPUSZCZENIE();
 
     W potrzebneCechyM = DBW.PRZEWAGI_CHWILI_WARUNKI();
     List<W> osobaChcianeCechy = of(W.REAGUJE, W.STWARZA_SZANSE, W.SWIADOMOSC);
 
-    List<W> miejscaWstepowania = TYPY_MIEJSC_WARUNKI;
-    List<W> typySytuacji = TYPY_SYTUACJI;
+    W miejscaWstepowania = DBW.TYPY_MIEJSC_WARUNKI();
+    W typySytuacji = DBW.TYPY_SYTUACJI_WARUNKI();
 
     List<W> spojrzenia = of(M.spojrzenie_1(W.BEST_CASE), M.spojrzenie_2(W.NORMAL_CASE));
 
@@ -55,9 +56,9 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
     M schemaSytuacji00 = new M().sytuacja().Is().podbitka()
             .lub().sytuacja().Is().przeminelo();
 
-    M schemaSytuacji1 = o(essentials, W._II_, allSprzyjajace, "-", W.PRZEJSCIE, "-", W.MOWA)
-            .w_przeciwnym_przypadku(W.CONTINUE_NUDA)
-            .konsekwencje(W.NIKT_NIE_REAGUJE);
+    W schemaSytuacji1 = M.WW(of(DBW.ESSENTIALS_SYTUACJE_WARUNKI(), DBW.SPRZYJAJACE_WARUNKI()), "--->",  W.PRZEJSCIE, "--->", W.MOWA)
+                        .W_PRZECIWNYM_PRZYPADKU(W.CONTINUE_NUDA)
+                        .KONSEKWENCJE(W.NIKT_NIE_REAGUJE);
 
     M schemaSytuacji2 = o(W.OPCJA_PRZEJSCIE, "-", W.PRZEJSCIE, "-", W.MOWA)
                         .w_przeciwnym_przypadku(W.CONTINUE_NUDA)
@@ -76,7 +77,7 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
         M.CALY_CZAS(M.SZUKANIE(of(W.KOBIETA, W.OKAZJA)));
 
         M.W(
-                of(M.wejsciePlansza(plansza)),
+                M.wejsciePlansza(DBW.PLANSZA_WARUNKI()),
                 of(W.MESKA_PROSYSTUTKA, W.SMIETNIIK_NA_BUZI_JUZ_DAWNO, W.ENK_1_2, W.INFORMACJA)
         );
         M.W(
@@ -84,7 +85,7 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
                 of(M.CALY_CZAS(W.ZASIEG_WZROKU))
         );
         M.W(
-                of(M.sondaOsoby(osobaChcianeCechy), M.sondaSytuacji(typySytuacji, essentials), M.przewidzenieDrogi()),
+                of(M.sondaOsoby(osobaChcianeCechy), M.sondaSytuacji(of(DBW.TYPY_SYTUACJI_WARUNKI(), DBW.ESSENTIALS_SYTUACJE_WARUNKI())), M.przewidzenieDrogi()),
                 of(W.SYTUACJA)
         );
         M.W(

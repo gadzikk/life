@@ -1,5 +1,6 @@
 package metoda;
 
+import db.DBP;
 import db.DBW;
 import typy_bazowe.TypZadania;
 import warunek.W;
@@ -90,7 +91,7 @@ public class Watek_SJ extends AbstractWatek {
 
     List<W> mojeDzialanie = of(M.wszystkoNaChlodno(), M.tyDobrze(), M.karzeszZaWadyZachowania());
 
-    List<W> patologie = KATEGORIA_PATOLOGIE;
+    List<W> patologie = DBP.ZBIOR_PATOLOGIE();
 
     List<String> przyjaciele = of("RENA_RODZINA", "T_RODZINA", "DZIADZIUS_RODZINA", "KS_ANDRZEJ_RODZINA",
             "CIOCIA_RODZINA", "ANIA_RODZINA", "DOMINIK_RODZINA", "JANIO_RODZINA", "OLUS_RODZINA");
@@ -110,9 +111,9 @@ public class Watek_SJ extends AbstractWatek {
 
         W warunkiNieDoZycia = M.CALY_CZAS(of(
                 W.PUSTKA, W.ZLE_W_ZYCIU, W.MALO_OSOB,
-                W.CHRONICZNE_BEZROBOCIE, W.NISKIE_PENSJE, W.NIEMOZLIWOSC_ZDOBYCIA_PRACY_NEUTRALNY_RZUT,
+                W.CHRONICZNE_BEZROBOCIE, W.NISKIE_PENSJE, M.MALA_SZANSA(W.ZDOBYCIE_PRACY_NEUTRALNY_RZUT),
                 W.WIEKSZOSC_DZIALA, W.LUDZIE_CHCA_TWOJEJ_KRZYWDY,
-                W.CHETNOSC_ZERO, W.DZIALAJACE_KARYNY, W.NIEMOZLIWOSC_PODERWANIA_KOBIETY_NEUTRALNY_RZUT, on(PATOLOGIE_WSTEPNE_KOBIETA)
+                W.CHETNOSC_ZERO, M.DZIALAJACY(W.KOBIETY), M.MALA_SZANSA(W.PODERWANIE_KOBIETY_NEUTRALNY_RZUT), DBP.PATOLOGIE_WSTEPNE_KOBIETA()
         ));
 
         M.subscribe(of(
@@ -123,7 +124,7 @@ public class Watek_SJ extends AbstractWatek {
 
         M.W(W.WIDZISZ_ZLO, "--->", M.ODRAZU(M.DZIALANIE(W.KONTRA)));
 
-        M.W(WZGL_IZOLACJA_WARUNKI, "--->", M.ODRAZU(W.DZIALANIE));
+        M.W(DBW.WZGL_IZOLACJA_WARUNKI(), "--->", M.ODRAZU(W.DZIALANIE));
 
         M.W(of(W._NIE_, W.PRZED_9, W._88_, W.PO_17),
                 of(M.REMOVE(ME, W.DZIEN))
@@ -253,11 +254,11 @@ public class Watek_SJ extends AbstractWatek {
 
     public void antyDzialacz() {
         M.SET(W.ZERO_TOLERANCJI_DZIALAJACY);
-        M.CALY_CZAS(KONFRONTACJA_WARUNKI);
+        M.CALY_CZAS(DBW.KONFRONTACJA_WARUNKI());
         M.CALY_CZAS(M.KONTROLA(W.WSZYSCY));
 
         M.W(of(M.WIDZISZ(W.DZIALAJACY), W._88_, W.BLISKOSC), "--->", of(W.CIESZY_SIE, M.SZANSA_NA(M.USPRAWIEDLIWIENIE(W.WALKA_PIESCI)),
-                                                                            on(OKAZJE_ZROBIENIE_DOBRO_WARUNKI),
+                                                                            DBW.OKAZJE_ZROBIENIE_DOBRO_WARUNKI(),
                                                                             W.REAKACJA, M.AKTYWNA_WALKA_ZE_ZLEM(of(W.BLISKOSC, W.CISNIECIE, W.WALKA_PIESCI)),
                                                                             W.KARA, M.OPCJA(W.UKAZANIE),
                                                                             W.ZAPRZESTANIE_ZLA, W.SMUTEK, W.WYLACZENIE_DZIALACZA));

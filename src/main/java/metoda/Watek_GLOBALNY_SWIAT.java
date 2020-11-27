@@ -1,5 +1,6 @@
 package metoda;
 
+import db.DBP;
 import db.DBW;
 import warunek.W;
 
@@ -12,16 +13,16 @@ import java.util.PriorityQueue;
 public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
     W wazne = M.WAZNE(of(W.RODZINA, W.KOBIETA, W.PRACA, W.DOM));
 
-    List<W> wymaganiaWstepne = KATEGORIA_WYMAGANIA_WSTEPNE;
-    List<W> wymaganiaUtrzymania = KATEGORIA_WYMAGANIA_UTRZYMANIA;
-    List<W> koncowe = KATEGORIA_WARUNKI_KONCOWE;
+    List<W> wymaganiaWstepne = DBW.ZBIOR_WYMAGANIA_WSTEPNE();
+    List<W> wymaganiaUtrzymania = DBW.ZBIOR_WYMAGANIA_UTRZYMANIA();
+    List<W> koncowe = DBW.ZBIOR_WARUNKI_KONCOWE();
 
     List<W> globalnaPlanszaSwiata = of(W.SWIAT, W.KONTYNENT, W.KRAJ, W.MIASTO, W.DZIELNICA, W.OSIEDLE,
                                        W.CZAS_W_HISTORII,
-                                       W.LUDZIE, on(PRZEWAGI_WARUNKI), on(SLABOSCI_WARUNKI), on(ZBIOR_EMOCJE_UCZUCIA),
-                                                 on(RELACJE_WARUNKI), on(WALKA_WARUNKI),
-                                        on(GLOBAL_PLANSZA_PRACA_WARUNKI), on(GLOBAL_PLANSZA_LUDZIE_WARUNKI),
-                                        on(KSZTALTOWANIE_CZLOWIEKA_WARUNKI), on(KSZTALTOWANIE_DZIELNICY_WARUNKI));
+                                       W.LUDZIE, DBW.PRZEWAGI_WARUNKI(), DBW.SLABOSCI_WARUNKI(), on(DBW.ZBIOR_EMOCJE_UCZUCIA()),
+                                                 DBW.RELACJE_WARUNKI(), DBW.WALKA_WARUNKI(),
+                                        DBW.GLOBAL_PLANSZA_LUDZIE_WARUNKI(), DBW.GLOBAL_PLANSZA_PRACA_WARUNKI(),
+                                        DBW.KSZTALTOWANIE_CZLOWIEKA_WARUNKI(), DBW.KSZTALTOWANIE_DZIELNICY_WARUNKI());
 
 
     List<W> warunkiWyjscia = of(W.PORA_ROKU, W.CZAS, W.DOSTEPNOSC, W.ZOBACZENIE, W.BLISKOSC, W.KONTAKT);
@@ -29,7 +30,7 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
     List<W> warunki = of(W.OBECNOSC, W.PLANSZA, W.CZAS_START,W.CZAS_KONIEC, W.FOCUS, W.ZMECZENIE, W.BLISKOSC, W.DOSTEPNOSC);
     List<W> jakoscSytuacji = of(W.INTERAKCJA, W.ZNAJOMI, W.POTRZEBA,W.WARTOSC, W.UNIKALNOSC_W_OTOCZENIU);
 
-    List<W> przyczyny = SONDA_PRZYCZYN_WARUNKI;
+    W przyczyny = DBW.SONDA_PRZYCZYN_WARUNKI();
 
     List<W> szansaNaWarunek = of(W.OBECNOSC, W.DEFAULT_ZACHOWANIE, W.DEFAULT_WARUNKI, W.DZIALANIE, W.REAKCJA,
             W.MAKSYMALNIE_ULATWIASZ, W.PRZEKONYWANIE, W.ULTIMATUM);
@@ -38,8 +39,8 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
     W orient = M.ORIENT(of(W.KONCOWY_WARUNEK, W.OBJECIE_POCZATEK_KONIEC, W.PRZEWIDZENIE_KONSEKWENCJI));
     List<W> okazja = of(W.DOBRO, W.POZNANIE, W.WALKA_PIESCI);
 
-    List<W> niesprawiedliwosc = PRZEWAGI_MATERIALNE_WARUNKI;
-    List<W> patologie = KATEGORIA_PATOLOGIE;
+    W niesprawiedliwosc = DBW.NIESPRAWIEDLIWOSC_WARUNKI();
+    List<W> patologie = DBP.ZBIOR_PATOLOGIE();
 
     List<W> otaczajacyLudzie = of(W.LUDZIE_RODZINA, W.LUDZIE_PRACA, W.LUDZIE_DZIELNICA, W.ZNAJOMI_DZIELNICA, W.OBSLUGA);
 
@@ -50,23 +51,23 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
                             W.ZNAJOMI, W.SLUZBA_ZROWIA, W.SLUZBY_MUNDUROWE, W.INTERNET, W.TELEWIZJA);
 
     W startowe = DBW.STARTOWE_WARUNKI();
-    List<W> czas = ZBIOR_CZAS;
-    List<W> duzoIf = DUZO_IF_WARUNKI;
-    List<W> ksztaltowanieDzielnicy = KSZTALTOWANIE_DZIELNICY_WARUNKI;
-    List<W> emocjeUczucia = ZBIOR_EMOCJE_UCZUCIA;
-    List<W> rozrywkiZart = ZBIOR_ROZRYWKI_ZART;
-    List<W> przymus = PRZYMUS_WARUNKI;
-    List<W> potrzeby = POTRZEBY_WARUNKI;
-    List<W> zagrozenia = ZAGROZENIA_WARUNKI;
-    List<W> cierpienia = CIERPIENIA_WARUNKI;
-    List<W> przewagi = PRZEWAGI_WARUNKI;
-    List<W> slabosci = SLABOSCI_WARUNKI;
-    List<W> twl = THREAD_WHILE_LOOP_WARUNKI;
-    List<W> typySytuacji = TYPY_SYTUACJI;
-    List<W> typyLudzi = ZBIOR_TYPY_LUDZI;
-    List<W> wspomnienia = WSPOMNIENIA_WARUNKI;
-    List<W> tematy = ZBIOR_TEMATY;
-    List<W> wiedza = ZBIOR_WIEDZA;
+    List<W> czas = DBW.ZBIOR_CZAS();
+    W duzoIf = DBW.DUZO_SIE_DZIEJE_ULICA_WARUNKI();
+    W ksztaltowanieDzielnicy = DBW.KSZTALTOWANIE_DZIELNICY_WARUNKI();
+    List<W> emocjeUczucia = DBW.ZBIOR_EMOCJE_UCZUCIA();
+    List<W> rozrywkiZart = DBW.ZBIOR_ROZRYWKI_ZART();
+    W przymus = DBW.PRZYMUS_WARUNKI();
+    W potrzeby = DBW.POTRZEBY_WARUNKI();
+    W zagrozenia = DBW.ZAGROZENIA_WARUNKI();
+    W cierpienia = DBW.CIERPIENIA_WARUNKI();
+    W przewagi = DBW.PRZEWAGI_WARUNKI();
+    W slabosci = DBW.SLABOSCI_WARUNKI();
+    W twl = DBW.THREAD_WHILE_LOOP_WARUNKI();
+    W typySytuacji = DBW.TYPY_SYTUACJI_WARUNKI();
+    List<W> typyLudzi = DBW.ZBIOR_TYPY_LUDZI();
+    W wspomnienia = DBW.WSPOMNIENIA_WARUNKI();
+    List<W> tematy = DBW.ZBIOR_TEMATY();
+    List<W> wiedza = DBW.ZBIOR_WIEDZA();
 
     public void run(){
         M.WWW(W.INFORMACJA, "--->", M.SONDA(W.INFORMACJA), "--->", W.NASTAWIENIE, "--->", W.DZIALANIE);
@@ -77,8 +78,8 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
 
         M.W(W.WARTOSC, "--->", of(M.DLUGO(M.CIEZKO(of(W.CIERPIENIE, W.PRACA))), M.MALO_OSOB(M.POSIADA(W.WARTOSC))));
 
-        M.W(of(on(PRZEWAGI_WARUNKI), W.WARUNEK_SPRZYJAJACY), "--->", M.WIEKSZE_SZANSE(M.OSIAGNIECIE(W.WARUNEK)));
-        M.W(of(on(SLABOSCI_WARUNKI), W.WARUNEK_NIESPRZYJAJACY) ,"--->", M.MNIEJSZE_SZANSE(M.OSIAGNIECIE(W.WARUNEK)));
+        M.W(of(DBW.PRZEWAGI_WARUNKI(), W.WARUNEK_SPRZYJAJACY), "--->", M.WIEKSZE_SZANSE(M.OSIAGNIECIE(W.WARUNEK)));
+        M.W(of(DBW.SLABOSCI_WARUNKI(), W.WARUNEK_NIESPRZYJAJACY) ,"--->", M.MNIEJSZE_SZANSE(M.OSIAGNIECIE(W.WARUNEK)));
 
         M.W(M.ZAUWAZYLEM(M.USLYSZALEM(W.INFORMACJA)), "--->", of(W.PRZEWAGA_CZASU, W.PRZEWAGA_INFORMACJI,
                                                                                     M.pochwycenie(),
@@ -139,7 +140,7 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
 
         M.W(W.OSOBA, "--->", of(W.OBECNOSC, W.ENERGIA, W.CHECI, W.DZIALANIE));
 
-        M.W(M.SMIERC(W.BLISKA_OSOBA), "--->", of(M.PERMANENTNA(W.STRATA), on(EMOCJE_NEGATYWNE_WARUNKI), on(UCZUCIA_NEGATYWNE_WARUNKI)));
+        M.W(M.SMIERC(W.BLISKA_OSOBA), "--->", of(M.PERMANENTNA(W.STRATA), DBW.EMOCJE_NEGATYWNE_WARUNKI(), DBW.UCZUCIA_NEGATYWNE_WARUNKI()));
 
         M.W(M.OSOBA(W.INNA_RASA), "--->", M.ZWYKLE(of(W.RASIZM, M.GORSZE_TRAKTOWANIE(W.OSOBA))));
 

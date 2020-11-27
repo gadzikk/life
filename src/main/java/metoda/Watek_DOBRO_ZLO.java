@@ -11,7 +11,7 @@ import java.util.List;
 public class Watek_DOBRO_ZLO extends AbstractWatek {
     W wazne = M.WAZNE(of(M.WYBOR(of(W.DOBRO, W.ZLO))));
 
-    List<W> niesprawiedliwosc = NIESPRAWIEDLIWOSC_WARUNKI;
+    W niesprawiedliwosc = DBW.NIESPRAWIEDLIWOSC_WARUNKI();
 
     public void run(){
         M.W(W.UKAZANIE_W_PRAWDZIE, "--->", of(W.SPOGLADANIE_NA_SIEBIE, W.CISZA, M.DOPOKI(of(W.UMNIEJSZENIE, W.USPRAWIEDLIWINIE,
@@ -21,7 +21,7 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
                 W.SLUCHANIE_ZLEGO,
                 W.DZIALANIE_DLA_ZLA), "--->", W.PELNE_POPARCIE_ZLA, "--->", W.PIEKLO);
 
-        M.ZWYKLE(of(M.MOCNO(PRZYCZYNY_ZLA_WARUNKI), M.SLABO(PRZYCZYNY_DOBRA_WARUNKI)));
+        M.RZECZYWISTOSC(M.ZWYKLE(of(M.MOCNO(DBW.PRZYCZYNY_ZLA_WARUNKI()), M.SLABO(DBW.PRZYCZYNY_DOBRA_WARUNKI()))));
 
         M.WW(W.ZLO, "--->", of(M.ROBI_KRZYWDE(of(DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI())),
                                              M.TWORZENIE(of(DBW.STRATY_MORALNE_WARUNKI(), DBW.STRATY_MORALNE_WARUNKI()))), "--->",of(M.LEKKIE(W.ZYCIE),
@@ -89,8 +89,8 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
 
         List<W> NOWY = of(M.ODRAZU(DBW.KRZYWDY_WARUNKI()));
 
-        List<W> wadyZlych = WADY_ZLYCH_WARUNKI;
-        List<W> okazje = OKAZJE_ZROBIENIE_ZLO_WARUNKI;
+        W wadyZlych = DBW.WADY_ZLYCH_WARUNKI();
+        W okazje = DBW.OKAZJE_ZROBIENIE_ZLO_WARUNKI();
 
         List<W> sprawdzajacy = of(W.GLUPI, W.AGRESYWNI, W.TEMPIENI_BYLI, W.BEZ_WSTYDU, W.BEZ_ZASAD, W.BRAK_SUMIENIA);
         List<W> staziBiegacze = of(W.DUZI_TEMPI, W.AGRESYWNI, W.ULEGLI, W.ZALEZNY, W.UZALZENIENI);
@@ -107,7 +107,7 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
                                                                                     W.CIEZKIE_RANY));
 
         M.W(M.CALY_CZAS(M.KONTROLA(W.ZLY)), "--->", of(W.CIESZY_SIE, M.SZANSA_NA(M.USPRAWIEDLIWIENIE(W.WALKA_PIESCI)),
-                                                                    on(OKAZJE_ZROBIENIE_DOBRO_WARUNKI),
+                                                                    DBW.OKAZJE_ZROBIENIE_DOBRO_WARUNKI(),
                                                                     W.REAKACJA, M.AKTYWNA_WALKA_ZE_ZLEM(of(W.BLISKOSC, W.CISNIECIE, W.WALKA_PIESCI)),
                                                                     W.KARA, M.OPCJA(W.UKAZANIE),
                                                                     W.ZAPRZESTANIE_ZLA, W.SMUTEK, W.WYLACZENIE_DZIALACZA));
@@ -115,7 +115,7 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
         M.W(W.ZLY, "--->", M.DUZY_WYSILEK(M.CALY_CZAS(M.KONTROLA(W.ZLY)))
                                                                     .MIMO_TO(W.ZLY_OWOC)
                                                                     .KONCOWO(of(W.STRATA_CZASU, W.STRATA_PIENIEDZY, W.STRATA_SIL,
-                                                                            on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI))));
+                                                                            DBW.STRATY_MORALNE_WARUNKI(), DBW.STRATY_MATERIALNE_WARUNKI())));
 
         M.WW(M.OSOBA(W.NIESWIADOMOSC), "--->", of(W.MIEJSCE_STALE, W.ZLY, W.PRZEKONYWANIE_PRZECIW), "--->", M.OSOBA(W.ZLO));
 
@@ -167,9 +167,9 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
         );
         dobrzi.thread_while_loop(M.KONTROLA(W.ZLI));
 
-        W sonda = M.SONDA(ZLY_ZNAKI_ROZPOZNAWCZE_WARUNKI);
-
-        List<W> okazje = OKAZJE_ZROBIENIE_DOBRO_WARUNKI;
+        W sonda = M.SONDA(DBW.ZLY_ZNAKI_ROZPOZNAWCZE_WARUNKI());
+        W okazje = DBW.OKAZJE_ZROBIENIE_DOBRO_WARUNKI();
+        W metodyAntyDzialacz = DBW.ANTY_DZIALACZ_ZLA_WARUNKI();
 
         M.W(of(W.DOBRY, W._88_, W.WIDZIAL) , "--->", of(M.ODRAZU(M.MOCNO(W.KONTRA)), W.SPRAWIEDLIWOSC));
 
@@ -177,7 +177,7 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
 
         M.W(W.DOBRY, "--->", M.CALY_CZAS(M.DOBRY(M.PRZEBYWANIE(M.OSOBY(W.DOBRZI)))));
 
-        List<W> metodyAntyDzialacz = ANTY_DZIALACZ_ZLA_WARUNKI;
+
     }
     public void dobroDzialacz() {
         List<W> conditions = of(

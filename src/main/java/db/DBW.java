@@ -226,7 +226,7 @@ public class DBW extends DB {
 
     public static List<W> ZBIOR_KOBIETA_PRAKTYKA() {
         return of(
-                WZGLEDNA_IZOLACJA_WARUNKI(),
+                WZGL_IZOLACJA_WARUNKI(),
                 SPRZYJAJACE_WARUNKI(),
                 NIE_SPRZYJAJACE_WARUNKI(),
                 ESSENTIALS_SYTUACJE_WARUNKI(),
@@ -802,6 +802,7 @@ public class DBW extends DB {
                 W.ZMECZENIE, W.CIERPIENIE_FIZYCZNE, W.CIERPIENIE_PSYCHICZNE,
                 W.CIERPIENIE_PRZEMIJANIA, W.CIERPIENIE_UTRATY, W.CIERPIENIE_SAMOTNOSCI,
                 W.CIERPIENIE_WIDZENIE_BRAK_DOTKNIECIA,
+
                 M.DLUGOTRWALE(of(
                         W.ZMECZENIE, W.CIERPIENIE_FIZYCZNE, W.CIERPIENIE_PSYCHICZNE,
                         W.CIERPIENIE_PRZEMIJANIA, W.CIERPIENIE_UTRATY, W.CIERPIENIE_SAMOTNOSCI,
@@ -1405,7 +1406,7 @@ public class DBW extends DB {
 
     public static W STRATY_MORALNE_WARUNKI() {
         return on(
-                W.OBRAZENIA_FIZYCZNE, W.KONTUZJA, W.ZLE_SAMOPOCZUCIE, W.HANBA, W.WYKLUCZENIE,
+                W.OBRAZENIA_FIZYCZNE, W.ZMECZENIE, W.KONTUZJA, W.ZLE_SAMOPOCZUCIE, W.HANBA, W.WYKLUCZENIE,
                 M.STRATA(W.ZNAJOMI), M.STRATA(W.KOBIETA)
         );
     }
@@ -1523,7 +1524,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WZGLEDNA_IZOLACJA_WARUNKI() {
+    public static W WZGL_IZOLACJA_WARUNKI() {
         return on(
                 W.PRZYSTANEK, W.TRAUTO, W.SWIATLA, W.KLATKA, W.MIEJSCE_STALE, W.STACJA_BENZYNOWA, W.OSIEDLOWE_SRD
         );

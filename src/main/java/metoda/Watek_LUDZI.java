@@ -1,5 +1,6 @@
 package metoda;
 
+import db.DBP;
 import db.DBW;
 import warunek.W;
 
@@ -11,9 +12,9 @@ import static typy_bazowe.TypOsoby.SOMEONE;
  * Created by gadzik on 23.08.20.
  */
 public class Watek_LUDZI extends AbstractWatek {
-    W wazne = M.WAZNE(SILNE_WIEZY_CZLOWIEKA_WARUNKI);
+    W wazne = M.WAZNE(DBW.SILNE_WIEZY_CZLOWIEKA_WARUNKI());
 
-    List<W> codzienneAktywnosci = of(M.INTERAKCJA(W.RODZINA), M.OPCJA(M.INTERAKCJA(W.ZNAJOMI)), on(PRZYMUS_WARUNKI));
+    List<W> codzienneAktywnosci = of(M.INTERAKCJA(W.RODZINA), M.OPCJA(M.INTERAKCJA(W.ZNAJOMI)), DBW.PRZYMUS_WARUNKI());
 
     public void run() {
         relacjeWarunkowLudzi();
@@ -39,7 +40,7 @@ public class Watek_LUDZI extends AbstractWatek {
 
         M.W(M.WIECEJ(W.LAT), "--->", M.WIECEJ(W.CIERPIENIE));
 
-        M.W(M.DLUGOTRWALE(of(on(CIERPIENIA_WARUNKI), W.PRZYMUS, W.ULICA)), "--->", M.OSOBA(W.SILNA_JEDNOSTKA));
+        M.W(M.DLUGOTRWALE(of(DBW.CIERPIENIA_WARUNKI(), W.PRZYMUS, W.ULICA)), "--->", M.OSOBA(W.SILNA_JEDNOSTKA));
 
         M.W(M.OSOBA(W.WIECZNY_IMIGRANT), "--->", of(M.NAJWIEKSZA(W.WIEDZA), M.NAJWIECEJ(W.DOSWIADCZENIE), M.OSOBY(M.WYKLUCZA(W.WIECZNY_IMIGRANT))));
 
@@ -372,10 +373,10 @@ public class Watek_LUDZI extends AbstractWatek {
                         dzialacz.SET(of(W.WYKRECENIE, W.WADY_FIZYCZNE, W.WADY_UMYSLOWE, W.OGRANICZENIE_WOLNOSCI_ULICA, W.KROTKOWZROCZNOSC_CZYNOW)),
                         dzialacz.SET(DBW.KRZYWDY_WARUNKI()),
                         dzialacz.SET(M.OPCJA(DBW.OSLONY_WARUNKI())),
-                        dzialacz.SET(CECHY_RDZENNY_WARUNKI),
-                        dzialacz.SET(PATOLOGIE_OSIEDLE_WARUNKI),
-                        dzialacz.SET(TEMATY_RDZENNYCH_WARUNKI),
-                        dzialacz.SET(WADY_ZLYCH_WARUNKI),
+                        dzialacz.SET(DBW.CECHY_RDZENNY_WARUNKI()),
+                        dzialacz.SET(DBP.PATOLOGIE_OSIEDLE()),
+                        dzialacz.SET(DBW.TEMATY_RDZENNYCH_WARUNKI()),
+                        dzialacz.SET(DBW.WADY_ZLYCH_WARUNKI()),
                         dzialacz.policja(W.ZERO),
 
                         dzialacz.thread_while_loop(M.rozkminianie(wszyscy)),
@@ -408,16 +409,16 @@ public class Watek_LUDZI extends AbstractWatek {
                         srodowisko.thread_while_loop(M.postawCiezkieWarunki(M.SRODOWISKO(W.PRZECIWNA_STRONA),
                                 of(DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI(), DBW.OSLONY_WARUNKI(), DBW.PRZEWAGI_Z_ULICY_WARUNKI()))),
 
-                        srodowisko.ULTIMATUM(dzialacz).W_PRZECIWNYM_PRZYPADKU(of(on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI))),
+                        srodowisko.ULTIMATUM(dzialacz).W_PRZECIWNYM_PRZYPADKU(of(DBW.STRATY_MORALNE_WARUNKI(), DBW.STRATY_MATERIALNE_WARUNKI())),
                         srodowisko.OCZEKIWANIE_POPRAWY(dzialacz).W_PRZECIWNYM_PRZYPADKU(of(
                                 srodowisko.ZAMKNIECIE(dzialacz), srodowisko.WYKLUCZ(dzialacz),
                                 srodowisko.ROBI_KRZYWDE_Z_PRZEWAGA(dzialacz, DBW.KRZYWDY_WARUNKI())
                         )),
 
-                        M.W(srodowisko.CZESTO(M.WZAJEMNE_RANY(DBW.ZBIOR_RANY())), "--->", srodowisko.TOLERANCJA(PRZYCZYNY_ZLA_WARUNKI)),
+                        M.W(srodowisko.CZESTO(M.WZAJEMNE_RANY(DBW.ZBIOR_RANY())), "--->", srodowisko.TOLERANCJA(DBW.KRZYWDY_WARUNKI())),
                         srodowisko.WHILE(dzialacz.thread_while_loop(of(W.SLUCHAJA, W.OBECNOSC_LUDZI, M.wykonujeRozkazy(W.GORA), M.KRZYWDY(osobyPozaSrodowisko, DBW.KRZYWDY_WARUNKI())))),
 
-                        M.W(M.INFORMACJA(W.WROG), "--->", dzialajcyBliskoMiejsca.KAZDY(on(KRZYWDY_BEZPOSREDNIE_WARUNKI))),
+                        M.W(M.INFORMACJA(W.WROG), "--->", dzialajcyBliskoMiejsca.KAZDY(DBW.KRZYWDY_BEZPOSREDNIE_WARUNKI())),
 
                         dzialacz.siejZlo(), M.w_przeciwnym_przypadku(W.POJECHANE, 0),
                         dzialacz.uzaleznijSieOdSrd(),
@@ -501,15 +502,15 @@ public class Watek_LUDZI extends AbstractWatek {
     }
 
     public void osobaPrzewag() {
-        M.W(M.OSOBA_Z(PRZEWAGI_WARUNKI), "--->", of(M.SLABY(W.PODLIZYWANIE_SIE), M.SILNY(W.WSPARCIE)));
+        M.W(M.OSOBA_Z(DBW.PRZEWAGI_WARUNKI()), "--->", of(M.SLABY(W.PODLIZYWANIE_SIE), M.SILNY(W.WSPARCIE)));
 
         M.W(M.OSOBA(M.BRAK(W.PRZEWAGA)), "--->", of(M.SLABY(DBW.KRZYWDY_WARUNKI()), M.SILNY(M.SONDA_GLEBOKA(izolowanaOsoba))));
 
-        M.W(M.DOPOKI(of(on(PRZEWAGI_WARUNKI), W.KOMFORT, W.OBECNOSC_LUDZI)), "--->", W.BAWIMY_SIE);
+        M.W(M.DOPOKI(of(DBW.PRZEWAGI_WARUNKI(), W.KOMFORT, W.OBECNOSC_LUDZI)), "--->", W.BAWIMY_SIE);
 
         M.W(M.GDY(M.BRAK(W.PRZEWAGA)), "--->", of(W.SMUTEK, W.MYSLENIE, W.WNIOSKI));
 
-        M.WW(W.OSOBA, "--->", M.OSOBY_Z_PRZEWAGAMI(M.SONDA(M.OSOBA(PRZEWAGI_WARUNKI))), "--->", of(M.W(W.DUZA_PRZEWAGA, "--->", of(M.SRODOWISKO(M.AKCEPTACJA(W.OSOBA)),
+        M.WW(W.OSOBA, "--->", M.OSOBY_Z_PRZEWAGAMI(M.SONDA(M.OSOBA(DBW.PRZEWAGI_WARUNKI()))), "--->", of(M.W(W.DUZA_PRZEWAGA, "--->", of(M.SRODOWISKO(M.AKCEPTACJA(W.OSOBA)),
                                                                                                                                              M.SRODOWISKO(M.WSPARCIE(W.OSOBA)))),
 
                                                                                                         M.W(W.MALA_PRZEWAGA, "--->", of(M.SRODOWISKO(M.ODRZUCENIE(W.OSOBA)),

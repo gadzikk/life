@@ -1,5 +1,6 @@
 package metoda;
 
+import db.DBP;
 import db.DBW;
 import warunek.W;
 import z_inne.OH;
@@ -14,7 +15,7 @@ import static typy_bazowe.TypOsoby.ME;
  * Created by gadzik on 04.01.20.
  */
 public class Watek_ULICA extends AbstractWatek {
-    W wazne = M.WAZNE(of(W.OBECNOSC, W.HIERARCHIA_ULICA, W.KIBICOWANIE, W.KRYMINAL, M.ILE_ZROBIL(W.EKIPA), on(ZASADY_WARUNKI), on(PRZEWAGI_WARUNKI), on(WALKA_WARUNKI)));
+    W wazne = M.WAZNE(of(W.OBECNOSC, W.HIERARCHIA_ULICA, W.KIBICOWANIE, W.KRYMINAL, M.ILE_ZROBIL(W.EKIPA), DBW.ZASADY_WARUNKI(), DBW.PRZEWAGI_WARUNKI(), DBW.WALKA_WARUNKI()));
 
     W krzywdy = M.MOCNO(DBW.KRZYWDY_WARUNKI());
     W brakZasad = M.MOCNO(DBW.BRAK_ZASAD_WARUNKI());
@@ -49,9 +50,9 @@ public class Watek_ULICA extends AbstractWatek {
     );
     W warunkiNieDoZycia = M.CALY_CZAS(of(
             W.PUSTKA, W.ZLE_W_ZYCIU, W.MALO_OSOB,
-            W.CHRONICZNE_BEZROBOCIE, W.NISKIE_PENSJE, W.NIEMOZLIWOSC_ZDOBYCIA_PRACY_NEUTRALNY_RZUT,
+            W.CHRONICZNE_BEZROBOCIE, W.NISKIE_PENSJE, M.MALA_SZANSA(W.ZDOBYCIE_PRACY_NEUTRALNY_RZUT),
             W.WIEKSZOSC_DZIALA, W.LUDZIE_CHCA_TWOJEJ_KRZYWDY,
-            W.CHETNOSC_ZERO, W.DZIALAJACE_KARYNY, W.NIEMOZLIWOSC_PODERWANIA_KOBIETY_NEUTRALNY_RZUT, on(PATOLOGIE_WSTEPNE_KOBIETA)
+            W.CHETNOSC_ZERO, M.DZIALAJACY(W.KOBIETY), M.MALA_SZANSA(W.PODERWANIE_KOBIETY_NEUTRALNY_RZUT), DBP.PATOLOGIE_WSTEPNE_KOBIETA()
     ));
 
     List<W> szansaNaWarunek = of(W.OBECNOSC, W.DEFAULT_ZACHOWANIE, W.DEFAULT_WARUNKI, W.DZIALANIE, W.REAKCJA,
@@ -59,9 +60,9 @@ public class Watek_ULICA extends AbstractWatek {
 
     List<W> warunek = of(W.ULTIMATUM, W.POCZATEK, W.KONIEC, W.ZYSK, W.WARTOSC, W.ILOSC_OSOB, W.CZESTOTLIWOSC, W.SILA, W.PRIORYTET);
 
-    List<W> typyLudzi = TYPY_LUDZI_SHRT_WARUNKI;
-    List<W> zarobekNielegalny = ZAROBEK_NIELEGALNY_WARUNKI;
-    List<W> reakcje = REAKCJE_WARUNKI;
+    W typyLudzi = DBW.TYPY_LUDZI_SHRT_WARUNKI();
+    W zarobekNielegalny = DBW.ZAROBEK_NIELEGALNY_WARUNKI();
+
 
     public void run(){
         M.W(of(W.SILNA_JEDNOSTKA, W._88_, W.DZIALANIE_W_EKIPIE), "--->", M.DOSTEP(of(W.CZOLO, W.OGARNIECI)));
@@ -115,7 +116,7 @@ public class Watek_ULICA extends AbstractWatek {
     public void tworzaceJakosc() {
         M.W(W.SILNY, "--->", M.CZESTO(W.WYCHODZISZ));
 
-        M.W(DUZO_IF_WARUNKI, "--->",of(M.wydluzajCzas(),
+        M.W(DBW.DUZO_SIE_DZIEJE_ULICA_WARUNKI(), "--->",of(M.wydluzajCzas(),
                                                 M.estymuj(),
                                                 M.maloLazBezCelu(), M.stale(), M.ujscie(), M.zKims()));
 
@@ -176,7 +177,7 @@ public class Watek_ULICA extends AbstractWatek {
                         M.sonda(W.LADNA),
                         M.sonda(W.STWARZA_SZANSE),
                         //-------------------------
-                        M.sonda(PATOLOGIE_WSTEPNE_KOBIETA, PATOLOGIE_UTRZYMANIA_KOBIETA)
+                        M.sonda(of(DBP.PATOLOGIE_WSTEPNE_KOBIETA(), DBP.PATOLOGIE_UTRZYMANIA_KOBIETA()))
                 )
         );
     }
@@ -191,6 +192,7 @@ public class Watek_ULICA extends AbstractWatek {
         W sondaDzialacza = DBW.SONDA_DZIALACZA_WARUNKI();
         W kryteriaWroga = DBW.KRYTERIA_WROGA_WARUNKI();
         W oceniaWedlug = DBW.OCENIA_WEDLUG_WARUNKI();
+        W reakcje = DBW.REAKCJE_WARUNKI();
 
         M.WWW(W.INFORMACJA, "--->", W.SONDA, "--->", W.NASTAWIENIE, "--->", W.DZIALANIE);
 
@@ -198,7 +200,7 @@ public class Watek_ULICA extends AbstractWatek {
 
         M.W(of(W.SONDA_DZIALANIA), "--->", M.SONDA(of(W.WARTOSC, W.BEZPIECZENSTWO, W.KONSEKWENCJE, W.CZESTOTLIWOSC, W.EFEKTYWNOSC)));
 
-        M.W(M.MIEJSCE_STALE(WZGL_IZOLACJA_WARUNKI), "--->", M.SONDA_GLEBOKA(izolowanaOsoba));
+        M.W(M.MIEJSCE_STALE(DBW.WZGL_IZOLACJA_WARUNKI()), "--->", M.SONDA_GLEBOKA(izolowanaOsoba));
 
         M.W(W.CZYN, "--->", M.SONDA(of(M.jakie(W.WARUNKI_POCZATKOWE),
                                             M.jakie(W.PRZYCZYNY),
@@ -215,7 +217,7 @@ public class Watek_ULICA extends AbstractWatek {
 
         M.W(W.NIE_UMIE_KLAMAC, "--->", W.MALO_PRZEZYL);
 
-        M.W(of(W.ZLY, W._88_, W.PATRZY), "--->", M.SONDA(W.ZROBIENIE_ZLA).CEL(of(DBW.KRZYWDY_WARUNKI(), M.OPCJA(DBW.BRAK_ZASAD_WARUNKI())))));
+        M.W(of(W.ZLY, W._88_, W.PATRZY), "--->", M.SONDA(W.ZROBIENIE_ZLA).CEL(of(DBW.KRZYWDY_WARUNKI(), M.OPCJA(DBW.BRAK_ZASAD_WARUNKI()))));
 
         M.WW(M.INFORMACJA(W.OSOBA), "--->", M.SONDA(W.HASLO_RDZENNYCH), "--->", of(M.OSOBA(W.OD_NAS), W._II_,
                                                                                                 M.OSOBA(W.WROG), W._II_,
@@ -223,12 +225,12 @@ public class Watek_ULICA extends AbstractWatek {
 
         M.W(M.INFORMACJA(W.WROG), "--->", M.OSOBY(M.BLISKO(W.DZIALAJACY)).KAZDY(DBW.KRZYWDY_BEZPOSREDNIE_WARUNKI()));
 
-        M.WW(W.OSOBA, "--->", of(M.SONDA(SONDA_SHRTS_WARUNKI),
-                                    M.SONDA(PRZEWAGI_WARUNKI)), "--->", of(M.W(W.MOCNY, "--->", of(M.AKCEPTACJA(W.OSOBA), M.WSPARCIE(W.OSOBA))),
+        M.WW(W.OSOBA, "--->", of(M.SONDA(DBW.SONDA_SHRTS_WARUNKI()),
+                                    M.SONDA(DBW.PRZEWAGI_WARUNKI())), "--->", of(M.W(W.MOCNY, "--->", of(M.AKCEPTACJA(W.OSOBA), M.WSPARCIE(W.OSOBA))),
                                                                             M.W(W.SLABY, "--->", of(M.ODRZUCENIE(W.OSOBA), M.KRZYWDY(of(W.OSOBA, DBW.KRZYWDY_WARUNKI()))))));
-        M.W(W.WIDZISZ_BLAD, "--->", M.SONDA(BLEDY_WARUNKI));
+        M.W(W.WIDZISZ_BLAD, "--->", M.SONDA(DBW.BLEDY_WARUNKI()));
 
-        M.W(M.OSOBA(W.SRODOWISKO), "--->", M.SONDA(SONDA_DZIALACZA_WARUNKI));
+        M.W(M.OSOBA(W.SRODOWISKO), "--->", M.SONDA(DBW.SONDA_DZIALACZA_WARUNKI()));
 
         M.W(W.MEZCZYZNA_Z_KOBIETA, "--->", M.OSOBA(of(W.UMIE_BAJEROWAC, W.ZNAJOMI, W.SRODOWISKO)));
 
@@ -273,7 +275,7 @@ public class Watek_ULICA extends AbstractWatek {
         W przewagiDanejChwili = DBW.PRZEWAGI_CHWILI_WARUNKI();
         W zasiegPrzewagiUlica = DBW.ZASIEG_PRZEWAGI_ULICA_WARUNKI();
 
-        M.W(M.ZASIEG_WZROKU(W.OSOBA), "--->", of(M.SONDA(W.OSOBA), M.NABYCIE(W.BLISKOSC), on(KRZYWDY_BEZPOSREDNIE_WARUNKI)));
+        M.W(M.ZASIEG_WZROKU(W.OSOBA), "--->", of(M.SONDA(W.OSOBA), M.NABYCIE(W.BLISKOSC), DBW.KRZYWDY_BEZPOSREDNIE_WARUNKI()));
 
         M.W(of(W.POMSZCZENIE, W.NOTYFIKACJA_EKIPA, W.ZDJECIA_TWARZOWKI,
                 W.OBRAZENIA_FIZYCZNE, W.STARCIE_WIELU_NA_JEDNEGO,
@@ -283,18 +285,18 @@ public class Watek_ULICA extends AbstractWatek {
         M.W(W.CISNIE, "--->", M.ULTIMATIUM(W.ODPOWIADA)).W_PRZECIWNYM_PRZYPADKU(W.HANBA);
         M.W(W.STRATA, "--->", M.ULTIMATIUM(W.POMSZCZENIE)).W_PRZECIWNYM_PRZYPADKU(W.HANBA);
 
-        M.WW(M.WIDZISZ(W.OSOBY), "--->", SYTUACJE_STARCIE_WARUNKI, "---->", W.STARCIE, "---->", of(W.WYGRANA, W._II_, W.PRZEGRANA,
-                                                                                                                M.OPCJA(STRATY_MATERIALNE_WARUNKI),
-                                                                                                                M.OPCJA(STRATY_MORALNE_WARUNKI)));
+        M.WW(M.WIDZISZ(W.OSOBY), "--->", DBW.SYTUACJE_STARCIE_WARUNKI(), "---->", W.STARCIE, "---->", of(W.WYGRANA, W._II_, W.PRZEGRANA,
+                                                                                                                M.OPCJA(DBW.STRATY_MATERIALNE_WARUNKI()),
+                                                                                                                M.OPCJA(DBW.STRATY_MORALNE_WARUNKI())));
 
-        M.W(W.WIDZISZ, "--->", of(M.POBIERZ(NASTAWIENIA_WARUNKI), M.SONDA_PRZYPALU(DBW.SONDA_PRZYPALU_WARUNKI()), M.PLAN(of(W.ODDALENIE_SIE, W.UKRYCIE_SIE)),
-                                                                        M.PRZEWIDZENIE(W.DROGA),
-                                                                        M.NABYCIE(W.BLISKOSC),
-                                                                        M.ROBOTA(DBW.ZBIOR_RANY()),
-                                                                        M.ODDALENIE_SIE(W.MIEJSCE),
-                                                                        M.UKRYCIE()));
+        M.W(W.WIDZISZ, "--->", of(M.POBIERZ(DBW.NASTAWIENIA_WARUNKI()), M.SONDA_PRZYPALU(DBW.SONDA_PRZYPALU_WARUNKI()), M.PLAN(of(W.ODDALENIE_SIE, W.UKRYCIE_SIE)),
+                                                                            M.PRZEWIDZENIE(W.DROGA),
+                                                                            M.NABYCIE(W.BLISKOSC),
+                                                                            M.ROBOTA(DBW.ZBIOR_RANY()),
+                                                                            M.ODDALENIE_SIE(W.MIEJSCE),
+                                                                            M.UKRYCIE()));
 
-        M.W(M.OSOBA(KRYTERIA_WROGA_WARUNKI), "--->", of(M.UTRUDNIAJ(M.OSOBA(W.ZYCIE)),
+        M.W(M.OSOBA(DBW.KRYTERIA_WROGA_WARUNKI()), "--->", of(M.UTRUDNIAJ(M.OSOBA(W.ZYCIE)),
                                                              M.UTRUDNIAJ(M.OSOBA(W.DOSTEP)),
                                                              M.KRZYWDY(of(W.OSOBA, DBW.KRZYWDY_WARUNKI()))));
 
@@ -372,7 +374,7 @@ public class Watek_ULICA extends AbstractWatek {
         M.W(W.SLABY, "--->", M.ZWYKLE(W.CEL_ATAKU));
         M.W(W.SILNY, "--->", M.ZWYKLE(M.CALY_CZAS(M.WYBOR_CELU(W.SLABSI))));
 
-        M.ZWYKLE(of(M.MOCNO(PRZYCZYNY_ZLA_WARUNKI), M.SLABO(PRZYCZYNY_DOBRA_WARUNKI)));
+        M.RZECZYWISTOSC(M.ZWYKLE(of(M.MOCNO(DBW.PRZYCZYNY_ZLA_WARUNKI()), M.SLABO(DBW.PRZYCZYNY_DOBRA_WARUNKI()))));
 
         M.W(of(W.MILY_TEAMT, W.ZARTY, W.POCHWALA, W.WSPARCIE, W.DOBRE_EMOCJE,
                 W.TEMAT_ZGODNY_Z_WARTOSCIAMI, W.TEMAT_ZGODNY_Z_EMOCJAMI, W.TEMAT_NIEPODWAZALNY), "--->", of(W.DOBRA_ROZMOWA));
@@ -399,7 +401,7 @@ public class Watek_ULICA extends AbstractWatek {
         M.W(of(W.OBECNOSC, W.ZOBACZENIE_WARTOSCI, W.DZIALANIE,
                 W.NIEDANIE_WYBORU, W._II_, W.ZDOMINOWANIE, W.UTRZYMANIE), "--->", of(W.OSIAGNIECIE_WARUNKU));
 
-        M.W(of(M.DLUGOTRWALE(SPORT_WARUNKI)), "--->", of(W.UZALEZNIENIE_OD_SPORTU));
+        M.W(of(M.DLUGOTRWALE(DBW.SPORT_WARUNKI())), "--->", of(W.UZALEZNIENIE_OD_SPORTU));
 
         M.W(of(W.OSOBA_ZASIEG_WZROKU), "--->", of(W.SONDA_PO_WADACH));
 
@@ -419,7 +421,7 @@ public class Watek_ULICA extends AbstractWatek {
 
         M.W(W.NARKOTYKI, "--->", W.NIESTABILNOSC_UMYSLOWA);
 
-        M.W(M.MIEJSCE_STALE(WZGL_IZOLACJA_WARUNKI), "--->", of(M.WPLYW(W.LUDZIE), M.MOZLIWOSC(DBW.RELACJE_WARUNKI()));
+        M.W(M.MIEJSCE_STALE(DBW.WZGL_IZOLACJA_WARUNKI()), "--->", of(M.WPLYW(W.LUDZIE), M.MOZLIWOSC(DBW.RELACJE_WARUNKI())));
 
         M.W(of(M.BRAK(W.ORIENT), W.DZIALANIE,
                 M.OPCJA(W.ZUCHWALOSC), M.OPCJA(M.BRAK(W.WIEDZA))), "--->", M.SZYBKO(W.KARA));
@@ -432,8 +434,8 @@ public class Watek_ULICA extends AbstractWatek {
                             M.OPCJA(DBW.PRZEWAGI_CHWILI_WARUNKI()),
                             M.OPCJA(DBW.PRZEWAGI_Z_ULICY_WARUNKI())))), "--->", M.WALKA(W.ZLO.PRZECIW(W.ZLO)), "---->",
                                                                                                     M.REZULTAT(M.OBOJE(of(
-                                                                                                        on(STRATY_MORALNE_WARUNKI),
-                                                                                                        on(STRATY_MATERIALNE_WARUNKI),
+                                                                                                        DBW.STRATY_MORALNE_WARUNKI(),
+                                                                                                        DBW.STRATY_MATERIALNE_WARUNKI(),
                                                                                                     W.ZERO_ZYSKU))));
 
         M.W(M.NIEZDOLNOSC(of(W.WALKA_PIESCI, W.WALKA_SPRZET)), "--->", M.BRAK(W.SILA_SPRAWCZA_ULICA));
@@ -446,10 +448,10 @@ public class Watek_ULICA extends AbstractWatek {
         M.W(M.OSOBA(of(M.MOCNO(of(W.AGRESJA, W.CHETNY_DZIALANIA)),
           W.BRAK_PIENIEDZY, W.POSLUSZNY, W.OGRANICZONE_INFORMACJE, W.NUDA)), "--->",  M.WEJSCIE(W.EKIPA));
 
-        M.WW(M.WEJSCIE(W.EKIPA), "--->", M.NABYWANIE(PRZEWAGI_Z_ULICY_WARUNKI), "--->", M.CALY_CZAS(of(M.ROBI_KRZYWDE_Z_PRZEWAGA(of(W.PRZECIWNY_KLUB,
+        M.WW(M.WEJSCIE(W.EKIPA), "--->", M.NABYWANIE(DBW.PRZEWAGI_Z_ULICY_WARUNKI()), "--->", M.CALY_CZAS(of(M.ROBI_KRZYWDE_Z_PRZEWAGA(of(W.PRZECIWNY_KLUB,
                                                                                                                     DBW.KRZYWDY_WARUNKI(), DBW.PRZEWAGI_CHWILI_WARUNKI(),
                                                                                                                     DBW.BRAK_ZASAD_WARUNKI(), DBW.OSLONY_WARUNKI())),
-                                                                                                                    M.REZULTAT(M.OSOBA(M.OTRZYMANIE(M.DOSTEP(PRZEWAGI_Z_ULICY_WARUNKI)))))));
+                                                                                                                    M.REZULTAT(M.OSOBA(M.OTRZYMANIE(M.DOSTEP(DBW.PRZEWAGI_Z_ULICY_WARUNKI())))))));
         M.CZOLOWKA_EKIPY(M.ULTIMATIUM(M.OSOBY(of(W.DZIALANIE_DLA_ZLA, M.KRZYWDY(of(W.PRZECIWNY_KLUB,
                                                                         DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI(),
                                                                         DBW.PRZEWAGI_CHWILI_WARUNKI(), DBW.OSLONY_WARUNKI()))))))
@@ -468,9 +470,9 @@ public class Watek_ULICA extends AbstractWatek {
                                                                                      DBW.PRZEWAGI_CHWILI_WARUNKI(), DBW.OSLONY_WARUNKI())),
                                                                                         M.NABYWANIE(W.PRZEWAGA).DLA(W.SRODOWISKO)
                                                                 .CEL(M.SRODOWISKO(M.OTRZYMANIE(of(DBW.PRZEWAGI_MATERIALNE_WARUNKI(), DBW.PRZEWAGI_Z_ULICY_WARUNKI())))),
-                                                                M.REZULTAT(M.PRZECIWNY_KLUB(of(on(STRATY_MATERIALNE_WARUNKI), on(STRATY_MORALNE_WARUNKI)))))));
+                                                                M.REZULTAT(M.PRZECIWNY_KLUB(of(DBW.STRATY_MATERIALNE_WARUNKI(), DBW.STRATY_MORALNE_WARUNKI()))))));
 
-        M.W(M.SRODOWISKO(M.CALY_CZAS(M.KONTROLA(KONTROLA_WARUNKI))), "--->", M.KONTROLA(of(M.SRODOWISKO(W.KOBIETY),
+        M.W(M.SRODOWISKO(M.CALY_CZAS(M.KONTROLA(DBW.KONTROLA_WARUNKI()))), "--->", M.KONTROLA(of(M.SRODOWISKO(W.KOBIETY),
                                                                                           M.SRODOWISKO(DBW.PRZEWAGI_Z_ULICY_WARUNKI()),
                                                                                           M.SRODOWISKO(W.WARTOSC),
                                                                                           M.SRODOWISKO(W.OSOBY),
@@ -534,7 +536,7 @@ public class Watek_ULICA extends AbstractWatek {
 
         // MIEJSCE STALE
 
-        M.W(M.MIEJSCE_STALE(WZGL_IZOLACJA_WARUNKI), "--->", of(M.CALY_CZAS(M.KONTROLA(W.OSOBY)),
+        M.W(M.MIEJSCE_STALE(DBW.WZGL_IZOLACJA_WARUNKI()), "--->", of(M.CALY_CZAS(M.KONTROLA(W.OSOBY)),
                                                                     M.CALY_CZAS(M.SONDA(W.OSOBY)),
                                                                     M.CALY_CZAS(M.ORIENT(W.WARTOSC)),
                                                                     M.W(W.WARTOSC, "--->", M.DZIALANIE(W.WARTOSC)),
@@ -607,7 +609,7 @@ public class Watek_ULICA extends AbstractWatek {
 
         M.W(M.SLABY(W.DZIALAJACY), "--->", of(W.ZALEZNY, M.BRAK(W.UMIEJETNOSCI), M.DZIALANIE(W.ZLO)));
 
-        M.W(M.DZIALAJACY(M.SONDA(PRZEWAGI_WARUNKI)), "--->", M.DZIALJACY(of(M.W(W.BRAK_PRZEWAG, "--->", W.BRAK_DZIALANIA),
+        M.W(M.DZIALAJACY(M.SONDA(DBW.PRZEWAGI_WARUNKI())), "--->", M.DZIALJACY(of(M.W(W.BRAK_PRZEWAG, "--->", W.BRAK_DZIALANIA),
                 M.W(W.MALO_PRZEWAG, "--->", M.UKRYTE(W.DZIALANIE)),
                 M.W(W.DUZO_PRZEWAG, "--->", M.OTWARTE(W.DZIALANIE)))));
 
@@ -653,13 +655,13 @@ public class Watek_ULICA extends AbstractWatek {
 
         M.W(W.BRAK_KIBICOWANIA, "--->", W.NIC_NIE_MOGA_ZROBIC);
 
-        M.W(M.DZIALJACY(M.WYPARCIE_SIE(W.KLUB_KIBICOWSKI)), "--->", M.BRAK_DOSTEPU(PRZEWAGI_Z_ULICY_WARUNKI));
+        M.W(M.DZIALJACY(M.WYPARCIE_SIE(W.KLUB_KIBICOWSKI)), "--->", M.BRAK_DOSTEPU(DBW.PRZEWAGI_Z_ULICY_WARUNKI()));
 
         M.W(W.WYROK, "--->", M.UNIZAJ(W.POSIEDZI_CHWILE_NIC_MU_SIE_NIE_STANIE));
 
         M.W(M.INFORMACJA(W.KRZYWDA_DRUGIEJ_STRONY), "--->", of(W.NASTAWIENIE_WSPARCIE, W.WESELE, W.CHCEMY_WIECEJ, W.ZA_CIOSEM));
 
-        M.OPCJA(M.POBIERZ(METODY_POLICYJNE_WARUNKI));
+        M.OPCJA(M.POBIERZ(DBW.METODY_POLICYJNE_WARUNKI()));
 
         M.OPCJA(M.SWOI(of(W.SAD, W.POLICJA, W.SZPITAL, W.OCHRONA, W.RYNEK, W.SILOWNIA, W.LUDZIE_Z_PIESKIEM_SPACER)));
 
@@ -687,13 +689,13 @@ public class Watek_ULICA extends AbstractWatek {
 
     public void algorytmUlicy() {
         List<W> budujacyHierarchieDecyzyjni = of(W.MORDERCY, M.DLUGO(W.STRATA_WOLNOSCI), M.DUZO(M.ZROBIL_DLA(W.EKIPA)),
-                W.POZA_PRAWEM, W.NIESPRAWIEDLIWI, W.AGRESYWNI, on(PRZEWAGI_WARUNKI));
+                W.POZA_PRAWEM, W.NIESPRAWIEDLIWI, W.AGRESYWNI, DBW.PRZEWAGI_WARUNKI());
 
         List<W> cele = of(W.WZIECIE_JAKNAJWIECEJ_OSOB_DO_BIEGANIA_SPRZET, W.WZIECIE_JAKNAJWIECEJ_OSOB_W_NARKOTYKI, M.SILNA(W.EKIPA), W.PIENIADZE, W.SILA_SPRAWCZA);
         List<W> przyczynyBiegania = of(W.MODA, W.STARSI, W.WYKLUCZENIE_ZE_SRODOWISKA, W.AGRESJA, W.KORZYSCI, W.WADY, W.NUDA);
         List<W> klimatBiegania = of(W.NARKOTYKI, W.WYROK, W.KONFIDENCI, W.PIENIADZE, W.KONTUZJA, W.CIERPIENIE, M.CALY_CZAS(W.ORIENT));
 
-        M.W(W.WEJSCIE, "---->", of(M.OTRZYMANIE(of(W.FALSZYWE_KORZYSCI, on(PRZEWAGI_Z_ULICY_WARUNKI)))));
+        M.W(W.WEJSCIE, "---->", of(M.OTRZYMANIE(of(W.FALSZYWE_KORZYSCI, DBW.PRZEWAGI_Z_ULICY_WARUNKI()))));
 
         M.oglup(of(W.DOSTEP_DO_PLANSZY, W.KLAMSTWO, W.NARKOTYKI));
         M.przestrzel(osoba);
@@ -730,14 +732,13 @@ public class Watek_ULICA extends AbstractWatek {
 
     public void tworzenieWarunkow() {
         polskiRzad.tworzyWarunki(of(W.CHRONICZNE_BEZROBOCIE, W.NISKIE_PENSJE, W.PRAWO));
-        grubasPrzewaga.tworzyWarunki(of(W.KLAMSTWO, W.SLABY, W.WADY, W.DZIALAJACY, W.ZMYSLY_DLA_ZLA, M.NASYLANIE_DZIALACZY(),
-                                                                                        oraz(PRZYCZYNY_ZLA_WARUNKI)));
+        grubasPrzewaga.tworzyWarunki(of(W.KLAMSTWO, W.WADY, M.SLABY(W.DZIALAJACY), W.ZMYSLY_DLA_ZLA, M.NASYLANIE_DZIALACZY()));
 
         grubasPrzewaga.tworzyWarunki(M.ZAPOTRZEBOWANIE(of(W.ZLO, DBW.STRATY_MORALNE_WARUNKI(), DBW.STRATY_MATERIALNE_WARUNKI(), DBW.KRZYWDY_WARUNKI())));
         grubasPrzewaga.tworzyWarunki(M.TOLERANCJA(of(DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI())).CEL(M.CZESTO(of(W.WYKORZYSTANIE, W.DZIALANIE_DLA_ZLA))));
 
-        M.W(grubasPrzewaga.tworzyWarunki(M.KONTROLA(KONTROLA_WARUNKI)), "--->", M.KONTROLA(of(M.SRODOWISKO(W.KOBIETY),
-                                                                                                    M.SRODOWISKO(PRZEWAGI_Z_ULICY_WARUNKI),
+        M.W(grubasPrzewaga.tworzyWarunki(M.KONTROLA(DBW.KONTROLA_WARUNKI())), "--->", M.KONTROLA(of(M.SRODOWISKO(W.KOBIETY),
+                                                                                                    M.SRODOWISKO(DBW.PRZEWAGI_Z_ULICY_WARUNKI()),
                                                                                                     M.SRODOWISKO(W.WARTOSC),
                                                                                                     M.SRODOWISKO(W.OSOBY),
                                                                                                     M.SRODOWISKO(W.CIAGLOSC_INFORMACJI),
@@ -746,7 +747,7 @@ public class Watek_ULICA extends AbstractWatek {
         dzialacz.zwiekszaSzanse(of(W.ZLO, DBW.STRATY_MORALNE_WARUNKI(), DBW.STRATY_MATERIALNE_WARUNKI(), DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI()));
 
         grubasPrzewaga.tworzy(W.SRODOWISKO).CEL(of(
-                M.ZWIEKSZANIE(PRZEWAGI_Z_ULICY_WARUNKI), M.MATERIALIZOWANIE_ZLA_DZIEKI(W.PRZEWAGA), M.WYKLUCZENIE(osobyPozaSrodowisko),
+                M.ZWIEKSZANIE(DBW.PRZEWAGI_Z_ULICY_WARUNKI()), M.MATERIALIZOWANIE_ZLA_DZIEKI(W.PRZEWAGA), M.WYKLUCZENIE(osobyPozaSrodowisko),
                 M.ROBI_KRZYWDE_Z_PRZEWAGA(osobyPozaSrodowisko, DBW.KRZYWDY_WARUNKI()),
                 M.NABYCIE(of(W.SILA_SPRAWCZA, W.PRZEWAGA_SILY, W.POSLUCH)),
                 M.NABYCIE(M.WPLYW(W.LUDZIE)),
@@ -821,12 +822,12 @@ public class Watek_ULICA extends AbstractWatek {
         M.W(of(W.KTOS_SAM, W.KTOS_PATRZY, W.KTOS_POSIADA,
                 W.CISNIE, W.BOJKA, W.ZLE_W_ZYCIU),               "--->", M.MOZLIWOSC(W.STARCIE));
 
-        M.W(W.STARCIE, "--->", KRZYWDY_BEZPOSREDNIE_WARUNKI);
+        M.W(W.STARCIE, "--->", DBW.KRZYWDY_BEZPOSREDNIE_WARUNKI());
     }
 
     public void shortest(){
         List<W> stan = of(W.WYSILEK_UMYSLOWY, W.WYSILEK_FIZYCZNY, W.DUZO_ZARCIA, W.WZROK, W.SAMOPOCZUCIE);
-        List<W> shrtOsobaSonda = SONDA_SHRTS_WARUNKI;
+        W shrtOsobaSonda = DBW.SONDA_SHRTS_WARUNKI();
 
         M.W(of(W._01, W._II_, W.TRACISZ), "--->", W.REAKACJA);
 
@@ -837,8 +838,8 @@ public class Watek_ULICA extends AbstractWatek {
     }
 
     public void przewagi(){
-        List<W> przewagi = PRZEWAGI_WARUNKI;
-        List<W> slabosci = SLABOSCI_WARUNKI;
+        W przewagi = DBW.PRZEWAGI_WARUNKI();
+        W slabosci = DBW.SLABOSCI_WARUNKI();
 
         M.W(W.PRZEWAGA_LOKALNA, "--->", W.PRZEWAGA_GLOBALNA);
 

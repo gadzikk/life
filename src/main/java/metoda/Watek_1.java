@@ -1,6 +1,7 @@
 package metoda;
 
 
+import db.DBS;
 import db.DBW;
 import typy_bazowe.TypMiejsce;
 import warunek.W;
@@ -17,24 +18,24 @@ public class Watek_1 extends AbstractWatek {
 
     List<W> rzeczywistosc = of(W._1_OSOBA__DUZO, W.POPRUSZONE_NA_MIEJSCACH, W.X, W.KONTEKST);
 
-    List<W> plansza = PLANSZA_WARUNKI;
-    List<W> essentials = ESSENTIALS_SYTUACJE;
+    W plansza = DBW.PLANSZA_WARUNKI();
+    W essentials = DBW.ESSENTIALS_SYTUACJE_WARUNKI();
 
-    List<W> allSprzyjajace = SPRZYJAJACE_WARUNKI;
-    List<W> allNiesprzyjajace = NIE_SPRZYJAJACE_WARUNKI;
+    W allSprzyjajace = DBW.SPRZYJAJACE_WARUNKI();
+    W allNiesprzyjajace = DBW.NIE_SPRZYJAJACE_WARUNKI();
 
-    List<W> extremalne = EXTREMALNE_SYTUACJE;
-    List<W> reakcjeKobiet = REAKCJA_KOBIET_WARUNKI;
-    List<W> chcianeSytuacje = CHCIANA_SYTUACJE;
+    W extremalne = DBW.EXTREMALNE_SYTUACJE_WARUNKI();
+    W reakcjeKobiet = DBW.REAKCJA_KOBIET_WARUNKI();
+    List<W> chcianeSytuacje = DBS.ZBIOR_CHCIANA_SYTUACJA();
 
-    List<W> dopuszczenie = ZBIOR_DOPUSZCZENIE_WARUNKI;
+    List<W> dopuszczenie = DBW.ZBIOR_DOPUSZCZENIE();
 
     W potrzebneCechyM = DBW.PRZEWAGI_CHWILI_WARUNKI();
     List<W> osobaChcianeCechy = of(W.REAGUJE, W.STWARZA_SZANSE, W.SWIADOMOSC);
 
-    List<W> miejscaWstepowania = TYPY_MIEJSC_WARUNKI;
+    W miejscaWstepowania = DBW.TYPY_MIEJSC_WARUNKI();
 
-    List<W> typySytuacji = TYPY_SYTUACJI;
+    W typySytuacji = DBW.TYPY_SYTUACJI_WARUNKI();
 
     List<W> spojrzenia = of(M.spojrzenie_1(W.BEST_CASE), M.spojrzenie_2(W.NORMAL_CASE));
 
@@ -577,7 +578,7 @@ public class Watek_1 extends AbstractWatek {
                         M.widzisz(W.ZAZDROSC)
                 )
         );
-        M.W(of(on(WZGL_IZOLACJA_WARUNKI), W._II_,
+        M.W(of(DBW.WZGL_IZOLACJA_WARUNKI(), W._II_,
                 W.ZNAJOMI, W._II_,
                 W.CZAS, W._88_, W.PODBIJASZ), "--->", W.SZANSA_POZNANIE);
 

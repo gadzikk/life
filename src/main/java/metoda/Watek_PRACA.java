@@ -13,8 +13,8 @@ import static typy_bazowe.TypOsoby.*;
 public class Watek_PRACA extends AbstractWatek {
     W wazne = M.WAZNE(of(W.WIEDZA, W.DOSWIADCZENIE, W.WYSOKA_POZYCJA));
 
-    List<W> globalPlanszaPraca = GLOBAL_PLANSZA_PRACA_WARUNKI;
-    List<W> hierarchia = HIERARCHIA_PRACA_WARUNKI;
+    W globalPlanszaPraca = DBW.GLOBAL_PLANSZA_PRACA_WARUNKI();
+    W hierarchia = DBW.HIERARCHIA_PRACA_WARUNKI();
 
     List<W> warunki = of(W.PROJEKTY, W.TECHNOLOGIE, W.MANAGEROWIE, W.LUDZIE);
     List<W> ludzieKorporacji = of(W.KONFIDENCI, W.ZAWISTNI, W.ZE_WSI, W.WYGODNY, W.FESTY, W.CZYCHA_NA_BLAD, W.DZIWNA_PASJA, W.POSLUSZNY);

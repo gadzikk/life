@@ -1,5 +1,7 @@
 package metoda;
 
+import db.DBP;
+import db.DBW;
 import warunek.W;
 
 import java.util.List;
@@ -86,17 +88,17 @@ public class Watek_ZWIAZEK extends AbstractWatek {
 
         M.W(M.BRAK(W.SRODOWISKO), "--->", M.TRUDNO(W.KOBIETA));
 
-        M.W(W.KOBIETA, "--->", M.WSPARCIE(M.WYBOR(TYPY_LUDZI_SHRT_WARUNKI)));
+        M.W(W.KOBIETA, "--->", M.WSPARCIE(M.WYBOR(DBW.TYPY_LUDZI_SHRT_WARUNKI())));
 
-        M.W(W.ZWIAZEK, "--->", WYMAGANIA_UTRZYMANIA_KOBIETA);
+        M.W(W.ZWIAZEK, "--->", DBW.WYMAGANIA_UTRZYMANIA_KOBIETA_WARUNKI());
 
         M.W(M.KOBIETA(M.ODCZUCIE(W.SAMOTNOSC)), "--->", of(M.KOBIETA(M.DOCENIA(W.ZWIAZEK)),
                                                                 M.PRAWDZIWY(W.ZWIAZEK),
                                                                 M.PRAWDZIWA(W.MILOSC)));
 
-        M.W(of(on(PATOLOGIE_ZWIAZKU), on(PATOLOGIE_WSTEPNE_KOBIETA),
-                                      on(PATOLOGIE_UTRZYMANIA_KOBIETA)), "--->", of(M.MOZLIWOSC(of(M.SLABY(W.ZWIAZEK), W.NIESZCZESCIE,
-                                                                                                       on(PATOLOGIE_KONCOWE_KOBIETA)))));
+        M.W(of(DBP.PATOLOGIE_ZWIAZKU(), DBP.PATOLOGIE_WSTEPNE_KOBIETA(),
+                                      DBP.PATOLOGIE_UTRZYMANIA_KOBIETA()), "--->", of(M.MOZLIWOSC(of(M.SLABY(W.ZWIAZEK), W.NIESZCZESCIE,
+                                                                                                       DBP.PATOLOGIE_KONCOWE_KOBIETA()))));
     }
 
     public void reakcja() {

@@ -30,6 +30,7 @@ public class M {
     public static W WW(W w1, String del, List<W> w2, String del2, List<W> w3) { return W.WARUNEK; }
     public static W WW(List<W> w1, String del, List<W> w2, String del2, List<W> w3) { return W.WARUNEK; }
     public static W WW(W w1, String del, List<W> w2, String del2, W w3, String del3, List<W> w4) { return W.WARUNEK; }
+    public static W WW(W w1, String del, W w2, String del2, W w3, String del3, List<W> w4) { return W.WARUNEK; }
     public static W WW(W w1, String del, W w2, String del2, W w3, String del3, W w4) { return W.WARUNEK; }
     public static W WW(W w1, String del, W w2, String del2, List<W> w3) { return W.WARUNEK; }
     public static W WW(List<W> w1, String del, W w2, String del2, W w3) { return W.WARUNEK; }
@@ -41,13 +42,16 @@ public class M {
     public static W wejsciePlansza(List<W> plansza){
         return W.WARUNEK;
     }
+    public static W wejsciePlansza(W w){
+        return W.WARUNEK;
+    }
     public static W namierzenie(){
         return W.WARUNEK;
     }
     public static W sondaOsoby(List<W> osobaCechy){
         return W.WARUNEK;
     }
-    public static W sondaSytuacji(List<W> typySytuacji, List<W> essentials){
+    public static W sondaSytuacji(List<W> warunki){
         return W.WARUNEK;
     }
     public static W odrazuPochwycenie(W w){
@@ -1485,4 +1489,6 @@ public class M {
     public static W OKRASC(List<W> warunki){return W.WARUNEK;}
     public static W WRAZENIE(W w){return W.WARUNEK;}
     public static W WRAZENIE(List<W> warunki){return W.WARUNEK;}
+    public static W MALA_SZANSA(W w){return W.WARUNEK;}
+    public static W MALA_SZANSA(List<W> warunki){return W.WARUNEK;}
 }
