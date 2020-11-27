@@ -61,7 +61,6 @@ public class OsobaMetod {
     public W kabluj(TypOsoby me, OsobaMetod manago) {return W.WARUNEK;}
     public W wyklucz(W warunek) {return W.WARUNEK;}
     public W wyklucz() {return W.WARUNEK;}
-    public OsobaMetod threadWhileLoop(W warunek) {return new OsobaMetod();}
     public W caly_czas(W warunek) {return W.WARUNEK;}
     public W caly_czas(M m) {return W.WARUNEK;}
     public W caly_czas(List<W> warunki) {return W.WARUNEK;}

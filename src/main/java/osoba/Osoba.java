@@ -511,7 +511,7 @@ public class Osoba {
             slabosciCharakteru.add(W.NIEZDOLNY_WALKA_SPRZET);
         }
         if(wiecznyImigrant){
-            slabosciCharakteru.add(W.BRAK_THREAD_WHILE_LOOP_BLISKOSC_U);
+            slabosciCharakteru.add(W.BRAK_CODZIENNEJ_BLISKOSCI_U);
             slabosciCharakteru.add(W.BRAK_SRODOWISKA);
             slabosciCharakteru.add(W.BRAK_SZANS_SRODOWISKO);
             slabosciCharakteru.add(W.BRAK_DOSTEPU_DOBRE_JEDNOSTKI);
@@ -521,7 +521,7 @@ public class Osoba {
             slabosciCharakteru.add(W.BRAK_OD_KOGO_JESTES);
         }
         if(osiedloweSrd){
-            przewagiCharakteru.add(W.THREAD_WHILE_LOOP_BLISKOSC_U);
+            przewagiCharakteru.add(W.CODZIENNA_BLISKOSC_U);
             przewagiCharakteru.add(W.SRODOWISKO);
             przewagiCharakteru.add(W.SZANSA_OSIEDLOWE_SRD);
             przewagiCharakteru.add(W.SZANSA_ZNAJOMI);
@@ -532,7 +532,7 @@ public class Osoba {
             przewagiCharakteru.add(W.BRAK_OD_KOGO_JESTES);
         }
         if(osiedloweSrd && mocnaJednostka){
-            przewagiCharakteru.add(W.THREAD_WHILE_LOOP_BLISKOSC_U);
+            przewagiCharakteru.add(W.CODZIENNA_BLISKOSC_U);
             przewagiCharakteru.add(W.SRODOWISKO);
             przewagiCharakteru.add(W.SZANSA_OSIEDLOWE_SRD);
             przewagiCharakteru.add(W.SZANSA_ZNAJOMI);
@@ -915,7 +915,7 @@ public class Osoba {
             slabosciCharakteru.add(W.KONFI);
             slabosciCharakteru.add(W.POJECHANE);
             slabosciCharakteru.add(W.HANBA);
-            slabosciCharakteru.add(W.BRAK_THREAD_WHILE_LOOP_BLISKOSC_U);
+            slabosciCharakteru.add(W.BRAK_CODZIENNEJ_BLISKOSCI_U);
             slabosciCharakteru.add(W.BRAK_SRODOWISKA);
             slabosciCharakteru.add(W.BRAK_SZANS_SRODOWISKO);
             slabosciCharakteru.add(W.BRAK_DOSTEPU_DOBRE_JEDNOSTKI);

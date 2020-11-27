@@ -106,7 +106,7 @@ public class DBW extends DB {
 
     public static List<W> ZBIOR_TWL_PRZEWAGI_SLABOSCI_CIERPIENIA_POTRZEBY() {
         return of(
-                THREAD_WHILE_LOOP_WARUNKI(),
+                CALY_CZAS_WARUNKI(),
                 PRZEWAGI_WARUNKI(),
                 SLABOSCI_WARUNKI(),
                 CIERPIENIA_WARUNKI(),
@@ -595,7 +595,7 @@ public class DBW extends DB {
                 W.SRODOWISKO,
                 W.KOBIETA,
                 W.SILNE_JEDNOSTKI,
-                W.THREAD_WHILE_LOOP_BLISKOSC_U,
+                W.CODZIENNA_BLISKOSC_U,
                 W.OSZCZEDNOSC_CZASU,
                 W.AKCEPTACJA,
                 W.LATWY_DOSTEP_PRZEWAGI
@@ -705,12 +705,12 @@ public class DBW extends DB {
         );
     }
 
-    public static W THREAD_WHILE_LOOP_WARUNKI() {
+    public static W CALY_CZAS_WARUNKI() {
         return on(
-                W.THREAD_WHILE_LOOP_ZASIEG_WZROKU,
-                W.THREAD_WHILE_LOOP_BLISKOSC_U,
-                W.THREAD_WHILE_LOOP_BLISKOSC_K,
-                W.THREAD_WHILE_LOOP_EFEKTYWNA_GADKA
+                W.CALY_CZAS_ZASIEG_WZROKU,
+                W.CODZIENNA_BLISKOSC_U,
+                W.CALY_CZAS_BLISKOSC_K,
+                W.CALY_CZAS_EFEKTYWNA_GADKA
         );
     }
 

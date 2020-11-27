@@ -3,7 +3,6 @@ package db;
 import metoda.M;
 import warunek.W;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -189,7 +188,7 @@ public class DBP extends DB {
     public static W PATOLOGIE_KONCOWE_BRAK_OSIEDLE() {
         return on(
                 W.BRAK_ZNAJOMYCH, W.BRAK_SRODOWISKA, W.BRAK_KOBIETY, W.BRAK_DOSTEPU_SILNE_JEDNOSTKI,
-                W.BRAK_THREAD_WHILE_LOOP_BLISKOSC_U, W.MARNOWANIE_CZASU, W.BRAK_AKCEPTACJI,
+                W.BRAK_CODZIENNEJ_BLISKOSCI_U, W.MARNOWANIE_CZASU, W.BRAK_AKCEPTACJI,
                 W.BRAK_DOSTEPU_PRZEWAGI
         );
     }
@@ -213,10 +212,10 @@ public class DBP extends DB {
         );
     }
 
-    public static W PATOLOGIE_THREAD_WHILE_LOOP() {
+    public static W PATOLOGIE_CALY_CZAS() {
         return on(
-                W.BRAK_THREAD_WHILE_LOOP_ZASIEG_WZROKU, W.BRAK_THREAD_WHILE_LOOP_BLISKOSC_U,
-                W.BRAK_THREAD_WHILE_LOOP_BLISKOSC_K, W.BRAK_THREAD_WHILE_LOOP_EFEKTYWNA_GADKA
+                W.BRAK_CALY_CZAS_ZASIEG_WZROKU, W.BRAK_CODZIENNEJ_BLISKOSCI_U,
+                W.BRAK_CODZIENNEJ_BLISKOSCI_K, W.BRAK_CALY_CZAS_EFEKTYWNA_GADKA
         );
     }
 
@@ -259,6 +258,6 @@ public class DBP extends DB {
                 PATOLOGIE_KONCOWE_KOBIETA(),
                 PATOLOGIE_GLOBAL_PLANSZA_LUDZIE(),
                 PATOLOGIE_GLOBAL_PLANSZA_PRACA(),
-                PATOLOGIE_THREAD_WHILE_LOOP());
+                PATOLOGIE_CALY_CZAS());
     }
 }

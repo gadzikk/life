@@ -94,7 +94,7 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
         );
         M.W(
                 of(M.wstanie(), M.przejscie()),
-                of(W.FOCUS, W.THREAD_WHILE_LOOP_BLISKOSC_K)
+                of(W.FOCUS, W.CALY_CZAS_BLISKOSC_K)
         );
         M.W(
                 of(M.prefix(prefixes, pdstw)),
@@ -102,7 +102,7 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
         );
         M.W(
                 of(M.gadka(tematy, kombo)),
-                of(W.NIEUSTANNA_GADKA, W.THREAD_WHILE_LOOP_EFEKTYWNA_GADKA, W.NASTAWIENIE_WZIECIE_KONTAKTU)
+                of(W.NIEUSTANNA_GADKA, W.CALY_CZAS_EFEKTYWNA_GADKA, W.NASTAWIENIE_WZIECIE_KONTAKTU)
         );
         M.W(
                 of(M.wziecieKontaktu(), M.temat(), M.ponowienie(), M.temat(), M.ponowienie()),

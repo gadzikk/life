@@ -82,7 +82,7 @@ public class Watek_1 extends AbstractWatek {
 
         M.W(
                 of(M.namierzenie(), M.nieOddalaszWzroku()),
-                of(W.THREAD_WHILE_LOOP_ZASIEG_WZROKU)
+                of(W.CALY_CZAS_ZASIEG_WZROKU)
         );
 
         M.W(
@@ -137,7 +137,7 @@ public class Watek_1 extends AbstractWatek {
                 of(W.SZYBKO, W._88_, W.ODSTEP_0_5s, W._88_, W.PRZEWIDYWANIE, W._88_, W.REZULTAT),
                 of(
                         M.GRANT(ME, W.EFEKTYWNA_GADKA),
-                        M.GRANT(ME, W.THREAD_WHILE_LOOP_EFEKTYWNA_GADKA)
+                        M.GRANT(ME, W.CALY_CZAS_EFEKTYWNA_GADKA)
                 ),
                 of(W.EFEKTYWNA_GADKA),
                 of(
@@ -277,7 +277,6 @@ public class Watek_1 extends AbstractWatek {
         List<W> normalne = of(W.CISZA, W.TLUM, W.CHODZAC_ROZMOWA_UWAGA_NA_TOBIE, W.BIEDACY);
         List<W> niesprzyjajace = of(W.ULOTNOSC, W.ZARAZ_WYSIADZIE, W.ZARAZ_WYCIAGNIE_SLUCHAWKI);
 
-        // THREAD DOPOKI LOOP.START()
         M.WW(
                 of(W.TRAUTO),
                 of(
@@ -310,7 +309,6 @@ public class Watek_1 extends AbstractWatek {
                         M.skupiaszNaPrzystankach()
                 )
         );
-        // THREAD DOPOKI LOOP.END()
         // NAMIERZONA
 
         M.WWW(

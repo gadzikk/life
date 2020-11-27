@@ -221,7 +221,7 @@ public class Watek_SJ extends AbstractWatek {
     }
 
     public void typyOsobZMojejPerspektywy() {
-        wiesniak.threadWhileLoop(W.CZYNY_PRZECIW_TOBIE).przerwanie(W.SILA_PRZECIW_NIEMU);
+        wiesniak.caly_czas(W.CZYNY_PRZECIW_TOBIE).przerwanie(DBW.KRZYWDY_BEZPOSREDNIE_WARUNKI());
         wiesniak.niszczy().cisnie().skazujeNaSamotnosc();
         czoloWisly.niszczy().cisnie().skazujeNaSamotnosc();
         cracoviaSlabi.niszczy().cisnie().skazujeNaSamotnosc();
