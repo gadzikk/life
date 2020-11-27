@@ -20,7 +20,7 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
                 W.SLUCHANIE_ZLEGO,
                 W.DZIALANIE_DLA_ZLA), "--->", W.PELNE_POPARCIE_ZLA, "--->", W.PIEKLO);
 
-        M.ZWYKLE(of(M.MOCNO(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI), M.SLABO(PRZYCZYNY_SLUZENIA_DOBRU_WARUNKI)));
+        M.ZWYKLE(of(M.MOCNO(PRZYCZYNY_ZLA_WARUNKI), M.SLABO(PRZYCZYNY_DOBRA_WARUNKI)));
 
         M.WW(W.ZLO, "--->", of(M.ROBI_KRZYWDE(of(on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI))),
                                              M.TWORZENIE(of(on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI)))), "--->",of(M.LEKKIE(W.ZYCIE),

@@ -1,6 +1,6 @@
 package metoda;
 
-import db.DB_Warunki;
+import db.DBW;
 import warunek.W;
 
 import java.util.List;
@@ -316,7 +316,7 @@ public class Watek_LUDZI extends AbstractWatek {
     }
 
     public void fest() {
-        List<W> festWarunki = DB_Warunki.FEST;
+        List<W> festWarunki = DBW.FEST;
         List<W> festEndCase = of(W.PODROZE, W.WYGODY, W.PRZEKAZANIE_ZLEGO_GENU, W.NABICIE_KABZY_KAPITALISCIE);
 
         M.W(of(W.RODZINA, W.KONTROLA, W.PIENIADZE),
@@ -414,7 +414,7 @@ public class Watek_LUDZI extends AbstractWatek {
                                 srodowisko.ROBI_KRZYWDE_Z_PRZEWAGA(dzialacz, KRZYWDY_WARUNKI)
                         )),
 
-                        M.W(srodowisko.CZESTO(M.WZAJEMNE_RANY(ZBIOR_RANY)), "--->", srodowisko.TOLERANCJA(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI)),
+                        M.W(srodowisko.CZESTO(M.WZAJEMNE_RANY(ZBIOR_RANY)), "--->", srodowisko.TOLERANCJA(PRZYCZYNY_ZLA_WARUNKI)),
                         srodowisko.WHILE(dzialacz.thread_while_loop(of(W.SLUCHAJA, W.OBECNOSC_LUDZI, M.wykonujeRozkazy(W.GORA), M.KRZYWDY(osobyPozaSrodowisko, KRZYWDY_WARUNKI)))),
 
                         M.W(M.INFORMACJA(W.WROG), "--->", dzialajcyBliskoMiejsca.KAZDY(on(KRZYWDY_BEZPOSREDNIE_WARUNKI))),

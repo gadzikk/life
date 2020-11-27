@@ -1,6 +1,6 @@
 package miejsce;
 
-import db.DB_Warunki;
+import db.DBW;
 import typy_bazowe.TypDzielnicy;
 import typy_bazowe.TypIlosc;
 import typy_bazowe.TypOsoby;
@@ -11,7 +11,7 @@ import z_inne.PO;
  */
 public class Dzielnica_StaraHuta extends Dzielnica {
     public Dzielnica_StaraHuta() {
-        wymaganiaWstepne = DB_Warunki.WYMAGANIA_WSTEPNE_SWIAT;
+        wymaganiaWstepne = DBW.WYMAGANIA_WSTEPNE_SWIAT;
         dzielnica = TypDzielnicy.POHUTNICZE;
         iloscMieszkan = TypIlosc.DUZA;
 

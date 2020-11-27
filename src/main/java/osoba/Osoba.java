@@ -1,6 +1,6 @@
 package osoba;
 
-import db.DB_Warunki;
+import db.DBW;
 import miejsce.Miejsce;
 import typy_bazowe.*;
 import warunek.W;
@@ -281,7 +281,7 @@ public class Osoba {
             slabosciCharakteru.add(W.NIEZAZNANIE_CIERPIENIA);
         }
 
-        if(DB_Warunki.WARTOSC_DOBRA.stream().anyMatch(priorytet::contains)){
+        if(DBW.WARTOSC_DOBRA.stream().anyMatch(priorytet::contains)){
             przewagiCharakteru.add(W.DOBRY_PRIORYTET);
         }
         else {
@@ -961,10 +961,10 @@ public class Osoba {
             przewagiCharakteru.add(W.AKTYWNY_NA_ANGAZ);
         }
         typyOsoby.forEach(typ->{
-            if(DB_Warunki.TYPY_LUDZI_DOBRE.stream().anyMatch(x->x.equals(typ))){
+            if(DBW.TYPY_LUDZI_DOBRE.stream().anyMatch(x->x.equals(typ))){
                 przewagiCharakteru.add(W.valueOf(typ.name()));
             }
-            if(DB_Warunki.TYPY_LUDZI_ZLE.stream().anyMatch(x->x.equals(typ))){
+            if(DBW.TYPY_LUDZI_ZLE.stream().anyMatch(x->x.equals(typ))){
                 slabosciCharakteru.add(W.valueOf(typ.name()));
             }
         });

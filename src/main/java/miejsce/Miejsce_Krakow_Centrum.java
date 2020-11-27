@@ -1,6 +1,6 @@
 package miejsce;
 
-import db.DB_Warunki;
+import db.DBW;
 import typy_bazowe.TypIlosc;
 import typy_bazowe.TypMiejsce;
 import typy_bazowe.TypOsoby;
@@ -15,7 +15,7 @@ import static db.DB.on;
 public class Miejsce_Krakow_Centrum extends Miejsce {
     public Miejsce_Krakow_Centrum() {
         typMiejsce = TypMiejsce.CENTRUM_MIASTA;
-        wymaganiaWstepne = of(on(DB_Warunki.POTRZEBY),  on(DB_Warunki.PRZYMUS));
+        wymaganiaWstepne = of(on(DBW.POTRZEBY),  on(DBW.PRZYMUS));
 
         przechodnie = true;
 //        stale;

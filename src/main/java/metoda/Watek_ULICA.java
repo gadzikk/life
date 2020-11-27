@@ -371,7 +371,7 @@ public class Watek_ULICA extends AbstractWatek {
         M.W(W.SLABY, "--->", M.ZWYKLE(W.CEL_ATAKU));
         M.W(W.SILNY, "--->", M.ZWYKLE(M.CALY_CZAS(M.WYBOR_CELU(W.SLABSI))));
 
-        M.ZWYKLE(of(M.MOCNO(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI), M.SLABO(PRZYCZYNY_SLUZENIA_DOBRU_WARUNKI)));
+        M.ZWYKLE(of(M.MOCNO(PRZYCZYNY_ZLA_WARUNKI), M.SLABO(PRZYCZYNY_DOBRA_WARUNKI)));
 
         M.W(of(W.MILY_TEAMT, W.ZARTY, W.POCHWALA, W.WSPARCIE, W.DOBRE_EMOCJE,
                 W.TEMAT_ZGODNY_Z_WARTOSCIAMI, W.TEMAT_ZGODNY_Z_EMOCJAMI, W.TEMAT_NIEPODWAZALNY), "--->", of(W.DOBRA_ROZMOWA));
@@ -728,7 +728,7 @@ public class Watek_ULICA extends AbstractWatek {
     public void tworzenieWarunkow() {
         polskiRzad.tworzyWarunki(of(W.CHRONICZNE_BEZROBOCIE, W.NISKIE_PENSJE, W.PRAWO));
         grubasPrzewaga.tworzyWarunki(of(W.KLAMSTWO, W.SLABY, W.WADY, W.DZIALAJACY, W.ZMYSLY_DLA_ZLA, M.NASYLANIE_DZIALACZY(),
-                                                                                        oraz(PRZYCZYNY_SLUZENIA_ZLU_WARUNKI)));
+                                                                                        oraz(PRZYCZYNY_ZLA_WARUNKI)));
 
         grubasPrzewaga.tworzyWarunki(M.ZAPOTRZEBOWANIE(of(W.ZLO, on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI), on(KRZYWDY_WARUNKI))));
         grubasPrzewaga.tworzyWarunki(M.TOLERANCJA(of(on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI))).CEL(M.CZESTO(of(W.WYKORZYSTANIE, W.DZIALANIE_DLA_ZLA))));
