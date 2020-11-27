@@ -261,7 +261,7 @@ public class M {
     public static W ukazanieZlychCech() {return W.WARUNEK;}
     public static W wspominanieZlychWydarzen() {return W.WARUNEK;}
     public static W zartowanie(List<TT> zarty) {return W.WARUNEK;}
-    public static W terror(List<W> sposoby) {return W.WARUNEK;}
+    public static W terror(W w) {return W.WARUNEK;}
     public static W ktoZNimTenPojechane() {return W.WARUNEK;}
     public static W shanbienie() {return W.WARUNEK;}
     public static W widziszTylkoZlaStrone() {return W.WARUNEK;}

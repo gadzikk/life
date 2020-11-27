@@ -10,202 +10,248 @@ import java.util.List;
  * Created by gadzik on 28.12.19.
  */
 public class DBW extends DB {
-    public static List<W> ZBIOR_ZLY_DOBRY = Arrays.asList(
-            PRZYCZYNY_ZLA(),
-            PRZYCZYNY_DOBRA(),
-            ZACHETA_DO_ZLA(),
-            NIESPRAWIEDLIWOSC(),
-            DOBRE_CZYNY(),
-            ZLE_CZYNY(),
-            ANTY_DZIALACZ_ZLA(),
-            WADY_ZLYCH(),
-            OKAZJE_ZROBIENIE_ZLO(),
-            OKAZJE_ZROBIENIE_DOBRO(),
-            ZLY_ZNAKI_ROZPOZNAWCZE()
-    );
+    public static List<W> ZBIOR_ZLY_DOBRY() {
+        return of(
+                PRZYCZYNY_ZLA(),
+                PRZYCZYNY_DOBRA(),
+                ZACHETA_DO_ZLA(),
+                NIESPRAWIEDLIWOSC(),
+                DOBRE_CZYNY(),
+                ZLE_CZYNY(),
+                ANTY_DZIALACZ_ZLA(),
+                WADY_ZLYCH(),
+                OKAZJE_ZROBIENIE_ZLO(),
+                OKAZJE_ZROBIENIE_DOBRO(),
+                ZLY_ZNAKI_ROZPOZNAWCZE()
+        );
+    }
 
-    public static List<W> ZBIOR_GLOBAL_PLANSZA = Arrays.asList(
-            GLOBAL_PLANSZA_LUDZIE(),
-            GLOBAL_PLANSZA_PRACA()
-    );
+    public static List<W> ZBIOR_GLOBAL_PLANSZA() {
+        return of(
+                GLOBAL_PLANSZA_LUDZIE(),
+                GLOBAL_PLANSZA_PRACA()
+        );
+    }
 
-    public static List<W> ZBIOR_WARTOSCI_OCENA_WROG = Arrays.asList(
-            WARTOSC_ZLA(),
-            WARTOSC_DOBRA(),
-            OCENIA_WEDLUG(),
-            KRYTERIA_WROGA(),
-            NASTAWIENIA(),
-            KONTROLA()
-    );
+    public static List<W> ZBIOR_WARTOSCI_OCENA_WROG() {
+        return of(
+                WARTOSC_ZLA(),
+                WARTOSC_DOBRA(),
+                OCENIA_WEDLUG(),
+                KRYTERIA_WROGA(),
+                NASTAWIENIA(),
+                KONTROLA()
+        );
+    }
 
-    public static List<W> ZBIOR_ZASADY_PRZYMUS_ZAGROZENIA = Arrays.asList(
-            ZASADY(),
-            PRZYMUS(),
-            ZAGROZENIA(),
-            OSLONY(),
-            METODY_POLICYJNE(),
-            BLEDY()
-    );
+    public static List<W> ZBIOR_ZASADY_PRZYMUS_ZAGROZENIA() {
+        return of(
+                ZASADY(),
+                PRZYMUS(),
+                ZAGROZENIA(),
+                OSLONY(),
+                METODY_POLICYJNE(),
+                BLEDY()
+        );
+    }
 
-    public static List<W> ZBIOR_TWL_PRZEWAGI_SLABOSCI_CIERPIENIA_POTRZEBY = Arrays.asList(
-            THREAD_WHILE_LOOP(),
-            PRZEWAGI(),
-            SLABOSCI(),
-            CIERPIENIA(),
-            POTRZEBY(),
-            OSLONY(),
-            DEFAULT_WARUNKI(),
-            CECHY_RDZENNY(),
-            SLABY_TCHORZ()
-    );
+    public static List<W> ZBIOR_TWL_PRZEWAGI_SLABOSCI_CIERPIENIA_POTRZEBY() {
+        return of(
+                THREAD_WHILE_LOOP(),
+                PRZEWAGI(),
+                SLABOSCI(),
+                CIERPIENIA(),
+                POTRZEBY(),
+                OSLONY(),
+                DEFAULT_WARUNKI(),
+                CECHY_RDZENNY(),
+                SLABY_TCHORZ()
+        );
+    }
 
-    public static List<W> ZBIOR_REAKCJE = Arrays.asList(
-            REAKCJE(),
-            WYMUSZENIE_REAKCJI(),
-            REAKCJA_KOBIET()
-    );
+    public static List<W> ZBIOR_REAKCJE() {
+        return of(
+                REAKCJE(),
+                WYMUSZENIE_REAKCJI(),
+                REAKCJA_KOBIET()
+        );
+    }
 
-    public static List<W> ZBIOR_SONDA = Arrays.asList(
-            SONDA_GDY(),
-            SONDA_PO(),
-            SONDA_KOGO(),
-            WYMAGA_KARY(),
-            SONDA_DZIALACZA(),
-            SONDA_SHRTS(),
-            SONDA_PRZYCZYN()
-    );
+    public static List<W> ZBIOR_SONDA() {
+        return of(
+                SONDA_GDY(),
+                SONDA_PO(),
+                SONDA_KOGO(),
+                WYMAGA_KARY(),
+                SONDA_DZIALACZA(),
+                SONDA_SHRTS(),
+                SONDA_PRZYCZYN()
+        );
+    }
 
-    public static List<W> ZBIOR_CZAS = Arrays.asList(
-            CYKL_DNIA(),
-            PLAN_TERMIN(),
-            ERA(),
-            POZYTECZNE_SPEDZANIE_CZASU()
-    );
+    public static List<W> ZBIOR_CZAS() {
+        return of(
+                CYKL_DNIA(),
+                PLAN_TERMIN(),
+                ERA(),
+                POZYTECZNE_SPEDZANIE_CZASU()
+        );
+    }
 
-    public static List<W> ZBIOR_ROZRYWKI_ZART = Arrays.asList(
-            ROZRYWKI(),
-            ZART(),
-            SPORT()
-    );
+    public static List<W> ZBIOR_ROZRYWKI_ZART() {
+        return of(
+                ROZRYWKI(),
+                ZART(),
+                SPORT()
+        );
+    }
 
-    public static List<W> ZBIOR_EMOCJE_UCZUCIA = Arrays.asList(
-            EMOCJE_NEGATYWNE(),
-            EMOCJE_POZYTYWNE(),
-            UCZUCIA_NEGATYWNE(),
-            UCZUCIA_POZYTYWNE()
-    );
+    public static List<W> ZBIOR_EMOCJE_UCZUCIA() {
+        return of(
+                EMOCJE_NEGATYWNE(),
+                EMOCJE_POZYTYWNE(),
+                UCZUCIA_NEGATYWNE(),
+                UCZUCIA_POZYTYWNE()
+        );
+    }
 
-    public static List<W> ZBIOR_ZDOBYWANIE_WIEDZY_PIENIEDZY = Arrays.asList(
-            ZAROBEK_NIELEGALNY()
-    );
+    public static List<W> ZBIOR_ZDOBYWANIE_WIEDZY_PIENIEDZY() {
+        return of(
+                ZAROBEK_NIELEGALNY()
+        );
+    }
 
-    public static List<W> ZBIOR_KSZTALTOWANIE = Arrays.asList(
-            KSZTALTOWANIE_DZIELNICY(),
-            KSZTALTOWANIE_CZLOWIEKA(),
-            SILNE_WIEZY_CZLOWIEKA()
-    );
+    public static List<W> ZBIOR_KSZTALTOWANIE() {
+        return of(
+                KSZTALTOWANIE_DZIELNICY(),
+                KSZTALTOWANIE_CZLOWIEKA(),
+                SILNE_WIEZY_CZLOWIEKA()
+        );
+    }
 
-    public static List<W> ZBIOR_RANY = Arrays.asList(
-            RANY_PSYCHICZNE(),
-            RANY_FIZYCZNE(),
-            RANY_ZNECANIE_SIE(),
-            RANY_SPRZET(),
-            RANY_DOSTEPOWE(),
-            KRZYWDY(),
-            KRZYWDY_BEZPOSREDNIE(),
-            KRZYWDY_POSREDNIE(),
-            BRAK_ZASAD(),
-            OBRONA_STARCIE(),
-            METODA_STARCIE_REAKCJA(),
-            ULICA_PRZEWAGA_SPOSOB(),
-            KONFRONTACJA(),
-            WALKA(),
-            ZASIEG_PRZEWAGI_ULICA()
-    );
+    public static List<W> ZBIOR_RANY() {
+        return of(
+                RANY_PSYCHICZNE(),
+                RANY_FIZYCZNE(),
+                RANY_ZNECANIE_SIE(),
+                RANY_SPRZET(),
+                RANY_DOSTEPOWE(),
+                KRZYWDY(),
+                KRZYWDY_BEZPOSREDNIE(),
+                KRZYWDY_POSREDNIE(),
+                BRAK_ZASAD(),
+                OBRONA_STARCIE(),
+                METODA_STARCIE_REAKCJA(),
+                ULICA_PRZEWAGA_SPOSOB(),
+                KONFRONTACJA(),
+                WALKA(),
+                ZASIEG_PRZEWAGI_ULICA()
+        );
+    }
 
-    public static List<W> ZBIOR_TYPY_PRAC = Arrays.asList(
-            PRACA_FIZYCZNA(),
-            PRACA_HANDEL(),
-            PRACA_WYMAGAJACA_UMIEJETNOSCI(),
-            PRACA_USLUGI(),
-            PRACA_OSWIATA(),
-            PRACA_TRANSPORT(),
-            PRACA_TECHNICZNA_UMYSLOWA()
-    );
+    public static List<W> ZBIOR_TYPY_PRAC() {
+        return of(
+                PRACA_FIZYCZNA(),
+                PRACA_HANDEL(),
+                PRACA_WYMAGAJACA_UMIEJETNOSCI(),
+                PRACA_USLUGI(),
+                PRACA_OSWIATA(),
+                PRACA_TRANSPORT(),
+                PRACA_TECHNICZNA_UMYSLOWA()
+        );
+    }
 
-    public static List<W> ZBIOR_TEMATY = Arrays.asList(
-            TEMATY_NORMALNYCH_LUDZI(),
-            TEMATY_RDZENNYCH()
-    );
+    public static List<W> ZBIOR_TEMATY() {
+        return of(
+                TEMATY_NORMALNYCH_LUDZI(),
+                TEMATY_RDZENNYCH()
+        );
+    }
 
-    public static List<W> ZBIOR_KOBIETA_PRAKTYKA = Arrays.asList(
-            WZGLEDNA_IZOLACJA(),
-            SPRZYJAJACE(),
-            NIE_SPRZYJAJACE(),
-            ESSENTIALS_SYTUACJE(),
-            PLANSZA(),
-            EXTREMALNE_SYTUACJE()
-    );
+    public static List<W> ZBIOR_KOBIETA_PRAKTYKA() {
+        return of(
+                WZGLEDNA_IZOLACJA(),
+                SPRZYJAJACE(),
+                NIE_SPRZYJAJACE(),
+                ESSENTIALS_SYTUACJE(),
+                PLANSZA(),
+                EXTREMALNE_SYTUACJE()
+        );
+    }
 
-    public static List<W> ZBIOR_UNIWERSALNE_SWIAT = Arrays.asList(
-            WSPOMNIENIA(),
-            RELACJE()
-    );
+    public static List<W> ZBIOR_UNIWERSALNE_SWIAT() {
+        return of(
+                WSPOMNIENIA(),
+                RELACJE()
+        );
+    }
 
-    public static List<W> ZBIOR_TYPY_LUDZI = Arrays.asList(
-            TYPY_LUDZI_SHRT(),
-            TYPY_LUDZI_DOBRE(),
-            TYPY_LUDZI_ZLE()
-    );
+    public static List<W> ZBIOR_TYPY_LUDZI() {
+        return of(
+                TYPY_LUDZI_SHRT(),
+                TYPY_LUDZI_DOBRE(),
+                TYPY_LUDZI_ZLE()
+        );
+    }
 
-    public static List<W> ZBIOR_SYTUACJE = Arrays.asList(
-            TYPY_SYTUACJI(),
-            SYTUACJE_STARCIE()
-    );
+    public static List<W> ZBIOR_SYTUACJE() {
+        return of(
+                TYPY_SYTUACJI(),
+                SYTUACJE_STARCIE()
+        );
+    }
 
-    public static List<W> ZBIOR_WIEDZA = Arrays.asList(
-            RODZAJE_WIEDZA(),
-            WYMAGANIA_WSTEPNE_WIEDZA(),
-            WYMAGANIA_UTRZYMANIA_WIEDZA()
-    );
+    public static List<W> ZBIOR_WIEDZA() {
+        return of(
+                RODZAJE_WIEDZA(),
+                WYMAGANIA_WSTEPNE_WIEDZA(),
+                WYMAGANIA_UTRZYMANIA_WIEDZA()
+        );
+    }
 
-    public static List<W> ZBIOR_DOPUSZCZENIE = Arrays.asList(
-            WYMAGANIA_WSTEPNE_DOPUSZCZENIE_KOBIETA(),
-            WYMAGANIA_UTRZYMANIA_DOPUSZCZENIE_KOBIETA(),
-            WARUNKI_KONCOWE_DOPUSZCZENIE_KOBIETA()
-    );
+    public static List<W> ZBIOR_DOPUSZCZENIE() {
+        return of(
+                WYMAGANIA_WSTEPNE_DOPUSZCZENIE_KOBIETA(),
+                WYMAGANIA_UTRZYMANIA_DOPUSZCZENIE_KOBIETA(),
+                WARUNKI_KONCOWE_DOPUSZCZENIE_KOBIETA()
+        );
+    }
 
-    public static List<W> ZBIOR_PRZEWAGI = Arrays.asList(
-            PRZEWAGI(),
-            PRZEWAGI_LUDZKIE(),
-            PRZEWAGI_Z_ULICY(),
-            PRZEWAGI_MATERIALNE(),
-            PRZEWAGI_DANEJ_CHWILI()
-    );
+    public static List<W> ZBIOR_PRZEWAGI() {
+        return of(
+                PRZEWAGI(),
+                PRZEWAGI_LUDZKIE(),
+                PRZEWAGI_Z_ULICY(),
+                PRZEWAGI_MATERIALNE(),
+                PRZEWAGI_DANEJ_CHWILI()
+        );
+    }
 
-    public static List<W> ZBIOR_MIEJSCE = Arrays.asList(
-            TYPY_MIEJSC()
-    );
+    public static List<W> ZBIOR_MIEJSCE() {
+        return of(
+                TYPY_MIEJSC()
+        );
+    }
 
 
     public static W WYMAGANIA_WSTEPNE_SWIAT() {
         return on(
-                    W.ZWIAZEK_2_OSOB,
-                    W.URODZENIE_SIE,
-                    W.ZDROWIE,
-                    W.BYT_MATERIALNY
+                W.ZWIAZEK_2_OSOB,
+                W.URODZENIE_SIE,
+                W.ZDROWIE,
+                W.BYT_MATERIALNY
         );
     }
 
-    public static W WYMAGANIA_WSTEPNE_INFORMACJA(){
+    public static W WYMAGANIA_WSTEPNE_INFORMACJA() {
         return on(
-                    W.CZAS,
-                    W.DOSTEP_DO_PLANSZY,
-                    W.OBECNOSC,
-                    W.LUDZIE,
-                    W.SONDA,
-                    W.SZCZEGOLY
-         );
+                W.CZAS,
+                W.DOSTEP_DO_PLANSZY,
+                W.OBECNOSC,
+                W.LUDZIE,
+                W.SONDA,
+                W.SZCZEGOLY
+        );
     }
 
     public static W WYMAGANIA_WSTEPNE_WIEDZA() {
@@ -219,29 +265,29 @@ public class DBW extends DB {
 
     public static W WYMAGANIA_WSTEPNE_BRAKWSTYDU() {
         return on(
-                    W.INFORMACJA,
-                    W.WIEDZA,
-                    W.DZIALANIE
-            );
+                W.INFORMACJA,
+                W.WIEDZA,
+                W.DZIALANIE
+        );
     }
 
     public static W WYMAGANIA_WSTEPNE_REZULTAT() {
         return on(
-                    W.DZIALANIE,
-                    W.KONSEKWENCJE,
-                    W.WNIOSKI,
-                    W.REZULTAT
+                W.DZIALANIE,
+                W.KONSEKWENCJE,
+                W.WNIOSKI,
+                W.REZULTAT
         );
     }
 
     public static W WYMAGANIA_WSTEPNE_PRACA() {
-            return on(
-                    W.NIEKARALNOSC,
-                    W.WYKSZTALCENIE,
-                    W.DOSWIADCZENIE,
-                    W.UMIEJETNOSCI,
-                    W.ZNAJOMOSCI
-            );
+        return on(
+                W.NIEKARALNOSC,
+                W.WYKSZTALCENIE,
+                W.DOSWIADCZENIE,
+                W.UMIEJETNOSCI,
+                W.ZNAJOMOSCI
+        );
     }
 
     public static W WYMAGANIA_WSTEPNE_PRACA_RESTRYKCYJNA() {

@@ -298,19 +298,19 @@ public class Watek_LUDZI extends AbstractWatek {
         );
         M.W(of(W.KTOS_MI_COS_ZROBIL, W._II_, W.ZAZDROSC),
                 of(
-                        M.reakcjaMocniejNizszemuWHierarchii(ZBIOR_RANY)
+                        M.reakcjaMocniejNizszemuWHierarchii(DBW.ZBIOR_RANY())
                 )
         );
 
         M.sondaPrzewagPodZrobienieZla();
-        M.zniszczJakNajwiecej(ZBIOR_RANY);
+        M.zniszczJakNajwiecej(DBW.ZBIOR_RANY());
         M.zabierzJakNajwiecej();
 
         M.W(of(W.OBRONA),
                 of(
                         M.brakReakcji(W.WYZSZE_DOBRO),
                         M.II(),
-                        M.reakcjaMocniej(ZBIOR_RANY)
+                        M.reakcjaMocniej(DBW.ZBIOR_RANY())
                 )
         );
     }

@@ -19,6 +19,7 @@ import java.util.List;
  * Created by gadzik on 31.12.19.
  */
 public class AbstractWatek {
+    DBW dbw = new DBW();
     List<TypT> prefixes = DB_Tematy.PREFIXES;
     List<TypT> pdstw = DB_Tematy.PDSTW;
     List<TT> tematy = DB_Tematy.TEMATY;
@@ -27,9 +28,7 @@ public class AbstractWatek {
     W coTakPatrzysz;
     OsobaMetod ona = new OsobaMetod();
     OsobaMetod manago = new OsobaMetod();
-    List<W> KRYTERIA_PRZYPALU_WARUNKI = DBW.KRYTERIA_PRZYPALU;
     List<TT> obelgi = DB_Tematy.TEMATY;
-    List<W> terror = DBW.TERROR;
     List<TT> zarty = DB_Tematy.ZARTY;
     OsobaMetod wszyscy = new OsobaMetod();
     OsobaMetod osoba = new OsobaMetod();
@@ -37,7 +36,6 @@ public class AbstractWatek {
     OsobaMetod dzialacz = new OsobaMetod();
     OsobaMetod zly = new OsobaMetod();
     OsobaMetod _100osob = new OsobaMetod();
-    List<W> WYMAGANIA_WSTEPNE_ZARABIANIE =  DBW.WYMAGANIA_WSTEPNE_ZARABIANIE;
     OsobaMetod zasob = new OsobaMetod();
     OsobaMetod opponent = new OsobaMetod();
     OsobaMetod zaniepokojeni = new OsobaMetod();

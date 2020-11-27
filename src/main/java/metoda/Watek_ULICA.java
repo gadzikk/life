@@ -1,5 +1,6 @@
 package metoda;
 
+import db.DBW;
 import warunek.W;
 import z_inne.OH;
 
@@ -263,7 +264,7 @@ public class Watek_ULICA extends AbstractWatek {
         List<W> rany = ZBIOR_RANY;
         List<W> srodki = srodki();
         List<W> sytuacjeStarcie = SYTUACJE_STARCIE_WARUNKI;
-        List<W> kryteriaPrzypalu = KRYTERIA_PRZYPALU_WARUNKI;
+        W kryteriaPrzypalu = DBW.KRYTERIA_PRZYPALU();
         List<W> metodaStarcieReakcja = METODA_STARCIE_REAKCJA_WARUNKI;
         List<W> ulicaPrzewagaReakcja = ULICA_PRZEWAGA_SPOSOB_WARUNKI;
         List<W> obronaStarcie = OBRONA_STARCIE_WARUNKI;
@@ -979,7 +980,7 @@ public class Watek_ULICA extends AbstractWatek {
                         of(
                                 M.sondaDostepu(),
                                 M.sondaZagrozenia(),
-                                M.sondaPrzypalu(KRYTERIA_PRZYPALU_WARUNKI),
+                                M.SONDA(DBW.KRYTERIA_PRZYPALU()),
                                 M.poCichu(), M.II(), M.otwarteStacie(),
                                 M.POTRZEBNE(of(
                                         W.ZDOLNY_DO_WALKI,
@@ -1051,7 +1052,7 @@ public class Watek_ULICA extends AbstractWatek {
                                 M.wspominanieZlychWydarzen(),
                                 M.zartowanie(zarty),
                                 M.otwarteStacie(),
-                                M.terror(terror),
+                                M.terror(DBW.TERROR()),
                                 M.ktoZNimTenPojechane(),
                                 M.shanbienie(),
                                 M.POTRZEBNE(of(W.LUDZIE_WOKOL, W.LUDZIE_ZA_TOBA))
