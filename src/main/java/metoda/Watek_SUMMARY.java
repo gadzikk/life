@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by gadzik on 24.08.20.
  */
-public class CPU_SUMMARY extends AbstractCPU {
+public class Watek_SUMMARY extends AbstractWatek {
     // U
     public void ulica() {
         List<W> ulicaConditions = of(W.PUSTKA, W.PRZEWAGA, W.AGRESJA_W_DZIALANIU, W.OBECNOSC);

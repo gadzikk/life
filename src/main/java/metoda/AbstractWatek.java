@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * Created by gadzik on 31.12.19.
  */
-public class AbstractCPU {
+public class AbstractWatek {
     List<TypT> prefixes = DB_Tematy.PREFIXES;
     List<TypT> pdstw = DB_Tematy.PDSTW;
     List<TT> tematy = DB_Tematy.TEMATY;

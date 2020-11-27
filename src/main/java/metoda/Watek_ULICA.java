@@ -12,7 +12,7 @@ import static typy_bazowe.TypOsoby.ME;
 /**
  * Created by gadzik on 04.01.20.
  */
-public class CPU_UL extends AbstractCPU {
+public class Watek_ULICA extends AbstractWatek {
     W wazne = M.WAZNE(of(W.OBECNOSC, W.HIERARCHIA_ULICA, W.KIBICOWANIE, W.KRYMINAL, M.ILE_ZROBIL(W.EKIPA), on(ZASADY_WARUNKI), on(PRZEWAGI_WARUNKI), on(WALKA_WARUNKI)));
 
     W krzywdy = M.MOCNO(KRZYWDY_WARUNKI);

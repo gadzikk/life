@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by gadzik on 02.01.20.
  */
-public class CPU_STANU extends AbstractCPU {
+public class Watek_STANU extends AbstractWatek {
 
     List<W> warunki = of(W.STERYD, W.ZIELSKO);
 

@@ -1,12 +1,11 @@
 package metoda;
 
-import temat.TT;
 import typy_bazowe.TypT;
 
 /**
  * Created by gadzik on 14.02.20.
  */
-public class CPU_KOMBINACJA extends AbstractCPU {
+public class Watek_KOMBINACJA extends AbstractWatek {
     public void run(){
         M.TM(TypT.BUTY,
                 of(

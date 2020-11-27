@@ -10,7 +10,7 @@ import static typy_bazowe.TypOsoby.*;
 /**
  * Created by gadzik on 05.01.20.
  */
-public class CPU_PRACA extends AbstractCPU {
+public class Watek_PRACA extends AbstractWatek {
     W wazne = M.WAZNE(of(W.WIEDZA, W.DOSWIADCZENIE, W.WYSOKA_POZYCJA));
 
     List<W> globalPlanszaPraca = GLOBAL_PLANSZA_PRACA_WARUNKI;

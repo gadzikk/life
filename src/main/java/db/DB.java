@@ -1,7 +1,5 @@
 package db;
 
-import metoda.CPU_UL;
-
 import java.util.Arrays;
 import java.util.List;
 

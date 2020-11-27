@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by gadzik on 31.12.19.
  */
-public class CPU_TOPIC extends AbstractCPU {
+public class Watek_TOPIC extends AbstractWatek {
 
     public List<TypT> PREFIXES = of(TypT.UBRANIE_WYGLAD_SZCZEGOLY, TypT.CEL, TypT.PLANY_DZIS, TypT.DAILY_WORRIES, TypT.OTOCZENIE, TypT.POGODA);
     public List<TypT> PDSTW = of(TypT.IMIE, TypT.MIESZKA, TypT.KONTEKST);

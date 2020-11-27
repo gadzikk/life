@@ -11,7 +11,7 @@ import static typy_bazowe.TypOsoby.SOMEONE;
 /**
  * Created by gadzik on 05.01.20.
  */
-public class CPU_SJ extends AbstractCPU {
+public class Watek_SJ extends AbstractWatek {
     List<W> periodyczneCzynnosci = of(M.CZESTO(W.WYCHODZISZ), M.CZESTO(W.WYSILEK_FIZYCZNY));
 
     List<W> warunkiWyjscia = of(

@@ -4,12 +4,10 @@ import warunek.W;
 
 import java.util.List;
 
-import static typy_bazowe.TypOsoby.ME;
-
 /**
  * Created by gadzik on 19.11.20.
  */
-public class CPU_ROZWOJU_CZLOWIEKA extends AbstractCPU {
+public class Watek_ROZWOJU_CZLOWIEKA extends AbstractWatek {
     List<W> ksztaltowanieCzlowieka = KSZTALTOWANIE_CZLOWIEKA_WARUNKI;
 
     public void run() {

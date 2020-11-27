@@ -3,7 +3,7 @@ package metoda;
 /**
  * Created by gadzik on 05.01.20.
  */
-public class CPU_MIEJSCE {
+public class Watek_MIEJSCE extends AbstractWatek {
     // TODO (MIEJSCE WYSTEPOWANIA, TYP OSOBY, WARUNKI WYSTEPOWANIA - CEL), STUDIA,PRACA,CENTRUM,  OSIEDLE
 //    if(studia | praca | centrum) default fest, systemowiec, burzua, pozakrakowa
 //if(osiedle)

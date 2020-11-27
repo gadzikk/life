@@ -11,7 +11,7 @@ import static typy_bazowe.TypOsoby.*;
 /**
  * Created by gadzik on 31.12.19.
  */
-public class CPU_1 extends AbstractCPU {
+public class Watek_1 extends AbstractWatek {
     W wazne = M.WAZNE(of(W.WYCHODZENIE, W.STWORZENIE_SZANSY, W.ZNAJOMOSC, W.DZIEWICTWO, W.DOBRE_SERCE));
 
     List<W> rzeczywistosc = of(W._1_OSOBA__DUZO, W.POPRUSZONE_NA_MIEJSCACH, W.X, W.KONTEKST);

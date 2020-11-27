@@ -9,7 +9,7 @@ import static typy_bazowe.TypOsoby.YOU;
 /**
  * Created by gadzik on 01.01.20.
  */
-public class CPU_ZDOBYCIE_ZWIAZKU extends AbstractCPU {
+public class Watek_ZWIAZEK extends AbstractWatek {
 
     List<W> essentials = of(W.PRZYMUS, W.ROZWALENIE_SWIADOMOSCI, W.NAJNIZSZY_POZIOM_WARSTWY);
 

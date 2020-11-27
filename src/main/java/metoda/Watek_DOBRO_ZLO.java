@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by gadzik on 19.06.20.
  */
-public class CPU_DOBRO_ZLO extends AbstractCPU {
+public class Watek_DOBRO_ZLO extends AbstractWatek {
     W wazne = M.WAZNE(of(M.WYBOR(of(W.DOBRO, W.ZLO))));
 
     List<W> niesprawiedliwosc = NIESPRAWIEDLIWOSC_WARUNKI;
@@ -84,7 +84,7 @@ public class CPU_DOBRO_ZLO extends AbstractCPU {
                 W.ZAZDROSC, W.ZAWISC, W.KRZYWDA, W.NIENAWISC
         );
 
-        M.W(M.OSOBA(M.INTERAKCJA(W.ZLY)), "--->", M.REZULTAT(M.OSOBA(of(W.ZERO_ZYSKU, on(KRZYWDY_WARUNKI), on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI))));
+        M.W(M.OSOBA(M.INTERAKCJA(W.ZLY)), "--->", M.REZULTAT(M.OSOBA(of(W.ZERO_ZYSKU, on(KRZYWDY_WARUNKI), on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI)))));
 
         List<W> NOWY = of(W.NAKLEJ_NALEPKE, W.HASLO_RDZENNYCH,
                 W.WYJEBAC_ZDJECIA, W.PRZESTRZELIC, W.SKAZYWANIE_SAMOTNOSC, W.ZWYZYWAC, W.OBGADAC, W.POBIC, W.SHANBIC);

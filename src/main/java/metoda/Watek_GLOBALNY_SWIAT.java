@@ -8,7 +8,7 @@ import java.util.PriorityQueue;
 /**
  * Created by gadzik on 02.01.20.
  */
-public class CPU_ALL extends AbstractCPU {
+public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
     W wazne = M.WAZNE(of(W.RODZINA, W.KOBIETA, W.PRACA, W.DOM));
 
     List<W> wymaganiaWstepne = KATEGORIA_WYMAGANIA_WSTEPNE;

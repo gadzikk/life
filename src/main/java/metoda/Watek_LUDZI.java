@@ -10,7 +10,7 @@ import static typy_bazowe.TypOsoby.SOMEONE;
 /**
  * Created by gadzik on 23.08.20.
  */
-public class CPU_LUDZI extends AbstractCPU {
+public class Watek_LUDZI extends AbstractWatek {
     W wazne = M.WAZNE(SILNE_WIEZY_CZLOWIEKA_WARUNKI);
 
     List<W> codzienneAktywnosci = of(M.INTERAKCJA(W.RODZINA), M.OPCJA(M.INTERAKCJA(W.ZNAJOMI)), on(PRZYMUS_WARUNKI));
