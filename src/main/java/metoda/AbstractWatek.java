@@ -39,7 +39,6 @@ public class AbstractWatek {
     OsobaMetod zasob = new OsobaMetod();
     OsobaMetod opponent = new OsobaMetod();
     OsobaMetod zaniepokojeni = new OsobaMetod();
-    List<W> ZBIOR_RANY = WARUNKI(DBW.ZBIOR_RANY);
     OsobaMetod znajomy = new OsobaMetod();
     List<W> PATOLOGIE_WSTEPNE_KOBIETA = DB_Patologia.PATOLOGIE_WSTEPNE_KOBIETA;
     List<W> PATOLOGIE_UTRZYMANIA_KOBIETA = DB_Patologia.PATOLOGIE_UTRZYMANIA_KOBIETA;
@@ -59,12 +58,9 @@ public class AbstractWatek {
     OsobaMetod pytajacy = new OsobaMetod();
     OsobaMetod pracownicy = new OsobaMetod();
     OsobaMetod superPozycjaOsoby = new OsobaMetod();
-    List<W> KRZYWDY_WARUNKI = DBW.KRZYWDY;
     OsobaMetod karyna = new OsobaMetod();
     OsobaMetod cvia = new OsobaMetod();
     OsobaMetod srodowisko = new OsobaMetod();
-    List<W> OSLONY_WARUNKI = DBW.OSLONY;
-    List<W> BRAK_ZASAD_WARUNKI = DBW.BRAK_ZASAD;
     OsobaMetod grubasPrzewaga = new OsobaMetod();
     OsobaMetod fest = new OsobaMetod();
     OsobaMetod twoiWrogowie = new OsobaMetod();
@@ -72,9 +68,6 @@ public class AbstractWatek {
     OsobaMetod drugaStrona = new OsobaMetod();
     OsobaMetod zazdrosni = new OsobaMetod();
     OsobaMetod dzialaczMocny = new OsobaMetod();
-    List<W> DEFAULT_WARUNKI = DBW.DEFAULT_WARUNKI;
-    List<W> WYMAGA_KARY_WARUNKI = DBW.WYMAGA_KARY;
-    List<W> SONDA_KOGO_WARUNKI = DBW.SONDA_KOGO;
     OsobaMetod ZLE_OSOBY = new OsobaMetod();
     OsobaMetod dobrzi = new OsobaMetod();
     OsobaMetod najwyzszyHierarchiaWokol = new OsobaMetod();

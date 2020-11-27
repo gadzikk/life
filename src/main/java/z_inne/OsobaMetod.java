@@ -144,6 +144,7 @@ public class OsobaMetod {
     public W WYKLUCZ(OsobaMetod osobaMetod) {return W.WARUNEK;}
     public W ROBI_KRZYWDE(OsobaMetod osobaMetod, List<W> warunki) {return W.WARUNEK;}
     public W ROBI_KRZYWDE_Z_PRZEWAGA(OsobaMetod osobaMetod, List<W> warunki) {return W.WARUNEK;}
+    public W ROBI_KRZYWDE_Z_PRZEWAGA(OsobaMetod osobaMetod, W warunki) {return W.WARUNEK;}
     public W GNOJI(OsobaMetod osobaMetod) {return W.WARUNEK;}
     public W PRZESTAJE(W warunek) {return W.WARUNEK;}
     public W PRZESTAJE(List<W> warunki) {return W.WARUNEK;}

@@ -1,5 +1,6 @@
 package metoda;
 
+import db.DBW;
 import warunek.W;
 
 import java.util.List;
@@ -22,9 +23,9 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
 
         M.ZWYKLE(of(M.MOCNO(PRZYCZYNY_ZLA_WARUNKI), M.SLABO(PRZYCZYNY_DOBRA_WARUNKI)));
 
-        M.WW(W.ZLO, "--->", of(M.ROBI_KRZYWDE(of(on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI))),
-                                             M.TWORZENIE(of(on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI)))), "--->",of(M.LEKKIE(W.ZYCIE),
-                                                                                                                         M.OTRZYMANIE(of(M.TYMCZASOWE(PRZEWAGI_WARUNKI),
+        M.WW(W.ZLO, "--->", of(M.ROBI_KRZYWDE(of(DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI())),
+                                             M.TWORZENIE(of(DBW.STRATY_MORALNE_WARUNKI(), DBW.STRATY_MORALNE_WARUNKI()))), "--->",of(M.LEKKIE(W.ZYCIE),
+                                                                                                                         M.OTRZYMANIE(of(M.TYMCZASOWE(DBW.PRZEWAGI_WARUNKI()),
                                                                                                                                         W.PRZYJEMNOSCI)),
                                                                                                                                  M.REZULTAT(W.PIEKLO)));
 
@@ -84,9 +85,9 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
                 W.ZAZDROSC, W.ZAWISC, W.KRZYWDA, W.NIENAWISC
         );
 
-        M.W(M.OSOBA(M.INTERAKCJA(W.ZLY)), "--->", M.REZULTAT(M.OSOBA(of(W.ZERO_ZYSKU, on(KRZYWDY_WARUNKI), on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI)))));
+        M.W(M.OSOBA(M.INTERAKCJA(W.ZLY)), "--->", M.REZULTAT(M.OSOBA(of(W.ZERO_ZYSKU, DBW.KRZYWDY_WARUNKI(), DBW.STRATY_MORALNE_WARUNKI(), DBW.STRATY_MATERIALNE_WARUNKI())))));
 
-        List<W> NOWY = of(M.ODRAZU(KRZYWDY_WARUNKI));
+        List<W> NOWY = of(M.ODRAZU(DBW.KRZYWDY_WARUNKI()));
 
         List<W> wadyZlych = WADY_ZLYCH_WARUNKI;
         List<W> okazje = OKAZJE_ZROBIENIE_ZLO_WARUNKI;
@@ -97,7 +98,7 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
 
         zly.thread_while_loop(M.KONTROLA(W.WSZYSCY));
 
-        M.W(of(W.ZLY, W._88_, W.WIDZIAL) , "--->", of(M.ODRAZU(M.MOCNO(KRZYWDY_WARUNKI)), W.PRAGNIENIE_ZLA));
+        M.W(of(W.ZLY, W._88_, W.WIDZIAL) , "--->", M.ODRAZU(of(W.PRAGNIENIE_ZLA, M.MOCNO(DBW.KRZYWDY_WARUNKI()))));
 
         M.W(of(W.ZLY, W._88_, W.BLISKOSC, W._88_, W.DOSTEP) , "--->", of(W.ZMATERIALIZOWANIE_ZLA,
                                                                                     W.WBICIE_NA_MUKE,
@@ -121,15 +122,15 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
         M.POBIERZ_WZORCE_ZASADY(of(W.ZLO, W.SRODOWISKO));
 
         M.W(W.ZLY, "--->", of(M.ZWYKLE(of(W.SLABSZY.NIZ(W.INNI), M.GORSZE(W.ZYCIE).NIZ(W.INNI), M.GORSZE(W.UMIEJETNOSCI).NIZ(W.INNI))),
-                                                M.TOLERANCJA(of(on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI))),
-                                                M.DOSWIADCZENIE(M.ZDOLNY(of(on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI)))),
-                                                M.W(W.OSOBA, "--->", M.ZLY(of(M.WYKORZYSTUJE(W.OSOBA), M.SZYBKO(M.KRZYWDY(of(W.OSOBA, on(KRZYWDY_WARUNKI))))))),
-                                                M.CEL(of(W.ZNISZCZENIE, on(STRATY_MORALNE_WARUNKI), on(STRATY_MATERIALNE_WARUNKI))))
-        );
+                                                M.TOLERANCJA(of(DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI())),
+                                                M.DOSWIADCZENIE(M.ZDOLNY(of(DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI()))),
+                                                M.W(W.OSOBA, "--->", M.ZLY(of(M.WYKORZYSTUJE(W.OSOBA), M.SZYBKO(M.KRZYWDY(of(W.OSOBA, DBW.KRZYWDY_WARUNKI())))))),
+                                                M.CEL(of(W.ZNISZCZENIE, DBW.STRATY_MORALNE_WARUNKI(), DBW.STRATY_MATERIALNE_WARUNKI()))));
+
         M.W(W.ZLY, "--->", M.CALY_CZAS(M.ZLY(M.PRZEBYWANIE(M.OSOBY(W.ZLI)))));
 
-        M.W(W.ZLY, "--->", of(M.TOLERANCJA(of(W.ZLO, on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI))),
-                                   M.CZESTO(of(W.ZLO, on(KRZYWDY_WARUNKI), on(BRAK_ZASAD_WARUNKI)))));
+        M.W(W.ZLY, "--->", of(M.TOLERANCJA(of(W.ZLO, DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI())),
+                                   M.CZESTO(of(W.ZLO, DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI()))));
 
         M.W(of(W.ZLO), "--->", of(W.ROB_NAJWIEKSZA_KRZYWDE, W.ROZPOWIEDZ_DO_NAJWIEKSZEJ_LICZBY_OSOB, W.PRZEKONAJ_NAJWIECEJ_OSOB));
 

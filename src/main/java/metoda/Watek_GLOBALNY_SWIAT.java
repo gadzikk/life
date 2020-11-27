@@ -1,5 +1,6 @@
 package metoda;
 
+import db.DBW;
 import warunek.W;
 
 import java.util.List;
@@ -48,7 +49,7 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
     List<W> mainFlows = of(W.GRUPA_PRZESTEPCZA, W.DOBRA_PRACA, W.STUDIA, W.KLUBY_DYSKOTEKA, W.KLUBY_KIBICOWSKIE, W.RESTAURACJA, W.WAKACJE_WODA, W.ZWIAZKI,
                             W.ZNAJOMI, W.SLUZBA_ZROWIA, W.SLUZBY_MUNDUROWE, W.INTERNET, W.TELEWIZJA);
 
-    List<W> urodzenieDefault = DEFAULT_WARUNKI;
+    W startowe = DBW.STARTOWE_WARUNKI();
     List<W> czas = ZBIOR_CZAS;
     List<W> duzoIf = DUZO_IF_WARUNKI;
     List<W> ksztaltowanieDzielnicy = KSZTALTOWANIE_DZIELNICY_WARUNKI;
@@ -93,14 +94,14 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
         M.W(M.WYKONYWANIE(W.PRACA), "--->", of(M.wszystkoAbyOtrzymacRezultat(),
                                                          M.doSedna(),
                                                          M.doKonca()));
-        M.W(of(on(PRZEWAGI_WARUNKI),
-               on(SLABOSCI_WARUNKI),
-               on(KRZYWDY_WARUNKI),
-               on(BRAK_ZASAD_WARUNKI),
-               on(ZBIOR_EMOCJE_UCZUCIA),
-               on(RELACJE_WARUNKI),
-               on(WALKA_WARUNKI),
-               on(CIERPIENIA_WARUNKI),
+        M.W(of(DBW.PRZEWAGI_WARUNKI(),
+               DBW.SLABOSCI_WARUNKI(),
+               DBW.KRZYWDY_WARUNKI(),
+               DBW.BRAK_ZASAD_WARUNKI(),
+               on(DBW.ZBIOR_EMOCJE_UCZUCIA()),
+               DBW.RELACJE_WARUNKI(),
+               DBW.WALKA_WARUNKI(),
+               DBW.CIERPIENIA_WARUNKI(),
                W.PUSTKA),  "-------->", M.DOTYCZA(M.UDERZAJA(W.KAZDEGO_CZLOWIEKA)));
 
         M.W(W.NA_MIEJSCU, "--->", of(M.doSedna(), M.doKonca()));
@@ -257,7 +258,7 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
 
         M.W(W.DZIALANIE, "--->", M.ZWYKLE(of(W.ZLE, W.GLUPIE)));
 
-        M.W(W.NOWA_OSOBA, "--->", M.ZWYKLE(KRZYWDY_WARUNKI));
+        M.W(W.NOWA_OSOBA, "--->", M.ZWYKLE(DBW.KRZYWDY_WARUNKI()));
 
         M.W(W.DZIALANIE, "--->", M.ZWYKLE(M.DZIALANIE(W.ZA_CIOSEM)));
     }

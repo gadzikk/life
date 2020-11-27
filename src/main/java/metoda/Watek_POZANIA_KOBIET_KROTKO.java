@@ -1,5 +1,6 @@
 package metoda;
 
+import db.DBW;
 import warunek.W;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
 
     List<W> dopuszczenie = ZBIOR_DOPUSZCZENIE_WARUNKI;
 
-    List<W> potrzebneCechyM = PRZEWAGI_DANEJ_CHWILI_WARUNKI;
+    W potrzebneCechyM = DBW.PRZEWAGI_CHWILI_WARUNKI();
     List<W> osobaChcianeCechy = of(W.REAGUJE, W.STWARZA_SZANSE, W.SWIADOMOSC);
 
     List<W> miejscaWstepowania = TYPY_MIEJSC_WARUNKI;
@@ -87,7 +88,7 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
                 of(W.SYTUACJA)
         );
         M.W(
-                of(M.odrazuPochwycenie(W.SYTUACJA), M.dzialanie(PRZEWAGI_DANEJ_CHWILI_WARUNKI)),
+                of(M.odrazuPochwycenie(W.SYTUACJA), M.dzialanie(DBW.PRZEWAGI_CHWILI_WARUNKI())),
                 of(W.BEDZIE_CIEKAWIE, W.ANTY_PARTYZANTKA, W.ANTY_POSLUSZNOSC, W.NIENAWISC_FESTOW, W.JA_DOSTAJE)
         );
         M.W(

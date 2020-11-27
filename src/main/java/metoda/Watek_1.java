@@ -1,6 +1,7 @@
 package metoda;
 
 
+import db.DBW;
 import typy_bazowe.TypMiejsce;
 import warunek.W;
 
@@ -28,7 +29,7 @@ public class Watek_1 extends AbstractWatek {
 
     List<W> dopuszczenie = ZBIOR_DOPUSZCZENIE_WARUNKI;
 
-    List<W> potrzebneCechyM = PRZEWAGI_DANEJ_CHWILI_WARUNKI;
+    W potrzebneCechyM = DBW.PRZEWAGI_CHWILI_WARUNKI();
     List<W> osobaChcianeCechy = of(W.REAGUJE, W.STWARZA_SZANSE, W.SWIADOMOSC);
 
     List<W> miejscaWstepowania = TYPY_MIEJSC_WARUNKI;

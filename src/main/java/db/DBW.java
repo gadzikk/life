@@ -112,7 +112,7 @@ public class DBW extends DB {
                 CIERPIENIA_WARUNKI(),
                 POTRZEBY_WARUNKI(),
                 OSLONY_WARUNKI(),
-                DEFAULT_WARUNKI_WARUNKI(),
+                STARTOWE_WARUNKI(),
                 CECHY_RDZENNY_WARUNKI(),
                 SLABY_TCHORZ_WARUNKI()
         );
@@ -281,7 +281,7 @@ public class DBW extends DB {
                 PRZEWAGI_LUDZKIE_WARUNKI(),
                 PRZEWAGI_Z_ULICY_WARUNKI(),
                 PRZEWAGI_MATERIALNE_WARUNKI(),
-                PRZEWAGI_DANEJ_CHWILI_WARUNKI()
+                PRZEWAGI_CHWILI_WARUNKI()
         );
     }
 
@@ -770,9 +770,9 @@ public class DBW extends DB {
         );
     }
 
-    public static W PRZEWAGI_DANEJ_CHWILI_WARUNKI() {
+    public static W PRZEWAGI_CHWILI_WARUNKI() {
         return on(
-                W.SZYBKOSC, W.SPRYT, W.SILA, W.POTRAFI_OCENIC, W.ILOSC_OSOB
+                W.SZYBKOSC, W.SPRYT, W.SILA, W.POTRAFI_OCENIC, W.ILOSC_OSOB, W.EKIPA, W.SPRZET, W.SAMOCHOD
         );
     }
 
@@ -1393,7 +1393,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W DEFAULT_WARUNKI_WARUNKI() {
+    public static W STARTOWE_WARUNKI() {
         return on(
                 W.RODZINA, W.MIEJSCE_ZAMIESZKANIA,
                 M.BRAK(of(W.ZNAJOMI, W.ZWIAZEK, W.PRACA, W.UKLADY, W.HASLO_RDZENNYCH, W.PRZEWAGA)),
@@ -1477,7 +1477,7 @@ public class DBW extends DB {
                 M.W(W.OSTRY_SPRZET, "--->", of(M.SILNIEJSZA(M.EKIPA(M.ODWAGA(M.WIECEJ_OSOB(W.OSTRY_SPRZET)))), M.WJAZD_NA_MIESZKANIE(W.BIEGAJACY_SPRZET))),
 
                 M.W(W.EKIPA, "--->", of(M.WALKA(M.SILNIEJSZA((W.EKIPA))), M.SKOMPROMITOWANIE(W.EKIPA),
-                        W.BRAK_SENSU_DZIALANIA, M.BRAK(W.OSOB), M.BRAK(W.POSLUCH), M.BRAK(M.WYKONYWANIE(W.ROZKAZ)))),
+                                                W.BRAK_SENSU_DZIALANIA, M.BRAK(W.OSOB), M.BRAK(W.POSLUCH), M.BRAK(M.WYKONYWANIE(W.ROZKAZ)))),
 
                 M.W(M.WJAZD_NA_MIESZKANIE(W.BIEGAJACY_SPRZET), "--->", M.MIESZKANIE(W.BRON_PALNA)),
 
@@ -1722,7 +1722,7 @@ public class DBW extends DB {
     public static W RELACJE_WARUNKI() {
         return on(
                 M.BRAK(W.RELACJA), W.ZNAJOMOSC, W.KOLEZENSTWO, W.PRZYJAZN, W.MILOSC,
-                W.WROGOSC, W.NIECHEC, W.NIEZROZUMIENIE, W.LEKCEWAZENIE, W.WYKORZYSTANIE, W.WALKA
+                W.KONFLIKT, W.WROGOSC, W.NIECHEC, W.NIEZROZUMIENIE, W.LEKCEWAZENIE, W.WYKORZYSTANIE, W.WALKA
         );
     }
 

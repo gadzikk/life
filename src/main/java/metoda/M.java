@@ -57,9 +57,7 @@ public class M {
         return W.WARUNEK;
     }
 
-    public static W DZIALANIE_DLA_ZLA(List<W> w1, List<W> w2, List<W> w3){
-        return W.WARUNEK;
-    }
+    public static W DZIALANIE_DLA_ZLA(List<W> w){       return W.WARUNEK;    }
     public static W dzialanie(W warunek){return W.WARUNEK;}
     public static W GRANT(TypOsoby osoba, W w){
         return W.WARUNEK;
@@ -647,6 +645,7 @@ public class M {
     public static W gorszeTraktowanieNizReszta(W w) {return W.WARUNEK;}
 
     public static M robKrzywde(List<W> w) {return new M();}
+    public static M robKrzywde(W w) {return new M();}
     public static M dajZarobekGrubasowi() {return new M();}
     public static M ochronaGrubasa() {return new M();}
 
@@ -735,7 +734,7 @@ public class M {
     public static W NEUTRALNY_RZUT(List<W> w) {return W.WARUNEK;}
     public static W WOKOL_TYLKO(W w) {return W.WARUNEK;}
     public static W WOKOL_TYLKO(List<W> warunki) {return W.WARUNEK;}
-    public static W postawNajgorszeWarunki(OsobaMetod osoba, List<W> ...warunki){return W.WARUNEK;}
+    public static W postawCiezkieWarunki(W w, List<W> ...warunki){return W.WARUNEK;}
     public static W zdobywanieHierarchii(W w){return W.WARUNEK;}
 
     public static W INFORMACJA(W w){return W.WARUNEK;}
@@ -774,9 +773,11 @@ public class M {
     public static W KRZYWDY(W w){return W.WARUNEK;}
     public static W KRZYWDY(List<W> warunki){return W.WARUNEK;}
     public static W KRZYWDY(OsobaMetod osoba, List<W> warunki){return W.WARUNEK;}
+    public static W KRZYWDY(OsobaMetod osoba, W warunki){return W.WARUNEK;}
     public static W ROBI_KRZYWDE_Z_PRZEWAGA(W w){return W.WARUNEK;}
     public static W ROBI_KRZYWDE_Z_PRZEWAGA(List<W> warunki){return W.WARUNEK;}
     public static W ROBI_KRZYWDE_Z_PRZEWAGA(OsobaMetod osoba, List<W> warunki){return W.WARUNEK;}
+    public static W ROBI_KRZYWDE_Z_PRZEWAGA(OsobaMetod osoba, W warunki){return W.WARUNEK;}
     public static W DDM(W w){return W.WARUNEK;}
     public static W PRACA(W w){return W.WARUNEK;}
     public static W PRACA(List<W> warunki){return W.WARUNEK;}

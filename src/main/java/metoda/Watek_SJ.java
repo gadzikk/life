@@ -1,5 +1,6 @@
 package metoda;
 
+import db.DBW;
 import typy_bazowe.TypZadania;
 import warunek.W;
 
@@ -101,7 +102,7 @@ public class Watek_SJ extends AbstractWatek {
         M.W(W.WYCHODZISZ, "--->", of(M.CALY_CZAS(W.ZLO_KRAZY),
                                         ZLE_OSOBY.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA),
                                         ZLE_OSOBY.thread_while_loop(W.STWARZA_OKAZJE_ZROBIENIE_ZLA),
-                                        M.ZWYKLE(of(on(KRZYWDY_WARUNKI), on(OSLONY_WARUNKI))),
+                                        M.ZWYKLE(of(DBW.KRZYWDY_WARUNKI(), DBW.OSLONY_WARUNKI())),
                 M.CALY_CZAS(of(ciaglaCzynnoscUlica, W.ZASIEG_WZROKU, W.SCIEZKI, W.LUDZIE, W.WIDOCZNY_GDY_IDZIESZ))));
 
         W nastawienie = W.AKTYWNA_KONTRA;
@@ -227,11 +228,11 @@ public class Watek_SJ extends AbstractWatek {
     }
 
     public void ciebie() {
-        M.W(of(on(PRZEWAGI_WARUNKI),
-               on(SLABOSCI_WARUNKI),
-               on(KRZYWDY_WARUNKI),
-               on(BRAK_ZASAD_WARUNKI),
-               on(RELACJE_WARUNKI),
+        M.W(of(DBW.PRZEWAGI_WARUNKI(),
+               DBW.SLABOSCI_WARUNKI(),
+               DBW.KRZYWDY_WARUNKI(),
+               DBW.BRAK_ZASAD_WARUNKI(),
+               DBW.RELACJE_WARUNKI(),
                W.PUSTKA,
                W.DOMINACJA),  "------------>", M.DOTYCZA(M.UDERZAJA(W.KAZDEGO_CZLOWIEKA)));
     }
