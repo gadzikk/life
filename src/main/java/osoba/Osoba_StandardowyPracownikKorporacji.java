@@ -12,8 +12,8 @@ import java.util.List;
 /**
  * Created by gadzik on 19.12.19.
  */
-public class Osoba_DefaultPracownikKorporacji extends Osoba {
-    public Osoba_DefaultPracownikKorporacji() {
+public class Osoba_StandardowyPracownikKorporacji extends Osoba {
+    public Osoba_StandardowyPracownikKorporacji() {
         kolorSkory = TypKolorSkory.BIALY;
         rasa = TypRasa.SLOWIANIN;
         narodowosc = TypNarodowsc.POLSKA;

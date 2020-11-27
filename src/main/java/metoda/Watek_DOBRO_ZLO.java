@@ -50,7 +50,9 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
     }
 
     public void zloDzialanie() {
-        M.FIRST(of(W.KTOS_CIEBIE_LUB_TY_NIEGO, W.SONDA_POD_ZROBIENIE_ZLA, W.AGRESJA_W_DZIALANIU, W.ZASOBY_OGRANICZONE));
+        M.PIERWSZE(of(W.KTOS_CIEBIE_LUB_TY_NIEGO, W.SONDA_POD_ZROBIENIE_ZLA, W.AGRESJA_W_DZIALANIU, W.ZASOBY_OGRANICZONE));
+
+        W zleCzyny = DBW.ZLE_CZYNY_WARUNKI();
 
         List<W> conditions = of(
                 W.NIE_ZATRZYMA_SIE,
@@ -141,6 +143,8 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
 
     }
     public void dobroDzialanie() {
+        W dobreCzyny = DBW.DOBRE_CZYNY_WARUNKI();
+
         List<W> conditions = of(
                 W.CIERPIENIE,
                 W.KONTRA,
@@ -169,7 +173,7 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
 
         W sonda = M.SONDA(DBW.ZLY_ZNAKI_ROZPOZNAWCZE_WARUNKI());
         W okazje = DBW.OKAZJE_ZROBIENIE_DOBRO_WARUNKI();
-        W metodyAntyDzialacz = DBW.ANTY_DZIALACZ_ZLA_WARUNKI();
+        W metodyAntyDzialacz = M.PRAKTYKA(DBW.ANTY_DZIALACZ_ZLA_WARUNKI());
 
         M.W(of(W.DOBRY, W._88_, W.WIDZIAL) , "--->", of(M.ODRAZU(M.MOCNO(W.KONTRA)), W.SPRAWIEDLIWOSC));
 
@@ -180,9 +184,7 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
 
     }
     public void dobroDzialacz() {
-        List<W> conditions = of(
-                W.POZBAWIENIE_PRZEWAG_NIESPRAWIEDLIWYCH
-        );
+        M.PRAKTYKA(DBW.ANTY_DZIALACZ_ZLA_WARUNKI())
     }
     public void generalneZwykleWidzianeZachowanie() {
         List<W> conditions = of(

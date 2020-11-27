@@ -18,12 +18,11 @@ public class Watek_LUDZI extends AbstractWatek {
 
     public void run() {
         relacjeWarunkowLudzi();
-        srodki();
+        osobaSrodki();
         ochrona();
-        defaultZleZachowanie();
-        endCasyWarunkow();
+        standardoweZleZachowanie();
+        standardoweSkutkiWarunkow();
         opisZachowanTypOsoby();
-        teoriaZla();
         fest();
         dzialajacy();
         czlowiekCierpienia();
@@ -32,6 +31,7 @@ public class Watek_LUDZI extends AbstractWatek {
         osobaCechyMozliweDzialania();
         osobaPrzewag();
         wyrok();
+        podsumowanieLudzie();
         podsumowanieLudzie();
     }
 
@@ -65,7 +65,7 @@ public class Watek_LUDZI extends AbstractWatek {
                 "--->", of(W.DZIWNA_PASJA, W.BRAK_SILNYCH_JEDNOSTEK, W.BRAK_UMIEJETNOSCI, W.BRAK_WLASCIWEJ_OCENY));
 
         M.W(of(W.CHEC_BEZPIECZENSTWA, W.BRAK_SILNYCH_JEDNOSTEK, W.BRAK_UMIEJETNOSCI, W.BRAK_WLASCIWEJ_OCENY),
-                "--->", of(W.KOLKO_WZAJEMNEJ_ADORACJI, W.HIERARCHIA_FIRST));
+                "--->", of(W.SRODOWISKO_WZAJEMNEGO_WSPARCIA, W.HIERARCHIA_FIRST));
 
         M.W(of(W.ZAZDROSC, W.WRAZLIWOSC, W.NIEPOSLUSZONSC_B, W.SILNIEJSZY_B), "--->", of(W.WYKLUCZA, W.WYLACZY_DOSTEP));
 
@@ -156,57 +156,41 @@ public class Watek_LUDZI extends AbstractWatek {
 
     }
 
-    public void srodki() {
-        List<W> srodkiFest = of(W.KOLKO_WZAJEMNEJ_ADORACJI, W.WSPARCIE, W.ZNAJOMOSC_FESTOW, W.WYKLUCZENIE,
-                W.ZLAMANIE_STANDARDU, W.OSZUKANIE_WYKORZYSTANIE, W.OBGADAC);
-        List<W> antyFest = of(W.ROZWALENIE_KOLKA_ADORACJI, W.ZNAJOMOSC_RDZENNYCH, W.SILA);
+    public void osobaSrodki() {
+        M.W(M.OSOBA(W.FEST), "--->", of(W.SRODOWISKO_WZAJEMNEGO_WSPARCIA, W.WSPARCIE, W.ZNAJOMOSC_FESTOW, W.WYKLUCZENIE,
+                                            W.ZLAMANIE_STANDARDU, W.OSZUKANIE_WYKORZYSTANIE, W.OBGADAC));
 
-        List<W> srodkiSlaby = of(W.KOLKO_WZAJEMNEJ_ADORACJI, W.WSPARCIE, W.ZNAJOMOSC_SLABYCH, W.WYKLUCZENIE,
-                W.ZLAMANIE_STANDARDU, W.OSZUKANIE_WYKORZYSTANIE, W.PO_CICHU, W.OBGADAC);
-        List<W> antySlaby = of(W.OTWARTE_STARCIE, W.SILA, W.ZNAJOMOSC_RDZENNYCH, W.ROZWALENIE_KOLKA_ADORACJI);
+        M.W(M.SRODKI_PRZECIW(W.FEST), "--->", of(DBW.KRZYWDY_BEZPOSREDNIE_WARUNKI(), W.OTWARTE_STARCIE, W.ZNAJOMOSC_RDZENNYCH, W.SILA));
 
-        List<W> srodkiRdzenny = of(W.WALKA_PIESCI, W.WALKA_SPRZET, W.ZNAJOMOSC_RDZENNYCH, W.NIEBOI_SIE_WYROKU);
-        List<W> antyRdzenny = of(W.CZOLO, W.PSYCHO, W.BRAK_SENSU_DZIALANIA);
+        M.W(M.OSOBA(W.SLABY), "--->", of(W.SRODOWISKO_WZAJEMNEGO_WSPARCIA, W.WSPARCIE, W.ZNAJOMOSC_SLABYCH, DBW.KRZYWDY_POSREDNIE_WARUNKI()));
 
-        List<W> srodkiPosiadacz = of(
-                M.W(of(W.WARTOSC),"--->", of(W.USTALA_ZASADY)),
-                M.W(of(W.NIE_PRZESTRZEGANIE_ZASAD),"--->", of(W.ODCIECIE_DOSTEPU_WARTOSC))
-        );
-        List<W> antyPosiadacz = of(W.ZNISZCZ_WARTOSC, W.ROB_STARTE, W.ZABURZ_SPOKOJ);
+        M.W(M.SRODKI_PRZECIW(W.SLABY), "--->", of(DBW.KRZYWDY_BEZPOSREDNIE_WARUNKI(), W.OTWARTE_STARCIE, W.SILA, W.ZNAJOMOSC_RDZENNYCH, W.ROZWALENIE_KOLKA_ADORACJI));
+
+        M.W(M.OSOBA(W.RDZENNY), "--->", of(DBW.KRZYWDY_BEZPOSREDNIE_WARUNKI(), W.WALKA_SPRZET, W.ZNAJOMOSC_RDZENNYCH, W.NIEBOI_SIE_WYROKU));
+
+        M.W(M.SRODKI_PRZECIW(W.RDZENNY), "--->", of(W.CZOLO, W.KAMIKADZE, M.SILNIEJSZA(W.EKIPA), W.BRAK_SENSU_DZIALANIA));
+
+        M.W(M.OSOBA(W.POSIADACZ), "--->", of(W.USTALA_ZASADY, W.ODCIECIE_DOSTEPU_WARTOSC);
+
+        M.W(M.SRODKI_PRZECIW(W.POSIADACZ), "--->", of(W.ZNISZCZ_WARTOSC, W.ROB_STARTE, W.ZABURZ_SPOKOJ));
     }
 
-    public void ochrona() {
-        M.OCHRONA(M.W(of(W.PRZESTEPCZOSC_REGIONU), "--->", of(W.OSZUKANIE_WYKORZYSTANIE, W.WYKLUCZENIE, W.SPRZET, W.AGRESJA_W_DZIALANIU, W.ZLO)));
-        M.OCHRONA(M.W(of(W.SEX), "--->", of(W.WALKA_PIESCI, W.SKAZYWANIE_SAMOTNOSC, W.OBGADAC, W.EMOCJE_ZE_ZLA)));
-        M.OCHRONA(M.W(of(W.PRACA), "--->", of(W.PRZYDUPASZENIE, W.WYKONYWANIE_PRACY)));
-    }
 
-    public void defaultZleZachowanie() {
-        M.ukryjZlo();
-        M.ukryjWady();
+
+    public void standardoweZleZachowanie() {
+        M.UKRYCIE(of(W.ZLO, W.WADY));
+
         M.aktywujEmocje();
         M.wezNajwiecejDlaSiebie();
-        M.W(of(W.NIEZNAJOMY),
-                of(
-                        M.obgadywanie(),
-                        M.foty()
-                )
-        );
-        M.W(of(W.NIEZNAJOMY, W._88_, W.PRZEWAGA, M.Option(W.AGRESJA)),
-                of(
-                        M.zwyzywaj(),
-                        M.pobij()
-                )
-        );
-        M.W(of(W.ZNAJOMI),
-                of(
-                        M.wykorzystaj()
-                )
-        );
+        M.W(of(W.NIEZNAJOMY), "--->", DBW.KRZYWDY_POSREDNIE_WARUNKI());
+
+        M.W(of(W.NIEZNAJOMY, W._88_, DBW.PRZEWAGI_CHWILI_WARUNKI()), "--->", DBW.KRZYWDY_BEZPOSREDNIE_WARUNKI();
+
+        M.W(W.ZNAJOMY, "--->", M.WYKORZYSTANIE(W.ZNAJOMY));
     }
 
-    public void endCasyWarunkow() {
-        M.W((W.DEFAULT),
+    public void standardoweSkutkiWarunkow() {
+        M.W((W.STANDARDOWO),
                 of(
                         W.TEMPOTA,
                         W.GLUPOTA,
@@ -284,41 +268,10 @@ public class Watek_LUDZI extends AbstractWatek {
         );
     }
 
-    public void teoriaZla() {
-        List<W> essentials = of(W.KTO_SZYBSZY_TEN_LEPSZY);
-
-        List<W> endCaseZla = of(
-                W.ZLE_SAMOPOCZUCIE, W.STRATY_MATERIALNE, W.STRATY_MORALNE, W.STRATA_MIEJSCA_W_HIERARCHII,
-                W.PRZERWA_KONTUZJA, W.USUNIECIE_Z_PLANSZY
-        );
-        M.W(of(W.NOWA_OSOBA),
-                of(
-                        M.pierwszaReakcja(of(W.ROZKMINIA, W.MAGICZNE_ZAKLECIE, W.ZDJECIA_TWARZOWKI, W.NOTYFIKACJA_EKIPA,
-                                W.PROWOKUJE, W.CISNIE, W.WYPROWADZA_Z_ROWNOWAGI, W.WALKA_PIESCI))
-                )
-        );
-        M.W(of(W.KTOS_MI_COS_ZROBIL, W._II_, W.ZAZDROSC),
-                of(
-                        M.reakcjaMocniejNizszemuWHierarchii(DBW.ZBIOR_RANY())
-                )
-        );
-
-        M.sondaPrzewagPodZrobienieZla();
-        M.zniszczJakNajwiecej(DBW.ZBIOR_RANY());
-        M.zabierzJakNajwiecej();
-
-        M.W(of(W.OBRONA),
-                of(
-                        M.brakReakcji(W.WYZSZE_DOBRO),
-                        M.II(),
-                        M.reakcjaMocniej(DBW.ZBIOR_RANY())
-                )
-        );
-    }
 
     public void fest() {
-        List<W> festWarunki = DBW.FEST;
-        List<W> festEndCase = of(W.PODROZE, W.WYGODY, W.PRZEKAZANIE_ZLEGO_GENU, W.NABICIE_KABZY_KAPITALISCIE);
+        W festWarunki = DBW.FEST_WARUNKI();
+        List<W> festKoncoweWarunki = of(W.PODROZE, W.WYGODY, W.PRZEKAZANIE_ZLEGO_GENU, W.NABICIE_KABZY_KAPITALISCIE);
 
         M.W(of(W.RODZINA, W.KONTROLA, W.PIENIADZE),
                 of(
@@ -453,11 +406,10 @@ public class Watek_LUDZI extends AbstractWatek {
                 M.DOPOKI(W.DZIALA),
                 W.PRZYJEMNOSCI,
                 W.PRZEWAGA,
-                W.PRZEWAGA_ZE_ZLA_OD_ROBIENIA_ZLA,
-                M.DOPOKI_KONIEC()
+                W.PRZEWAGA_ZE_ZLA_OD_ROBIENIA_ZLA
         );
 
-        List<W> dzialajcyPrzewagi = of(W.KLUB, W.MLODE_KOBIETY, W.SRODOWISKO, W.ZNAJOMI, W.EMOCJE, W.GNOJENIE, W.PRACA_PO_ZNAJOMOSCI);
+        List<W> dzialajcyPrzewagi = of(W.KLUB, W.MLODE_KOBIETY, W.SRODOWISKO, W.ZNAJOMI, W.EMOCJE, W.PRACA_PO_ZNAJOMOSCI);
 
         List<W> dzialajcySlabosci = of(W.BRAK_ZDROWIA, W.BRAK_SUMIENIA, W.PIEKLO);
 
@@ -541,5 +493,54 @@ public class Watek_LUDZI extends AbstractWatek {
         M.W(W.PRACOWNIK_KORPORACJI, "--->", of(M.praca(), M.podroze(), M.dom()));
         M.W(W.FEST_FOLWARCZANY, "--->", of(M.odbierzWartosc(), M.dzialaWedleWidzimisie()));
         M.W(W.MANAGER, "--->", of(M.wykorzystajZasob(), M.ukryjDostep()));
+    }
+
+    public void superpozycja(){
+        if (W.MIEJSCE == W.MIEJSCE_PRZESTRZEGANIA_PRAWA) {
+            wysokaPozycja.SET(W.SILA_SPRAWCZA);
+        } else {
+            silaFizyczna.SET(W.SILA_SPRAWCZA);
+        }
+
+        M.W(of(W.SUPERPOZYCJA),
+                of(
+                        M.niszczZPerspektywyPozycji(),
+                        M.twojeZdanieWazniejsze(),
+                        M.tyKogosPodkopujOnCiebieNieMoze(),
+                        M.ukryjOklam(),
+                        M.wykorzystaj(),
+                        M.wonty(),
+                        M.brakPochwaly()
+                )
+        );
+
+        M.WARUNKI_WSTEPNE(of(W.POSLUSZNY, W.UZNAJE_HIERARCHIE));
+        pracownicy.thread_while_loop(M.poparcie(W.SUPERPOZYCJA));
+
+        superPozycjaOsoby.thread_while_loop(M.gnojenieZPerspektywyPozycji(pracownicy));
+        pracownicy.thread_while_loop(M.gnojenie(pracownicy));
+
+        superPozycjaOsoby.naginaniePrawa();
+        W prawo = superPozycjaOsoby.pisaniePrawa();
+
+        wszyscy.thread_while_loop(M.przestrzeganie(prawo)
+                .w_przeciwnym_przypadku(W.KONSEKWENCJE));
+
+        M.of(prawo).szkodzi(wszyscy);
+
+        superPozycjaOsoby.SET(of(
+                W.ODDANIE_SIE_ZA_PIENIADZE, W.BRAK_WSTEPU_RDZENNI, W.LECZY_KOMPLEKSY_W_PRACY,
+                W.TWARDOGLOWOSC, W.POCZUCIE_SUKCESU, W.PIENIADZE
+        ));
+
+        superPozycjaOsoby.SET(of(
+                W.DUZO_OBOWIAZKOW, W.MALO_CZASU, W.NIE_PAMIETA_SWOICH_OFIAR, W.OCZEKIWANIA
+        ));
+
+        M.W(of(W.SLEPA_LOJALNOSC, W.UZNAJE_HIERARCHIE, W.DUZO_UMIEJETNOSCI, W.MIEJSCE), "--->", of(W.SUPERPOZYCJA));
+
+        M.W(of(W.BRAK_SUPERPOZYCJI), "--->", of(W.NIEWOLNIK, W.TWOJE_ZDANIE_NIC_NIE_ZNACZY));
+
+        M.W(W.WYSOKA_POZYCJA, "--->", M.ZWYKLE(M.BRAK_DOSTEPU(W.SWIAT), M.DOSTEP(W.FIRMA), M.SILA_SPRAWCZA(W.FIRMA)));
     }
 }

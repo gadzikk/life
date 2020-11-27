@@ -7,6 +7,7 @@ import temat.TT;
 import typy_bazowe.TypT;
 import typy_bazowe.TypZadania;
 import warunek.W;
+import z_inne.OH;
 import z_inne.OsobaMetod;
 
 import java.util.ArrayList;
@@ -68,6 +69,16 @@ public class AbstractWatek {
     OsobaMetod dzialajcyBliskoMiejsca = new OsobaMetod();
     OsobaMetod silniejszy = new OsobaMetod();
 
+    OH slabyDzialacz = new OH();
+    OH slabyDzialacz2 = new OH();
+    OH slabyDzialacz3 = new OH();
+    OH slabyDzialacz4 = new OH();
+    OH slabyDzialacz5 = new OH();
+    OH slabyDzialacz6 = new OH();
+    OH slabyDzialacz7 = new OH();
+    OH slabyDzialacz8 = new OH();
+    OH slabyDzialacz9 = new OH();
+
     public <T> List<T> of(T... elements){
         return Arrays.asList(elements);
     }
@@ -77,10 +88,6 @@ public class AbstractWatek {
     }
 
     public <T> T on(List<T> elements){
-        return elements.stream().findFirst().get();
-    }
-
-    public <T> T oraz(List<T> elements){
         return elements.stream().findFirst().get();
     }
 
@@ -117,8 +124,6 @@ public class AbstractWatek {
     public W potrzeba(List<W> warunki){return null;}
 
     public TypZadania dudki(TypZadania zadanie) {return null;}
-    public TypZadania dudki(List<TypZadania> zadania) {return null;}
-    public TypZadania stanKondycja(TypZadania zadanie) {return null;}
     public TypZadania stanKondycja(List<TypZadania> zadania) {return null;}
     public TypZadania antySamotnosc(TypZadania zadanie) {return null;}
 

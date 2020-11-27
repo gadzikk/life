@@ -225,7 +225,7 @@ public class M {
     public static W niedopuscDoZlejSytuacji(W srodek) {return W.WARUNEK;}
     public static W zbijaj(W srodek) {return W.WARUNEK;}
     public static W pokazujSie(List<W> warunki) {return W.WARUNEK;}
-    public static W zagaduj() {return W.WARUNEK;}
+    public static W poznawaj() {return W.WARUNEK;}
     public static W estymacja(List<W> warunki) {return W.WARUNEK;}
     public static W poinformuj(W znajomi) {return W.WARUNEK;}
     public static W priorytety(List<W> priorities) {return W.WARUNEK;}
@@ -569,7 +569,7 @@ public class M {
     public static W oddalanieSieOdWalkiZagrozenia(List<W> warunki) {return W.WARUNEK;}
     public static W oddalanieOdKonkurencji(List<W warunki) {return W.WARUNEK;}
     public static W pozaSrodowisko(W w) {return W.WARUNEK;}
-    public static W FIRST(List<W> warunki) {return W.WARUNEK;}
+    public static W PIERWSZE(List<W> warunki) {return W.WARUNEK;}
     public static W NIGDY_MALO(List<W> warunki) {return W.WARUNEK;}
     public static W OCHRONA(W w) {return W.WARUNEK;}
     public static W DOPOKI_KONIEC() {return W.WARUNEK;}
@@ -909,6 +909,8 @@ public class M {
     public static W PRZYGOTOWANY(List<W> warunki) {return W.WARUNEK;}
     public static W PRZEWAGA(W warunek) {return W.WARUNEK;}
     public static W PRZEWAGA(List<W> warunki) {return W.WARUNEK;}
+    public static W PRZEWAGA(Integer i ,W warunek) {return W.WARUNEK;}
+    public static W PRZEWAGA(Integer i, List<W> warunki) {return W.WARUNEK;}
     public static W POZNANIE(W warunek) {return W.WARUNEK;}
     public static W POZNANIE(List<W> warunki) {return W.WARUNEK;}
     public static W ZABIERASZ_ZLYM(W warunek) {return W.WARUNEK;}
@@ -1491,4 +1493,8 @@ public class M {
     public static W WRAZENIE(List<W> warunki){return W.WARUNEK;}
     public static W MALA_SZANSA(W w){return W.WARUNEK;}
     public static W MALA_SZANSA(List<W> warunki){return W.WARUNEK;}
+    public static W SRODKI_PRZECIW(W w){return W.WARUNEK;}
+    public static W SRODKI_PRZECIW(List<W> warunki){return W.WARUNEK;}
+    public static W OTWARTE_STARCIE(W w){return W.WARUNEK;}
+    public static W OTWARTE_STARCIE(List<W> warunki){return W.WARUNEK;}
 }

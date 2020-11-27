@@ -17,39 +17,6 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
     List<W> wymaganiaUtrzymania = DBW.ZBIOR_WYMAGANIA_UTRZYMANIA();
     List<W> koncowe = DBW.ZBIOR_WARUNKI_KONCOWE();
 
-    List<W> globalnaPlanszaSwiata = of(W.SWIAT, W.KONTYNENT, W.KRAJ, W.MIASTO, W.DZIELNICA, W.OSIEDLE,
-                                       W.CZAS_W_HISTORII,
-                                       W.LUDZIE, DBW.PRZEWAGI_WARUNKI(), DBW.SLABOSCI_WARUNKI(), on(DBW.ZBIOR_EMOCJE_UCZUCIA()),
-                                                 DBW.RELACJE_WARUNKI(), DBW.WALKA_WARUNKI(),
-                                        DBW.GLOBAL_PLANSZA_LUDZIE_WARUNKI(), DBW.GLOBAL_PLANSZA_PRACA_WARUNKI(),
-                                        DBW.KSZTALTOWANIE_CZLOWIEKA_WARUNKI(), DBW.KSZTALTOWANIE_DZIELNICY_WARUNKI());
-
-
-    List<W> warunkiWyjscia = of(W.PORA_ROKU, W.CZAS, W.DOSTEPNOSC, W.ZOBACZENIE, W.BLISKOSC, W.KONTAKT);
-
-    List<W> warunki = of(W.OBECNOSC, W.PLANSZA, W.CZAS_START,W.CZAS_KONIEC, W.FOCUS, W.ZMECZENIE, W.BLISKOSC, W.DOSTEPNOSC);
-    List<W> jakoscSytuacji = of(W.INTERAKCJA, W.ZNAJOMI, W.POTRZEBA,W.WARTOSC, W.UNIKALNOSC_W_OTOCZENIU);
-
-    W przyczyny = DBW.SONDA_PRZYCZYN_WARUNKI();
-
-    List<W> szansaNaWarunek = of(W.OBECNOSC, W.DEFAULT_ZACHOWANIE, W.DEFAULT_WARUNKI, W.DZIALANIE, W.REAKCJA,
-            W.MAKSYMALNIE_ULATWIASZ, W.PRZEKONYWANIE, W.ULTIMATUM);
-    List<W> warunek = of(W.POCZATEK, W.KONIEC, W.ZYSK, W.WARTOSC, W.ILOSC_OSOB, W.CZESTOTLIWOSC);
-
-    W orient = M.ORIENT(of(W.KONCOWY_WARUNEK, W.OBJECIE_POCZATEK_KONIEC, W.PRZEWIDZENIE_KONSEKWENCJI));
-    List<W> okazja = of(W.DOBRO, W.POZNANIE, W.WALKA_PIESCI);
-
-    W niesprawiedliwosc = DBW.NIESPRAWIEDLIWOSC_WARUNKI();
-    List<W> patologie = DBP.ZBIOR_PATOLOGIE();
-
-    List<W> otaczajacyLudzie = of(W.LUDZIE_RODZINA, W.LUDZIE_PRACA, W.LUDZIE_DZIELNICA, W.ZNAJOMI_DZIELNICA, W.OBSLUGA);
-
-    PriorityQueue<W> wartosciowaRzecz = new PriorityQueue<>(of(W.WYSILEK, W.WALKA, W.UTRZYMANIE_PRZEMOCA, W.UTRZYMANIE_EMOCJAMI));
-    PriorityQueue<W> silaSprawcza = new PriorityQueue<>();
-
-    List<W> mainFlows = of(W.GRUPA_PRZESTEPCZA, W.DOBRA_PRACA, W.STUDIA, W.KLUBY_DYSKOTEKA, W.KLUBY_KIBICOWSKIE, W.RESTAURACJA, W.WAKACJE_WODA, W.ZWIAZKI,
-                            W.ZNAJOMI, W.SLUZBA_ZROWIA, W.SLUZBY_MUNDUROWE, W.INTERNET, W.TELEWIZJA);
-
     W startowe = DBW.STARTOWE_WARUNKI();
     List<W> czas = DBW.ZBIOR_CZAS();
     W duzoIf = DBW.DUZO_SIE_DZIEJE_ULICA_WARUNKI();
@@ -69,7 +36,40 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
     List<W> tematy = DBW.ZBIOR_TEMATY();
     List<W> wiedza = DBW.ZBIOR_WIEDZA();
 
-    public void run(){
+    List<W> globalnaPlanszaSwiata = of(W.SWIAT, W.KONTYNENT, W.KRAJ, W.MIASTO, W.DZIELNICA, W.OSIEDLE,
+                                       W.CZAS_W_HISTORII,
+                                       W.LUDZIE, DBW.PRZEWAGI_WARUNKI(), DBW.SLABOSCI_WARUNKI(), on(DBW.ZBIOR_EMOCJE_UCZUCIA()),
+                                                 DBW.RELACJE_WARUNKI(), DBW.WALKA_WARUNKI(),
+                                        DBW.GLOBAL_PLANSZA_LUDZIE_WARUNKI(), DBW.GLOBAL_PLANSZA_PRACA_WARUNKI(),
+                                        DBW.KSZTALTOWANIE_CZLOWIEKA_WARUNKI(), DBW.KSZTALTOWANIE_DZIELNICY_WARUNKI());
+
+
+    List<W> warunkiWyjscia = of(W.PORA_ROKU, W.CZAS, W.DOSTEPNOSC, W.ZOBACZENIE, W.BLISKOSC, W.KONTAKT);
+
+    List<W> warunki = of(W.OBECNOSC, W.PLANSZA, W.CZAS_START,W.CZAS_KONIEC, W.FOCUS, W.ZMECZENIE, W.BLISKOSC, W.DOSTEPNOSC);
+    List<W> jakoscSytuacji = of(W.INTERAKCJA, W.ZNAJOMI, W.POTRZEBA,W.WARTOSC, W.UNIKALNOSC_W_OTOCZENIU);
+
+    W przyczyny = DBW.SONDA_PRZYCZYN_WARUNKI();
+
+    List<W> szansaNaWarunek = of(W.OBECNOSC, W.STANDARDOWE_ZACHOWANIE, W.STANDARDOWE_WARUNKI, W.DZIALANIE, W.REAKCJA,
+            W.MAKSYMALNIE_ULATWIASZ, W.PRZEKONYWANIE, W.ULTIMATUM);
+    List<W> warunek = of(W.POCZATEK, W.KONIEC, W.ZYSK, W.WARTOSC, W.ILOSC_OSOB, W.CZESTOTLIWOSC);
+
+    W orient = M.ORIENT(of(W.KONCOWY_WARUNEK, W.OBJECIE_POCZATEK_KONIEC, W.PRZEWIDZENIE_KONSEKWENCJI));
+    List<W> okazja = of(W.DOBRO, W.POZNANIE, W.WALKA_PIESCI);
+
+    W niesprawiedliwosc = DBW.NIESPRAWIEDLIWOSC_WARUNKI();
+    List<W> patologie = DBP.ZBIOR_PATOLOGIE();
+
+    List<W> otaczajacyLudzie = of(W.LUDZIE_RODZINA, W.LUDZIE_PRACA, W.LUDZIE_DZIELNICA, W.ZNAJOMI_DZIELNICA, W.OBSLUGA);
+
+    PriorityQueue<W> wartosciowaRzecz = new PriorityQueue<>(of(W.WYSILEK, W.WALKA, W.UTRZYMANIE_SILAA, W.UTRZYMANIE_EMOCJAMI));
+    PriorityQueue<W> silaSprawcza = new PriorityQueue<>();
+
+    List<W> mainFlows = of(W.GRUPA_PRZESTEPCZA, W.DOBRA_PRACA, W.STUDIA, W.KLUBY_DYSKOTEKA, W.KLUBY_KIBICOWSKIE, W.RESTAURACJA, W.WAKACJE_WODA, W.ZWIAZKI,
+                            W.ZNAJOMI, W.SLUZBA_ZROWIA, W.SLUZBY_MUNDUROWE, W.INTERNET, W.TELEWIZJA);
+
+    public void run() {
         M.WWW(W.INFORMACJA, "--->", M.SONDA(W.INFORMACJA), "--->", W.NASTAWIENIE, "--->", W.DZIALANIE);
         M.WW(W.DZIALANIE, "--->", M.OSIAGNIECIE(W.WARUNEK), "--->", M.ZASIEG(M.NOWY(of(W.WARUNEK, W.INFORMACJA))));
 
@@ -131,7 +131,7 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
         M.W(W.BRAK_WYKONANIA_PLANU, "--->", M.przechodziDoKolejnegoPokojuCzasu(W.PLAN));
 
         M.W(W.CHCESZ_NORMALNA_KOBIETE, of(M.pokazujSie(of(W.NORMALNE_MIEJSCE, W.NORMALNA_PORA)),
-                                          M.zagaduj()));
+                                          M.poznawaj()));
 
         M.W(M.WZAJEMNE(W.WARTOSC), "--->", W.STATUS_QUO);
         M.W(M.BRAK(W.WARTOSC), "--->", W.STARCIE);
@@ -153,16 +153,15 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
                W.SONDA, W.WLASCIWA_OCENA, W.ZNAJOMOSC_OTOCZENIA,
                              W.TRZEZWOSC, M.WNIOSKI(W.HISTORIA)),"--->", W.TRAFNE_DECYZJE);
 
-        M.W(W.NIEZNAJOMY, "--->", W.DEFAULT_SYTUACJA);
+        M.W(W.NIEZNAJOMY, "--->", W.STANDARDOWA_SYTUACJA);
         M.W(W.ZNAJOMY, "--->", W.SRODOWISKOWA_SYTUACJA);
         M.W(W.WARUNEK_SPRZYJAJACY, "--->", W.CHCIANA_SYTUACJA);
 
         waznyTrudnyWarunek();
-        superpozycja();
         najwiekszaBron();
         zNieswiadomosci();
         rozmowa();
-        zasobZjawiskoDefault();
+        zasobZjawiskoStandardowo();
     }
     public void waznyTrudnyWarunek() {
         of(
@@ -184,55 +183,6 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
         );
     }
 
-    public void superpozycja(){
-        if (W.MIEJSCE == W.MIEJSCE_PRZESTRZEGANIA_PRAWA) {
-            wysokaPozycja.SET(W.SILA_SPRAWCZA);
-        } else {
-            silaFizyczna.SET(W.SILA_SPRAWCZA);
-        }
-
-        M.W(of(W.SUPERPOZYCJA),
-                of(
-                        M.niszczZPerspektywyPozycji(),
-                        M.twojeZdanieWazniejsze(),
-                        M.tyKogosPodkopujOnCiebieNieMoze(),
-                        M.ukryjOklam(),
-                        M.wykorzystaj(),
-                        M.wonty(),
-                        M.brakPochwaly()
-                )
-        );
-
-        M.WARUNKI_WSTEPNE(of(W.POSLUSZNY, W.UZNAJE_HIERARCHIE));
-        pracownicy.thread_while_loop(M.poparcie(W.SUPERPOZYCJA));
-
-        superPozycjaOsoby.thread_while_loop(M.gnojenieZPerspektywyPozycji(pracownicy));
-        pracownicy.thread_while_loop(M.gnojenie(pracownicy));
-
-        superPozycjaOsoby.naginaniePrawa();
-        W prawo = superPozycjaOsoby.pisaniePrawa();
-
-        wszyscy.thread_while_loop(M.przestrzeganie(prawo)
-                                    .w_przeciwnym_przypadku(W.KONSEKWENCJE));
-
-        M.of(prawo).szkodzi(wszyscy);
-
-        superPozycjaOsoby.SET(of(
-                W.ODDANIE_SIE_ZA_PIENIADZE, W.BRAK_WSTEPU_RDZENNI, W.LECZY_KOMPLEKSY_W_PRACY,
-                W.TWARDOGLOWOSC, W.POCZUCIE_SUKCESU, W.PIENIADZE
-        ));
-
-        superPozycjaOsoby.SET(of(
-                W.DUZO_OBOWIAZKOW, W.MALO_CZASU, W.NIE_PAMIETA_SWOICH_OFIAR, W.OCZEKIWANIA
-        ));
-
-        M.W(of(W.SLEPA_LOJALNOSC, W.UZNAJE_HIERARCHIE, W.DUZO_UMIEJETNOSCI, W.MIEJSCE), "--->", of(W.SUPERPOZYCJA));
-
-        M.W(of(W.BRAK_SUPERPOZYCJI), "--->", of(W.NIEWOLNIK, W.TWOJE_ZDANIE_NIC_NIE_ZNACZY));
-
-        M.W(W.WYSOKA_POZYCJA, "--->", M.ZWYKLE(M.BRAK_DOSTEPU(W.SWIAT), M.DOSTEP(W.FIRMA), M.SILA_SPRAWCZA(W.FIRMA)));
-    }
-
     public void najwiekszaBron() {
         M.W(of(W.ULICA), "--->", of(W.SPRZET, W.KONTUZJA));
 
@@ -252,7 +202,7 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
                                                 .WSPOMIJ(W.SKOJARZONE);
     }
 
-    public void zasobZjawiskoDefault() {
+    public void zasobZjawiskoStandardowo() {
         M.W(W.OSOBA, "--->", M.ZWYKLE(of(W.ZLY, W.GLUPI)));
 
         M.W(W.OSOBA, "--->", M.ZWYKLE(W.CIEZKO_W_ZYCIU));

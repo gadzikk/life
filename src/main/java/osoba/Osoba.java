@@ -1714,7 +1714,7 @@ public class Osoba {
                 ", dzienCodzienny=" + dzienCodzienny +
                 ", iloscZnajomych=" + iloscZnajomych +
                 ", iloscDobrziZnajomi=" + iloscDobrziZnajomi +
-                ", srodki=" + srodki +
+                ", osobaSrodki=" + srodki +
                 ", majatek=" + majatek +
                 ", miejsceZamieszkania=" + miejsceZamieszkania +
                 ", nieObchodziGo=" + nieObchodziGo +

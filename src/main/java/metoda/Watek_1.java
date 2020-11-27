@@ -48,7 +48,7 @@ public class Watek_1 extends AbstractWatek {
 
     List<Object> sytuacja = of(W.LUDZIE, essentials, W.OPCJA_PRZEJSCIE, allSprzyjajace, spojrzenia, jakoscSytuacji);
 
-    W cel = W.ZMIANA_SYTUACJI_DEFAULTOWEJ;
+    W cel = W.ZMIANA_SYTUACJI_STANDARDOWEJ;
 
     List<W> malyDuzy = of(M.MALY_WARUNEK(of(W.WYCHODZENIE, W.OBECNOSC)), M.DUZY_WARUNEK(W.ZAGADANIE));
 

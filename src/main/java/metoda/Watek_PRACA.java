@@ -285,7 +285,7 @@ public class Watek_PRACA extends AbstractWatek {
                 M.W(W.MNIEJ_NIZ_2_LATA_DOSWIADCZENIA, "--->",      pytajacy.OCZEKIWANIE(W.DOBRZE_JEZELI_UMIE));
                 M.W(W.WIECEJ_NIZ_2_LATA_DOSWIADCZENIA, "--->", pytajacy.OCZEKIWANIE(W.MUSI_UMIEC_WSZYSTK0));
 
-        pytajacy.SET(DBW.FEST);
+        pytajacy.SET(DBW.FEST_WARUNKI());
         pytajacy.thread_while_loop(W.SZUKA_GLEBOKO_PYTAN);
         pytajacy.thread_while_loop(W.LICZY_KAZDY_BLAD);
 

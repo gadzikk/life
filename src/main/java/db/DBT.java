@@ -1,6 +1,5 @@
 package db;
 
-import typy_bazowe.TypT;
 import warunek.W;
 
 import java.util.List;

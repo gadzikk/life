@@ -55,7 +55,7 @@ public class Watek_ULICA extends AbstractWatek {
             W.CHETNOSC_ZERO, M.DZIALAJACY(W.KOBIETY), M.MALA_SZANSA(W.PODERWANIE_KOBIETY_NEUTRALNY_RZUT), DBP.PATOLOGIE_WSTEPNE_KOBIETA()
     ));
 
-    List<W> szansaNaWarunek = of(W.OBECNOSC, W.DEFAULT_ZACHOWANIE, W.DEFAULT_WARUNKI, W.DZIALANIE, W.REAKCJA,
+    List<W> szansaNaWarunek = of(W.OBECNOSC, W.STANDARDOWE_ZACHOWANIE, W.STANDARDOWE_WARUNKI, W.DZIALANIE, W.REAKCJA,
             W.MAKSYMALNIE_ULATWIASZ, W.PRZEKONYWANIE, W.ULTIMATUM);
 
     List<W> warunek = of(W.ULTIMATUM, W.POCZATEK, W.KONIEC, W.ZYSK, W.WARTOSC, W.ILOSC_OSOB, W.CZESTOTLIWOSC, W.SILA, W.PRIORYTET);
@@ -106,6 +106,7 @@ public class Watek_ULICA extends AbstractWatek {
         sprzet();
         zwyklaOsobaZOsiedla();
         tchorzSchemat();
+        ochrona();
         nuda();
         nieZnam();
         srodki();
@@ -380,17 +381,17 @@ public class Watek_ULICA extends AbstractWatek {
                 W.TEMAT_ZGODNY_Z_WARTOSCIAMI, W.TEMAT_ZGODNY_Z_EMOCJAMI, W.TEMAT_NIEPODWAZALNY), "--->", of(W.DOBRA_ROZMOWA));
 
 
-        M.W(of(W.DEFAULT_REAKCJA_ZLO), "--->", of(W.ZNIECZULICA));
+        M.W(of(W.STANDARDOWA_REAKCJA_NA_ZLO), "--->", W.ZNIECZULICA);
 
-        M.W(of(W.DEFAULT_REAKCJA_DOBRO), "--->", of(W.ZNISZCZYC));
+        M.W(of(W.STANDARDOWA_REAKCJA_NA_DOBRO), "--->", M.ZNISZCZENIE(W.DOBRO));
 
-        M.W(of(W.KOBIETA_W_ZWIAZKU), "--->", of(W.NAPEWNO_DAJE));
+        M.W(of(W.KOBIETA_W_ZWIAZKU), "--->", W.NAPEWNO_DAJE);
 
         M.W(of(W.ZLE_W_ZYCIU), "--->", of(W.ROBI_GORZEJ_INNYM,
                                             W.NASTAWIENIE_MAM_ZLE_ON_TEZ_MUSI, W.NASTAWIENIE_NIE_MAM_NIC_ON_TEZ_MA_NIE_MIEC,
                                             W.NASTAWIENIE_JA_GNOJONY_GNOJE_NIZSZYCH));
 
-        M.W(of(W.CIEKAWOSC_LUDZI, W.CIEKAWOSC_NIE_DEFAULTOWYCH_SYTUACJI), "--->", of(W.ATRAKCYJNOSC_ULICY));
+        M.W(of(W.CIEKAWOSC_LUDZI, W.CIEKAWOSC_REAKCJI_EMOCJI_ZACHOWAN_SYTUACJI), "--->", of(W.ATRAKCYJNOSC_ULICY));
 
         M.W(of(W.MALO_CZASU, W.NIE_ODZYWA_SIE), "--->", of(W.BRAK_SONDY));
 
@@ -793,25 +794,14 @@ public class Watek_ULICA extends AbstractWatek {
         miejsceSzansaProcent.put(W.OSIEDLE, 20);
         miejsceSzansaProcent.put(W.GLOWNA_DROGA, 10);
 
-        Map<Integer, W> przewagi = new HashMap<>();
-        przewagi.put(3, W.ILOSC_OSOB);
-        przewagi.put(2, W.WALKA_SPRZET);
-        przewagi.put(1, W.WALKA_PIESCI);
-        przewagi.put(1, W.ROZMIAR);
+        M.PRZEWAGA((3, W.ILOSC_OSOB);
+        M.PRZEWAGA((2, W.WALKA_SPRZET);
+        M.PRZEWAGA((1, W.WALKA_PIESCI);
+        M.PRZEWAGA((1, W.ROZMIAR);
 
-        OH przydupas = new OH();
-        OH przydupas2 = new OH();
-        OH przydupas3 = new OH();
-        OH przydupas4 = new OH();
-        OH przydupas5 = new OH();
-        OH przydupas6 = new OH();
-        OH przydupas7 = new OH();
-        OH przydupas8 = new OH();
-        OH przydupas9 = new OH();
-
-        OH ogarniety = new OH(of(przydupas, przydupas2, przydupas3));
-        OH ogarniety2 = new OH(of(przydupas4, przydupas5, przydupas6));
-        OH ogarniety3 = new OH(of(przydupas7, przydupas8, przydupas9));
+        OH ogarniety = new OH(of(slabyDzialacz, slabyDzialacz2, slabyDzialacz3));
+        OH ogarniety2 = new OH(of(slabyDzialacz4, slabyDzialacz5, slabyDzialacz6));
+        OH ogarniety3 = new OH(of(slabyDzialacz7, slabyDzialacz8, slabyDzialacz9));
 
         OH gangusZHajsem = new OH(of(ogarniety, ogarniety2, ogarniety3));
     }
@@ -965,6 +955,12 @@ public class Watek_ULICA extends AbstractWatek {
         M.W(W.NASTAWIENIE, "--->", M.JEZELI_MOZNA(M.LATWO(DBW.KRZYWDY_WARUNKI())));
     }
 
+    public void ochrona() {
+        M.OCHRONA(M.W(of(W.PRZESTEPCZOSC_REGIONU), "--->", of(DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI())));
+        M.OCHRONA(M.W(of(W.ZWIAZEK), "--->", of(W.WALKA_PIESCI, W.SKAZYWANIE_SAMOTNOSC, W.OBGADAC, W.EMOCJE_ZE_ZLA)));
+        M.OCHRONA(M.W(of(W.PRACA), "--->", of(W.LOJALNOSC, W.WYKONYWANIE_PRACY)));
+    }
+
     public void nuda() {
         M.W(W.WYJSCIE_NA_ULICE, "--->", W.NUDA);
 
@@ -983,7 +979,7 @@ public class Watek_ULICA extends AbstractWatek {
                         of(
                                 M.sondaDostepu(),
                                 M.sondaZagrozenia(),
-                                M.SONDA(DBW.KRYTERIA_PRZYPALU()),
+                                M.SONDA(DBW.SONDA_PRZYPALU_WARUNKI()),
                                 M.poCichu(), M.II(), M.otwarteStacie(),
                                 M.POTRZEBNE(of(
                                         W.ZDOLNY_DO_WALKI,
@@ -1055,7 +1051,7 @@ public class Watek_ULICA extends AbstractWatek {
                                 M.wspominanieZlychWydarzen(),
                                 M.zartowanie(zarty),
                                 M.otwarteStacie(),
-                                M.terror(DBW.TERROR()),
+                                M.terror(DBW.TERROR_WARUNKI()),
                                 M.ktoZNimTenPojechane(),
                                 M.shanbienie(),
                                 M.POTRZEBNE(of(W.LUDZIE_WOKOL, W.LUDZIE_ZA_TOBA))
