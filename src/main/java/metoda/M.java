@@ -481,12 +481,12 @@ public class M {
     public static W rozpowiedz(W warunek) {return W.WARUNEK;}
     public static W zaczepSprowokuj(OsobaMetod osoba) {return W.WARUNEK;}
     public static W wrocZPrzewaga() {return W.WARUNEK;}
-    public static W DEEP(List<TypT> tematy) {return W.WARUNEK;}
-    public static W WNIOSKI(List<TypT> tematy) {return W.WARUNEK;}
+    public static W DEEP(List<W> tematy) {return W.WARUNEK;}
+    public static W WNIOSKI(List<W> tematy) {return W.WARUNEK;}
     public static W WNIOSKI() {return W.WARUNEK;}
     public static W WNIOSKI(W w) {return W.WARUNEK;}
     public static W KONTRA() {return W.WARUNEK;}
-    public static W ZMIANA(List<TypT> tematy) {return W.WARUNEK;}
+    public static W ZMIANA(List<W> tematy) {return W.WARUNEK;}
     public static W robCosExtra() {return W.WARUNEK;}
     public static W robRany(W warunek) {return W.WARUNEK;}
     public static W ochronaPrzed(W warunek) {return W.WARUNEK;}

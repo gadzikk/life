@@ -73,9 +73,9 @@ public class OsobaMetod {
     public W niktNiePyta() {return W.WARUNEK;}
     public W informacjeZGory() {return W.WARUNEK;}
     public W przerwanie(W w) {return W.WARUNEK;}
-    public OsobaMetod wali() {return new OsobaMetod();}
-    public OsobaMetod waliWedlePreferencji(OsobaMetod osoba) {return new OsobaMetod();}
-    public OsobaMetod wali(OsobaMetod osobaMetod) {return new OsobaMetod();}
+    public OsobaMetod niszczy() {return new OsobaMetod();}
+    public OsobaMetod niszczyWedlePreferencji(OsobaMetod osoba) {return new OsobaMetod();}
+    public OsobaMetod niszczy(OsobaMetod osobaMetod) {return new OsobaMetod();}
     public OsobaMetod cisnie() {return new OsobaMetod();}
     public W skazujeNaSamotnosc() {return W.WARUNEK;}
     public W rozpowiedzDoWszystkich(W w) {return W.WARUNEK;}

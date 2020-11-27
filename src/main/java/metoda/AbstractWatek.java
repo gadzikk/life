@@ -1,7 +1,6 @@
 package metoda;
 
-import db.DBP;
-import db.DB_Tematy;
+import db.DBT;
 import db.DBW;
 import osoba.Osoba;
 import temat.TT;
@@ -19,16 +18,16 @@ import java.util.List;
  */
 public class AbstractWatek {
     DBW dbw = new DBW();
-    List<TypT> prefixes = DB_Tematy.PREFIXES;
-    List<TypT> pdstw = DB_Tematy.PDSTW;
-    List<TT> tematy = DB_Tematy.TEMATY;
-    List<TT> kombo = DB_Tematy.KOMBO;
-    List<TT> codzienne = DB_Tematy.CODZIENNE;
+    List<TypT> prefixes = null;
+    List<TypT> pdstw = null;
+    List<TT> tematy = null;
+    List<TT> kombo = null;
+    List<TT> codzienne = null;
     W coTakPatrzysz;
     OsobaMetod ona = new OsobaMetod();
     OsobaMetod manago = new OsobaMetod();
-    List<TT> obelgi = DB_Tematy.TEMATY;
-    List<TT> zarty = DB_Tematy.ZARTY;
+    List<TT> obelgi = null
+    List<TT> zarty = null;
     OsobaMetod wszyscy = new OsobaMetod();
     OsobaMetod osoba = new OsobaMetod();
     Osoba izolowanaOsoba = new Osoba();
@@ -59,22 +58,12 @@ public class AbstractWatek {
     OsobaMetod srodowisko = new OsobaMetod();
     OsobaMetod grubasPrzewaga = new OsobaMetod();
     OsobaMetod fest = new OsobaMetod();
-    OsobaMetod twoiWrogowie = new OsobaMetod();
-    OsobaMetod zagraniczni = new OsobaMetod();
-    OsobaMetod drugaStrona = new OsobaMetod();
     OsobaMetod zazdrosni = new OsobaMetod();
     OsobaMetod dzialaczMocny = new OsobaMetod();
     OsobaMetod ZLE_OSOBY = new OsobaMetod();
     OsobaMetod dobrzi = new OsobaMetod();
-    OsobaMetod najwyzszyHierarchiaWokol = new OsobaMetod();
-    OsobaMetod swoi = new OsobaMetod();
     OsobaMetod osobyPozaSrodowisko = new OsobaMetod();
-    OsobaMetod goscZHanba = new OsobaMetod();
-    OsobaMetod rdzenny = new OsobaMetod();
-    OsobaMetod biegacz = new OsobaMetod();
     OsobaMetod wrogowie = new OsobaMetod();
-    OsobaMetod obsluga = new OsobaMetod();
-    OsobaMetod kierownictwo = new OsobaMetod();
     OsobaMetod osoby = new OsobaMetod();
     OsobaMetod dzialajcyBliskoMiejsca = new OsobaMetod();
     OsobaMetod silniejszy = new OsobaMetod();

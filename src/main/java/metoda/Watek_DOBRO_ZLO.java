@@ -194,10 +194,10 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
         M.UNIZAJ(M.OSLABIAJ(W.INNI));
     }
     public void zloUjecieSwiatowe() {
-        diabel.wali(usa);
-        usa.wali(polskiRzad);
-        polskiRzad.wali(osoba);
-        osoba.waliWedlePreferencji(osoba);
+        diabel.niszczy(usa);
+        usa.niszczy(polskiRzad);
+        polskiRzad.niszczy(osoba);
+        osoba.niszczyWedlePreferencji(osoba);
     }
 
     public void wyborKazdegoCzlowieka() {
