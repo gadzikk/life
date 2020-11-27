@@ -67,7 +67,7 @@ public class Watek_ULICA extends AbstractWatek {
         M.W(of(W.SILNA_JEDNOSTKA, W._88_, W.DZIALANIE_W_EKIPIE), "--->", M.DOSTEP(of(W.CZOLO, W.OGARNIECI)));
 
         M.W(M.BRAK(M.DOSTEP(of(W.CZOLO, W.OGARNIECI))), "--->", of(W.MOCNI_NIE_LICZACY_SIE, W.NORMALNY, M.MLODE(M.CHETNE(W.PIONKI)),
-                                                                                            W.FEST, W.BANAN, W.SYSTEMOWIEC, W.WYGODNIS));
+                                                                                            W.FEST, W.ROZPIESZCZONY_BANAN, W.SYSTEMOWIEC, W.WYGODNY));
 
         M.W(of(W.MOCNY_WZROK), "--->", of(W.WYSILEK_FIZYCZNY, W.WYSILEK_UMYSLOWY));
         M.W(of(W.WYSILEK_FIZYCZNY, W.WYSILEK_UMYSLOWY), "--->", of(W.KREGOSLUP_MORALNY, W.ZDOLNOSC_DO_WYSILKU, W.ZDOLNY_DO_WALKI, W.WNIOSKI, W.PODSWIADOMOSC, W.WIEDZA_SPORT));

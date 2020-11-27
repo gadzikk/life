@@ -66,7 +66,7 @@ public class Watek_PRACA extends AbstractWatek {
                         M.POTRZEBNE(of(W.DWA_MIESIACE))
                 )
         );
-        M.W((DBW.WYMAGANIA_WSTEPNE_ZARABIANIE()),
+        M.W((DBW.WYMAGANIA_WSTEPNE_ZARABIANIE_WARUNKI()),
                 of(
                         M.GRANT(ME,W.PRACA)
                 )

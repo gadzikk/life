@@ -3,238 +3,296 @@ package db;
 import metoda.M;
 import warunek.W;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by gadzik on 28.12.19.
  */
 public class DBW extends DB {
-    public static List<W> ZBIOR_ZLY_DOBRY() {
+
+    public static List<W> ZBIOR_WYMAGANIA_WSTEPNE() {
         return of(
-                PRZYCZYNY_ZLA(),
-                PRZYCZYNY_DOBRA(),
-                ZACHETA_DO_ZLA(),
-                NIESPRAWIEDLIWOSC(),
-                DOBRE_CZYNY(),
-                ZLE_CZYNY(),
-                ANTY_DZIALACZ_ZLA(),
-                WADY_ZLYCH(),
-                OKAZJE_ZROBIENIE_ZLO(),
-                OKAZJE_ZROBIENIE_DOBRO(),
-                ZLY_ZNAKI_ROZPOZNAWCZE()
+                WYMAGANIA_WSTEPNE_SWIAT_WARUNKI(),
+                WYMAGANIA_WSTEPNE_INFORMACJA_WARUNKI(),
+                WYMAGANIA_WSTEPNE_WIEDZA_WARUNKI(),
+                WYMAGANIA_WSTEPNE_BRAKWSTYDU_WARUNKI(),
+                WYMAGANIA_WSTEPNE_REZULTAT_WARUNKI(),
+                WYMAGANIA_WSTEPNE_PRACA_WARUNKI(),
+                WYMAGANIA_WSTEPNE_PRACA_RESTRYKCYJNA_WARUNKI(),
+                WYMAGANIA_WSTEPNE_ZARABIANIE_WARUNKI(),
+                WYMAGANIA_WSTEPNE_SPORT_WARUNKI(),
+                WYMAGANIA_WSTEPNE_OSIEDLE_WARUNKI(),
+                WYMAGANIA_WSTEPNE_DOPUSZCZENIE_KOBIETA_WARUNKI(),
+                WYMAGANIA_WSTEPNE_KOBIETA_WARUNKI()
+        );
+    }
+
+    public static List<W> ZBIOR_WYMAGANIA_UTRZYMANIA() {
+        return of(
+                WYMAGANIA_UTRZYMANIA_SWIAT_WARUNKI(),
+                WYMAGANIA_UTRZYMANIA_INFORMACJA_WARUNKI(),
+                WYMAGANIA_UTRZYMANIA_WIEDZA_WARUNKI(),
+                WYMAGANIA_UTRZYMANIA_BRAKWSTYDU_WARUNKI(),
+                WYMAGANIA_UTRZYMANIA_REZULTAT_WARUNKI(),
+                WYMAGANIA_UTRZYMANIA_PRACA_WARUNKI(),
+                WYMAGANIA_UTRZYMANIA_PRACA_RESTRYKCYJNA_WARUNKI(),
+                WYMAGANIA_UTRZYMANIA_ZARABIANIE_WARUNKI(),
+                WYMAGANIA_UTRZYMANIA_SPORT_WARUNKI(),
+                WYMAGANIA_UTRZYMANIA_OSIEDLE_WARUNKI(),
+                WYMAGANIA_UTRZYMANIA_DOPUSZCZENIE_KOBIETA_WARUNKI(),
+                WYMAGANIA_UTRZYMANIA_KOBIETA_WARUNKI()
+        );
+    }
+
+    public static List<W> ZBIOR_WARUNKI_KONCOWE () {
+        return of(
+                KONCOWE_SWIAT_WARUNKI(),
+                KONCOWE_PRACA_WARUNKI(),
+                KONCOWE_ZARABIANIE_WARUNKI(),
+                KONCOWE_SPORT_WARUNKI(),
+                KONCOWE_OSIEDLE_WARUNKI(),
+                KONCOWE_KOBIETA_WARUNKI(),
+                KONCOWE_WIEDZA_WARUNKI(),
+                KONCOWE_DOPUSZCZENIE_KOBIETA_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_GLOBAL_PLANSZA() {
         return of(
-                GLOBAL_PLANSZA_LUDZIE(),
-                GLOBAL_PLANSZA_PRACA()
+                GLOBAL_PLANSZA_LUDZIE_WARUNKI(),
+                GLOBAL_PLANSZA_PRACA_WARUNKI()
+        );
+    }
+
+    public static List<W> ZBIOR_ZLY_DOBRY() {
+        return of(
+                PRZYCZYNY_ZLA_WARUNKI(),
+                PRZYCZYNY_DOBRA_WARUNKI(),
+                ZACHETA_DO_ZLA_WARUNKI(),
+                NIESPRAWIEDLIWOSC_WARUNKI(),
+                DOBRE_CZYNY_WARUNKI(),
+                ZLE_CZYNY_WARUNKI(),
+                ANTY_DZIALACZ_ZLA_WARUNKI(),
+                WADY_ZLYCH_WARUNKI(),
+                OKAZJE_ZROBIENIE_ZLO_WARUNKI(),
+                OKAZJE_ZROBIENIE_DOBRO_WARUNKI(),
+                ZLY_ZNAKI_ROZPOZNAWCZE_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_WARTOSCI_OCENA_WROG() {
         return of(
-                WARTOSC_ZLA(),
-                WARTOSC_DOBRA(),
-                OCENIA_WEDLUG(),
-                KRYTERIA_WROGA(),
-                NASTAWIENIA(),
-                KONTROLA()
+                WARTOSC_ZLA_WARUNKI(),
+                WARTOSC_DOBRA_WARUNKI(),
+                OCENIA_WEDLUG_WARUNKI(),
+                KRYTERIA_WROGA_WARUNKI(),
+                NASTAWIENIA_WARUNKI(),
+                KONTROLA_WARUNKI(),
+                HIERARCHIA_ULICA_WARUNKI(),
+                HIERARCHIA_PRACA_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_ZASADY_PRZYMUS_ZAGROZENIA() {
         return of(
-                ZASADY(),
-                PRZYMUS(),
-                ZAGROZENIA(),
-                OSLONY(),
-                METODY_POLICYJNE(),
-                BLEDY()
+                ZASADY_WARUNKI(),
+                PRZYMUS_WARUNKI(),
+                ZAGROZENIA_WARUNKI(),
+                OSLONY_WARUNKI(),
+                METODY_POLICYJNE_WARUNKI(),
+                BLEDY_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_TWL_PRZEWAGI_SLABOSCI_CIERPIENIA_POTRZEBY() {
         return of(
-                THREAD_WHILE_LOOP(),
-                PRZEWAGI(),
-                SLABOSCI(),
-                CIERPIENIA(),
-                POTRZEBY(),
-                OSLONY(),
-                DEFAULT_WARUNKI(),
-                CECHY_RDZENNY(),
-                SLABY_TCHORZ()
+                THREAD_WHILE_LOOP_WARUNKI(),
+                PRZEWAGI_WARUNKI(),
+                SLABOSCI_WARUNKI(),
+                CIERPIENIA_WARUNKI(),
+                POTRZEBY_WARUNKI(),
+                OSLONY_WARUNKI(),
+                DEFAULT_WARUNKI_WARUNKI(),
+                CECHY_RDZENNY_WARUNKI(),
+                SLABY_TCHORZ_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_REAKCJE() {
         return of(
-                REAKCJE(),
-                WYMUSZENIE_REAKCJI(),
-                REAKCJA_KOBIET()
+                REAKCJE_WARUNKI(),
+                WYMUSZENIE_REAKCJI_WARUNKI(),
+                REAKCJA_KOBIET_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_SONDA() {
         return of(
-                SONDA_GDY(),
-                SONDA_PO(),
-                SONDA_KOGO(),
-                WYMAGA_KARY(),
-                SONDA_DZIALACZA(),
-                SONDA_SHRTS(),
-                SONDA_PRZYCZYN()
+                SONDA_GDY_WARUNKI(),
+                SONDA_PO_WARUNKI(),
+                SONDA_KOGO_WARUNKI(),
+                SONDA_WYMAGA_KARY_WARUNKI(),
+                SONDA_DZIALACZA_WARUNKI(),
+                SONDA_SHRTS_WARUNKI(),
+                SONDA_PRZYCZYN_WARUNKI(),
+                SONDA_BLAD_WARUNKI(),
+                SONDA_PRZYPALU_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_CZAS() {
         return of(
-                CYKL_DNIA(),
-                PLAN_TERMIN(),
-                ERA(),
-                POZYTECZNE_SPEDZANIE_CZASU()
+                CYKL_DNIA_WARUNKI(),
+                PLAN_TERMIN_WARUNKI(),
+                ERA_WARUNKI(),
+                POZYTECZNE_SPEDZANIE_CZASU_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_ROZRYWKI_ZART() {
         return of(
-                ROZRYWKI(),
-                ZART(),
-                SPORT()
+                ROZRYWKI_WARUNKI(),
+                ZART_WARUNKI(),
+                SPORT_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_EMOCJE_UCZUCIA() {
         return of(
-                EMOCJE_NEGATYWNE(),
-                EMOCJE_POZYTYWNE(),
-                UCZUCIA_NEGATYWNE(),
-                UCZUCIA_POZYTYWNE()
+                EMOCJE_NEGATYWNE_WARUNKI(),
+                EMOCJE_POZYTYWNE_WARUNKI(),
+                UCZUCIA_NEGATYWNE_WARUNKI(),
+                UCZUCIA_POZYTYWNE_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_ZDOBYWANIE_WIEDZY_PIENIEDZY() {
         return of(
-                ZAROBEK_NIELEGALNY()
+                ZAROBEK_NIELEGALNY_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_KSZTALTOWANIE() {
         return of(
-                KSZTALTOWANIE_DZIELNICY(),
-                KSZTALTOWANIE_CZLOWIEKA(),
-                SILNE_WIEZY_CZLOWIEKA()
+                KSZTALTOWANIE_DZIELNICY_WARUNKI(),
+                KSZTALTOWANIE_CZLOWIEKA_WARUNKI(),
+                SILNE_WIEZY_CZLOWIEKA_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_RANY() {
         return of(
-                RANY_PSYCHICZNE(),
-                RANY_FIZYCZNE(),
-                RANY_ZNECANIE_SIE(),
-                RANY_SPRZET(),
-                RANY_DOSTEPOWE(),
-                KRZYWDY(),
-                KRZYWDY_BEZPOSREDNIE(),
-                KRZYWDY_POSREDNIE(),
-                BRAK_ZASAD(),
-                OBRONA_STARCIE(),
-                METODA_STARCIE_REAKCJA(),
-                ULICA_PRZEWAGA_SPOSOB(),
-                KONFRONTACJA(),
-                WALKA(),
-                ZASIEG_PRZEWAGI_ULICA()
+                RANY_PSYCHICZNE_WARUNKI(),
+                RANY_FIZYCZNE_WARUNKI(),
+                RANY_ZNECANIE_SIE_WARUNKI(),
+                RANY_SPRZET_WARUNKI(),
+                RANY_DOSTEPOWE_WARUNKI(),
+                KRZYWDY_WARUNKI(),
+                KRZYWDY_BEZPOSREDNIE_WARUNKI(),
+                KRZYWDY_POSREDNIE_WARUNKI(),
+                BRAK_ZASAD_WARUNKI(),
+                OBRONA_STARCIE_WARUNKI(),
+                METODA_STARCIE_REAKCJA_WARUNKI(),
+                ULICA_PRZEWAGA_SPOSOB_WARUNKI(),
+                ZACHOWANIE_REZULTAT_ULICA_WARUNKI(),
+                KONFRONTACJA_WARUNKI(),
+                WALKA_WARUNKI(),
+                ZASIEG_PRZEWAGI_ULICA_WARUNKI(),
+                CISNIE_WARUNKI(),
+                STRATY_MATERIALNE_WARUNKI(),
+                STRATY_MORALNE_WARUNKI(),
+                TERROR_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_TYPY_PRAC() {
         return of(
-                PRACA_FIZYCZNA(),
-                PRACA_HANDEL(),
-                PRACA_WYMAGAJACA_UMIEJETNOSCI(),
-                PRACA_USLUGI(),
-                PRACA_OSWIATA(),
-                PRACA_TRANSPORT(),
-                PRACA_TECHNICZNA_UMYSLOWA()
+                PRACA_FIZYCZNA_WARUNKI(),
+                PRACA_HANDEL_WARUNKI(),
+                PRACA_WYMAGAJACA_UMIEJETNOSCI_WARUNKI(),
+                PRACA_USLUGI_WARUNKI(),
+                PRACA_OSWIATA_WARUNKI(),
+                PRACA_TRANSPORT_WARUNKI(),
+                PRACA_TECHNICZNA_UMYSLOWA_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_TEMATY() {
         return of(
-                TEMATY_NORMALNYCH_LUDZI(),
-                TEMATY_RDZENNYCH()
+                TEMATY_NORMALNYCH_LUDZI_WARUNKI(),
+                TEMATY_RDZENNYCH_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_KOBIETA_PRAKTYKA() {
         return of(
-                WZGLEDNA_IZOLACJA(),
-                SPRZYJAJACE(),
-                NIE_SPRZYJAJACE(),
-                ESSENTIALS_SYTUACJE(),
-                PLANSZA(),
-                EXTREMALNE_SYTUACJE()
+                WZGLEDNA_IZOLACJA_WARUNKI(),
+                SPRZYJAJACE_WARUNKI(),
+                NIE_SPRZYJAJACE_WARUNKI(),
+                ESSENTIALS_SYTUACJE_WARUNKI(),
+                PLANSZA_WARUNKI(),
+                EXTREMALNE_SYTUACJE_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_UNIWERSALNE_SWIAT() {
         return of(
-                WSPOMNIENIA(),
-                RELACJE()
+                WSPOMNIENIA_WARUNKI(),
+                RELACJE_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_TYPY_LUDZI() {
         return of(
-                TYPY_LUDZI_SHRT(),
-                TYPY_LUDZI_DOBRE(),
-                TYPY_LUDZI_ZLE()
+                TYPY_LUDZI_SHRT_WARUNKI(),
+                TYPY_LUDZI_DOBRE_WARUNKI(),
+                TYPY_LUDZI_ZLE_WARUNKI(),
+                FEST_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_SYTUACJE() {
         return of(
-                TYPY_SYTUACJI(),
-                SYTUACJE_STARCIE()
+                TYPY_SYTUACJI_WARUNKI(),
+                SYTUACJE_STARCIE_WARUNKI(),
+                DUZO_SIE_DZIEJE_ULICA_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_WIEDZA() {
         return of(
-                RODZAJE_WIEDZA(),
-                WYMAGANIA_WSTEPNE_WIEDZA(),
-                WYMAGANIA_UTRZYMANIA_WIEDZA()
+                RODZAJE_WIEDZA_WARUNKI(),
+                WYMAGANIA_WSTEPNE_WIEDZA_WARUNKI(),
+                WYMAGANIA_UTRZYMANIA_WIEDZA_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_DOPUSZCZENIE() {
         return of(
-                WYMAGANIA_WSTEPNE_DOPUSZCZENIE_KOBIETA(),
-                WYMAGANIA_UTRZYMANIA_DOPUSZCZENIE_KOBIETA(),
-                WARUNKI_KONCOWE_DOPUSZCZENIE_KOBIETA()
+                WYMAGANIA_WSTEPNE_DOPUSZCZENIE_KOBIETA_WARUNKI(),
+                WYMAGANIA_UTRZYMANIA_DOPUSZCZENIE_KOBIETA_WARUNKI(),
+                KONCOWE_DOPUSZCZENIE_KOBIETA_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_PRZEWAGI() {
         return of(
-                PRZEWAGI(),
-                PRZEWAGI_LUDZKIE(),
-                PRZEWAGI_Z_ULICY(),
-                PRZEWAGI_MATERIALNE(),
-                PRZEWAGI_DANEJ_CHWILI()
+                PRZEWAGI_WARUNKI(),
+                PRZEWAGI_LUDZKIE_WARUNKI(),
+                PRZEWAGI_Z_ULICY_WARUNKI(),
+                PRZEWAGI_MATERIALNE_WARUNKI(),
+                PRZEWAGI_DANEJ_CHWILI_WARUNKI()
         );
     }
 
     public static List<W> ZBIOR_MIEJSCE() {
         return of(
-                TYPY_MIEJSC()
+                TYPY_MIEJSC_WARUNKI()
         );
     }
 
 
-    public static W WYMAGANIA_WSTEPNE_SWIAT() {
+    public static W WYMAGANIA_WSTEPNE_SWIAT_WARUNKI() {
         return on(
                 W.ZWIAZEK_2_OSOB,
                 W.URODZENIE_SIE,
@@ -243,7 +301,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGANIA_WSTEPNE_INFORMACJA() {
+    public static W WYMAGANIA_WSTEPNE_INFORMACJA_WARUNKI() {
         return on(
                 W.CZAS,
                 W.DOSTEP_DO_PLANSZY,
@@ -254,7 +312,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGANIA_WSTEPNE_WIEDZA() {
+    public static W WYMAGANIA_WSTEPNE_WIEDZA_WARUNKI() {
         return on(
                 M.CALY_CZAS(M.OBSERWACJA(of(W.ULICA, W.MIEJSCA_RESTRYKCYJNE))),
                 M.OCZY(W.INFORMACJA), M.USZY(W.INFORMACJA), M.PRAKTYKA(W.DOSWIADCZENIA),
@@ -263,7 +321,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGANIA_WSTEPNE_BRAKWSTYDU() {
+    public static W WYMAGANIA_WSTEPNE_BRAKWSTYDU_WARUNKI() {
         return on(
                 W.INFORMACJA,
                 W.WIEDZA,
@@ -271,7 +329,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGANIA_WSTEPNE_REZULTAT() {
+    public static W WYMAGANIA_WSTEPNE_REZULTAT_WARUNKI() {
         return on(
                 W.DZIALANIE,
                 W.KONSEKWENCJE,
@@ -280,7 +338,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGANIA_WSTEPNE_PRACA() {
+    public static W WYMAGANIA_WSTEPNE_PRACA_WARUNKI() {
         return on(
                 W.NIEKARALNOSC,
                 W.WYKSZTALCENIE,
@@ -290,7 +348,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGANIA_WSTEPNE_PRACA_RESTRYKCYJNA() {
+    public static W WYMAGANIA_WSTEPNE_PRACA_RESTRYKCYJNA_WARUNKI() {
         return on(
                 W.NIEKARALNOSC,
                 W.STUDIA,
@@ -301,7 +359,7 @@ public class DBW extends DB {
     }
 
 
-    public static W WYMAGANIA_WSTEPNE_ZARABIANIE() {
+    public static W WYMAGANIA_WSTEPNE_ZARABIANIE_WARUNKI() {
         return on(
                 W.SPELNIENIE_WYMAGAN,
                 W.ODZEW_HR,
@@ -314,7 +372,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGANIA_WSTEPNE_SPORT() {
+    public static W WYMAGANIA_WSTEPNE_SPORT_WARUNKI() {
         return on(
                 W.CZAS,
                 W.SPRAWNOSC,
@@ -324,7 +382,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGANIA_WSTEPNE_OSIEDLE() {
+    public static W WYMAGANIA_WSTEPNE_OSIEDLE_WARUNKI() {
         return on(
                 W.TO_SAMO_MIASTO,
                 W.DOBRZE_WYGLADA,
@@ -334,7 +392,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGANIA_WSTEPNE_DOPUSZCZENIE_KOBIETA() {
+    public static W WYMAGANIA_WSTEPNE_DOPUSZCZENIE_KOBIETA_WARUNKI() {
         return on(
                 W.PATRZY,
                 W.REAGUJE,
@@ -353,7 +411,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGANIA_WSTEPNE_KOBIETA() {
+    public static W WYMAGANIA_WSTEPNE_KOBIETA_WARUNKI() {
         return on(
                 W.STWORZENIE_SZANSY,
                 W.ZLAPANIE_SZANSY,
@@ -368,22 +426,9 @@ public class DBW extends DB {
         );
     }
 
-    public static List<W> KATEGORIA_WYMAGANIA_WSTEPNE = Arrays.asList(
-            WYMAGANIA_WSTEPNE_SWIAT(),
-            WYMAGANIA_WSTEPNE_INFORMACJA(),
-            WYMAGANIA_WSTEPNE_WIEDZA(),
-            WYMAGANIA_WSTEPNE_BRAKWSTYDU(),
-            WYMAGANIA_WSTEPNE_REZULTAT(),
-            WYMAGANIA_WSTEPNE_PRACA(),
-            WYMAGANIA_WSTEPNE_PRACA_RESTRYKCYJNA(),
-            WYMAGANIA_WSTEPNE_ZARABIANIE(),
-            WYMAGANIA_WSTEPNE_SPORT(),
-            WYMAGANIA_WSTEPNE_OSIEDLE(),
-            WYMAGANIA_WSTEPNE_DOPUSZCZENIE_KOBIETA(),
-            WYMAGANIA_WSTEPNE_KOBIETA()
-    );
 
-    public static W WYMAGANIA_UTRZYMANIA_SWIAT() {
+
+    public static W WYMAGANIA_UTRZYMANIA_SWIAT_WARUNKI() {
         return on(
                 W.ZNAJOMI,
                 W.SWOJ_ZWIAZEK,
@@ -393,7 +438,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGANIA_UTRZYMANIA_INFORMACJA() {
+    public static W WYMAGANIA_UTRZYMANIA_INFORMACJA_WARUNKI() {
         return on(
                 W.SLEDZENIE_INFORMACJI,
                 W.REZULTAT_INFORMACJI,
@@ -402,7 +447,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGANIA_UTRZYMANIA_WIEDZA() {
+    public static W WYMAGANIA_UTRZYMANIA_WIEDZA_WARUNKI() {
         return on(
                 W.ODSWIEZANIE,
                 W.PAMIEC,
@@ -413,7 +458,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGANIA_UTRZYMANIA_BRAKWSTYDU() {
+    public static W WYMAGANIA_UTRZYMANIA_BRAKWSTYDU_WARUNKI() {
         return on(
                 W.LEPSZE_WYKORZYSTANIE_INFORMACJI,
                 W.LEPSZE_DZIALANIE,
@@ -421,7 +466,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGANIA_UTRZYMANIA_REZULTAT() {
+    public static W WYMAGANIA_UTRZYMANIA_REZULTAT_WARUNKI() {
         return on(
                 W.LEPSZE_DZIALANIE,
                 W.UNIKNIECIE_KONSEKWENCJI,
@@ -431,7 +476,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGANIA_UTRZYMANIA_PRACA() {
+    public static W WYMAGANIA_UTRZYMANIA_PRACA_WARUNKI() {
         return on(
                 W.WYSILEK,
                 W.UZYTECZNOSC,
@@ -440,7 +485,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGANIA_UTRZYMANIA_PRACA_RESTRYKCYJNA() {
+    public static W WYMAGANIA_UTRZYMANIA_PRACA_RESTRYKCYJNA_WARUNKI() {
         return on(
                 W.PRZESTRZEGANIE_ZASAD,
                 W.ATMOSFERA,
@@ -454,7 +499,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGANIA_UTRZYMANIA_ZARABIANIE() {
+    public static W WYMAGANIA_UTRZYMANIA_ZARABIANIE_WARUNKI() {
         return on(
                 W.BOGATY_SEKTOR,
                 W.WIEDZA,
@@ -463,7 +508,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGANIA_UTRZYMANIA_SPORT() {
+    public static W WYMAGANIA_UTRZYMANIA_SPORT_WARUNKI() {
         return on(
                 W.ULEPSZANIE_UMIEJETNOSCI,
                 W.CZAS,
@@ -474,7 +519,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGANIA_UTRZYMANIA_OSIEDLE() {
+    public static W WYMAGANIA_UTRZYMANIA_OSIEDLE_WARUNKI() {
         return on(
                 W.CZESTO_Z_CELEM,
                 W.DZIALANIE,
@@ -484,7 +529,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGANIA_UTRZYMANIA_DOPUSZCZENIE_KOBIETA() {
+    public static W WYMAGANIA_UTRZYMANIA_DOPUSZCZENIE_KOBIETA_WARUNKI() {
         return on(
                 W.DOBRZE_ZNA,
                 W.WSPOLNI_ZNAJOMI,
@@ -495,7 +540,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGANIA_UTRZYMANIA_KOBIETA() {
+    public static W WYMAGANIA_UTRZYMANIA_KOBIETA_WARUNKI() {
         return on(
                 W.SPELNIENIE_OCZEKIWAN,
                 W.WSPIERANIE_PREFERENCJI,
@@ -509,22 +554,9 @@ public class DBW extends DB {
         );
     }
 
-    public static List<W> KATEGORIA_WYMAGANIA_UTRZYMANIA = Arrays.asList(
-            WYMAGANIA_UTRZYMANIA_SWIAT(),
-            WYMAGANIA_UTRZYMANIA_INFORMACJA(),
-            WYMAGANIA_UTRZYMANIA_WIEDZA(),
-            WYMAGANIA_UTRZYMANIA_BRAKWSTYDU(),
-            WYMAGANIA_UTRZYMANIA_REZULTAT(),
-            WYMAGANIA_UTRZYMANIA_PRACA(),
-            WYMAGANIA_UTRZYMANIA_PRACA_RESTRYKCYJNA(),
-            WYMAGANIA_UTRZYMANIA_ZARABIANIE(),
-            WYMAGANIA_UTRZYMANIA_SPORT(),
-            WYMAGANIA_UTRZYMANIA_OSIEDLE(),
-            WYMAGANIA_UTRZYMANIA_DOPUSZCZENIE_KOBIETA(),
-            WYMAGANIA_UTRZYMANIA_KOBIETA()
-    );
 
-    public static W WARUNKI_KONCOWE_SWIAT() {
+
+    public static W KONCOWE_SWIAT_WARUNKI() {
         return on(
                 W.SZCZESCIE,
                 W.DOSWIADCZENIA,
@@ -532,7 +564,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WARUNKI_KONCOWE_PRACA() {
+    public static W KONCOWE_PRACA_WARUNKI() {
         return on(
                 W.PIENIADZE,
                 W.STABILIZACJA,
@@ -543,13 +575,13 @@ public class DBW extends DB {
         );
     }
 
-    public static W WARUNKI_KONCOWE_ZARABIANIE() {
+    public static W KONCOWE_ZARABIANIE_WARUNKI() {
         return on(
                 W.MOZLIWOSC_WYBORU
         );
     }
 
-    public static W WARUNKI_KONCOWE_SPORT() {
+    public static W KONCOWE_SPORT_WARUNKI() {
         return on(
                 W.SPRAWNOSC,
                 W.UMIEJETNOSCI,
@@ -557,7 +589,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WARUNKI_KONCOWE_OSIEDLE() {
+    public static W KONCOWE_OSIEDLE_WARUNKI() {
         return on(
                 W.ZNAJOMI,
                 W.SRODOWISKO,
@@ -570,7 +602,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WARUNKI_KONCOWE_KOBIETA() {
+    public static W KONCOWE_KOBIETA_WARUNKI() {
         return on(
                 W.CODZIENNA_BLISKOSC,
                 W.ZYCIE_RAZEM,
@@ -578,31 +610,20 @@ public class DBW extends DB {
         );
     }
 
-    public static W WARUNKI_KONCOWE_WIEDZA() {
+    public static W KONCOWE_WIEDZA_WARUNKI() {
         return on(
                 W.TRAFNE_DECYZJE,
                 W.DOBRZE_WYKORZYSTANY_CZAS
         );
     }
 
-    public static W WARUNKI_KONCOWE_DOPUSZCZENIE_KOBIETA() {
+    public static W KONCOWE_DOPUSZCZENIE_KOBIETA_WARUNKI() {
         return on(
                 W.ZWIAZEK
         );
     }
 
-    public static List<W> KATEGORIA_WARUNKI_KONCOWE = Arrays.asList(
-            WARUNKI_KONCOWE_SWIAT(),
-            WARUNKI_KONCOWE_PRACA(),
-            WARUNKI_KONCOWE_ZARABIANIE(),
-            WARUNKI_KONCOWE_SPORT(),
-            WARUNKI_KONCOWE_OSIEDLE(),
-            WARUNKI_KONCOWE_KOBIETA(),
-            WARUNKI_KONCOWE_WIEDZA(),
-            WARUNKI_KONCOWE_DOPUSZCZENIE_KOBIETA()
-    );
-
-    public static W PRZYCZYNY_ZLA() {
+    public static W PRZYCZYNY_ZLA_WARUNKI() {
         return on(
                 W.ZLE_GENY, W.GLUPOTA, W.NIESWIADOMOSC, W.DZIALANIE_ZA_NAMOWA,
                 W.ROZKAZ, W.ULTIMATUM_OD_SILNIEJSZYCH,
@@ -619,16 +640,15 @@ public class DBW extends DB {
         );
     }
 
-    public static W PRZYCZYNY_DOBRA() {
+    public static W PRZYCZYNY_DOBRA_WARUNKI() {
         return on(
-                M.MOCNO(M.WAZNE(of(
-                        W.MADROSC, W.WYCHOWANIE, W.WYKONYWANIE_PRACY,
+                M.MOCNO(M.WAZNE(of(W.MADROSC, W.WYCHOWANIE, W.WYKONYWANIE_PRACY,
                         W.DOBRO_W_SERCU, W.SUMIENIE, W.CIERPIENIE_OD_ZLYCH
-                        ))
-                );
+                )))
+        );
     }
 
-    public static W WARTOSC_DOBRA() {
+    public static W WARTOSC_DOBRA_WARUNKI() {
         return on(
                 W.SRODOWISKO,
                 W.ZASADY,
@@ -641,7 +661,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WARTOSC_ZLA() {
+    public static W WARTOSC_ZLA_WARUNKI() {
         return on(
                 W.WYGODY,
                 W.ROZRYWKI,
@@ -655,7 +675,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W GLOBAL_PLANSZA_LUDZIE() {
+    public static W GLOBAL_PLANSZA_LUDZIE_WARUNKI() {
         return on(
                 W.DZIETNOSC,
                 W.WYCHOWANIE,
@@ -663,7 +683,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W GLOBAL_PLANSZA_PRACA() {
+    public static W GLOBAL_PLANSZA_PRACA_WARUNKI() {
         return on(
                 W.POPYT, W.POTRZEBA,
                 W.FIRMY_NIEWYMAGAJACE_DOSWIADCZENIE,
@@ -673,7 +693,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W OCENIA_WEDLUG() {
+    public static W OCENIA_WEDLUG_WARUNKI() {
         return on(
                 W.ZLO,
                 W.DOBRO,
@@ -685,7 +705,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W THREAD_WHILE_LOOP() {
+    public static W THREAD_WHILE_LOOP_WARUNKI() {
         return on(
                 W.THREAD_WHILE_LOOP_ZASIEG_WZROKU,
                 W.THREAD_WHILE_LOOP_BLISKOSC_U,
@@ -694,7 +714,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W PRZEWAGI() {
+    public static W PRZEWAGI_WARUNKI() {
         return on(
                 W.INFORMACJA, W.CZAS, W.WIEDZA, W.SWIADOMOSC, W.BRAK_WSTYDU, W.OBECNOSC, M.OBECNOSC(W.UJSCIE),
                 M.WAZNE(of(W.ODWAGA, W.SILNA_PSYCHIKA)), W.PRACOWITOSC, W.UMIE_OCENIC, W.UMIE_KLAMAC, W.NIE_POKAZUJE_EMOCJI,
@@ -717,7 +737,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W PRZEWAGI_Z_ULICY() {
+    public static W PRZEWAGI_Z_ULICY_WARUNKI() {
         return on(
                 W.ZNAJOMI, W.WSPARCIE, W.OSIEDLOWE_SRD, W.WZGLEDNA_IZOLACJA_RDZENNI, M.SRODOWISKO(W.WSZYSCY_DANY_OBSZAR_SIE_ZNAJA),
                 W.KOBIETY_SRODOWISKO, W.CIAGLOSC_INFORMACJI, W.WALKA_SPRZET, M.PO_ZNAJOMOSCI(W.PRACA), M.SRODOWISKO(W.EMOCJE),
@@ -731,7 +751,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W PRZEWAGI_LUDZKIE() {
+    public static W PRZEWAGI_LUDZKIE_WARUNKI() {
         return on(
                 W.INFORMACJA, W.CZAS, W.WIEDZA, W.SWIADOMOSC, W.BRAK_WSTYDU, W.OBECNOSC, M.OBECNOSC(W.UJSCIE),
                 M.WAZNE(of(W.ODWAGA, W.SILNA_PSYCHIKA)), W.PRACOWITOSC, W.UMIE_OCENIC, W.UMIE_KLAMAC, W.NIE_POKAZUJE_EMOCJI,
@@ -744,19 +764,19 @@ public class DBW extends DB {
         );
     }
 
-    public static W PRZEWAGI_MATERIALNE() {
+    public static W PRZEWAGI_MATERIALNE_WARUNKI() {
         return on(
                 W.KOBIETA, W.SAMOCHOD, W.PRACA, W.PIENIADZE, W.WYSOKA_POZYCJA
         );
     }
 
-    public static W PRZEWAGI_DANEJ_CHWILI() {
+    public static W PRZEWAGI_DANEJ_CHWILI_WARUNKI() {
         return on(
                 W.SZYBKOSC, W.SPRYT, W.SILA, W.POTRAFI_OCENIC, W.ILOSC_OSOB
         );
     }
 
-    public static W SLABOSCI() {
+    public static W SLABOSCI_WARUNKI() {
         return on(
                 M.BRAK(of(W.INFORMACJA, W.CZAS, W.WIEDZA, W.SWIADOMOSC, W.BRAK_WSTYDU, W.OBECNOSC, M.OBECNOSC(W.UJSCIE))),
                 W.TCHORZOSTWO, W.SLABA_PSYCHIKA, W.LENISTWO, W.NIEUMIE_OCENIC, W.NIE_UMIE_KLAMAC, W.POKAZUJE_EMOCJE,
@@ -777,7 +797,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W CIERPIENIA() {
+    public static W CIERPIENIA_WARUNKI() {
         return on(
                 W.ZMECZENIE, W.CIERPIENIE_FIZYCZNE, W.CIERPIENIE_PSYCHICZNE,
                 W.CIERPIENIE_PRZEMIJANIA, W.CIERPIENIE_UTRATY, W.CIERPIENIE_SAMOTNOSCI,
@@ -791,7 +811,7 @@ public class DBW extends DB {
     }
 
 
-    public static W ZAGROZENIA() {
+    public static W ZAGROZENIA_WARUNKI() {
         return on(
                 W.STRATA_WOLNOSCI, W.STRATA_CZASU, W.STRATA_INFORMACJI, W.STRATA_WIEDZY,
                 W.STRATA_DOSTEPU_PLANSZA, W.STRATA_DOSTEPU_ZNAJOMI, W.STRATA_MIEJSCA_W_HIERARCHII, W.STRATA_POZYCJI,
@@ -801,7 +821,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W ZASADY() {
+    public static W ZASADY_WARUNKI() {
         return on(
                 W.NIE_KONFI, W.NIE_PRZECIWNA_STRONA,
                 W.OBCY_WALIMY,
@@ -815,14 +835,14 @@ public class DBW extends DB {
         );
     }
 
-    public static W POTRZEBY() {
+    public static W POTRZEBY_WARUNKI() {
         return on(
                 W.KONTAKTU, W.AKCEPTACJI, W.DOBRYCH_JEDNOSTKEK, W.ZWIAZKU, W.ZROZUMIENIA,
                 W.HIGIENY, W.UBRANIA, W.RELIGII, W.ROZRYWKI, W.RUCHU
         );
     }
 
-    public static W OSLONY() {
+    public static W OSLONY_WARUNKI() {
         return on(
                 W.NIESWIADOMOSC_OPPONENTA, W.DYSTANS, M.WOKOL_TYLKO(W.SWOI), W.NIE_KIBICUJE,
 
@@ -833,14 +853,14 @@ public class DBW extends DB {
         );
     }
 
-    public static W PRZYMUS() {
+    public static W PRZYMUS_WARUNKI() {
         return on(
                 W.JEDZENIE, W.PICIE, W.PRACA, W.EDUKACJA, W.PRZEMIESZCZANIE_SIE,
                 W.TRANSPORT, W.KUPNO_PRODUKTOW, W.WALKA
         );
     }
 
-    public static W NIESPRAWIEDLIWOSC() {
+    public static W NIESPRAWIEDLIWOSC_WARUNKI() {
         return on(
                 W.PRACA_XCZASU_BRAK_REZULATU, W.WDUPCANIE_WYSILKU_DO_PIECA,
                 W.NADUZYWANIE_WYSOKIEJ_POZYCJI, W.GORZEJ_NA_STARCIE, W.PRZEWAGA_NA_STARCIE,
@@ -848,7 +868,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W DOBRE_CZYNY() {
+    public static W DOBRE_CZYNY_WARUNKI() {
         return on(
                 M.CIEZKO(W.DANIE_ZYCIA), M.CIEZKO(W.DOBRE_WYCHOWANIE), M.CIEZKO(of(W.ZMNIEJSZANIE_ZLA, W.AKTYWNA_WALKA_ZE_ZLEM)),
                 M.CIEZKO(W.USWIADAMIANIE), M.CIEZKO(W.CZYNIENIE_SWIATA_LEPSZYM),
@@ -865,7 +885,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W ZLE_CZYNY() {
+    public static W ZLE_CZYNY_WARUNKI() {
         return on(
                 M.LATWO(W.ZLE_WYCHOWANIE), M.LATWO(M.WSPARCIE(W.ZLO)),
                 M.LATWO(W.OGLUPIANIE), M.LATWO(W.CZYNIENIE_SWIATA_GORSZYM),
@@ -882,13 +902,13 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMUSZENIE_REAKCJI() {
+    public static W WYMUSZENIE_REAKCJI_WARUNKI() {
         return on(
                 W.KONTEKST, W.OSKARZENIE, W.ULTIMATUM, W.CISNIECIE
         );
     }
 
-    public static W REAKCJA_KOBIET() {
+    public static W REAKCJA_KOBIET_WARUNKI() {
         return on(
                 W.BRAK_ODPOWIEDZI, W.PRZESTRASZENIE_SIE, W.UCIECIE,
                 W.ODPOWIEDZ_ODCZEP, W.ODPOWIEDZ_NEUTRAL, W.ODPOWIEDZ_ZAINTERESOWANIE,
@@ -896,42 +916,42 @@ public class DBW extends DB {
         );
     }
 
-    public static W SONDA_GDY() {
+    public static W SONDA_GDY_WARUNKI() {
         return on(
                 W.WIDZISZ, W.MOWI, W.ROBI, W.POSIADA
         );
     }
 
 
-    public static W SONDA_PO() {
+    public static W SONDA_PO_WARUNKI() {
         return on(
                 W.OCZY, W.REAGOWANIE, W.CHODZENIE, W.POSTURA, W.ZACHOWANIE,
                 W.MOWA, W.ZNAJOMI, W.CZYNY
         );
     }
 
-    public static W KRYTERIA_WROGA() {
+    public static W KRYTERIA_WROGA_WARUNKI() {
         return on(
                 W.PRZECIWNA_RASA, W.PRZECIWNY_NAROD, W.PRZECIWNA_KLASA_SPOLECZNA, W.PRZECIWNY_KLUB,
                 W.PRZECIWNA_STRONA, W.ZASZKODZIL
         );
     }
 
-    public static W PLAN_TERMIN() {
+    public static W PLAN_TERMIN_WARUNKI() {
         return on(
                 W.CYKL_DNIA, W.DZIEN, W.TYDZIEN, W.MIESIAC, W.TRZY_MIESIACE, W.POL_ROKU,
                 W.ROK
         );
     }
 
-    public static W ZART() {
+    public static W ZART_WARUNKI() {
         return on(
                 W.UKAZANIE_OSOBY_W_KOMICZNEJ_SYTUACJI, W.WYOLBRZYMIENIE, W.ZAMIANA,
                 W.RZECZYWISTOSC_ODBIEGAJACA_OD_NORMY
         );
     }
 
-    public static W ERA() {
+    public static W ERA_WARUNKI() {
         return on(
                 W.PONIZEJ_1900, W.OD_1900_DO_1939, W.OD_1939_DO_1945, W.OD_1945_DO_1953,
                 W.OD_1953_DO_1970, W.OD_1970_DO_1990, W.OD_1990_DO_2000, W.OD_2000_DO_2005,
@@ -939,14 +959,14 @@ public class DBW extends DB {
         );
     }
 
-    public static W ROZRYWKI() {
+    public static W ROZRYWKI_WARUNKI() {
         return on(
                 W.MUZYKA, W.TANIEC, W.TELEWIZJA, W.PRZYJEMNA_ROZMOWA, W.GRY,
                 W.ODUZENIE
         );
     }
 
-    public static W EMOCJE_NEGATYWNE() {
+    public static W EMOCJE_NEGATYWNE_WARUNKI() {
         return on(
                 W.STRACH, W.LEK, W.ADRENALINA, W.NIEPOKOJ, W.TESKNOTA, W.SAMOTNOSC,
                 W.GNIEW, W.ZLOSC, W.ROZPACZ, W.SMUTEK, W.ZAZDROSC,
@@ -954,34 +974,34 @@ public class DBW extends DB {
         );
     }
 
-    public static W EMOCJE_POZYTYWNE() {
+    public static W EMOCJE_POZYTYWNE_WARUNKI() {
         return on(
                 W.SZCZESCIE, W.RADOSC, W.KONTEMPLACJA, W.SPELNIENIE,
                 W.SPOKOJ, W.CIEKAWOSC, W.ZASKOCZENIE, W.PODNIECENIE
         );
     }
 
-    public static W UCZUCIA_NEGATYWNE() {
+    public static W UCZUCIA_NEGATYWNE_WARUNKI() {
         return on(
                 W.ZREZYGNOWANIE, W.POCZUCIE_UTRATY, W.PRZYKROSC, W.POCZUCIE_WYKLUCZENIA,
                 W.ZAGROZENIE
         );
     }
 
-    public static W UCZUCIA_POZYTYWNE() {
+    public static W UCZUCIA_POZYTYWNE_WARUNKI() {
         return on(
                 W.MILOSC, W.PRZYJAZN, W.BRATERSTWO, W.KOLEZENSTWO, W.POCZUCIE_SZCZESCIA,
                 W.POCZUCIE_ZYSKU, W.POCZUCIE_SUKCESU, W.ZAPAL, W.PRZYJEMNOSC, W.SENTYMENT
         );
     }
 
-    public static W ZAROBEK_NIELEGALNY() {
+    public static W ZAROBEK_NIELEGALNY_WARUNKI() {
         return on(
                 W.DILLERKA, W.PRZEMYT, W.JAZDA_ZE_SPRZETEM, W.ZLODZIEJKA, W.ZLODZIEJKA_SKLEPY, W.ZLODZIEJKA_DZIESIONA, W.ZLODZIEJKA_SAMOCHODY
         );
     }
 
-    public static W KRYTERIA_PRZYPALU() {
+    public static W SONDA_PRZYPALU_WARUNKI() {
         return on(
                 M.DZIELNICA(W.NAJLEPSZY_WARUNEK),
                 W.KONKRETNA_INFORMACJA, W.DOWOD, W.ILE_OSOB_WIDZI_SLYSZY, W.GODZINA, W.MIEJSCE,
@@ -990,14 +1010,14 @@ public class DBW extends DB {
         );
     }
 
-    public static W TERROR() {
+    public static W TERROR_WARUNKI() {
         return on(
                 W.OCZY, W.USZY, W.CIERPIENIE, W.CIERPIENIE_DLUGOTERMINOWE, W.POZBAWIENIE_PRZEWAGI, W.KOSZTA,
                 W.POZBAWIENIE_BEZPIECZENSTWA, W.POZBAWIENIE_DOSTEPOW, W.POZBAWIANIE_AUTORYTETU, W.POJECHANE
         );
     }
 
-    public static W FEST() {
+    public static W FEST_WARUNKI() {
         return on(
                 W.CHRONI_FESTA, W.TWORZY_KOLECZKO_ADORACJI, W.WYLACZY_DOSTEP, M.WYKLUCZA(W.RDZENNY), W.ZAZDROSC,
                 W.EMOCJE_FIRST, W.HIERARCHIA_FIRST, W.ZMIENNOSC, W.WRAZLIWOSC, W.WOLNOSC, W.RESET, W.SAMOPOCZUCIE, W.KOMFORT,
@@ -1039,13 +1059,8 @@ public class DBW extends DB {
         );
     }
 
-    public static W DZIALAJACY() {
-        return on(
-                // TODO
-        );
-    }
 
-    public static W ZLY_ZNAKI_ROZPOZNAWCZE() {
+    public static W ZLY_ZNAKI_ROZPOZNAWCZE_WARUNKI() {
         return on(
                 W.CZARNE_WLOSY, W.TATUAZE, W.RUDY, W.RUMUN, W.CZERWONE_OCZY,
                 W.PATRZY_ZLE, W.PATRZY_Z_EXSTAZA, W.PATRZY_JAKBY_CHCIAL_OKLAMAC, W.PATRZY_Z_LEKCEWAZENIEM,
@@ -1058,7 +1073,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W BLAD() {
+    public static W SONDA_BLAD_WARUNKI() {
         return on(
                 W.BLAD_POJEDYNCZY, W.BLAD_NIESWIADOMY_PRZYPADKOWY,
                 W.BLAD_SPECJALNY, W.BLAD_LENISTWA,
@@ -1066,7 +1081,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W SONDA_KOGO() {
+    public static W SONDA_KOGO_WARUNKI() {
         return on(
                 W.ZAGRANICZNI_CIEMNI, W.ZAGRANICZNI_JASNI,
                 W.BURZUA_DZIALAJACA, W.BURZUA_NIESWIADOMA,
@@ -1074,14 +1089,14 @@ public class DBW extends DB {
         );
     }
 
-    public static W HIERARCHIA_PRACA() {
+    public static W HIERARCHIA_PRACA_WARUNKI() {
         return on(
                 M.BRAK(W.PRACA), W.PRACA_NA_ETACIE, W.MANAGER, W.OKRESLAJACY_BUDZET, W.ZARZAD_FIRMY, W.OWNER_FIRMY,
                 W.WLASCICIEL_KORPORACJI
         );
     }
 
-    public static W HIERARCHIA_ULICA() {
+    public static W HIERARCHIA_ULICA_WARUNKI() {
         return on(
                 W.RDZENNY_DOBRY,
                 W.ZLODZIEJ, W.PATOLOG, W.BIEGACZ, W.OSIEDLOWY_OGARNIETY, W.OSIEDLOWY_NORMAL, W.DIL,
@@ -1090,21 +1105,21 @@ public class DBW extends DB {
         );
     }
 
-    public static W CYKL_DNIA() {
+    public static W CYKL_DNIA_WARUNKI() {
         return on(
                 W.OD_00_DO_6, W.OD_6_DO_7, W.OD_7_DO_9, W.OD_9_DO_11_, W.OD_11_DO_14,
                 W.OD_14_DO_17, W.OD_17_DO_19, W.OD_19_DO_21, W.OD_21_DO_24
         );
     }
 
-    public static W KSZTALTOWANIE_DZIELNICY() {
+    public static W KSZTALTOWANIE_DZIELNICY_WARUNKI() {
         return on(
                 W.WARUNEK_UTWORZENIA_SIE_MIASTA,
                 W.PRACA, W.RDZENNI, W.LUDZIE
         );
     }
 
-    public static W KSZTALTOWANIE_CZLOWIEKA() {
+    public static W KSZTALTOWANIE_CZLOWIEKA_WARUNKI() {
         return on(
                 W.OSOBOWOSC, W.WIDZISZ, W.SLYSZYSZ, W.CZUJESZ, W.Z_KIM_PRZYSTAJESZ, W.PRAKTYKA, W.ZNAJOMI,
                 W.CHARAKTER, W.CIERPIENIE, W.CIEZKA_PRACA, W.TRUDNOSCI,
@@ -1113,7 +1128,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W POZYTECZNE_SPEDZANIE_CZASU() {
+    public static W POZYTECZNE_SPEDZANIE_CZASU_WARUNKI() {
         return on(
                 M.REALIZACJA(W.CEL), M.ZDOBYWANIE(of(W.PIENIADZE, W.UMIEJETNOSCI, W.WIEDZA)),
                 W.WYCHOWYWANIE,
@@ -1121,7 +1136,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W RANY_PSYCHICZNE() {
+    public static W RANY_PSYCHICZNE_WARUNKI() {
         return on(
                 W.PATRZENIE_W_OCZY, W.OBELGI_WYSOKA_CZESTOTLIWOSC, W.OBELGI_W_PETLI, W.UKAZANIE_WAD, W.WYSMIANIE, W.WYSMIANIE_POWIAZANE, W.UKAZANIE_WAD_POWIAZANE,
                 W.POBICIE_PRZY_ZNAJOMYCH, W.POBICIE_PRZY_RODZINIE,
@@ -1129,31 +1144,31 @@ public class DBW extends DB {
         );
     }
 
-    public static W RANY_FIZYCZNE() {
+    public static W RANY_FIZYCZNE_WARUNKI() {
         return on(
                 W.POPCHNIECIE, W.LEPIEC, W.STRZAL, W.KILKA_STRZALOW, W.BICIE_DO_UPADKU, W.BICIE_DO_UTRATY_PRZYTOMNOSCI
         );
     }
 
-    public static W RANY_ZNECANIE_SIE() {
+    public static W RANY_ZNECANIE_SIE_WARUNKI() {
         return on(
                 W.KOPANIE_KONCZYNY, W.KOPANIE_BRZUCH, W.KLEPANIE_KARK, W.GLOWA_O_POWIERZCHNIE
         );
     }
 
-    public static W RANY_SPRZET() {
+    public static W RANY_SPRZET_WARUNKI() {
         return on(
                 W.CIECIE_MIEJSCA_NIEZAGRAZJACE, W.CICIE_MIEJSCA_WIDOCZNE, W.CIECIE_MIEJSCA_ZAGRAZAJACE
         );
     }
 
-    public static W RANY_DOSTEPOWE() {
+    public static W RANY_DOSTEPOWE_WARUNKI() {
         return on(
                 W.WYLACZENIE_SRODOWISKA, W.WYLACZENIE_KOBIETY, W.WYLACZENIE_ZAROBKU, W.KAZDY_SPOTYKA_BIJE, W.KAZDY_KTO_SIEDZI_POJECHANE
         );
     }
 
-    public static W PRACA_FIZYCZNA() {
+    public static W PRACA_FIZYCZNA_WARUNKI() {
         return on(
                 W.PRZEMYSL, W.HUTNICTWO, W.SPAWALNICTWO,
                 W.WYDOBYCIE_SUROWCE, W.PRZETWORSTWO_SUROWCE, W.BUDOWNICTWO, W.ENERGETYKA
@@ -1161,43 +1176,43 @@ public class DBW extends DB {
     }
 
 
-    public static W PRACA_HANDEL() {
+    public static W PRACA_HANDEL_WARUNKI() {
         return on(
                 W.KASJERKA, W.MAGAZYN
         );
     }
 
-    public static W PRACA_WYMAGAJACA_UMIEJETNOSCI() {
+    public static W PRACA_WYMAGAJACA_UMIEJETNOSCI_WARUNKI() {
         return on(
                 W.FRYZJERKA, W.KOSMETYCZKA, W.MAKIJARZYSTKA
         );
     }
 
-    public static W PRACA_USLUGI() {
+    public static W PRACA_USLUGI_WARUNKI() {
         return on(
                 W.HOTEL, W.GASTRONOMIA, W.OCHRONA
         );
     }
 
-    public static W PRACA_OSWIATA() {
+    public static W PRACA_OSWIATA_WARUNKI() {
         return on(
                 W.NAUCZYCIEL
         );
     }
 
-    public static W PRACA_TRANSPORT() {
+    public static W PRACA_TRANSPORT_WARUNKI() {
         return on(
                 W.KIEROWCA, W.MOTORNICZY
         );
     }
 
-    public static W PRACA_TECHNICZNA_UMYSLOWA() {
+    public static W PRACA_TECHNICZNA_UMYSLOWA_WARUNKI() {
         return on(
                 W.KSIEGOWA, W.HR, W.MECHANIK, W.ELEKTRONIK, W.INFORMATYK
         );
     }
 
-    public static W NASTAWIENIA() {
+    public static W NASTAWIENIA_WARUNKI() {
         return on(
                 W.NASTAWIENIE_WSPARCIE, W.NASTAWIENIE_NEUTRALNOSC, W.NASTAWIENIE_PRZECIW,
                 W.NASTAWIENIE_AGRESJA_W_DZIALANIU, W.NASTAWIENIE_KONTEMPLACJA, W.NASTAWIENIE_RELAKS, W.NASTAWIENIE_PRACA,
@@ -1210,7 +1225,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W KRZYWDY() {
+    public static W KRZYWDY_WARUNKI() {
         return on(
                 M.START(W.ZLE_ZAMIARY),
                 M.STANDARD(M.MALY_WYSILEK(M.MOCNO(M.CALY_CZAS(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA)))),
@@ -1238,7 +1253,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W BRAK_ZASAD() {
+    public static W BRAK_ZASAD_WARUNKI() {
         return on(
                 M.MALY_WYSILEK(M.MOCNO(of(W.FOTY_MIEJSCE_STALE, W.NIE_MILA_OBSLUGA, W.ZLE_WYKONANIE_USLUGI))),
                 M.DUZY_WYSILEK(of(W.OGRANICZENIE_WOLNOSCI_ULICA, W.KONTUZJA)),
@@ -1257,7 +1272,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W KRZYWDY_BEZPOSREDNIE() {
+    public static W KRZYWDY_BEZPOSREDNIE_WARUNKI() {
         return on(
                 M.NABYCIE(of(W.ZASIEG_WZROKU, W.BLISKOSC)),
                 M.MALY_WYSILEK(W.CISNIE),
@@ -1268,7 +1283,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W KRZYWDY_POSREDNIE() {
+    public static W KRZYWDY_POSREDNIE_WARUNKI() {
         return on(
                 M.START(W.ZLE_ZAMIARY),
                 M.STANDARD(M.MALY_WYSILEK(M.MOCNO(M.CALY_CZAS(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA)))),
@@ -1288,7 +1303,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WYMAGA_KARY() {
+    public static W SONDA_WYMAGA_KARY_WARUNKI() {
         return on(
                 W.DZIALANIE_DLA_ZLA,
                 W.BRAK_WYSILKU, W.BRAK_STRESU, W.BRAK_TRUDNOSCI,
@@ -1299,8 +1314,8 @@ public class DBW extends DB {
         );
     }
 
-    public static W SONDA_DZIALACZA() {
-        of(
+    public static W SONDA_DZIALACZA_WARUNKI() {
+        return on(
                 W.ROZMIAR, W.PRZEWAGA_SILY, W.SRODOWISKO,
                 W.DZIALA, M.W_JAKI_SPOSOB(W.DZIALA),
                 W.BIEGA, M.JAK_DLUGO(W.BIEGA),
@@ -1310,7 +1325,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W SONDA_SHRTS() {
+    public static W SONDA_SHRTS_WARUNKI() {
         return on(
                 M.W(of(W.MEZCZYZNA),
                         of(
@@ -1342,7 +1357,7 @@ public class DBW extends DB {
     }
 
 
-    public static W ZACHETA_DO_ZLA() {
+    public static W ZACHETA_DO_ZLA_WARUNKI() {
         return on(
                 W.BEZKARNOSC, W.LEKCEWAZENIE, W.PYCHA, W.ZUCHWALOSC, W.POCZUCIE_WYZSZOSCI, W.HIERARCHIA,
                 W.PRZEWAGA, W.EMOCJE_ZE_ZLA, W.NARKOTYKI
@@ -1350,25 +1365,25 @@ public class DBW extends DB {
     }
 
 
-    public static W METODA_STARCIE_REAKCJA() {
-        of(
+    public static W METODA_STARCIE_REAKCJA_WARUNKI() {
+        return on(
 
                 M.W(M.MALY_WYSILEK(W.SPRZET), "--->", of(M.DUZA_KRZYWDA(W._1_RUCH), W.NAJWIEKSZ_STRACH,
-                        M.ZWYKLE(W.UCIECZKA),
-                        M.DZIALAJACY_ZWYKLE(of(W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
+                                                              M.ZWYKLE(W.UCIECZKA),
+                                                              M.DZIALAJACY_ZWYKLE(of(W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
 
                 M.W(M.DUZY_WYSILEK(W.WALKA_PIESCI), "--->", of(M.ZWYKLE(W.PODJECIE_WALKI),
-                        M.DZIALAJACY_ZWYKLE(of(W.PODJECIE_WALKI, W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
+                                                                    M.DZIALAJACY_ZWYKLE(of(W.PODJECIE_WALKI, W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
 
                 M.W(M.MALY_WYSILEK(W.CISNIE), "--->", of(M.ZWYKLE(W.ODPOWIADA),
-                        M.DZIALAJACY_ZWYKLE(of(W.ODPOWIADA, W.WALKA_PIESCI, W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
+                                                              M.DZIALAJACY_ZWYKLE(of(W.ODPOWIADA, W.WALKA_PIESCI, W.SPRZET, W.NOTYFIKACJA_EKIPA)))),
 
                 M.W(M.MALY_WYSILEK(W.BLISKOSC), "--->", of(W.SONDA, M.ZWYKLE(W.PATRZY),
-                        M.DZIALAJACY_ZWYKLE(of(W.PATRZY, W.ROZKMINIA, W.ZDJECIA_TWARZOWKI, W.NOTYFIKACJA_EKIPA, M.OPCJA(W.CISNIE)))))
+                                                                M.DZIALAJACY_ZWYKLE(of(W.PATRZY, W.ROZKMINIA, W.ZDJECIA_TWARZOWKI, W.NOTYFIKACJA_EKIPA, M.OPCJA(W.CISNIE)))))
         );
     }
 
-    public static W OBRONA_STARCIE() {
+    public static W OBRONA_STARCIE_WARUNKI() {
         return on(
                 W.UCIECZKA,
                 W.PODJECIE_WALKI,
@@ -1378,7 +1393,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W DEFAULT_WARUNKI() {
+    public static W DEFAULT_WARUNKI_WARUNKI() {
         return on(
                 W.RODZINA, W.MIEJSCE_ZAMIESZKANIA,
                 M.BRAK(of(W.ZNAJOMI, W.ZWIAZEK, W.PRACA, W.UKLADY, W.HASLO_RDZENNYCH, W.PRZEWAGA)),
@@ -1388,14 +1403,14 @@ public class DBW extends DB {
         );
     }
 
-    public static W STRATY_MORALNE() {
+    public static W STRATY_MORALNE_WARUNKI() {
         return on(
                 W.OBRAZENIA_FIZYCZNE, W.KONTUZJA, W.ZLE_SAMOPOCZUCIE, W.HANBA, W.WYKLUCZENIE,
                 M.STRATA(W.ZNAJOMI), M.STRATA(W.KOBIETA)
         );
     }
 
-    public static W STRATY_MATERIALNE() {
+    public static W STRATY_MATERIALNE_WARUNKI() {
         return on(
                 M.STRATA(of(
                         W.PRACA, W.PIENIADZE, W.WYSOKA_POZYCJA,
@@ -1405,7 +1420,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W TEMATY_NORMALNYCH_LUDZI() {
+    public static W TEMATY_NORMALNYCH_LUDZI_WARUNKI() {
         return on(
                 M.CALY_CZAS(W.BRAK_EMOCJI), W.PRACA, W.SPORT, W.POGODA, W.SLUZBA_ZROWIA,
                 W.ZDROWIE, W.SAMOPOCZUCIE, W.NAUKA, M.OPCJA(W.DZIECI), W.RODZINA, W.DOM, W.NOWE_TECHNOLOGIE,
@@ -1414,7 +1429,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W TEMATY_RDZENNYCH() {
+    public static W TEMATY_RDZENNYCH_WARUNKI() {
         return on(
                 M.CALY_CZAS(W.EMOCJE),
                 M.MOCNO(of(
@@ -1424,13 +1439,13 @@ public class DBW extends DB {
                 ));
     }
 
-    public static W ANTY_DZIALACZ_ZLA() {
+    public static W ANTY_DZIALACZ_ZLA_WARUNKI() {
         return on(
                 W._1_VS_1_STARCIE_BEZ_PRZEWAG, W.UKAZANIE_W_PRAWDZIE, W.POZBAWIENIE_PRZEWAGI
         );
     }
 
-    public static W CECHY_RDZENNY() {
+    public static W CECHY_RDZENNY_WARUNKI() {
         return on(
                 W.ZDENERWOWANY_ZYCIEM, W.RYWALIZACJA, W.ZAZDROSC, W.CHRONIENIE_SWOJEGO,
                 W.NORMALNE_EMOCJE, W.REAKCJA, W.ZDOLNY_DO_WALKI, W.UMIE_CISNAC, W.UMIE_KLUCIC,
@@ -1440,7 +1455,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W ULICA_PRZEWAGA_SPOSOB() {
+    public static W ULICA_PRZEWAGA_SPOSOB_WARUNKI() {
         return on(
 
                 M.W(W.DYSTANS, "--->", of(W.SZYBKIE_NOGI, W.ROWER, W.SAMOCHOD)),
@@ -1474,7 +1489,7 @@ public class DBW extends DB {
                 M.W(of(M.OPPONENT(of(W.PRZEWAGA_SILY, W.SPRZET)), W._88_, M.WYSTEPUJE(W.WARTOSC)), "--->", M.MIMO_TO(M.BIJESZ())),
 
                 M.W(of(W.INFORMACJA, W.CZAS, W.WIEDZA, W.BRAK_WSTYDU), "--->", of(W.KLAMSTWO, W.UKRYCIE, W.HASLO_RDZENNYCH,
-                        M.BRAK_DOSTEPU(W.ZLO), W.SAMOTNOSC)),
+                                                                                    M.BRAK_DOSTEPU(W.ZLO), W.SAMOTNOSC)),
 
                 M.W(of(W.ZNAJOMI, W.OSIEDLOWE_SRD), "--->", M.POINFORMUJ_WSZYSTKICH(W.HANBA)),
 
@@ -1483,14 +1498,14 @@ public class DBW extends DB {
                 M.W(W.BRAK_CIERPIENIA, "--->", M.PRZEZYCIE(W.CIERPIENIE)),
 
                 M.W(M.BRAK_ZASAD(M.INTERAKCJA(of(W.POLICJA, W.ZAGRANICZNI))), "--->", of(M.UKAZANIE(M.BRAK_ZASAD(W.HANBA)),
-                        M.SKOMPROMITOWANIE(W.EKIPA))),
+                                                                                            M.SKOMPROMITOWANIE(W.EKIPA))),
 
                 M.W(of(W.SPRYT, W.SZYBKOSC, W.SILNY, W.POTRAFI_OCENIC), "--->", of(M.STRATA(W.ZDROWIE), W.UZYWKI, W.UZALEZNIENIE))
         );
     }
 
-    public static W ZACHOWANIE_REZULTAT_ULICA() {
-        of(
+    public static W ZACHOWANIE_REZULTAT_ULICA_WARUNKI() {
+        return on(
 
                 M.W(of(M.NOTYFIKACJA(W.EKIPA), W.ZDJECIA_TWARZOWKI), "--->", of(M.ZWYKLE(M.BRAK(W.REAKCJA)), M.INFORMACJA(W.EKIPA))),
 
@@ -1502,19 +1517,19 @@ public class DBW extends DB {
         );
     }
 
-    public static W METODY_POLICYJNE() {
+    public static W METODY_POLICYJNE_WARUNKI() {
         return on(
                 W.NOTYFIKACJA_EKIPA, W.OPISYWANIE_UBIORU, W.GAZ, W.FOTY_ROZPOZNANIE, M.CALY_CZAS(W.KONTROLA)
         );
     }
 
-    public static W WZGLEDNA_IZOLACJA() {
+    public static W WZGLEDNA_IZOLACJA_WARUNKI() {
         return on(
                 W.PRZYSTANEK, W.TRAUTO, W.SWIATLA, W.KLATKA, W.MIEJSCE_STALE, W.STACJA_BENZYNOWA, W.OSIEDLOWE_SRD
         );
     }
 
-    public static W SPRZYJAJACE() {
+    public static W SPRZYJAJACE_WARUNKI() {
         return on(
                 W.PRETEKST, W.KONTEKST, W.NUDA,
                 W.WZGL_IZOLACJA, W.DLUGA_DOSTEPNOSC, W.BEZRUCH, W.OSZCZEDNOSC_CZASU, W.MALA_TRUDNOSC, W.MALY_WYSILEK, W.MALA_DROGA, W.MALY_PRZYPAL,
@@ -1522,13 +1537,13 @@ public class DBW extends DB {
         );
     }
 
-    public static W NIE_SPRZYJAJACE() {
+    public static W NIE_SPRZYJAJACE_WARUNKI() {
         return on(
                 W.TLUM, W.ZMECZENIE, W.CISZA, W.MOZLIWE_SLUCHAWKI
         );
     }
 
-    public static W ESSENTIALS_SYTUACJE() {
+    public static W ESSENTIALS_SYTUACJE_WARUNKI() {
         return on(
                 W.DOSTEPNOSC, W.BLISKOSC, W.SZYBKOSC_CHODZENIA, W.INFORMACJA,
                 W.ZASIEG_WZROKU, W.ZASIEG_JEJ_WZROKU,
@@ -1537,20 +1552,20 @@ public class DBW extends DB {
         );
     }
 
-    public static W PLANSZA() {
+    public static W PLANSZA_WARUNKI() {
         return on(
                 W.LUDZIE, W.KOBIETA, W.STATYSCI, W.POTRZEBA, W.TRANSPORT, W.SCIEZKI
         );
     }
 
-    public static W EXTREMALNE_SYTUACJE() {
+    public static W EXTREMALNE_SYTUACJE_WARUNKI() {
         return on(
                 W.UWAGA_NA_TOBIE, W.ROZWALENIE_CISZY,
                 W.IDZIESZ_ZAWRACASZ, W.PRZECIWNY_PRZYSTANEK, W.SIEDZISZ_PRZEJSCIE, W.ONA_SWOJE_GRONO
         );
     }
 
-    public static W SLABY_TCHORZ() {
+    public static W SLABY_TCHORZ_WARUNKI() {
         return on(
                 M.MALY_WYSILEK(M.MOCNO(M.PODSTAWA(of(W.UKRYCIE, W.KLAMSTWO, W.PO_CICHU)))),
                 M.MALY_WYSILEK(M.MOCNO(of(W.HASLO_RDZENNYCH, W.ZAMKNIJ_ZASOB, W.OSZUKANIE_WYKORZYSTANIE, W.WYKLUCZENIE))),
@@ -1565,7 +1580,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W WADY_ZLYCH() {
+    public static W WADY_ZLYCH_WARUNKI() {
         return on(
                 W.UZYWKI, W.GLUPOTA, W.BRAK_SUMIENIA, W.KROTKOWZROCZNOSC_CZYNOW, M.ROZKMINIONY_PRZEZ(W.CZYNY),
                 M.DOSTEP(W.ZLO), M.BRAK_DOSTEPU(W.DOBRO),
@@ -1577,13 +1592,13 @@ public class DBW extends DB {
         );
     }
 
-    public static W WSPOMNIENIA() {
+    public static W WSPOMNIENIA_WARUNKI() {
         return on(
                 W.OSOBY, W.SYTUACJE, W.KONTEKST, W.EMOCJE_DANEJ_CHWILI, W.POMIESZCZENIA, W.RZECZY, W.DROGA_DO, W.DROGA_POWROT
         );
     }
 
-    public static W KONFRONTACJA() {
+    public static W KONFRONTACJA_WARUNKI() {
         return on(
                 M.CALY_CZAS(W.DZIALANIE_POD_PRESJA),
                 M.CALY_CZAS(W.WYSILEK), M.CALY_CZAS(W.KLOTNIA),
@@ -1593,7 +1608,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W OKAZJE_ZROBIENIE_ZLO() {
+    public static W OKAZJE_ZROBIENIE_ZLO_WARUNKI() {
         return on(
                 W.OBECNOSC_LUDZI, W.BLISKOSC, W.POTRZEBA, W.USLUGI,
                 M.MOCNO(W.PRZEWAGA), M.MOCNO(M.OPPONENT(W.WARTOSC)), M.MOCNO(M.OPPONENT(W.BRAK_PRZEWAG)), M.MOCNO(W.LUDZIE_ZA_TOBA),
@@ -1602,20 +1617,20 @@ public class DBW extends DB {
     }
 
 
-    public static W OKAZJE_ZROBIENIE_DOBRO() {
+    public static W OKAZJE_ZROBIENIE_DOBRO_WARUNKI() {
         return on(
                 W.BLISKOSC, M.WIDZISZ(W.ZLO), M.PRZEWIDZENIE(W.ZLO),
                 M.PO_SONDA(W.ZLY)
         );
     }
 
-    public static W TYPY_LUDZI_SHRT() {
+    public static W TYPY_LUDZI_SHRT_WARUNKI() {
         return on(
                 W.WYKOLEJONY, W.FEST, W.WIESNIAK, W.OSIEDLOWY_SLABY, W.NORMALNY, W.OSIEDLOWY_MOCNY, W.CZOLO
         );
     }
 
-    public static W TYPY_LUDZI_DOBRE() {
+    public static W TYPY_LUDZI_DOBRE_WARUNKI() {
         return on(
                 W.LOKALNY,
                 W.MLODY, W.SREDNI_WIEK,
@@ -1631,11 +1646,11 @@ public class DBW extends DB {
         );
     }
 
-    public static W TYPY_LUDZI_ZLE() {
+    public static W TYPY_LUDZI_ZLE_WARUNKI() {
         return on(
                 W.STATYSTA, W.TURYSTA_ZAGRANICZNY,
                 W.STARY,
-                W.FEST, W.BANAN, W.WYGODNIS, W.BURZUJ_NIESWIADOMY, W.BURZUJ_DZIALACZ,
+                W.FEST, W.ROZPIESZCZONY_BANAN, W.WYGODNY, W.WYGODNY_NIESWIADOMY, W.WYGODNY_DZIALACZ,
                 W.OSIEDLOWY_SLABY, W.OSIEDLOWY_WYKRECONY, W.OSIEDLOWY_CASUAL, W.SPORTOWY_FEST,
                 M.MLODE(M.CHETNE(W.PIONKI)),
                 // KOBIETA
@@ -1645,7 +1660,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W CISNIE() {
+    public static W CISNIE_WARUNKI() {
         return on(
                 M.WYBOR(of(W.GLOSNO, W.CICHO)),
 
@@ -1655,40 +1670,41 @@ public class DBW extends DB {
         );
     }
 
-    public static W TYPY_SYTUACJI() {
+    public static W TYPY_SYTUACJI_WARUNKI() {
         return on(
                 W.UNIKALNA_SYTUACJA, W.CHCIANA_SYTUACJA, W.MIEJSCA_SYTUACJA, W.DEFAULT_SYTUACJA, W.RESTRYKCYJNA_SYTUACJA, W.KRYZYSOWA_SYTUACJA
         );
     }
 
-    public static W SYTUACJE_STARCIE() {
+    public static W SYTUACJE_STARCIE_WARUNKI() {
         return on(
-            M.SYTUACJA(W.PATRZY),
-            M.SYTUACJA(of(W.PATRZY, W.CISNIE)),
-            M.SYTUACJA(of(W.PATRZY, W.CISNIE, M.IDZIE(W.TWOJA_STRONA))),
-            M.SYTUACJA(of(W.PATRZY, M.BIEGNIE(W.TWOJA_STRONA).CEL(W.WALKA_PIESCI))),
-            M.SYTUACJA(of(W.PATRZY, M.BIEGNIE(W.TWOJA_STRONA).CEL(W.WALKA_SPRZET))),
-            M.SYTUACJA(M.ROBI(W.ZDJECIA_TWARZOWKI)),
-            M.SYTUACJA(M.IDZIE(W.ZWIADY)),
-            M.SYTUACJA(M.IDZIE(W.ZWIADY).Z(W.OSLONA)),
+                M.SYTUACJA(W.PATRZY),
+                M.SYTUACJA(of(W.PATRZY, W.CISNIE)),
+                M.SYTUACJA(of(W.PATRZY, W.CISNIE, M.IDZIE(W.TWOJA_STRONA))),
+                M.SYTUACJA(of(W.PATRZY, M.BIEGNIE(W.TWOJA_STRONA).CEL(W.WALKA_PIESCI))),
+                M.SYTUACJA(of(W.PATRZY, M.BIEGNIE(W.TWOJA_STRONA).CEL(W.WALKA_SPRZET))),
+                M.SYTUACJA(M.ROBI(W.ZDJECIA_TWARZOWKI)),
+                M.SYTUACJA(M.IDZIE(W.ZWIADY)),
+                M.SYTUACJA(M.IDZIE(W.ZWIADY).Z(W.OSLONA)),
 
-            M.SYTUACJA(M.WIELU(W.PATRZY)),
-            M.SYTUACJA(M.WIELU(of(W.PATRZY, W.CISNIE))),
-            M.SYTUACJA(M.WIELU(of(W.PATRZY, W.CISNIE, M.IDZIE(W.TWOJA_STRONA)))),
-            M.SYTUACJA(M.WIELU(of(W.PATRZY, M.BIEGNIE(W.TWOJA_STRONA).CEL(W.WALKA_PIESCI)))),
-            M.SYTUACJA(M.WIELU(of(W.PATRZY, M.BIEGNIE(W.TWOJA_STRONA).CEL(W.WALKA_SPRZET)))),
-            M.SYTUACJA(M.WIELU(M.ROBI(W.ZDJECIA_TWARZOWKI))),
-            M.SYTUACJA(M.WIELU(M.IDZIE(W.ZWIADY))),
-            M.SYTUACJA(M.WIELU(M.IDZIE(W.ZWIADY).Z(W.OSLONA)))
-    );
+                M.SYTUACJA(M.WIELU(W.PATRZY)),
+                M.SYTUACJA(M.WIELU(of(W.PATRZY, W.CISNIE))),
+                M.SYTUACJA(M.WIELU(of(W.PATRZY, W.CISNIE, M.IDZIE(W.TWOJA_STRONA)))),
+                M.SYTUACJA(M.WIELU(of(W.PATRZY, M.BIEGNIE(W.TWOJA_STRONA).CEL(W.WALKA_PIESCI)))),
+                M.SYTUACJA(M.WIELU(of(W.PATRZY, M.BIEGNIE(W.TWOJA_STRONA).CEL(W.WALKA_SPRZET)))),
+                M.SYTUACJA(M.WIELU(M.ROBI(W.ZDJECIA_TWARZOWKI))),
+                M.SYTUACJA(M.WIELU(M.IDZIE(W.ZWIADY))),
+                M.SYTUACJA(M.WIELU(M.IDZIE(W.ZWIADY).Z(W.OSLONA)))
+        );
+    }
 
-    public static W DUZO_IF() {
+    public static W DUZO_SIE_DZIEJE_ULICA_WARUNKI() {
         return on(
                 W.DUZE_BLOKI, W.DUZO_OSOB, W.SRODOWISKO, W.RDZENNI, W.MOCNE_JEDNOSTKI, W.NORMALNE_EMOCJE
         );
     }
 
-    public static W RODZAJE_WIEDZA() {
+    public static W RODZAJE_WIEDZA_WARUNKI() {
         return on(
                 W.WIEDZA_ULICA, W.WIEDZA_KOBIETY_PODRYW, W.WIEDZA_KOBIETY_ZWIAZEK, W.WIEDZA_WYCHOWANIE,
                 W.WIEDZA_SPORT, W.WIEDZA_NAUKA,
@@ -1697,32 +1713,32 @@ public class DBW extends DB {
         );
     }
 
-    public static W SILNE_WIEZY_CZLOWIEKA() {
+    public static W SILNE_WIEZY_CZLOWIEKA_WARUNKI() {
         return M.MOCNO(of(
                 W.RASA, W.NARODOWOSC, W.GENY, W.RODZINA, W.MIEJSCE_POCHODZENIA, W.RELIGIA
         ));
     }
 
-    public static W RELACJE() {
+    public static W RELACJE_WARUNKI() {
         return on(
                 M.BRAK(W.RELACJA), W.ZNAJOMOSC, W.KOLEZENSTWO, W.PRZYJAZN, W.MILOSC,
                 W.WROGOSC, W.NIECHEC, W.NIEZROZUMIENIE, W.LEKCEWAZENIE, W.WYKORZYSTANIE, W.WALKA
         );
     }
 
-    public static W WALKA() {
+    public static W WALKA_WARUNKI() {
         return  on(
-            W.WALKA_KLAS_SPOLECZNYCH, W.WALKA_NARODOW, W.WALKA_RASOWA, W.WALKA_KLUBY_KIBICOWSKIE, W.WALKA_O_PRZEWAGI
+                W.WALKA_KLAS_SPOLECZNYCH, W.WALKA_NARODOW, W.WALKA_RASOWA, W.WALKA_KLUBY_KIBICOWSKIE, W.WALKA_O_PRZEWAGI
         );
     }
 
-    public static W ZASIEG_PRZEWAGI_ULICA() {
+    public static W ZASIEG_PRZEWAGI_ULICA_WARUNKI() {
         return on(
-            W.OBECNOSC, W.ZASIEG_WZROKU, W.ZASIEG_BIEGU, W.ZASIEG_SAMOCHODU, W.ZASIEG_BRONI
+                W.OBECNOSC, W.ZASIEG_WZROKU, W.ZASIEG_BIEGU, W.ZASIEG_SAMOCHODU, W.ZASIEG_BRONI
         );
     }
 
-    public static W BLEDY() {
+    public static W BLEDY_WARUNKI() {
         return on(
                 W.BLAD_POJEDYNCZY, W.BLAD_NIESWIADOMY_PRZYPADKOWY,
                 W.BLAD_SPECJALNY, W.BLAD_LENISTWA, W.BLAD_ZLAMANIA_ZASAD
@@ -1730,38 +1746,36 @@ public class DBW extends DB {
     }
 
 
-    public static W REAKCJE() {
-        return  on((
-            M.BRAK(W.REAKCJA), W.PIERWSZA_REAKCJA, W.REAKCJA_PO_NARADZIE, W.REAKCJA_PO_SONDZIE
+    public static W REAKCJE_WARUNKI() {
+        return  on(
+                M.BRAK(W.REAKCJA), W.PIERWSZA_REAKCJA, W.REAKCJA_PO_NARADZIE, W.REAKCJA_PO_SONDZIE
         );
     }
 
-    public static W SPORT() {
-        return  on((
-                W.PILKA_NOZNA, W.BOKS, W.SILOWNIA, W.PLYWANIE, W.ZIMOWE, W.IGRZYSKA_OLIMPIJSKIE,
+    public static W SPORT_WARUNKI() {
+        return  on(
+                        W.PILKA_NOZNA, W.BOKS, W.SILOWNIA, W.PLYWANIE, W.ZIMOWE, W.IGRZYSKA_OLIMPIJSKIE,
                 W.HOKEJ, W.PILKA_RECZNA, W.SIATKOWKA
         );
     }
 
-    public static W TYPY_MIEJSC() {
+    public static W TYPY_MIEJSC_WARUNKI() {
         return on(
                 W.MIEJSCE_STALE, W.MIEJSCE_RESTRYKCYJNE, W.MIEJSCE_RESTRYKCYJNE_OSIEDLE, W.MIEJSCE_TRANZYTOWE,
                 W.GLOWNA_DROGA, W.OSIEDLOWA_DROGA
         );
     }
 
-    public static W KONTROLA() {
+    public static W KONTROLA_WARUNKI() {
         return on(
                 M.OSOBA(M.BLISKO(of(W.KONTROLA_CZYNY, W.KONTROLA_MOWA, W.KONTROLA_RZECZY_POSIADANE, W.KONTROLA_PRZWAG, W.KONTROLA_SLABOSCI, W.KONTROLA_RELACJI, W.KONTROLA_DZIALANIE))),
                 M.SRODOWISKO(of(M.CALY_CZAS(W.INFORMACJE_ODRAZU_KRAZA), W.ZDJECIA_TWARZOWKI))
         );
     }
 
-    public static W SONDA_PRZYCZYN() {
+    public static W SONDA_PRZYCZYN_WARUNKI() {
         return  on(
                 W.PRZYMUS, W.POTRZEBA, W.ZLO, W.DOBRO, W.ZYSK, W.MODA, W.PRZEWAGA, W.NUDA, W.UCZUCIE, W.CIEKAWOSC, W.ZAZDROSC
         );
     }
-
-
 }
