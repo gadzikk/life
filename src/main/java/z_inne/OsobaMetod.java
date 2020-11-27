@@ -33,8 +33,8 @@ public class OsobaMetod {
     public W patrzJakCierpi() {return W.WARUNEK;}
     public W cieszSieJegoCierpieniem() {return W.WARUNEK;}
     public W baluj() {return W.WARUNEK;}
-    public W WHILE(W warunek) {return W.WARUNEK;}
-    public W WHILE(List<W> warunek) {return W.WARUNEK;}
+    public W DOPOKI(W warunek) {return W.WARUNEK;}
+    public W DOPOKI(List<W> warunek) {return W.WARUNEK;}
     public W WHILE_END() {return W.WARUNEK;}
     public W zabij() {return W.WARUNEK;}
     public W patrzy(TypOsoby osoba) {return W.WARUNEK;}
@@ -62,9 +62,9 @@ public class OsobaMetod {
     public W wyklucz(W warunek) {return W.WARUNEK;}
     public W wyklucz() {return W.WARUNEK;}
     public OsobaMetod threadWhileLoop(W warunek) {return new OsobaMetod();}
-    public W thread_while_loop(W warunek) {return W.WARUNEK;}
-    public W thread_while_loop(M m) {return W.WARUNEK;}
-    public W thread_while_loop(List<W> warunki) {return W.WARUNEK;}
+    public W caly_czas(W warunek) {return W.WARUNEK;}
+    public W caly_czas(M m) {return W.WARUNEK;}
+    public W caly_czas(List<W> warunki) {return W.WARUNEK;}
     public W robKomusKrzywde() {return W.WARUNEK;}
     public W dajZarobicDillowi() {return W.WARUNEK;}
     public W otoczKorzysc(W warunek) {return W.WARUNEK;}

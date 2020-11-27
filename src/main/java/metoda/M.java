@@ -1495,4 +1495,14 @@ public class M {
     public static W SRODKI_PRZECIW(List<W> warunki){return W.WARUNEK;}
     public static W OTWARTE_STARCIE(W w){return W.WARUNEK;}
     public static W OTWARTE_STARCIE(List<W> warunki){return W.WARUNEK;}
+    public static W OBRONA_PRZED(W w){return W.WARUNEK;}
+    public static W OBRONA_PRZED(List<W> warunki){return W.WARUNEK;}
+    public static W RODZINA(W w){return W.WARUNEK;}
+    public static W RODZINA(List<W> warunki){return W.WARUNEK;}
+    public static W UKAZANIE_W_PRAWDZIE(W w){return W.WARUNEK;}
+    public static W UKAZANIE_W_PRAWDZIE(List<W> warunki){return W.WARUNEK;}
+    public static W ZLE_OSOBY(W w){return W.WARUNEK;}
+    public static W ZLE_OSOBY(List<W> warunki){return W.WARUNEK;}
+    public static W SPOTYKA_KAZDEG(W w){return W.WARUNEK;}
+    public static W SPOTYKA_KAZDEG(List<W> warunki){return W.WARUNEK;}
 }

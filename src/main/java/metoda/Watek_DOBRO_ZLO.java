@@ -14,8 +14,6 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
     W niesprawiedliwosc = DBW.NIESPRAWIEDLIWOSC_WARUNKI();
 
     public void run(){
-        M.W(W.UKAZANIE_W_PRAWDZIE, "--->", of(W.SPOGLADANIE_NA_SIEBIE, W.CISZA, M.DOPOKI(of(W.UMNIEJSZENIE, W.USPRAWIEDLIWINIE,
-                                                                                    W.KLAMSTWO, W.PRZEKONYWANIE))));
         M.WW(of(W.TOLEROWANIE_ZLA,
                 W.POZWOLENIE_NA_ZLO,
                 W.SLUCHANIE_ZLEGO,
@@ -29,20 +27,19 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
                                                                                                                                         W.PRZYJEMNOSCI)),
                                                                                                                                  M.REZULTAT(W.PIEKLO)));
 
-        M.WW(W.DOBRO, "--->", M.DUZO(of(W.CIERPIENIE, W.PRACA, W.WYSILEK)), "--->", of(W.ZMECZENIE, M.CIEZKIE(W.ZYCIE),
-                                                                                                 M.REZULTAT(W.NIEBO)));
+        M.WW(W.DOBRO, "--->", M.DUZO(of(W.CIERPIENIE, W.PRACA, W.WYSILEK, M.OBRONA_PRZED(W.ZLO))), "--->", of(W.ZMECZENIE, M.CIEZKIE(W.ZYCIE),
+                                                                                                                        M.REZULTAT(W.NIEBO)));
 
         M.W(M.DUZO(W.GRZECH), "--->", M.DUZO(W.WADY));
 
         M.W(M.OSOBA(M.PODANIE_REKI(W.ZLO)), "--->", M.ZLO(W.DOSTEP)
-                                                            .W_PRZECIWNYM_PRZYPADKU(M.ZLO(M.BRAK(W.DOSTEP))));
+                                                         .W_PRZECIWNYM_PRZYPADKU(M.ZLO(M.BRAK(W.DOSTEP))));
 
         M.W(W.ZLO, "--->", of(M.FALSZYWE_WRAZENIE(W.SILNI), M.RZECZYWISTOSC(W.SLABI)));
         M.W(W.DOBRO, "--->", of(M.FALSZYWE_WRAZENIE(W.SLABI), M.RZECZYWISTOSC(W.SILNI)));
 
         zloDzialanie();
         dobroDzialanie();
-        dobroDzialacz();
         generalneZwykleWidzianeZachowanie();
         zloUjecieSwiatowe();
         wyborKazdegoCzlowieka();
@@ -54,7 +51,7 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
 
         W zleCzyny = DBW.ZLE_CZYNY_WARUNKI();
 
-        List<W> conditions = of(
+        List<W> dzialanie = of(
                 W.NIE_ZATRZYMA_SIE,
                 M.CALY_CZAS(W.PROBUJE),
                 W.OSZUKIWANIE_WYKORZYSTANIE,
@@ -87,25 +84,22 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
                 W.ZAZDROSC, W.ZAWISC, W.KRZYWDA, W.NIENAWISC
         );
 
-        M.W(M.OSOBA(M.INTERAKCJA(W.ZLY)), "--->", M.REZULTAT(M.OSOBA(of(W.ZERO_ZYSKU, DBW.KRZYWDY_WARUNKI(), DBW.STRATY_MORALNE_WARUNKI(), DBW.STRATY_MATERIALNE_WARUNKI())))));
+        M.W(M.OSOBA(M.INTERAKCJA(W.ZLY)), "--->", M.REZULTAT(M.OSOBA(of(W.ZERO_ZYSKU, DBW.KRZYWDY_WARUNKI(), DBW.STRATY_MORALNE_WARUNKI(), DBW.STRATY_MATERIALNE_WARUNKI()))));
 
-        List<W> NOWY = of(M.ODRAZU(DBW.KRZYWDY_WARUNKI()));
+        M.W(M.OSOBA(W.NOWY), "--->", of(M.ODRAZU(DBW.KRZYWDY_WARUNKI())));
 
         W wadyZlych = DBW.WADY_ZLYCH_WARUNKI();
         W okazje = DBW.OKAZJE_ZROBIENIE_ZLO_WARUNKI();
 
-        List<W> sprawdzajacy = of(W.GLUPI, W.AGRESYWNI, W.TEMPIENI_BYLI, W.BEZ_WSTYDU, W.BEZ_ZASAD, W.BRAK_SUMIENIA);
-        List<W> staziBiegacze = of(W.DUZI_TEMPI, W.AGRESYWNI, W.ULEGLI, W.ZALEZNY, W.UZALZENIENI);
-        List<W> mlodziBiegacze = of(W.WYKRECONE_SZCZURKI, W.OFERMY, W.NIEZDOLNOSC_DO_WYSILKU, W.UZALZENIENI);
-
-        zly.thread_while_loop(M.KONTROLA(W.WSZYSCY));
+        zly.caly_czas(M.KONTROLA(W.WSZYSCY));
 
         M.W(of(W.ZLY, W._88_, W.WIDZIAL) , "--->", M.ODRAZU(of(W.PRAGNIENIE_ZLA, M.MOCNO(DBW.KRZYWDY_WARUNKI()))));
 
         M.W(of(W.ZLY, W._88_, W.BLISKOSC, W._88_, W.DOSTEP) , "--->", of(W.ZMATERIALIZOWANIE_ZLA,
-                                                                                    W.WBICIE_NA_MUKE,
-                                                                                    W.WYKORZYSTANIE,
-                                                                                W.ROBIENIE_CIERPIENIA,
+                                                                                    DBW.KRZYWDY_WARUNKI(),
+                                                                                    DBW.BRAK_ZASAD_WARUNKI(),
+                                                                                    DBW.STRATY_MORALNE_WARUNKI(),
+                                                                                    DBW.STRATY_MATERIALNE_WARUNKI(),
                                                                                     W.CIEZKIE_RANY));
 
         M.W(M.CALY_CZAS(M.KONTROLA(W.ZLY)), "--->", of(W.CIESZY_SIE, M.SZANSA_NA(M.USPRAWIEDLIWIENIE(W.WALKA_PIESCI)),
@@ -114,12 +108,12 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
                                                                     W.KARA, M.OPCJA(W.UKAZANIE),
                                                                     W.ZAPRZESTANIE_ZLA, W.SMUTEK, W.WYLACZENIE_DZIALACZA));
 
-        M.W(W.ZLY, "--->", M.DUZY_WYSILEK(M.CALY_CZAS(M.KONTROLA(W.ZLY)))
+        M.W(W.ZLY, "--->", M.RODZINA(M.DUZY_WYSILEK(M.CALY_CZAS(M.KONTROLA(W.ZLY))))
                                                                     .MIMO_TO(W.ZLY_OWOC)
                                                                     .KONCOWO(of(W.STRATA_CZASU, W.STRATA_PIENIEDZY, W.STRATA_SIL,
                                                                             DBW.STRATY_MORALNE_WARUNKI(), DBW.STRATY_MATERIALNE_WARUNKI())));
 
-        M.WW(M.OSOBA(W.NIESWIADOMOSC), "--->", of(W.MIEJSCE_STALE, W.ZLY, W.PRZEKONYWANIE_PRZECIW), "--->", M.OSOBA(W.ZLO));
+        M.WW(M.OSOBA(W.NIESWIADOMOSC), "--->", of(M.MIEJSCE_STALE(M.SPOTKANY(W.ZLY))), "--->", M.OSOBA(W.ZLO));
 
         M.POBIERZ_WZORCE_ZASADY(of(W.ZLO, W.SRODOWISKO));
 
@@ -140,18 +134,20 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
                                                                         .w_przeciwnym_przypadku(of(W.REAKACJA, W.KARA, M.OPCJA(W.UKAZANIE),
                                                             M.DZIALAJACY(of(W.ZAPRZESTANIE_ZLA, W.SMUTEK, W.WYLACZENIE_DZIALACZA, M.OPCJA(W.CHEC_POMSZCZENIA)))));
 
+        M.W(M.UKAZANIE_W_PRAWDZIE(W.ZLO), "--->", M.ZLE_OSOBY(of(W.SPOGLADANIE_NA_SIEBIE, W.CISZA, M.CALY_CZAS(of(W.UMNIEJSZENIE, W.USPRAWIEDLIWINIE,
+                                                                                                                        W.KLAMSTWO, W.PRZEKONYWANIE)))));
 
     }
     public void dobroDzialanie() {
         W dobreCzyny = DBW.DOBRE_CZYNY_WARUNKI();
 
-        List<W> conditions = of(
+        List<W> dzialanie = of(
                 W.CIERPIENIE,
                 W.KONTRA,
                 W.WYGRANA,
 
                 W.SPORT,
-                W.BRAK_UZYWEK, W.JEDZENIE,
+                W.BRAK_UZYWEK,
 
                 W.PRAWDA,
 
@@ -169,7 +165,7 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
 
                 W.WSPARCIE
         );
-        dobrzi.thread_while_loop(M.KONTROLA(W.ZLI));
+        dobrzi.caly_czas(M.KONTROLA(W.ZLI));
 
         W sonda = M.SONDA(DBW.ZLY_ZNAKI_ROZPOZNAWCZE_WARUNKI());
         W okazje = DBW.OKAZJE_ZROBIENIE_DOBRO_WARUNKI();
@@ -182,9 +178,6 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
         M.W(W.DOBRY, "--->", M.CALY_CZAS(M.DOBRY(M.PRZEBYWANIE(M.OSOBY(W.DOBRZI)))));
 
 
-    }
-    public void dobroDzialacz() {
-        M.PRAKTYKA(DBW.ANTY_DZIALACZ_ZLA_WARUNKI())
     }
     public void generalneZwykleWidzianeZachowanie() {
         List<W> conditions = of(
@@ -203,14 +196,11 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
     }
 
     public void wyborKazdegoCzlowieka() {
-        List<W> spotykaKazdego = of(W.CIERPIENIE, W.NIESPRAWIEDLIWOSC, W.PRZEWAGA);
-        W sciezkaZycia;
-        if(warunki.containsAll(of(W.MADROSC, W.SUMIENIE, W.BOI_SIE_BOGA))){
-            sciezkaZycia = W.IDZIE_W_PRAWO;
-        }
-        else if(warunki.containsAll(of(W.PRZYJEMNOSCI, W.EMOCJE, W.PRAGNIENIE_ZLA))){
-            sciezkaZycia = W.IDZIE_W_LEWO;
-        }
+        M.SPOTYKA_KAZDEG(of(W.CIERPIENIE, W.NIESPRAWIEDLIWOSC, W.PRZEWAGA));
+
+        M.W(M.OSOBA(M.POSIADA(of(W.MADROSC, W.SUMIENIE, W.BOI_SIE_BOGA))), "--->", M.OSOBA((W.DOBRO)));
+
+        M.W(M.OSOBA(M.POSIADA(of(W.PRZYJEMNOSCI, W.EMOCJE, W.PRAGNIENIE_ZLA))), "--->", M.OSOBA((W.ZLO)));
     }
 
     public void niesprawiedliwyHandel() {

@@ -101,7 +101,7 @@ public class Watek_PRACA extends AbstractWatek {
         manago.setStatus(W.STRAZNIK_PRAWA);
         manago.setStatus(W.CZARNA_TOGA_SEDZIOWSKA);
         manago.nieObchodzi(of(W.ZASOB_ZYCIE_PRYWATNE, W.ZASOB_CZAS));
-        manago.thread_while_loop(M.KONTROLA(kontrola));
+        manago.caly_czas(M.KONTROLA(kontrola));
         manago.SET(W.ZDOLNOSC_ATAKU);
         M.REMOVE(ME, W.ZDOLNOSC_ATAKU);
 
@@ -194,48 +194,48 @@ public class Watek_PRACA extends AbstractWatek {
         opponent.kabluj(ME, manago);
     }
     public void hardcoreZlyFxTeam() {
-        me.thread_while_loop(W.OGROMNY_WYSILEK);
+        me.caly_czas(W.OGROMNY_WYSILEK);
 
         manago.setNaTobie(W.ULTRA_OCZEKWIANIA_Z_KAPELUSZA);
-        manago.thread_while_loop(W.SZUKAJ_ZASTEPSTWA);
-        manago.thread_while_loop(W.ZWRACAJ_WSZYSTKO_NA_REVIEW);
-        manago.thread_while_loop(M.uniz(W.DOBRE));
-        manago.thread_while_loop(M.zapomnij(W.DOBRE));
-        manago.thread_while_loop(M.wyolbrzym(W.ZLE));
-        manago.thread_while_loop(M.pamietaj(W.ZLE));
+        manago.caly_czas(W.SZUKAJ_ZASTEPSTWA);
+        manago.caly_czas(W.ZWRACAJ_WSZYSTKO_NA_REVIEW);
+        manago.caly_czas(M.uniz(W.DOBRE));
+        manago.caly_czas(M.zapomnij(W.DOBRE));
+        manago.caly_czas(M.wyolbrzym(W.ZLE));
+        manago.caly_czas(M.pamietaj(W.ZLE));
 
         manago.setNaTobie(W.OCZEKIWANIA_ULTRASZCZEGOLOWA_WIEDZA_NT_SYSTEMU_Z_KTORYM_NIEMIALES_DO_CZYNIENIA_WCZESNIEJ_NIEMOGLES_MIEC_POJECIA_JAK_DZIALA);
-        manago.thread_while_loop(of(W.DAJ_ULTRA_SUPPORTOWE_NAJGORSZE_TASKI, W.IFLYRES2, W.PELNY_SUPPORT));
-        manago.thread_while_loop(of(W.UNIZ_WYKONANIE_ZADANIA, W.TO_BYLO_LATWE));
-        manago.thread_while_loop(W.CIAGLE_PODWYZSZANA_POPRZECZKA_JEDNOCZESNIE_INNE_PROBLEMY_KAZDEGO_TASKU);
-        manago.thread_while_loop(W.KAZDY_BLAD_KARA);
-        manago.thread_while_loop(W.KAZDE_PYTANIE_EWALUOWANE);
-        manago.thread_while_loop(of(W.ZLY_FEEDBACK_GDY_PYTASZ, W.NIE_PYTASZ_NIE_WIESZ));
-        team.thread_while_loop(W.INFORMACJE_ODRAZU_KRAZA);
+        manago.caly_czas(of(W.DAJ_ULTRA_SUPPORTOWE_NAJGORSZE_TASKI, W.IFLYRES2, W.PELNY_SUPPORT));
+        manago.caly_czas(of(W.UNIZ_WYKONANIE_ZADANIA, W.TO_BYLO_LATWE));
+        manago.caly_czas(W.CIAGLE_PODWYZSZANA_POPRZECZKA_JEDNOCZESNIE_INNE_PROBLEMY_KAZDEGO_TASKU);
+        manago.caly_czas(W.KAZDY_BLAD_KARA);
+        manago.caly_czas(W.KAZDE_PYTANIE_EWALUOWANE);
+        manago.caly_czas(of(W.ZLY_FEEDBACK_GDY_PYTASZ, W.NIE_PYTASZ_NIE_WIESZ));
+        team.caly_czas(W.INFORMACJE_ODRAZU_KRAZA);
 
-        manago.thread_while_loop(of(W.OCENA_TYLKO_WEDLE_ZLEGO, W.OCENA_CZEGO_NIE_ZROBILES));
-        team.thread_while_loop(W.FARMAZON24_7);
-        team.thread_while_loop(M.SZUKANIE(W.DZIURA_W_CALYM));
-        team.thread_while_loop(M.CZYCHA(W.BLAD));
+        manago.caly_czas(of(W.OCENA_TYLKO_WEDLE_ZLEGO, W.OCENA_CZEGO_NIE_ZROBILES));
+        team.caly_czas(W.FARMAZON24_7);
+        team.caly_czas(M.SZUKANIE(W.DZIURA_W_CALYM));
+        team.caly_czas(M.CZYCHA(W.BLAD));
 
         manago.SET(of(W.PIASKOWNICA, W.MALY_RUDY_FEST_GITARA_DLUGIE_WLOSY, W.IGNORANT_MALE_DZIECKO));
         manago.rozpowiedzDoWszystkich(W.WADA);
 
-        manago.thread_while_loop(M.W(W.WADA, "--->", of(W.ZAMKNIECIE_DOZYWOTNIE, W.BRAK_MOZLIWOSCI_POPRAWY, W.ZARTY)));
-        manago.thread_while_loop(M.W(W.DOBRE_WYKONANIE, "--->", of(W._0)));
-        manago.thread_while_loop(M.W(W.ZLE_WYKONANIE, "--->", of(W.ZLY_FEEDBACK, W.ZLY_MIDYEAR, W.IMPROVEMENT_PLAN)));
+        manago.caly_czas(M.W(W.WADA, "--->", of(W.ZAMKNIECIE_DOZYWOTNIE, W.BRAK_MOZLIWOSCI_POPRAWY, W.ZARTY)));
+        manago.caly_czas(M.W(W.DOBRE_WYKONANIE, "--->", of(W._0)));
+        manago.caly_czas(M.W(W.ZLE_WYKONANIE, "--->", of(W.ZLY_FEEDBACK, W.ZLY_MIDYEAR, W.IMPROVEMENT_PLAN)));
 
-        manago.thread_while_loop(M.W(W.MANAGER_LUBIE, "--->", of(W.ZLEC_SZCZEGOLOWO, W.DAJ_MALO_ROBOTY)));
-        manago.thread_while_loop(M.W(W.MANAGER_NIELUBIE, "--->", of(W.ZLEC_NIESZCZEGOLOWO, W.DAJ_MALO_ROBOTY,
+        manago.caly_czas(M.W(W.MANAGER_LUBIE, "--->", of(W.ZLEC_SZCZEGOLOWO, W.DAJ_MALO_ROBOTY)));
+        manago.caly_czas(M.W(W.MANAGER_NIELUBIE, "--->", of(W.ZLEC_NIESZCZEGOLOWO, W.DAJ_MALO_ROBOTY,
                                                                                      W.UKRYCIE, W.PRETENSJE)));
 
-        manago.thread_while_loop(W.MOWIENIE_MYSL_ROB_PROBOJ);
-        manago.thread_while_loop(of(W.NIE_MOWILEM_ABYS_TAK_ZROBIL, W._100PROCENT_UZALEZNIENIE));
-        manago.thread_while_loop(W.WCHODZ_ZYCIE_PRYWATNE);
-        manago.thread_while_loop(of(W.ZLAMANIE_WSZELKICH_ZASAD_MANAGERSKICH, W.ROBOTA_LEZY, W.NASTEPNIE_POWOLYWANIE_SIE_NA_SZCZEGOLIKI));
-        manago.thread_while_loop(of(W.WSPIERAJ_UCZ_ZAGRANICZNYCH, W.DAJ_DEVELOPMENT_ZAGRANICZNYM));
-        manago.thread_while_loop(of(W.KARC_POLAKOW, W.DAJ_SUPPORT_POLAKOM));
-        manago.thread_while_loop(W.RZUCENIE_NA_TASKI_BEZ_PRZYGOTOWANIA_PRACOWNIKA);
+        manago.caly_czas(W.MOWIENIE_MYSL_ROB_PROBOJ);
+        manago.caly_czas(of(W.NIE_MOWILEM_ABYS_TAK_ZROBIL, W._100PROCENT_UZALEZNIENIE));
+        manago.caly_czas(W.WCHODZ_ZYCIE_PRYWATNE);
+        manago.caly_czas(of(W.ZLAMANIE_WSZELKICH_ZASAD_MANAGERSKICH, W.ROBOTA_LEZY, W.NASTEPNIE_POWOLYWANIE_SIE_NA_SZCZEGOLIKI));
+        manago.caly_czas(of(W.WSPIERAJ_UCZ_ZAGRANICZNYCH, W.DAJ_DEVELOPMENT_ZAGRANICZNYM));
+        manago.caly_czas(of(W.KARC_POLAKOW, W.DAJ_SUPPORT_POLAKOM));
+        manago.caly_czas(W.RZUCENIE_NA_TASKI_BEZ_PRZYGOTOWANIA_PRACOWNIKA);
                 M.konsekwencje(of(W.BRAK_MOZLIWOSCI_ESTYMOWANIA, W.ZABIERANIE_CZASU_OSOBOM_ZESPOLU, W.KAZDY_TASK_NOWY_BRAK_NOWY_PROBLEM, W.DELAY, W.ZLA_OCENA_Z_JIRY));
 
         M.GRANT(ME, W.NIEDZIALAJCY_KOMPUTER);
@@ -286,8 +286,8 @@ public class Watek_PRACA extends AbstractWatek {
                 M.W(W.WIECEJ_NIZ_2_LATA_DOSWIADCZENIA, "--->", pytajacy.OCZEKIWANIE(W.MUSI_UMIEC_WSZYSTK0));
 
         pytajacy.SET(DBW.FEST_WARUNKI());
-        pytajacy.thread_while_loop(W.SZUKA_GLEBOKO_PYTAN);
-        pytajacy.thread_while_loop(W.LICZY_KAZDY_BLAD);
+        pytajacy.caly_czas(W.SZUKA_GLEBOKO_PYTAN);
+        pytajacy.caly_czas(W.LICZY_KAZDY_BLAD);
 
         M.W(W.OGLOSZENIE_O_PRACE, "--->", W.LISTA_ZAGADNIEN);
         M.W(W.ZAGADNIENIE, "--->", M.PYTANIA(M.MAX(3)));

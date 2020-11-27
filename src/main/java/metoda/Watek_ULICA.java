@@ -129,8 +129,8 @@ public class Watek_ULICA extends AbstractWatek {
 
     public void wychodzisz() {
         M.W(W.WYCHODZISZ, "--->", of(M.CALY_CZAS(W.ZLO_KRAZY),
-                ZLE_OSOBY.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA),
-                ZLE_OSOBY.thread_while_loop(W.STWARZA_OKAZJE_ZROBIENIE_ZLA),
+                ZLE_OSOBY.caly_czas(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA),
+                ZLE_OSOBY.caly_czas(W.STWARZA_OKAZJE_ZROBIENIE_ZLA),
                 M.ZWYKLE(of(DBW.KRZYWDY_WARUNKI(), DBW.OSLONY_WARUNKI())),
                 M.CALY_CZAS(of(ciaglaCzynnoscUlica, W.ZASIEG_WZROKU, W.SCIEZKI, W.LUDZIE, W.WIDOCZNY_GDY_IDZIESZ))));
 
@@ -705,7 +705,7 @@ public class Watek_ULICA extends AbstractWatek {
 
         M.CALY_CZAS(W.KONTROLA);
         M.CALY_CZAS(W.WYMAGANIE_DZIALANIA_DLA_ZLA);
-        M.CALY_CZAS(W.GNOJ_POSTRONNYCH);  me.thread_while_loop(W.GNOJ_EKIPA_NIZSI_OD_CIEBIE);
+        M.CALY_CZAS(W.GNOJ_POSTRONNYCH);  me.caly_czas(W.GNOJ_EKIPA_NIZSI_OD_CIEBIE);
         M.CALY_CZAS(W.GNOJ_EKIPA);
         M.CALY_CZAS(W.UNIZAJ_CZYNY);
 
@@ -908,7 +908,7 @@ public class Watek_ULICA extends AbstractWatek {
     public void przejecieMiejsceStale() {
         M.CALY_CZAS(W.NORMALNOSC);
         M.W(M.PRZEJECIE(M.MIEJSCE_STALE(of(DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI(), DBW.OSLONY_WARUNKI()))), "--->", M.OBSADZ_STANOWISKA(of(W.SWOI, W.ZLI)));
-        M.ULTIMATIUM(pracownicy.thread_while_loop(M.DZIALANIE_DLA_ZLA(of(DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI(), DBW.OSLONY_WARUNKI()))));
+        M.ULTIMATIUM(pracownicy.caly_czas(M.DZIALANIE_DLA_ZLA(of(DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI(), DBW.OSLONY_WARUNKI()))));
         M.CALY_CZAS(M.DOSTEP_TYLKO(M.OSOBY(W.ZLI)));
 
         M.W(M.MIEJSCE_STALE(W.DLUGA_DOSTEPNOSC), "--->", of(M.WEJSCIE(M.EKIPA(M.SPRZET(W.WCZESNIE_RANO))),

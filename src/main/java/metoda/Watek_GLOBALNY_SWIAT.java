@@ -19,7 +19,7 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
 
     W startowe = DBW.STARTOWE_WARUNKI();
     List<W> czas = DBW.ZBIOR_CZAS();
-    W duzoIf = DBW.DUZO_SIE_DZIEJE_ULICA_WARUNKI();
+    W duzoSieDzieje = DBW.DUZO_SIE_DZIEJE_ULICA_WARUNKI();
     W ksztaltowanieDzielnicy = DBW.KSZTALTOWANIE_DZIELNICY_WARUNKI();
     List<W> emocjeUczucia = DBW.ZBIOR_EMOCJE_UCZUCIA();
     List<W> rozrywkiZart = DBW.ZBIOR_ROZRYWKI_ZART();
@@ -158,7 +158,7 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
         M.W(W.WARUNEK_SPRZYJAJACY, "--->", W.CHCIANA_SYTUACJA);
 
         waznyTrudnyWarunek();
-        najwiekszaBron();
+        najwiekszaStrata();
         zNieswiadomosci();
         rozmowa();
         zasobZjawiskoStandardowo();
@@ -171,7 +171,7 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
                 M.WAZNE(of(W.ULICA, W.SILA, W.ZNAJOMI)),
                 M.WAZNE(of(W.ROZWOJ_UMYSLOWY, W.ROZWOJ_FIZYCZNY)),
                 M.WAZNE(of(W.WYCHODZENIE, W.OBECNOSC)),
-                M.WAZNE(W.ZAGADANIE),
+                M.WAZNE(W.POZNANIE),
 
                 M.TRUDNO(M.MEZCZYZNA(W.ZWIAZEK)),
                 M.LATWO(M.KOBIETA(W.ZWIAZEK)),
@@ -183,16 +183,16 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
         );
     }
 
-    public void najwiekszaBron() {
+    public void najwiekszaStrata() {
         M.W(of(W.ULICA), "--->", of(W.SPRZET, W.KONTUZJA));
 
         M.W(of(W.PRACA), "--->", of(W.ZWOLNIENIE, W.SPRAWA_W_SADZIE));
     }
 
     public void zNieswiadomosci() {
-        M.WW(of(W.NIESWIADOMOSC, W._II_, W.GLUPOTA), "--->", M.SPOTKANY(W.ZLY), "--->", W.ZLO);
-        M.WW(of(W.NIESWIADOMOSC, W._II_, W.GLUPOTA), "--->", M.SPOTKANY(W.DOBRY), "--->", W.DOBRO);
-        M.WW(of(W.NIESWIADOMOSC, W._II_, W.GLUPOTA), "--->", M.POZNANIE(W.CIEZKA_PRACA), "--->", W.PRACA);
+        M.WW(M.OSOBA(W.NIESWIADOMOSC), "--->", M.SPOTKANY(W.ZLY), "--->", M.OSOBA(W.ZLO));
+        M.WW(M.OSOBA(W.NIESWIADOMOSC), "--->", M.SPOTKANY(W.DOBRY), "--->", M.OSOBA(W.DOBRO));
+        M.WW(M.OSOBA(W.NIESWIADOMOSC), "--->", M.POZNANIE(W.CIEZKA_PRACA), "--->", M.OSOBA(W.PRACA));
     }
 
     public void rozmowa() {

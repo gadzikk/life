@@ -107,8 +107,8 @@ public class Watek_ZWIAZEK extends AbstractWatek {
 
     public void karyna() {
                 M.przyjdzNaGotowe();
-                karyna.thread_while_loop(M.oczekuje(W.EMOCJE));
-                karyna.thread_while_loop(M.nieStaraSieWZwiazku());
+                karyna.caly_czas(M.oczekuje(W.EMOCJE));
+                karyna.caly_czas(M.nieStaraSieWZwiazku());
     }
 
     public void doKosza() {

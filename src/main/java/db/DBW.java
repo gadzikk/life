@@ -229,7 +229,7 @@ public class DBW extends DB {
                 WZGL_IZOLACJA_WARUNKI(),
                 SPRZYJAJACE_WARUNKI(),
                 NIE_SPRZYJAJACE_WARUNKI(),
-                ESSENTIALS_SYTUACJE_WARUNKI(),
+                NAJWAZNIEJSZE_CECHY_SYTUACJI_WARUNKI(),
                 PLANSZA_WARUNKI(),
                 EXTREMALNE_SYTUACJE_WARUNKI()
         );
@@ -1546,7 +1546,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W ESSENTIALS_SYTUACJE_WARUNKI() {
+    public static W NAJWAZNIEJSZE_CECHY_SYTUACJI_WARUNKI() {
         return on(
                 W.DOSTEPNOSC, W.BLISKOSC, W.SZYBKOSC_CHODZENIA, W.INFORMACJA,
                 W.ZASIEG_WZROKU, W.ZASIEG_JEJ_WZROKU,

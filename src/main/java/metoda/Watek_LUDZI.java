@@ -19,7 +19,6 @@ public class Watek_LUDZI extends AbstractWatek {
     public void run() {
         relacjeWarunkowLudzi();
         osobaSrodki();
-        ochrona();
         standardoweZleZachowanie();
         standardoweSkutkiWarunkow();
         opisZachowanTypOsoby();
@@ -32,7 +31,7 @@ public class Watek_LUDZI extends AbstractWatek {
         osobaPrzewag();
         wyrok();
         podsumowanieLudzie();
-        podsumowanieLudzie();
+        superpozycja();
     }
 
     public void relacjeWarunkowLudzi() {
@@ -170,7 +169,7 @@ public class Watek_LUDZI extends AbstractWatek {
 
         M.W(M.SRODKI_PRZECIW(W.RDZENNY), "--->", of(W.CZOLO, W.KAMIKADZE, M.SILNIEJSZA(W.EKIPA), W.BRAK_SENSU_DZIALANIA));
 
-        M.W(M.OSOBA(W.POSIADACZ), "--->", of(W.USTALA_ZASADY, W.ODCIECIE_DOSTEPU_WARTOSC);
+        M.W(M.OSOBA(W.POSIADACZ), "--->", of(W.USTALA_ZASADY, W.ODCIECIE_DOSTEPU_WARTOSC));
 
         M.W(M.SRODKI_PRZECIW(W.POSIADACZ), "--->", of(W.ZNISZCZ_WARTOSC, W.ROB_STARTE, W.ZABURZ_SPOKOJ));
     }
@@ -184,7 +183,7 @@ public class Watek_LUDZI extends AbstractWatek {
         M.wezNajwiecejDlaSiebie();
         M.W(of(W.NIEZNAJOMY), "--->", DBW.KRZYWDY_POSREDNIE_WARUNKI());
 
-        M.W(of(W.NIEZNAJOMY, W._88_, DBW.PRZEWAGI_CHWILI_WARUNKI()), "--->", DBW.KRZYWDY_BEZPOSREDNIE_WARUNKI();
+        M.W(of(W.NIEZNAJOMY, W._88_, DBW.PRZEWAGI_CHWILI_WARUNKI()), "--->", DBW.KRZYWDY_BEZPOSREDNIE_WARUNKI());
 
         M.W(W.ZNAJOMY, "--->", M.WYKORZYSTANIE(W.ZNAJOMY));
     }
@@ -302,7 +301,7 @@ public class Watek_LUDZI extends AbstractWatek {
         M.W((W.DZIALAJACY),
                 of(
                         M.ZWYKLE(W.ZEROWY_DOSTEP),
-                        M.ZWYKLE(dzialacz.thread_while_loop(W.NORMALNOSC)),
+                        M.ZWYKLE(dzialacz.caly_czas(W.NORMALNOSC)),
 
                         M.WARUNKI_WSTEPNE(of(
                                 dzialacz.akceptacjaBiegania(),
@@ -312,16 +311,16 @@ public class Watek_LUDZI extends AbstractWatek {
                         )),
 
                         M.WARUNKI_UTRZYMANIA(of(
-                                dzialacz.thread_while_loop(M.znoszenieGnojenia()),
-                                dzialacz.thread_while_loop(M.tworzEmocje()),
-                                dzialacz.thread_while_loop(M.robKrzywde(DBW.KRZYWDY_WARUNKI())),
-                                dzialacz.thread_while_loop(M.dajZarobekGrubasowi()),
-                                dzialacz.thread_while_loop(M.ochronaGrubasa()),
-                                dzialacz.thread_while_loop(M.wykonujeRozkazy(W.GORA)),
-                                dzialacz.thread_while_loop(M.uznajeHierarchie()),
-                                dzialacz.thread_while_loop(M.zdobywanieHierarchii(M.CZESTO(of(DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI(), M.OPCJA(DBW.OSLONY_WARUNKI())))
+                                dzialacz.caly_czas(M.znoszenieGnojenia()),
+                                dzialacz.caly_czas(M.tworzEmocje()),
+                                dzialacz.caly_czas(M.robKrzywde(DBW.KRZYWDY_WARUNKI())),
+                                dzialacz.caly_czas(M.dajZarobekGrubasowi()),
+                                dzialacz.caly_czas(M.ochronaGrubasa()),
+                                dzialacz.caly_czas(M.wykonujeRozkazy(W.GORA)),
+                                dzialacz.caly_czas(M.uznajeHierarchie()),
+                                dzialacz.caly_czas(M.zdobywanieHierarchii(M.CZESTO(of(DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI(), M.OPCJA(DBW.OSLONY_WARUNKI())))
                         )),
-                        dzialacz.thread_while_loop(M.DOSTEP(of(W.INFORMACJE, W.KONTAKT_TEL, W.OBECNOSC))),
+                        dzialacz.caly_czas(M.DOSTEP(of(W.INFORMACJE, W.KONTAKT_TEL, W.OBECNOSC))),
                         dzialacz.SET(W.NIE_ZATRZYMA_SIE),
                         dzialacz.SET(of(W.WYKRECENIE, W.WADY_FIZYCZNE, W.WADY_UMYSLOWE, W.OGRANICZENIE_WOLNOSCI_ULICA, W.KROTKOWZROCZNOSC_CZYNOW)),
                         dzialacz.SET(DBW.KRZYWDY_WARUNKI()),
@@ -332,7 +331,7 @@ public class Watek_LUDZI extends AbstractWatek {
                         dzialacz.SET(DBW.WADY_ZLYCH_WARUNKI()),
                         dzialacz.policja(W.ZERO),
 
-                        dzialacz.thread_while_loop(M.rozkminianie(wszyscy)),
+                        dzialacz.caly_czas(M.rozkminianie(wszyscy)),
 
                         M.W(W.INFORMACJA, "--->", dzialacz.notyfikacjaEkipa()),
                         M.WW(W.INFORMACJA, "--->", of(dzialacz.notyfikacja(W.GORA),
@@ -345,21 +344,21 @@ public class Watek_LUDZI extends AbstractWatek {
 
                         dzialacz.ULTIMATUM(dzialacz, W.SPRZET),
 
-                        srodowisko.thread_while_loop(M.wsparcie(of(W.DZIALANIE_DLA_ZLA, W.SLEPE_DZIALANIE, W.KROTKOWZROCZNOSC_CZYNOW))),
-                        srodowisko.thread_while_loop(M.wsparcie(dzialacz)),
+                        srodowisko.caly_czas(M.wsparcie(of(W.DZIALANIE_DLA_ZLA, W.SLEPE_DZIALANIE, W.KROTKOWZROCZNOSC_CZYNOW))),
+                        srodowisko.caly_czas(M.wsparcie(dzialacz)),
 
-                        srodowisko.thread_while_loop(M.wplyw(dzialacz)),
-                        dzialacz.thread_while_loop(M.wplyw(srodowisko)),
+                        srodowisko.caly_czas(M.wplyw(dzialacz)),
+                        dzialacz.caly_czas(M.wplyw(srodowisko)),
 
-                        srodowisko.thread_while_loop(M.wzajemneOddzialywanie(srodowisko)),
-                        srodowisko.thread_while_loop(M.KONTROLA(dzialacz)),
+                        srodowisko.caly_czas(M.wzajemneOddzialywanie(srodowisko)),
+                        srodowisko.caly_czas(M.KONTROLA(dzialacz)),
 
-                        srodowisko.thread_while_loop(M.moda()),
-                        srodowisko.thread_while_loop(M.komfort()),
-                        srodowisko.thread_while_loop(M.oczekiwania(W.AGRESJA_W_DZIALANIU, dzialacz)),
-                        srodowisko.thread_while_loop(M.zagluszaSumienie(dzialacz)),
+                        srodowisko.caly_czas(M.moda()),
+                        srodowisko.caly_czas(M.komfort()),
+                        srodowisko.caly_czas(M.oczekiwania(W.AGRESJA_W_DZIALANIU, dzialacz)),
+                        srodowisko.caly_czas(M.zagluszaSumienie(dzialacz)),
 
-                        srodowisko.thread_while_loop(M.postawCiezkieWarunki(M.SRODOWISKO(W.PRZECIWNA_STRONA),
+                        srodowisko.caly_czas(M.postawCiezkieWarunki(M.SRODOWISKO(W.PRZECIWNA_STRONA),
                                 of(DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI(), DBW.OSLONY_WARUNKI(), DBW.PRZEWAGI_Z_ULICY_WARUNKI()))),
 
                         srodowisko.ULTIMATUM(dzialacz).W_PRZECIWNYM_PRZYPADKU(of(DBW.STRATY_MORALNE_WARUNKI(), DBW.STRATY_MATERIALNE_WARUNKI())),
@@ -369,7 +368,7 @@ public class Watek_LUDZI extends AbstractWatek {
                         )),
 
                         M.W(srodowisko.CZESTO(M.WZAJEMNE_RANY(DBW.ZBIOR_RANY())), "--->", srodowisko.TOLERANCJA(DBW.KRZYWDY_WARUNKI())),
-                        srodowisko.WHILE(dzialacz.thread_while_loop(of(W.SLUCHAJA, W.OBECNOSC_LUDZI, M.wykonujeRozkazy(W.GORA), M.KRZYWDY(osobyPozaSrodowisko, DBW.KRZYWDY_WARUNKI())))),
+                        srodowisko.DOPOKI(dzialacz.caly_czas(of(W.SLUCHAJA, W.OBECNOSC_LUDZI, M.wykonujeRozkazy(W.GORA), M.KRZYWDY(osobyPozaSrodowisko, DBW.KRZYWDY_WARUNKI())))),
 
                         M.W(M.INFORMACJA(W.WROG), "--->", dzialajcyBliskoMiejsca.KAZDY(DBW.KRZYWDY_BEZPOSREDNIE_WARUNKI())),
 
@@ -378,7 +377,7 @@ public class Watek_LUDZI extends AbstractWatek {
                         dzialacz.dzialanieWsrodDzialaczy(),
                         dzialacz.zdobadzInformacjeZeSrodowiskaNaKurestwie(),
 
-                        dzialacz.WHILE(of(W.DOSTEP, W.OSOBA_POZA_SRODOWISKO)),
+                        dzialacz.DOPOKI(of(W.DOSTEP, W.OSOBA_POZA_SRODOWISKO)),
                         dzialacz.zamknijZasob(),
                         dzialacz.ukryjDostep(),
                         dzialacz.wbijNaMuke(),
@@ -396,11 +395,10 @@ public class Watek_LUDZI extends AbstractWatek {
                         dzialacz.cieszSieJegoCierpieniem(),
                         dzialacz.baluj(),
                         dzialacz.siejZlo(),
-                        dzialacz.WHILE_END(),
 
                         M.WW(M.OSOBA(W.NIESWIADOMOSC), "--->", of(W.MIEJSCE_STALE, W.ZLY, W.PRZEKONYWANIE_PRZECIW), "--->", M.OSOBA(W.ZLO))
                 )
-        );
+        )));
 
         List<W> dzialajcyZycie = of(
                 M.DOPOKI(W.DZIALA),
@@ -442,11 +440,11 @@ public class Watek_LUDZI extends AbstractWatek {
                                                                 M.OSOBA(W.RDZENNY).ROBI_KRZYWDE(of(M.OSOBA(W.FEST), DBW.KRZYWDY_WARUNKI()))));
 
         M.W(of(W.SUPERPOZYCJA, W.BLISKOSC, W.RDZENNY), "--->", of(M.OSOBA(W.SUPERPOZYCJA).
-                                                                        ROBI_KRZYWDE_Z_PRZEWAGA(of(M.OSOBA(W.RDZENNY), DBW.KRZYWDY_WARUNKI()))));
+                                                                        ROBI_KRZYWDE_Z_PRZEWAGA(of(M.OSOBA(W.RDZENNY), DBW.KRZYWDY_WARUNKI(), DBW.PRZEWAGI_CHWILI_WARUNKI()))));
 
-        M.W(of(W.BIEGACZ, W.BLISKOSC, W.RDZENNY), "--->", of(M.OSOBA(W.BIEGACZ).ROBI_KRZYWDE_Z_PRZEWAGA(of(M.OSOBA(W.RDZENNY) , DBW.KRZYWDY_WARUNKI()))));
+        M.W(of(W.BIEGACZ, W.BLISKOSC, W.RDZENNY), "--->", of(M.OSOBA(W.BIEGACZ).ROBI_KRZYWDE_Z_PRZEWAGA(of(M.OSOBA(W.RDZENNY) , DBW.KRZYWDY_WARUNKI(), DBW.PRZEWAGI_CHWILI_WARUNKI()))));
 
-        M.W(of(W.BOGATY, W.BLISKOSC, W.BIEDNY), "--->", of(M.OSOBA(W.BOGATY).ROBI_KRZYWDE_Z_PRZEWAGA(of(M.OSOBA(W.BIEDNY), DBW.KRZYWDY_WARUNKI()))));
+        M.W(of(W.BOGATY, W.BLISKOSC, W.BIEDNY), "--->", of(M.OSOBA(W.BOGATY).ROBI_KRZYWDE_Z_PRZEWAGA(of(M.OSOBA(W.BIEDNY), DBW.KRZYWDY_WARUNKI(), DBW.PRZEWAGI_CHWILI_WARUNKI()))));
     }
 
     public void osobaCechyMozliweDzialania() {
@@ -491,7 +489,7 @@ public class Watek_LUDZI extends AbstractWatek {
         M.W(W.OSIEDLOWY_MOCNY, "--->", of(M.dobreDzialanie(), M.wszystkoDobrze(), M.pozaStrefaKomfortu()));
         M.W(W.GRUBAS_Z_PRZEWAGA, "--->", of(M.rozkazyNizszym(), M.bawSie()));
         M.W(W.PRACOWNIK_KORPORACJI, "--->", of(M.praca(), M.podroze(), M.dom()));
-        M.W(W.FEST_FOLWARCZANY, "--->", of(M.odbierzWartosc(), M.dzialaWedleWidzimisie()));
+        M.W(W.PYSZNY_POSIADACZ, "--->", of(M.odbierzWartosc(), M.dzialaWedleWidzimisie()));
         M.W(W.MANAGER, "--->", of(M.wykorzystajZasob(), M.ukryjDostep()));
     }
 
@@ -515,15 +513,15 @@ public class Watek_LUDZI extends AbstractWatek {
         );
 
         M.WARUNKI_WSTEPNE(of(W.POSLUSZNY, W.UZNAJE_HIERARCHIE));
-        pracownicy.thread_while_loop(M.poparcie(W.SUPERPOZYCJA));
+        pracownicy.caly_czas(M.poparcie(W.SUPERPOZYCJA));
 
-        superPozycjaOsoby.thread_while_loop(M.gnojenieZPerspektywyPozycji(pracownicy));
-        pracownicy.thread_while_loop(M.gnojenie(pracownicy));
+        superPozycjaOsoby.caly_czas(M.gnojenieZPerspektywyPozycji(pracownicy));
+        pracownicy.caly_czas(M.gnojenie(pracownicy));
 
         superPozycjaOsoby.naginaniePrawa();
         W prawo = superPozycjaOsoby.pisaniePrawa();
 
-        wszyscy.thread_while_loop(M.przestrzeganie(prawo)
+        wszyscy.caly_czas(M.przestrzeganie(prawo)
                 .w_przeciwnym_przypadku(W.KONSEKWENCJE));
 
         M.of(prawo).szkodzi(wszyscy);

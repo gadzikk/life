@@ -19,7 +19,7 @@ public class Watek_1 extends AbstractWatek {
     List<W> rzeczywistosc = of(W._1_OSOBA__DUZO, W.POPRUSZONE_NA_MIEJSCACH, W.X, W.KONTEKST);
 
     W plansza = DBW.PLANSZA_WARUNKI();
-    W essentials = DBW.ESSENTIALS_SYTUACJE_WARUNKI();
+    W essentials = DBW.NAJWAZNIEJSZE_CECHY_SYTUACJI_WARUNKI();
 
     W allSprzyjajace = DBW.SPRZYJAJACE_WARUNKI();
     W allNiesprzyjajace = DBW.NIE_SPRZYJAJACE_WARUNKI();
@@ -277,7 +277,7 @@ public class Watek_1 extends AbstractWatek {
         List<W> normalne = of(W.CISZA, W.TLUM, W.CHODZAC_ROZMOWA_UWAGA_NA_TOBIE, W.BIEDACY);
         List<W> niesprzyjajace = of(W.ULOTNOSC, W.ZARAZ_WYSIADZIE, W.ZARAZ_WYCIAGNIE_SLUCHAWKI);
 
-        // THREAD WHILE LOOP.START()
+        // THREAD DOPOKI LOOP.START()
         M.WW(
                 of(W.TRAUTO),
                 of(
@@ -310,7 +310,7 @@ public class Watek_1 extends AbstractWatek {
                         M.skupiaszNaPrzystankach()
                 )
         );
-        // THREAD WHILE LOOP.END()
+        // THREAD DOPOKI LOOP.END()
         // NAMIERZONA
 
         M.WWW(

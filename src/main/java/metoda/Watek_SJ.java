@@ -101,8 +101,8 @@ public class Watek_SJ extends AbstractWatek {
 
     public void run() {
         M.W(W.WYCHODZISZ, "--->", of(M.CALY_CZAS(W.ZLO_KRAZY),
-                                        ZLE_OSOBY.thread_while_loop(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA),
-                                        ZLE_OSOBY.thread_while_loop(W.STWARZA_OKAZJE_ZROBIENIE_ZLA),
+                                        ZLE_OSOBY.caly_czas(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA),
+                                        ZLE_OSOBY.caly_czas(W.STWARZA_OKAZJE_ZROBIENIE_ZLA),
                                         M.ZWYKLE(of(DBW.KRZYWDY_WARUNKI(), DBW.OSLONY_WARUNKI())),
                 M.CALY_CZAS(of(ciaglaCzynnoscUlica, W.ZASIEG_WZROKU, W.SCIEZKI, W.LUDZIE, W.WIDOCZNY_GDY_IDZIESZ))));
 
@@ -225,7 +225,7 @@ public class Watek_SJ extends AbstractWatek {
         wiesniak.niszczy().cisnie().skazujeNaSamotnosc();
         czoloWisly.niszczy().cisnie().skazujeNaSamotnosc();
         cracoviaSlabi.niszczy().cisnie().skazujeNaSamotnosc();
-        me.thread_while_loop(W.WSZEDZIE_OBCY_GADZIO);
+        me.caly_czas(W.WSZEDZIE_OBCY_GADZIO);
     }
 
     public void ciebie() {

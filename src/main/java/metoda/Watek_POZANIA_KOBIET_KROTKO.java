@@ -16,10 +16,10 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
     List<W> rzeczywistosc = of(W._1_OSOBA__DUZO, W.POPRUSZONE_NA_MIEJSCACH, W.X, W.KONTEKST);
 
     W plansza = DBW.PLANSZA_WARUNKI();
-    W essentials = DBW.ESSENTIALS_SYTUACJE_WARUNKI();
+    W najwazniejsze = DBW.NAJWAZNIEJSZE_CECHY_SYTUACJI_WARUNKI();
 
-    W allSprzyjajace = DBW.SPRZYJAJACE_WARUNKI();
-    W allNiesprzyjajace = DBW.NIE_SPRZYJAJACE_WARUNKI();
+    W sprzyjajace = DBW.SPRZYJAJACE_WARUNKI();
+    W niesprzyjajace = DBW.NIE_SPRZYJAJACE_WARUNKI();
 
     W extremalne = DBW.EXTREMALNE_SYTUACJE_WARUNKI();
     W reakcjeKobiet = DBW.REAKCJA_KOBIET_WARUNKI();
@@ -42,11 +42,11 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
 
     List<W> jakoscSytuacji = of(W.INTERAKCJA, W.KOJARZENIE_Z_DOBREGO, W.ZNAJOMI, W.POTRZEBA, W.WARTOSC, W.UNIKALNOSC_W_OTOCZENIU);
 
-    List<Object> sytuacja = of(W.LUDZIE, essentials, W.OPCJA_PRZEJSCIE, allSprzyjajace, spojrzenia, jakoscSytuacji);
+    List<Object> sytuacja = of(W.LUDZIE, najwazniejsze, W.OPCJA_PRZEJSCIE, sprzyjajace, spojrzenia, jakoscSytuacji);
 
     W cel = W.ZMIANA_SYTUACJI_STANDARDOWEJ;
 
-    List<W> malyDuzy = of(M.MALY_WARUNEK(of(W.WYCHODZENIE, W.OBECNOSC)), M.DUZY_WARUNEK(W.ZAGADANIE));
+    List<W> malyDuzy = of(M.MALY_WARUNEK(of(W.WYCHODZENIE, W.OBECNOSC)), M.DUZY_WARUNEK(W.POZNANIE));
 
     List<W> schemaDzialania = of(W.DOBRA_PLANSZA, W.LADNA, W.CHETNOSC,
             W.MOWA, W.KOMPLEMENT, W.WNIOSKI, W.EMOCJE, W.BECZKA,
@@ -56,7 +56,7 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
     M schemaSytuacji00 = new M().sytuacja().Is().podbitka()
             .lub().sytuacja().Is().przeminelo();
 
-    W schemaSytuacji1 = M.WW(of(DBW.ESSENTIALS_SYTUACJE_WARUNKI(), DBW.SPRZYJAJACE_WARUNKI()), "--->",  W.PRZEJSCIE, "--->", W.MOWA)
+    W schemaSytuacji1 = M.WW(of(DBW.NAJWAZNIEJSZE_CECHY_SYTUACJI_WARUNKI(), DBW.SPRZYJAJACE_WARUNKI()), "--->",  W.PRZEJSCIE, "--->", W.MOWA)
                         .W_PRZECIWNYM_PRZYPADKU(W.CONTINUE_NUDA)
                         .KONSEKWENCJE(W.NIKT_NIE_REAGUJE);
 
@@ -85,7 +85,7 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
                 of(M.CALY_CZAS(W.ZASIEG_WZROKU))
         );
         M.W(
-                of(M.sondaOsoby(osobaChcianeCechy), M.sondaSytuacji(of(DBW.TYPY_SYTUACJI_WARUNKI(), DBW.ESSENTIALS_SYTUACJE_WARUNKI())), M.przewidzenieDrogi()),
+                of(M.sondaOsoby(osobaChcianeCechy), M.sondaSytuacji(of(DBW.TYPY_SYTUACJI_WARUNKI(), DBW.NAJWAZNIEJSZE_CECHY_SYTUACJI_WARUNKI())), M.przewidzenieDrogi()),
                 of(W.SYTUACJA)
         );
         M.W(
