@@ -29,7 +29,7 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
     W cierpienia = DBW.CIERPIENIA_WARUNKI();
     W przewagi = DBW.PRZEWAGI_WARUNKI();
     W slabosci = DBW.SLABOSCI_WARUNKI();
-    W twl = DBW.CALY_CZAS_WARUNKI();
+    W calyCzas = DBW.CALY_CZAS_WARUNKI();
     W typySytuacji = DBW.TYPY_SYTUACJI_WARUNKI();
     List<W> typyLudzi = DBW.ZBIOR_TYPY_LUDZI();
     W wspomnienia = DBW.WSPOMNIENIA_WARUNKI();

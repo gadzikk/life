@@ -1505,4 +1505,14 @@ public class M {
     public static W ZLE_OSOBY(List<W> warunki){return W.WARUNEK;}
     public static W SPOTYKA_KAZDEG(W w){return W.WARUNEK;}
     public static W SPOTYKA_KAZDEG(List<W> warunki){return W.WARUNEK;}
+    public static W CODZIEN(W w){return W.WARUNEK;}
+    public static W CODZIEN(List<W> warunki){return W.WARUNEK;}
+    public static W PATRZ(W w){return W.WARUNEK;}
+    public static W PATRZ(List<W> warunki){return W.WARUNEK;}
+    public static W OSWAJAJ_SIE(W w){return W.WARUNEK;}
+    public static W OSWAJAJ_SIE(List<W> warunki){return W.WARUNEK;}
+    public static W TYDZIEN(W w){return W.WARUNEK;}
+    public static W TYDZIEN(List<W> warunki){return W.WARUNEK;}
+    public static W CZYTANIE(W w){return W.WARUNEK;}
+    public static W CZYTANIE(List<W> warunki){return W.WARUNEK;}
 }
