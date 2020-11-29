@@ -221,7 +221,7 @@ public class DBP extends DB {
 
     public static W PATOLOGIE_OSIEDLE() {
         return on(
-                M.CALY_CZAS(W.BIEGANIE), W.NIE_ODBIERANIE_TELEFONU, W.BRAK_PIENIEDZY,
+                M.CALY_CZAS(W.BIEGANIE_SPRZET), W.NIE_ODBIERANIE_TELEFONU, W.BRAK_PIENIEDZY,
                 W.KONTUZJA, W.WALKA, M.MALO(M.SLABE(W.KOBIETA)), W.UZYWKI
         );
     }

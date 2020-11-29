@@ -19,12 +19,12 @@ public class Watek_1 extends AbstractWatek {
     List<W> rzeczywistosc = of(W._1_OSOBA__DUZO, W.POPRUSZONE_NA_MIEJSCACH, W.X, W.KONTEKST);
 
     W plansza = DBW.PLANSZA_WARUNKI();
-    W essentials = DBW.NAJWAZNIEJSZE_CECHY_SYTUACJI_WARUNKI();
+    W essentials = DBW.NAJWAZNIEJSZE_CECHY_SYTUACJI_POZNANIE_WARUNKI();
 
-    W allSprzyjajace = DBW.SPRZYJAJACE_WARUNKI();
-    W allNiesprzyjajace = DBW.NIE_SPRZYJAJACE_WARUNKI();
+    W allSprzyjajace = DBW.SPRZYJAJACE_POZNANIE_WARUNKI();
+    W allNiesprzyjajace = DBW.NIE_SPRZYJAJACE_POZNANIE_WARUNKI();
 
-    W extremalne = DBW.EXTREMALNE_SYTUACJE_WARUNKI();
+    W extremalne = DBW.EXTREMALNE_SYTUACJE_POZNANIE_WARUNKI();
     W reakcjeKobiet = DBW.REAKCJA_KOBIET_WARUNKI();
     List<W> chcianeSytuacje = DBS.ZBIOR_CHCIANA_SYTUACJA();
 

@@ -31,7 +31,7 @@ public class Dzielnica_StaraHuta extends Dzielnica {
                 new PO(3, TypOsoby.PERELKA),
                 new PO(1, TypOsoby.ZLODZIEJ),
                 new PO(5, TypOsoby.CZOLO),
-                new PO(5, TypOsoby.BIEGACZ),
+                new PO(5, TypOsoby.BIEGAJACY_SPRZET),
                 new PO(3, TypOsoby.PATOLOG),
 
                 new PO(40, TypOsoby.OSIEDLOWY),

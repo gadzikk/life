@@ -1,6 +1,5 @@
 package miejsce;
 
-import db.DBW;
 import typy_bazowe.TypDzielnicy;
 import typy_bazowe.TypIlosc;
 import typy_bazowe.TypOsoby;
@@ -32,7 +31,7 @@ public class Dzielnica_NowaHuta extends Dzielnica {
                 new PO(5, TypOsoby.PERELKA),
                 new PO(2, TypOsoby.ZLODZIEJ),
                 new PO(7, TypOsoby.CZOLO),
-                new PO(7, TypOsoby.BIEGACZ),
+                new PO(7, TypOsoby.BIEGAJACY_SPRZET),
                 new PO(5, TypOsoby.PATOLOG),
 
                 new PO(50, TypOsoby.OSIEDLOWY),

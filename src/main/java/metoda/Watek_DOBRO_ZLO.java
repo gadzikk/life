@@ -172,6 +172,7 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
         W sonda = M.SONDA(DBW.ZLY_ZNAKI_ROZPOZNAWCZE_WARUNKI());
         W okazje = DBW.OKAZJE_ZROBIENIE_DOBRO_WARUNKI();
         W metodyAntyDzialacz = M.PRAKTYKA(DBW.ANTY_DZIALACZ_ZLA_WARUNKI());
+        W spedzanieCzasu = DBW.SPEDZANIE_CZASU_DOBRE();
 
         M.W(of(W.DOBRY, W._88_, W.WIDZIAL) , "--->", of(M.ODRAZU(M.MOCNO(W.KONTRA)), W.SPRAWIEDLIWOSC));
 

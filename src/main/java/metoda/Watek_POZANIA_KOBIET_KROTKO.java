@@ -16,12 +16,12 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
     List<W> rzeczywistosc = of(W._1_OSOBA__DUZO, W.POPRUSZONE_NA_MIEJSCACH, W.X, W.KONTEKST);
 
     W plansza = DBW.PLANSZA_WARUNKI();
-    W najwazniejsze = DBW.NAJWAZNIEJSZE_CECHY_SYTUACJI_WARUNKI();
+    W najwazniejsze = DBW.NAJWAZNIEJSZE_CECHY_SYTUACJI_POZNANIE_WARUNKI();
 
-    W sprzyjajace = DBW.SPRZYJAJACE_WARUNKI();
-    W niesprzyjajace = DBW.NIE_SPRZYJAJACE_WARUNKI();
+    W sprzyjajace = DBW.SPRZYJAJACE_POZNANIE_WARUNKI();
+    W niesprzyjajace = DBW.NIE_SPRZYJAJACE_POZNANIE_WARUNKI();
 
-    W extremalne = DBW.EXTREMALNE_SYTUACJE_WARUNKI();
+    W extremalne = DBW.EXTREMALNE_SYTUACJE_POZNANIE_WARUNKI();
     W reakcjeKobiet = DBW.REAKCJA_KOBIET_WARUNKI();
     List<W> chcianeSytuacje = DBS.ZBIOR_CHCIANA_SYTUACJA();
 
@@ -56,7 +56,7 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
     M schemaSytuacji00 = new M().sytuacja().Is().podbitka()
             .lub().sytuacja().Is().przeminelo();
 
-    W schemaSytuacji1 = M.WW(of(DBW.NAJWAZNIEJSZE_CECHY_SYTUACJI_WARUNKI(), DBW.SPRZYJAJACE_WARUNKI()), "--->",  W.PRZEJSCIE, "--->", W.MOWA)
+    W schemaSytuacji1 = M.WW(of(DBW.NAJWAZNIEJSZE_CECHY_SYTUACJI_POZNANIE_WARUNKI(), DBW.SPRZYJAJACE_POZNANIE_WARUNKI()), "--->",  W.PRZEJSCIE, "--->", W.MOWA)
                         .W_PRZECIWNYM_PRZYPADKU(W.CONTINUE_NUDA)
                         .KONSEKWENCJE(W.NIKT_NIE_REAGUJE);
 
@@ -85,7 +85,7 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
                 of(M.CALY_CZAS(W.ZASIEG_WZROKU))
         );
         M.W(
-                of(M.sondaOsoby(osobaChcianeCechy), M.sondaSytuacji(of(DBW.TYPY_SYTUACJI_WARUNKI(), DBW.NAJWAZNIEJSZE_CECHY_SYTUACJI_WARUNKI())), M.przewidzenieDrogi()),
+                of(M.sondaOsoby(osobaChcianeCechy), M.sondaSytuacji(of(DBW.TYPY_SYTUACJI_WARUNKI(), DBW.NAJWAZNIEJSZE_CECHY_SYTUACJI_POZNANIE_WARUNKI())), M.przewidzenieDrogi()),
                 of(W.SYTUACJA)
         );
         M.W(

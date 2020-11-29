@@ -39,7 +39,7 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
 
     List<W> globalnaPlanszaSwiata = of(W.SWIAT, W.KONTYNENT, W.KRAJ, W.MIASTO, W.DZIELNICA, W.OSIEDLE,
                                        W.CZAS_W_HISTORII,
-                                       W.LUDZIE, DBW.PRZEWAGI_WARUNKI(), DBW.SLABOSCI_WARUNKI(), on(DBW.ZBIOR_EMOCJE_UCZUCIA()),
+                                       W.LUDZIE, DBW.SILNE_WIEZY_CZLOWIEKA_WARUNKI(), DBW.PRZEWAGI_WARUNKI(), DBW.SLABOSCI_WARUNKI(), on(DBW.ZBIOR_EMOCJE_UCZUCIA()),
                                                  DBW.RELACJE_WARUNKI(), DBW.WALKA_WARUNKI(),
                                         DBW.GLOBAL_PLANSZA_LUDZIE_WARUNKI(), DBW.GLOBAL_PLANSZA_PRACA_WARUNKI(),
                                         DBW.KSZTALTOWANIE_CZLOWIEKA_WARUNKI(), DBW.KSZTALTOWANIE_DZIELNICY_WARUNKI());
@@ -71,6 +71,8 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
     List<W> glowneNurty = of(W.GRUPA_PRZESTEPCZA, W.DOBRA_PRACA, W.STUDIA, W.KLUBY_DYSKOTEKA, W.KLUBY_KIBICOWSKIE, W.RESTAURACJA, W.WAKACJE_WODA, W.ZWIAZKI,
                             W.ZNAJOMI, W.SLUZBA_ZROWIA, W.SLUZBY_MUNDUROWE, W.INTERNET, W.TELEWIZJA);
 
+    List<W> randomowe = of(W.RESET, W.ZMIANA, W.NIE_PRZEWIDZISZ_PRZYSZLOSCI);
+
     public void run() {
         M.WWW(W.INFORMACJA, "--->", M.SONDA(W.INFORMACJA), "--->", W.NASTAWIENIE, "--->", W.DZIALANIE);
         M.WW(W.DZIALANIE, "--->", M.OSIAGNIECIE(W.WARUNEK), "--->", M.ZASIEG(M.NOWY(of(W.WARUNEK, W.INFORMACJA))));
@@ -95,6 +97,8 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
         M.W(W.NIESWIADOMOSC, "--->", W.NIESZCZESCIE);
 
         M.W(M.OSOBA(W.OBECNOSC), "--->", M.MOZLIWOSC(of(W.INFORMACJA, W.DZIALANIE)));
+
+        M.W(M.DUZO(of(W.INFORMACJE, W.WIEDZA, W.DOSWIADCZENIA)), "--->", W.MADROSC);
 
         M.W(M.WYKONYWANIE(W.PRACA), "--->", of(M.wszystkoAbyOtrzymacRezultat(),
                                                          M.doSedna(),

@@ -1541,4 +1541,6 @@ public class M {
     public static W _100_OSOB(List<W> warunki){return W.WARUNEK;}
     public static W _10_OSOB(W w){return W.WARUNEK;}
     public static W _10_OSOB(List<W> warunki){return W.WARUNEK;}
+    public static W NASTAWIENIE(W w){return W.WARUNEK;}
+    public static W NASTAWIENIE(List<W> warunki){return W.WARUNEK;}
 }

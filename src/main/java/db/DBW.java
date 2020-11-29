@@ -81,32 +81,20 @@ public class DBW extends DB {
         );
     }
 
-    public static List<W> ZBIOR_WARTOSCI_OCENA_WROG() {
+    public static List<W> ZBIOR_ROZNE() {
         return of(
                 WARTOSC_ZLA_WARUNKI(),
                 WARTOSC_DOBRA_WARUNKI(),
-                OCENIA_WEDLUG_WARUNKI(),
-                KRYTERIA_WROGA_WARUNKI(),
                 NASTAWIENIA_WARUNKI(),
                 KONTROLA_WARUNKI(),
                 HIERARCHIA_ULICA_WARUNKI(),
-                HIERARCHIA_PRACA_WARUNKI()
-        );
-    }
-
-    public static List<W> ZBIOR_ZASADY_PRZYMUS_ZAGROZENIA() {
-        return of(
+                HIERARCHIA_PRACA_WARUNKI(),
                 ZASADY_WARUNKI(),
                 PRZYMUS_WARUNKI(),
                 ZAGROZENIA_WARUNKI(),
                 OSLONY_WARUNKI(),
                 METODY_POLICYJNE_WARUNKI(),
-                BLEDY_WARUNKI()
-        );
-    }
-
-    public static List<W> ZBIOR_TWL_PRZEWAGI_SLABOSCI_CIERPIENIA_POTRZEBY() {
-        return of(
+                BLEDY_WARUNKI(),
                 CALY_CZAS_WARUNKI(),
                 PRZEWAGI_WARUNKI(),
                 SLABOSCI_WARUNKI(),
@@ -115,7 +103,9 @@ public class DBW extends DB {
                 OSLONY_WARUNKI(),
                 STARTOWE_WARUNKI(),
                 CECHY_RDZENNY_WARUNKI(),
-                SLABY_TCHORZ_WARUNKI()
+                SLABY_TCHORZ_WARUNKI(),
+                ZAROBEK_NIELEGALNY_WARUNKI()
+
         );
     }
 
@@ -137,7 +127,9 @@ public class DBW extends DB {
                 SONDA_KROTKA_WARUNKI(),
                 SONDA_PRZYCZYN_WARUNKI(),
                 SONDA_BLAD_WARUNKI(),
-                SONDA_PRZYPALU_WARUNKI()
+                SONDA_PRZYPALU_WARUNKI(),
+                OCENIA_WEDLUG_WARUNKI(),
+                KRYTERIA_WROGA_WARUNKI()
         );
     }
 
@@ -145,8 +137,7 @@ public class DBW extends DB {
         return of(
                 CYKL_DNIA_WARUNKI(),
                 PLAN_TERMIN_WARUNKI(),
-                ERA_WARUNKI(),
-                POZYTECZNE_SPEDZANIE_CZASU_WARUNKI()
+                ERA_WARUNKI()
         );
     }
 
@@ -164,12 +155,6 @@ public class DBW extends DB {
                 EMOCJE_POZYTYWNE_WARUNKI(),
                 UCZUCIA_NEGATYWNE_WARUNKI(),
                 UCZUCIA_POZYTYWNE_WARUNKI()
-        );
-    }
-
-    public static List<W> ZBIOR_ZDOBYWANIE_WIEDZY_PIENIEDZY() {
-        return of(
-                ZAROBEK_NIELEGALNY_WARUNKI()
         );
     }
 
@@ -228,11 +213,11 @@ public class DBW extends DB {
     public static List<W> ZBIOR_KOBIETA_PRAKTYKA() {
         return of(
                 WZGL_IZOLACJA_WARUNKI(),
-                SPRZYJAJACE_WARUNKI(),
-                NIE_SPRZYJAJACE_WARUNKI(),
-                NAJWAZNIEJSZE_CECHY_SYTUACJI_WARUNKI(),
+                SPRZYJAJACE_POZNANIE_WARUNKI(),
+                NIE_SPRZYJAJACE_POZNANIE_WARUNKI(),
+                NAJWAZNIEJSZE_CECHY_SYTUACJI_POZNANIE_WARUNKI(),
                 PLANSZA_WARUNKI(),
-                EXTREMALNE_SYTUACJE_WARUNKI()
+                EXTREMALNE_SYTUACJE_POZNANIE_WARUNKI()
         );
     }
 
@@ -830,7 +815,7 @@ public class DBW extends DB {
     public static W ZASADY_WARUNKI() {
         return on(
                 W.NIE_KONFI, W.NIE_PRZECIWNA_STRONA,
-                W.OBCY_WALIMY,
+                W.OBCY_BIJEMY,
                 W.NIEGADAJ_Z_OBCYMI, W.NIEGADAJ_SPOZA_TERYTORIUM,
                 W.KTO_NIEBIEGA_TUBA,
                 W.JEDNOSC_PRZECIW_ZAZDROSCI,
@@ -1105,7 +1090,7 @@ public class DBW extends DB {
     public static W HIERARCHIA_ULICA_WARUNKI() {
         return on(
                 W.RDZENNY_DOBRY,
-                W.ZLODZIEJ, W.PATOLOG, W.BIEGACZ, W.OSIEDLOWY_OGARNIETY, W.OSIEDLOWY_NORMAL, W.DIL,
+                W.ZLODZIEJ, W.PATOLOG, W.BIEGAJACY_SPRZET, W.OSIEDLOWY_OGARNIETY, W.OSIEDLOWY_NORMAL, W.DIL,
                 W.SPORTOWY_FEST, W.OSIEDLOWY_CASUAL,
                 W.OSIEDLOWY_WYKRECONY, W.OSIEDLOWY_BURZUJ
         );
@@ -1131,14 +1116,6 @@ public class DBW extends DB {
                 W.CHARAKTER, W.CIERPIENIE, W.CIEZKA_PRACA, W.TRUDNOSCI,
                 W.UMYSL, W.WYSILEK_UMYSLOWY,
                 W.FIZYCZNE, W.WYSILEK_FIZYCZNY, W.SPORT, W.MAX_WZROKU
-        );
-    }
-
-    public static W POZYTECZNE_SPEDZANIE_CZASU_WARUNKI() {
-        return on(
-                M.REALIZACJA(W.CEL), M.ZDOBYWANIE(of(W.PIENIADZE, W.UMIEJETNOSCI, W.WIEDZA)),
-                W.WYCHOWYWANIE,
-                M.KONTAKT(of(W.RDZENNA_LUDNOSC, W.DOBRE_KOBIETY_CHCACE_RODZINY))
         );
     }
 
@@ -1324,7 +1301,7 @@ public class DBW extends DB {
         return on(
                 W.ROZMIAR, W.PRZEWAGA_SILY, W.SRODOWISKO,
                 W.DZIALA, M.W_JAKI_SPOSOB(W.DZIALA),
-                W.BIEGA, M.JAK_DLUGO(W.BIEGA),
+                W.BIEGANIE_SPRZET, M.JAK_DLUGO(W.BIEGANIE_SPRZET),
                 M.KOGO_ZNA(W.EKIPA),
                 W.WYROK, M.JAK_DLUGO(W.WYROK),
                 M.DOSWIADCZENIE(W.SPRZET)
@@ -1537,7 +1514,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W SPRZYJAJACE_WARUNKI() {
+    public static W SPRZYJAJACE_POZNANIE_WARUNKI() {
         return on(
                 W.PRETEKST, W.KONTEKST, W.NUDA,
                 W.WZGL_IZOLACJA, W.DLUGA_DOSTEPNOSC, W.BEZRUCH, W.OSZCZEDNOSC_CZASU, W.MALA_TRUDNOSC, W.MALY_WYSILEK, W.MALA_DROGA, W.MALY_PRZYPAL,
@@ -1545,13 +1522,13 @@ public class DBW extends DB {
         );
     }
 
-    public static W NIE_SPRZYJAJACE_WARUNKI() {
+    public static W NIE_SPRZYJAJACE_POZNANIE_WARUNKI() {
         return on(
                 W.TLUM, W.ZMECZENIE, W.CISZA, W.MOZLIWE_SLUCHAWKI
         );
     }
 
-    public static W NAJWAZNIEJSZE_CECHY_SYTUACJI_WARUNKI() {
+    public static W NAJWAZNIEJSZE_CECHY_SYTUACJI_POZNANIE_WARUNKI() {
         return on(
                 W.DOSTEPNOSC, W.BLISKOSC, W.SZYBKOSC_CHODZENIA, W.INFORMACJA,
                 W.ZASIEG_WZROKU, W.ZASIEG_JEJ_WZROKU,
@@ -1566,7 +1543,7 @@ public class DBW extends DB {
         );
     }
 
-    public static W EXTREMALNE_SYTUACJE_WARUNKI() {
+    public static W EXTREMALNE_SYTUACJE_POZNANIE_WARUNKI() {
         return on(
                 W.UWAGA_NA_TOBIE, W.ROZWALENIE_CISZY,
                 W.IDZIESZ_ZAWRACASZ, W.PRZECIWNY_PRZYSTANEK, W.SIEDZISZ_PRZEJSCIE, W.ONA_SWOJE_GRONO
@@ -1644,7 +1621,7 @@ public class DBW extends DB {
                 W.MLODY, W.SREDNI_WIEK,
 
                 W.OSIEDLOWY_NORMAL, W.OSIEDLOWY_OGARNIETY,
-                W.BIEGACZ, W.PATOLOG, W.DIL, W.ZLODZIEJ,
+                W.BIEGAJACY_SPRZET, W.PATOLOG, W.DIL, W.ZLODZIEJ,
                 W.WIECZNY_IMIGRANT,
                 W.RDZENNY_GLUPI, W.RDZENNY_DOBRY,
 
@@ -1723,7 +1700,7 @@ public class DBW extends DB {
 
     public static W SILNE_WIEZY_CZLOWIEKA_WARUNKI() {
         return M.MOCNO(of(
-                W.RASA, W.NARODOWOSC, W.GENY, W.RODZINA, W.MIEJSCE_POCHODZENIA, W.RELIGIA
+                W.RASA, W.NARODOWOSC, W.GENY, W.RODZINA, W.MIEJSCE_POCHODZENIA, W.RELIGIA, W.WYCHOWANIE
         ));
     }
 
@@ -1789,8 +1766,9 @@ public class DBW extends DB {
 
     public static W SPEDZANIE_CZASU_DOBRE() {
         return on(
-                M.DOBRE_WYCHOWYWANIE(W.MLODZI), M.OBECNOSC(W.ULICA), M.PRZEBYWANIE(W.RDZENNI),
-                M.ZDOBYWANIE(DBW.PRZEWAGI_LUDZKIE_WARUNKI()), M.ULEPSZANIE(W.UMIEJETNOSCI), M.OPCJA(M.ZDOBYWANIE(DBW.PRZEWAGI_MATERIALNE_WARUNKI()))
+                M.DOBRE_WYCHOWYWANIE(W.MLODZI), M.OBECNOSC(W.ULICA), M.PRZEBYWANIE(of(W.RDZENNI, W.DOBRE_KOBIETY_CHCACE_RODZINY)),
+                M.ZDOBYWANIE(DBW.PRZEWAGI_LUDZKIE_WARUNKI()), M.ULEPSZANIE(W.UMIEJETNOSCI), M.OPCJA(M.ZDOBYWANIE(DBW.PRZEWAGI_MATERIALNE_WARUNKI())),
+                M.REALIZACJA(W.CEL_ZYCIOWY)
         );
     }
 }

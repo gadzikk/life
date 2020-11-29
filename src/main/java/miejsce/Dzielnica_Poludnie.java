@@ -1,6 +1,5 @@
 package miejsce;
 
-import db.DBW;
 import typy_bazowe.TypDzielnicy;
 import typy_bazowe.TypIlosc;
 import typy_bazowe.TypOsoby;
@@ -31,7 +30,7 @@ public class Dzielnica_Poludnie extends Dzielnica {
 
                 new PO(5, TypOsoby.ZLODZIEJ),
                 new PO(10, TypOsoby.CZOLO),
-                new PO(10, TypOsoby.BIEGACZ),
+                new PO(10, TypOsoby.BIEGAJACY_SPRZET),
                 new PO(6, TypOsoby.PATOLOG),
 
                 new PO(60, TypOsoby.OSIEDLOWY),

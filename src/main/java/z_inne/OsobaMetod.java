@@ -79,7 +79,7 @@ public class OsobaMetod {
     public W skazujeNaSamotnosc() {return W.WARUNEK;}
     public W rozpowiedzDoWszystkich(W w) {return W.WARUNEK;}
     public W WYMAGANA_AKCJA(W w) {return W.WARUNEK;}
-    public W akceptacjaBiegania() {return W.WARUNEK;}
+    public W akceptacjaBieganiaSprzet() {return W.WARUNEK;}
     public W akceptacjaCpania() {return W.WARUNEK;}
     public W akceptacjaHierarchii() {return W.WARUNEK;}
     public W pisaniePrawa() {return W.WARUNEK;}

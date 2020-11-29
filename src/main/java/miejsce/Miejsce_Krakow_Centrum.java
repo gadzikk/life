@@ -41,7 +41,7 @@ public class Miejsce_Krakow_Centrum extends Miejsce {
                 new PO(0, TypOsoby.PERELKA),
                 new PO(0, TypOsoby.ZLODZIEJ),
                 new PO(0, TypOsoby.CZOLO),
-                new PO(0, TypOsoby.BIEGACZ),
+                new PO(0, TypOsoby.BIEGAJACY_SPRZET),
                 new PO(0, TypOsoby.PATOLOG),
 
                 new PO(5, TypOsoby.OSIEDLOWY),

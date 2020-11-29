@@ -304,7 +304,7 @@ public class Watek_LUDZI extends AbstractWatek {
                         M.ZWYKLE(dzialacz.caly_czas(W.NORMALNOSC)),
 
                         M.WARUNKI_WSTEPNE(of(
-                                dzialacz.akceptacjaBiegania(),
+                                dzialacz.akceptacjaBieganiaSprzet(),
                                 dzialacz.akceptacjaCpania(),
                                 dzialacz.akceptacjaHierarchii(),
                                 dzialacz.SET(of(W.AGRESJA, W.CHETNY_DZIALANIA, W.BRAK_PIENIEDZY, W.POSLUSZNY, W.OGRANICZONE_INFORMACJE, W.NUDA))
@@ -335,7 +335,7 @@ public class Watek_LUDZI extends AbstractWatek {
 
                         M.W(W.INFORMACJA, "--->", dzialacz.notyfikacjaEkipa()),
                         M.WW(W.INFORMACJA, "--->", of(dzialacz.notyfikacja(W.GORA),
-                                                            grubasPrzewaga.decyzja(W.ROZKAZ)), "--->", dzialacz.wykonuje(W.ROZKAZ)),
+                                                            czolowkaUlica.decyzja(W.ROZKAZ)), "--->", dzialacz.wykonuje(W.ROZKAZ)),
 
                         M.W(dzialacz.otrzymujePrzewagiZDzialania(), "--->", dzialacz.lubiDzialanie()),
 
@@ -442,7 +442,7 @@ public class Watek_LUDZI extends AbstractWatek {
         M.W(of(W.SUPERPOZYCJA, W.BLISKOSC, W.RDZENNY), "--->", of(M.OSOBA(W.SUPERPOZYCJA).
                                                                         ROBI_KRZYWDE_Z_PRZEWAGA(of(M.OSOBA(W.RDZENNY), DBW.KRZYWDY_WARUNKI(), DBW.PRZEWAGI_CHWILI_WARUNKI()))));
 
-        M.W(of(W.BIEGACZ, W.BLISKOSC, W.RDZENNY), "--->", of(M.OSOBA(W.BIEGACZ).ROBI_KRZYWDE_Z_PRZEWAGA(of(M.OSOBA(W.RDZENNY) , DBW.KRZYWDY_WARUNKI(), DBW.PRZEWAGI_CHWILI_WARUNKI()))));
+        M.W(of(W.BIEGAJACY_SPRZET, W.BLISKOSC, W.RDZENNY), "--->", of(M.OSOBA(W.BIEGAJACY_SPRZET).ROBI_KRZYWDE_Z_PRZEWAGA(of(M.OSOBA(W.RDZENNY) , DBW.KRZYWDY_WARUNKI(), DBW.PRZEWAGI_CHWILI_WARUNKI()))));
 
         M.W(of(W.BOGATY, W.BLISKOSC, W.BIEDNY), "--->", of(M.OSOBA(W.BOGATY).ROBI_KRZYWDE_Z_PRZEWAGA(of(M.OSOBA(W.BIEDNY), DBW.KRZYWDY_WARUNKI(), DBW.PRZEWAGI_CHWILI_WARUNKI()))));
     }
@@ -473,8 +473,8 @@ public class Watek_LUDZI extends AbstractWatek {
     }
 
     public void wyrok() {
-        M.W(M.WYROK_POWYZEJ_LAT(3), "--->", of(M.DLUGOTRWALE(W.CIERPIENIE), M.MOZLIWOSC(of(W.SZCZEGOLNIE_NIEBEZPIECZNY, W.KAMIKADZE,
-                                                                                    W.WIEDZA_LUDZIE_CHARAKTER, W.PSYCHIKA_ZRYTA))));
+        M.W(M.WYROK_POWYZEJ_LAT(3), "--->", of(M.DLUGOTRWALE(DBW.CIERPIENIA_WARUNKI()), M.MOZLIWOSC(of(W.SZCZEGOLNIE_NIEBEZPIECZNY, W.KAMIKADZE,
+                                                                                                    W.WIEDZA_LUDZIE_CHARAKTER, W.PSYCHIKA_ZRYTA))));
     }
 
     public void podsumowanieLudzie() {
@@ -485,7 +485,7 @@ public class Watek_LUDZI extends AbstractWatek {
         M.W(W.WIESNIAK, "--->", of(M.bezpieczneBezSensu(), M.strefaKomfortu(), M.cisnieIleMozna()));
         M.W(W.BURZUA, "--->", of(M.impreza(), M.melanz(), M.zwiazki(), M.znajomi(), M.przyjemnosci()));
         M.W(W.OSIEDLOWY_SLABY, "--->", of(M.nieudolneDzialanie(), M.wszystkoSlabo(), M.strefaKomfortu()));
-        M.W(W.BIEGACZ, "--->", of(M.wjazd(), M.cpanie(), M.mecz(), M.siedzenieOsiedle()));
+        M.W(W.BIEGAJACY_SPRZET, "--->", of(M.wjazd(), M.cpanie(), M.mecz(), M.siedzenieOsiedle()));
         M.W(W.OSIEDLOWY_MOCNY, "--->", of(M.dobreDzialanie(), M.wszystkoDobrze(), M.pozaStrefaKomfortu()));
         M.W(W.GRUBAS_Z_PRZEWAGA, "--->", of(M.rozkazyNizszym(), M.bawSie()));
         M.W(W.PRACOWNIK_KORPORACJI, "--->", of(M.praca(), M.podroze(), M.dom()));

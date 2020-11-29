@@ -90,7 +90,8 @@ public class Watek_SJ extends AbstractWatek {
     W wiadomosci = W.PRZYJECIE_DO_WIADOMOSCI_BEZ_ROZKMINIANIA_NA_ULICY;
     List<W> okazja = of(W.DOBRO, W.POZNANIE, W.WALKA_PIESCI);
 
-    List<W> random = of(W.RESET, W.ZMIANA, W.NIE_PRZEWIDZISZ_PRZYSZLOSCI);
+
+    W spedzanieCzasu = DBW.SPEDZANIE_CZASU_DOBRE();
 
     List<W> mojeDzialanie = of(M.wszystkoNaChlodno(), M.tyDobrze(), M.karzeszZaWadyZachowania());
 

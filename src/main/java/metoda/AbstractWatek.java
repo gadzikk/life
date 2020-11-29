@@ -54,7 +54,7 @@ public class AbstractWatek {
     OsobaMetod karyna = new OsobaMetod();
     OsobaMetod cvia = new OsobaMetod();
     OsobaMetod srodowisko = new OsobaMetod();
-    OsobaMetod grubasPrzewaga = new OsobaMetod();
+    OsobaMetod czolowkaUlica = new OsobaMetod();
     OsobaMetod fest = new OsobaMetod();
     OsobaMetod zazdrosni = new OsobaMetod();
     OsobaMetod dzialaczMocny = new OsobaMetod();
