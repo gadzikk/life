@@ -63,7 +63,7 @@ public class Watek_SJ extends AbstractWatek {
 
     W codzienne = M.CODZIEN(of(M.PLAN(W.DZIEN), M.PATRZ(W.PROGNOZA_POGODY), W.WYCHODZENIE, W.MODLITWA,
                     M.OSWAJAJ_SIE(of(DBW.SYTUACJE_STARCIE_WARUNKI(), on(DBP.ZBIOR_PATOLOGIE()))),
-                    M.ORIENT(W.WARTOSC), M.ZWIEKSZANIE(of(W.SILA, W.UMIEJETNOSCI))));
+                    M.ORIENT(W.WARTOSC), M.ULEPSZANIE(of(W.SILA, W.UMIEJETNOSCI))));
 
     W tydzien = M.TYDZIEN(of(M.PLAN(of(W.TYDZIEN, W.ULICA, W.PRACA, W.KOBIETA, W.SPORT)),
                             M.PATRZ(W.PROGNOZA_POGODY), M.CZYTANIE(W.PROGRAM)));

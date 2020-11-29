@@ -28,54 +28,31 @@ public class Watek_PRACA extends AbstractWatek {
     public void run(){
         W nastawienie = W.NIENAWISC_FESTOW;
 
-        M.WWW(of(W.WIEDZA, W.NISZA, W.BOGATY_SEKTOR),
-                of(
-                        M.hajs_t()
-                ),
-                of(W.NISZA),
-                of(
-                        M.szanuj_t()
-                ),
-                of(W.INTERVIEW, W._88_, W.KONKURENCJA),
-                of(
-                        M.swoi_t(),
-                        M.walkaKlas_on()
-                )
-        );
-        M.W(of(W.MULTICULTI),
-                of(
-                        M.rasizm_on()
-                )
-        );
-        M.WWW(of(W.KORPO),
-                of(
-                        M.poprawnoscPolityczna_on(),
-                        M.GRANT(SOMEONE, W.MOZLIWOSC_MALO_PRACY)
-                ),
-                of(W.OPEN_SPACE),
-                of(
-                        _100osob.patrzy(ME)
-                ),
-                of(W.STALO_SIE),
-                of(
-                        _100osob.kabluje(ME)
-                )
-        );
-        M.W(of(W.SZUKASZ_PRACY),
-                of(
-                        M.POTRZEBNE(of(W.DWA_MIESIACE))
-                )
-        );
-        M.W((DBW.WYMAGANIA_WSTEPNE_ZARABIANIE_WARUNKI()),
-                of(
-                        M.GRANT(ME,W.PRACA)
-                )
-        );
+        M.W(of(W.WIEDZA, W.NISZA, W.BOGATY_SEKTOR), "--->", M.WIECEJ(W.PIENIADZE));
+
+        M.W(W.NISZA, "--->", M.WIECEJ(W.SZANOWANIE_PRACOWNIKA));
+
+        M.W(of(W.INTERVIEW, W._88_, W.KONKURENCJA), "--->", M.ZWROCENIE_UWAGI(of(W.KLASA_SPOLECZNA, W.PODOBIENSTWO, W.NARODOWOSC, W.RASA)));
+
+        M.W(W.MULTICULTI, "--->", M.CALY_CZAS(W.RASIZM));
+
+
+        M.W((W.KORPO), "--->", of(M.CALY_CZAS(W.POPRAWNOSC_POLITYCZNA), M.MOZLIWOSC(W.MALO_PRACY)));
+
+        M.W(W.OPEN_SPACE, "--->", M._100_OSOB(W.PATRZY));
+
+        M.W(W.STALO_SIE, "--->", M._10_OSOB(W.KONFIDENCI));
+
+        M.W(W.SZUKASZ_PRACY, "--->", M.POTRZEBNE(W.DWA_MIESIACE));
+
+        M.W(DBW.WYMAGANIA_WSTEPNE_PRACA_WARUNKI(), "--->", M.OSIAGNIECIE(W.PRACA));
+
         praca();
         zachowanie();
         szponcenie();
         hardcoreZlyFxTeam();
         szukaniePracy();
+        zadanieRekrutacyjne();
         algorytmUczeniaSie();
         normalnyManago();
     }
@@ -92,42 +69,26 @@ public class Watek_PRACA extends AbstractWatek {
                 )
         );
 
-        M.W(on(W.WYSILEK, W.REZULTATY, W.OPLACA_SIE, W.UZYTECZNOSC, W.MANAGO_DOBRA_OPINIA),
-                of(
-                        M.CALY_CZAS(W.UTRZYMANIE_PRACY)
-                )
-        );
-        manago.setStatus(W.POSLUSZNY);
-        manago.setStatus(W.STRAZNIK_PRAWA);
-        manago.setStatus(W.CZARNA_TOGA_SEDZIOWSKA);
+        M.W(of(W.WYSILEK, W.REZULTATY, W.OPLACA_SIE, W.UZYTECZNOSC, W.MANAGO_DOBRA_OPINIA), "--->", M.CALY_CZAS(W.UTRZYMANIE_PRACY));
+        manago.SET(of(W.POSLUSZNY, W.STRAZNIK_PRAWA, W.CZARNA_TOGA_SEDZIOWSKA));
         manago.nieObchodzi(of(W.ZASOB_ZYCIE_PRYWATNE, W.ZASOB_CZAS));
         manago.caly_czas(M.KONTROLA(kontrola));
         manago.SET(W.ZDOLNOSC_ATAKU);
         M.REMOVE(ME, W.ZDOLNOSC_ATAKU);
 
-        M.W(of(M.isNiedajeRady(zasob)),
-                of(
-                        manago.teoriaPrzesuwania(zasob)
-                )
-        );
-        M.W(of(W._NIE_, M.WYMAGANIA(of(W.WARTOSC_DODATNIA, W.FINE, W.LADNY, W.KULTURA, W.ULEGLOSC_WZGL_MANAGERA, W.PRZYCHYLNOSC_MANAGERA,
-                W.DOBRY_FEEDBACK_LUDZIE, W.ATMOSFERA))),
-                of(
-                        manago.wymaganaAkcja(ME)
-                )
-        );
+        M.W(M.NIE_DAJE_RADY(W.ZASOB), "--->", manago.TEORIA_PRZESOWANIA(W.ZASOB));
+
+        M.W(of(W._NIE_, M.WYMAGANIA(of(W.WARTOSC_DODATNIA, W.FINE, W.LADNY,
+                W.KULTURA, W.ULEGLOSC_WZGL_MANAGERA,
+                W.PRZYCHYLNOSC_MANAGERA, W.DOBRY_FEEDBACK_LUDZIE, W.ATMOSFERA))), "--->", manago.WYMAGANA_AKCJA(W.PRACOWNIK));
 
         M.W(of(W.TWORZYSZ_PROBLEMY, W._II_, W.PSUJESZ_ATMOSFERE, W._II_, W._NIE_, W.FINE),
                 of(
-                        manago.ostry(ME)
+                        manago.OSTRY(W.PRACOWNIK)
                 )
         );
 
-        M.W(of(M.isNieOplacalny(zasob)),
-                of(
-                        manago.zwolnij(zasob)
-                )
-        );
+        M.W(of(M.NIE_OPLACALNY(W.PRACOWNIK)), "--->",   manago.ZWOLNIJ(W.PRACOWNIK));
 
         M.W(W.MANAGO_TECHNICZNY,
                 of(
@@ -138,18 +99,16 @@ public class Watek_PRACA extends AbstractWatek {
     public void zachowanie(){
         M.CALY_CZAS(W.WALKA_Z_FESTAMI);
         M.CALY_CZAS(W.UKRYCIE_PRAWDY_PRZED_FESTAMI);
-        M.W(of(W.TASK),
-                of(
-                        M.zapisz(W.TASK),
-                        M.przymiezenieDoDzialania(),
-                        M.check(W.ZEGAR, W.DATA),
-                        M.estymacja(),
+        M.W(W.TASK, "--->",  of(M.zapisz(W.TASK),
+                                    M.przymiezenieDoDzialania(),
+                                    M.sprawdzenie(W.ZEGAR, W.DATA),
+                                    M.estymacja(),
 
-                        M.idea(),
-                        M.kartkaSteps(),
-                        M.kodFunkcjonalny(),
-                        M.test(),
-                        M.refactor()
+                                    M.idea(),
+                                    M.kartkaSteps(),
+                                    M.kodFunkcjonalny(),
+                                    M.test(),
+                                    M.refactor()
                 )
         );
         M.W(of(M.interakcja(manago)),
@@ -180,7 +139,7 @@ public class Watek_PRACA extends AbstractWatek {
         M.W(of(W.NIEPOKOJACE),
                 of(
                         zaniepokojeni.potwierdzajaZInnymi(W.NIEPOKOJACE),
-                        M.robWrazenie(of(W.PROGRAMISTA, W.PASJONAT, W.NIUNIUS)),
+                        M.robWrazenie(of(W.PROGRAMISTA, W.PASJONAT)),
                         M.zalagodz(W.GADKA)
                 )
         );
@@ -297,6 +256,12 @@ public class Watek_PRACA extends AbstractWatek {
                     .w_przeciwnym_przypadku(of(W.STRACONA_SZANSA, W.NOTA, W.BRAK_REZULTATOW, W.WYSILEK_NA_DARMO, W.STRES_NA_DARMO));
 
         return W.WARUNEK;
+    }
+
+    public void zadanieRekrutacyjne() {
+        M.W(W.DUZE_ZADANIE, "--->", M.PODSTAWA(of(W.MODEL_DANYCH, W.RELACJE_MIEDZY_OBIEKTAMI, W.FUNKCJONALNOSC)));
+
+        M.W(W.MALE_ZADANIE, "--->", of(W.WEJSCIE, W.WYJSCIE, W.FUNKCJONALNOSC, W.OPTYMALIZACJA));
     }
 
     public void algorytmUczeniaSie() {

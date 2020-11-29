@@ -276,6 +276,8 @@ public class Watek_ULICA extends AbstractWatek {
         W przewagiDanejChwili = DBW.PRZEWAGI_CHWILI_WARUNKI();
         W zasiegPrzewagiUlica = DBW.ZASIEG_PRZEWAGI_ULICA_WARUNKI();
 
+        M.STARCIE(M.PRZYCZYNY(of(W.EMOCJE, DBW.PRZEWAGI_MATERIALNE_WARUNKI(), W.DOMINACJA)));
+
         M.W(M.ZASIEG_WZROKU(W.OSOBA), "--->", of(M.SONDA(W.OSOBA), M.NABYCIE(W.BLISKOSC), DBW.KRZYWDY_BEZPOSREDNIE_WARUNKI()));
 
         M.W(of(W.POMSZCZENIE, W.NOTYFIKACJA_EKIPA, W.ZDJECIA_TWARZOWKI,
@@ -289,6 +291,10 @@ public class Watek_ULICA extends AbstractWatek {
         M.WW(M.WIDZISZ(W.OSOBY), "--->", DBW.SYTUACJE_STARCIE_WARUNKI(), "---->", W.STARCIE, "---->", of(W.WYGRANA, W._II_, W.PRZEGRANA,
                                                                                                                 M.OPCJA(DBW.STRATY_MATERIALNE_WARUNKI()),
                                                                                                                 M.OPCJA(DBW.STRATY_MORALNE_WARUNKI())));
+        M.W(W.STARCIE, "--->", of(M.WYGRANY(of(W.EMOCJE, W.DOMINACJA)), M.OPPONENT(W.STRACH),
+                                       M.PRZEGRANY(of(W.STRACH, DBW.STRATY_MORALNE_WARUNKI(), DBW.STRATY_MATERIALNE_WARUNKI(), M.OPCJA(W.CHEC_POMSZCZENIA)))));
+
+
 
         M.W(W.WIDZISZ, "--->", of(M.POBIERZ(DBW.NASTAWIENIA_WARUNKI()), M.SONDA_PRZYPALU(DBW.SONDA_PRZYPALU_WARUNKI()), M.PLAN(of(W.ODDALENIE_SIE, W.UKRYCIE_SIE)),
                                                                             M.PRZEWIDZENIE(W.DROGA),
@@ -422,7 +428,8 @@ public class Watek_ULICA extends AbstractWatek {
 
         M.W(W.NARKOTYKI, "--->", W.NIESTABILNOSC_UMYSLOWA);
 
-        M.W(M.MIEJSCE_STALE(DBW.WZGL_IZOLACJA_WARUNKI()), "--->", of(M.WPLYW(W.LUDZIE), M.MOZLIWOSC(DBW.RELACJE_WARUNKI())));
+        M.W(M.MIEJSCE_STALE(DBW.WZGL_IZOLACJA_WARUNKI()), "--->", of(M.WPLYW(W.LUDZIE), M.MOZLIWOSC(DBW.RELACJE_WARUNKI()), M.MOZLIWOSC(M.INTERAKCJA(W.OSOBY)),
+                                                                          M.INFORMACJA(W.OSOBY), M.INFORMACJA(W.MIEJSCE_STALE)));
 
         M.W(of(M.BRAK(W.ORIENT), W.DZIALANIE,
                 M.OPCJA(W.ZUCHWALOSC), M.OPCJA(M.BRAK(W.WIEDZA))), "--->", M.SZYBKO(W.KARA));
@@ -437,7 +444,7 @@ public class Watek_ULICA extends AbstractWatek {
                                                                                                     M.REZULTAT(M.OBOJE(of(
                                                                                                         DBW.STRATY_MORALNE_WARUNKI(),
                                                                                                         DBW.STRATY_MATERIALNE_WARUNKI(),
-                                                                                                    W.ZERO_ZYSKU))));
+                                                                                                        W.ZERO_ZYSKU))));
 
         M.W(M.NIEZDOLNOSC(of(W.WALKA_PIESCI, W.WALKA_SPRZET)), "--->", M.BRAK(W.SILA_SPRAWCZA_ULICA));
 
@@ -494,7 +501,7 @@ public class Watek_ULICA extends AbstractWatek {
                                                                                                         M.PRZEZUCENIE(W.PRZECIWNY_KLUB))));
         M.PRZEJECIE(of(W.OSIEDLE, W.MIEJSCE_STALE, W.PRACA, W.SLUZBY, W.LUDZIE))
                 .POTRZEBNE(M.CALY_CZAS(of(W.POSLUCH, W.OBECNOSC_LUDZI, M.SILNA(W.EKIPA))))
-                .CEL(of(M.TWORZENIE(W.ZLO), M.NISZCZENIE(W.DOBRO), M.ZWIEKSZANIE(W.PRZEWAGA), M.NABYCIE(W.CIAGLOSC_INFORMACJI)));
+                .CEL(of(M.TWORZENIE(W.ZLO), M.NISZCZENIE(W.DOBRO), M.ULEPSZANIE(W.PRZEWAGA), M.NABYCIE(W.CIAGLOSC_INFORMACJI)));
 
         M.W(M.SPRZET(M.EKIPA(W.SAMOCHOD_NA_CHODZIE)), "--->", M.CALY_CZAS(M.WJAZD(W.SPRZET)));
 
@@ -658,6 +665,8 @@ public class Watek_ULICA extends AbstractWatek {
 
         M.W(M.DZIALJACY(M.WYPARCIE_SIE(W.KLUB_KIBICOWSKI)), "--->", M.BRAK_DOSTEPU(DBW.PRZEWAGI_Z_ULICY_WARUNKI()));
 
+        M.W(M.OSOBA(W.DZIALAJACY), "--->", M.ZOBOWIAZANIE(of(W.BIEGANIE, M.ROZKMINANIE(of(W.HASLO_RDZENNYCH, W.NOTYFIKACJA_EKIPA, W.ZDJECIA_TWARZOWKI)))));
+
         M.W(W.WYROK, "--->", M.UNIZAJ(W.POSIEDZI_CHWILE_NIC_MU_SIE_NIE_STANIE));
 
         M.W(M.INFORMACJA(W.KRZYWDA_DRUGIEJ_STRONY), "--->", of(W.NASTAWIENIE_WSPARCIE, W.WESELE, W.CHCEMY_WIECEJ, W.ZA_CIOSEM));
@@ -748,7 +757,7 @@ public class Watek_ULICA extends AbstractWatek {
         dzialacz.zwiekszaSzanse(of(W.ZLO, DBW.STRATY_MORALNE_WARUNKI(), DBW.STRATY_MATERIALNE_WARUNKI(), DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI()));
 
         grubasPrzewaga.tworzy(W.SRODOWISKO).CEL(of(
-                M.ZWIEKSZANIE(DBW.PRZEWAGI_Z_ULICY_WARUNKI()), M.MATERIALIZOWANIE_ZLA_DZIEKI(W.PRZEWAGA), M.WYKLUCZENIE(osobyPozaSrodowisko),
+                M.ULEPSZANIE(DBW.PRZEWAGI_Z_ULICY_WARUNKI()), M.MATERIALIZOWANIE_ZLA_DZIEKI(W.PRZEWAGA), M.WYKLUCZENIE(osobyPozaSrodowisko),
                 M.ROBI_KRZYWDE_Z_PRZEWAGA(osobyPozaSrodowisko, DBW.KRZYWDY_WARUNKI()),
                 M.NABYCIE(of(W.SILA_SPRAWCZA, W.PRZEWAGA_SILY, W.POSLUCH)),
                 M.NABYCIE(M.WPLYW(W.LUDZIE)),
@@ -767,9 +776,7 @@ public class Watek_ULICA extends AbstractWatek {
     }
 
     public void krajobrazUlicy() {
-        List<W> conditions = of(W.PUSTKA, W.BRAK_PIENIEDZY, W.NARKOTYKI, W.KAZDE_DOBRO_NA_DOL);
-
-        M.CALY_CZAS(W.KUMULUJACA_SIE_PATOLOGIA);
+        M.CALY_CZAS(of(W.KUMULUJACA_SIE_PATOLOGIA, W.PUSTKA, W.BRAK_PIENIEDZY, W.NARKOTYKI, W.KAZDE_DOBRO_NA_DOL));
         M.tlo(of(W.AGRESJA, W.NERWY, W.ZLO, W.DOSTEP));
     }
 
@@ -789,7 +796,7 @@ public class Watek_ULICA extends AbstractWatek {
                 W.ZLO, W.NUDA, W.EMOCJE_ZE_ZLA);
 
         Map<W, Integer> miejsceSzansaProcent = new HashMap<>();
-        miejsceSzansaProcent.put(W.MELINA_NA_OSIEDLU, 80);
+        miejsceSzansaProcent.put(W.MIEJSCE_RESTRYKCYJNE_OSIEDLE, 80);
         miejsceSzansaProcent.put(W.MIEJSCE_STALE, 50);
         miejsceSzansaProcent.put(W.OSIEDLE, 20);
         miejsceSzansaProcent.put(W.GLOWNA_DROGA, 10);
@@ -803,7 +810,7 @@ public class Watek_ULICA extends AbstractWatek {
         OH ogarniety2 = new OH(of(slabyDzialacz4, slabyDzialacz5, slabyDzialacz6));
         OH ogarniety3 = new OH(of(slabyDzialacz7, slabyDzialacz8, slabyDzialacz9));
 
-        OH gangusZHajsem = new OH(of(ogarniety, ogarniety2, ogarniety3));
+        OH gangusZPrzewaga = new OH(of(ogarniety, ogarniety2, ogarniety3));
     }
 
     public void agresja() {

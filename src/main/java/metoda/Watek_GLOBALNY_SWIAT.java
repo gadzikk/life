@@ -35,6 +35,7 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
     W wspomnienia = DBW.WSPOMNIENIA_WARUNKI();
     List<W> tematy = DBW.ZBIOR_TEMATY();
     List<W> wiedza = DBW.ZBIOR_WIEDZA();
+    W spedzanieCzasu = DBW.SPEDZANIE_CZASU_DOBRE();
 
     List<W> globalnaPlanszaSwiata = of(W.SWIAT, W.KONTYNENT, W.KRAJ, W.MIASTO, W.DZIELNICA, W.OSIEDLE,
                                        W.CZAS_W_HISTORII,
@@ -63,10 +64,11 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
 
     List<W> otaczajacyLudzie = of(W.LUDZIE_RODZINA, W.LUDZIE_PRACA, W.LUDZIE_DZIELNICA, W.ZNAJOMI_DZIELNICA, W.OBSLUGA);
 
-    PriorityQueue<W> wartosciowaRzecz = new PriorityQueue<>(of(W.WYSILEK, W.WALKA, W.UTRZYMANIE_SILAA, W.UTRZYMANIE_EMOCJAMI));
-    PriorityQueue<W> silaSprawcza = new PriorityQueue<>();
+    W wartosciowaRzecz = M.KOLEJKA_DO(W.WARTOSC).SRODKI(of(W.WYSILEK, W.WALKA, W.UTRZYMANIE_SILA, W.UTRZYMANIE_EMOCJAMI));
 
-    List<W> mainFlows = of(W.GRUPA_PRZESTEPCZA, W.DOBRA_PRACA, W.STUDIA, W.KLUBY_DYSKOTEKA, W.KLUBY_KIBICOWSKIE, W.RESTAURACJA, W.WAKACJE_WODA, W.ZWIAZKI,
+    W silaSprawcza = M.KOLEJKA_DO(W.SILA_SPRAWCZA).SRODKI(of(W.HIERARCHIA, W.WALKA, W.UTRZYMANIE_SILA));
+
+    List<W> glowneNurty = of(W.GRUPA_PRZESTEPCZA, W.DOBRA_PRACA, W.STUDIA, W.KLUBY_DYSKOTEKA, W.KLUBY_KIBICOWSKIE, W.RESTAURACJA, W.WAKACJE_WODA, W.ZWIAZKI,
                             W.ZNAJOMI, W.SLUZBA_ZROWIA, W.SLUZBY_MUNDUROWE, W.INTERNET, W.TELEWIZJA);
 
     public void run() {
@@ -92,9 +94,15 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
 
         M.W(W.NIESWIADOMOSC, "--->", W.NIESZCZESCIE);
 
+        M.W(M.OSOBA(W.OBECNOSC), "--->", M.MOZLIWOSC(of(W.INFORMACJA, W.DZIALANIE)));
+
         M.W(M.WYKONYWANIE(W.PRACA), "--->", of(M.wszystkoAbyOtrzymacRezultat(),
                                                          M.doSedna(),
                                                          M.doKonca()));
+
+        M.W(W.NA_MIEJSCU, "--->", of(M.doSedna(), M.doKonca()));
+
+
         M.W(of(DBW.PRZEWAGI_WARUNKI(),
                DBW.SLABOSCI_WARUNKI(),
                DBW.KRZYWDY_WARUNKI(),
@@ -105,7 +113,7 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
                DBW.CIERPIENIA_WARUNKI(),
                W.PUSTKA),  "-------->", M.DOTYCZA(M.UDERZAJA(W.KAZDEGO_CZLOWIEKA)));
 
-        M.W(W.NA_MIEJSCU, "--->", of(M.doSedna(), M.doKonca()));
+
 
 
         M.W(of(W._NIE_, W.WARUNEK_A), "--->", M.dzialanieNad(W.WARUNEK_B));

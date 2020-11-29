@@ -38,6 +38,8 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
         M.W(W.ZLO, "--->", of(M.FALSZYWE_WRAZENIE(W.SILNI), M.RZECZYWISTOSC(W.SLABI)));
         M.W(W.DOBRO, "--->", of(M.FALSZYWE_WRAZENIE(W.SLABI), M.RZECZYWISTOSC(W.SILNI)));
 
+        M.W(M.CZYN(of(M.DLUGOTERMINOWO(M.CEL(W.DOBRO)), M.INTENCJA(W.DOBRO), W._II_, M.KROTKOTERMINOWO(W.ZLO))), "--->", M.REZULTAT(W.DOBRO));
+
         zloDzialanie();
         dobroDzialanie();
         generalneZwykleWidzianeZachowanie();

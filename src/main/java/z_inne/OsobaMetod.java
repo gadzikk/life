@@ -46,9 +46,9 @@ public class OsobaMetod {
     public W setStatus(W status) {return W.WARUNEK;}
     public W dbaj(List<W> warunki) {return W.WARUNEK;}
     public W nieObchodzi(List<W> warunki) {return W.WARUNEK;}
-    public W teoriaPrzesuwania(OsobaMetod zasob) {return W.WARUNEK;}
-    public W ostry(TypOsoby osoba) {return W.WARUNEK;}
-    public W zwolnij(OsobaMetod zasob) {return W.WARUNEK;}
+    public W TEORIA_PRZESOWANIA(W w) {return W.WARUNEK;}
+    public W OSTRY(W w) {return W.WARUNEK;}
+    public W ZWOLNIJ(W w) {return W.WARUNEK;}
 
     public W zlecNieszczegolowo(W task) {return W.WARUNEK;}
     public W skrytykuj(W warunek , W task) {return W.WARUNEK;}
@@ -78,7 +78,7 @@ public class OsobaMetod {
     public OsobaMetod cisnie() {return new OsobaMetod();}
     public W skazujeNaSamotnosc() {return W.WARUNEK;}
     public W rozpowiedzDoWszystkich(W w) {return W.WARUNEK;}
-    public W wymaganaAkcja(TypOsoby osoba) {return W.WARUNEK;}
+    public W WYMAGANA_AKCJA(W w) {return W.WARUNEK;}
     public W akceptacjaBiegania() {return W.WARUNEK;}
     public W akceptacjaCpania() {return W.WARUNEK;}
     public W akceptacjaHierarchii() {return W.WARUNEK;}
