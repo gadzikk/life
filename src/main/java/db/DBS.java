@@ -3,7 +3,6 @@ package db;
 import metoda.M;
 import warunek.W;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -12,7 +11,19 @@ import java.util.List;
 public class DBS extends DB {
     // SYTUACJE
 
-    public static W CHCIANA_TRAUTO() {
+    public static List<W> ZBIOR_CHCIANA_SYTUACJA() {
+        return of(
+                CHCIANA_SYTUACJA_TRAUTO(),
+                CHCIANA_SYTUACJA_TRAUTO_WCHODZISZ(),
+                CHCIANA_SYTUACJA_SKLEP(),
+                CHCIANA_SYTUACJA_SKLEP_WYCHODZI(),
+                CHCIANA_SYTUACJA_IDZIE(),
+                CHCIANA_SYTUACJA_PARZONKO(),
+                CHCIANA_SYTUACJA_WZIECIE_KONTAKTU()
+        );
+    }
+
+    public static W CHCIANA_SYTUACJA_TRAUTO() {
         return on(
                 W.SAMA, W.SIEDZI, W.MALO_OSOB, W.POPATRZYLA,
                 M.MINUT(10),
@@ -20,7 +31,7 @@ public class DBS extends DB {
         );
     }
 
-    public static W CHCIANA_TRAUTO_WCHODZISZ() {
+    public static W CHCIANA_SYTUACJA_TRAUTO_WCHODZISZ() {
         return on(
                 W.SAMA, W.SIEDZI, W.MALO_OSOB, W.POPATRZYLA, W.MIEJSCE_OBOK,
                 M.MINUT(0),
@@ -28,7 +39,7 @@ public class DBS extends DB {
         );
     }
 
-    public static W CHCIANA_SKLEP() {
+    public static W CHCIANA_SYTUACJA_SKLEP() {
         return on(
                 W.SAMA, W.STOI, W._II_, W.CHODZI, W.MALO_OSOB, W.POPATRZYLA,
                 M.MINUT(10),
@@ -36,7 +47,7 @@ public class DBS extends DB {
         );
     }
 
-    public static W CHCIANA_SKLEP_WYCHODZI() {
+    public static W CHCIANA_SYTUACJA_SKLEP_WYCHODZI() {
         return on(
                 W.SAMA, W.IDZIE_WOLNO, W.MALO_OSOB, W.POPATRZYLA,
                 M.MINUT(1),
@@ -44,7 +55,7 @@ public class DBS extends DB {
         );
     }
 
-    public static W CHCIANA_IDZIE() {
+    public static W CHCIANA_SYTUACJA_IDZIE() {
         return on(
                 W.SAMA, W.IDZIE_WOLNO, W.WZGL_IZOLACJA, W.POPATRZYLA,
                 M.MINUT(0),
@@ -52,7 +63,7 @@ public class DBS extends DB {
         );
     }
 
-    public static W CHCIANA_PARZONKO() {
+    public static W CHCIANA_SYTUACJA_PARZONKO() {
         return on(
                 W.DOPUSZCZENIE, W.USMIECHA_SIE, W.EFEKTYWNA_GADKA, W.EMOCJE, W.ZART,
                 M.MINUT(0),
@@ -60,24 +71,12 @@ public class DBS extends DB {
         );
     }
 
-    public static W CHCIANA_WZIECIE_KONTAKTU() {
+    public static W CHCIANA_SYTUACJA_WZIECIE_KONTAKTU() {
         return on(
                 W.ZNASZ, W.KILKA_PARZONEK,
                 M.MINUT(0),
                 M.CEL(W.NA)
         );
-    }
-
-    public static List<W> ZBIOR_CHCIANA_SYTUACJA() {
-        return of(
-            CHCIANA_TRAUTO(),
-            CHCIANA_TRAUTO_WCHODZISZ(),
-            CHCIANA_SKLEP(),
-            CHCIANA_SKLEP_WYCHODZI(),
-            CHCIANA_IDZIE(),
-            CHCIANA_PARZONKO(),
-            CHCIANA_WZIECIE_KONTAKTU()
-    );
     }
 
     public static W UNIKALNA_SYTUACJA() {

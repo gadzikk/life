@@ -10,10 +10,43 @@ import java.util.List;
  */
 public class DBP extends DB {
 
+    public static List<W> ZBIOR_PATOLOGIE() {
+        return of(
+                PATOLOGIE_ZWIAZKU(),
+                PATOLOGIE_WSTEPNE_SWIAT(),
+                PATOLOGIE_WSTEPNE_INFORMACJA(),
+                PATOLOGIE_WSTEPNE_WIEDZA(),
+                PATOLOGIE_WSTEPNE_REZULTAT(),
+                PATOLOGIE_WSTEPNE_PRACA(),
+                PATOLOGIE_WSTEPNE_ZARABIANIE(),
+                PATOLOGIE_WSTEPNE_SPORT(),
+                PATOLOGIE_WSTEPNE_BRAK_OSIEDLE(),
+                PATOLOGIE_WSTEPNE_DOPUSZCZENIE_KOBIETA(),
+                PATOLOGIE_WSTEPNE_KOBIETA(),
+                PATOLOGIE_UTRZYMANIA_SWIAT(),
+                PATOLOGIE_UTRZYMANIA_INFORMACJA(),
+                PATOLOGIE_UTRZYMANIA_WIEDZA(),
+                PATOLOGIE_UTRZYMANIA_BRAK_WSTYDU(),
+                PATOLOGIE_UTRZYMANIA_PRACA(),
+                PATOLOGIE_UTRZYMANIA_ZARABIANIE(),
+                PATOLOGIE_UTRZYMANIA_SPORT(),
+                PATOLOGIE_UTRZYMANIA_BRAK_OSIEDLE(),
+                PATOLOGIE_UTRZYMANIA_KOBIETA(),
+                PATOLOGIE_KONCOWE_SWIAT(),
+                PATOLOGIE_KONCOWE_PRACA(),
+                PATOLOGIE_KONCOWE_ZARABIANIE(),
+                PATOLOGIE_KONCOWE_SPORT(),
+                PATOLOGIE_KONCOWE_BRAK_OSIEDLE(),
+                PATOLOGIE_KONCOWE_KOBIETA(),
+                PATOLOGIE_GLOBAL_PLANSZA_LUDZIE(),
+                PATOLOGIE_GLOBAL_PLANSZA_PRACA(),
+                PATOLOGIE_CALY_CZAS());
+    }
+
 
     public static W PATOLOGIE_ZWIAZKU() {
         return on(
-                W.STARY_MLODY, W.BURZUA_ULICA, W.NIESWIADOMY_SWIADOMY,
+                W.STARY_MLODY, W.WYGODNY_ULICA, W.NIESWIADOMY_SWIADOMY,
                 W.SLABY_MOCNY, W.UZYWKI_BRAKUZYWEK, W.ZLO_DOBRO,
                 W.LEKKOSC_TRUDNOSC, W.LATWOSC_ZERWANIA, W.ZDRADA, W.BRAK_CZASU, W.ODLEGLOSC,
                 W.NIESTARANIE_SIE, W.NIC_OD_SIEBIE, W.PRZYJSCIE_NA_GOTOWO, W.AGRESJA_W_DZIALANIU
@@ -35,13 +68,7 @@ public class DBP extends DB {
 
     public static W PATOLOGIE_WSTEPNE_WIEDZA() {
         return on(
-                W.BRAK_INFORMACJI, W.BEZ_PRZYCZYNY, W.ZLE_SKUTKI, W.NIE_WYCIAGANIE_WNIOSKOW
-        );
-    }
-
-    public static W PATOLOGIE_WSTEPNE_BRAK_WSTYDU() {
-        return on(
-                W.BRAK_WIEDZY, W.BRAK_DZIALANIA
+                W.BRAK_INFORMACJI, W.BRAK_PRZYCZYNY, W.NIE_WYCIAGANIE_WNIOSKOW
         );
     }
 
@@ -77,7 +104,7 @@ public class DBP extends DB {
         );
     }
 
-    public static W PATOLOGIE_WSTEPNE_DOPUSZCZENIE() {
+    public static W PATOLOGIE_WSTEPNE_DOPUSZCZENIE_KOBIETA() {
         return on(
                 W.NIE_PATRZY, W.NIE_REAGUJE, W.NIE_USMIECHA, W.ZLO,
                 W.NIE_KOJARZY, W.WIDZI_PIERWSZY_RAZ, W.BRAK_WSPOLNYCH_ZNAJOMYCH, W.NIEBEZPIECZENSTWO,
@@ -119,15 +146,10 @@ public class DBP extends DB {
         );
     }
 
-    public static W PATOLOGIE_UTRZYMANIA_REZULTAT() {
-        return on(
-                W.NIE_PRZEWIDYWANIE, W.UTRACENIE
-        );
-    }
 
     public static W PATOLOGIE_UTRZYMANIA_PRACA() {
         return on(
-                W.BRAK_WYSILKU, W.NIE_UZYTECZNOSC, W.NIE_OPLACA, W.MINUS_GT_PLUS,
+                W.BRAK_WYSILKU, W.NIE_UZYTECZNOSC, W.NIE_OPLACA_SIE, W.MINUS_GT_PLUS,
                 W.NIE_PRZESTRZEGANIE_ZASAD, W.ZLA_ATMOSFERA, W.BRAK_REZULTATOW, W.ZLE_STOSUNKI1VS1,
                 W.REGRESS_UMIEJETNOSCI
         );
@@ -208,7 +230,7 @@ public class DBP extends DB {
 
     public static W PATOLOGIE_GLOBAL_PLANSZA_PRACA() {
         return on(
-                W.BRAK_FIRM_NWD, W.BRAK_FIRM_WD, W.ZABURZONY_RYNEK_PLAC, W.OGROMNE_ZASOBY_LUDZKIE
+                W.BRAK_FIRM_NIE_WYMAGAJACYCH_DOSWIADCZENIA, W.BRAK_FIRM_WYMAGAJACYCH_DOSWIADCZENIA, W.ZABURZONY_RYNEK_PLAC, W.OGROMNE_ZASOBY_LUDZKIE
         );
     }
 
@@ -224,40 +246,5 @@ public class DBP extends DB {
                 M.CALY_CZAS(W.BIEGANIE_SPRZET), W.NIE_ODBIERANIE_TELEFONU, W.BRAK_PIENIEDZY,
                 W.KONTUZJA, W.WALKA, M.MALO(M.SLABE(W.KOBIETA)), W.UZYWKI
         );
-    }
-
-    public static List<W> ZBIOR_PATOLOGIE() {
-        return of(
-                PATOLOGIE_ZWIAZKU(),
-                PATOLOGIE_WSTEPNE_SWIAT(),
-                PATOLOGIE_WSTEPNE_INFORMACJA(),
-                PATOLOGIE_WSTEPNE_WIEDZA(),
-                PATOLOGIE_WSTEPNE_BRAK_WSTYDU(),
-                PATOLOGIE_WSTEPNE_REZULTAT(),
-                PATOLOGIE_WSTEPNE_PRACA(),
-                PATOLOGIE_WSTEPNE_ZARABIANIE(),
-                PATOLOGIE_WSTEPNE_SPORT(),
-                PATOLOGIE_WSTEPNE_BRAK_OSIEDLE(),
-                PATOLOGIE_WSTEPNE_DOPUSZCZENIE(),
-                PATOLOGIE_WSTEPNE_KOBIETA(),
-                PATOLOGIE_UTRZYMANIA_SWIAT(),
-                PATOLOGIE_UTRZYMANIA_INFORMACJA(),
-                PATOLOGIE_UTRZYMANIA_WIEDZA(),
-                PATOLOGIE_UTRZYMANIA_BRAK_WSTYDU(),
-                PATOLOGIE_UTRZYMANIA_REZULTAT(),
-                PATOLOGIE_UTRZYMANIA_PRACA(),
-                PATOLOGIE_UTRZYMANIA_ZARABIANIE(),
-                PATOLOGIE_UTRZYMANIA_SPORT(),
-                PATOLOGIE_UTRZYMANIA_BRAK_OSIEDLE(),
-                PATOLOGIE_UTRZYMANIA_KOBIETA(),
-                PATOLOGIE_KONCOWE_SWIAT(),
-                PATOLOGIE_KONCOWE_PRACA(),
-                PATOLOGIE_KONCOWE_ZARABIANIE(),
-                PATOLOGIE_KONCOWE_SPORT(),
-                PATOLOGIE_KONCOWE_BRAK_OSIEDLE(),
-                PATOLOGIE_KONCOWE_KOBIETA(),
-                PATOLOGIE_GLOBAL_PLANSZA_LUDZIE(),
-                PATOLOGIE_GLOBAL_PLANSZA_PRACA(),
-                PATOLOGIE_CALY_CZAS());
     }
 }
