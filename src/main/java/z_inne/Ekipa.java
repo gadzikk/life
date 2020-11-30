@@ -1,7 +1,6 @@
 package z_inne;
 
 import metoda.M;
-import osoba.Osoba;
 import warunek.W;
 
 import java.util.List;

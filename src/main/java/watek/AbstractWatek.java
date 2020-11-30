@@ -1,6 +1,7 @@
-package metoda;
+package watek;
 
 import db.DBW;
+import metoda.M;
 import osoba.Osoba;
 import typy_bazowe.TypZadania;
 import warunek.W;

@@ -1,6 +1,7 @@
-package metoda;
+package watek;
 
 import db.DBT;
+import metoda.M;
 import warunek.W;
 
 import java.util.List;

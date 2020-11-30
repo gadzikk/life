@@ -1,7 +1,8 @@
-package metoda;
+package watek;
 
 import db.DBP;
 import db.DBW;
+import metoda.M;
 import warunek.W;
 
 import java.util.List;
@@ -293,7 +294,7 @@ public class Watek_LUDZI extends AbstractWatek {
 
         M.wypracujLepszaPozycje();
         M.ukryjDobra();
-        M.wdupcWNajgorszeWarunki();
+        M.wprowadzWNajgorszeWarunki();
         M.zajmijPozycjeIWarunki();
     }
 

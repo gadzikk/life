@@ -378,7 +378,7 @@ public class M {
     public static W sondujLudziWokol() {return W.WARUNEK;}
     public static W wypracujLepszaPozycje() {return W.WARUNEK;}
     public static W ukryjDobra() {return W.WARUNEK;}
-    public static W wdupcWNajgorszeWarunki() {return W.WARUNEK;}
+    public static W wprowadzWNajgorszeWarunki() {return W.WARUNEK;}
     public static W zajmijPozycjeIWarunki() {return W.WARUNEK;}
     public static W czekajNaBlad(W wiedza) {return W.WARUNEK;}
     public static W odlaczDostep(W blad) {return W.WARUNEK;}

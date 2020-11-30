@@ -1,7 +1,8 @@
-package metoda;
+package watek;
 
 import db.DBP;
 import db.DBW;
+import metoda.M;
 import warunek.W;
 import z_inne.OH;
 
@@ -907,7 +908,7 @@ public class Watek_ULICA extends AbstractWatek {
         M.CALY_CZAS(W.NORMALNOSC);
         M.W(M.PRZEJECIE(M.MIEJSCE_STALE(of(DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI(), DBW.OSLONY_WARUNKI()))), "--->", M.OBSADZ_STANOWISKA(of(W.SWOI, W.ZLI)));
         M.ULTIMATIUM(pracownicy.caly_czas(M.DZIALANIE_DLA_ZLA(of(DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI(), DBW.OSLONY_WARUNKI()))));
-        M.CALY_CZAS(M.DOSTEP_TYLKO(M.OSOBY(W.ZLI)));
+        M.CALY_CZAS(M.DOSTEP_TYLKO(of(M.POTRZEBNE(W.HASLO_RDZENNYCH), M.OSOBY(W.SWOI))));
 
         // DLUGA_DOSTEPNOSC
 

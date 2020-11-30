@@ -1,12 +1,11 @@
-package metoda;
+package watek;
 
 import db.DBP;
 import db.DBW;
+import metoda.M;
 import warunek.W;
 
 import java.util.List;
-
-import static typy_bazowe.TypOsoby.YOU;
 
 /**
  * Created by gadzik on 01.01.20.

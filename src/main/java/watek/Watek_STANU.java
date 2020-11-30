@@ -1,5 +1,6 @@
-package metoda;
+package watek;
 
+import metoda.M;
 import warunek.W;
 
 import java.util.List;

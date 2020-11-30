@@ -1,8 +1,9 @@
-package metoda;
+package watek;
 
 
 import db.DBS;
 import db.DBW;
+import metoda.M;
 import typy_bazowe.TypMiejsce;
 import warunek.W;
 

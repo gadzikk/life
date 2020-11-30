@@ -1,4 +1,4 @@
-package metoda;
+package watek;
 
 /**
  * Created by gadzik on 05.01.20.
