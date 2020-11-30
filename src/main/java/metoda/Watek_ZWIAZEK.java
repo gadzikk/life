@@ -13,20 +13,18 @@ import static typy_bazowe.TypOsoby.YOU;
  */
 public class Watek_ZWIAZEK extends AbstractWatek {
 
-    List<W> essentials = of(W.PRZYMUS, W.ROZWALENIE_SWIADOMOSCI, W.NAJNIZSZY_POZIOM_WARSTWY);
+    List<W> najwazniejszeZwiazek = of(W.PRZYMUS, W.ROZWALENIE_SWIADOMOSCI, W.NAJNIZSZY_POZIOM_WARSTWY);
 
-    List<W> endCase = of(W.ZWIAZEK_2_OSOB, W.CODZIENNA_BLISKOSC, W.SEX, W.DZIECI);
+    List<W> koncoweWarunki = of(W.ZWIAZEK_2_OSOB, W.CODZIENNA_BLISKOSC, W.SEX, W.DZIECI);
 
-    List<W> warunki = of(W.DEFICYT_WSROD_STARYCH, W.MALE_ZRODLO_MLODYCH_KOBIET, W.POCIAG_DO_ZAGRANICZNYCH);
+    List<W> warunki = of(W.DEFICYT_KOBIET_WSROD_STARYCH, W.MALE_ZRODLO_MLODYCH_KOBIET, M.KOBIETA(W.POCIAG_DO_ZAGRANICZNYCH));
 
     List<W> kobieta = of(W.CHODZI_Z_BYLEKIM, W.BYLE_BEZPIECZENSTWO, W.BYLE_EMOCJE, W.PRZYJEMNOSCI);
 
-    W kontakty = M.WW(
-            of(W.PIERWSZY_KONTAKT),
-            of(M.odmowa()),
-            of(W.NASTEPNY_KONTAKT),
-            of(M.GRANT(YOU, of(W.ZNA, W.BEZPIECZENSTWO, W.WIE_ZE_WARTO, W.CIEKAWOSC)))
-    );
+    W kontakty = M.WW(W.PIERWSZY_KONTAKT,
+                        M.odmowa(),
+                        W.NASTEPNY_KONTAKT,
+                        of(W.ZNA, W.BEZPIECZENSTWO, W.WIE_ZE_WARTO, W.CIEKAWOSC));
 
     W relacja = M.POTRZEBNE(of(W.BLISKOSC, W.WZGL_IZOLACJA, M.OPCJA(W.SRODOWISKOWA_SYTUACJA)));
 
@@ -114,16 +112,16 @@ public class Watek_ZWIAZEK extends AbstractWatek {
     }
 
     public void doKosza() {
-        M.W(of(W._NIE_,
+        M.W(M.BRAK(of(
                 W.KASA,
                 W.SRODOWISKO,
                 W.LADNY,
-                W.ZNAJOMI), "--->", of(W.DO_KOSZA));
+                W.ZNAJOMI)), "--->", of(W.DO_KOSZA));
     }
 
     public void dzialajacaManiura() {
         M.W(of(W.POLOZENIE_SIE_PRZED_DZIALAJACYM, W.ZDJECIA_TWARZOWKI,
-                W.NAGADYWANIE_KOLEZANEK),            "--->", of(W.SPOKOJ, W.SRODOWISKO, W.PRACA_PO_ZNAJOMOSCI));
+                                             W.NAGADYWANIE_KOLEZANEK),"--->", DBW.PRZEWAGI_Z_ULICY_WARUNKI());
     }
 
 
@@ -143,7 +141,6 @@ public class Watek_ZWIAZEK extends AbstractWatek {
 //- mnostwo ludu zagranica
 //- pustka
 //
-//+ przedszkole gleboko w osiedlu
 //+ duzo mieszkan wokol
 //+ duza dzietnosc
 //+ rejonowka

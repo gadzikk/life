@@ -27,9 +27,9 @@ public class Watek_ULICA extends AbstractWatek {
     W ciaglaCzynnoscUlica = M.CALY_CZAS(M.WYBOR(of(W.IDZIESZ, W.STOISZ_BRAMA, W.STOISZ_MIEJSCE_STALE, W.JEDZIESZ_TRAUTO)));
 
     List<W> podstawa = of(M.OGRANICZENIE_CZASOWE(of(W.DNI, W.TYGODNIE, W.LATA)), W.OBECNOSC, W.DOSTEP, W.SONDA, W.STARCIE,
-                          W.ANTY_FEST, W.ANTY_SYSTEM, W.ANTY_BURZUA, W.ANTY_KONFI);
+                          W.WALKA_Z_FESTAMI, W.WALKA_Z_SYSTEMEM, W.WALKA_Z_WYGODNYMI, W.WALKA_Z_KONFIDENTAMI);
 
-    Integer atrakcyjnosc = c(M.SILNE(W.DOBRO), ">", M.OBECNOSC(W.ULICA), ">", W.JUMA, ">", W.KIBICOWANIE, ">", on(W.DILL, W.DZIALANIE_DLA_ZLA));
+    Integer atrakcyjnosc = c(M.SILNE(W.DOBRO), ">", M.OBECNOSC(W.ULICA), ">", W.ZLODZIEJKA, ">", W.KIBICOWANIE, ">", on(W.DILL, W.DZIALANIE_DLA_ZLA));
 
     List<W> prawaUlicy = of(W.DOMINACJA, W.GLUPIEGO_CZEKA_KARA, W.PRZEWAGA, W.DOSTEP, W.HIERARCHIA, W.JEDNOSC_PRZECIW_ZAZDROSCI);
 
@@ -41,22 +41,21 @@ public class Watek_ULICA extends AbstractWatek {
             M.PODZIELONA(M.TEMPA(M.STARA(M.AGRESYWNA(W.CZOLOWKA_EKIPY)))), M.KAZDY_W_EKIPIE(M.CZEKA_NA(W.SZANSA_OD_LOSU)),
             M.ZLODZIEJE(1, W.PROCENT), M.CZOLOWKA(5, W.PROCENT), M.KIBICE(10, W.PROCENT), M.MLODZI(30, W.PROCENT),
             W.POPYT, W.PODAZ,
-            W.BRAK_CZASU, W.ODBIJANIE_OD_EKIP, W.UZYWKI, M.WALY(W.SWOI));
+            W.BRAK_CZASU, W.ODBIJANIE_OD_EKIP, W.UZYWKI, M.OSZUKIWANIE(W.SWOI));
 
-    List<W> warunekiWejsciowe = of(W.ZLO_NA_CZUBKU_STOSU, W.DZUNGLA, W._100PROCENT_WYSILKU_10PROCENT_OTRZYMUJESZ, W.CALE_ZYCIE_CIERPIENIE,
-            W.STARZEJESZ_SIE, W.MIESZKANIE_300TYS_WYPLATA_3TYS, W.KTOS_CIEBIE_LUB_TY_NIEGO, W.PUSTKA, W._1_OSOBA__DUZO,
-            W.PRZEWAGA_ZROBIONA_NA_KRZYWDZIE_LUB_BRAKU_ZASAD, W.SLABSZA_PRZEWAGA_ULEGA_MOCNIEJSZEJ_W_MOMENCIE_PRZY_WARUNKACH,
-            W.BIJESZ_KTOS_MOZE_ODDAC_MOCNIEJ, W.MALO_OSOB, W.OSOBY_KAZDY_NA_KAZDEGO
-    );
-    W warunkiNieDoZycia = M.CALY_CZAS(of(
-            W.PUSTKA, W.ZLE_W_ZYCIU, W.MALO_OSOB,
+    W warunekiWejsciowe = M.CALY_CZAS(of(W.PUSTKA, W.MALO_OSOB, W._1_OSOBA_DUZO, W.ZLE_W_ZYCIU, W.ZLO_NA_WEJSCIU,
+            W._100PROCENT_WYSILKU_10PROCENT_OTRZYMUJESZ, W.CALE_ZYCIE_CIERPIENIE,
+
+            W.STARZEJESZ_SIE, W.MIESZKANIE_300TYS_WYPLATA_3TYS,
             W.CHRONICZNE_BEZROBOCIE, W.NISKIE_PENSJE, M.MALA_SZANSA(W.ZDOBYCIE_PRACY_NEUTRALNY_RZUT),
-            W.WIEKSZOSC_DZIALA, W.LUDZIE_CHCA_TWOJEJ_KRZYWDY,
-            W.CHETNOSC_ZERO, M.DZIALAJACY(W.KOBIETY), M.MALA_SZANSA(W.PODERWANIE_KOBIETY_NEUTRALNY_RZUT), DBP.PATOLOGIE_WSTEPNE_KOBIETA()
+            W.LUDZIE_CHCA_TWOJEJ_KRZYWDY, W.KTOS_CIEBIE_LUB_TY_JEGO, W.WIEKSZOSC_DZIALA_DLA_ZLA,
+            W.PRZEWAGA_ZROBIONA_NA_KRZYWDZIE_LUB_BRAKU_ZASAD, W.SLABSZA_PRZEWAGA_ULEGA_MOCNIEJSZEJ_W_MOMENCIE_PRZY_WARUNKACH,
+            W.BIJESZ_KTOS_MOZE_ODDAC_MOCNIEJ,
+            W.CHETNOSC_ZERO, M.DZIALAJACE(W.KOBIETY), M.MALA_SZANSA(W.PODERWANIE_KOBIETY_NEUTRALNY_RZUT), DBP.PATOLOGIE_WSTEPNE_KOBIETA()
     ));
 
     List<W> szansaNaWarunek = of(W.OBECNOSC, W.STANDARDOWE_ZACHOWANIE, W.STANDARDOWE_WARUNKI, W.DZIALANIE, W.REAKCJA,
-            W.MAKSYMALNIE_ULATWIASZ, W.PRZEKONYWANIE, W.ULTIMATUM);
+            W.MAKSYMALNE_ULATWIENIE, W.PRZEKONYWANIE, W.ULTIMATUM);
 
     List<W> warunek = of(W.ULTIMATUM, W.POCZATEK, W.KONIEC, W.ZYSK, W.WARTOSC, W.ILOSC_OSOB, W.CZESTOTLIWOSC, W.SILA, W.PRIORYTET);
 
@@ -67,7 +66,7 @@ public class Watek_ULICA extends AbstractWatek {
     public void run(){
         M.W(of(W.SILNA_JEDNOSTKA, W._88_, W.DZIALANIE_W_EKIPIE), "--->", M.DOSTEP(of(W.CZOLO, W.OGARNIECI)));
 
-        M.W(M.BRAK(M.DOSTEP(of(W.CZOLO, W.OGARNIECI))), "--->", of(W.MOCNI_NIE_LICZACY_SIE, W.NORMALNY, M.MLODE(M.CHETNE(W.PIONKI)),
+        M.W(M.BRAK(M.DOSTEP(of(W.CZOLO, W.OGARNIECI))), "--->", M.ZWYKLE(W.MOCNI_NIE_LICZACY_SIE, W.NORMALNY, M.MLODE(M.CHETNE(W.PIONKI)),
                                                                                             W.FEST, W.ROZPIESZCZONY_BANAN, W.SYSTEMOWIEC, W.WYGODNY));
 
         M.W(of(W.MOCNY_WZROK), "--->", of(W.WYSILEK_FIZYCZNY, W.WYSILEK_UMYSLOWY));
@@ -117,19 +116,19 @@ public class Watek_ULICA extends AbstractWatek {
     public void tworzaceJakosc() {
         M.W(W.SILNY, "--->", M.CZESTO(W.WYCHODZISZ));
 
-        M.W(DBW.DUZO_SIE_DZIEJE_ULICA_WARUNKI(), "--->",of(M.wydluzajCzas(),
-                                                M.estymuj(),
-                                                M.maloLazBezCelu(), M.stale(), M.ujscie(), M.zKims()));
+        M.W(DBW.DUZO_SIE_DZIEJE_ULICA_WARUNKI(), "--->",of(M.DLUGO(W.OBECNOSC),
+                                                                M.ESTYMACJA(W.CZAS),
+                                                M.OPCJA(of(W.CEL, W.MIEJSCE_STALE, M.MIEJSCE_STALE(W.UJSCIE), W.Z_KIMS))));
 
-        M.W(W.KONDYCJA, "--->",of(M.duzoGetAndCompare(),
-                                    M.od_8_do_22()));
+        M.W(W.KONDYCJA, "--->",of(M.DUZO(of(W.INFORMACJA, W.WNIOSKI)),
+                                    M.OD_RANA_DO_WIECZORA(M.OBECNOSC(W.ULICA))));
 
-        M.W(of(W.BRAK_WSTYDU, W._88_, W.WYCHODZENIE_NA_ULICE), "--->", of(M.proba(), M.wnioski(), M.wiedza()));
+        M.W(of(W.BRAK_WSTYDU, W._88_, W.WYCHODZENIE_NA_ULICE), "--->", of(W.PROBA, W.WNIOSKI, W.WIEDZA));
     }
 
     public void wychodzisz() {
         M.W(W.WYCHODZISZ, "--->", of(M.CALY_CZAS(W.ZLO_KRAZY),
-                ZLE_OSOBY.caly_czas(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA),
+                ZLE_OSOBY.caly_czas(W.SZUKA_OFIAR_NA_ZROBIENIE_ZLA),
                 ZLE_OSOBY.caly_czas(W.STWARZA_OKAZJE_ZROBIENIE_ZLA),
                 M.ZWYKLE(of(DBW.KRZYWDY_WARUNKI(), DBW.OSLONY_WARUNKI())),
                 M.CALY_CZAS(of(ciaglaCzynnoscUlica, W.ZASIEG_WZROKU, W.SCIEZKI, W.LUDZIE, W.WIDOCZNY_GDY_IDZIESZ))));
@@ -212,7 +211,7 @@ public class Watek_ULICA extends AbstractWatek {
 
         M.W(M.WIDZISZ(W.WARUNEK), "--->", M.SONDA(of(W.POCZATEK, W.KONIEC, W.SILA, W.ZYSK, W.WARTOSC, W.ILOSC_OSOB, W.CZESTOTLIWOSC)));
 
-        M.W(M.OSOBA(W.MOWI), "--->", M.SONDA(M.OSOBA(W.KTO_MOWI)));
+        M.W(M.OSOBA(W.MOWI), "--->", M.SONDA(DBW.SONDA_KROTKA_WARUNKI()));
 
         M.W(W.POKAZUJE_EMOCJE, "--->", W.SLABY);
 
@@ -310,8 +309,6 @@ public class Watek_ULICA extends AbstractWatek {
         List<W> sprzety = of(M.OPCJA(M.DDM(W.SPRZET)), M.OPCJA(M.MIEJSCE_STALE(W.SPRZET)), M.OPCJA(M.PRACA(W.SPRZET)),
                              M.OPCJA(M.SAMOCHOD(W.SPRZET)), M.OPCJA(M.PRZY_SOBIE(W.SPRZET)));
 
-        M.W(of(M.PROSTO(W.CISNIE)), "--->", of(W.ODRAZU_DZIALANIE));
-
         M.W(of(W.KLOTNIA), "--->", of(M.powtarzajGlosnoSensowneArgumenty(),
                                         M.W(W.ZAPIERA_SIE, "--->", of(M.upierasz(), M.udowadniaszPrzytaczasz())),
                                         M.W(W.ZAPIERA_SIE_RODZINA_PRACA, "--->", of(M.odpusc(),
@@ -331,7 +328,7 @@ public class Watek_ULICA extends AbstractWatek {
                                                         W.PO_EKIPE_NIEZDARZY,
                                                         W.PO_PSY_NIEZDARZY));
 
-        M.W(W.USMIECH_ZNIEWAZAJACY, "--->", W.CISNIJ);
+        M.W(W.USMIECH_ZNIEWAZAJACY, "--->", M.ODRAZU(DBW.CISNIE_WARUNKI()));
 
         M.W(of(W.AKCJA), "--->",  of(M.pamiecOBolach(),
                                           M.widzisz(),
@@ -339,25 +336,21 @@ public class Watek_ULICA extends AbstractWatek {
                                           M.kontrolaSiebieKrokZaKrokiem(),
                                           M.leciszZZaskoczenia()));
 
-        M.W(W.KOMIN, "--->", M.zobligowanyDoDzialania());
+        M.W(M.UZYCIE(W.KOMINIARKA), "--->", M.zobligowanyDoDzialania());
 
-        M.W(W.SILNY, "--->", of(M.czekajNaBlad(W.WIEDZA),
-                                     M.odlaczDostep(W.BLAD)));
+        M.W(W.SILNY, "--->", of(M.czekajNaBlad(W.WIEDZA), M.odlaczDostep(W.BLAD)));
 
         M.W(W._1SPOJRZENIE, "--->", M.OSOBA(M.SONDA(W.ZNAJOMOSC)));
 
-        M.W(W._2SPOJRZENIA, "--->", of(M.probaZdobyciaInformacji(), M.II(),   M.szykowanieStarcia()));
+        M.W(W._2SPOJRZENIA, "--->", of(M.probaZdobyciaInformacji(), M.II(),   M.przygotowywanieStarcia()));
 
-
-        M.W(of(W.STARZY_LUDZIE, W._II_, W.FESTY), "--->", M.MOZLIWOSC(W.PRZYPAL));
-
-        M.W(of(W.STARCIE), "--->", M.OPPONENT(W.KONSEKWENCJE));
+        M.W(of(W.STARZY_LUDZIE, W._II_, W.FESTY), "--->", M.MOZLIWOSC(W.DZWONIENIE_NA_POLICJE));
 
         M.W(of(W.BLISKOSC, W.CISNIECIE, W.WALKA_PIESCI, W.WALKA_SPRZET), "--->", of(dzialaczMocny.pomsci(),
                                                                                         dzialaczMocny.ultimatumEkipie()));
 
-        M.W(M.POBITY(osoba), "--->", of(M.KOLEJKA_DO(M.POBICIE(osoba)), M.POINFORMUJ_WSZYSTKICH(W.HANBA), W.DLUG_MORALNY, W.CHEC_POMSZCZENIA,
-                                                                    znajomy.PRZESTAJE(W.WSPARCIE), znajomy.ZACZYNA(W.PRZECIW), silniejszy.GNOJI(osoba)));
+        M.W(M.POBITY(W.OSOBA), "--->", of(M.KOLEJKA_DO(M.POBICIE(W.OSOBA)), M.POINFORMUJ_WSZYSTKICH(W.HANBA), W.DLUG_MORALNY, W.CHEC_POMSZCZENIA,
+                                                                    M.ZNAJOMY(M.PRZESTAJE(W.WSPARCIE)), M.ZNAJOMY(M.ZACZYNA(W.PRZECIW)), M.SILNIEJSZY(M.GNOJI(W.OSOBA)));
 
         M.WALKA_SILA(of(W.ZAGRANICZNI, W.WYGODNY));
         M.WALKA_WIEDZA(of(W.BIEGAJACY_SPRZET, W.NIECHCACY_WPUSCIC));
@@ -368,7 +361,7 @@ public class Watek_ULICA extends AbstractWatek {
         M.NIGDY_MALO(of(W.ZLO, W.DOBRO, W.NIENAWISC, W.MILOSC, W.AGRESJA_W_DZIALANIU, W.CIERPLIWOSC)); // MORALNE
 
         M.W(M.ZWYKLE(M.CALY_CZAS(W.WSZYSCY_CHCA_CIE_TWOJEJ_KRZYWDY)), "--->",of(M.W(W.HASLO_RDZENNYCH, "--->",  W.NEUTRALNOSC),
-                                                                                             M.W(M.BRAK(W.HASLO_RDZENNYCH), "--->", DBW.KRZYWDY_WARUNKI())));
+                                                                                 M.W(M.BRAK(W.HASLO_RDZENNYCH), "--->", DBW.KRZYWDY_WARUNKI())));
 
         M.WW(W.SONDA, "--->", W.NASTAWIENIE, "--->", W.DZIALANIE);
 
@@ -385,7 +378,6 @@ public class Watek_ULICA extends AbstractWatek {
 
         M.W(of(W.MILY_TEAMT, W.ZARTY, W.POCHWALA, W.WSPARCIE, W.DOBRE_EMOCJE,
                 W.TEMAT_ZGODNY_Z_WARTOSCIAMI, W.TEMAT_ZGODNY_Z_EMOCJAMI, W.TEMAT_NIEPODWAZALNY), "--->", of(W.DOBRA_ROZMOWA));
-
 
         M.W(of(W.STANDARDOWA_REAKCJA_NA_ZLO), "--->", W.ZNIECZULICA);
 
@@ -412,15 +404,15 @@ public class Watek_ULICA extends AbstractWatek {
 
         M.W(of(W.OSOBA_ZASIEG_WZROKU), "--->", of(W.SONDA_PO_WADACH));
 
-        M.WW(of(W.LADNY, W.SILNY), "--->", of(W.SONDA_POD_ZROBIENIE_ZLA, W._88_, W.SLABY), "--->", of(W.OSZUKANIE_WYKORZYSTANIE, W.WYKLUCZENIE));
+        M.WW(W.OSOBA, "--->", of(W.SONDA_POD_ZROBIENIE_ZLA, W._88_, W.SLABY), "--->", of(W.OSZUKANIE_WYKORZYSTANIE, W.WYKLUCZENIE));
 
-        M.WW(of(W.LADNY, W.SILNY), "--->", of(W.SONDA_POD_ZROBIENIE_ZLA, W._88_, W.SILNY), "--->", of(W.OTWARTE_STARCIE, W.WALKA_PIESCI));
+        M.WW(W.OSOBA, "--->", of(W.SONDA_POD_ZROBIENIE_ZLA, W._88_, W.SILNY), "--->", of(W.OTWARTE_STARCIE, W.WALKA_PIESCI));
 
         M.W(of(W.SAM) , "--->", of(W.LATWY_CEL, W.BRAK_PRZEWAG));
 
         M.W(M.SPOTKANY(M.OSOBA(W.HANBA)), "--->", M.ZAWSZE_GDY_BLISKOSC(of(W.CISNIE, W.WYPOMNIENIE_HANBY)));
 
-        M.W(M.KORZYSTA(W.SILA), "--->", M.MUSI(M.NA(W.ULICA)).W_PRZECIWNYM_PRZYPADKU(W.PRZYPAL));
+        M.W(M.KORZYSTA(W.SILA), "--->", M.MUSI(M.NA(W.ULICA)).W_PRZECIWNYM_PRZYPADKU(W.DZWONIENIE_NA_POLICJE));
 
         M.W(of(W.WROG, W._88_, W.BLISKOSC), "--->", M.WALI(wrogowie));
 
@@ -434,7 +426,7 @@ public class Watek_ULICA extends AbstractWatek {
         M.W(of(M.BRAK(W.ORIENT), W.DZIALANIE,
                 M.OPCJA(W.ZUCHWALOSC), M.OPCJA(M.BRAK(W.WIEDZA))), "--->", M.SZYBKO(W.KARA));
 
-        M.W(W.OBCY, "--->", M.SZANSA_NA(of(M.SRODOWISKO(W.BOJA_SIE), W.EMOCJE_ZE_ZLA, W.WYKORZYSTANIE, W.OKRASC_PIENIADZE)));
+        M.W(W.OBCY, "--->", M.SZANSA_NA(of(W.STARCIE, M.SRODOWISKO(W.BOJA_SIE), W.EMOCJE_ZE_ZLA, W.WYKORZYSTANIE, W.OKRASC_PIENIADZE)));
 
         M.WW(M.WALKA_DWOCH_OSOB((of(DBW.KRZYWDY_WARUNKI(),
                             M.OPCJA(DBW.BRAK_ZASAD_WARUNKI()),
@@ -528,8 +520,8 @@ public class Watek_ULICA extends AbstractWatek {
         // RESTRYKCJA WARTOSCI
 
         M.W(M.OSIEDLE(M.OSOBA(W.OBCY)), "--->", M.OSIEDLE(M.KAZDY_BLLISKO(M.WYCHODZI(W.OSIEDLE)))
-                .CEL(M.ROBI_KRZYWDE(of(W.OBCY, DBW.KRZYWDY_WARUNKI())))
-                .CEL(M.PRZESTRASZENIE(of(W.OBCY, M.OBCY(M.BRAK_DOSTEPU(W.OSIEDLE))))));
+                                                        .CEL(M.ROBI_KRZYWDE(of(W.OBCY, DBW.KRZYWDY_WARUNKI())))
+                                                        .CEL(M.PRZESTRASZENIE(of(W.OBCY, M.OBCY(M.BRAK_DOSTEPU(W.OSIEDLE))))));
 
         M.W(W.WARTOSC, "--->", M.ULTIMATIUM(M.RESTRYKCJA(M.DOSTEP(W.WARTOSC)))
                                     .W_INNYM_PRZYPADKU(M.ROBI_KRZYWDE_Z_PRZEWAGA(of(DBW.KRZYWDY_WARUNKI(), DBW.PRZEWAGI_CHWILI_WARUNKI()))));
@@ -656,7 +648,9 @@ public class Watek_ULICA extends AbstractWatek {
 
         M.W(of(W.ZLY, W._88_, W.PRZEWAGA), "--->", of(W.WALI_OSOBE_BEZ_PRZEWAGI, W.BEZKARNOSC));
 
-        M.W(of(W.NUDA, W.KTOS_CIEBIE_LUB_TY_NIEGO,
+        M.W(of(W.SLABY, W._88_, W.BLISKOSC, W.SILNA_JEDNOSTKA), "--->", M.SLABY(M.PO_CICHU(of(W.SILNA_JEDNOSTKA, DBW.KRZYWDY_POSREDNIE_WARUNKI()))));
+
+        M.W(of(W.NUDA, W.KTOS_CIEBIE_LUB_TY_JEGO,
                 W.AGRESJA_W_DZIALANIU, W.EMOCJE_ZE_ZLA), "--->", of(W.WALI_OSOBE_BEZ_PRZEWAGI, W.OSZUKIWANIE_WYKORZYSTANIE, W.BEZKARNOSC, W.GLUPOTA));
 
         // OKOLOKIBICOWSKIE
@@ -698,8 +692,8 @@ public class Watek_ULICA extends AbstractWatek {
     }
 
     public void algorytmUlicy() {
-        List<W> budujacyHierarchieDecyzyjni = of(W.MORDERCY, M.DLUGO(W.STRATA_WOLNOSCI), M.DUZO(M.ZROBIL_DLA(W.EKIPA)),
-                W.POZA_PRAWEM, W.NIESPRAWIEDLIWI, W.AGRESYWNI, DBW.PRZEWAGI_WARUNKI());
+        List<W> budujacyHierarchieDecyzyjni = of(M.DLUGO(W.STRATA_WOLNOSCI), M.DUZO(M.ZROBIL_DLA(W.EKIPA)),
+                M.DLUGO(W.POZA_PRAWEM), W.NIESPRAWIEDLIWI, W.AGRESYWNI, DBW.PRZEWAGI_WARUNKI());
 
         List<W> cele = of(W.WZIECIE_JAKNAJWIECEJ_OSOB_DO_BIEGANIA_SPRZET, W.WZIECIE_JAKNAJWIECEJ_OSOB_W_NARKOTYKI, M.SILNA(W.EKIPA), W.PIENIADZE, W.SILA_SPRAWCZA);
         List<W> przyczynyBiegania = of(W.MODA, W.STARSI, W.WYKLUCZENIE_ZE_SRODOWISKA, W.AGRESJA, W.KORZYSCI, W.WADY, W.NUDA);
@@ -729,10 +723,9 @@ public class Watek_ULICA extends AbstractWatek {
 
         M.W(M.NIE_ZNAJA(W.OSOBA), "--->", M.ROZKMINANIE(of(W.HASLO_RDZENNYCH, W.NOTYFIKACJA_EKIPA, W.ZDJECIA_TWARZOWKI)));
 
-        M.W(M.OSOBA(M.BRAK(W.HASLO_RDZENNYCH)), "--->", of(M.dziwadlo(W.OSOBA),
-                                                                    M.gorszeTraktowanieNizReszta(W.OSOBA),
-                                                                    M.zamkniecieSytuacjiBezpowrotnie(),
-                                                                    M.obgadywanie()));
+        M.W(M.OSOBA(M.BRAK(W.HASLO_RDZENNYCH)), "--->", of(M.GORSZE_TRAKTOWANIE_NIZ_RESZTA(W.OSOBA),
+                                                                    M.ZAMKNIECIE_DOSTEPU_BEZPOWROTNIE(W.OSOBA),
+                                                                    M.CISNIE(W.OSOBA)));
 
         M.W(W.SLABY, "--->", M.DUZE_SZANSE(M.PO_CICHU(of(M.SPRAWDZANIE(W.HASLO_RDZENNYCH), W.NOTYFIKACJA_EKIPA, W.ZDJECIA_TWARZOWKI))));
         M.W(W.SILNY, "--->", M.DUZE_SZANSE(M.OTWARTE(W.STARCIE)));
@@ -786,9 +779,7 @@ public class Watek_ULICA extends AbstractWatek {
                 M.zapamietaj()));
 
         M.W(of(W.SPOTKANY_ZNAJOMY), "--->",of(M.wezOstatnieGoraceTematy(),
-                M.rozpowiedz(znajomy, W.STALO_SIE, osoba)));
-
-        M.W(M.OSOBA(M.ZNAJOMY(W.OSOBA_X)), "---->", M.rozpowiedz(znajomy, W.STALO_SIE, osoba));
+                                                M.rozpowiedz(znajomy, W.STALO_SIE, osoba)));
     }
 
     public void hierarchiaOsiedle(){
@@ -918,6 +909,8 @@ public class Watek_ULICA extends AbstractWatek {
         M.ULTIMATIUM(pracownicy.caly_czas(M.DZIALANIE_DLA_ZLA(of(DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI(), DBW.OSLONY_WARUNKI()))));
         M.CALY_CZAS(M.DOSTEP_TYLKO(M.OSOBY(W.ZLI)));
 
+        // DLUGA_DOSTEPNOSC
+
         M.W(M.MIEJSCE_STALE(W.DLUGA_DOSTEPNOSC), "--->", of(M.WEJSCIE(M.EKIPA(M.SPRZET(W.WCZESNIE_RANO))),
                                                                 M.CALY_CZAS(M.DYZURY(W.DZIALAJACY)),
                                                                 M.CALY_CZAS(M.SPRAWDZANIE(W.WSZYSCY))));
@@ -935,8 +928,6 @@ public class Watek_ULICA extends AbstractWatek {
 
         M.CALY_CZAS(M.PROBUJ(M.PRZEJECIE(of(W.OSIEDLE, W.MIEJSCE_STALE, W.PRACA, W.SLUZBY, W.LUDZIE))));
     }
-
-
 
     public void sprzet() {
         M.W(W.SPRZET, "--->", of(M.ZMNIEJSZANIE_PRZEWAG(M.OSOBA(W.BEZ_SPRZETU)),
@@ -1029,7 +1020,7 @@ public class Watek_ULICA extends AbstractWatek {
                 ),
                 M.W(of(W.OCZY, W.USZY, W.CIERPIENIE, W.POZBAWIENIE_BEZPIECZENSTWA, W.POZBAWIENIE_DOSTEPOW),
                         of(
-                                M.zamkniecieSytuacjiBezpowrotnie(),
+                                M.ZAMKNIECIE_DOSTEPU_BEZPOWROTNIE(),
                                 M.dokrecanieSruby(),
                                 M.odnowa(), M.II(), M.odnowaMocniej(),
                                 M.widziszTylkoZlaStrone(),

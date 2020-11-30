@@ -72,9 +72,9 @@ public class Watek_LUDZI extends AbstractWatek {
 
         M.W(of(W.POZNANIE_WARTOSCI_PIENIADZA, W.FAZA_Z_NAUKI, W.FART, W.DZIWNA_PASJA), "--->", of(W.DOBRY_ZAWOD));
 
-        M.W(of(W.ZNAJOMI_PRZESTEPCY, W.CHECI), "--->", of(W.JUMA));
+        M.W(of(W.ZNAJOMI_PRZESTEPCY, W.CHECI), "--->", of(W.ZLODZIEJKA));
 
-        M.W(of(W.JUMA, W.PRACA), "--->", of(W.POZNANIE_WARTOSCI_PIENIADZA));
+        M.W(of(W.ZLODZIEJKA, W.PRACA), "--->", of(W.POZNANIE_WARTOSCI_PIENIADZA));
 
         M.W(of(W.POZNANIE_NAUKI), "--->", of(W.FAZA_Z_NAUKI));
 
@@ -193,7 +193,7 @@ public class Watek_LUDZI extends AbstractWatek {
                 of(
                         W.TEMPOTA,
                         W.GLUPOTA,
-                        W.NIEODPOWIADA,
+                        M.KOBIETA(W.NIEODPOWIADA),
                         W.NIESWIADOMOSC,
                         W.ZALEZNY
                 )
@@ -218,7 +218,7 @@ public class Watek_LUDZI extends AbstractWatek {
                 of(
                         W.ODERWANIE_OD_RZECZYWISTOSCI,
                         W.BRAK_CHETNOSCI,
-                        W.MARZY_OBCOKRAJOWIEC
+                        M.KOBIETA(W.MARZY_OBCOKRAJOWIEC)
                 )
         );
         M.W((W.RODZINA),
@@ -409,7 +409,7 @@ public class Watek_LUDZI extends AbstractWatek {
 
         List<W> dzialajcyPrzewagi = of(W.KLUB, W.MLODE_KOBIETY, W.SRODOWISKO, W.ZNAJOMI, W.EMOCJE, W.PRACA_PO_ZNAJOMOSCI);
 
-        List<W> dzialajcySlabosci = of(W.BRAK_ZDROWIA, W.BRAK_SUMIENIA, W.PIEKLO);
+        List<W> dzialajcySlabosci = of(W.BRAK_ZDROWIA, W.BRAK_SUMIENIA);
 
 
         M.W(of(W.DZIALAJACY, W._88_, W.BLISKOSC), "--->", W.NASTAWIENIE_AGRESJA);
@@ -418,7 +418,7 @@ public class Watek_LUDZI extends AbstractWatek {
     public void czlowiekCierpienia() {
         M.W(M.DLUGO(M.CIEZKO(of(W.CIERPIENIE, W.BOL))), "--->", M.WZIECIE_SPRAWIEDLIWOSCI(of(W.SILA, W.MADROSC, W.DOSWIADCZENIA)));
 
-        M.W(M.KORZYSTA(W.SILA), "--->", M.MUSI(M.NA(W.ULICA)).W_PRZECIWNYM_PRZYPADKU(W.PRZYPAL));
+        M.W(M.KORZYSTA(W.SILA), "--->", M.MUSI(M.NA(W.ULICA)).W_PRZECIWNYM_PRZYPADKU(W.DZWONIENIE_NA_POLICJE));
 
         M.W(of(W.WROG, W._88_, W.BLISKOSC), "--->", M.WALI(wrogowie));
     }
@@ -481,13 +481,13 @@ public class Watek_LUDZI extends AbstractWatek {
         M.W(W.DOBRY, "--->", of(M.wykorzystujeOkazjeDobro(), M.dobro()));
         M.W(W.ZLY, "--->", of(M.stwarzaOkazjeZlo(), M.zlo()));
 
-        M.W(W.FEST, "--->", of(M.budzaceEmocjeWow(), M.wdupcanieOstatnichKolegow()));
+        M.W(W.FEST, "--->", of(M.budzaceEmocjeWow(), M.oszukiwanieOstatnichKolegow()));
         M.W(W.WIESNIAK, "--->", of(M.bezpieczneBezSensu(), M.strefaKomfortu(), M.cisnieIleMozna()));
         M.W(W.BURZUA, "--->", of(M.impreza(), M.melanz(), M.zwiazki(), M.znajomi(), M.przyjemnosci()));
         M.W(W.OSIEDLOWY_SLABY, "--->", of(M.nieudolneDzialanie(), M.wszystkoSlabo(), M.strefaKomfortu()));
         M.W(W.BIEGAJACY_SPRZET, "--->", of(M.wjazd(), M.cpanie(), M.mecz(), M.siedzenieOsiedle()));
         M.W(W.OSIEDLOWY_MOCNY, "--->", of(M.dobreDzialanie(), M.wszystkoDobrze(), M.pozaStrefaKomfortu()));
-        M.W(W.GRUBAS_Z_PRZEWAGA, "--->", of(M.rozkazyNizszym(), M.bawSie()));
+        M.W(W.GRUBAS_Z_PRZEWAGA, "--->", of(M.rozkazyNizszym(), M.bawiSie()));
         M.W(W.PRACOWNIK_KORPORACJI, "--->", of(M.praca(), M.podroze(), M.dom()));
         M.W(W.PYSZNY_POSIADACZ, "--->", of(M.odbierzWartosc(), M.dzialaWedleWidzimisie()));
         M.W(W.MANAGER, "--->", of(M.wykorzystajZasob(), M.ukryjDostep()));

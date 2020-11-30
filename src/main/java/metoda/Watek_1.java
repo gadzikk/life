@@ -16,7 +16,7 @@ import static typy_bazowe.TypOsoby.*;
 public class Watek_1 extends AbstractWatek {
     W wazne = M.WAZNE(of(W.WYCHODZENIE, W.STWORZENIE_SZANSY, W.ZNAJOMOSC, W.DZIEWICTWO, W.DOBRE_SERCE));
 
-    List<W> rzeczywistosc = of(W._1_OSOBA__DUZO, W.POPRUSZONE_NA_MIEJSCACH, W.X, W.KONTEKST);
+    List<W> rzeczywistosc = of(W._1_OSOBA_DUZO, W.POPRUSZONE_NA_MIEJSCACH, W.X, W.KONTEKST);
 
     W plansza = DBW.PLANSZA_WARUNKI();
     W essentials = DBW.NAJWAZNIEJSZE_CECHY_SYTUACJI_POZNANIE_WARUNKI();
@@ -53,7 +53,7 @@ public class Watek_1 extends AbstractWatek {
     List<W> malyDuzy = of(M.MALY_WARUNEK(of(W.WYCHODZENIE, W.OBECNOSC)), M.DUZY_WARUNEK(W.ZAGADANIE));
 
     List<W> schemaDzialania = of(W.DOBRA_PLANSZA, W.LADNA, W.CHETNOSC,
-            W.MOWA, W.KOMPLEMENT, W.WNIOSKI, W.EMOCJE, W.BECZKA,
+            W.MOWA, W.KOMPLEMENT, W.WNIOSKI, W.EMOCJE, W.USMIECH,
             W.DRUGI_RAZ, W.KONTAKT
     );
 
@@ -75,8 +75,8 @@ public class Watek_1 extends AbstractWatek {
     public void run(){
         W nastawienie = M.ODRAZU(W.BLISKOSC);
 
-        nastawienie = M.WYBOR(of(W.BIERZESZ_CO_JEST, W.WG_OCZEKIWANIA,
-                                 W.BEZ_POPATRZENIA, W.NA_POPATRZENIE, W.NA_CHETNOSC, W.NA_ZNAJOMOSC));
+        nastawienie = M.WYBOR(of(W.BIERZESZ_CO_JEST, W._II_, W.WG_OCZEKIWANIA,
+                            W.BEZ_POPATRZENIA, W.NA_POPATRZENIE, W.NA_CHETNOSC, W.NA_ZNAJOMOSC));
 
         List<W> mainFlow = of(W.GLOWNA_DROGA, W.MIEJSCE_STALE);
 
@@ -103,7 +103,7 @@ public class Watek_1 extends AbstractWatek {
         );
         M.W(
                 of(M.odrazuPochwycenie(W.SYTUACJA), M.odrazuNozki(), M.odrazuMowa(), M.pomysl(of(W.PRZESKOCZENIE)), M.dzialanie(mojeCechy)),
-                of(W.BEDZIE_CIEKAWIE, W.ANTY_PARTYZANTKA, W.ANTY_POSLUSZNOSC, W.NIENAWISC_FESTOW, W.JA_DOSTAJE)
+                of(W.BEDZIE_CIEKAWIE, W.NIE_ZOSTAWIASZ_OKAZJI_NA_POZNIEJ, W.ANTY_POSLUSZNOSC, W.NIENAWISC_FESTOW, W.JA_DOSTAJE)
         );
         M.W(
                 of(W.PODBIJASZ, W._88_, W.BRAK_JAKOSCI_PLANSZY),

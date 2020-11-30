@@ -105,7 +105,7 @@ public class Watek_SJ extends AbstractWatek {
 
     public void run() {
         M.W(W.WYCHODZISZ, "--->", of(M.CALY_CZAS(W.ZLO_KRAZY),
-                                        ZLE_OSOBY.caly_czas(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA),
+                                        ZLE_OSOBY.caly_czas(W.SZUKA_OFIAR_NA_ZROBIENIE_ZLA),
                                         ZLE_OSOBY.caly_czas(W.STWARZA_OKAZJE_ZROBIENIE_ZLA),
                                         M.ZWYKLE(of(DBW.KRZYWDY_WARUNKI(), DBW.OSLONY_WARUNKI())),
                 M.CALY_CZAS(of(ciaglaCzynnoscUlica, W.ZASIEG_WZROKU, W.SCIEZKI, W.LUDZIE, W.WIDOCZNY_GDY_IDZIESZ))));
@@ -116,7 +116,7 @@ public class Watek_SJ extends AbstractWatek {
         W warunkiNieDoZycia = M.CALY_CZAS(of(
                 W.PUSTKA, W.ZLE_W_ZYCIU, W.MALO_OSOB,
                 W.CHRONICZNE_BEZROBOCIE, W.NISKIE_PENSJE, M.MALA_SZANSA(W.ZDOBYCIE_PRACY_NEUTRALNY_RZUT),
-                W.WIEKSZOSC_DZIALA, W.LUDZIE_CHCA_TWOJEJ_KRZYWDY,
+                W.WIEKSZOSC_DZIALA_DLA_ZLA, W.LUDZIE_CHCA_TWOJEJ_KRZYWDY,
                 W.CHETNOSC_ZERO, M.DZIALAJACY(W.KOBIETY), M.MALA_SZANSA(W.PODERWANIE_KOBIETY_NEUTRALNY_RZUT), DBP.PATOLOGIE_WSTEPNE_KOBIETA()
         ));
 
@@ -198,8 +198,8 @@ public class Watek_SJ extends AbstractWatek {
 
         M.CALY_CZAS(W.ANTY_POSLUSZNOSC);
         M.CALY_CZAS(W.ANTY_FEST);
-        M.CALY_CZAS(W.ANTY_SYSTEM);
-        M.CALY_CZAS(W.ANTY_BURZUA);
+        M.CALY_CZAS(W.WALKA_Z_SYSTEMEM);
+        M.CALY_CZAS(W.WALKA_Z_WYGODNYMI);
 
         M.WW(of(W.LUDZIE),
                 of(

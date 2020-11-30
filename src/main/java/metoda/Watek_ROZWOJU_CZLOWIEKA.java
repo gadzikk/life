@@ -18,8 +18,6 @@ public class Watek_ROZWOJU_CZLOWIEKA extends AbstractWatek {
 
         M.W(of(M.DLUGO(DBW.SPORT_WARUNKI()), W.WYSILEK_UMYSLOWY), "--->", of(W.KREGOSLUP_MORALNY, W.ZDOLNOSC_DO_WYSILKU,
                                                                                   W.ZDOLNY_DO_WALKI, W.WNIOSKI, W.PODSWIADOMOSC, W.WIEDZA_SPORT));
-
-
         przedzialyCzasowe();
     }
 
@@ -30,8 +28,8 @@ public class Watek_ROZWOJU_CZLOWIEKA extends AbstractWatek {
         M.W(OD(3), "--->", W.BOZIA);
 
         M.W(OD(4).TO(18), "--->", W.PILKA_NOZNA);
-        M.W(T0(5), "--->", M.DAM(M.BRAK(W.PRACA)));
-        M.W(OD(5), "--->", M.DAM(M.WYMAGANIE(W.PRACA)));
+        M.W(T0(5), "--->", M.OTRZYMUJE(M.BRAK(W.PRACA)));
+        M.W(OD(5), "--->", M.OTRZYMUJE(M.WYMAGANIE(W.PRACA)));
         M.W(T0(5), "--->", M.TOLERANCJA(W.PLACZ));
         M.W(OD(5), "--->", M.WYMAGANIE(M.BRAK(W.PLACZ)));
 

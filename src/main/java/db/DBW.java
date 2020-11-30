@@ -172,7 +172,12 @@ public class DBW extends DB {
                 RANY_FIZYCZNE_WARUNKI(),
                 RANY_ZNECANIE_SIE_WARUNKI(),
                 RANY_SPRZET_WARUNKI(),
-                RANY_DOSTEPOWE_WARUNKI(),
+                RANY_DOSTEPOWE_WARUNKI()
+        );
+    }
+
+    public static List<W> ZBIOR_WALKA() {
+        return of(
                 KRZYWDY_WARUNKI(),
                 KRZYWDY_BEZPOSREDNIE_WARUNKI(),
                 KRZYWDY_POSREDNIE_WARUNKI(),
@@ -655,7 +660,7 @@ public class DBW extends DB {
                 W.IDEA,
                 W.NAUKA,
                 W.MODA,
-                W.BECZKA,
+                W.USMIECH,
                 W.KOLEZANKI,
                 W.WRAZLIWOSC
         );
@@ -1211,7 +1216,7 @@ public class DBW extends DB {
     public static W KRZYWDY_WARUNKI() {
         return on(
                 M.START(W.ZLE_ZAMIARY),
-                M.STANDARD(M.MALY_WYSILEK(M.MOCNO(M.CALY_CZAS(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA)))),
+                M.STANDARD(M.MALY_WYSILEK(M.MOCNO(M.CALY_CZAS(W.SZUKA_OFIAR_NA_ZROBIENIE_ZLA)))),
                 M.STANDARD((M.MALY_WYSILEK(M.MOCNO(M.CALY_CZAS(W.STWARZA_OKAZJE_ZROBIENIE_ZLA))))),
                 M.ZWYKLE(M.WYWYZSZAJ(M.UMACNIAJ(W.SIEBIE)), M.UNIZAJ(M.OSLABIAJ(W.INNI)), W.POBIJ_JAK_NAJWIECEJ_OSOB, W.ZDOBADZ_JAK_NAJWIECEJ_PRZEWAG),
                 M.MALY_WYSILEK(of(M.DLUGO(W.PATRZENIE_W_OCZY), M.ROZMOWA(W.PRZERYWANIE_MOWY))),
@@ -1269,7 +1274,7 @@ public class DBW extends DB {
     public static W KRZYWDY_POSREDNIE_WARUNKI() {
         return on(
                 M.START(W.ZLE_ZAMIARY),
-                M.STANDARD(M.MALY_WYSILEK(M.MOCNO(M.CALY_CZAS(W.SZUKA_KANDYDATOW_ZROBIENIE_ZLA)))),
+                M.STANDARD(M.MALY_WYSILEK(M.MOCNO(M.CALY_CZAS(W.SZUKA_OFIAR_NA_ZROBIENIE_ZLA)))),
                 M.STANDARD((M.MALY_WYSILEK(M.MOCNO(M.CALY_CZAS(W.STWARZA_OKAZJE_ZROBIENIE_ZLA))))),
                 M.ZWYKLE(M.WYWYZSZAJ(M.UMACNIAJ(W.SIEBIE)), M.UNIZAJ(M.OSLABIAJ(W.INNI)), W.ZDOBADZ_JAK_NAJWIECEJ_PRZEWAG),
 
@@ -1467,7 +1472,7 @@ public class DBW extends DB {
                 M.W(W.OSLONA, "--->", M.MIMO_TO(M.BIJESZ())),
 
                 M.W(of(M.ROZKMINIONY(W.OSOBA), W._88_,
-                        W.NIE_KIBICUJE, W.Z_KOBIETA, W.LAMUS, W.DUZO_OSOB), "--->", M.ORIENT(W.PRZYPAL).MIMO_TO(M.BIJESZ())),
+                        W.NIE_KIBICUJE, W.Z_KOBIETA, W.LAMUS, W.DUZO_OSOB), "--->", M.ORIENT(W.DZWONIENIE_NA_POLICJE).MIMO_TO(M.BIJESZ())),
 
                 M.W(of(M.OPPONENT(of(W.PRZEWAGA_SILY, W.SPRZET)), W._88_, M.WYSTEPUJE(W.WARTOSC)), "--->", M.MIMO_TO(M.BIJESZ())),
 

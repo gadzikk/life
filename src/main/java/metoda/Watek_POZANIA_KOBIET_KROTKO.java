@@ -13,7 +13,10 @@ import java.util.List;
 public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
     W wazne = M.WAZNE(of(W.WYCHODZENIE, W.STWORZENIE_SZANSY, W.ZNAJOMOSC, W.DZIEWICTWO, W.DOBRE_SERCE));
 
-    List<W> rzeczywistosc = of(W._1_OSOBA__DUZO, W.POPRUSZONE_NA_MIEJSCACH, W.X, W.KONTEKST);
+    List<W> WSTEPNY_TEMAT = of(W.UBRANIE_WYGLAD_SZCZEGOLY, W.CEL, W.PLANY_DZIS, W.DAILY_WORRIES, W.OTOCZENIE, W.POGODA);
+    List<W> PODSTAWA_TEMAT = of(W.IMIE, W.MIESZKA, W.KONTEKST);
+
+    List<W> rzeczywistosc = of(W._1_OSOBA_DUZO, W.POPRUSZONE_NA_MIEJSCACH, W.X, W.KONTEKST);
 
     W plansza = DBW.PLANSZA_WARUNKI();
     W najwazniejsze = DBW.NAJWAZNIEJSZE_CECHY_SYTUACJI_POZNANIE_WARUNKI();
@@ -49,8 +52,8 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
     List<W> malyDuzy = of(M.MALY_WARUNEK(of(W.WYCHODZENIE, W.OBECNOSC)), M.DUZY_WARUNEK(W.POZNANIE));
 
     List<W> schemaDzialania = of(W.DOBRA_PLANSZA, W.LADNA, W.CHETNOSC,
-            W.MOWA, W.KOMPLEMENT, W.WNIOSKI, W.EMOCJE, W.BECZKA,
-            W.DRUGI_RAZ, W.KONTAKT
+                                 W.MOWA, W.KOMPLEMENT, W.WNIOSKI, W.EMOCJE, W.USMIECH,
+                                 W.DRUGI_RAZ, W.KONTAKT
     );
 
     M schemaSytuacji00 = new M().sytuacja().Is().podbitka()
@@ -64,24 +67,24 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
                         .w_przeciwnym_przypadku(W.CONTINUE_NUDA)
                         .konsekwencje(W.NIKT_NIE_REAGUJE);
 
-    M schemaSytuacji3 = new M().zamkniecie(W.ZASOB).zamkniecie(W.INFORMACJA);
+    W schemaSytuacji3 = M.ZAMKNIECIE(W.ZASOB).ZAMKNIECIE(W.INFORMACJA);
 
     W schemaRelacji = o(W.KOBIETA, "-", jakoscSytuacji, W._II_, W.CHETNOSC, "-", W.RELACJA);
 
     public void run(){
         W nastawienie = M.ODRAZU(W.BLISKOSC);
 
-        nastawienie = M.WYBOR(of(W.BIERZESZ_CO_JEST, W.WG_OCZEKIWANIA,
+        nastawienie = M.WYBOR(of(W.BIERZESZ_CO_JEST, W._II_, W.WG_OCZEKIWANIA,
                 W.BEZ_POPATRZENIA, W.NA_POPATRZENIE, W.NA_CHETNOSC, W.NA_ZNAJOMOSC));
 
         M.CALY_CZAS(M.SZUKANIE(of(W.KOBIETA, W.OKAZJA)));
 
         M.W(
                 M.wejsciePlansza(DBW.PLANSZA_WARUNKI()),
-                of(W.MESKA_PROSYSTUTKA, W.SMIETNIIK_NA_BUZI_JUZ_DAWNO, W.ENK_1_2, W.INFORMACJA)
+                of(W.POZNANIE_PONAD_WEWNETRZNY_WSTYD, W.ENK_1_2, W.INFORMACJA)
         );
         M.W(
-                of(M.namierzenie()),
+                M.namierzenie(),
                 of(M.CALY_CZAS(W.ZASIEG_WZROKU))
         );
         M.W(
@@ -90,18 +93,18 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
         );
         M.W(
                 of(M.odrazuPochwycenie(W.SYTUACJA), M.dzialanie(DBW.PRZEWAGI_CHWILI_WARUNKI())),
-                of(W.BEDZIE_CIEKAWIE, W.ANTY_PARTYZANTKA, W.ANTY_POSLUSZNOSC, W.NIENAWISC_FESTOW, W.JA_DOSTAJE)
+                of(W.BEDZIE_CIEKAWIE, W.NIE_ZOSTAWIASZ_OKAZJI_NA_POZNIEJ, W.NIE_POSLUSZNY, W.NIENAWISC_FESTOW, W.JA_DOSTAJE)
         );
         M.W(
                 of(M.wstanie(), M.przejscie()),
-                of(W.FOCUS, W.CALY_CZAS_BLISKOSC_K)
+                of(W.SKUPIENIE, M.CALY_CZAS(W.BLISKOSC))
         );
         M.W(
-                of(M.prefix(prefixes, pdstw)),
-                of(W.WIDZENIE_NA_ROZMOWA, W.REAKCJA, W.INFO_O_SZANSACH)
+                M.prefix(WSTEPNY_TEMAT, PODSTAWA_TEMAT),
+                of(W.ZMIANA_Z_WIDZENIE_NA_ROZMOWA, W.REAKCJA, W.INFORMACJA_O_SZANSACH)
         );
         M.W(
-                of(M.gadka(tematy, kombo)),
+                M.gadka(),
                 of(W.NIEUSTANNA_GADKA, W.CALY_CZAS_EFEKTYWNA_GADKA, W.NASTAWIENIE_WZIECIE_KONTAKTU)
         );
         M.W(
@@ -109,5 +112,4 @@ public class Watek_POZANIA_KOBIET_KROTKO extends AbstractWatek {
                 of(W.NUMER)
         );
     }
-
 }

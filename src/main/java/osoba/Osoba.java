@@ -716,7 +716,7 @@ public class Osoba {
             slabosciCharakteru.add(W.SYSTEMOWIEC);
         }
         else {
-            przewagiCharakteru.add(W.ANTY_SYSTEM);
+            przewagiCharakteru.add(W.WALKA_Z_SYSTEMEM);
         }
         if(studia){
             slabosciCharakteru.add(W.STUDIA);
