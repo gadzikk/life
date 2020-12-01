@@ -51,41 +51,10 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
 
     public void zloDzialanie() {
         M.PIERWSZE(of(W.KTOS_CIEBIE_LUB_TY_JEGO, W.SONDA_POD_ZROBIENIE_ZLA, W.AGRESJA_W_DZIALANIU, W.ZASOBY_OGRANICZONE));
+        M.CALY_CZAS(of(W.PROBUJE, W.NIE_ZATRZYMA_SIE, M.ZWYKLE(W.PRZEGRANA)));
+        M.CALY_CZAS(of(W.OBOWIAZEK_ZLA, W.PRAGNIENIE_ZLA, W.NASTAWIENIE_NA_ZLO, W.SONDA_POD_ZROBIENIE_ZLA, W.GLEBOKO_SZUKA_ZLA, W.EMOCJE_ZE_ZLA));
 
         W zleCzyny = DBW.ZLE_CZYNY_WARUNKI();
-
-        List<W> dzialanie = of(
-                W.NIE_ZATRZYMA_SIE,
-                M.CALY_CZAS(W.PROBUJE),
-                W.OSZUKIWANIE_WYKORZYSTANIE,
-                W.ROBIENIE_CIERPIENIA,
-                W.WIECZNA_PRZEGRANA,
-                W.OBOWIAZEK_ZLA,
-                W.PRAGNIENIE_ZLA,
-                W.NASTAWIENIE_NA_ZLO,
-                W.SONDA_POD_ZROBIENIE_ZLA,
-                W.GLEBOKO_SZUKA_ZLA,
-                W.EMOCJE_ZE_ZLA,
-
-                W.BIEGANIE,
-                W.NARKOTYKI,
-                W.KAZDY_KAZDEGO_AGRESJA_DLA_EMOCJI,
-
-                W.KLAMSTWO,
-
-                W.PO_CICHU,
-                W.OSZUKAC,
-                W.WSTYD,
-                W.OGLUPIANIE,
-
-                W.MALYM_WYSILKIEM_NAJWIEKSZA_KRZYWDA,
-                W.SLUCHAJ_KOLEGOW,
-                W.GLUPI,
-
-                W.PRZEWROTNE_FARYZEJSKIE_SUMIENIE,
-                W.PRZEWAGA_NA_STARCIE,
-                W.ZAZDROSC, W.ZAWISC, W.KRZYWDA, W.NIENAWISC
-        );
 
         M.W(M.OSOBA(M.INTERAKCJA(W.ZLY)), "--->", M.REZULTAT(M.OSOBA(of(W.ZERO_ZYSKU, DBW.KRZYWDY_WARUNKI(), DBW.STRATY_MORALNE_WARUNKI(), DBW.STRATY_MATERIALNE_WARUNKI()))));
 
@@ -144,30 +113,6 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
     public void dobroDzialanie() {
         W dobreCzyny = DBW.DOBRE_CZYNY_WARUNKI();
 
-        List<W> dzialanie = of(
-                W.CIERPIENIE,
-                W.KONTRA,
-                W.WYGRANA,
-
-                W.SPORT,
-                W.BRAK_UZYWEK,
-
-                W.PRAWDA,
-
-                W.GLOSNO,
-                W.UJAWNIC,
-                W.SPRAWIEDLIWIE,
-                W.BRAK_WSTYDU,
-                W.USWIADOM,
-                W.WIELKA_PRACA_ROBI_PRZEWAGE,
-                W.MYSL_SAMODZIELNIE,
-                W.MADRY,
-
-                W.SUMIENIE,
-                W.BRAK_PRZEWAG_NA_STARCIE,
-
-                W.WSPARCIE
-        );
         dobrzi.caly_czas(M.KONTROLA(W.ZLI));
 
         W sonda = M.SONDA(DBW.ZLY_ZNAKI_ROZPOZNAWCZE_WARUNKI());

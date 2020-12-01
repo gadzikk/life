@@ -117,8 +117,7 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
                DBW.CIERPIENIA_WARUNKI(),
                W.PUSTKA),  "-------->", M.DOTYCZA(M.UDERZAJA(W.KAZDEGO_CZLOWIEKA)));
 
-
-
+        M.WW(W.SENS_ZYCIA, "--->", of(M.NABYCIE(DBW.PRZEWAGI_MATERIALNE_WARUNKI()), W.ZALOZENIE_RODZINY, M.DOBRE_WYCHOWYWANIE(W.DZIECI)), "--->", W.SZCZESCIE);
 
         M.W(of(W._NIE_, W.WARUNEK_A), "--->", M.dzialanieNad(W.WARUNEK_B));
 
