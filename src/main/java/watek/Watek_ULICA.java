@@ -583,6 +583,9 @@ public class Watek_ULICA extends AbstractWatek {
         M.WW(M.INFORMACJA(W.OSOBA), "--->", M.SONDA(W.HASLO_RDZENNYCH), "--->", of(M.OSOBA(W.OD_NAS), W._II_,
                                                                                               M.OSOBA(W.WROG), W._II_,
                                                                                               M.OSOBA(W.NIESTWARZA_ZAGROZENIA)));
+
+        M.W(M.OSOBA(M.BRAK(W.HASLO_RDZENNYCH)), "--->", of(M.OSOBA(W.NIE_OD_NAS), M.SRODOWISKO(M.KRZYWDY(of(W.OSOBA, DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI())))));
+
         // ***
 
         // ZWIADY
@@ -793,10 +796,10 @@ public class Watek_ULICA extends AbstractWatek {
         miejsceSzansaProcent.put(W.OSIEDLE, 20);
         miejsceSzansaProcent.put(W.GLOWNA_DROGA, 10);
 
-        M.PRZEWAGA((3, W.ILOSC_OSOB);
-        M.PRZEWAGA((2, W.WALKA_SPRZET);
-        M.PRZEWAGA((1, W.WALKA_PIESCI);
-        M.PRZEWAGA((1, W.ROZMIAR);
+        M.PRZEWAGA(3, W.ILOSC_OSOB);
+        M.PRZEWAGA(2, W.WALKA_SPRZET);
+        M.PRZEWAGA(1, W.WALKA_PIESCI);
+        M.PRZEWAGA(1, W.ROZMIAR);
 
         OH ogarniety = new OH(of(slabyDzialacz, slabyDzialacz2, slabyDzialacz3));
         OH ogarniety2 = new OH(of(slabyDzialacz4, slabyDzialacz5, slabyDzialacz6));

@@ -330,7 +330,7 @@ public class Watek_LUDZI extends AbstractWatek {
                         dzialacz.SET(DBP.PATOLOGIE_OSIEDLE()),
                         dzialacz.SET(DBW.TEMATY_RDZENNYCH_WARUNKI()),
                         dzialacz.SET(DBW.WADY_ZLYCH_WARUNKI()),
-                        dzialacz.policja(W.ZERO),
+                        dzialacz.policja(W.BRAK_DOSTEPU),
 
                         dzialacz.caly_czas(M.rozkminianie(wszyscy)),
 

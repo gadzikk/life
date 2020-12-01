@@ -100,12 +100,9 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
 
         M.W(M.DUZO(of(W.INFORMACJE, W.WIEDZA, W.DOSWIADCZENIA)), "--->", W.MADROSC);
 
-        M.W(M.WYKONYWANIE(W.PRACA), "--->", of(M.wszystkoAbyOtrzymacRezultat(),
-                                                         M.doSedna(),
-                                                         M.doKonca()));
-
-        M.W(W.NA_MIEJSCU, "--->", of(M.doSedna(), M.doKonca()));
-
+        M.W(of(M.WYKONYWANIE(W.PRACA), W._II_, W.NA_MIEJSCU), "--->", of(M.wszystkoAbyOtrzymacRezultat(),
+                                                                                M.doSedna(),
+                                                                                M.doKonca()));
 
         M.W(of(DBW.PRZEWAGI_WARUNKI(),
                DBW.SLABOSCI_WARUNKI(),
@@ -117,7 +114,9 @@ public class Watek_GLOBALNY_SWIAT extends AbstractWatek {
                DBW.CIERPIENIA_WARUNKI(),
                W.PUSTKA),  "-------->", M.DOTYCZA(M.UDERZAJA(W.KAZDEGO_CZLOWIEKA)));
 
+        M.WW(W.SENS_ZYCIA, "--->", of(M.NABYCIE(DBW.PRZEWAGI_MATERIALNE_WARUNKI()), W.ZALOZENIE_RODZINY, M.DOBRE_WYCHOWYWANIE(M.DUZO(W.DZIECI))), "--->", W.SZCZESCIE);
 
+        M.W(of(DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI()), "--->", W.BRAK_SENSU);
 
 
         M.W(of(W._NIE_, W.WARUNEK_A), "--->", M.dzialanieNad(W.WARUNEK_B));

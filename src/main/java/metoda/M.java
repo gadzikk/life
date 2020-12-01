@@ -631,7 +631,7 @@ public class M {
     public static W MALA_KRZYWDA(W warunek) {return W.WARUNEK;}
     public static W MALA_KRZYWDA(List<W> warunki) {return W.WARUNEK;}
 
-
+    public static W AKTYWNA_WALKA_ZE_ZLEM(W w) {return W.WARUNEK;}
     public static W AKTYWNA_WALKA_ZE_ZLEM(List<W> warunki) {return W.WARUNEK;}
 
     public static W EFEKTYWNA_GADKA(W warunek) {return W.WARUNEK;}

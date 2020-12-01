@@ -71,7 +71,7 @@ public class Watek_ZWIAZEK extends AbstractWatek {
                             W.SKRESLA_ZA_1_NIEDOCIAGNIECIE
                     )
             ),
-            M.W(o(W.LADNA, W._88_, W.DOBRE_SERCE),
+            M.W(of(W.LADNA, W._88_, W.DOBRE_SERCE, W._88_, W.DOBRE_WYCHOWANIE),
                     of(
                             W.DZIEWICA,
                             W.WARTOSCI_RODZINNE,

@@ -83,8 +83,6 @@ public class DBW extends DB {
 
     public static List<W> ZBIOR_ROZNE() {
         return of(
-                WARTOSC_ZLA_WARUNKI(),
-                WARTOSC_DOBRA_WARUNKI(),
                 NASTAWIENIA_WARUNKI(),
                 KONTROLA_WARUNKI(),
                 HIERARCHIA_ULICA_WARUNKI(),
@@ -639,33 +637,6 @@ public class DBW extends DB {
         );
     }
 
-    public static W WARTOSC_DOBRA_WARUNKI() {
-        return on(
-                W.SRODOWISKO,
-                W.ZASADY,
-                W.UMIEJETNOSCI,
-                W.SPORT,
-                W.WSPIERANIE_SWOJEJ_KLASY,
-                W.DZIECI,
-                W.CHLOP,
-                W.RODZINA
-        );
-    }
-
-    public static W WARTOSC_ZLA_WARUNKI() {
-        return on(
-                W.WYGODY,
-                W.ROZRYWKI,
-                W.PIENIADZE,
-                W.IDEA,
-                W.NAUKA,
-                W.MODA,
-                W.USMIECH,
-                W.KOLEZANKI,
-                W.WRAZLIWOSC
-        );
-    }
-
     public static W GLOBAL_PLANSZA_LUDZIE_WARUNKI() {
         return on(
                 W.DZIETNOSC,
@@ -761,7 +732,7 @@ public class DBW extends DB {
 
     public static W PRZEWAGI_MATERIALNE_WARUNKI() {
         return on(
-                W.KOBIETA, W.SAMOCHOD, W.PRACA, W.PIENIADZE, W.WYSOKA_POZYCJA
+                W.MIESZKANIE, W.KOBIETA, W.SAMOCHOD, W.PRACA, W.PIENIADZE, W.WYSOKA_POZYCJA
         );
     }
 
@@ -872,9 +843,9 @@ public class DBW extends DB {
                 W.ROBIENIE_PROGRESU, W.ZDOBYWANIE_UMIEJETNOSCI, W.ZDOBYWANIE_WIEDZY, W.ZDOBYWANIE_SILY,
                 W.WYCIAGANIE_ZE_ZLEJ_SYTUACJI, W.ROBIENIE_OPCJI,
                 W.PRZEKONYWANIE_ZA, W.POLECENIE,
-                W.PRAWDA, W.CIERPLIWOSC,
+                W.PRAWDA, W.CIERPLIWOSC, W.WIELKA_PRACA_ROBI_PRZEWAGE,
                 W.TRZEZWOSC,
-                W.MADROSC,
+                W.MADROSC, W.SPORT, W.WIEDZA, W.CZYNY_ZGODNE_Z_SUMIENIEM, W.WSPARCIE, W.SPRAWIEDLIWIE,
                 W.NOWY_STANDARDOWO_DOBRA_OSOBA,
                 W.NIEPOZWALA_NA_ZLO,
                 W.TWORZENIE_KONTAKTU, W.TWORZENIE_ISTNIENIA
@@ -884,17 +855,19 @@ public class DBW extends DB {
     public static W ZLE_CZYNY_WARUNKI() {
         return on(
                 M.LATWO(W.ZLE_WYCHOWANIE), M.LATWO(M.WSPARCIE(W.ZLO)),
-                M.LATWO(W.OGLUPIANIE), M.LATWO(W.CZYNIENIE_SWIATA_GORSZYM),
+                M.LATWO(W.OGLUPIANIE_KLAMSTWEM), M.LATWO(W.OGLUPIANIE_UZYWKAMI), M.LATWO(W.CZYNIENIE_SWIATA_GORSZYM),
 
                 W.MARNOWANIE_CZASU, W.POZBAWIANIE_UMIEJETNOSCI, W.POZBAWIANIE_WIEDZY, W.POZBAWIANIE_SILY,
                 W.WPROWADZANIE_W_ZLE_WARUNKI, W.ZAMYKANIE_OPCJI, W.PRZEKONYWANIE_PRZECIW,
-                W.PRZEKONYWANIE_ZA, W.POLECENIE,
-                W.KLAMSTWO, W.AGRESJA_FIZYCZNA, W.AGRESJA_PSYCHICZNA,
-                W.ODUZENIE,
-                W.GLUPOTA,
+                W.KLAMSTWO, W.AGRESJA_FIZYCZNA, W.AGRESJA_PSYCHICZNA, W.OSZUKIWANIE_WYKORZYSTANIE, W.ROBIENIE_CIERPIENIA,
+                W.UZYWKI, W.BIEGANIE_SPRZET,
+                W.KAZDY_KAZDEGO_AGRESJA_DLA_EMOCJI,
+                W.GLUPOTA, W.CZYNY_ZGODNE_Z_ROZKAZEM,
                 W.NOWY_STANDARDOWO_RYWAL,
-                W.NISZCZENIE_DOBRA, W.WYMAGA_PRZEWAG_NA_ZLU,
-                W.SKAZYWANIE_SAMOTNOSC, W.SKAZYWANIE_PUSTKA
+                W.NISZCZENIE_DOBRA, W.WYMAGANIE_PRZEWAG,
+                W.SKAZYWANIE_SAMOTNOSC, W.SKAZYWANIE_PUSTKA,
+                W.PRZEWROTNE_FARYZEJSKIE_SUMIENIE, W.PRZEWAGA_NA_STARCIE,
+                W.ZAZDROSC, W.ZAWISC, W.KRZYWDA, W.NIENAWISC
         );
     }
 
@@ -1744,7 +1717,7 @@ public class DBW extends DB {
 
     public static W SPORT_WARUNKI() {
         return  on(
-                        W.PILKA_NOZNA, W.BOKS, W.SILOWNIA, W.PLYWANIE, W.ZIMOWE, W.IGRZYSKA_OLIMPIJSKIE,
+                W.PILKA_NOZNA, W.BOKS, W.SILOWNIA, W.PLYWANIE, W.SPORTY_ZIMOWE, W.SPORTY_OLIMPIJSKIE,
                 W.HOKEJ, W.PILKA_RECZNA, W.SIATKOWKA
         );
     }
