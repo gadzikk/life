@@ -54,6 +54,7 @@ nalezy wejsc do folderow: db oraz watek, w ktorych jest zawarta cala tresc do in
 STARCIE = walka/konfrontacja  
 SONDA = ocena/poddanie ocenie  
 OPCJA - warunek opcjonalny moze wystapic lub nie wystapic  
+ORIENT - zwrocenie szczegolnej uwagi  
 WATEK - zbior warunkow i zjawisk w ogarniczonym zakresie,
 
 WATKI zostaly podzielone na funkcje, funkcja czyli maly zakres w danym watku przykladowo: starcie() dotyczy wydzielonego zakresu dla walki/konfrontacji
@@ -138,19 +139,24 @@ https://github.com/gadzikk/life/blob/master/src/main/java/db/DBP.java)
 odniesienia w Watkach do warunkow i patolgii sa realizowane za pomoca przedrostkow(prefixow) DBW oraz DBP
 
 przykladowo:  
-W przyczyny = DBW.SONDA_PRZYCZYN_WARUNKI();
-* (sposob nawigacji szybszy) mamy przedrostek DBW/DBP wiec najezdzamy kursorem myszki na czlon ktory widzimy po kropce w tym wypadku - SONDA_PRZYCZYN_WARUNKI, po podswietleniu na zolto klikamy lewym przyciskiem myszy, nastepnie po wywietleniu dialogu klikamy prawym przyciskiem myszki(lub scrollem) -> otworz w nowej karcie,
+W przyczyny = DBW.PRZEWAGI_WARUNKI();
+* (sposob nawigacji szybszy) mamy przedrostek DBW/DBP wiec najezdzamy kursorem myszki na czlon ktory widzimy po kropce w tym wypadku - PRZEWAGI_WARUNKI, po podswietleniu na zolto klikamy lewym przyciskiem myszy, nastepnie po wywietleniu dialogu klikamy prawym przyciskiem myszki(lub scrollem) -> otworz w nowej karcie,
 
 w ten sposob przenosimy sie(nawigujemy) do dokladnie tej kategorii warunkow ktora wystapila w watku
 
 ![alt text](./src/images/github_guide_03.png "guide_03")  
-![alt text](./src/images/github_guide_04.png "guide_04")  
-![alt text](./src/images/github_guide_05.png "guide_05")
+**lewy przycisk myszy**  
 
-w wyniku na nowej karcie mozemy zobaczyc kategorie warunkow do ktorych chcielismy przejsc, ktora byla przypieta w watku    
+![alt text](./src/images/github_guide_04.png "guide_04")    
+**prawy przycisk myszy**
+
+![alt text](./src/images/github_guide_05.png "guide_05")  
+**lewy przyciskiem myszy otworz w nowej karcie**  
+
+w wyniku dzialania na nowej karcie przegladarki internetowej mozemy zobaczyc kategorie warunkow do ktorych chcielismy przejsc, ktora byla przypieta w watku    
 ![alt text](./src/images/github_guide_06.png "guide_06")
 
-* (wolniejszy sposob nawigacji) podobny efekt mozna uzyskac otwierajac w osobnych kartach watek oraz DBW / DBP i po napotkaniu przedrostka wyszukac w karcie przegladarki uzywajac skrotu: CTRL + F wpisujac wyzej wymieniony czlon po kropce, w tym wypadku SONDA_PRZYCZYN_WARUNKI
+* (wolniejszy sposob nawigacji) podobny efekt mozna uzyskac otwierajac w osobnych kartach watek oraz DBW / DBP i po napotkaniu przedrostka wyszukac w karcie przegladarki uzywajac skrotu: CTRL + F wpisujac wyzej wymieniony czlon po kropce, w tym wypadku PRZEWAGI_WARUNKI
 
 po przeczytaniu calych warunkow z DBW i DBP nalezy przeczytac watki https://github.com/gadzikk/life/tree/master/src/main/java/watki  
 
