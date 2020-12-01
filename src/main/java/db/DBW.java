@@ -732,7 +732,7 @@ public class DBW extends DB {
 
     public static W PRZEWAGI_MATERIALNE_WARUNKI() {
         return on(
-                W.KOBIETA, W.SAMOCHOD, W.PRACA, W.PIENIADZE, W.WYSOKA_POZYCJA
+                W.MIESZKANIE, W.KOBIETA, W.SAMOCHOD, W.PRACA, W.PIENIADZE, W.WYSOKA_POZYCJA
         );
     }
 
@@ -1599,7 +1599,7 @@ public class DBW extends DB {
                 W.MLODY, W.SREDNI_WIEK,
 
                 W.OSIEDLOWY_NORMAL, W.OSIEDLOWY_OGARNIETY,
-                W.BIEGAJACY_SPRZET, W.PATOLOG, W.DIL, W.ZLODZIEJ,
+                W.BIEGAJACY_SPRZET, W.ZLODZIEJ,
                 W.WIECZNY_IMIGRANT,
                 W.RDZENNY_GLUPI, W.RDZENNY_DOBRY,
 
@@ -1613,6 +1613,7 @@ public class DBW extends DB {
         return on(
                 W.STATYSTA, W.TURYSTA_ZAGRANICZNY,
                 W.STARY,
+                W.PATOLOG, W.DIL,
                 W.FEST, W.ROZPIESZCZONY_BANAN, W.WYGODNY, W.WYGODNY_NIESWIADOMY, W.WYGODNY_DZIALACZ,
                 W.OSIEDLOWY_SLABY, W.OSIEDLOWY_WYKRECONY, W.OSIEDLOWY_CASUAL, W.SPORTOWY_FEST,
                 M.MLODE(M.CHETNE(W.PIONKI)),
@@ -1678,7 +1679,7 @@ public class DBW extends DB {
 
     public static W SILNE_WIEZY_CZLOWIEKA_WARUNKI() {
         return M.MOCNO(of(
-                W.RASA, W.NARODOWOSC, W.GENY, W.RODZINA, W.MIEJSCE_POCHODZENIA, W.RELIGIA, W.WYCHOWANIE
+                W.RASA, W.NARODOWOSC, W.GENY, W.RODZINA, W.MIEJSCE_POCHODZENIA, W.RELIGIA, W.WYCHOWANIE, W.KOBIETA, W.DZIECI
         ));
     }
 
@@ -1717,7 +1718,7 @@ public class DBW extends DB {
 
     public static W SPORT_WARUNKI() {
         return  on(
-                        W.PILKA_NOZNA, W.BOKS, W.SILOWNIA, W.PLYWANIE, W.ZIMOWE, W.IGRZYSKA_OLIMPIJSKIE,
+                W.PILKA_NOZNA, W.BOKS, W.SILOWNIA, W.PLYWANIE, W.SPORTY_ZIMOWE, W.SPORTY_OLIMPIJSKIE,
                 W.HOKEJ, W.PILKA_RECZNA, W.SIATKOWKA
         );
     }

@@ -56,6 +56,8 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
 
         W zleCzyny = DBW.ZLE_CZYNY_WARUNKI();
 
+        W zachetaDoZla =  DBW.ZACHETA_DO_ZLA_WARUNKI();
+
         M.W(M.OSOBA(M.INTERAKCJA(W.ZLY)), "--->", M.REZULTAT(M.OSOBA(of(W.ZERO_ZYSKU, DBW.KRZYWDY_WARUNKI(), DBW.STRATY_MORALNE_WARUNKI(), DBW.STRATY_MATERIALNE_WARUNKI()))));
 
         M.W(M.OSOBA(W.NOWY), "--->", of(M.ODRAZU(DBW.KRZYWDY_WARUNKI())));
@@ -74,11 +76,11 @@ public class Watek_DOBRO_ZLO extends AbstractWatek {
                                                                                     DBW.STRATY_MATERIALNE_WARUNKI(),
                                                                                     W.CIEZKIE_RANY));
 
-        M.W(M.CALY_CZAS(M.KONTROLA(W.ZLY)), "--->", of(W.CIESZY_SIE, M.SZANSA_NA(M.USPRAWIEDLIWIENIE(W.WALKA_PIESCI)),
-                                                                    DBW.OKAZJE_ZROBIENIE_DOBRO_WARUNKI(),
-                                                                    W.REAKACJA, M.AKTYWNA_WALKA_ZE_ZLEM(of(W.BLISKOSC, W.CISNIECIE, W.WALKA_PIESCI)),
-                                                                    W.KARA, M.OPCJA(W.UKAZANIE),
-                                                                    W.ZAPRZESTANIE_ZLA, W.SMUTEK, W.WYLACZENIE_DZIALACZA));
+        M.W(of(M.DOBRY(M.CALY_CZAS(M.KONTROLA(W.ZLY))), M.ZLY(W.ZROBIONE_ZLO)), "--->", M.DOBRY(of(W.CIESZY_SIE, M.SZANSA_NA(M.USPRAWIEDLIWIENIE(W.WALKA_PIESCI)),
+                                                                                                        DBW.OKAZJE_ZROBIENIE_DOBRO_WARUNKI(),
+                                                                                                        W.REAKACJA, M.AKTYWNA_WALKA_ZE_ZLEM(DBW.KRZYWDY_BEZPOSREDNIE_WARUNKI()),
+                                                                                                        W.KARA, M.OPCJA(W.UKAZANIE),
+                                                                                                        M.REZULTAT(M.ZLY(of(W.ZAPRZESTANIE_ZLA, W.SMUTEK, W.WYLACZENIE_DZIALACZA))))));
 
         M.W(W.ZLY, "--->", M.RODZINA(M.DUZY_WYSILEK(M.CALY_CZAS(M.KONTROLA(W.ZLY))))
                                                                     .MIMO_TO(W.ZLY_OWOC)

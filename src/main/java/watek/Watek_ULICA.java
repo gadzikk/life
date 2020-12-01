@@ -583,6 +583,9 @@ public class Watek_ULICA extends AbstractWatek {
         M.WW(M.INFORMACJA(W.OSOBA), "--->", M.SONDA(W.HASLO_RDZENNYCH), "--->", of(M.OSOBA(W.OD_NAS), W._II_,
                                                                                               M.OSOBA(W.WROG), W._II_,
                                                                                               M.OSOBA(W.NIESTWARZA_ZAGROZENIA)));
+
+        M.W(M.OSOBA(M.BRAK(W.HASLO_RDZENNYCH)), "--->", of(M.OSOBA(W.NIE_OD_NAS), M.SRODOWISKO(M.KRZYWDY(of(W.OSOBA, DBW.KRZYWDY_WARUNKI(), DBW.BRAK_ZASAD_WARUNKI())))));
+
         // ***
 
         // ZWIADY

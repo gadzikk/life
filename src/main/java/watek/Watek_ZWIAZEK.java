@@ -71,7 +71,7 @@ public class Watek_ZWIAZEK extends AbstractWatek {
                             W.SKRESLA_ZA_1_NIEDOCIAGNIECIE
                     )
             ),
-            M.W(o(W.LADNA, W._88_, W.DOBRE_SERCE),
+            M.W(of(W.LADNA, W._88_, W.DOBRE_SERCE, W._88_, W.DOBRE_WYCHOWANIE),
                     of(
                             W.DZIEWICA,
                             W.WARTOSCI_RODZINNE,
@@ -122,36 +122,4 @@ public class Watek_ZWIAZEK extends AbstractWatek {
         M.W(of(W.POLOZENIE_SIE_PRZED_DZIALAJACYM, W.ZDJECIA_TWARZOWKI,
                                              W.NAGADYWANIE_KOLEZANEK),"--->", DBW.PRZEWAGI_Z_ULICY_WARUNKI());
     }
-
-
-//    __Bariery do znalezienia zwiazku [K] *s* >
-//    Trudnosci = genow/urodzenia, jedynaczki, czorta, burzuy, technologii, szkoly
-//    Nieumiejetnosc sie pokazania | duzo kolegow | brak odpowiedzi na zaloty | nieumiejetnosc gadania
-//- wygodnictwo
-//- multikulti
-//- brak wychowania
-//- nieumiejetnosc sie pokazania
-//- dostepy
-//- komputer internet
-//- granice osiedlowe
-//- wstyd kobiety
-//- brak srodowisk
-//- banany
-//- mnostwo ludu zagranica
-//- pustka
-//
-//+ duzo mieszkan wokol
-//+ duza dzietnosc
-//+ rejonowka
-//+ kosciol
-//+ sklep osiedlowy
-//+ autobus
-//+ znajomi rodzicow
-//+ klub sportowy
-//+ silka
-//+ mecz
-//+ srodowisko osiedlowe
-//+ wspolne wakacje, kolonie
-//+ woda
-//---
 }
