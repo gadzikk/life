@@ -139,7 +139,7 @@ odniesienia w Watkach do warunkow i patolgii sa realizowane za pomoca przedrostk
 
 przykladowo:  
 W przyczyny = DBW.SONDA_PRZYCZYN_WARUNKI();
-* (sposob nawigacji szybszy) mamy przedrostek DBW/DBP wiec najezdzamy kursorem myszki na czlon ktory widzimy po kropce w tym wypadku - SONDA_PRZYCZYN_WARUNKI, po podswietleniu na zolto klikamy prawym przyciskiem myszki(lub scrollem) -> otworz w nowej karcie,
+* (sposob nawigacji szybszy) mamy przedrostek DBW/DBP wiec najezdzamy kursorem myszki na czlon ktory widzimy po kropce w tym wypadku - SONDA_PRZYCZYN_WARUNKI, po podswietleniu na zolto klikamy lewym przyciskiem myszy, nastepnie po wywietleniu dialogu klikamy prawym przyciskiem myszki(lub scrollem) -> otworz w nowej karcie,
 
 w ten sposob przenosimy sie(nawigujemy) do dokladnie tej kategorii warunkow ktora wystapila w watku
 
